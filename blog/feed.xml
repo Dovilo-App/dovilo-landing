@@ -29,7 +29,7 @@
 <li><a href="#who-its-for-1">Who It&#39;s For</a></li>
 </ul>
 </li>
-<li><a href="#3-beedone-best-for-adhd-and-apple-users">3. BeeDone: Best for ADHD and Apple Users</a><ul>
+<li><a href="#3-beedone-best-for-adhd-and-apple-users">3. BeeDone: Best for task initiation and decision fatigue</a><ul>
 <li><a href="#who-its-for-2">Who It&#39;s For</a></li>
 </ul>
 </li>
@@ -66,14 +66,14 @@
 <p>With that in mind, here are six apps worth considering.</p>
 <hr>
 <h2 id="1-dovilo-best-for-developers-and-focus-driven-work">1. Dovilo: Best for Developers and Focus-Driven Work</h2>
-<p><a href="https://dovilo.app/">Dovilo</a> is the most structurally different option on this list. Instead of an RPG combat loop, it runs on a city-building reward economy. Complete tasks and focus sessions, earn in-app currency called bricks, and spend those bricks in a Reward Market on buildings, decorations, and upgrades that expand a personal isometric city.</p>
+<p><a href="https://dovilo.app?ct=blog_habitica_alternatives&amp;utm_source=blog&amp;utm_medium=habitica_alternatives">Dovilo</a> is the most structurally different option on this list. Instead of an RPG combat loop, it runs on a city-building reward economy. Complete tasks and focus sessions, earn in-app currency called bricks, and spend those bricks for buildings, decorations, and upgrades that expand a personal isometric city.</p>
 <p>The city is persistent. It doesn&#39;t reset when you miss a day or break a streak. Every building you place stays there, which makes progress feel genuinely cumulative rather than fragile.</p>
 <h3 id="task-management">Task Management</h3>
 <p>Dovilo&#39;s task manager supports due dates, priorities, stars, flags, and reminders. It&#39;s a full to-do system, not a stripped-down habit tracker. You can organize work the way you actually think about it — not just as a list of daily habits.</p>
 <h3 id="focus-sessions">Focus Sessions</h3>
-<p>This is where Dovilo separates itself from every other app on this list. Three focus session modes are available: single session, Pomodoro cycle, and task-bound session. The Pro tier adds a Focus Ambience Pack with five full-screen ambient scenes and a 12-layer sound mixer that lets you blend up to three sounds at once. If you&#39;ve ever wanted a Pomodoro timer paired with a proper ambient sound setup, this is the only productivity app that handles both natively.</p>
+<p>This is where Dovilo separates itself from every other app on this list. Three focus session modes are available: single session, Pomodoro cycle, and task-bound session. The Pro tier adds a Focus Ambience Pack with five full-screen ambient scenes and a 12-layer sound mixer that lets you blend up to three sounds at once. If you&#39;ve ever wanted a Pomodoro timer paired with a proper ambient sound setup.</p>
 <h3 id="developer-specific-features">Developer-Specific Features</h3>
-<p>Dovilo&#39;s desktop app — available on Windows and macOS — includes a local MCP (Model Context Protocol) server. This lets AI coding agents like Claude Code, Cursor, Windsurf, Codex CLI, and Gemini CLI pick up tasks directly from your Dovilo list, execute them, and report back. If you&#39;re already paying for one of these agents, that integration removes the context-switching cost of managing a separate task list entirely.</p>
+<p>Dovilo Desktop ships a local MCP server that exposes a separate AI task queue — one per project, with a brief the agent reads first. Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI connect to it and work from that queue. Your personal list is not on the tool surface at all: the agent cannot see it, and there is no create or delete tool, so it cannot add or remove tasks anywhere.</p>
 <p>Signed webhooks also support Slack, Linear, and n8n, which makes it practical for solo founders who want their task system wired into the rest of their workflow.</p>
 <h3 id="pricing">Pricing</h3>
 <p>Dovilo is free to download. The Pro tier, which includes the desktop app and the Focus Ambience Pack, comes with a 7-day free trial. The Focus Ambience Pack is also available as a standalone one-time purchase. Pricing details are listed at dovilo.app.</p>
@@ -81,7 +81,7 @@
 <p>Developers, indie hackers, and solo founders who want a task manager that connects to their AI coding tools and rewards focused work with something more tangible than XP. Also a strong pick for anyone who wants a Pomodoro timer and ambient sound in the same app as their to-do list.</p>
 <hr>
 <h2 id="2-forest-best-for-distraction-free-focus-sessions">2. Forest: Best for Distraction-Free Focus Sessions</h2>
-<p>Forest is the most downloaded focus app in this category, with over 60 million downloads. The mechanic is simple: plant a virtual tree when you start a session, and it grows as long as you stay off your phone. Leave the app and the tree dies.</p>
+<p>Forest is the most downloaded focus app in this category. The mechanic is simple: plant a virtual tree when you start a session, and it grows as long as you stay off your phone. Leave the app and the tree dies.</p>
 <p>The forest you build over time is visually satisfying, and ambient sound is included in the free tier. It&#39;s genuinely effective for building phone-off focus habits.</p>
 <p>The limitations are real, though. Forest has no task management — you&#39;ll need a separate to-do app, which means context-switching every time you want to know what to work on next. The reward system is passive; your forest grows on its own, but you can&#39;t construct or customize it. There&#39;s no spendable economy.</p>
 <p>Forest works well as a focus companion, but it&#39;s not a Habitica replacement in any meaningful sense. It solves a different problem.</p>
@@ -91,7 +91,6 @@
 <h2 id="3-beedone-best-for-adhd-and-apple-users">3. BeeDone: Best for ADHD and Apple Users</h2>
 <p>BeeDone is built specifically for neurodivergent users, particularly those with ADHD. Its standout feature is Task Roulette, which randomly selects a task when decision fatigue kicks in. AI coaching helps with task framing and prioritization.</p>
 <p>The reward system uses XP, gems, and badges — abstract rather than visual, which works for some users but may feel thin compared to a city you can actually see growing.</p>
-<p>BeeDone is primarily an Apple ecosystem app. Its Android presence is limited, sitting around 10,000-plus downloads on Google Play as of 2026. If you&#39;re on Android or Windows, it&#39;s not a practical option. Pricing tiers aren&#39;t clearly published, which makes it harder to evaluate for budget-conscious users.</p>
 <h3 id="who-it39s-for-2">Who It&#39;s For</h3>
 <p>iPhone and iPad users who struggle with task initiation and want AI-assisted prioritization. Not a strong fit for cross-platform workflows.</p>
 <hr>
