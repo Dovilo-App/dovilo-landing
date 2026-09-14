@@ -352,7 +352,7 @@ ${
 }`;
 
   return page({
-    title: `Blog — ${SITE.name}`,
+    title: `Blog - ${SITE.name}`,
     description: BLOG.tagline,
     canonical: BLOG_URL,
     back: { href: '/', label: 'Dovilo' },
@@ -429,7 +429,7 @@ ${p.html}
     </nav>`;
 
   return page({
-    title: `${p.seoTitle || p.title} — ${SITE.name}`,
+    title: `${p.seoTitle || p.title} - ${SITE.name}`,
     description: p.description,
     canonical: url,
     ogType: 'article',
