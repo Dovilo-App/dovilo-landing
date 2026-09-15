@@ -23,11 +23,14 @@ The app itself is closed source; this repository is the public website only.
 ## Stack
 
 Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
-is a single self-contained `index.html` with its CSS inlined and its structured data in
-`application/ld+json` blocks. Nothing is fetched from a third party: Inter is self-hosted from
-[`fonts/`](fonts/) as a variable `woff2` declared with `@font-face`, so no stylesheet blocks the
-first paint. Blog pages are generated to the same shape and committed, so they are served the same
-way — nothing about a post is fetched in the browser either.
+is a single `index.html` with its CSS inlined and its structured data in `application/ld+json`
+blocks. The homepage is the one exception: its stylesheet outgrew the page it styles, so it lives in
+[`styles/home.css`](styles/home.css) and is linked from the `<head>` — the markup is then half the
+bytes it was, which is what a search or AI crawler actually reads. Nothing is fetched from a third
+party: Inter is self-hosted from [`fonts/`](fonts/) as a variable `woff2` declared with
+`@font-face`, so no third-party stylesheet blocks the first paint. Blog pages are generated to the
+same shape and committed, so they are served the same way — nothing about a post is fetched in the
+browser either.
 
 Light and dark themes are CSS custom properties, with the choice stored in `localStorage` and
 applied before first paint so there is no flash.
