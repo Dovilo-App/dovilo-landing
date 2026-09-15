@@ -6,7 +6,199 @@
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 13 Sep 2026 01:50:52 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 15 Sep 2026 19:52:29 GMT</lastBuildDate>
+  <item>
+    <title>TickTick Alternative: Which App Fits Your Workflow Better?</title>
+    <link>https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/</guid>
+    <pubDate>Tue, 15 Sep 2026 19:52:29 GMT</pubDate>
+    <description>Find the right TickTick alternative for your workflow — from gamified task apps to AI-agent-ready tools for developers.</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#why-people-leave-ticktick">Why people leave TickTick</a></li>
+<li><a href="#alternatives-for-general-productivity-and-focus-users">Alternatives for general productivity and focus users</a><ul>
+<li><a href="#todoist">Todoist</a></li>
+<li><a href="#things-3">Things 3</a></li>
+<li><a href="#forest">Forest</a></li>
+<li><a href="#habitica">Habitica</a></li>
+<li><a href="#mainquest">MainQuest</a></li>
+</ul>
+</li>
+<li><a href="#alternatives-for-developers-running-ai-coding-agents">Alternatives for developers running AI coding agents</a><ul>
+<li><a href="#linear">Linear</a></li>
+<li><a href="#notion">Notion</a></li>
+</ul>
+</li>
+<li><a href="#where-dovilo-fits">Where Dovilo fits</a><ul>
+<li><a href="#core-task-management">Core task management</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
+</ul>
+</li>
+<li><a href="#side-by-side-comparison">Side-by-side comparison</a></li>
+<li><a href="#which-alternative-should-you-choose">Which alternative should you choose?</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+<li><a href="#the-bottom-line">The bottom line</a></li>
+</ul>
+</nav>
+<p>If you&#39;re searching for a TickTick alternative, you probably already know what&#39;s bothering you. The app works fine — but something about the daily routine feels flat, or a specific gap keeps pulling you toward other tools. This article covers the most relevant alternatives across two distinct use cases: general productivity and focus users who want more motivation built into their workflow, and developers who want their task list to connect directly to an AI coding agent.</p>
+<p>Which one describes you? Let&#39;s get into it.</p>
+<hr>
+<h2 id="why-people-leave-ticktick">Why people leave TickTick</h2>
+<p>TickTick is a capable, well-designed app. Tasks, calendars, Pomodoro timers, habit tracking — it covers a lot of ground in one interface. For most people, it&#39;s genuinely good.</p>
+<p>The reasons people look elsewhere tend to fall into a few categories:</p>
+<ul>
+<li><strong>Motivation gap.</strong> Completing tasks feels like administration. There&#39;s no reward beyond a checkbox.</li>
+<li><strong>Price.</strong> TickTick Premium runs around $35.99/year. For solo users, that&#39;s worth weighing.</li>
+<li><strong>Developer workflow friction.</strong> TickTick has no way to connect with AI coding agents. If you&#39;re running Cursor, Claude Code, or Windsurf, your task list and your agent live in completely separate worlds.</li>
+<li><strong>Focus-only needs.</strong> Some users want a timer with a light touch, not a full productivity suite.</li>
+</ul>
+<p>None of these are complaints about quality. They&#39;re about fit. Here&#39;s how the main alternatives stack up.</p>
+<hr>
+<h2 id="alternatives-for-general-productivity-and-focus-users">Alternatives for general productivity and focus users</h2>
+<h3 id="todoist">Todoist</h3>
+<p>Todoist is the most direct TickTick replacement for users who want a clean, reliable task manager. Natural language input, project organization, filters, and labels are all well-executed. The free tier is generous. Pro runs $5/month or $48/year.</p>
+<p>What it doesn&#39;t offer: a built-in focus timer, any gamification, or anything that makes task completion feel like more than maintenance. If motivation is the problem, Todoist doesn&#39;t solve it.</p>
+<h3 id="things-3">Things 3</h3>
+<p>Things 3 is Apple-only and sold as a one-time purchase ($49.99 for Mac, $9.99 for iPhone). The design is excellent. The workflow — Areas, Projects, Today, Upcoming — suits people who think in terms of longer-horizon planning rather than daily urgency.</p>
+<p>No Pomodoro timer, no gamification, no cross-platform support. If you&#39;re on Windows or Android, it&#39;s simply not an option.</p>
+<h3 id="forest">Forest</h3>
+<p>Forest is a focus app, not a task manager. You plant a virtual tree when a session starts; it dies if you leave the app. That constraint works well for phone-free deep work.</p>
+<p>There&#39;s no task list, no progression system beyond tree collection, and no desktop app. If you need task management alongside focus, Forest covers only half the problem.</p>
+<h3 id="habitica">Habitica</h3>
+<p>Habitica turns your task list into an RPG. You create a character, complete tasks to earn experience and gold, and spend those rewards on gear and cosmetics. It has a large, active community.</p>
+<p>The premium tier is $47.99/year and unlocks cosmetics only — not productivity features. There&#39;s no focus timer, no desktop app, and no AI agent integration. Habitica works well for users who respond to RPG mechanics and social accountability. It&#39;s less suited to solo developers or anyone who wants a persistent, spatial sense of progress rather than a character sheet.</p>
+<h3 id="mainquest">MainQuest</h3>
+<p>MainQuest is fully free — no ads, no subscription. It includes a built-in focus timer and uses character stats and loot as rewards for task completion. For budget-conscious users who want gamification without paying anything, it&#39;s worth a look.</p>
+<p>No desktop app, no spatial reward mechanic, no MCP integration. The reward loop is character-based rather than world-building-based, which suits some users and not others.</p>
+<hr>
+<h2 id="alternatives-for-developers-running-ai-coding-agents">Alternatives for developers running AI coding agents</h2>
+<p>This is a narrower category, and the options are genuinely different.</p>
+<h3 id="linear">Linear</h3>
+<p>Linear is the standard for AI-native task management in engineering teams. It&#39;s fast, well-designed, and deeply integrated with GitHub and other developer tools. Its AI features are agent-assisted — the AI helps surface and prioritize work rather than executing tasks autonomously.</p>
+<p>Linear is built for teams of 5 to 100 people and costs $10 to $16 per user per month. No gamification, no focus sessions, no local MCP server for autonomous agent execution on a personal machine. For a solo developer managing their own backlog, it&#39;s a team tool solving a different problem.</p>
+<h3 id="notion">Notion</h3>
+<p>Notion can be configured as a task manager and supports MCP server connections. For developers already living in Notion who want to wire up an agent, it&#39;s a reasonable path. The tradeoff is that Notion is a general-purpose workspace, not a task-first app. Setup overhead is real, and the focus and motivation layers don&#39;t exist unless you build them yourself.</p>
+<hr>
+<h2 id="where-dovilo-fits">Where Dovilo fits</h2>
+<p><a href="https://dovilo.app/">Dovilo</a> sits at the intersection of both audiences above, which makes it unusual in this category.</p>
+<p>On the productivity side, every completed task earns in-app currency called bricks. Those bricks go toward constructing and decorating a persistent isometric city. Buildings, streets, and structures accumulate over time as a direct reflection of your real-world output — a spatial, constructive reward loop rather than a character stat or a tree collection. Nothing decays.</p>
+<p>On the developer tooling side, Dovilo Desktop runs a local MCP server. That server lets AI coding agents — Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP-compatible client via JSON — read and update tasks from a dedicated AI task queue inside a project. The agent picks up work, executes it, and reports progress back without any manual copy-paste handoff between your task list and your coding tool. Your personal My Tasks list is not on the tool surface and is invisible to the agent; it sees only the AI task queue inside its assigned project.</p>
+<h3 id="core-task-management">Core task management</h3>
+<p>Dovilo covers due dates, priorities, stars, flags, repeats, and reminders. The unified view picker includes My Day, Important, Planned, and Flagged. Tasks and focus sessions — including Pomodoro 25/5 and task-bound timers — are free and unlimited on iOS and Android, with no ads on any tier.</p>
+<p>Focus sessions run with background tracking and Do Not Disturb support. The ambience system includes six full-screen scenes and a 12-layer blendable sound mixer. Five of those scenes are in the standalone Focus Ambience Pack, available as a one-time purchase and included with Pro.</p>
+<h3 id="pricing">Pricing</h3>
+<p>The free tier covers tasks and focus with no limits and no ads. Pro Monthly is $2.49/month. Pro Yearly is $19.99/year ($1.67/month). Pro Lifetime is a one-time payment of $49.99. A 7-day free Pro trial is available in the mobile app — no charge if you cancel before it ends.</p>
+<p>Desktop (Windows and macOS) is part of Pro. That means the MCP server, webhooks, and the desktop app itself all require a Pro plan. Webhooks support Slack, Linear, n8n, and custom services with signed delivery.</p>
+<p>Over any multi-year horizon, the $49.99 lifetime plan is cheaper than Habitica&#39;s $47.99/year subscription.</p>
+<h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
+<p>Worth being direct about the gaps:</p>
+<ul>
+<li><strong>No data export.</strong> There&#39;s currently no way to export your tasks or history to a file or another app.</li>
+<li><strong>No remote MCP.</strong> The MCP server runs locally inside Dovilo Desktop over stdio. The agent runs where Desktop runs. There&#39;s no hosted Dovilo endpoint.</li>
+<li><strong>Desktop requires Pro.</strong> The 7-day free trial starts in the mobile app; there&#39;s no desktop-only trial.</li>
+</ul>
+<p>Both data export and remote MCP are on the public roadmap, but neither is available as of September 2026.</p>
+<hr>
+<h2 id="side-by-side-comparison">Side-by-side comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>TickTick</th>
+<th>Habitica</th>
+<th>Forest</th>
+<th>Dovilo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Task management</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Focus timer</td>
+<td>Yes (Pomodoro)</td>
+<td>No</td>
+<td>Yes (only)</td>
+<td>Yes (Pomodoro + modes)</td>
+</tr>
+<tr>
+<td>Gamification</td>
+<td>No</td>
+<td>RPG/avatar</td>
+<td>Tree collection</td>
+<td>City builder</td>
+</tr>
+<tr>
+<td>Desktop app</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes (Pro)</td>
+</tr>
+<tr>
+<td>MCP / AI agent integration</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes (Pro, local)</td>
+</tr>
+<tr>
+<td>Free tier</td>
+<td>Limited</td>
+<td>Yes</td>
+<td>Limited</td>
+<td>Yes (tasks + focus, unlimited)</td>
+</tr>
+<tr>
+<td>Price (annual)</td>
+<td>~$35.99/yr</td>
+<td>$47.99/yr</td>
+<td>Varies</td>
+<td>$19.99/yr</td>
+</tr>
+<tr>
+<td>Lifetime option</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>$49.99</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="which-alternative-should-you-choose">Which alternative should you choose?</h2>
+<p><strong>Choose Todoist</strong> if you want a clean, reliable task manager with no motivation layer and don&#39;t need focus timers or gamification.</p>
+<p><strong>Choose Things 3</strong> if you&#39;re Apple-only and prefer a one-time purchase over a subscription.</p>
+<p><strong>Choose Forest</strong> if your only goal is phone-free focus sessions and task management isn&#39;t part of the picture.</p>
+<p><strong>Choose Habitica</strong> if RPG mechanics and social accountability are what keep you consistent.</p>
+<p><strong>Choose MainQuest</strong> if budget is the deciding factor and a character-based reward loop sounds appealing.</p>
+<p><strong>Choose Dovilo</strong> if you want task management and focus sessions with a reward system that builds something visible over time — or if you&#39;re a solo developer who wants your AI coding agent to pull tasks directly from a queue rather than requiring you to copy-paste context between tools. You can start free on <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_ticktick_alt&amp;mt=8" target="_blank" rel="noopener">iOS</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_ticktick_alt" target="_blank" rel="noopener">Android</a> and see whether the city-building mechanic actually changes how you feel about your task list.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Is Dovilo really free to use?</strong>
+Yes. Tasks and focus sessions, including Pomodoro timers, are free and unlimited on iOS and Android with no ads. Pro adds the desktop app, MCP server, webhooks, and the Focus Ambience Pack. A 7-day free Pro trial is available in the mobile app.</p>
+<p><strong>Does Dovilo work on Windows and macOS?</strong>
+Yes, but the desktop app is part of Pro — there&#39;s no desktop-only free tier. The mobile apps are free on iOS and Android.</p>
+<p><strong>What AI coding agents work with Dovilo&#39;s MCP server?</strong>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP-compatible client via JSON configuration. Plain MCP, no lock-in. The server runs locally inside Dovilo Desktop over stdio.</p>
+<p><strong>Can the AI agent see my personal to-do list?</strong>
+No. The agent only sees the AI task queue inside its assigned project. Your personal My Tasks list is not on the tool surface and is invisible to the agent.</p>
+<p><strong>How does the city builder work?</strong>
+Every completed task earns bricks. You spend them in the Build market to place buildings and decorations in your isometric city. Nothing decays — the city grows persistently as you complete real work.</p>
+<p><strong>Is the $49.99 lifetime plan actually cheaper than the alternatives?</strong>
+Over multiple years, yes. Habitica&#39;s premium tier is $47.99/year, so Dovilo&#39;s lifetime plan pays for itself after the first year. TickTick Premium runs around $35.99/year, so the Dovilo lifetime plan breaks even around year two.</p>
+<p><strong>What&#39;s missing from Dovilo compared to TickTick?</strong>
+TickTick has a calendar view, habit tracking, and data export. Dovilo doesn&#39;t have any of those yet. Data export is on the roadmap. If calendar integration or habit tracking are requirements, TickTick or Todoist are better fits for now.</p>
+<hr>
+<h2 id="the-bottom-line">The bottom line</h2>
+<p>TickTick is a solid app. The alternatives above each serve a specific need: Todoist for simplicity, Things 3 for Apple users, Forest for phone-free focus, Habitica for RPG motivation, MainQuest for zero cost.</p>
+<p>Dovilo makes sense if you want motivation built into the structure of the app itself — a city that grows with your work — or if you&#39;re a solo developer who wants AI agents to execute tasks without breaking your flow. The free tier on mobile is a genuine starting point, not a stripped demo. Try it and see whether the city changes anything.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>Habitica Alternative: 6 Gamified Apps Ranked for 2026</title>
     <link>https://dovilo.app/blog/habitica-alternative-6-gamified-apps-ranked-for-2026/</link>
