@@ -216,6 +216,20 @@ function resolveAnchors(html, slug) {
   return out;
 }
 
+/* House style: headings use a colon or a comma, never an em dash (CLAUDE.md,
+   "Titles and headings"). The body is authored in Sanity, so the build can only
+   report this — the fix belongs in the Markdown, or the next publish undoes it. */
+function checkHeadingDashes(html, slug) {
+  const offenders = [...html.matchAll(/<h[1-4][^>]*>([^<]*[—–][^<]*)<\/h[1-4]>/g)].map((m) => m[1].trim());
+  for (const h of offenders) {
+    console.warn(`  ! ${slug}: heading uses an em dash — "${h}"`);
+  }
+  if (offenders.length) {
+    console.warn(`      fix these in the Sanity Markdown: a colon reads the same and matches the rest of the site`);
+  }
+  return html;
+}
+
 function renderMarkdown(md, images, slug) {
   const seen = new Map();
   const marked = new Marked({ gfm: true });
@@ -636,7 +650,9 @@ async function main() {
     posts.push({
       ...post,
       html: prettify(
-        liftTableOfContents(resolveAnchors(renderMarkdown(post.markdownBody, images, post.slug), post.slug))
+        liftTableOfContents(
+          checkHeadingDashes(resolveAnchors(renderMarkdown(post.markdownBody, images, post.slug), post.slug), post.slug)
+        )
       ),
       cover: coverAsset
         ? await localise(coverAsset, { alt: post.cover.alt || '', caption: post.cover.caption || '', og: true })

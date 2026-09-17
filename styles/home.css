@@ -1,208 +1,16 @@
-/* Inter — self-hosted variable font (latin + latin-ext), so the first paint
-   waits on no third-party stylesheet. latin-ext only downloads if used. */
-@font-face{
-  font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
-  src:url('/fonts/inter-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-@font-face{
-  font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
-  src:url('/fonts/inter-latin-ext.woff2') format('woff2');
-  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
+/* ─── Homepage ───
+   Layers on /styles/base.css, which carries the tokens, the type ramp, the ink
+   scale, the nav, the footer and every shared component. Only what is unique to
+   the landing page lives here: the hero choreography, the showcase, the pricing
+   grid and the bands between them.
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-/* ─── DESIGN TOKENS ───
-   Mirrors the mobile app's src/theme/tokens.ts (Mist / Amber).
-   Dark is the default; light mirrors lightTokens. An explicit
-   data-theme on <html> always wins over the OS preference. */
-:root{
-  color-scheme:dark;
-  --bg:#161B1D;
-  --bg-2:#1F2426;
-  --bg-3:#292E31;
-  --fg:#E8EAEB;
-  --accent:#D4880A;
-  --muted:#E8A832;
-  --on-accent:#161B1D;
-  --bg-rgb:22,27,29;
-  --fg-rgb:232,234,235;
-  --accent-rgb:212,136,10;
-  --muted-rgb:232,168,50;
-  /* Text alpha multiplier — light ink on dark needs no boost, dark ink
-     on light does (.35 alpha of near-black is unreadably pale). */
-  --fa:1;
-  /* Accent glow multiplier — a wash that reads on dark blows out on light. */
-  --ga:1;
-  --dim:rgba(var(--fg-rgb),.12);
-  --dim2:rgba(var(--fg-rgb),.06);
-  --card:rgba(var(--fg-rgb),.06);
-  --hover:rgba(var(--fg-rgb),.12);
-  --line:rgba(var(--fg-rgb),.06);
-  --line-strong:rgba(var(--fg-rgb),.12);
-  --shadow-1:rgba(0,0,0,.7);
-  --shadow-2:rgba(0,0,0,.45);
-  --ring:rgba(255,255,255,.05);
-  --radius:12px;
-  --max:1120px;
-}
-
-:root[data-theme="light"]{
-  color-scheme:light;
-  --bg:#F7F8F8;
-  --bg-2:#FFFFFF;
-  --bg-3:#EEF0F1;
-  --fg:#161B1D;
-  --accent:#D97706;
-  --muted:#B45309;
-  --on-accent:#FFFFFF;
-  --bg-rgb:247,248,248;
-  --fg-rgb:22,27,29;
-  --accent-rgb:217,119,6;
-  --muted-rgb:180,83,9;
-  --fa:1.55;
-  --ga:.5;
-  --dim:rgba(var(--fg-rgb),.10);
-  --dim2:rgba(var(--fg-rgb),.05);
-  --card:#FFFFFF;
-  --hover:#EEF0F1;
-  --line:#E4E7E8;
-  --line-strong:#D7DADB;
-  --shadow-1:rgba(22,27,29,.16);
-  --shadow-2:rgba(22,27,29,.09);
-  --ring:rgba(22,27,29,.08);
-}
-
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){
-    color-scheme:light;
-    --bg:#F7F8F8;
-    --bg-2:#FFFFFF;
-    --bg-3:#EEF0F1;
-    --fg:#161B1D;
-    --accent:#D97706;
-    --muted:#B45309;
-    --on-accent:#FFFFFF;
-    --bg-rgb:247,248,248;
-    --fg-rgb:22,27,29;
-    --accent-rgb:217,119,6;
-    --muted-rgb:180,83,9;
-    --fa:1.55;
-    --ga:.5;
-    --dim:rgba(var(--fg-rgb),.10);
-    --dim2:rgba(var(--fg-rgb),.05);
-    --card:#FFFFFF;
-    --hover:#EEF0F1;
-    --line:#E4E7E8;
-    --line-strong:#D7DADB;
-    --shadow-1:rgba(22,27,29,.16);
-    --shadow-2:rgba(22,27,29,.09);
-    --ring:rgba(22,27,29,.08);
-  }
-}
-
-/* Surfaces that stay dark in BOTH themes — a terminal is a terminal, and
-   a focus scene is content, not a theme variant (same call the app makes
-   for its Midnight scene). Re-declaring the palette here is enough: the
-   token formulas resolve against the element that uses them. */
-.keep-dark{
-  color-scheme:dark;
-  --bg:#161B1D;
-  --bg-2:#1F2426;
-  --fg:#E8EAEB;
-  --accent:#D4880A;
-  --muted:#E8A832;
-  --on-accent:#161B1D;
-  --bg-rgb:22,27,29;
-  --fg-rgb:232,234,235;
-  --accent-rgb:212,136,10;
-  --muted-rgb:232,168,50;
-  --fa:1;
-  --ga:1;
-  --dim:rgba(var(--fg-rgb),.12);
-  --dim2:rgba(var(--fg-rgb),.06);
-  --card:rgba(var(--fg-rgb),.06);
-  --hover:rgba(var(--fg-rgb),.12);
-  --line:rgba(var(--fg-rgb),.06);
-  --line-strong:rgba(var(--fg-rgb),.12);
-  --shadow-1:rgba(0,0,0,.7);
-  --shadow-2:rgba(0,0,0,.45);
-  --ring:rgba(255,255,255,.05);
-  color:var(--fg);
-}
-
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-
-body{
-  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--fg);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* ─── NAV ─── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px clamp(24px,5vw,64px);
-  background:rgba(var(--bg-rgb),.8);
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--line);
-}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  font-size:1.125rem;font-weight:700;letter-spacing:-.02em;
-  color:var(--fg);text-decoration:none;
-}
-.logo img{width:32px;height:32px;border-radius:8px}
-.logo span{color:var(--accent)}
-.logo .logo-subtitle{font-size:.75rem;font-weight:500;color:var(--accent)}
-.nav-stores{display:flex;gap:12px;align-items:center}
-.hamburger{
-  display:none;
-  background:none;border:none;cursor:pointer;
-  width:36px;height:36px;
-  align-items:center;justify-content:center;
-  border-radius:8px;
-  color:var(--fg);
-}
-.hamburger svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;
-  stroke-linecap:round;stroke-linejoin:round}
-.nav-store-link{
-  display:flex;align-items:center;justify-content:center;
-  width:36px;height:36px;border-radius:8px;
-  background:var(--card);border:1px solid var(--line);
-  transition:all .2s;
-}
-.nav-store-link:hover{background:var(--hover);border-color:var(--line-strong)}
-.nav-store-link svg{width:18px;height:18px;fill:rgba(var(--fg-rgb),calc(.55 * var(--fa)))}
-.theme-toggle{cursor:pointer;padding:0;font-family:inherit;color:rgba(var(--fg-rgb),calc(.55 * var(--fa)))}
-.theme-toggle:hover{color:var(--fg)}
-.theme-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor}
-.theme-toggle .icon-sun{display:none}
-:root[data-theme="light"] .theme-toggle .icon-moon{display:none}
-:root[data-theme="light"] .theme-toggle .icon-sun{display:block}
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]) .theme-toggle .icon-moon{display:none}
-  :root:not([data-theme="dark"]) .theme-toggle .icon-sun{display:block}
-}
-.nav-store-link:hover svg{fill:var(--fg)}
-nav ul{
-  list-style:none;display:flex;gap:32px;
-  position:absolute;left:50%;transform:translateX(-50%);
-}
-nav a{color:rgba(var(--fg-rgb),calc(.55 * var(--fa)));text-decoration:none;font-size:.875rem;
-  font-weight:500;letter-spacing:.01em;transition:color .2s}
-nav a:hover{color:var(--fg)}
+   Adding a colour, a font size or an ink alpha here that base.css could own is
+   how the site drifted apart the first time. Check base.css first. */
 
 /* ─── HERO ─── */
 .hero{
   display:flex;align-items:center;justify-content:center;
-  padding:120px clamp(24px,5vw,64px) 48px;
+  padding:56px clamp(24px,5vw,64px) 64px;
   position:relative;
   overflow:hidden;
 }
@@ -316,18 +124,10 @@ nav a:hover{color:var(--fg)}
   .hero-phone.p-city{width:172px;--tx:-102%}
   .hero-phone.p-focus{width:160px;--tx:2%}
 }
-.nav-ai{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--accent) !important;font-weight:600 !important;
-}
-.nav-dot{
-  width:5px;height:5px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px rgba(var(--accent-rgb),calc(.18 * var(--ga)));
-}
 .hero-trial-line{
   display:flex;align-items:flex-start;gap:8px;
   margin-top:20px;font-size:.9375rem;
-  color:rgba(var(--fg-rgb),calc(.7 * var(--fa)));
+  color:var(--ink-1);
 }
 .hero-trial-line strong{color:var(--fg);font-weight:600}
 .hero-trial-line svg,.hero-ai-line svg{margin-top:3px}
@@ -354,67 +154,102 @@ nav a:hover{color:var(--fg)}
   margin-bottom:32px;
   align-items:center;
 }
+/* The four pillar pills read as one set, so they stay quiet; only the "4 in 1"
+   lead pill carries the accent fill and the live dot. Five pulsing dots would be
+   noise, and the count is the point. */
 .badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:6px 14px;border-radius:100px;
-  background:var(--hover);
-  font-size:.8125rem;font-weight:500;color:var(--muted);
-  letter-spacing:.02em;
-  text-decoration:none;
+  background:var(--hover);border-color:transparent;
+  font-size:var(--t--1);font-weight:500;letter-spacing:.02em;
   white-space:nowrap;
 }
-.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
-  animation:pulse 2s ease-in-out infinite}
+.badge-lead{
+  background:var(--accent-wash);border-color:var(--accent-edge);
+  font-weight:700;
+}
+.badge-lead::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
+  animation:pulse 2s ease-in-out infinite;
+}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 h1{
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  font-weight:800;line-height:1.05;
-  letter-spacing:-.03em;
-  max-width:720px;
-  margin-bottom:24px;
+  /* Capped below base.css's --t-7: the headline now names four things, and at
+     4.5rem it wrapped to four lines and pushed the CTA past the fold. */
+  font-size:clamp(2rem,3.6vw,3rem);
+  line-height:1.1;
+  max-width:24ch;
+  margin-bottom:18px;
 }
-h1 em{font-style:normal;color:var(--accent)}
 
 .subtitle{
-  font-size:clamp(1rem,2vw,1.25rem);
-  color:rgba(var(--fg-rgb),calc(.5 * var(--fa)));
-  max-width:520px;
+  font-size:clamp(.9375rem,1.6vw,1.0625rem);
+  color:var(--ink-2);
+  max-width:56ch;
   font-weight:400;
-  margin-bottom:48px;
-  line-height:1.7;
+  margin-bottom:var(--s-5);
+  line-height:1.65;
 }
 
+/* ─── SECTION HEADERS ───
+   The homepage centres its section headers and gives them a deep gap before the
+   content; /ai, the docs and the blog left-align theirs, so this stays here
+   rather than in base.css. The gap is load-bearing: .pricing-trial below tucks
+   itself up into it with a negative top margin. The bands that read as prose
+   (.story, .maker-band, .power-band) opt out with an inline text-align:left. */
+.section-label{margin-bottom:16px;text-align:center}
+.section-title{text-align:center;margin-bottom:64px}
+
+/* ─── FOUR PILLARS ───
+   The hero's job is to make the count legible before anyone scrolls, so the four
+   sit directly under the subtitle rather than in the feature grid five screens
+   down. */
+.pillars{
+  list-style:none;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:var(--s-3) var(--s-5);
+  margin-bottom:var(--s-6);
+  max-width:620px;
+}
+.pillars li{
+  position:relative;
+  padding-left:14px;
+  font-size:var(--t--1);
+  /* --ink-3 is a meta/caption tone (3.6:1 on dark) — this is body copy. */
+  color:var(--ink-2);
+  line-height:1.5;
+}
+.pillars li::before{
+  content:'';position:absolute;left:0;top:.55em;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);
+}
+.pillars strong{
+  display:block;
+  color:var(--ink);font-size:var(--t-1);font-weight:700;
+  letter-spacing:-.01em;margin-bottom:2px;
+}
+@media(max-width:768px){
+  .pillars{grid-template-columns:1fr;text-align:left;max-width:420px;margin-inline:auto}
+}
+
+/* ─── SCROLL CUE ───
+   The hero fills a 1366x768 laptop on its own, and nothing else on the page hinted
+   that it continues. */
+.scroll-cue{
+  position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:var(--t--1);font-weight:600;color:var(--ink-3);
+  text-decoration:none;
+}
+.scroll-cue:hover{color:var(--accent)}
+.scroll-cue svg{
+  width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  animation:cue-bob 2.4s ease-in-out infinite;
+}
+@keyframes cue-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+@media(max-width:768px){.scroll-cue{display:none}}
+
 .cta-group{display:flex;gap:12px;flex-wrap:wrap}
-.store-btn-sm{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 20px;border-radius:var(--radius);
-  background:var(--fg);color:var(--bg);
-  text-decoration:none;transition:all .25s;
-  border:none;cursor:pointer;font-family:inherit;font-size:inherit;
-}
-.store-btn-sm:hover{
-  transform:translateY(-1px);
-  box-shadow:0 6px 24px rgba(var(--fg-rgb),calc(.15 * var(--fa)));
-}
-.store-btn-sm svg{width:22px;height:22px;flex-shrink:0}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 32px;border-radius:100px;
-  font-size:.9375rem;font-weight:600;
-  text-decoration:none;transition:all .25s;
-  cursor:pointer;border:none;
-}
-.btn-primary{
-  background:var(--accent);color:var(--on-accent);
-}
-.btn-primary:hover{background:var(--muted);transform:translateY(-1px);
-  box-shadow:0 8px 32px rgba(var(--accent-rgb),.25)}
-.btn-ghost{
-  background:transparent;color:var(--fg);
-  border:1px solid var(--line-strong);
-}
-.btn-ghost:hover{border-color:rgba(var(--fg-rgb),calc(.25 * var(--fa)));background:var(--card)}
 
 /* ─── AI AGENTS ─── */
 .ai-section{
@@ -439,7 +274,7 @@ h1 em{font-style:normal;color:var(--accent)}
   display:inline-flex;align-items:center;gap:6px;
   padding:6px 12px;border-radius:100px;
   background:var(--card);border:1px solid var(--line);
-  font-size:.8125rem;font-weight:500;color:rgba(var(--fg-rgb),calc(.8 * var(--fa)));
+  font-size:.8125rem;font-weight:500;color:var(--ink-1);
 }
 .ai-chip svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2}
 
@@ -447,11 +282,6 @@ h1 em{font-style:normal;color:var(--accent)}
   margin-top:20px;font-size:.8125rem;
   color:rgba(var(--fg-rgb),calc(.45 * var(--fa)));
   display:flex;align-items:center;gap:8px;
-}
-.pro-pill{
-  font-size:.6875rem;font-weight:700;letter-spacing:.06em;
-  background:var(--accent);color:var(--on-accent);
-  padding:2px 8px;border-radius:100px;
 }
 
 /* Compact agent band — the full developer story lives at /ai */
@@ -490,14 +320,14 @@ h1 em{font-style:normal;color:var(--accent)}
 }
 .focus-copy h2 em{font-style:normal;color:var(--accent)}
 .focus-lead{
-  font-size:1rem;color:rgba(var(--fg-rgb),.65);
+  font-size:1rem;color:var(--ink-1);
   line-height:1.7;margin-bottom:28px;
 }
 .focus-points{list-style:none;padding:0;margin:0 0 28px}
 .focus-points li{
   display:flex;gap:12px;align-items:flex-start;
   padding:10px 0;
-  font-size:.9375rem;color:rgba(var(--fg-rgb),.7);
+  font-size:.9375rem;color:var(--ink-1);
   line-height:1.65;
 }
 .focus-points svg{
@@ -514,12 +344,12 @@ h1 em{font-style:normal;color:var(--accent)}
   padding:7px 14px;border-radius:100px;
   background:rgba(var(--accent-rgb),.1);
   border:1px solid rgba(var(--accent-rgb),.22);
-  font-size:.8125rem;color:rgba(var(--fg-rgb),.7);
+  font-size:.8125rem;color:var(--ink-1);
 }
 .focus-stat b{font-size:.9375rem;font-weight:700;color:var(--muted)}
 .focus-note{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  font-size:.8125rem;color:rgba(var(--fg-rgb),.5);
+  font-size:.8125rem;color:var(--ink-2);
   padding-top:20px;border-top:1px solid var(--line);
 }
 
@@ -556,7 +386,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .scene-strip-head h3{
   font-size:1rem;font-weight:600;color:var(--fg);letter-spacing:-.01em;
 }
-.scene-strip-head p{font-size:.8125rem;color:rgba(var(--fg-rgb),.45)}
+.scene-strip-head p{font-size:.8125rem;color:var(--ink-3)}
 .scene-grid{
   display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
 }
@@ -884,15 +714,6 @@ h1 em{font-style:normal;color:var(--accent)}
   padding:64px clamp(24px,5vw,64px) 64px;
   max-width:var(--max);margin:0 auto;
 }
-.section-label{
-  font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px;text-align:center;
-}
-.section-title{
-  font-size:clamp(1.75rem,3.5vw,2.5rem);
-  font-weight:700;letter-spacing:-.02em;
-  text-align:center;margin-bottom:64px;
-}
 .features-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -1109,26 +930,6 @@ h1 em{font-style:normal;color:var(--accent)}
 .store-buttons{
   display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
 }
-.store-btn{
-  display:inline-flex;align-items:center;gap:14px;
-  padding:14px 28px;border-radius:var(--radius);
-  background:var(--fg);color:var(--bg);
-  text-decoration:none;transition:all .25s;
-  border:none;cursor:pointer;
-}
-.store-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(var(--fg-rgb),calc(.15 * var(--fa)));
-}
-.store-btn svg{width:28px;height:28px;flex-shrink:0}
-.store-btn-text{text-align:left;line-height:1.2}
-.store-btn-text small{
-  font-size:.6875rem;font-weight:500;opacity:.6;
-  display:block;letter-spacing:.02em;
-}
-.store-btn-text strong{
-  font-size:1rem;font-weight:700;letter-spacing:-.01em;
-}
 
 .download-desktop-label{
   font-size:1.125rem;font-weight:600;
@@ -1160,28 +961,6 @@ h1 em{font-style:normal;color:var(--accent)}
   padding:64px clamp(24px,5vw,64px) 64px;
   max-width:var(--max);margin:0 auto;
 }
-.faq-list{max-width:720px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-item:first-child{border-top:1px solid var(--line)}
-.faq-q{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 0;cursor:pointer;gap:16px;
-  -webkit-user-select:none;user-select:none;
-}
-.faq-q h3{font-size:.9375rem;font-weight:600;color:var(--fg);line-height:1.5}
-.faq-q .chevron{
-  width:20px;height:20px;flex-shrink:0;
-  stroke:rgba(var(--fg-rgb),calc(.35 * var(--fa)));fill:none;stroke-width:2;
-  stroke-linecap:round;stroke-linejoin:round;
-  transition:transform .25s;
-}
-.faq-item.open .faq-q .chevron{transform:rotate(180deg);stroke:var(--accent)}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height .3s ease,padding .3s ease;
-}
-.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
-.faq-a p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.5 * var(--fa)));line-height:1.75}
 .faq-more{text-align:center;margin-top:40px}
 .faq-more a{
   color:var(--accent);font-size:.9375rem;font-weight:500;
@@ -1252,36 +1031,6 @@ h1 em{font-style:normal;color:var(--accent)}
   background:var(--bg-2);
 }
 .maker-links{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px;font-weight:600}
-
-/* ─── FOOTER ─── */
-footer{
-  padding:48px clamp(24px,5vw,64px);
-  border-top:1px solid var(--line);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:24px;
-}
-.footer-left{font-size:.8125rem;color:rgba(var(--fg-rgb),calc(.3 * var(--fa)))}
-.footer-socials{display:flex;gap:12px;list-style:none}
-.footer-socials a{
-  display:flex;align-items:center;justify-content:center;
-  width:32px;height:32px;border-radius:8px;
-  background:var(--card);
-  transition:all .2s;
-}
-.footer-socials a:hover{background:var(--hover)}
-.footer-socials svg{width:16px;height:16px;fill:rgba(var(--fg-rgb),calc(.45 * var(--fa)))}
-.footer-socials a:hover svg{fill:var(--fg)}
-.footer-links{display:flex;gap:24px;list-style:none}
-.footer-links a,
-.footer-links button{
-  background:none;border:none;cursor:pointer;
-  text-decoration:none;
-  color:rgba(var(--fg-rgb),calc(.4 * var(--fa)));font-size:.8125rem;
-  font-family:inherit;transition:color .2s;
-}
-.footer-links a:hover,
-.footer-links button:hover{color:var(--fg)}
-
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   .hero-inner{
@@ -1289,7 +1038,16 @@ footer{
     text-align:center;
   }
   .hero-content{align-items:center;text-align:center}
-  .hero-img{order:-1;min-height:clamp(420px,112vw,520px);overflow:hidden}
+  /* Grid children keep min-width:auto by default, so the H1's 24ch measure and
+     the subtitle's 56ch widen the track past the viewport and the whole page
+     scrolls sideways — taking the nav's right-hand controls off screen with it. */
+  .hero-inner > *{min-width:0}
+  .hero-content h1,
+  .hero-content .subtitle,
+  .hero-content .pillars{max-width:100%}
+  .badges{justify-content:center}
+  .cta-group{justify-content:center}
+  .hero-img{min-height:clamp(380px,100vw,480px);overflow:hidden}
   .hero-phone{border-radius:24px;padding:0}
   .hero-phone-screen{border-radius:24px}
   .hero-phone.p-tasks{width:32%;top:2%;left:1%}
@@ -1297,41 +1055,9 @@ footer{
   .hero-phone.p-stats{width:36%;top:-2%}
   .hero-phone.p-city{width:40%;top:36%;left:10%;--tx:0}
   .hero-phone.p-focus{width:36%;top:38%;left:55%;--tx:0}
-  .hero{padding-top:100px;padding-bottom:32px}
-
-  /* Mobile nav */
-  .logo .logo-subtitle{display:none}
-  .hamburger{display:flex}
-  nav ul{
-    position:absolute;top:calc(100% + 8px);right:clamp(24px,5vw,64px);
-    left:auto;transform:none;
-    flex-direction:column;
-    background:var(--bg-2);
-    border:1px solid var(--line-strong);
-    border-radius:var(--radius);
-    padding:8px 0;
-    gap:0;
-    opacity:0;pointer-events:none;
-    transition:opacity .2s;
-    box-shadow:0 8px 32px var(--shadow-2);
-    min-width:180px;
-  }
-  nav ul.open{opacity:1;pointer-events:auto}
-  nav ul li a{
-    display:block;padding:12px 20px;
-    font-size:.9rem;
-  }
-  nav ul li a:hover{background:var(--hover)}
-  .menu-overlay{
-    position:fixed;inset:0;
-    z-index:99;
-    display:none;
-  }
-  .menu-overlay.open{display:block}
-  .nav-stores{display:flex}
+  .hero{padding-top:32px;padding-bottom:32px}
   .features-grid{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
   .plans-compare{grid-template-columns:1fr}
   .store-buttons{flex-direction:column;align-items:center}
-  footer{flex-direction:column;text-align:center}
 }

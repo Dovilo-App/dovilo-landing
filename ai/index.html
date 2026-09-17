@@ -6,17 +6,22 @@
 
   <!-- Primary Meta -->
   <title>MCP Task List for AI Coding Agents - Dovilo</title>
-  <meta name="description" content="Dovilo Desktop runs a local MCP server. Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI read the AI tasks you write for them, execute them step by step, and report progress, notes and token/cost telemetry back. Local-first, agents never see your personal to-do list, nine tools, signed webhooks.">
+  <meta name="description" content="Connect AI wires Claude Desktop to Dovilo's local MCP server in one click; Claude Code and the CLIs take one mcp add. Agents see AI tasks only.">
   <meta name="author" content="Dovilo">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://dovilo.app/ai">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
 
+  <!-- Render-blocking by design, and first in the head so the preload scanner
+       finds it in the opening packets rather than behind the JSON-LD below. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/base.css">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/ai">
   <meta property="og:title" content="MCP Task List for AI Coding Agents - Dovilo">
-  <meta property="og:description" content="A local MCP server bundled with Dovilo Desktop. Nine tools, per-project scope, no cloud in the loop. Your agent picks up the task, runs it step by step, and reports notes and telemetry back to your phone.">
+  <meta property="og:description" content="Pick your client in Connect AI and restart it: Claude Desktop in one click, the CLIs with one mcp add command. A local MCP server with nine tools, per-project scope and no cloud in the loop. Agents see AI tasks only, never your own to-do list.">
   <meta property="og:image" content="https://dovilo.app/screenshots/desktop-ai.png">
   <meta property="og:image:alt" content="Dovilo Desktop running an AI task through MCP">
   <meta property="og:site_name" content="Dovilo">
@@ -26,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@doviloapp">
   <meta name="twitter:title" content="MCP Task List for AI Coding Agents - Dovilo">
-  <meta name="twitter:description" content="A local MCP server bundled with Dovilo Desktop. Nine tools, per-project scope, no cloud in the loop.">
+  <meta name="twitter:description" content="Pick your client, restart it, and your agent has a task list. A local MCP server bundled with Dovilo Desktop — nine tools, per-project scope, no cloud in the loop.">
   <meta name="twitter:image" content="https://dovilo.app/screenshots/desktop-ai.png">
 
   <meta name="theme-color" content="#161B1D">
@@ -46,10 +51,10 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "MCP Task List for AI Coding Agents - Dovilo",
-  "description": "Dovilo Desktop bundles a local Model Context Protocol server exposing nine tools, so MCP clients can read the AI tasks written for them, execute them step by step and report notes and telemetry back. Agents never see the personal to-do list.",
+  "description": "Dovilo Desktop bundles a local Model Context Protocol server exposing nine tools. Connect AI generates the config for the client you pick — Claude Desktop in one click, Claude Code and the CLIs with a single mcp add command — so an agent can read the AI tasks written for it, execute them step by step and report notes and telemetry back. Agents never see the personal to-do list.",
   "url": "https://dovilo.app/ai",
   "inLanguage": "en",
-  "dateModified": "2026-09-09",
+  "dateModified": "2026-09-17",
   "proficiencyLevel": "Expert",
   "about": ["Model Context Protocol", "AI agents", "Task management", "Developer tools"],
   "publisher": {
@@ -82,209 +87,224 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does the MCP integration send my data to the cloud?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. The MCP server runs on your machine and listens on a local port. Dovilo does not transmit MCP traffic anywhere. The only external data flow is whatever your agent sends to its own model provider, which is governed by that provider's policies." }
+      "name": "How hard is this to set up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two things: install Dovilo Desktop and sign in, then open Settings → AI, switch the MCP server on and hit Connect AI. Pick your client and Dovilo generates the right config for it — Claude Desktop is auto-wired in one click; Claude Code, Cursor CLI, Codex CLI and Gemini CLI get a single mcp add command; Cursor (GUI), Windsurf and custom MCP clients get a JSON snippet to paste. Restart your AI client and it sees Dovilo as an available MCP server. The bridge ships inside the app, so there is no npx and no separate runtime, and the API key is generated locally on your machine."
+      }
     },
     {
       "@type": "Question",
-      "name": "What can an agent actually see in Dovilo?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Only AI tasks — the ones you write for it in the AI Tasks tab, inside the project it is scoped to. Your personal to-do list is a separate surface an agent cannot reach. On those AI tasks it reads and updates status, steps, notes and telemetry; the tool surface deliberately excludes task creation." }
+      "name": "Does any of this go through your servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The MCP server runs on your machine and listens on a local port; Dovilo does not transmit MCP traffic anywhere. The one external flow is whatever your agent sends to its own model provider, which is between you and that provider. Cloud sync for the task list itself is a separate, optional Pro feature."
+      }
     },
     {
       "@type": "Question",
-      "name": "Which MCP clients work with Dovilo?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Connect AI has presets for Claude Code, Claude Desktop, Cursor (GUI and CLI), Windsurf, Codex CLI and Gemini CLI. Any other MCP-compatible client can connect with the generic JSON snippet." }
+      "name": "Can an agent read my whole to-do list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and this is the part worth being precise about. AI tasks and personal tasks are two separate surfaces in Dovilo. An agent reads the AI tasks you wrote for it in the AI Tasks tab, inside the project it is scoped to — nothing in My Tasks is exposed to the tool surface, so there is no list to exclude and no filter to get wrong."
+      }
     },
     {
       "@type": "Question",
-      "name": "Can I try the MCP server without paying?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pro comes with a 7-day free trial started from the iOS or Android app, and the same subscription unlocks Dovilo Desktop on Windows and macOS, including the MCP server and webhooks. Cancel before day 7 and you are not charged." }
+      "name": "Can an agent create tasks or delete my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no create or delete tool. On the AI tasks it can see, it updates status, steps, notes and telemetry — that is the whole write surface. Switching MCP off in Desktop settings terminates active connections immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What stops it touching the wrong project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scope is per project: an agent reads the AI tasks of the project it is connected to, and that project's brief defines what it is told about the work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with something other than Claude and Cursor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Presets cover Claude Code, Claude Desktop, Cursor, Cursor CLI, Windsurf, Codex CLI and Gemini CLI; any other MCP client connects with the generic JSON snippet. It is the open protocol, not a vendor integration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to be at my desk to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only the agent does. AI Tasks is a tab in the mobile app too: you can write a task there, watch the agent move through its steps in real time, and read the notes and the token/cost telemetry it leaves — from the phone, while the run happens on the desktop machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I connect from another machine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not today. The server is local to Dovilo Desktop, so the agent has to run on the same machine — that is the trade for keeping task data off the network. A remote MCP server is on the roadmap; it is listed in the changelog so you can watch for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get my data out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet — there is no export today, and it would be dishonest to imply otherwise. It is on the roadmap; the changelog is where it will show up when it ships."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a real product or a weekend project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a solo-built product, shipping regularly on four platforms — releases are public in the changelog and on GitHub. There is no funding round behind it and no independent review of it yet; judge it from the release history and the demo repo."
+      }
     }
   ]
 }
   </script>
 
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-    /* Same tokens as the landing page (mobile app's Mist / Amber). */
-    :root{
-      color-scheme:dark;
-      --bg:#161B1D;--bg-2:#1F2426;--bg-3:#292E31;
-      --fg:#E8EAEB;--accent:#D4880A;--muted:#E8A832;--on-accent:#161B1D;
-      --bg-rgb:22,27,29;--fg-rgb:232,234,235;--accent-rgb:212,136,10;
-      --fa:1;--ga:1;
-      --card:rgba(var(--fg-rgb),.06);
-      --hover:rgba(var(--fg-rgb),.12);
-      --line:rgba(var(--fg-rgb),.06);
-      --line-strong:rgba(var(--fg-rgb),.12);
-      --radius:12px;--max:1120px;
-    }
-    :root[data-theme="light"]{
-      color-scheme:light;
-      --bg:#F7F8F8;--bg-2:#FFFFFF;--bg-3:#EEF0F1;
-      --fg:#161B1D;--accent:#D97706;--muted:#B45309;--on-accent:#FFFFFF;
-      --bg-rgb:247,248,248;--fg-rgb:22,27,29;--accent-rgb:217,119,6;
-      --fa:1.55;--ga:.5;
-      --card:#FFFFFF;--hover:#EEF0F1;--line:#E4E7E8;--line-strong:#D7DADB;
-    }
-    @media (prefers-color-scheme:light){
-      :root:not([data-theme="dark"]){
-        color-scheme:light;
-        --bg:#F7F8F8;--bg-2:#FFFFFF;--bg-3:#EEF0F1;
-        --fg:#161B1D;--accent:#D97706;--muted:#B45309;--on-accent:#FFFFFF;
-        --bg-rgb:247,248,248;--fg-rgb:22,27,29;--accent-rgb:217,119,6;
-        --fa:1.55;--ga:.5;
-        --card:#FFFFFF;--hover:#EEF0F1;--line:#E4E7E8;--line-strong:#D7DADB;
-      }
-    }
-
-    html{scroll-behavior:smooth;scroll-padding-top:96px}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      background:var(--bg);
-      color:rgba(var(--fg-rgb),calc(.75 * var(--fa)));
-      line-height:1.7;
-      -webkit-font-smoothing:antialiased;
-    }
-    ::selection{background:rgba(var(--accent-rgb),.3)}
-
-    /* ─── NAV ─── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:20px clamp(24px,5vw,64px);
-      background:rgba(var(--bg-rgb),.85);
-      backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-      border-bottom:1px solid var(--line);
-    }
-    .logo{
-      display:flex;align-items:center;gap:10px;
-      font-size:1.125rem;font-weight:700;letter-spacing:-.02em;
-      color:var(--fg);text-decoration:none;
-    }
-    .logo img{width:32px;height:32px;border-radius:8px}
-    .logo .logo-subtitle{font-size:.75rem;font-weight:500;color:var(--accent)}
-    nav ul{display:flex;gap:32px;list-style:none;align-items:center}
-    nav ul a{
-      color:rgba(var(--fg-rgb),calc(.6 * var(--fa)));
-      text-decoration:none;font-size:.875rem;font-weight:500;
-      transition:color .2s;
-    }
-    nav ul a:hover{color:var(--fg)}
-    .nav-right{display:flex;gap:12px;align-items:center}
-    .nav-icon{
-      display:flex;align-items:center;justify-content:center;
-      width:36px;height:36px;border-radius:8px;
-      background:var(--card);border:1px solid var(--line);
-      color:rgba(var(--fg-rgb),calc(.55 * var(--fa)));
-      cursor:pointer;transition:all .2s;
-    }
-    .nav-icon:hover{background:var(--hover);color:var(--fg)}
-    .nav-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
-      stroke-linecap:round;stroke-linejoin:round}
-    .theme-toggle .icon-sun{display:none}
-    :root[data-theme="light"] .theme-toggle .icon-moon{display:none}
-    :root[data-theme="light"] .theme-toggle .icon-sun{display:block}
-    @media (prefers-color-scheme:light){
-      :root:not([data-theme="dark"]) .theme-toggle .icon-moon{display:none}
-      :root:not([data-theme="dark"]) .theme-toggle .icon-sun{display:block}
-    }
-    @media(max-width:880px){ nav ul{display:none} }
+    /* ─── /ai ───
+       Layers on /styles/base.css, which owns the tokens, the type ramp, the ink
+       scale, the nav, the footer, the buttons, the code block and the steps.
+       Only what is unique to this page lives here. */
 
     /* ─── LAYOUT ─── */
-    section{padding:72px clamp(20px,5vw,64px)}
-    .wrap{max-width:var(--max);margin:0 auto}
-    .eyebrow{
-      font-size:.75rem;font-weight:600;letter-spacing:.12em;
-      text-transform:uppercase;color:var(--accent);margin-bottom:14px;
-    }
-    h2{
-      font-size:clamp(1.5rem,3vw,2rem);font-weight:700;
-      letter-spacing:-.02em;color:var(--fg);margin-bottom:14px;
-    }
-    h2 em{font-style:normal;color:var(--accent)}
-    .lede{font-size:1rem;color:rgba(var(--fg-rgb),calc(.6 * var(--fa)));max-width:68ch}
+    /* This page gutters at the section, not at the container: .hero-grid,
+       .trust-grid and .maker-inner are bare centred blocks with no padding of
+       their own. base.css's .wrap also pads, so it is zeroed here — otherwise
+       the sections that do use .wrap get the gutter twice. */
+    section{padding:var(--section-y) var(--gutter)}
+    .wrap{padding-inline:0}
 
     /* ─── HERO ─── */
-    .hero{padding-top:140px;padding-bottom:56px;border-bottom:1px solid var(--line)}
+    .hero{padding-top:var(--s-7);padding-bottom:var(--s-8);border-bottom:1px solid var(--line)}
     .hero-grid{
       max-width:var(--max);margin:0 auto;
       display:grid;grid-template-columns:1fr 1fr;
       gap:clamp(28px,4vw,56px);align-items:start;
     }
-    /* Grid items default to min-width:auto, so the pre-formatted code block
-       widens its track and pushes the prose past the screen edge on a phone.
-       Let the code scroll inside its own box instead. */
+    /* Grid items default to min-width:auto, so a pre-formatted block widens its
+       track and pushes the prose past the screen edge on a phone. Let it scroll
+       inside its own box instead. */
     .hero-grid > *,
     .two-col > *,
     .step > *{min-width:0}
-    .code-block{max-width:100%}
+    /* base.css's .pill carries no margin — it is used inline elsewhere. */
+    .hero .pill{margin-bottom:18px}
     .hero h1{
-      font-size:clamp(2rem,4.6vw,3.1rem);font-weight:800;
-      line-height:1.08;letter-spacing:-.03em;color:var(--fg);
-      margin-bottom:18px;
+      font-size:clamp(1.875rem,3.6vw,2.75rem);
+      line-height:1.1;
+      margin-bottom:18px;max-width:20ch;
     }
-    .hero h1 em{font-style:normal;color:var(--accent)}
     .hero-sub{
-      font-size:1.0625rem;line-height:1.65;
-      color:rgba(var(--fg-rgb),calc(.65 * var(--fa)));
-      margin-bottom:24px;max-width:60ch;
+      font-size:var(--t-2);line-height:1.65;
+      color:var(--ink-2);
+      margin-bottom:var(--s-5);max-width:62ch;
     }
-    .pill{
-      display:inline-flex;align-items:center;gap:7px;
-      padding:6px 13px;border-radius:100px;
-      background:rgba(var(--accent-rgb),calc(.1 * var(--ga)));
-      border:1px solid rgba(var(--accent-rgb),.25);
-      color:var(--accent);font-size:.75rem;font-weight:600;
-      letter-spacing:.02em;margin-bottom:18px;
-    }
-    .pill svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;
-      stroke-linecap:round;stroke-linejoin:round}
+    .hero-sub strong{color:var(--ink)}
 
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:13px 24px;border-radius:10px;
-      font-size:.9375rem;font-weight:600;text-decoration:none;
-      border:1px solid transparent;transition:all .2s;cursor:pointer;
-    }
-    .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;
-      stroke-linecap:round;stroke-linejoin:round}
-    .btn-primary{background:var(--accent);color:var(--on-accent)}
-    .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    .btn-ghost{background:var(--card);color:var(--fg);border-color:var(--line-strong)}
-    .btn-ghost:hover{background:var(--hover)}
-    .hero-note{font-size:.8125rem;color:rgba(var(--fg-rgb),calc(.45 * var(--fa)))}
-    .hero-note a{color:var(--accent)}
+    .hero-note{font-size:var(--t--1);color:var(--ink-3)}
+    .code-caption{margin-top:10px;font-size:var(--t--2);color:var(--ink-3)}
 
-    /* ─── CODE ─── */
-    .code-block{
-      background:#0c1012;
-      border:1px solid rgba(var(--accent-rgb),.12);
-      border-radius:14px;
-      box-shadow:0 20px 50px -18px rgba(0,0,0,.55);
-      overflow:hidden;
-      font-family:'SF Mono',ui-monospace,Menlo,Monaco,Consolas,monospace;
-      font-size:.8125rem;line-height:1.7;
+    /* ─── CLIENT PICKER ───
+       What used to sit here was a claude_desktop_config.json block with
+       <angle-bracket> placeholders, styled as a terminal window. That is the
+       visual grammar of "find a binary path, generate a key, edit a dotfile" —
+       and it is not what setup is for most people. This card shows the in-app
+       panel instead, best path first, JSON last and labelled as the fallback. */
+    .pick{
+      border:1px solid var(--line-strong);border-radius:var(--radius-lg);
+      background:var(--bg-2);overflow:hidden;
     }
-    .code-head{
+    .pick-head{
       display:flex;align-items:center;gap:8px;
-      padding:10px 14px;
-      background:linear-gradient(180deg,#15191b,#0f1214);
-      border-bottom:1px solid rgba(232,234,235,.06);
+      padding:12px 18px;border-bottom:1px solid var(--line);
+      background:var(--card);
+      font-size:var(--t--1);font-weight:600;color:var(--ink);
     }
-    .code-dot{width:10px;height:10px;border-radius:50%}
-    .code-dot.r{background:#ff5f57}.code-dot.y{background:#febc2e}.code-dot.g{background:#28c840}
-    .code-title{flex:1;text-align:center;font-size:.75rem;color:rgba(232,234,235,.4);margin-right:44px}
-    .code-body{padding:18px 20px;color:rgba(232,234,235,.8);overflow-x:auto;white-space:pre}
-    .code-body .k{color:#D4880A}
-    .code-body .s{color:#7dd3a7}
-    .code-body .c{color:rgba(232,234,235,.35);font-style:italic}
-    .code-body .p{color:rgba(232,234,235,.5)}
-    .code-body .cmd{color:#E8EAEB;font-weight:600}
-    .code-body .out{color:rgba(232,234,235,.5)}
-    .code-caption{margin-top:10px;font-size:.75rem;color:rgba(var(--fg-rgb),calc(.45 * var(--fa)))}
+    .pick-head svg{
+      width:15px;height:15px;fill:none;stroke:var(--accent);stroke-width:2;
+      stroke-linecap:round;stroke-linejoin:round;
+    }
+    .pick-rows{list-style:none;margin:0;padding:0}
+    .pick-row{
+      display:grid;grid-template-columns:1fr auto;gap:4px 14px;
+      align-items:center;
+      padding:14px 18px;border-bottom:1px solid var(--line);
+    }
+    .pick-row:last-child{border-bottom:none}
+    .pick-row.lead{background:rgba(var(--accent-rgb),calc(.07 * var(--ga)))}
+    .pick-row.quiet .pick-client{color:var(--ink-2)}
+    .pick-row.quiet .pick-how{color:var(--ink-2)}
+    .pick-client{font-size:var(--t-1);font-weight:700;color:var(--ink)}
+    .pick-how{grid-column:1;font-size:var(--t--1);color:var(--ink-2);line-height:1.5}
+    .pick-effort{
+      grid-row:1;grid-column:2;
+      font-size:var(--t--3);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+      padding:4px 10px;border-radius:var(--radius-pill);white-space:nowrap;
+      color:var(--muted);background:var(--accent-wash);border:1px solid var(--accent-edge);
+    }
+    .pick-row.lead .pick-effort{background:var(--muted);color:var(--on-accent);border-color:var(--muted)}
+    .pick-row.quiet .pick-effort{color:var(--ink-3);background:var(--card);border-color:var(--line)}
+    .pick-foot{
+      padding:12px 18px;border-top:1px solid var(--line);
+      font-size:var(--t--2);color:var(--ink-3);line-height:1.5;
+    }
+
+    /* The verification line. Deliberately not a framed terminal: a window
+       chrome here would re-import the visual weight the picker just removed. */
+    .proof{
+      margin-top:var(--s-4);padding:14px 18px;
+      border-left:2px solid var(--accent);
+      background:var(--card);
+      font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+      font-size:var(--t--1);line-height:1.7;white-space:pre;overflow-x:auto;
+      color:var(--ink-1);
+    }
+    .proof .c{color:var(--ink-3)}
+    .proof .cmd{color:var(--ink);font-weight:600}
+    .proof .ok{color:var(--muted)}
+    .proof-caption{margin-top:8px;font-size:var(--t--2);color:var(--ink-3)}
+
+    /* ─── ON THIS PAGE ───
+       The shared nav is site-level, so the page's own sections need their own
+       entry points; without them #tools and #webhooks are reachable only by
+       scrolling. */
+    .page-jump{
+      padding:var(--s-4) var(--gutter);
+      border-bottom:1px solid var(--line);
+      background:var(--bg-2);
+      font-size:var(--t--1);
+    }
+    .page-jump .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-5)}
+    .page-jump-label{
+      font-size:var(--t--3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--ink-3);
+    }
+    .page-jump a{color:var(--ink-2);text-decoration:none;font-weight:500}
+    .page-jump a:hover{color:var(--accent);text-decoration:underline}
+
+    /* ─── PRODUCT SHOT ───
+       The page shipped no product image at all: its only picture was a config
+       file. This is the same asset and responsive set the homepage uses. */
+    .shot-band{padding-top:0}
+    .shot-window{
+      border:1px solid var(--line-strong);border-radius:var(--radius-lg);
+      overflow:hidden;background:var(--bg-2);
+      box-shadow:0 24px 60px -30px var(--shadow-1);
+    }
+    .shot-window img{width:100%;height:auto;display:block}
+    .shot-caption{
+      margin-top:12px;font-size:var(--t--1);color:var(--ink-3);text-align:center;
+    }
 
     .tools-inline{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
     .tool{
@@ -342,31 +362,9 @@
     .res-title .arrow{color:var(--accent);transition:transform .15s}
     .res:hover .res-title .arrow{transform:translateX(2px)}
     .res-desc{font-size:.8125rem;color:rgba(var(--fg-rgb),calc(.6 * var(--fa)));line-height:1.5}
-
-    /* ─── STEPS ─── */
-    .steps{margin-top:30px;display:grid;gap:18px}
-    .step{
-      display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start;
-      padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--bg-2);
-    }
-    .step-num{
-      width:36px;height:36px;border-radius:10px;
-      display:flex;align-items:center;justify-content:center;
-      background:var(--accent);color:var(--on-accent);
-      font-weight:700;font-size:.9375rem;
-    }
-    .step h3{font-size:1.0625rem;font-weight:600;color:var(--fg);margin-bottom:8px}
-    .step p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)));margin-bottom:10px;max-width:72ch}
-    .step p:last-child{margin-bottom:0}
     .step .code-block{margin-top:14px}
     .step a{color:var(--accent)}
     .step strong{color:var(--fg);font-weight:600}
-    code{
-      font-family:'SF Mono',ui-monospace,Menlo,Monaco,Consolas,monospace;
-      font-size:.85em;padding:1px 6px;border-radius:5px;
-      background:rgba(var(--fg-rgb),calc(.07 * var(--fa)));
-      color:var(--muted);border:1px solid var(--line);
-    }
     .code-block code, td code{background:none;border:none;padding:0}
 
     /* ─── TABLE ─── */
@@ -421,18 +419,6 @@
     .maker p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)));margin-bottom:12px}
     .maker a{color:var(--accent)}
 
-    /* ─── FOOTER ─── */
-    footer{
-      padding:32px clamp(20px,5vw,64px);
-      border-top:1px solid var(--line);
-      display:flex;flex-wrap:wrap;gap:16px;
-      align-items:center;justify-content:space-between;
-      font-size:.8125rem;color:rgba(var(--fg-rgb),calc(.45 * var(--fa)));
-    }
-    footer ul{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
-    footer a{color:rgba(var(--fg-rgb),calc(.55 * var(--fa)));text-decoration:none}
-    footer a:hover{color:var(--accent)}
-
     .quiet-link{
       display:inline-flex;align-items:center;gap:6px;
       color:var(--accent);text-decoration:none;font-weight:600;font-size:.9375rem;
@@ -448,35 +434,41 @@
     @media(max-width:560px){
       .trust-grid{grid-template-columns:1fr}
       .step{grid-template-columns:1fr;gap:12px}
-      section{padding:56px 20px}
+      section{padding:56px var(--gutter)}
       .logo .logo-subtitle{display:none}
     }
   </style>
 </head>
 <body>
 
-  <nav aria-label="Main navigation">
-    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo<span class="logo-subtitle">&nbsp;— AI</span></a>
-    <ul>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#setup">Setup</a></li>
-      <li><a href="#webhooks">Webhooks</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/">The app</a></li>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo</a>
+    <ul id="nav-menu">
+      <li><a href="/#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
+      <li><a href="/ai" class="nav-ai" aria-current="page" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
+      <li><a href="/blog/" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
     </ul>
-    <div class="nav-right">
-      <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener" class="nav-icon" aria-label="Example receiver on GitHub" title="Example receiver on GitHub">
+    <div class="nav-actions">
+      <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener" class="nav-icon stroke" aria-label="Example receiver on GitHub" title="Example receiver on GitHub">
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
       </a>
       <button class="nav-icon theme-toggle" onclick="toggleTheme()" aria-label="Switch theme" title="Switch theme">
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
+  <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
 
-  <main>
+  <main id="main">
 
   <!-- HERO -->
   <section class="hero" aria-label="Dovilo MCP server">
@@ -486,49 +478,68 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
           Dovilo Desktop · Model Context Protocol
         </span>
-        <h1>The task list your coding agent <em>works out of</em></h1>
+        <h1>Pick your client, restart it: <em>your agent has a task list</em></h1>
         <p class="hero-sub">
-          Dovilo Desktop runs an MCP server on your machine. Claude Code, Cursor, Claude Desktop,
-          Windsurf, Codex CLI and Gemini CLI connect to it, pick up an <strong>AI task</strong> you
-          wrote for them, execute it step by step, and write status, notes and token/cost telemetry
-          back onto that task — which you can follow from your phone. Your own to-do list is a
-          separate surface they never see.
+          Dovilo Desktop bundles a local MCP server over the task list you keep for AI coding
+          agents. In <strong>Settings &rarr; AI</strong> you switch the server on and open
+          <strong>Connect AI</strong>, which generates the right config for the client you pick:
+          Claude Desktop in one click, Claude Code, Cursor CLI, Codex CLI and Gemini CLI with a
+          single <code>mcp add</code> command. Restart the client and it sees Dovilo. The agent
+          works the AI tasks you wrote for it &mdash; never your own to-do list &mdash; and cannot
+          create or delete tasks.
         </p>
         <div class="cta-row">
-          <a href="#setup" class="btn btn-primary">
+          <a href="/downloads/" class="btn btn-primary">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            Set it up in 3 steps
+            Download Dovilo Desktop
           </a>
-          <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            Working example (LangGraph)
-          </a>
+          <a href="#connect" class="btn btn-ghost">See the setup for your client</a>
         </div>
         <p class="hero-note">
-          Windows &amp; macOS · part of Dovilo Pro, which starts with a
-          <a href="#pricing">7-day free trial</a> · an agent reads only the AI tasks written for it,
-          and cannot create tasks at all.
+          Windows &amp; macOS · the bridge ships inside the app, so there is no <code>npx</code> and
+          no separate runtime · part of Dovilo Pro, whose <a href="#pricing">7-day free trial</a>
+          starts in the iOS or Android app.
         </p>
       </div>
 
       <div>
-        <div class="code-block">
-          <div class="code-head">
-            <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
-            <span class="code-title">claude_desktop_config.json</span>
+        <div class="pick">
+          <div class="pick-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 008 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            Settings &rarr; AI &rarr; Connect AI
           </div>
-          <div class="code-body"><span class="c">// Written for you by Settings → AI → Connect AI.</span>
-{
-  <span class="k">"mcpServers"</span><span class="p">:</span> {
-    <span class="k">"Dovilo"</span><span class="p">:</span> {
-      <span class="k">"command"</span><span class="p">:</span> <span class="s">"&lt;dovilo-bridge-path&gt;"</span><span class="p">,</span>
-      <span class="k">"args"</span><span class="p">:</span> []<span class="p">,</span>
-      <span class="k">"env"</span><span class="p">:</span> { <span class="k">"DOVILO_API_KEY"</span><span class="p">:</span> <span class="s">"&lt;api-key&gt;"</span> }
-    }
-  }
-}</div>
+          <ul class="pick-rows">
+          <li class="pick-row lead">
+            <span class="pick-client">Claude Desktop</span>
+            <span class="pick-effort">One click</span>
+            <span class="pick-how">Connect AI generates the config for you.</span>
+          </li>
+          <li class="pick-row">
+            <span class="pick-client">Claude Code</span>
+            <span class="pick-effort">One command</span>
+            <span class="pick-how">Connect AI hands you a single <code>mcp add</code> line.</span>
+          </li>
+          <li class="pick-row">
+            <span class="pick-client">Cursor CLI · Codex CLI · Gemini CLI</span>
+            <span class="pick-effort">One command</span>
+            <span class="pick-how">A single <code>mcp add</code> command, generated for each.</span>
+          </li>
+          <li class="pick-row quiet">
+            <span class="pick-client">Cursor (GUI) · Windsurf · any other MCP client</span>
+            <span class="pick-effort">One paste</span>
+            <span class="pick-how">A JSON snippet, generated for you. The fallback, not the default.</span>
+          </li>
+          </ul>
+          <p class="pick-foot">
+            The MCP API key is generated locally on your machine and never leaves it unless you copy
+            it into your client.
+          </p>
         </div>
-        <p class="code-caption">Claude Desktop is wired in one click; Claude Code, Cursor CLI, Codex CLI and Gemini CLI get a single <code>mcp add</code> command; anything else takes the JSON above.</p>
+
+        <div class="proof" aria-label="Verifying the connection"><span class="c"># in Claude Code</span>
+<span class="cmd">/mcp</span>
+<span class="ok">Dovilo   connected   9 tools</span></div>
+        <p class="proof-caption">That is the whole check.</p>
 
         <p class="tools-label">The nine tools your agent gets</p>
         <div class="tools-inline" aria-label="Exposed MCP tools">
@@ -543,6 +554,30 @@
           <span class="tool">append_telemetry</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ON THIS PAGE -->
+  <nav class="page-jump" aria-label="On this page">
+    <div class="wrap">
+      <span class="page-jump-label">On this page</span>
+      <a href="#connect">Setup</a>
+      <a href="#tools">The nine tools</a>
+      <a href="#webhooks">Webhooks</a>
+      <a href="#pricing">What it costs</a>
+    </div>
+  </nav>
+
+  <!-- PRODUCT SHOT -->
+  <section class="shot-band" aria-label="Dovilo Desktop running an AI task">
+    <div class="wrap">
+      <div class="shot-window">
+        <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w, /screenshots/desktop-ai.webp 2764w"
+             sizes="(max-width:1000px) 100vw, 1000px"
+             src="/screenshots/desktop-ai.webp" width="2764" height="1712" loading="lazy"
+             alt="Dovilo desktop app — AI Tasks view showing Claude Code running a multi-step task with progress steps and agent notes">
+      </div>
+      <p class="shot-caption">An agent working an AI task in Dovilo Desktop. The same view is a tab in the mobile app &mdash; live, while it runs.</p>
     </div>
   </section>
 
@@ -571,9 +606,9 @@
   <!-- RESOURCES -->
   <section aria-label="Reference material">
     <div class="wrap">
-      <p class="eyebrow">Read the code first</p>
+      <p class="eyebrow">Go deeper</p>
       <h2>A working receiver, a walkthrough, and the payload spec</h2>
-      <p class="lede">Nothing here is gated. Read the integration before you install anything.</p>
+      <p class="lede">Nothing here is gated &mdash; read the whole integration, before or after you install.</p>
       <div class="res-grid">
         <a class="res" href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener">
           <div class="res-icon" aria-hidden="true">
@@ -608,11 +643,11 @@
   </section>
 
   <!-- SETUP -->
-  <section id="setup" aria-label="Getting started in three steps">
+  <section id="connect" aria-label="Getting started in three steps">
     <div class="wrap">
       <p class="eyebrow">Getting started</p>
-      <h2>Three steps to an agent-connected task</h2>
-      <p class="lede">About five minutes, most of it the download.</p>
+      <h2>Three steps, and only the first one takes time</h2>
+      <p class="lede">Most of it is the download. Connecting the client is: switch the MCP server on, pick your client, restart.</p>
 
       <div class="steps">
 
@@ -636,23 +671,35 @@
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <h3>Connect your client</h3>
+            <h3>Switch the server on and pick your client</h3>
             <p>
-              <strong>Settings → AI → Connect AI</strong>, pick your client, restart it. Claude Desktop is
-              wired automatically; Claude Code, Cursor CLI, Codex CLI and Gemini CLI get one
-              <code>mcp add</code> command to paste; Cursor's GUI, Windsurf and everything else take the
-              JSON snippet. The bridge ships inside the app — there is nothing else to install, no
-              <code>npx</code>, no separate runtime.
+              <strong>Settings → AI</strong>: turn the MCP server on, then open <strong>Connect AI</strong>
+              and pick your client. Dovilo generates the right config for it, you restart the client, and
+              it sees Dovilo as an available MCP server. The bridge ships inside the app — there is
+              nothing else to install, no <code>npx</code>, no separate runtime.
             </p>
-            <div class="code-block">
-              <div class="code-head">
-                <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
-                <span class="code-title">verifying the connection</span>
-              </div>
-              <div class="code-body"><span class="c"># in Claude Code</span>
-<span class="cmd">/mcp</span>
-<span class="out">Dovilo   connected   9 tools</span></div>
-            </div>
+            <ul class="pick pick-rows" style="margin-top:14px">
+              <li class="pick-row lead">
+                <span class="pick-client">Claude Desktop</span>
+                <span class="pick-effort">One click</span>
+                <span class="pick-how">Connect AI writes the config and wires it up for you.</span>
+              </li>
+              <li class="pick-row">
+                <span class="pick-client">Claude Code</span>
+                <span class="pick-effort">One command</span>
+                <span class="pick-how">A single <code>mcp add</code> line, generated for you to paste.</span>
+              </li>
+              <li class="pick-row">
+                <span class="pick-client">Cursor CLI · Codex CLI · Gemini CLI</span>
+                <span class="pick-effort">One command</span>
+                <span class="pick-how">A single <code>mcp add</code> command, generated for each.</span>
+              </li>
+              <li class="pick-row quiet">
+                <span class="pick-client">Cursor (GUI) · Windsurf · any other MCP client</span>
+                <span class="pick-effort">One paste</span>
+                <span class="pick-how">A generated JSON snippet — the generic <code>mcpServers</code> entry, with the bridge path and your local API key already filled in.</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -760,8 +807,10 @@ update_status    → done</span></div>
       <p class="eyebrow">Outbound</p>
       <h2>Signed webhooks for everything that isn't an agent</h2>
       <p class="lede">
-        MCP is how an agent reaches in. Webhooks are how Dovilo reaches out — to Slack, Linear, n8n,
-        a LangGraph app, or your own service.
+        Webhooks are optional. Nothing in the MCP path needs them — an agent connects, reads its task
+        and reports back without a single signed request. This section is the other direction: MCP is
+        how an agent reaches in, webhooks are how Dovilo reaches out — to Slack, Linear, n8n, a
+        LangGraph app, or your own service.
       </p>
 
       <div class="two-col">
@@ -824,9 +873,9 @@ update_status    → done</span></div>
       </div>
 
       <div class="cta-row" style="margin-top:26px">
-        <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=mcp_page&mt=8" class="btn btn-primary">Start the trial on iOS</a>
-        <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=mcp_page" class="btn btn-ghost">Start the trial on Android</a>
-        <a href="/downloads/" class="btn btn-ghost">Desktop builds</a>
+        <a href="/downloads/" class="btn btn-primary">Get Dovilo Desktop</a>
+        <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=mcp_page&mt=8" class="btn btn-ghost">Start the 7-day trial on iOS</a>
+        <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=mcp_page" class="btn btn-ghost">Start the 7-day trial on Android</a>
       </div>
     </div>
   </section>
@@ -838,6 +887,17 @@ update_status    → done</span></div>
       <h2>Questions you would ask before installing</h2>
 
       <div class="faq">
+        <details>
+          <summary>How hard is this to set up?</summary>
+          <p>Two things: install Dovilo Desktop and sign in, then open <strong>Settings → AI</strong>,
+          switch the MCP server on and hit <strong>Connect AI</strong>. Pick your client and Dovilo
+          generates the right config for it — Claude Desktop is auto-wired in one click; Claude Code,
+          Cursor CLI, Codex CLI and Gemini CLI get a single <code>mcp add</code> command; Cursor (GUI),
+          Windsurf and custom MCP clients get a JSON snippet to paste. Restart your AI client and it
+          sees Dovilo as an available MCP server. The bridge ships inside the app, so there is no
+          <code>npx</code> and no separate runtime, and the API key is generated locally on your
+          machine.</p>
+        </details>
         <details>
           <summary>Does any of this go through your servers?</summary>
           <p>No. The MCP server runs on your machine and listens on a local port; Dovilo does not
@@ -933,35 +993,77 @@ update_status    → done</span></div>
   </main>
 
   <footer>
-    <div>&copy; 2026 Dovilo. Built by <a href="https://sakgun.com" target="_blank" rel="noopener">Selahaddin Akgün</a>.</div>
-    <ul>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/">The app</a></li>
+    <div class="footer-left">&copy; 2026 Dovilo. All rights reserved.</div>
+    <ul class="footer-socials">
+      <li><a href="https://x.com/doviloapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://instagram.com/doviloapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/company/doviloapp" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="/ai">For developers</a></li>
       <li><a href="/docs/webhooks">Webhooks</a></li>
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/downloads/">Downloads</a></li>
       <li><a href="/faq">FAQ</a></li>
-      <li><a href="/privacy">Privacy</a></li>
       <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/licenses">Licenses</a></li>
     </ul>
   </footer>
 
   <script>
+    /* ─── THEME ─── */
     const THEME_COLORS = { dark: '#161B1D', light: '#F7F8F8' };
-    function effectiveTheme(){
+
+    function effectiveTheme() {
       const forced = document.documentElement.getAttribute('data-theme');
       if (forced === 'light' || forced === 'dark') return forced;
       return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     }
-    function paintThemeChrome(){
+
+    function paintThemeChrome() {
+      const theme = effectiveTheme();
       const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', THEME_COLORS[effectiveTheme()]);
+      if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+      const btn = document.querySelector('.theme-toggle');
+      if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     }
-    function toggleTheme(){
+
+    function toggleTheme() {
       const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
       paintThemeChrome();
     }
+
+    /* ─── MOBILE MENU ─── */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      const open = menu.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      if (burger) burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     paintThemeChrome();
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
   </script>

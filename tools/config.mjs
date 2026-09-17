@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Dovilo',
   twitter: '@doviloapp',
   logo: '/notify-icon.png',
-  defaultOgImage: '/hero.jpg',
+  defaultOgImage: '/og-card.jpg',
   author: { name: 'Selahaddin Akgün', url: 'https://sakgun.com' },
 };
 

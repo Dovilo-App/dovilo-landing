@@ -8,17 +8,21 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dovilo.app/faq">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/base.css">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/faq">
   <meta property="og:title" content="Frequently Asked Questions - Dovilo">
   <meta property="og:description" content="How tasks, focus sessions, ambience, the city, Pro and the MCP integration work in Dovilo.">
-  <meta property="og:image" content="https://dovilo.app/hero.jpg">
+  <meta property="og:image" content="https://dovilo.app/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Dovilo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@doviloapp">
   <meta name="twitter:title" content="Frequently Asked Questions - Dovilo">
   <meta name="twitter:description" content="How tasks, focus sessions, ambience, the city, Pro and the MCP integration work in Dovilo.">
-  <meta name="twitter:image" content="https://dovilo.app/hero.jpg">
+  <meta name="twitter:image" content="https://dovilo.app/og-card.jpg">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -258,6 +262,7 @@
 }
   </script>
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#161B1D">
   <script>
     /* Same choice as the main page (same origin), otherwise the OS decides. */
     (function(){
@@ -268,367 +273,406 @@
     })();
   </script>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
+    /* Page-local only. Tokens, type, nav, footer and the accordion itself all
+       come from /styles/base.css — what is left here is the FAQ's section
+       headings, its two-paragraph answers and the contact box. */
 
-    :root{
-      color-scheme:dark;
-      --bg:#161B1D;
-      --bg-2:#1F2426;
-      --fg:#E8EAEB;
-      --accent:#D4880A;
-      --fg-rgb:232,234,235;
-      --accent-rgb:212,136,10;
-      --fa:1;
-      --line:rgba(var(--fg-rgb),.06);
-      --card:rgba(var(--fg-rgb),.04);
-    }
-    :root[data-theme="light"]{
-      color-scheme:light;
-      --bg:#F7F8F8;
-      --bg-2:#FFFFFF;
-      --fg:#161B1D;
-      --accent:#D97706;
-      --fg-rgb:22,27,29;
-      --accent-rgb:217,119,6;
-      --fa:1.55;
-      --line:#E4E7E8;
-      --card:#FFFFFF;
-    }
-    @media (prefers-color-scheme:light){
-      :root:not([data-theme="dark"]){
-        color-scheme:light;
-        --bg:#F7F8F8;
-        --bg-2:#FFFFFF;
-        --fg:#161B1D;
-        --accent:#D97706;
-        --fg-rgb:22,27,29;
-        --accent-rgb:217,119,6;
-        --fa:1.55;
-        --line:#E4E7E8;
-        --card:#FFFFFF;
-      }
+    .faq-section-title{
+      font-size:var(--t--2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--accent);margin:var(--s-7) 0 var(--s-4);
     }
 
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:rgba(var(--fg-rgb),calc(.75 * var(--fa)));line-height:1.8;padding:48px 24px 96px}
-    .container{max-width:680px;margin:0 auto}
-    a.back{display:inline-block;margin-bottom:32px;color:var(--accent);text-decoration:none;font-size:.875rem;font-weight:500}
-    a.back:hover{text-decoration:underline}
-    h1{font-size:1.75rem;font-weight:700;color:var(--fg);margin-bottom:8px;letter-spacing:-.02em}
-    .intro{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.45 * var(--fa)));margin-bottom:40px}
+    /* base.css styles .faq-q for a <button>; here the trigger is a <div>, so
+       it still needs the guard against selecting the question on a click. */
+    .faq-q{-webkit-user-select:none;user-select:none}
 
-    /* Accordion */
-    .faq-section-title{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:36px 0 16px}
-    .faq-item{border-bottom:1px solid rgba(var(--fg-rgb),calc(.06 * var(--fa)))}
-    .faq-item:first-child{border-top:1px solid rgba(var(--fg-rgb),calc(.06 * var(--fa)))}
-    .faq-q{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:18px 0;cursor:pointer;gap:16px;
-      -webkit-user-select:none;user-select:none;
-    }
-    .faq-q h3{font-size:.9375rem;font-weight:600;color:var(--fg);line-height:1.5}
-    .faq-q .chevron{
-      width:20px;height:20px;flex-shrink:0;
-      stroke:rgba(var(--fg-rgb),calc(.35 * var(--fa)));fill:none;stroke-width:2;
-      stroke-linecap:round;stroke-linejoin:round;
-      transition:transform .25s;
-    }
-    .faq-item.open .faq-q .chevron{transform:rotate(180deg);stroke:var(--accent)}
-    .faq-a{
-      max-height:0;overflow:hidden;
-      transition:max-height .3s ease, padding .3s ease;
-    }
-    .faq-item.open .faq-a{max-height:500px;padding-bottom:20px}
-    .faq-a p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.55 * var(--fa)));line-height:1.75;margin-bottom:8px}
-    .faq-a p:last-child{margin-bottom:0}
-    .faq-a a{color:var(--accent)}
+    /* Four answers here run to two paragraphs, which is why every .faq-a wraps
+       its copy in one <div>: base.css collapses the answer with
+       grid-template-rows:0fr, and that only constrains the first row. base.css
+       pads the gap under the closing paragraph; an inner one needs less. */
+    .faq-a p:not(:last-child){padding-bottom:var(--s-2)}
 
     .contact-box{
-      margin-top:48px;padding:24px;
-      border:1px solid rgba(var(--fg-rgb),calc(.06 * var(--fa)));
-      border-radius:12px;
-      background:rgba(var(--fg-rgb),calc(.03 * var(--fa)));
+      margin-top:var(--s-7);padding:var(--s-5);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--card);
       text-align:center;
     }
-    .contact-box p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.5 * var(--fa)));margin-bottom:8px}
-    .contact-box a{color:var(--accent);font-weight:600;text-decoration:none}
+    .contact-box p{font-size:var(--t-1);color:var(--ink-2);margin-bottom:var(--s-2)}
+    .contact-box a{font-weight:600}
     .contact-box a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="/" class="back">&larr; Dovilo</a>
-    <h1>Frequently Asked Questions</h1>
-    <p class="intro">Everything you need to know about Dovilo.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo</a>
+    <ul id="nav-menu">
+      <li><a href="/#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
+      <li><a href="/ai" class="nav-ai" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
+      <li><a href="/blog/" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_nav&mt=8" class="nav-store-link" aria-label="App Store" title="App Store">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=nav" class="nav-store-link" aria-label="Google Play" title="Google Play">
+        <svg viewBox="0 0 24 24"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+      </a>
+      <button class="nav-store-link theme-toggle" onclick="toggleTheme()" aria-label="Switch theme" title="Switch theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+  <main id="main">
+  <div class="wrap wrap-prose">
+    <header class="page-head">
+      <h1>Frequently Asked Questions</h1>
+      <p class="lede">Everything you need to know about Dovilo.</p>
+    </header>
 
     <!-- General -->
     <div class="faq-section-title">General</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What is Dovilo?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What is Dovilo?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then use those bricks to build houses, offices, parks, and more in your own virtual city.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then use those bricks to build houses, offices, parks, and more in your own virtual city.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Is Dovilo free?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Is Dovilo free?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, all buildings, advanced statistics, and custom themes.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, all buildings, advanced statistics, and custom themes.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What platforms is Dovilo available on?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What platforms is Dovilo available on?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Dovilo is available on iOS (iPhone &amp; iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Dovilo is available on iOS (iPhone &amp; iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What languages are supported?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>Dovilo is available in 5 languages: English, Turkish (Türkçe), Spanish (Español), French (Français), and German (Deutsch). The language is detected automatically from your device settings, and you can change it manually in the app.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What languages are supported?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Dovilo is available in 5 languages: English, Turkish (Türkçe), Spanish (Español), French (Français), and German (Deutsch). The language is detected automatically from your device settings, and you can change it manually in the app.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Tasks & Focus -->
     <div class="faq-section-title">Tasks &amp; Focus</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How does the to-do list work?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How does the to-do list work?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep — every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep — every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How do focus sessions work?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How do focus sessions work?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>There are three ways to focus: a single session of any duration, a Pomodoro cycle (25 minutes of focus, a 5 minute break, and a longer break every 4 rounds — breaks start on their own), or a session bound to one specific task. A breathing exercise and countdown ease you in, and when the session completes you earn bricks based on its duration.</p>
+            <p>The timer keeps running in the background: switch apps or lock your phone and the time is still counted correctly, with a notification the moment it is done. Do Not Disturb can silence other apps for the length of the session. Only completed Pomodoro rounds count toward the daily round counter — single sessions and ones you end early do not.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>There are three ways to focus: a single session of any duration, a Pomodoro cycle (25 minutes of focus, a 5 minute break, and a longer break every 4 rounds — breaks start on their own), or a session bound to one specific task. A breathing exercise and countdown ease you in, and when the session completes you earn bricks based on its duration.</p>
-        <p>The timer keeps running in the background: switch apps or lock your phone and the time is still counted correctly, with a notification the moment it is done. Do Not Disturb can silence other apps for the length of the session. Only completed Pomodoro rounds count toward the daily round counter — single sessions and ones you end early do not.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What is Ambience?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>Ambience sets the mood of a focus session. A scene fills the whole screen and brings its own sound: Rainy City (rain and fireplace), Midnight (city hum over brown noise), Dusk (birds and breeze), Snow (winter wind and pink noise) or Fog (fog horn and white noise). The Default scene is always available and is silent.</p>
-        <p>Under the Sound tab you can blend up to three layers at once — rain, fireplace, forest, waves, café, library, train, thunder, brown, pink or white noise — and set the level of each. The mix can follow the session rhythm, opening softly in the first 5 minutes and brightening in the last 2, and the scene can switch to Dusk on its own when your break starts. It is ambience, not music: no melody, no beat.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What is Ambience?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Ambience sets the mood of a focus session. A scene fills the whole screen and brings its own sound: Rainy City (rain and fireplace), Midnight (city hum over brown noise), Dusk (birds and breeze), Snow (winter wind and pink noise) or Fog (fog horn and white noise). The Default scene is always available and is silent.</p>
+            <p>Under the Sound tab you can blend up to three layers at once — rain, fireplace, forest, waves, café, library, train, thunder, brown, pink or white noise — and set the level of each. The mix can follow the session rhythm, opening softly in the first 5 minutes and brightening in the last 2, and the scene can switch to Dusk on its own when your break starts. It is ambience, not music: no melody, no beat.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- City Builder -->
     <div class="faq-section-title">City Builder</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How do I build my city?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How do I build my city?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Earn bricks by completing tasks and focus sessions. Visit the Market tab to browse and purchase buildings, decorations, and roads. Then place them on your isometric grid in the Dovilo tab. Your city grows as your productivity grows!</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Earn bricks by completing tasks and focus sessions. Visit the Market tab to browse and purchase buildings, decorations, and roads. Then place them on your isometric grid in the Dovilo tab. Your city grows as your productivity grows!</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Can I rearrange buildings?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>You can demolish a building by tapping on it and selecting the demolish option. This refunds a portion of the bricks, and you can then place a new building wherever you like.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Can I rearrange buildings?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>You can demolish a building by tapping on it and selecting the demolish option. This refunds a portion of the bricks, and you can then place a new building wherever you like.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Pro & Pricing -->
     <div class="faq-section-title">Pro &amp; Pricing</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What does Dovilo Pro include?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What does Dovilo Pro include?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Pro includes everything in the free tier, plus: unlimited tasks &amp; categories, cloud sync across devices, the desktop app for Windows and Mac with its MCP server, all buildings &amp; decorations &amp; upgrades, advanced focus interface, smart notification management, advanced statistics, custom themes, priority support, and all future updates. Both one-time content packs — the Focus Ambience Pack and the Full City Package — are included with Pro as well.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Pro includes everything in the free tier, plus: unlimited tasks &amp; categories, cloud sync across devices, the desktop app for Windows and Mac with its MCP server, all buildings &amp; decorations &amp; upgrades, advanced focus interface, smart notification management, advanced statistics, custom themes, priority support, and all future updates. Both one-time content packs — the Focus Ambience Pack and the Full City Package — are included with Pro as well.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What are the pricing options?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What are the pricing options?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Dovilo Pro is available as: Monthly ($2.49/month), Yearly ($19.99/year — best value, saves 33%), or Lifetime ($49.99 one-time payment). All plans include the same Pro features.</p>
+            <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 12 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Dovilo Pro is available as: Monthly ($2.49/month), Yearly ($19.99/year — best value, saves 33%), or Lifetime ($49.99 one-time payment). All plans include the same Pro features.</p>
-        <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 12 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Do I need the Focus Ambience Pack?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Do I need the Focus Ambience Pack?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 12 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 12 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How do I cancel my subscription?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How do I cancel my subscription?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- AI Agents & MCP -->
     <div class="faq-section-title">AI Agents &amp; MCP</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>What is Dovilo's MCP integration?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>What is Dovilo's MCP integration?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Dovilo Desktop (Pro) ships with a built-in <strong>Model Context Protocol</strong> server that runs locally on your machine. Any MCP-compatible client — <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI, Gemini CLI</strong>, and others — can connect and call Dovilo's tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code>, and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong> — the jobs you write for an agent in the AI Tasks tab, inside a project. Your personal to-do list in My Tasks is a separate surface an agent cannot read, and no agent can create a task. Setup, the full tool reference and the trust boundaries are on the <a href="/ai">developer page</a>.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Dovilo Desktop (Pro) ships with a built-in <strong>Model Context Protocol</strong> server that runs locally on your machine. Any MCP-compatible client — <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI, Gemini CLI</strong>, and others — can connect and call Dovilo's tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code>, and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong> — the jobs you write for an agent in the AI Tasks tab, inside a project. Your personal to-do list in My Tasks is a separate surface an agent cannot read, and no agent can create a task. Setup, the full tool reference and the trust boundaries are on the <a href="/ai">developer page</a>.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How do I connect Claude Code, Cursor, or another AI agent?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How do I connect Claude Code, Cursor, or another AI agent?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Open Dovilo Desktop and go to <strong>Settings → AI → Connect AI</strong>. Pick your IDE and Dovilo generates the right config for it: <strong>Claude Desktop</strong> is auto-wired in one click; <strong>Claude Code, Cursor CLI, Codex CLI, and Gemini CLI</strong> get a single <code>mcp add</code> command; <strong>Cursor (GUI), Windsurf, and custom MCP clients</strong> get a JSON snippet to paste. Restart your AI client and it will see Dovilo as an available MCP server.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Open Dovilo Desktop and go to <strong>Settings → AI → Connect AI</strong>. Pick your IDE and Dovilo generates the right config for it: <strong>Claude Desktop</strong> is auto-wired in one click; <strong>Claude Code, Cursor CLI, Codex CLI, and Gemini CLI</strong> get a single <code>mcp add</code> command; <strong>Cursor (GUI), Windsurf, and custom MCP clients</strong> get a JSON snippet to paste. Restart your AI client and it will see Dovilo as an available MCP server.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Which AI clients does Dovilo support?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Which AI clients does Dovilo support?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>The Connect AI flow has presets for <strong>Claude Desktop</strong>, <strong>Claude Code</strong>, <strong>Cursor</strong> (GUI &amp; CLI), <strong>Windsurf</strong>, <strong>Codex CLI</strong>, and <strong>Gemini CLI</strong>. Anything else that speaks the MCP protocol can also connect using the generic snippet — Dovilo doesn't lock you to a specific vendor.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>The Connect AI flow has presets for <strong>Claude Desktop</strong>, <strong>Claude Code</strong>, <strong>Cursor</strong> (GUI &amp; CLI), <strong>Windsurf</strong>, <strong>Codex CLI</strong>, and <strong>Gemini CLI</strong>. Anything else that speaks the MCP protocol can also connect using the generic snippet — Dovilo doesn't lock you to a specific vendor.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Can agents create or modify tasks I didn't authorize?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Can agents create or modify tasks I didn't authorize?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>No. The MCP tool surface intentionally excludes task creation — agents can only read, update status, mark steps, leave notes, and report telemetry. You decide exactly which tasks an agent sees through a per-project scope and a project brief that the agent reads first. Disabling MCP in Desktop settings immediately terminates every active agent connection.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>No. The MCP tool surface intentionally excludes task creation — agents can only read, update status, mark steps, leave notes, and report telemetry. You decide exactly which tasks an agent sees through a per-project scope and a project brief that the agent reads first. Disabling MCP in Desktop settings immediately terminates every active agent connection.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Does the MCP integration send my data to the cloud?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Does the MCP integration send my data to the cloud?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>No. The MCP server runs entirely on your device and listens only on a local port. Dovilo itself doesn't transmit MCP traffic anywhere. The only external data flow is what your agent chooses to send to <em>its own</em> model provider (e.g. OpenAI, Anthropic) — that's governed by the agent and model provider's privacy policies, not ours.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>No. The MCP server runs entirely on your device and listens only on a local port. Dovilo itself doesn't transmit MCP traffic anywhere. The only external data flow is what your agent chooses to send to <em>its own</em> model provider (e.g. OpenAI, Anthropic) — that's governed by the agent and model provider's privacy policies, not ours.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Do I get notified when an agent works on my task?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Do I get notified when an agent works on my task?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes. You can choose between two notification modes: <strong>every step</strong> (each progress update the agent pushes) or <strong>start / finish / error only</strong> (quieter, summary-style). The <strong>AI Tasks</strong> tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there — step trail, agent notes and telemetry (tokens, cost, duration) all land on the task. Only the agent itself runs on the desktop.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Yes. You can choose between two notification modes: <strong>every step</strong> (each progress update the agent pushes) or <strong>start / finish / error only</strong> (quieter, summary-style). The <strong>AI Tasks</strong> tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there — step trail, agent notes and telemetry (tokens, cost, duration) all land on the task. Only the agent itself runs on the desktop.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Can Dovilo send task events to Slack, Linear, or my own service?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Can Dovilo send task events to Slack, Linear, or my own service?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes. Dovilo Desktop fires <strong>HMAC-signed HTTPS webhooks</strong> on every task change — <code>task.created</code> and <code>task.status_changed</code> — so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Open a project &rarr; <strong>Webhooks</strong> in Desktop, paste your URL, generate a signing secret, and click Enable.</p>
+            <p>Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href="/docs/webhooks">webhooks reference</a>.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Yes. Dovilo Desktop fires <strong>HMAC-signed HTTPS webhooks</strong> on every task change — <code>task.created</code> and <code>task.status_changed</code> — so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Open a project &rarr; <strong>Webhooks</strong> in Desktop, paste your URL, generate a signing secret, and click Enable.</p>
-        <p>Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href="/docs/webhooks">webhooks reference</a>.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Is there an example webhook receiver I can copy from?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>Yes — <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener">dovilo-langgraph-demo</a> is an open-source <strong>LangGraph</strong> receiver that verifies the Dovilo signature, fans events out, and drives an agent through MCP end-to-end. There's also a <a href="https://www.youtube.com/watch?v=id_7T8qUfpg" target="_blank" rel="noopener">walkthrough video</a> covering the full setup: generating the signing secret, verifying signatures, and wiring up the agent loop.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Is there an example webhook receiver I can copy from?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes — <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener">dovilo-langgraph-demo</a> is an open-source <strong>LangGraph</strong> receiver that verifies the Dovilo signature, fans events out, and drives an agent through MCP end-to-end. There's also a <a href="https://www.youtube.com/watch?v=id_7T8qUfpg" target="_blank" rel="noopener">walkthrough video</a> covering the full setup: generating the signing secret, verifying signatures, and wiring up the agent loop.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Data & Privacy -->
     <div class="faq-section-title">Data &amp; Privacy</div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Does Dovilo work offline?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Does Dovilo work offline?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes! Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. You don't need an internet connection to use the app. Cloud sync is an optional Pro feature.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Yes! Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. You don't need an internet connection to use the app. Cloud sync is an optional Pro feature.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>How does cloud sync work?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How does cloud sync work?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>With Pro, you can sign in with Google or Apple and sync your data across multiple devices via Firebase. Your data is encrypted in transit and at rest. You can trigger a manual sync from Settings at any time.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>With Pro, you can sign in with Google or Apple and sync your data across multiple devices via Firebase. Your data is encrypted in transit and at rest. You can trigger a manual sync from Settings at any time.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Can I delete my account and data?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Can I delete my account and data?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes. Go to Settings &gt; Delete Account to permanently remove your account and all cloud-synced data. Local data is removed when you uninstall the app. Cloud data is fully deleted within 30 days of account deletion.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-a">
-        <p>Yes. Go to Settings &gt; Delete Account to permanently remove your account and all cloud-synced data. Local data is removed when you uninstall the app. Cloud data is fully deleted within 30 days of account deletion.</p>
-      </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggle(this)">
-        <h3>Does Dovilo have ads?</h3>
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="faq-a">
-        <p>No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Does Dovilo have ads?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -638,6 +682,83 @@
       <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>
     </div>
   </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">&copy; 2026 Dovilo. All rights reserved.</div>
+    <ul class="footer-socials">
+      <li><a href="https://x.com/doviloapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://instagram.com/doviloapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/company/doviloapp" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/webhooks">Webhooks</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/downloads/">Downloads</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/licenses">Licenses</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    /* ─── THEME ─── */
+    const THEME_COLORS = { dark: '#161B1D', light: '#F7F8F8' };
+
+    function effectiveTheme() {
+      const forced = document.documentElement.getAttribute('data-theme');
+      if (forced === 'light' || forced === 'dark') return forced;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function paintThemeChrome() {
+      const theme = effectiveTheme();
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+      const btn = document.querySelector('.theme-toggle');
+      if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    function toggleTheme() {
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+      paintThemeChrome();
+    }
+
+    /* ─── MOBILE MENU ─── */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      const open = menu.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      if (burger) burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    paintThemeChrome();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
+  </script>
 
   <script>
     function toggle(el) {
