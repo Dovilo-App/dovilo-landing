@@ -76,8 +76,9 @@
   <meta name="twitter:title" content="Webhooks Developer Reference - Dovilo">
   <meta name="twitter:description" content="HMAC-signed task events you can subscribe to. Payload schema, signature verification, retry policy.">
 
-  <!-- Syntax highlighting (used by this docs page only). -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <!-- Syntax highlighting (used by this docs page only). The theme is inlined in
+       the stylesheet below; highlight.js itself loads at the end of the body. -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <script>
     /* Same choice as the main page (same origin), otherwise the OS decides. */
     (function(){
@@ -88,6 +89,11 @@
     })();
   </script>
   <style>
+    /* highlight.js 11.9.0 atom-one-dark theme, inlined from cdnjs so it costs no
+       request. BSD-3-Clause, (c) highlight.js contributors. The rules further down
+       override it, exactly as they did when it was a separate stylesheet. */
+    pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}
+
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
       color-scheme:dark;
