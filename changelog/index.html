@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/changelog/">
   <meta property="og:title" content="Release Notes & Changelog - Dovilo">
-  <meta property="og:description" content="Every Dovilo Desktop build, newest first, straight from the public releases repository.">
+  <meta property="og:description" content="Every Dovilo release with its date — iOS and Android builds, the current Windows and Mac build, how updates reach you, and what is on the roadmap.">
   <meta property="og:site_name" content="Dovilo">
   <script type="application/ld+json">
 {
@@ -92,28 +92,28 @@
       "position": 1,
       "name": "Dovilo for iOS & Android 1.2.0",
       "url": "https://dovilo.app/changelog/#mobile-1-2-0",
-      "description": "Game layer completely redesigned — every asset redrawn, with animations. The city feels alive now."
+      "description": "Released 9 September 2026. Game layer completely redesigned — every asset redrawn, with animations, so the isometric city reads as a place rather than a progress bar."
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Dovilo for iOS & Android 1.1.0",
       "url": "https://dovilo.app/changelog/#mobile-1-1-0",
-      "description": "Brand new Focus page: the whole flow was redesigned and rebuilt. UI and UX improvements throughout the app."
+      "description": "Released 3 September 2026. Brand new Focus page: single sessions, a Pomodoro cycle of 25 minutes with a 5 minute break and a longer break every 4 rounds, or a session bound to one task, with a background timer, Do Not Disturb and full-screen ambience scenes. UI and UX improvements throughout the app."
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Dovilo for iOS & Android 1.0.0",
       "url": "https://dovilo.app/changelog/#mobile-1-0-0",
-      "description": "Initial release."
+      "description": "Released 16 May 2026. Initial release on the App Store and Google Play: the to-do list, the focus timer and the city they feed, offline-first and free to start."
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "Dovilo Desktop for Windows & Mac 1.8.0",
       "url": "https://dovilo.app/changelog/#desktop",
-      "description": "Initial stable release."
+      "description": "Released 17 May 2026. Initial stable release of Dovilo Desktop, the Pro build that carries the local MCP server and HMAC-signed webhooks."
     }
   ]
 }
@@ -129,7 +129,15 @@
       "name": "What features are coming to Dovilo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two things are on the roadmap, not shipped yet. Data export: get your tasks and history out of Dovilo in an open format. Remote MCP server: connect an agent to your AI tasks without the desktop app running on the same machine. Each will appear in the release notes when it ships, in the release that carries it."
+        "text": "Two things are on the roadmap and not shipped yet. Data export: get your tasks and history out of Dovilo in an open format — everything the app knows already sits on your device, and Pro syncs it between devices, but there is no way yet to hand that data to another tool. Remote MCP server: connect an agent to your AI tasks without the desktop app running on the same machine — today the server is local by design, and the remote version keeps the same boundaries, meaning AI tasks only, scoped per project, with no task creation. Neither has a date yet, and each will appear in the release notes in the release that carries it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I update Dovilo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On iPhone, iPad and Android, updates arrive through the App Store and Google Play like any other app: on their own if automatic updates are on, otherwise from the Updates list in the store. On Windows and Mac, Dovilo Desktop updates itself and picks up each new build on its own, so there is no installer to fetch a second time — the downloads page at https://dovilo.app/downloads/ is only for the first install."
       }
     },
     {
@@ -225,6 +233,9 @@
     .rel-body{font-size:.9375rem;margin-top:10px;white-space:pre-wrap;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)))}
     .rel-foot{font-size:.8125rem;margin-top:12px;color:rgba(var(--fg-rgb),calc(.45 * var(--fa)))}
     .rel-foot a{color:var(--accent)}
+    .rel-text{font-size:.9375rem;margin-top:10px;color:rgba(var(--fg-rgb),calc(.62 * var(--fa)))}
+    .sec-text{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.62 * var(--fa)));max-width:66ch;margin-bottom:14px}
+    .sec-text a{color:var(--accent)}
     .rel-notes{margin:10px 0 0 20px;font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)))}
     .rel-notes li{margin-bottom:5px}
     .rel-notes li:last-child{margin-bottom:0}
@@ -259,35 +270,68 @@
 
     <h1>Release notes</h1>
     <p class="lede">
-      What changed, per platform. Mobile ships through the App Store and Google Play; the desktop
-      build and its version history live in the
-      <a href="https://github.com/slhddn/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>,
-      which this page reads when you open it.
+      Dovilo is a gamified productivity app for iPhone, iPad, Android, Windows and Mac: a to-do
+      list, focus sessions with full-screen ambience, and an isometric city built out of the work
+      you actually finish. This page tracks every build that shipped — new features, redesigns
+      and fixes — on all four platforms. Mobile and desktop carry separate version lines, so the
+      numbers below are not meant to line up.
+    </p>
+    <p class="lede">
+      Each platform is tracked on its own below. The desktop entry is read live from the
+      <a href="https://github.com/slhddn/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>
+      when you open this page, so it is never a version behind.
     </p>
 
     <h2>Mobile — iOS &amp; Android</h2>
 
     <div class="rel" id="mobile-1-2-0">
-      <div class="rel-head"><span class="rel-ver">1.2.0</span><span class="rel-latest">Latest</span></div>
+      <div class="rel-head"><span class="rel-ver">1.2.0</span><span class="rel-date">9 September 2026</span><span class="rel-latest">Latest</span></div>
       <ul class="rel-notes">
         <li>Game layer completely redesigned — every asset redrawn, with animations. The city feels alive now.</li>
       </ul>
+      <p class="rel-text">
+        The game layer is the half of Dovilo that pays the work back: a finished task or focus
+        session earns bricks, and bricks buy the houses, offices, parks and roads you place
+        yourself on the isometric grid. This release redrew every one of those pieces and put
+        them in motion, so the city reads as a place you are building rather than a progress bar
+        with textures on it.
+      </p>
     </div>
     <div class="rel" id="mobile-1-1-0">
-      <div class="rel-head"><span class="rel-ver">1.1.0</span></div>
+      <div class="rel-head"><span class="rel-ver">1.1.0</span><span class="rel-date">3 September 2026</span></div>
       <ul class="rel-notes">
         <li>Brand new Focus page: the whole flow was redesigned and rebuilt.</li>
         <li>UI and UX improvements throughout the app.</li>
       </ul>
+      <p class="rel-text">
+        Focus came out of that rebuild in three shapes: a single session, a Pomodoro cycle — 25
+        minutes of work, a 5 minute break, a longer one every 4 rounds — or a session bound to one
+        specific task. The timer keeps counting while the app is in the background or the phone is
+        locked, Do Not Disturb holds every other app off for the duration, and the scene you pick
+        — Rainy City, Midnight, Dusk, Snow or Fog — fills the screen and brings its own sound,
+        blended from up to three layers at a time.
+      </p>
     </div>
     <div class="rel" id="mobile-1-0-0">
-      <div class="rel-head"><span class="rel-ver">1.0.0</span></div>
+      <div class="rel-head"><span class="rel-ver">1.0.0</span><span class="rel-date">16 May 2026</span></div>
       <ul class="rel-notes">
         <li>Initial release.</li>
       </ul>
+      <p class="rel-text">
+        The first public build, on the App Store and Google Play: the to-do list, the focus timer
+        and the city they feed, offline-first and free to start.
+      </p>
     </div>
 
     <h2 id="desktop">Desktop — Windows &amp; Mac</h2>
+    <p class="sec-text">
+      Desktop runs on its own version line, which is why its numbers sit well ahead of mobile’s.
+      It needs an active Pro subscription — you subscribe from the mobile app — and it is the only
+      build that carries the local MCP server: nine tools an agent in
+      <a href="/ai">Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI or Gemini CLI</a> can
+      call against the AI tasks you write for it, never against your personal to-do list. The same
+      build sends the HMAC-signed <a href="/docs/webhooks">webhooks</a>.
+    </p>
     <div id="releases">
       <!-- Snapshot; the live fetch replaces it with the current build. -->
       <div class="rel">
@@ -306,10 +350,39 @@
     <div class="note">
       <p>Not shipped yet, and listed here so it is a promise on the record rather than a maybe:</p>
       <ul>
-        <li><strong>Data export</strong> — get your tasks and history out of Dovilo in an open format.</li>
-        <li><strong>Remote MCP server</strong> — connect an agent to your AI tasks without the desktop app running on the same machine.</li>
+        <li>
+          <strong>Data export</strong> — get your tasks and history out of Dovilo in an open
+          format. Everything the app knows already sits on your device, and Pro syncs it between
+          devices, but there is no way yet to hand that data to another tool. Export will write it
+          out as a file you can read and keep, so walking away from Dovilo costs you nothing you
+          made here.
+        </li>
+        <li>
+          <strong>Remote MCP server</strong> — connect an agent to your AI tasks without the
+          desktop app running on the same machine. Today the server is local by design: the agent
+          and the app share one computer, and quitting the app ends every connection. The remote
+          version keeps the same boundaries — AI tasks only, scoped per project, no task creation
+          — and drops the requirement that both sit at the same desk.
+        </li>
       </ul>
-      <p style="margin-top:12px">Each will appear above when it ships, in the release that carries it.</p>
+      <p style="margin-top:12px">
+        Each will appear above when it ships, in the release that carries it. Neither has a date:
+        naming one before it is real would make the rest of this list worth less.
+      </p>
+    </div>
+
+    <h2 id="updates">How updates reach you</h2>
+    <div class="note">
+      <p>
+        <strong>iPhone, iPad and Android</strong> — through the App Store and Google Play, like any
+        other app. With automatic updates on they arrive on their own; otherwise they are waiting
+        in the Updates list in the store.
+      </p>
+      <p style="margin-top:12px">
+        <strong>Windows and Mac</strong> — Dovilo Desktop updates itself. It picks up each new build
+        on its own, so there is no installer to fetch a second time. The
+        <a href="/downloads/">downloads page</a> is only for the first install.
+      </p>
     </div>
 
     <h2>Where else things change</h2>
@@ -395,7 +468,7 @@
             if (entry) {
               entry.name = 'Dovilo Desktop for Windows & Mac ' + ver;
               const text = body || (kept ? kept.join(' ') : '');
-              if (text) entry.description = text;
+              if (text) entry.description = (date ? 'Released ' + date + '. ' : '') + text;
             }
             node.textContent = JSON.stringify(data, null, 2);
           } catch (e) {}

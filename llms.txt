@@ -35,7 +35,7 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 - [FAQ](https://dovilo.app/faq): how tasks, focus sessions, ambience, the city, Pro and the MCP integration work.
 - [Webhooks reference](https://dovilo.app/docs/webhooks): event payload schema, signature verification examples, retry and idempotency rules, plus a copy-paste prompt for building a receiver with an AI agent.
 - [Downloads](https://dovilo.app/downloads): desktop builds for Windows and Mac.
-- [Release notes](https://dovilo.app/changelog/): every desktop build with its date, read live from the public releases repo, plus what is on the roadmap.
+- [Release notes](https://dovilo.app/changelog/): every mobile release with its date (1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and the current desktop build, read live from the public releases repo, plus how updates reach each platform and what is on the roadmap.
 - [Privacy policy](https://dovilo.app/privacy) · [Terms](https://dovilo.app/terms) · [Open-source licenses](https://dovilo.app/licenses)
 
 <!-- BLOG:START -->
