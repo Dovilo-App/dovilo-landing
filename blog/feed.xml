@@ -57,7 +57,7 @@
 <h2 id="notion-flexible-but-not-agent-native">Notion: flexible but not agent-native</h2>
 <p>Notion is the most flexible tool on this list. You can build any task system you want inside it, and it ships an MCP server so agents can read and write to your workspace.</p>
 <p>The flexibility is also the friction. You have to build your own task structure from scratch. There&#39;s no Pomodoro timer, no focus mode, no ambient sound. And because the agent can access your whole workspace depending on how you configure permissions, the boundary between &quot;agent work&quot; and &quot;my notes&quot; is something you have to manage yourself.</p>
-<p>Notion&#39;s free tier is generous. Paid plans start at $12/user/month (as of September 2026, per Notion&#39;s pricing page).</p>
+<p>Notion&#39;s free tier is generous. Plus is $10/user/month billed annually ($12 monthly) and Business is $20 (as of September 2026).</p>
 <p><strong>Best for:</strong> Developers who already live in Notion and want to keep everything in one place, and are comfortable managing agent permissions themselves.</p>
 <hr>
 <h2 id="todoist-reliable-task-management-no-agent-awareness">Todoist: reliable task management, no agent awareness</h2>
@@ -93,7 +93,7 @@
 <td>Yes (local MCP)</td>
 <td>Yes, local over stdio</td>
 <td>Yes, Pomodoro 25/5</td>
-<td>Yes, unlimited tasks/focus</td>
+<td>Yes, tasks and focus, no ads</td>
 </tr>
 <tr>
 <td>Linear</td>
