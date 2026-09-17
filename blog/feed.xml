@@ -349,7 +349,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <ul>
 <li><strong>Motivation gap.</strong> Completing tasks feels like administration. There&#39;s no reward beyond a checkbox.</li>
 <li><strong>Price.</strong> TickTick Premium runs around $35.99/year. For solo users, that&#39;s worth weighing.</li>
-<li><strong>Developer workflow friction.</strong> TickTick has no way to connect with AI coding agents. If you&#39;re running Cursor, Claude Code, or Windsurf, your task list and your agent live in completely separate worlds.</li>
+<li><strong>Developer workflow friction.</strong> TickTick has no official MCP server. There is an open API and community MCP servers, but nothing first-party built for coding agents. If you&#39;re running Cursor, Claude Code, or Windsurf, your task list and your agent live in completely separate worlds.</li>
 <li><strong>Focus-only needs.</strong> Some users want a timer with a light touch, not a full productivity suite.</li>
 </ul>
 <p>None of these are complaints about quality. They&#39;re about fit. Here&#39;s how the main alternatives stack up.</p>
@@ -434,7 +434,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <td>Desktop app</td>
 <td>Yes</td>
 <td>No</td>
-<td>No</td>
+<td>Browser only</td>
 <td>Yes (Pro)</td>
 </tr>
 <tr>
@@ -449,7 +449,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <td>Limited</td>
 <td>Yes</td>
 <td>Limited</td>
-<td>Yes (tasks + focus, unlimited)</td>
+<td>Yes (tasks + focus, no ads)</td>
 </tr>
 <tr>
 <td>Price (annual)</td>
