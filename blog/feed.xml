@@ -12,7 +12,7 @@
     <link>https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</link>
     <guid isPermaLink="true">https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</guid>
     <pubDate>Thu, 17 Sep 2026 18:25:06 GMT</pubDate>
-    <description>SEO article based on user idea &quot;Best Productivity Apps for Developers and Indie Hackers in 2026&quot; (estimated ~1500 words).</description>
+    <description>Five task tools for solo developers running AI coding agents in 2026 — what each one does with MCP, and where each one stops.</description>
     <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
 <p class="toc-title">On this page</p>
 <ul>
@@ -50,8 +50,8 @@
 <p><strong>Best for:</strong> Solo developers and indie hackers running AI coding agents who want the agent working from a real task queue — not a markdown file — with a clear boundary between agent work and personal tasks.</p>
 <hr>
 <h2 id="linear-project-tracking-with-an-mcp-server">Linear: project tracking with an MCP server</h2>
-<p>Linear is a project management tool built for software teams, though plenty of solo devs use it. It has a clean keyboard-driven UI, solid GitHub integration, and as of 2026 ships its own MCP server, so agents can query and update issues.</p>
-<p>It&#39;s genuinely good at tracking bugs, features, and milestones. Where it&#39;s less suited for solo indie hackers is the overhead — concepts like cycles, teams, and triage queues add friction when you&#39;re one person. The free tier covers the basics; paid plans start at $8/user/month (as of September 2026, per Linear&#39;s pricing page).</p>
+<p>Linear is a project management tool built for software teams, though plenty of solo devs use it. It has a clean keyboard-driven UI, solid GitHub integration, and its own MCP server. Since June 2026 it also executes work: assign an issue to Linear Agent and a coding session runs Claude Code or Codex in a cloud sandbox, then hands back a diff for review.</p>
+<p>It&#39;s genuinely good at tracking bugs, features, and milestones. Where it&#39;s less suited for solo indie hackers is the overhead — concepts like cycles, teams, and triage queues add friction when you&#39;re one person. The free tier covers the basics; Basic is $10 per user per month and Business $16, both billed annually (as of September 2026, per Linear&#39;s pricing page).</p>
 <p><strong>Best for:</strong> Developers already using Linear for project management who want agent access to their issue tracker.</p>
 <hr>
 <h2 id="notion-flexible-but-not-agent-native">Notion: flexible but not agent-native</h2>
@@ -62,9 +62,9 @@
 <hr>
 <h2 id="todoist-reliable-task-management-no-agent-awareness">Todoist: reliable task management, no agent awareness</h2>
 <p>Todoist is one of the most polished task managers available — natural language input, recurring tasks, priority levels, clean mobile experience. It&#39;s been around long enough to be genuinely reliable.</p>
-<p>What it doesn&#39;t have, as of September 2026, is native MCP support or any agent-facing API designed for the coding agent use case. You can use Todoist&#39;s REST API to build something custom, but that&#39;s extra work. If your priority is a task manager that just works for human use, Todoist is solid. If you need agent integration out of the box, it&#39;s not there yet.</p>
+<p>Doist ships an official MCP server — <code>@doist/todoist-mcp</code>, hosted at ai.todoist.net/mcp, with an official Claude Code plugin — so an agent can read and write Todoist out of the box. The difference is scope. It connects over OAuth to your whole account, so the agent sees every project and every personal task, and it can create and delete them. That is fine if your Todoist is already a work queue. It is a different proposition if your task list is also where the rest of your life lives.</p>
 <p>Free tier covers the basics. Pro is $5/month (as of September 2026, per Todoist&#39;s pricing page).</p>
-<p><strong>Best for:</strong> Developers who want a reliable, human-facing task manager and handle agent coordination separately.</p>
+<p><strong>Best for:</strong> Developers who want a polished, reliable task manager and are comfortable giving an agent access to the whole account.</p>
 <hr>
 <h2 id="obsidian-with-tasks-plugin-local-first-fully-custom">Obsidian with Tasks plugin: local-first, fully custom</h2>
 <p>Obsidian is a local markdown editor with a strong plugin ecosystem. The Tasks plugin turns markdown checkboxes into a queryable task system with due dates, recurrence, and filtering — everything living on your file system.</p>
@@ -111,8 +111,8 @@
 </tr>
 <tr>
 <td>Todoist</td>
-<td>No</td>
-<td>No (as of Sep 2026)</td>
+<td>Yes</td>
+<td>Yes (official, hosted)</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
@@ -363,19 +363,19 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <p>No Pomodoro timer, no gamification, no cross-platform support. If you&#39;re on Windows or Android, it&#39;s simply not an option.</p>
 <h3 id="forest">Forest</h3>
 <p>Forest is a focus app, not a task manager. You plant a virtual tree when a session starts; it dies if you leave the app. That constraint works well for phone-free deep work.</p>
-<p>There&#39;s no task list, no progression system beyond tree collection, and no desktop app. If you need task management alongside focus, Forest covers only half the problem.</p>
+<p>There&#39;s no task list, no progression system beyond tree collection, and no full desktop app beyond browser extensions. If you need task management alongside focus, Forest covers only half the problem.</p>
 <h3 id="habitica">Habitica</h3>
 <p>Habitica turns your task list into an RPG. You create a character, complete tasks to earn experience and gold, and spend those rewards on gear and cosmetics. It has a large, active community.</p>
 <p>The premium tier is $47.99/year and unlocks cosmetics only — not productivity features. There&#39;s no focus timer, no desktop app, and no AI agent integration. Habitica works well for users who respond to RPG mechanics and social accountability. It&#39;s less suited to solo developers or anyone who wants a persistent, spatial sense of progress rather than a character sheet.</p>
 <h3 id="mainquest">MainQuest</h3>
-<p>MainQuest is fully free — no ads, no subscription. It includes a built-in focus timer and uses character stats and loot as rewards for task completion. For budget-conscious users who want gamification without paying anything, it&#39;s worth a look.</p>
+<p>MainQuest includes a built-in focus timer and uses character stats and loot as rewards for task completion. Several apps ship under this name with different pricing, so check the one you actually download before committing.</p>
 <p>No desktop app, no spatial reward mechanic, no MCP integration. The reward loop is character-based rather than world-building-based, which suits some users and not others.</p>
 <hr>
 <h2 id="alternatives-for-developers-running-ai-coding-agents">Alternatives for developers running AI coding agents</h2>
 <p>This is a narrower category, and the options are genuinely different.</p>
 <h3 id="linear">Linear</h3>
-<p>Linear is the standard for AI-native task management in engineering teams. It&#39;s fast, well-designed, and deeply integrated with GitHub and other developer tools. Its AI features are agent-assisted — the AI helps surface and prioritize work rather than executing tasks autonomously.</p>
-<p>Linear is built for teams of 5 to 100 people and costs $10 to $16 per user per month. No gamification, no focus sessions, no local MCP server for autonomous agent execution on a personal machine. For a solo developer managing their own backlog, it&#39;s a team tool solving a different problem.</p>
+<p>Linear is the standard for AI-native task management in engineering teams. It&#39;s fast, well-designed, and deeply integrated with GitHub. Since June 2026 it also executes work: assign an issue to Linear Agent and a coding session runs Claude Code or Codex in a cloud sandbox, then returns a diff for review.</p>
+<p>Linear costs $10 to $16 per user per month billed annually, and coding sessions consume separately purchased AI credits. Per-seat pricing, cycles and triage queues all assume a team. Nothing runs on your own machine either — the agent works in Linear&#39;s cloud against a repo it has been given access to. For a solo developer with a local checkout and a personal backlog, it&#39;s a team tool solving a different problem.</p>
 <h3 id="notion">Notion</h3>
 <p>Notion can be configured as a task manager and supports MCP server connections. For developers already living in Notion who want to wire up an agent, it&#39;s a reasonable path. The tradeoff is that Notion is a general-purpose workspace, not a task-first app. Setup overhead is real, and the focus and motivation layers don&#39;t exist unless you build them yourself.</p>
 <hr>
@@ -389,7 +389,6 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <h3 id="pricing">Pricing</h3>
 <p>The free tier covers tasks and focus with no limits and no ads. Pro Monthly is $2.49/month. Pro Yearly is $19.99/year ($1.67/month). Pro Lifetime is a one-time payment of $49.99. A 7-day free Pro trial is available in the mobile app — no charge if you cancel before it ends.</p>
 <p>Desktop (Windows and macOS) is part of Pro. That means the MCP server, webhooks, and the desktop app itself all require a Pro plan. Webhooks support Slack, Linear, n8n, and custom services with signed delivery.</p>
-<p>Over any multi-year horizon, the $49.99 lifetime plan is cheaper than Habitica&#39;s $47.99/year subscription.</p>
 <h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
 <p>Worth being direct about the gaps:</p>
 <ul>
@@ -473,7 +472,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <p><strong>Choose Things 3</strong> if you&#39;re Apple-only and prefer a one-time purchase over a subscription.</p>
 <p><strong>Choose Forest</strong> if your only goal is phone-free focus sessions and task management isn&#39;t part of the picture.</p>
 <p><strong>Choose Habitica</strong> if RPG mechanics and social accountability are what keep you consistent.</p>
-<p><strong>Choose MainQuest</strong> if budget is the deciding factor and a character-based reward loop sounds appealing.</p>
+<p><strong>Choose MainQuest</strong> if a character-based reward loop sounds appealing and you want something light.</p>
 <p><strong>Choose Dovilo</strong> if you want task management and focus sessions with a reward system that builds something visible over time — or if you&#39;re a solo developer who wants your AI coding agent to pull tasks directly from a queue rather than requiring you to copy-paste context between tools. You can start free on <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_ticktick_alt&amp;mt=8" target="_blank" rel="noopener">iOS</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_ticktick_alt" target="_blank" rel="noopener">Android</a> and see whether the city-building mechanic actually changes how you feel about your task list.</p>
 <hr>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
@@ -487,13 +486,11 @@ Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MC
 No. The agent only sees the AI task queue inside its assigned project. Your personal My Tasks list is not on the tool surface and is invisible to the agent.</p>
 <p><strong>How does the city builder work?</strong>
 Every completed task earns bricks. You spend them in the Build market to place buildings and decorations in your isometric city. Nothing decays — the city grows persistently as you complete real work.</p>
-<p><strong>Is the $49.99 lifetime plan actually cheaper than the alternatives?</strong>
-Over multiple years, yes. Habitica&#39;s premium tier is $47.99/year, so Dovilo&#39;s lifetime plan pays for itself after the first year. TickTick Premium runs around $35.99/year, so the Dovilo lifetime plan breaks even around year two.</p>
 <p><strong>What&#39;s missing from Dovilo compared to TickTick?</strong>
 TickTick has a calendar view, habit tracking, and data export. Dovilo doesn&#39;t have any of those yet. Data export is on the roadmap. If calendar integration or habit tracking are requirements, TickTick or Todoist are better fits for now.</p>
 <hr>
 <h2 id="the-bottom-line">The bottom line</h2>
-<p>TickTick is a solid app. The alternatives above each serve a specific need: Todoist for simplicity, Things 3 for Apple users, Forest for phone-free focus, Habitica for RPG motivation, MainQuest for zero cost.</p>
+<p>TickTick is a solid app. The alternatives above each serve a specific need: Todoist for simplicity, Things 3 for Apple users, Forest for phone-free focus, Habitica for RPG motivation, MainQuest for a lighter RPG loop.</p>
 <p>Dovilo makes sense if you want motivation built into the structure of the app itself — a city that grows with your work — or if you&#39;re a solo developer who wants AI agents to execute tasks without breaking your flow. The free tier on mobile is a genuine starting point, not a stripped demo. Try it and see whether the city changes anything.</p>
 ]]></content:encoded>
   </item>

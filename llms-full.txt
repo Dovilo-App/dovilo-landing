@@ -248,7 +248,7 @@ No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe a
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
-- [Best Productivity Apps for Developers and Indie Hackers in 2026](https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/) — 2026-09-17. SEO article based on user idea "Best Productivity Apps for Developers and Indie Hackers in 2026" (estimated ~1500 words).
+- [Best Productivity Apps for Developers and Indie Hackers in 2026](https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/) — 2026-09-17. Five task tools for solo developers running AI coding agents in 2026 — what each one does with MCP, and where each one stops.
 - [Forest App Alternative: 5 Focus Apps With More Features](https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/) — 2026-09-17. Looking for a Forest app alternative with real task management and gamification? These 5 focus apps go further than a simple timer.
 - [TickTick Alternative: Which App Fits Your Workflow Better?](https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/) — 2026-09-15. Find the right TickTick alternative for your workflow — from gamified task apps to AI-agent-ready tools for developers.
 - [Habitica Alternative: 6 Gamified Apps Ranked for 2026](https://dovilo.app/blog/habitica-alternative-6-gamified-apps-ranked-for-2026/) — 2026-09-13. Find the best Habitica alternative for 2026 with this ranked guide to 6 gamified productivity apps, from city-builders to RPG habit trackers.
