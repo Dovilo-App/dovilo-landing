@@ -6,7 +6,162 @@
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
   <language>en</language>
-  <lastBuildDate>Tue, 15 Sep 2026 19:52:29 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 17 Sep 2026 01:38:09 GMT</lastBuildDate>
+  <item>
+    <title>Forest App Alternative: 5 Focus Apps With More Features</title>
+    <link>https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/</guid>
+    <pubDate>Thu, 17 Sep 2026 01:38:09 GMT</pubDate>
+    <description>Looking for a Forest app alternative with real task management and gamification? These 5 focus apps go further than a simple timer.</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#what-forest-does-well-and-where-it-stops">What Forest does well (and where it stops)</a></li>
+<li><a href="#5-forest-app-alternatives-with-more-features">5 Forest app alternatives with more features</a><ul>
+<li><a href="#1-dovilo-task-manager-focus-timer-and-isometric-city-builder">1. Dovilo — task manager, focus timer, and isometric city builder</a></li>
+<li><a href="#2-habitica-rpg-task-manager-with-social-accountability">2. Habitica — RPG task manager with social accountability</a></li>
+<li><a href="#3-beedone-ai-coaching-with-task-management">3. BeeDone — AI coaching with task management</a></li>
+<li><a href="#4-mainquest-rpg-progression-with-a-focus-timer">4. MainQuest — RPG progression with a focus timer</a></li>
+<li><a href="#5-do-it-now-rpg-stats-for-daily-habits">5. Do It Now — RPG stats for daily habits</a></li>
+</ul>
+</li>
+<li><a href="#how-these-alternatives-compare-at-a-glance">How these alternatives compare at a glance</a></li>
+<li><a href="#which-alternative-is-right-for-you">Which alternative is right for you?</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p>Forest is a genuinely good app. The core mechanic — grow a virtual tree during a focus session, kill it if you leave the app — is simple and it works. But if you&#39;ve been using it for a while, you&#39;ve probably noticed the ceiling: no task list, no way to plan your day, no Pomodoro timer, no real desktop app. You&#39;re essentially paying for a phone-locking mechanism with a nice visual attached.</p>
+<p>If you&#39;re looking for a Forest alternative because you want more than a countdown timer, the five apps below are worth your time. Each one includes focus session mechanics, but each adds something Forest doesn&#39;t — task management, gamification, ambient audio, or AI agent integration. Pick based on what&#39;s actually missing from your current setup.</p>
+<hr>
+<h2 id="what-forest-does-well-and-where-it-stops">What Forest does well (and where it stops)</h2>
+<p>A lot of comparison articles overstate Forest&#39;s feature set, so it&#39;s worth being precise.</p>
+<p>Forest does one thing: it runs a countdown timer and grows a tree if you don&#39;t leave the app. There&#39;s no built-in to-do list. You can label a session, but that&#39;s not task management — no repeating tasks, no due dates, no priorities, no My Day view. The focus timer is a single countdown with no Pomodoro cycles and no break scheduling. Ambient sound options are limited. The desktop version exists but is browser-based and stripped-down.</p>
+<p>What Forest does have is a real-tree-planting partnership with Trees for the Future, a large loyal user base, and a visual that genuinely motivates some people to stay off their phone. If phone-locking is your primary need and nothing else matters, Forest is fine. If you want a system that helps you decide what to work on <em>and</em> helps you work on it, you need something else.</p>
+<hr>
+<h2 id="5-forest-app-alternatives-with-more-features">5 Forest app alternatives with more features</h2>
+<h3 id="1-dovilo-task-manager-focus-timer-and-isometric-city-builder">1. Dovilo — task manager, focus timer, and isometric city builder</h3>
+<p><a href="https://dovilo.app/">Dovilo</a> combines three things Forest either separates or ignores entirely: a full task manager, a Pomodoro-style focus timer, and a visual reward system that goes well beyond growing a tree.</p>
+<p>The task management side covers due dates, priorities, stars, flags, repeating tasks, reminders, and multiple views — My Day, Important, Planned, Flagged, and custom lists. That&#39;s comparable to a dedicated task manager, not a focus app with a notes field bolted on.</p>
+<p>The focus timer runs as a single session, a Pomodoro cycle (25 minutes work, 5-minute break), or a session tied to a specific task. Do Not Disturb and background timer are both supported. Finish a session or complete a task and you earn bricks. Those bricks go into the Build market, where you spend them to construct and arrange an isometric city on a personal grid. Buildings don&#39;t decay. Your city grows as long as you keep working.</p>
+<p>The ambient audio system is more developed than anything else in this category. There are six full-screen scenes — a default scene plus Rainy City, Midnight, Dusk, Snow, and Fog (those five come in the Focus Ambience Pack). A 12-layer sound mixer lets you blend up to three sounds at once. If you&#39;ve had Forest&#39;s single rain loop on repeat and wished you could mix in a coffee shop or some distant thunder, this is the direct answer.</p>
+<p><strong>For developers specifically:</strong> Dovilo Desktop (Windows and macOS, included with Pro) runs a local MCP server. AI coding agents — Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, or any MCP-compatible client via JSON — can connect to this server, read tasks from a dedicated AI task queue, execute them step by step, and report progress back to you. The agent works from a separate AI task queue; your personal to-do list is invisible to it. The server ships inside the Desktop app over stdio, so only the agent&#39;s own model calls leave your machine. The desktop app also supports signed webhooks to Slack, Linear, and n8n; documentation is at dovilo.app/docs/webhooks.</p>
+<p><strong>What Dovilo doesn&#39;t do yet:</strong> No data export. The MCP server is local only — it runs where Desktop runs, so there&#39;s no remote agent access. Desktop requires Pro. No social accountability features like group quests or shared progress.</p>
+<p><strong>Pricing:</strong> Free on iOS and Android, with tasks and Pomodoro sessions unlimited on the free tier. No ads on any tier. Pro is $2.49/month, $19.99/year (about $1.67/month, saving 33% versus monthly), or $49.99 as a one-time lifetime purchase. A 7-day free trial is available in the mobile app. The Focus Ambience Pack and Full City Package are each $4.99 as separate one-time purchases. AI task bundles start at $0.99 and never expire.</p>
+<p><strong>Best for:</strong> Anyone who wants Forest&#39;s visual motivation but also needs a real task manager. Developers using AI coding agents who want their task list and their agent working in the same loop.</p>
+<p>Download on <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_forest_alt&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_forest_alt" target="_blank" rel="noopener">Google Play</a>.</p>
+<hr>
+<h3 id="2-habitica-rpg-task-manager-with-social-accountability">2. Habitica — RPG task manager with social accountability</h3>
+<p><a href="https://habitica.com" target="_blank" rel="noopener">Habitica</a> takes a different approach to gamification: it turns your habits, dailies, and to-dos into an RPG character. Complete tasks and your character gains experience and gold. Skip them and your character takes damage. The social layer is Habitica&#39;s strongest differentiator — you can join parties, go on quests with friends, and face real consequences if someone in your group falls behind.</p>
+<p>Task management depth is solid. Habits cover things you want to do repeatedly without a fixed schedule; dailies reset on a set cadence; to-dos are one-off items with optional due dates. There&#39;s reasonable flexibility in how you configure all three.</p>
+<p>What Habitica doesn&#39;t have: a focus timer of any kind. No Pomodoro mode, no session tracking, no ambient audio. The visual style is retro pixel art, which some users love and others find immediately off-putting. As of September 2026, there&#39;s no AI agent integration and no desktop app beyond a browser interface.</p>
+<p>Habitica has over 4 million registered users and a genuinely active community. If social accountability is what keeps you on track and you don&#39;t need a focus timer, it&#39;s worth a look.</p>
+<p><strong>Best for:</strong> People motivated by social pressure and RPG progression who don&#39;t need a focus session mechanic.</p>
+<hr>
+<h3 id="3-beedone-ai-coaching-with-task-management">3. BeeDone — AI coaching with task management</h3>
+<p><a href="https://beedone.co" target="_blank" rel="noopener">BeeDone</a> is the most feature-complete task manager in this comparison after Dovilo. It includes task management with priorities and due dates, a focus timer, and an internal AI coaching layer that helps you decide what to work on and how to structure your day.</p>
+<p>The AI in BeeDone is internal to the app — a coaching assistant, not an external agent interface. You can&#39;t connect Claude Code or Cursor to it. The reward visualization uses XP bars and badges rather than a spatial environment, which is more abstract than Forest&#39;s trees or Dovilo&#39;s city.</p>
+<p>BeeDone doesn&#39;t publish pricing publicly, so you&#39;ll need to check their site directly to evaluate cost.</p>
+<p><strong>Best for:</strong> Users who want AI-assisted prioritization built into a task manager and don&#39;t need a visual city or agent integration.</p>
+<hr>
+<h3 id="4-mainquest-rpg-progression-with-a-focus-timer">4. MainQuest — RPG progression with a focus timer</h3>
+<p><a href="https://mainquest.net" target="_blank" rel="noopener">MainQuest</a> pairs RPG-style progression with a focus timer, which immediately puts it ahead of Forest in terms of feature breadth. You complete quests (tasks), run focus sessions, and advance your character through a fantasy progression system.</p>
+<p>The task management side is lighter than Dovilo or BeeDone — the emphasis is on the RPG narrative layer rather than productivity infrastructure. There&#39;s no city-building mechanic. The focus timer works, but ambient audio options are limited. No AI agent integration as of September 2026.</p>
+<p><strong>Best for:</strong> Users who want an RPG story wrapped around their focus sessions and don&#39;t need deep task management.</p>
+<hr>
+<h3 id="5-do-it-now-rpg-stats-for-daily-habits">5. Do It Now — RPG stats for daily habits</h3>
+<p><a href="https://do-it-now.app" target="_blank" rel="noopener">Do It Now</a> maps your tasks and habits to RPG character stats. Complete tasks and your strength, intelligence, or charisma goes up depending on how you&#39;ve categorized the work. It&#39;s a lighter gamification approach than Habitica&#39;s party system or Dovilo&#39;s city builder.</p>
+<p>Focus timer functionality is present but basic — no Pomodoro configuration, no ambient audio, no AI integration. Task management covers the essentials (due dates, repeating tasks, priorities) without the depth of a dedicated task manager.</p>
+<p><strong>Best for:</strong> Users who want a simple stat-based RPG layer on top of habit tracking without a lot of complexity.</p>
+<hr>
+<h2 id="how-these-alternatives-compare-at-a-glance">How these alternatives compare at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Task manager</th>
+<th>Focus timer</th>
+<th>Gamification style</th>
+<th>AI agent integration</th>
+<th>Free tier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Dovilo</strong></td>
+<td>Full (due dates, repeats, priorities, My Day)</td>
+<td>Pomodoro + single + task-bound</td>
+<td>Isometric city builder</td>
+<td>Yes (MCP server, Pro + Desktop)</td>
+<td>Yes, unlimited tasks and focus</td>
+</tr>
+<tr>
+<td><strong>Habitica</strong></td>
+<td>Full (habits, dailies, to-dos)</td>
+<td>None</td>
+<td>RPG character + social quests</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>BeeDone</strong></td>
+<td>Full</td>
+<td>Yes</td>
+<td>XP bars + badges</td>
+<td>Internal AI only</td>
+<td>Check site</td>
+</tr>
+<tr>
+<td><strong>MainQuest</strong></td>
+<td>Light</td>
+<td>Yes</td>
+<td>RPG quest progression</td>
+<td>No</td>
+<td>Check site</td>
+</tr>
+<tr>
+<td><strong>Do It Now</strong></td>
+<td>Basic</td>
+<td>Basic</td>
+<td>RPG character stats</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Forest</strong></td>
+<td>None</td>
+<td>Single countdown only</td>
+<td>Tree growth</td>
+<td>No</td>
+<td>Limited</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="which-alternative-is-right-for-you">Which alternative is right for you?</h2>
+<p><strong>You want a task manager and a focus timer together.</strong> Forest won&#39;t give you this. Dovilo, BeeDone, and Habitica (minus the timer) are the realistic options. Dovilo is the only one that includes all three — task management, Pomodoro timer, and visual reward — in a single free download.</p>
+<p><strong>You&#39;re motivated by social accountability.</strong> Habitica&#39;s party system is genuinely strong and has no equivalent in this list. If you need other people to keep you honest, Habitica is the right pick even without a focus timer.</p>
+<p><strong>You use AI coding agents daily.</strong> As of September 2026, Dovilo is the only app in this category with a local MCP server that external agents like Claude Code, Cursor, or Windsurf can connect to. If you&#39;re shipping code with an AI agent and want your task list in the same loop, that&#39;s a specific capability worth evaluating.</p>
+<p><strong>You just want a better focus timer with nicer audio.</strong> Dovilo&#39;s ambient sound system — six scenes, a 12-layer mixer, up to three sounds simultaneously — is more developed than anything else here. The free tier includes the default scene; the Focus Ambience Pack ($4.99 one-time) adds the remaining five.</p>
+<p><strong>You want the simplest possible upgrade from Forest.</strong> Do It Now or MainQuest add gamification without a steep learning curve. They&#39;re lighter apps for users who don&#39;t want to manage a full task system.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Is there a Forest alternative that also has a task manager?</strong>
+Yes. Dovilo includes a full task manager (due dates, priorities, repeating tasks, My Day view) alongside a Pomodoro focus timer and a visual city-building reward system. Habitica and BeeDone also include task management, though neither has Forest&#39;s visual focus mechanic.</p>
+<p><strong>Does Dovilo have a free version?</strong>
+Yes. Dovilo is free on iOS and Android with unlimited tasks and focus sessions, including Pomodoro, on the free tier. No ads on any tier. Pro adds advanced stats, ambient scenes, and desktop access at $2.49/month, $19.99/year, or $49.99 lifetime.</p>
+<p><strong>Which Forest alternative works on desktop?</strong>
+Dovilo Desktop runs on Windows and macOS and is part of Pro. It also runs a local MCP server for AI coding agent integration. Most other alternatives in this list are primarily mobile apps.</p>
+<p><strong>What does the MCP server in Dovilo actually do?</strong>
+It lets AI coding agents — Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, or any MCP-compatible client — connect to a dedicated AI task queue in Dovilo, read tasks, execute them step by step, and report progress back. The agent works from a separate queue; your personal to-do list stays private. The server runs locally inside the Desktop app.</p>
+<p><strong>Does Dovilo have social features like Habitica&#39;s party quests?</strong>
+No. Dovilo has no group quests, shared accountability, or social features. If social pressure is what motivates you, Habitica is the better fit.</p>
+<p><strong>Can I use Dovilo offline?</strong>
+Yes. Dovilo is offline-first on all four platforms — iOS, Android, Windows, and macOS — with cross-platform sync when you&#39;re connected.</p>
+<p><strong>Is the Focus Ambience Pack worth buying separately?</strong>
+If ambient audio matters to your focus sessions, yes. The pack adds five full-screen scenes (Rainy City, Midnight, Dusk, Snow, Fog) and the 12-layer sound mixer for $4.99 as a one-time purchase. If you&#39;re already on the yearly or lifetime Pro plan and use the app daily, the per-session cost becomes negligible quickly.</p>
+<hr>
+<p>Forest built a category. But the gap between what it offers and what a productive workday actually requires has grown. If you need a focus timer connected to a task list, something visual to show for your work, and — if you&#39;re a developer — a way to put your AI coding agent in the same loop, there are better options available today.</p>
+<p>Dovilo is free to download on iOS and Android. Your city starts with the first task you finish.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>TickTick Alternative: Which App Fits Your Workflow Better?</title>
     <link>https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/</link>
