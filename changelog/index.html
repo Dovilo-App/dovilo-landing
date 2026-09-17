@@ -13,6 +13,136 @@
   <meta property="og:title" content="Release Notes & Changelog - Dovilo">
   <meta property="og:description" content="Every Dovilo Desktop build, newest first, straight from the public releases repository.">
   <meta property="og:site_name" content="Dovilo">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Release Notes & Changelog - Dovilo",
+  "description": "What changed in Dovilo, per platform — mobile releases and the current desktop build — plus what is on the roadmap.",
+  "url": "https://dovilo.app/changelog/",
+  "inLanguage": "en",
+  "dateModified": "2026-09-17",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dovilo.app/notify-icon.png"
+    }
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dovilo",
+      "item": "https://dovilo.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Release notes",
+      "item": "https://dovilo.app/changelog/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://dovilo.app/#app",
+  "name": "Dovilo",
+  "applicationCategory": "ProductivityApplication",
+  "applicationSubCategory": "Task Management",
+  "operatingSystem": ["iOS", "Android", "Windows", "macOS"],
+  "url": "https://dovilo.app",
+  "releaseNotes": "https://dovilo.app/changelog/",
+  "downloadUrl": "https://dovilo.app/downloads/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free tier with full to-do management, unlimited focus sessions, and basic city building"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app"
+  }
+}
+  </script>
+  <script type="application/ld+json" id="release-list-ld">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Dovilo Release Notes",
+  "description": "Changelog of updates across Dovilo mobile (iOS & Android) and desktop (Windows & Mac) platforms.",
+  "url": "https://dovilo.app/changelog/",
+  "numberOfItems": 4,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dovilo for iOS & Android 1.2.0",
+      "url": "https://dovilo.app/changelog/#mobile-1-2-0",
+      "description": "Game layer completely redesigned — every asset redrawn, with animations. The city feels alive now."
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dovilo for iOS & Android 1.1.0",
+      "url": "https://dovilo.app/changelog/#mobile-1-1-0",
+      "description": "Brand new Focus page: the whole flow was redesigned and rebuilt. UI and UX improvements throughout the app."
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dovilo for iOS & Android 1.0.0",
+      "url": "https://dovilo.app/changelog/#mobile-1-0-0",
+      "description": "Initial release."
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Dovilo Desktop for Windows & Mac 1.8.0",
+      "url": "https://dovilo.app/changelog/#desktop",
+      "description": "Initial stable release."
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What features are coming to Dovilo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two things are on the roadmap, not shipped yet. Data export: get your tasks and history out of Dovilo in an open format. Remote MCP server: connect an agent to your AI tasks without the desktop app running on the same machine. Each will appear in the release notes when it ships, in the release that carries it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where else does Dovilo publish changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The webhooks reference at https://dovilo.app/docs/webhooks carries its own changelog for the payload contract, so an integration that depends on the schema has one place to watch. The MCP tool surface at https://dovilo.app/ai is versioned with the desktop app. Every desktop build is also tagged in the public releases repository at https://github.com/slhddn/dovilo-desktop-releases/releases."
+      }
+    }
+  ]
+}
+  </script>
   <meta name="theme-color" content="#161B1D">
   <script>
     (function(){
@@ -137,27 +267,27 @@
 
     <h2>Mobile — iOS &amp; Android</h2>
 
-    <div class="rel">
+    <div class="rel" id="mobile-1-2-0">
       <div class="rel-head"><span class="rel-ver">1.2.0</span><span class="rel-latest">Latest</span></div>
       <ul class="rel-notes">
         <li>Game layer completely redesigned — every asset redrawn, with animations. The city feels alive now.</li>
       </ul>
     </div>
-    <div class="rel">
+    <div class="rel" id="mobile-1-1-0">
       <div class="rel-head"><span class="rel-ver">1.1.0</span></div>
       <ul class="rel-notes">
         <li>Brand new Focus page: the whole flow was redesigned and rebuilt.</li>
         <li>UI and UX improvements throughout the app.</li>
       </ul>
     </div>
-    <div class="rel">
+    <div class="rel" id="mobile-1-0-0">
       <div class="rel-head"><span class="rel-ver">1.0.0</span></div>
       <ul class="rel-notes">
         <li>Initial release.</li>
       </ul>
     </div>
 
-    <h2>Desktop — Windows &amp; Mac</h2>
+    <h2 id="desktop">Desktop — Windows &amp; Mac</h2>
     <div id="releases">
       <!-- Snapshot; the live fetch replaces it with the current build. -->
       <div class="rel">
@@ -255,6 +385,20 @@
                 '<span class="rel-latest">Latest</span>' +
               '</div>' + notes +
             '</div>';
+
+          /* Keep the ItemList schema on the same build as the card above, so the
+             markup never claims a version the page no longer shows. */
+          try {
+            const node = document.getElementById('release-list-ld');
+            const data = JSON.parse(node.textContent);
+            const entry = data.itemListElement.find(i => /^Dovilo Desktop/.test(i.name));
+            if (entry) {
+              entry.name = 'Dovilo Desktop for Windows & Mac ' + ver;
+              const text = body || (kept ? kept.join(' ') : '');
+              if (text) entry.description = text;
+            }
+            node.textContent = JSON.stringify(data, null, 2);
+          } catch (e) {}
         })
         .catch(() => { /* keep the snapshot above */ });
     })();
