@@ -6,7 +6,150 @@
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 17 Sep 2026 01:38:09 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 17 Sep 2026 18:25:06 GMT</lastBuildDate>
+  <item>
+    <title>Best Productivity Apps for Developers and Indie Hackers in 2026</title>
+    <link>https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</guid>
+    <pubDate>Thu, 17 Sep 2026 18:25:06 GMT</pubDate>
+    <description>SEO article based on user idea &quot;Best Productivity Apps for Developers and Indie Hackers in 2026&quot; (estimated ~1500 words).</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#the-core-problem-context-switching-kills-agent-workflows">The core problem: context-switching kills agent workflows</a></li>
+<li><a href="#dovilo-built-for-the-agent-aware-developer">Dovilo: built for the agent-aware developer</a></li>
+<li><a href="#linear-project-tracking-with-an-mcp-server">Linear: project tracking with an MCP server</a></li>
+<li><a href="#notion-flexible-but-not-agent-native">Notion: flexible but not agent-native</a></li>
+<li><a href="#todoist-reliable-task-management-no-agent-awareness">Todoist: reliable task management, no agent awareness</a></li>
+<li><a href="#obsidian-with-tasks-plugin-local-first-fully-custom">Obsidian with Tasks plugin: local-first, fully custom</a></li>
+<li><a href="#a-note-on-focus-tools">A note on focus tools</a></li>
+<li><a href="#how-to-choose">How to choose</a></li>
+<li><a href="#get-started-with-dovilo">Get started with Dovilo</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p><em>By Selahaddin Akgün</em></p>
+<p>If you&#39;re a solo developer or indie hacker running AI coding agents in 2026, the best productivity apps aren&#39;t the ones with the most features. They&#39;re the ones that don&#39;t break your flow.</p>
+<p>The real problem isn&#39;t finding a to-do list. It&#39;s that your task list and your coding agent live in completely separate worlds — and every time you switch between them, you lose the thread. The agent finishes something. You go update the task. You come back. Ten minutes gone, and your mental model of where you were has quietly evaporated.</p>
+<p>Most productivity apps were built before AI agents became a daily workflow tool. They&#39;re fine at storing tasks. They have no idea what Claude Code, Cursor, Windsurf, Codex CLI, or Gemini CLI is doing right now, what it just finished, or what it should pick up next. That gap costs real time and attention.</p>
+<p>This list focuses on tools that actually serve the solo dev and indie hacker workflow in 2026, with honest notes on where each one fits and where it doesn&#39;t.</p>
+<hr>
+<h2 id="the-core-problem-context-switching-kills-agent-workflows">The core problem: context-switching kills agent workflows</h2>
+<p>When you&#39;re running an AI coding agent, two things need to stay in sync: what the agent is working on, and what you&#39;re tracking as a human. Most setups today look like this — a markdown file or a Notion doc with tasks, a terminal running an agent, and a lot of manual copy-pasting between them.</p>
+<p>The tools below each solve a different piece of this. None of them solve everything. Pick based on your actual workflow.</p>
+<hr>
+<h2 id="dovilo-built-for-the-agent-aware-developer">Dovilo: built for the agent-aware developer</h2>
+<p><a href="https://dovilo.app">Dovilo</a> is the only tool on this list designed specifically around the idea that your coding agent should work from a task queue it can read and update — without touching your personal to-do list.</p>
+<p>Here&#39;s how it works in practice. The desktop app (Windows and macOS, part of Pro) runs a local MCP server over stdio. Your agent — whether that&#39;s Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, or any MCP client configured via JSON — connects to it and gets 9 tools: 3 read, 6 write. It can read tasks, update status, and log progress. It cannot create tasks or delete them. That constraint is intentional. You stay in control of what goes into the queue.</p>
+<p>The agent works from a separate AI task queue scoped to a project. Your personal task list — called My Tasks — is not on the MCP tool surface at all. It never appears. So you can track your own notes, ideas, and personal work without any risk of the agent touching them.</p>
+<p>MCP traffic stays local. There&#39;s no Dovilo internet endpoint involved. The only external calls are the ones your agent makes to its own model provider. That matters if you&#39;re working on anything sensitive, or if you&#39;d simply rather not have your task data routing through a third-party cloud.</p>
+<p>On the webhook side (documented at <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>), Dovilo fires <code>task.created</code> and <code>task.status_changed</code> events, signed with HMAC-SHA256 and retried up to 5 times. That&#39;s enough to wire up Slack notifications, Linear updates, or an n8n automation without writing a polling loop.</p>
+<p>The focus side of the app is a full Pomodoro timer — 25-minute work, 5-minute break — with six ambient scenes, five of them in the Focus Ambience Pack. Finished tasks and completed focus sessions earn bricks, which go toward an isometric city you build on a grid. Nothing decays. If you have a quiet week, your city just waits. There&#39;s no streak to break, no guilt attached.</p>
+<p>Tasks and focus sessions are free and unlimited on iOS and Android, with no ads on any tier. Pro is $2.49/month, $19.99/year, or $49.99 lifetime, with a 7-day trial started in the mobile app. Desktop is part of Pro.</p>
+<p><strong>What Dovilo doesn&#39;t do yet (as of September 2026):</strong> No data export. No remote MCP — the agent runs on the machine where Desktop is installed. Both are on the public roadmap.</p>
+<p><strong>Best for:</strong> Solo developers and indie hackers running AI coding agents who want the agent working from a real task queue — not a markdown file — with a clear boundary between agent work and personal tasks.</p>
+<hr>
+<h2 id="linear-project-tracking-with-an-mcp-server">Linear: project tracking with an MCP server</h2>
+<p>Linear is a project management tool built for software teams, though plenty of solo devs use it. It has a clean keyboard-driven UI, solid GitHub integration, and as of 2026 ships its own MCP server, so agents can query and update issues.</p>
+<p>It&#39;s genuinely good at tracking bugs, features, and milestones. Where it&#39;s less suited for solo indie hackers is the overhead — concepts like cycles, teams, and triage queues add friction when you&#39;re one person. The free tier covers the basics; paid plans start at $8/user/month (as of September 2026, per Linear&#39;s pricing page).</p>
+<p><strong>Best for:</strong> Developers already using Linear for project management who want agent access to their issue tracker.</p>
+<hr>
+<h2 id="notion-flexible-but-not-agent-native">Notion: flexible but not agent-native</h2>
+<p>Notion is the most flexible tool on this list. You can build any task system you want inside it, and it ships an MCP server so agents can read and write to your workspace.</p>
+<p>The flexibility is also the friction. You have to build your own task structure from scratch. There&#39;s no Pomodoro timer, no focus mode, no ambient sound. And because the agent can access your whole workspace depending on how you configure permissions, the boundary between &quot;agent work&quot; and &quot;my notes&quot; is something you have to manage yourself.</p>
+<p>Notion&#39;s free tier is generous. Paid plans start at $12/user/month (as of September 2026, per Notion&#39;s pricing page).</p>
+<p><strong>Best for:</strong> Developers who already live in Notion and want to keep everything in one place, and are comfortable managing agent permissions themselves.</p>
+<hr>
+<h2 id="todoist-reliable-task-management-no-agent-awareness">Todoist: reliable task management, no agent awareness</h2>
+<p>Todoist is one of the most polished task managers available — natural language input, recurring tasks, priority levels, clean mobile experience. It&#39;s been around long enough to be genuinely reliable.</p>
+<p>What it doesn&#39;t have, as of September 2026, is native MCP support or any agent-facing API designed for the coding agent use case. You can use Todoist&#39;s REST API to build something custom, but that&#39;s extra work. If your priority is a task manager that just works for human use, Todoist is solid. If you need agent integration out of the box, it&#39;s not there yet.</p>
+<p>Free tier covers the basics. Pro is $5/month (as of September 2026, per Todoist&#39;s pricing page).</p>
+<p><strong>Best for:</strong> Developers who want a reliable, human-facing task manager and handle agent coordination separately.</p>
+<hr>
+<h2 id="obsidian-with-tasks-plugin-local-first-fully-custom">Obsidian with Tasks plugin: local-first, fully custom</h2>
+<p>Obsidian is a local markdown editor with a strong plugin ecosystem. The Tasks plugin turns markdown checkboxes into a queryable task system with due dates, recurrence, and filtering — everything living on your file system.</p>
+<p>There&#39;s no built-in MCP server, but the community has built MCP integrations for Obsidian. Setup requires more configuration than anything else on this list. If you&#39;re comfortable with that, the result is a fully local, fully customizable system with no subscription required.</p>
+<p><strong>Best for:</strong> Developers who want maximum control and are willing to wire things together themselves.</p>
+<hr>
+<h2 id="a-note-on-focus-tools">A note on focus tools</h2>
+<p>A few tools worth naming that focus specifically on the Pomodoro and deep work side rather than task management:</p>
+<p><strong>Forest</strong> is a focus timer where you grow a virtual tree during sessions. Well-designed, mobile-first feel. No task management, no agent integration.</p>
+<p><strong>Be Focused Pro</strong> (macOS/iOS) is a clean Pomodoro timer with session logging. Again, no agent integration.</p>
+<p>If you want something that combines focus sessions with task management and agent awareness in one app, Dovilo is the only tool on this list that does all three.</p>
+<hr>
+<h2 id="how-to-choose">How to choose</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Agent-aware</th>
+<th>MCP server</th>
+<th>Focus timer</th>
+<th>Free tier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dovilo</td>
+<td>Yes (local MCP)</td>
+<td>Yes, local over stdio</td>
+<td>Yes, Pomodoro 25/5</td>
+<td>Yes, unlimited tasks/focus</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>Partial</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes (limited)</td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>Partial</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Todoist</td>
+<td>No</td>
+<td>No (as of Sep 2026)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Obsidian + Tasks</td>
+<td>Custom</td>
+<td>Community plugin</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>The right tool depends on what&#39;s actually slowing you down. If context-switching between your agent and your task list is the bottleneck, that narrows the list quickly.</p>
+<hr>
+<h2 id="get-started-with-dovilo">Get started with Dovilo</h2>
+<p>MCP setup is documented at <a href="https://dovilo.app/ai">dovilo.app/ai</a>. There&#39;s also an open-source LangGraph demo showing a full agent loop at <a href="https://github.com/slhddn/dovilo-langgraph-demo" target="_blank" rel="noopener">github.com/slhddn/dovilo-langgraph-demo</a>.</p>
+<p>Download for iOS: <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_dev_indie_2026&amp;mt=8" target="_blank" rel="noopener">App Store</a>
+Download for Android: <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_dev_indie_2026" target="_blank" rel="noopener">Google Play</a>
+Desktop (Pro, Windows): <a href="https://github.com/slhddn/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_dev_indie_2026" target="_blank" rel="noopener">Dovilo-Setup.exe</a>
+Desktop (Pro, macOS): <a href="https://github.com/slhddn/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_dev_indie_2026" target="_blank" rel="noopener">Dovilo.dmg</a></p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Does Dovilo&#39;s MCP server work with Claude Code and Cursor?</strong>
+Yes. The desktop app runs a local MCP server over stdio. Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP client configured via JSON can connect to it. Desktop is part of Pro ($2.49/month or $49.99 lifetime).</p>
+<p><strong>Can the agent see my personal to-do list?</strong>
+No. My Tasks is not on the MCP tool surface at all. The agent only sees the AI task queue for the project it&#39;s assigned to. Your personal tasks are invisible to it.</p>
+<p><strong>What can the agent actually do with Dovilo&#39;s MCP tools?</strong>
+It gets 9 tools: 3 read, 6 write. It can read tasks, update their status, and log progress. It cannot create tasks or delete them. You control what goes into the queue.</p>
+<p><strong>Does MCP traffic go through Dovilo&#39;s servers?</strong>
+No. The MCP server runs locally inside the desktop app over stdio. There is no Dovilo internet endpoint for MCP. The only external calls are the ones your agent makes to its own model provider.</p>
+<p><strong>Is there a free tier?</strong>
+Yes. Tasks and focus sessions (including Pomodoro) are free and unlimited on iOS and Android, with no ads on any tier. Desktop, MCP, webhooks, and cloud sync require Pro.</p>
+<p><strong>Does Dovilo support webhook integrations for Slack or Linear?</strong>
+Yes. Dovilo fires <code>task.created</code> and <code>task.status_changed</code> webhooks, signed with HMAC-SHA256, with up to 5 retries. Documentation is at <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
+<p><strong>Is remote MCP supported?</strong>
+Not yet (as of September 2026). The agent runs on the machine where Desktop is installed. Remote MCP is on the public roadmap.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>Forest App Alternative: 5 Focus Apps With More Features</title>
     <link>https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/</link>
