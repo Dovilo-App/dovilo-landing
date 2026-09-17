@@ -24,7 +24,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # A repository_dispatch pins the run to whatever main was when the webhook
+      # arrived, and Sanity sends one webhook per published document. Publish
+      # three posts in a row and the second run checks out a commit the first
+      # run has already superseded, so its push is not a fast-forward and is
+      # rejected. Checking out the branch instead of the pinned SHA means every
+      # run starts from the current tip — the concurrency group above guarantees
+      # the run ahead has already pushed by then.
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -33,20 +42,39 @@ jobs:
 
       - run: npm ci
 
-      - name: Build /blog from Sanity
+      - name: Build /blog from Sanity and publish it
         # Only needed if the dataset is private; harmless when the secret is unset.
         env:
           SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
-        run: npm run build:blog
-
-      - name: Commit the generated pages
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add blog index.html sitemap.xml llms.txt llms-full.txt
-          if git diff --staged --quiet; then
-            echo "Nothing changed — the site is already current."
-            exit 0
-          fi
-          git commit -m "Publish the blog as of $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+
+          # A belt to the checkout's braces: the concurrency group holds off other
+          # runs of this workflow, but nothing holds off a commit pushed by hand
+          # between this job's checkout and its push, and that used to fail the
+          # whole publish. The generated pages are a pure function of the dataset,
+          # so the cure is to drop our build, take whatever main now holds and
+          # build again. Never rebase: that would merge two versions of the same
+          # generated HTML and conflict on every line the build rewrote.
+          for attempt in 1 2 3; do
+            npm run build:blog
+
+            git add blog index.html sitemap.xml llms.txt llms-full.txt
+            if git diff --staged --quiet; then
+              echo "Nothing changed — the site is already current."
+              exit 0
+            fi
+
+            git commit -m "Publish the blog as of $(date -u '+%Y-%m-%d %H:%M UTC')"
+            if git push; then
+              exit 0
+            fi
+
+            echo "::warning::Push rejected on attempt ${attempt}; rebuilding on top of the new main."
+            git fetch origin main
+            git reset --hard origin/main
+          done
+
+          echo "::error::main moved under this job three times running; giving up."
+          exit 1
