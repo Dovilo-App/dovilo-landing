@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://dovilo.app/blog/media/fb04b873be8758525ae2183f02880954ce9401ac-1200x630.jpg">
   <meta name="theme-color" content="#161B1D">
   <meta property="article:published_time" content="2026-09-10T14:01:09.111Z">
-  <meta property="article:modified_time" content="2026-09-10T17:26:30Z">
+  <meta property="article:modified_time" content="2026-09-17T19:59:59Z">
   <meta property="article:author" content="Selahaddin Akgün">
   <script>
     (function(){
@@ -117,9 +117,9 @@
     "@id": "https://dovilo.app/blog/todoist-alternative-7-apps-worth-switching-to-in-2026/"
   },
   "datePublished": "2026-09-10T14:01:09.111Z",
-  "dateModified": "2026-09-10T17:26:30Z",
+  "dateModified": "2026-09-17T19:59:59Z",
   "inLanguage": "en",
-  "wordCount": 2114,
+  "wordCount": 2209,
   "image": [
     "https://dovilo.app/blog/media/fb04b873be8758525ae2183f02880954ce9401ac-1200x630.jpg"
   ],
@@ -243,7 +243,7 @@
 <hr>
 <h2 id="what-makes-a-good-todoist-alternative">What Makes a Good Todoist Alternative?</h2>
 <p>It depends entirely on why you&#39;re leaving.</p>
-<p>Todoist&#39;s strengths are natural language input, project hierarchy, and cross-platform reliability. Its weakness, for a lot of users, is motivational: there&#39;s no intrinsic reward for finishing tasks beyond the satisfaction of checking a box. If you&#39;re a student, a developer, or anyone who needs external feedback loops to stay consistent, that gap matters more than it sounds.</p>
+<p>Todoist&#39;s strengths are natural language input, project hierarchy, cross-platform reliability and, as of September 2026, an official hosted MCP server at ai.todoist.net/mcp that any MCP-capable assistant can connect to. Its weakness, for a lot of users, is motivational: there&#39;s no intrinsic reward for finishing tasks beyond the satisfaction of checking a box. If you&#39;re a student, a developer, or anyone who needs external feedback loops to stay consistent, that gap matters more than it sounds.</p>
 <p>A strong alternative should cover the basics — due dates, priorities, recurring tasks — and add something Todoist doesn&#39;t. Every app below brings a distinct angle.</p>
 <hr>
 <h2 id="7-todoist-alternatives-worth-switching-to-in-2026">7 Todoist Alternatives Worth Switching To in 2026</h2>
@@ -251,7 +251,7 @@
 <p><strong>Best for:</strong> Gamified productivity seekers and AI-native developers who want task management, focus timers, and a visual reward system in one place.</p>
 <p><a href="https://dovilo.app/">Dovilo</a> takes a different approach to the whole idea of a to-do list. The core loop is simple: complete tasks and focus sessions, earn bricks, spend bricks to grow an isometric city. Every item you finish translates into something visible — a new building, a park, a landmark added to your virtual city.</p>
 <p>The task layer covers everything you&#39;d expect: due dates, priorities, categories, and recurring tasks. The Pomodoro-style focus timer awards bricks per session, so focused work and task completion both feed the same reward system. On mobile, it runs on iOS and Android. On desktop (Windows and macOS), the Pro plan adds a built-in MCP server.</p>
-<p>That MCP server is what makes Dovilo genuinely different for developers. It lets AI coding agents — Claude Code, Claude Desktop, Cursor, Cursor CLI, Windsurf, Codex CLI, and Gemini CLI — pick up tasks from your list, execute them step by step, and report back. Each project can be scoped with a brief so agents only see what you&#39;ve explicitly permitted. A mobile telemetry view shows agent notes, token usage, and cost per task, so you can monitor what&#39;s running without being at your desk.</p>
+<p>That MCP server is what makes Dovilo different for developers. Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI or any MCP client via JSON connects to it and works a separate AI task queue that lives inside a project, with a brief it reads first. My Tasks, your personal list, is not on the tool surface at all, so an agent never sees it. There are nine tools, three read and six write: an agent reads tasks, updates status and logs progress, and cannot create or delete anything. A mobile telemetry view shows agent notes, token usage and cost per task.</p>
 <p>Storage is offline-first, so the app works without a network connection. Cloud sync is a Pro feature.</p>
 <p><strong>Pricing:</strong> The free tier includes full to-do management, unlimited focus sessions, and basic city building with no ads. Pro Yearly is $19.99 per year ($1.67 per month), Pro Monthly is $2.49 per month, and Pro Lifetime is a one-time $49.99 payment. A 7-day free Pro trial is available with no charge if cancelled before it ends.</p>
 <p><strong>Where it falls short:</strong> The city builder is a reward and visualization layer, not a standalone game. If you want deep RPG mechanics or a large social community, Habitica has more of that. The MCP and AI agent features are Pro and desktop-only.</p>
@@ -265,7 +265,7 @@
 <h3 id="3-ticktick">3. TickTick</h3>
 <p><strong>Best for:</strong> Users who want a Todoist-like experience with a built-in Pomodoro timer.</p>
 <p>TickTick is probably the closest direct replacement for Todoist on this list. Natural language input, project folders, tags, priority levels, calendar view — it&#39;s all there. The built-in Pomodoro timer is a meaningful addition that Todoist doesn&#39;t offer natively.</p>
-<p>The free tier is more limited than Todoist&#39;s, and the Premium plan runs around $35.99 per year. The interface is clean and the mobile apps are well-made. There&#39;s no gamification layer and no AI agent integration.</p>
+<p>The free tier is more limited than Todoist&#39;s, and the Premium plan runs around $35.99 per year. The interface is clean and the mobile apps are well-made. There&#39;s no gamification layer and no official MCP server, though TickTick has an open API and community MCP servers.</p>
 <p><strong>Where it fits:</strong> Power users who want Todoist&#39;s feature set plus a focus timer, without significantly changing their workflow.</p>
 <hr>
 <h3 id="4-amazing-marvin">4. Amazing Marvin</h3>
@@ -283,7 +283,7 @@
 <h3 id="6-sunsama">6. Sunsama</h3>
 <p><strong>Best for:</strong> Professionals who want a structured daily planning ritual with calendar integration and AI features.</p>
 <p>Sunsama sits at the opposite end of the motivation spectrum from gamified apps. It&#39;s calm, structured, and intentional. The daily planning ritual pulls tasks from integrations — Asana, Linear, GitHub, and others — and you schedule them into time blocks for the day. The Pro plan includes AI features and MCP support, which is worth noting for developers who want a planning-first workflow.</p>
-<p>At $20 per month billed yearly, it&#39;s one of the more expensive options here. The audience is professionals who want a thoughtful planning process, not a reward system.</p>
+<p>At around $20 per user/month billed yearly (as of September 2026), it&#39;s one of the more expensive options here. The audience is professionals who want a thoughtful planning process, not a reward system.</p>
 <p><strong>Where it fits:</strong> People who want structured daily planning with deep calendar and project tool integration, and who have no interest in gamification.</p>
 <hr>
 <h3 id="7-beedone">7. BeeDone</h3>
@@ -296,13 +296,13 @@
 <p>The right pick depends on what&#39;s actually missing from your Todoist setup.</p>
 <p><strong>If you want motivation through visible rewards:</strong> Dovilo and Habitica are the strongest options. Dovilo gives you a city to build toward; Habitica gives you a character to develop and a community to stay accountable with.</p>
 <p><strong>If you want a near-direct Todoist replacement with more features:</strong> TickTick is the easiest transition. The learning curve is minimal and the feature overlap is high.</p>
-<p><strong>If you&#39;re a developer using AI coding agents:</strong> Dovilo is the only app on this list that connects task management to agent execution via MCP. Scoped project briefs, step-by-step agent execution, and mobile telemetry for token usage and cost — that workflow doesn&#39;t exist anywhere else in this category.</p>
+<p><strong>If you&#39;re a developer using AI coding agents:</strong> Todoist and Sunsama ship MCP servers too, so agent access is not unusual in 2026. What differs in Dovilo is the shape of it: a local server, an agent-only task queue with your personal list off the tool surface, read and update only, and token and cost telemetry you can watch from your phone.</p>
 <p><strong>If you want calm over motivation:</strong> Sunsama is the premium option for structured daily planning. It won&#39;t gamify your work, but it will help you plan it deliberately.</p>
 <p><strong>If focus sessions are your main gap:</strong> Forest handles that single job better than most. Dovilo handles it within a broader system.</p>
 <hr>
 <h2 id="a-closer-look-at-dovilo-for-developers">A Closer Look at Dovilo for Developers</h2>
 <p>The MCP angle is worth a closer look because it&#39;s genuinely new territory for productivity apps.</p>
-<p>When you connect Claude Code, Cursor, or another supported agent to Dovilo&#39;s desktop MCP server, the agent can see your task list within the scope you&#39;ve defined, pick up a task, execute it, and mark it complete. A project brief limits what the agent can access, so your personal tasks stay separate from what you&#39;ve explicitly permitted it to see.</p>
+<p>When you connect Claude Code, Cursor or another MCP client to Dovilo Desktop&#39;s local MCP server, the agent sees the AI tasks of the one project it is scoped to and nothing else. It picks up a task, works it step by step, and updates status and notes as it goes. My Tasks is not on the tool surface, so there is nothing to filter and no setting to get wrong.</p>
 <p>The mobile telemetry view lets you watch this happen from your phone in real time — agent notes, token usage, and cost per task. If you&#39;re running long coding sessions and want to delegate specific subtasks to an agent while you handle others yourself, it&#39;s a workflow worth exploring.</p>
 <p>Auto-generated JSON config snippets handle the MCP client setup, which cuts down the friction of getting started. The feature is Pro and desktop-only, but at $1.67 per month on the yearly plan — or $49.99 for lifetime access — the barrier to try it is low.</p>
 <hr>
@@ -382,11 +382,11 @@ For users who respond to social accountability and RPG progression, Habitica&#39
 <p><strong>Can I use a Todoist alternative offline?</strong>
 Dovilo stores data locally by default and works without a network connection. Cloud sync is available on Pro. Most other apps on this list require a connection for sync, though some cache data locally.</p>
 <p><strong>Which Todoist alternative is best for ADHD?</strong>
-Amazing Marvin is specifically designed with ADHD users in mind, offering deep customization of task views and workflows. Dovilo&#39;s visual reward system and focus timer can also help with motivation and follow-through, which are common challenges for ADHD users. The right choice depends on whether you need customization depth or external motivation mechanics.</p>
+Amazing Marvin is specifically designed with ADHD users in mind, offering deep customization of task views and workflows. Dovilo takes a different angle — a focus timer plus a reward you can see — but it is not designed or tested for ADHD, so treat that as a preference rather than a claim. The right choice depends on whether you need customization depth or a visible reward loop.</p>
 <hr>
 <h2 id="the-bottom-line">The Bottom Line</h2>
 <p>Todoist does a lot of things well, but &quot;well&quot; isn&#39;t always enough if you&#39;re not opening the app. The best alternative depends on what&#39;s actually causing the friction — lack of motivation, missing focus support, or a workflow that doesn&#39;t connect to how you work today.</p>
-<p>If you want a to-do list that gives you something to build toward, connects to your AI coding agents, and doesn&#39;t cost much to try, <a href="https://dovilo.app/">Dovilo</a> is worth downloading. The free tier is a solid starting point, and the Pro features — especially the MCP integration for developers — are priced low enough to test properly. It also offers a one-week free trial period.</p>
+<p>If you want a to-do list that gives you something to build toward, connects to your AI coding agents, and doesn&#39;t cost much to try, get it on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_todoist_alt&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_todoist_alt" target="_blank" rel="noopener">Google Play</a>. The free tier is a solid starting point, and the Pro features — especially the MCP integration for developers — are priced low enough to test properly. It also offers a one-week free trial period.</p>
 
       </div>
     </article>
