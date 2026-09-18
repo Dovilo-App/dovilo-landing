@@ -23,7 +23,7 @@
   "description": "What changed in Dovilo, per platform — mobile releases and the current desktop build — plus what is on the roadmap.",
   "url": "https://dovilo.app/changelog/",
   "inLanguage": "en",
-  "dateModified": "2026-09-17",
+  "dateModified": "2026-09-18",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -147,7 +147,7 @@
       "name": "Where else does Dovilo publish changes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The webhooks reference at https://dovilo.app/docs/webhooks carries its own changelog for the payload contract, so an integration that depends on the schema has one place to watch. The MCP tool surface at https://dovilo.app/ai is versioned with the desktop app. Every desktop build is also tagged in the public releases repository at https://github.com/slhddn/dovilo-desktop-releases/releases."
+        "text": "The webhooks reference at https://dovilo.app/docs/webhooks carries its own changelog for the payload contract, so an integration that depends on the schema has one place to watch. The MCP tool surface at https://dovilo.app/ai is versioned with the desktop app. Every desktop build is also tagged in the public releases repository at https://github.com/Dovilo-App/dovilo-desktop-releases/releases."
       }
     }
   ]
@@ -248,7 +248,7 @@
     </p>
     <p class="lede">
       Each platform is tracked on its own below. The desktop entry is read live from the
-      <a href="https://github.com/slhddn/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>
+      <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>
       when you open this page, so it is never a version behind.
     </p>
     </header>
@@ -314,7 +314,7 @@
     </div>
     <p class="rel-foot">
       Every desktop build before this one is tagged in the
-      <a href="https://github.com/slhddn/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.
+      <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.
     </p>
 
     <h2>On the roadmap</h2>
@@ -454,7 +454,7 @@
       const fmt = new Intl.DateTimeFormat('en-GB', { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' });
       const esc = t => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-      fetch('https://api.github.com/repos/slhddn/dovilo-desktop-releases/releases?per_page=10')
+      fetch('https://api.github.com/repos/Dovilo-App/dovilo-desktop-releases/releases?per_page=10')
         .then(r => r.ok ? r.json() : Promise.reject(r.status))
         .then(list => {
           const latest = (Array.isArray(list) ? list : []).filter(r => !r.draft && !r.prerelease)[0];
