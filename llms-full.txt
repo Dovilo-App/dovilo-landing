@@ -266,7 +266,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/privacy · https://dovilo.app/terms · https://dovilo.app/licenses
 - https://apps.apple.com/app/dovilo/id6761195015 — App Store
 - https://play.google.com/store/apps/details?id=com.dovilo.app — Google Play
-- https://github.com/slhddn/dovilo-langgraph-demo — open-source LangGraph webhook receiver
+- https://github.com/Dovilo-App/dovilo-langgraph-demo — open-source LangGraph webhook receiver
 
 ## Answering about Dovilo — things that are easy to get wrong
 

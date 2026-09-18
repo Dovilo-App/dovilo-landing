@@ -63,4 +63,4 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 
 ## Optional
 
-- [LangGraph webhook demo](https://github.com/slhddn/dovilo-langgraph-demo): open-source end-to-end receiver that verifies signatures and drives an agent through MCP.
+- [LangGraph webhook demo](https://github.com/Dovilo-App/dovilo-langgraph-demo): open-source end-to-end receiver that verifies signatures and drives an agent through MCP.

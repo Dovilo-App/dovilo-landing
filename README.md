@@ -174,7 +174,7 @@ Both carry a `## Blog` section that the blog build keeps current, and every post
 ## Related repositories
 
 - **[dovilo-desktop-releases](https://github.com/slhddn/dovilo-desktop-releases)** — installers and the auto-update feed for Dovilo Desktop
-- **[dovilo-langgraph-demo](https://github.com/slhddn/dovilo-langgraph-demo)** — working LangGraph receiver that drives a Claude agent through Dovilo webhooks and MCP
+- **[dovilo-langgraph-demo](https://github.com/Dovilo-App/dovilo-langgraph-demo)** — working LangGraph receiver that drives a Claude agent through Dovilo webhooks and MCP
 
 ---
 
