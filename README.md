@@ -106,7 +106,7 @@ Setting up the webhook, once: **Sanity Manage → API → Webhooks → Create**
 
 | Field | Value |
 | --- | --- |
-| URL | `https://api.github.com/repos/slhddn/dovilo-landing/dispatches` |
+| URL | `https://api.github.com/repos/Dovilo-App/dovilo-landing/dispatches` |
 | Trigger on | Create, Update, Delete |
 | Filter | `_type == "post"` |
 | HTTP method | `POST` |
