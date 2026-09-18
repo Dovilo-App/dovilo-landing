@@ -142,6 +142,24 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
 - **No third-party origin in the critical path.** Inter is self-hosted from `/fonts/` as two
   variable woff2 files declared with `@font-face`, `font-display:swap` and `unicode-range`, with
   `/fonts/inter-latin.woff2` preloaded. Never add a Google Fonts link back. (`bdb41bd`)
+- **The stylesheets are render-blocking by design. Leave them that way.** A Lighthouse or SEO audit
+  will flag `base.css` — and `home.css` on the homepage — under "eliminate render-blocking
+  resources". That audit fires on any blocking stylesheet, it is not a defect here, and both of the
+  usual remedies are regressions on this site. This call was already made once, in `39565c3` —
+  do not spend a third afternoon on it:
+  - **Never async-load `base.css`** through the `rel="preload" … onload="this.rel='stylesheet'"`
+    pattern. `base.css` opens with `@font-face`, the reset, `:root` and the `body`/heading rules —
+    it *is* the critical CSS. Deferring it paints the page unstyled and then reflows it, trading a
+    render delay for a flash of unstyled content and a CLS spike.
+  - **Never inline the design system as "critical CSS".** Seventeen pages share one cached copy of
+    `base.css`. Inlining it re-sends that CSS with every page view, duplicates the single source of
+    truth §1 exists to protect, and needs a build step this repo does not have outside `/blog`.
+  The measurements behind that decision, so nobody re-derives them: both files are same-origin,
+  carry no `@import`, and sit at byte ~1075 of the document, so the preload scanner fetches them in
+  parallel over the connection that just delivered the HTML. On the wire they are 7.7 KB and 8.7 KB
+  gzipped against a 17.6 KB document. Compression is already at its floor and is not ours to tune:
+  Pages sits behind Cloudflare, which answers an `Accept-Encoding: br` request with a low-quality
+  7.9 KB body — larger than the gzip it would replace.
 - The one permitted third-party runtime dependency is highlight.js on `/docs/webhooks`, loaded at
   the end of `<body>` with a `preconnect` in `<head>`. Its atom-one-dark theme is **inlined at the
   top of that page's `<style>`**, above the page's own overrides, with its BSD-3-Clause attribution.
