@@ -37,7 +37,7 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 - [AI / developer page](https://dovilo.app/ai): the agent layer on its own — what connecting takes per client, setup in three steps, the nine tools, scope and trust boundaries, webhooks summary, how to try it.
 - [FAQ](https://dovilo.app/faq): how tasks, focus sessions, ambience, the city, Pro and the MCP integration work.
 - [Webhooks reference](https://dovilo.app/docs/webhooks): event payload schema, signature verification examples, retry and idempotency rules, plus a copy-paste prompt for building a receiver with an AI agent.
-- [Downloads](https://dovilo.app/downloads): every build in one place — App Store and Google Play for mobile, Windows and macOS installers for the desktop app.
+- [Downloads](https://dovilo.app/downloads/): every build in one place — the free iOS and Android apps on the App Store and Google Play, plus the Windows and macOS desktop installers, which need Pro.
 - [Release notes](https://dovilo.app/changelog/): every mobile release with its date (1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and the current desktop build, read live from the public releases repo, plus how updates reach each platform and what is on the roadmap.
 - [Privacy policy](https://dovilo.app/privacy) · [Terms](https://dovilo.app/terms) · [Open-source licenses](https://dovilo.app/licenses)
 

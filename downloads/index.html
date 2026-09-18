@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Download for iOS, Android, Windows & Mac - Dovilo</title>
-  <meta name="description" content="Download Dovilo for free on iOS and Android. Pro subscribers can also get the desktop app for Windows and Mac. Gamified productivity at its best.">
+  <title>Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo</title>
+  <meta name="description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dovilo.app/downloads/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
@@ -16,8 +16,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Download for iOS, Android, Windows & Mac - Dovilo",
-  "description": "Download Dovilo for iOS, Android, Windows and Mac.",
+  "name": "Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo",
+  "description": "Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.",
   "url": "https://dovilo.app/downloads/",
   "inLanguage": "en",
   "publisher": {
@@ -54,8 +54,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/downloads/">
-  <meta property="og:title" content="Download for iOS, Android, Windows & Mac - Dovilo">
-  <meta property="og:description" content="Get Dovilo on your device. Free on iOS & Android. Desktop app for Pro subscribers.">
+  <meta property="og:title" content="Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo">
+  <meta property="og:description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
   <meta property="og:image" content="https://dovilo.app/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -63,8 +63,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@doviloapp">
-  <meta name="twitter:title" content="Download for iOS, Android, Windows & Mac - Dovilo">
-  <meta name="twitter:description" content="Get Dovilo on your device. Free on iOS & Android. Desktop app for Pro subscribers.">
+  <meta name="twitter:title" content="Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo">
+  <meta name="twitter:description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
   <meta name="twitter:image" content="https://dovilo.app/og-card.jpg">
 
   <meta name="theme-color" content="#161B1D">
@@ -95,10 +95,35 @@
 
     /* This page centres its title block. */
     .section-label,.section-title{text-align:center;margin-bottom:var(--s-4)}
+    /* Held to a readable measure: centred prose this wide is hard to track
+       once the line runs the full --max. The badge row directly below it is
+       part of the same intro block, hence the short margin. */
     .section-sub{
       font-size:var(--t-2);color:var(--ink-2);
-      text-align:center;margin-bottom:var(--s-7);
+      text-align:center;margin:0 auto var(--s-5);max-width:62ch;
     }
+
+    /* PLATFORM BADGES — the four platforms restated as chips directly under
+       the intro, so the first screenful says "free, every platform" before a
+       reader (or an answer engine quoting the top of the page) reaches the
+       cards. .badge comes from base.css; only the row and the brand glyphs
+       are page-specific. */
+    .platform-badges{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s-3);
+      list-style:none;padding:0;margin:0 0 var(--s-6);
+    }
+    /* base.css draws .badge icons as outline strokes; these are solid brand
+       glyphs, so this page re-fills them. Page CSS loads last, so it wins. */
+    .platform-badges .badge svg{
+      width:15px;height:15px;flex-shrink:0;
+      fill:currentColor;stroke:none;
+    }
+    /* Desktop is Pro, so those two chips stay neutral and carry the pill
+       instead of borrowing the accent the free platforms use. */
+    .platform-badges .badge.is-pro{
+      color:var(--ink-2);background:var(--card);border-color:var(--line-strong);
+    }
+    .platform-badges .pro-pill{margin-left:2px}
 
     /* PLATFORM GROUP */
     .platform-group{margin-bottom:var(--s-7)}
@@ -213,13 +238,32 @@
   <main id="main">
     <p class="section-label">Apps</p>
     <h1 class="section-title">Download Dovilo</h1>
-    <p class="section-sub">Choose your platform and start building your productivity city.</p>
+    <p class="section-sub">Dovilo is a gamified to-do list app: finishing a task earns bricks, and bricks build your city. Free on iPhone, iPad and Android, with Windows and Mac desktop apps for Pro subscribers.</p>
+
+    <ul class="platform-badges" role="list" aria-label="Available platforms">
+      <li class="badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        iOS &middot; Free
+      </li>
+      <li class="badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+        Android &middot; Free
+      </li>
+      <li class="badge is-pro">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+        Windows <span class="pro-pill">Pro</span>
+      </li>
+      <li class="badge is-pro">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        macOS <span class="pro-pill">Pro</span>
+      </li>
+    </ul>
 
     <div class="detected-badge" id="detected-badge"></div>
 
     <!-- MOBILE -->
     <div class="platform-group" id="group-mobile">
-      <div class="platform-group-title">Mobile &mdash; Free to start</div>
+      <div class="platform-group-title">Mobile: Free to start</div>
       <div class="platform-cards">
         <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=downloads_page&mt=8" class="platform-card" id="card-ios" aria-label="Download on the App Store">
           <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
