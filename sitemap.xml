@@ -69,9 +69,16 @@
   <!-- BLOG:START -->
   <url>
     <loc>https://dovilo.app/blog/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/blog/developer-productivity-tools-that-cut-context-switch-costs/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
