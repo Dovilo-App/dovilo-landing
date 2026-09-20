@@ -25,7 +25,7 @@ The four are **Tasks**, **Focus** (with its Ambience scenes), the **City**, and 
 ## Pricing
 
 - **Free** — full to-do management, unlimited focus sessions (single and Pomodoro), the silent Default ambience scene, basic city, dark and light themes, no ads.
-- **Pro** — $2.49/month, $19.99/year (best value), or $49.99 lifetime. Adds cloud sync, the desktop app with its MCP server and webhooks, all buildings and decorations, advanced statistics, custom themes and priority support.
+- **Pro** — $2.49/month, $19.99/year (best value), or $49.99 lifetime. Adds cloud sync, the desktop app — Windows and Mac, carrying full to-do management alongside the AI task management it serves over its MCP server and webhooks — both one-time packs (Focus Ambience Pack and Full City Package), advanced statistics and priority support. Unlimited tasks and categories and no ads are free-tier features; there are no custom themes.
 - **One-time packs** (not subscriptions, both included with Pro) — Focus Ambience Pack $4.99 (5 scenes, 12 sound layers), Full City Package $4.99 (every building, decoration and upgrade).
 - **AI task packs** — from $0.99 (+10, +30 or +75 agent tasks; they never expire).
 
@@ -61,7 +61,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 
 - [App Store](https://apps.apple.com/app/dovilo/id6761195015) — iPhone and iPad.
 - [Google Play](https://play.google.com/store/apps/details?id=com.dovilo.app) — Android.
-- Desktop for Windows and macOS, included with Pro.
+- Desktop for Windows and macOS, included with Pro. It is not only an agent console: it carries two task surfaces on a full-size screen — full to-do management for your own list, and AI task management for your agents. Focus sessions and the city are mobile only.
 
 ## Optional
 

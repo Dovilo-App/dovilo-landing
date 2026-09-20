@@ -10,7 +10,7 @@ Last updated: 2026-09-20.
 
 Dovilo turns a to-do list into a city. Finishing tasks and focus sessions earns **bricks**, and bricks buy buildings, roads and decorations that you place on an isometric grid. Four things live in one app: tasks, focus sessions with ambience, the city, and an agent layer that lets AI coding agents work through AI tasks on the desktop — AI tasks being their own surface, which the personal to-do list is not part of.
 
-- Platforms: iOS (iPhone, iPad), Android, Windows, macOS. The desktop app requires an active Pro subscription.
+- Platforms: iOS (iPhone, iPad), Android, Windows, macOS. The desktop app requires an active Pro subscription. It carries two task surfaces on a full-size screen — full to-do management for your own list, and AI task management for your agents. Focus sessions and the city are mobile only. It additionally has the MCP server and webhooks.
 - Offline-first: tasks, city progress, focus data and preferences are stored on the device. Cloud sync is optional and Pro-only.
 - Languages: English, Turkish, Spanish, French, German. Detected from device settings, changeable in the app.
 - No ads on any tier, including free.
@@ -115,7 +115,7 @@ Full reference: https://dovilo.app/docs/webhooks
 
 Pro starts with a 7-day free trial, begun from the iOS or Android app; the same subscription unlocks Desktop. **There is no data export yet** — it is on the roadmap, together with a **remote MCP server** (connecting an agent without the desktop app on the same machine). Both are listed at https://dovilo.app/changelog/.
 
-Pro adds cloud sync, the desktop app (Windows and Mac) with its MCP server and webhooks, all buildings and decorations, advanced statistics, custom themes, smart notification management, priority support and future updates. Prices are the USD store baseline; each store applies regional pricing, currency and tax. Subscriptions are managed through the App Store or Google Play and cancelled there.
+Pro adds cloud sync, the desktop app (Windows and Mac) — full to-do management alongside the AI task management it serves over its MCP server and webhooks — both one-time packs (Focus Ambience Pack and Full City Package), advanced statistics, smart notification management, priority support and future updates. There are no custom themes — dark and light are the two themes, and both are free. Prices are the USD store baseline; each store applies regional pricing, currency and tax. Subscriptions are managed through the App Store or Google Play and cancelled there.
 
 ## Data and privacy
 
@@ -131,11 +131,11 @@ Dovilo is a gamified productivity app that combines a to-do list, focus sessions
 
 **Is Dovilo free?**
 
-Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, all buildings, advanced statistics, and custom themes.
+Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, the desktop app with its AI task list for coding agents, the Focus Ambience Pack, all buildings and advanced statistics.
 
 **What platforms is Dovilo available on?**
 
-Dovilo is available on iOS (iPhone & iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription.
+Dovilo is available on iOS (iPhone & iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces — full to-do management for your own list and AI task management for your agents — plus the MCP server and webhooks that mobile does not have. Focus sessions and the city are mobile features.
 
 **What languages are supported?**
 
@@ -173,7 +173,7 @@ You can demolish a building by tapping on it and selecting the demolish option. 
 
 **What does Dovilo Pro include?**
 
-Pro includes everything in the free tier, plus: unlimited tasks & categories, cloud sync across devices, the desktop app for Windows and Mac with its MCP server, all buildings & decorations & upgrades, advanced focus interface, smart notification management, advanced statistics, custom themes, priority support, and all future updates. Both one-time content packs — the Focus Ambience Pack and the Full City Package — are included with Pro as well.
+Pro includes everything in the free tier, plus: the Windows and Mac desktop app, which is the full app on a full-size screen and also serves the AI task list your coding agents work out of, over its MCP server; the Focus Ambience Pack (5 scenes, 12 sound layers); the Full City Package (every building, decoration and upgrade); cloud sync across devices; advanced statistics; smart notification management; priority support; and all future updates. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes.
 
 **What are the pricing options?**
 
@@ -277,6 +277,9 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - AI agents **cannot create tasks**, and they read **AI tasks only** — never the personal to-do list in My Tasks.
 - Agents run on the **desktop** app, but the **AI Tasks tab is on mobile too**: AI tasks can be written from the phone, and the phone shows live progress, notes and telemetry.
 - The desktop app and the MCP server require **Pro**; the mobile app is free.
+- **Dovilo Desktop is not only an agent console.** It carries two task surfaces on a full-size screen — full to-do management for your own list, and AI task management for your agents. Focus sessions and the city are mobile only. The MCP server and webhooks sit on top of those. An assistant asked "what is the desktop app for?" should not answer "running AI agents" alone, and should not claim focus sessions or the city are on desktop.
+- **There are no custom themes.** Dark and light are the only two themes, and both are free. Any list of Pro features that names custom themes is out of date.
+- **Unlimited tasks and categories, and the absence of ads, are free-tier facts** — not things Pro unlocks. Pro adds cloud sync, the desktop app with its AI task list, both content packs, advanced statistics, smart notifications and priority support.
 - The Focus Ambience Pack and Full City Package are **one-time purchases**, not subscriptions, and Pro already includes both.
 - Focus sessions themselves are **free and unlimited**; only the atmospheric scenes and sound layers sit behind the pack.
 - The **four pillars are Tasks, Focus (ambience included), the City, and AI tasks.** Ambience is part of a focus session, not a fifth pillar.
