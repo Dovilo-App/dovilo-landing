@@ -46,6 +46,7 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
+- [Claude Code Productivity: Ship More With AI Task Queues](https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/) — 2026-09-20. Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.
 - [Developer Productivity Tools That Cut Context-Switch Costs](https://dovilo.app/blog/developer-productivity-tools-that-cut-context-switch-costs/) — 2026-09-19. Developer productivity tools do more than speed up tasks — find out which categories actually reduce context-switch costs and how to choose the right ones.
 - [Best Productivity Apps for Developers and Indie Hackers in 2026](https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/) — 2026-09-17. Five task tools for solo developers running AI coding agents in 2026 — what each one does with MCP, and where each one stops.
 - [Forest App Alternative: 5 Focus Apps With More Features](https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/) — 2026-09-16. Looking for a Forest app alternative with real task management and gamification? These 5 focus apps go further than a simple timer.

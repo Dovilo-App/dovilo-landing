@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Productivity: Ship More With AI Task Queues - Dovilo</title>
+  <meta name="description" content="Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/">
+  <link rel="alternate" type="application/rss+xml" title="Dovilo blog" href="https://dovilo.app/blog/feed.xml">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/base.css">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/">
+  <meta property="og:title" content="Claude Code Productivity: Ship More With AI Task Queues - Dovilo">
+  <meta property="og:description" content="Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.">
+  <meta property="og:image" content="https://dovilo.app/blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-1200x630.jpg">
+  <meta property="og:image:alt" content="A developer&#39;s monitor showing a structured task queue feeding into an AI coding agent terminal session">
+  <meta property="og:site_name" content="Dovilo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="Claude Code Productivity: Ship More With AI Task Queues - Dovilo">
+  <meta name="twitter:description" content="Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.">
+  <meta name="twitter:image" content="https://dovilo.app/blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-1200x630.jpg">
+  <meta name="theme-color" content="#161B1D">
+  <meta property="article:published_time" content="2026-09-20T07:35:14.361Z">
+  <meta property="article:modified_time" content="2026-09-20T07:35:14Z">
+  <meta property="article:author" content="Selahaddin Akgün">
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    .page{padding-block:var(--s-7) var(--s-8)}
+    .lede{margin-top:var(--s-3)}
+
+    /* ── index ── */
+    .post-list{margin-top:var(--s-7);display:flex;flex-direction:column;gap:14px}
+    .card h2{font-size:var(--t-3);line-height:1.4;margin:var(--s-2) 0}
+    .card p{font-size:var(--t-1);color:var(--ink-2)}
+    .card .tags{margin-top:var(--s-3)}
+    .empty{
+      border:1px solid var(--line);border-radius:var(--radius-lg);
+      padding:28px var(--s-5);margin-top:var(--s-7);
+      font-size:var(--t-1);color:var(--ink-2);
+    }
+
+    /* ── article ── */
+    .post-head{margin-bottom:var(--s-6)}
+    .post-head .tags{margin-bottom:14px}
+    .post-head h1{margin-bottom:14px}
+    .tags{display:flex;gap:var(--s-2);flex-wrap:wrap}
+    .cover{margin:0 0 var(--s-6)}
+    .cover img{
+      width:100%;height:auto;display:block;
+      border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--card);
+    }
+    figcaption{font-size:var(--t--1);color:var(--ink-3);margin-top:10px;text-align:center}
+
+    /* Table of contents. A boxed card, not the sticky rail /docs/webhooks uses,
+       so it stays local. The site header is .site-nav, so this <nav> inherits
+       nothing from it. */
+    .toc{
+      border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:20px var(--s-5);font-size:var(--t-1);
+    }
+    .toc-title{
+      font-size:var(--t--3);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--ink-3);margin-bottom:10px;
+    }
+    .toc ul{margin-left:18px}
+    .toc li{margin-bottom:var(--s-1)}
+    .toc ul ul{margin-top:var(--s-1)}
+    .toc a{color:var(--accent);font-size:inherit;font-weight:400}
+
+    /* ── end of post ── */
+    .cta{
+      margin-top:56px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:var(--s-5);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .cta div{font-size:var(--t-1);color:var(--ink-2);max-width:46ch}
+    .cta strong{display:block;font-size:var(--t-2);margin-bottom:var(--s-1)}
+    .cta a{
+      background:var(--accent);color:var(--on-accent);text-decoration:none;
+      font-weight:600;font-size:var(--t-0);
+      padding:10px 20px;border-radius:var(--radius-pill);white-space:nowrap;
+    }
+    .cta a:hover{background:var(--muted);color:var(--on-accent)}
+    /* The prev/next row. A <nav>, but the site header is .site-nav, so there is
+       nothing here to undo. */
+    .more{
+      display:flex;
+      margin-top:var(--s-7);padding:var(--s-5) 0 0;
+      border-top:1px solid var(--line);
+      gap:var(--s-5);align-items:flex-start;justify-content:space-between;flex-wrap:wrap;font-size:var(--t-0);
+    }
+    .more a{color:var(--accent);text-decoration:none}
+    .more a:hover{text-decoration:underline}
+    .more span{display:block;font-size:var(--t--2);color:var(--ink-3);margin-bottom:2px}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Claude Code Productivity: Ship More With AI Task Queues",
+  "name": "Claude Code Productivity: Ship More With AI Task Queues",
+  "description": "Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.",
+  "url": "https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/"
+  },
+  "datePublished": "2026-09-20T07:35:14.361Z",
+  "dateModified": "2026-09-20T07:35:14Z",
+  "inLanguage": "en",
+  "wordCount": 1962,
+  "image": [
+    "https://dovilo.app/blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-1200x630.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Selahaddin Akgün",
+    "url": "https://sakgun.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dovilo.app/notify-icon.png"
+    }
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://dovilo.app/blog/#blog",
+    "name": "Dovilo blog",
+    "url": "https://dovilo.app/blog/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dovilo",
+      "item": "https://dovilo.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://dovilo.app/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Code Productivity: Ship More With AI Task Queues",
+      "item": "https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo</a>
+    <ul id="nav-menu">
+      <li><a href="/#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
+      <li><a href="/ai" class="nav-ai" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
+      <li><a href="/blog/" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_nav&mt=8" class="nav-store-link" aria-label="App Store" title="App Store">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=nav" class="nav-store-link" aria-label="Google Play" title="Google Play">
+        <svg viewBox="0 0 24 24"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+      </a>
+      <button class="nav-store-link theme-toggle" onclick="toggleTheme()" aria-label="Switch theme" title="Switch theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+  <main id="main">
+    <div class="page wrap-prose">
+
+    <article>
+      <header class="post-head">
+        <h1>Claude Code Productivity: Ship More With AI Task Queues</h1>
+        <div class="meta">
+          <time datetime="2026-09-20T07:35:14.361Z">20 September 2026</time>
+          <span class="sep">·</span><span>9 min read</span>
+          <span class="sep">·</span><span>Selahaddin Akgün</span>
+        </div>
+      </header>
+      <figure class="cover"><img src="/blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-760.webp" srcset="/blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-760.webp 760w, /blog/media/a003e50f7242b49e3c9375b73f83747ea37c059c-1520.webp 1520w" sizes="(max-width:800px) 100vw, 760px" width="760" height="507" alt="A developer&#39;s monitor showing a structured task queue feeding into an AI coding agent terminal session" loading="lazy" decoding="async"></figure>
+      <div class="prose">
+<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#why-claude-code-is-changing-how-solo-developers-work">Why Claude Code is changing how solo developers work</a></li>
+<li><a href="#the-real-productivity-leak-context-switching-between-lists-and-agents">The real productivity leak: context-switching between lists and agents</a></li>
+<li><a href="#how-an-ai-task-queue-actually-works">How an AI task queue actually works</a></li>
+<li><a href="#mcp-the-protocol-that-makes-task-queues-work-with-claude-code">MCP: the protocol that makes task queues work with Claude Code</a></li>
+<li><a href="#structuring-a-task-queue-for-longer-claude-code-sessions">Structuring a task queue for longer Claude Code sessions</a><ul>
+<li><a href="#write-tasks-as-briefs-not-one-liners">Write tasks as briefs, not one-liners</a></li>
+<li><a href="#sequence-tasks-by-dependency-not-priority">Sequence tasks by dependency, not priority</a></li>
+<li><a href="#batch-similar-work-into-a-single-session">Batch similar work into a single session</a></li>
+<li><a href="#use-the-queue-as-a-session-boundary">Use the queue as a session boundary</a></li>
+</ul>
+</li>
+<li><a href="#staying-in-the-loop-without-interrupting-the-agent">Staying in the loop without interrupting the agent</a></li>
+<li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
+<li><a href="#putting-it-together">Putting it together</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p>If you&#39;re already using Claude Code to write and ship software, you&#39;ve probably noticed that the bottleneck is rarely the code itself. It&#39;s the gap between what you want the agent to do next and what it actually has in front of it. Claude Code productivity comes down to one thing: how cleanly you can hand off a queue of work to the agent and stay out of its way while it executes.</p>
+<p>This article covers how AI task queues work, why context-switching between your to-do list and your coding agent is the real productivity leak, and how to structure your workflow so Claude Code can run longer sessions with less interruption from you.</p>
+<hr>
+<h2 id="why-claude-code-is-changing-how-solo-developers-work">Why Claude Code is changing how solo developers work</h2>
+<p>Claude Code&#39;s adoption has been fast. According to AINEXT, a report attributed to SemiAnalysis found that Claude Code was responsible for 4% of all GitHub commits worldwide after one year of availability — and that figure could reach 20% of GitHub commits by the end of 2026.</p>
+<p>Those numbers signal a shift in how code actually gets written, not just assisted. Developers aren&#39;t using Claude Code to autocomplete a line here and there. They&#39;re handing it entire tasks and walking away.</p>
+<p>A 2026 study by Shuai Guan, drawing on 400,000 Claude Code sessions across 235,000 people, put numbers to this behavior. Reporting on that research, news.creeta.com noted that roughly 70% of planning decisions were attributed to users and roughly 80% of execution decisions to Claude during interactive sessions. The dataset covered 398,198 interactive sessions sampled from October 2025 to April 2026.</p>
+<p>That split is the key insight. You plan. Claude executes. The workflow breaks down when those two activities are tangled together in the same moment.</p>
+<hr>
+<h2 id="the-real-productivity-leak-context-switching-between-lists-and-agents">The real productivity leak: context-switching between lists and agents</h2>
+<p>Most developers running Claude Code still manage their task list somewhere separate — a markdown file, a Notion page, a mental queue. When the agent finishes a task, you stop what you&#39;re doing, check your list, copy the next task into the terminal, and restart. That handoff takes thirty seconds. Over a full day of active development, it adds up to something much larger: broken flow.</p>
+<p>The deeper problem is that your to-do app was never designed to talk to an agent. It holds your tasks, but it can&#39;t surface them to Claude Code. So you become the bridge, manually carrying context from one tool to the other every time the agent needs direction.</p>
+<p>That&#39;s the problem an AI task queue solves. Instead of copying tasks into a terminal prompt, you write them once into a structured queue the agent can read directly. It picks up the next task, works through it, marks it done, and moves on. You come back when the session is finished.</p>
+<hr>
+<h2 id="how-an-ai-task-queue-actually-works">How an AI task queue actually works</h2>
+<p>An AI task queue is a structured list of work items that a coding agent can read and update without you acting as the middleman. The practical requirements are straightforward:</p>
+<ul>
+<li>Tasks must be machine-readable, not just human-readable</li>
+<li>The agent needs read access to know what to do next</li>
+<li>The agent needs write access to mark tasks complete or flag blockers</li>
+<li>The queue must be isolated from your personal to-do list so the agent can&#39;t accidentally touch unrelated work</li>
+</ul>
+<p>That last point matters more than it sounds. If your agent can see your personal tasks, &quot;buy groceries&quot; and &quot;fix the auth bug&quot; live in the same namespace. Isolation isn&#39;t a nice-to-have — it&#39;s a basic requirement for safe autonomous operation.</p>
+<p>The cleanest implementations use a protocol that lets the agent query the queue directly rather than parsing a text file. That&#39;s exactly what the Model Context Protocol (MCP) was designed for.</p>
+<hr>
+<h2 id="mcp-the-protocol-that-makes-task-queues-work-with-claude-code">MCP: the protocol that makes task queues work with Claude Code</h2>
+<p>MCP is an open standard that lets AI coding agents connect to external tools through a defined set of read and write operations. When a task manager runs a local MCP server, Claude Code can query it like any other tool in its environment: ask for the next task, read its brief, update its status, and move on.</p>
+<p>Dovilo runs a local MCP server on Desktop (Windows and macOS, Pro tier) that exposes nine tools to connected agents — three read operations and six write operations. The agent can read and update tasks, but it cannot create or delete them. That boundary keeps you in control of what goes into the queue while the agent handles execution.</p>
+<p>The AI task queue in Dovilo is fully isolated from your personal to-do list. Your personal tasks are invisible to the agent. It only sees the projects you&#39;ve explicitly assigned to it, each with a brief that scopes what it&#39;s working on. Six clients are supported out of the box: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI. Any MCP-compatible client connects via JSON configuration — plain MCP, no lock-in to a specific agent.</p>
+<p>The server runs locally inside the Desktop app over stdio. No task data is routed through a Dovilo endpoint. Only the agent&#39;s own model calls leave your machine.</p>
+<hr>
+<h2 id="structuring-a-task-queue-for-longer-claude-code-sessions">Structuring a task queue for longer Claude Code sessions</h2>
+<p>The goal of a well-structured queue is to let Claude Code run for as long as possible without needing you to step in. Here&#39;s a practical approach:</p>
+<h3 id="write-tasks-as-briefs-not-one-liners">Write tasks as briefs, not one-liners</h3>
+<p>A task that says &quot;fix login&quot; gives the agent almost nothing to work with. A task that says &quot;the login form submits without validating the email field; add client-side validation before the POST request fires, and return a visible error message if the format is invalid&quot; gives it a complete scope. The more context you put into the brief upfront, the less the agent needs to ask mid-session.</p>
+<h3 id="sequence-tasks-by-dependency-not-priority">Sequence tasks by dependency, not priority</h3>
+<p>Agents work through a queue in order — they don&#39;t multitask. If task three depends on the output of task two, they need to be adjacent and in the right sequence. Sorting by priority often scatters dependencies across the list. Sorting by dependency keeps sessions coherent.</p>
+<h3 id="batch-similar-work-into-a-single-session">Batch similar work into a single session</h3>
+<p>Context switching is expensive for agents too. If you have five UI tweaks and two API changes, run the UI tweaks in one session and the API changes in another. Mixing them forces the agent to reload different parts of the codebase repeatedly.</p>
+<h3 id="use-the-queue-as-a-session-boundary">Use the queue as a session boundary</h3>
+<p>When you start a Claude Code session, the queue defines the scope. When the session ends, the queue reflects what was done. Over time, that record tells you how long certain types of tasks actually take — which is more useful than any estimate you could make upfront.</p>
+<hr>
+<h2 id="staying-in-the-loop-without-interrupting-the-agent">Staying in the loop without interrupting the agent</h2>
+<p>One of the harder parts of agentic development is knowing when to check in without breaking the session. A few patterns help:</p>
+<p><strong>Webhooks on task updates.</strong> When the agent marks a task complete or flags a blocker, a notification can fire to wherever you&#39;re already working. Dovilo&#39;s signed webhooks push those updates into Slack, Linear, n8n, or a custom endpoint when agent tasks change. You see progress without polling the queue manually. See the webhook docs for the payload format and signature verification.</p>
+<p><strong>Flagging blockers explicitly.</strong> Build a convention into your task briefs: if the agent can&#39;t proceed, it flags the task with a specific status rather than stopping silently. You check the queue once, see what&#39;s blocked, and unblock it in a single pass.</p>
+<p><strong>Reviewing completed tasks in batches.</strong> Instead of reviewing each task as it finishes, let the agent run through a full batch and review the results together. This keeps you in planning mode rather than review mode — which matches the 70/30 split the research describes.</p>
+<hr>
+<h2 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h2>
+<p>Two things worth knowing before you build a workflow around this:</p>
+<p>There&#39;s no data export for the AI task queue yet. If you want to archive completed agent tasks or pipe them into another system, webhooks are currently the only way out.</p>
+<p>The MCP server is local only. The agent runs where Dovilo Desktop runs. There&#39;s no remote MCP endpoint, so you can&#39;t point a cloud-based agent at it from a different machine. Both of these are on the roadmap, but they&#39;re not available as of September 2026.</p>
+<hr>
+<h2 id="putting-it-together">Putting it together</h2>
+<p>Claude Code productivity isn&#39;t about prompting faster. It&#39;s about reducing the number of times you have to stop, reorient, and hand something off manually. A structured AI task queue removes the most common interruption in agentic development: the moment when the agent finishes one thing and has nothing to pick up next.</p>
+<p>Write better briefs. Sequence by dependency. Let the agent run. Check in through notifications rather than interruptions. That&#39;s the workflow.</p>
+<p>If you want to try this with Dovilo, the MCP server is part of the Pro Desktop tier at $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. There&#39;s a 7-day free trial with no charge if you cancel before it ends. Download the Desktop app and connect your first agent at <a href="https://dovilo.app/">dovilo.app</a>.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>What is an AI task queue in the context of Claude Code?</strong>
+An AI task queue is a structured list of work items that Claude Code can read and update directly, without you copying tasks manually into the terminal. The agent picks up the next task, executes it, marks it done, and continues. A local MCP server is the most reliable way to connect a task manager to Claude Code.</p>
+<p><strong>Does the agent see my personal to-do list?</strong>
+In Dovilo, no. The AI task queue is fully isolated from your personal tasks. The agent only sees projects you&#39;ve explicitly assigned to it, each scoped with a brief. Your personal My Tasks list is not on the tool surface.</p>
+<p><strong>What MCP clients work with Dovilo&#39;s local server?</strong>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI are all supported. Any MCP-compatible client can connect via JSON configuration — plain MCP, no lock-in to a specific agent.</p>
+<p><strong>Is the MCP server cloud-based?</strong>
+No. The server runs locally inside Dovilo Desktop over stdio. No task data passes through a Dovilo endpoint. Only the agent&#39;s own model calls leave your machine.</p>
+<p><strong>Which tier includes the MCP server?</strong>
+The MCP server is part of Dovilo Pro on Desktop (Windows and macOS). Pro is $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. A 7-day free trial is included with no charge if you cancel before it ends.</p>
+<p><strong>How do I know when the agent has finished a task?</strong>
+Dovilo&#39;s signed webhooks fire into Slack, Linear, n8n, or a custom endpoint when agent tasks are updated. You get a notification when a task is marked complete or flagged as blocked, without needing to check the queue manually.</p>
+<p><strong>Can I use Claude Code with other task managers that have MCP support?</strong>
+Yes. Todoist has an official MCP server at ai.todoist.net/mcp, and Linear supports agents on every tier including Free. The right tool depends on your workflow. Dovilo&#39;s specific combination is a local-first, agent-only task surface with an isolated queue and a gamified progress layer — a different design from a general project management tool.</p>
+
+      </div>
+    </article>
+
+    <div class="cta">
+      <div><strong>Dovilo turns finished work into a city you can see.</strong>
+        A to-do list, focus sessions with full-screen ambience, and an isometric city built from
+        what you complete. Free on iOS and Android.</div>
+      <a href="/downloads/">Get Dovilo</a>
+    </div>
+
+    <nav class="more" aria-label="More posts">
+      <a href="/blog/developer-productivity-tools-that-cut-context-switch-costs/"><span>Previous</span>Developer Productivity Tools That Cut Context-Switch Costs</a>
+      <a href="/blog/"><span>&nbsp;</span>All posts &rarr;</a>
+      <span></span>
+    </nav>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">&copy; 2026 Dovilo. All rights reserved.</div>
+    <ul class="footer-socials">
+      <li><a href="https://x.com/doviloapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://instagram.com/doviloapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/company/doviloapp" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/webhooks">Webhooks</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/downloads/">Downloads</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/licenses">Licenses</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    /* ─── THEME ─── */
+    const THEME_COLORS = { dark: '#161B1D', light: '#F7F8F8' };
+
+    function effectiveTheme() {
+      const forced = document.documentElement.getAttribute('data-theme');
+      if (forced === 'light' || forced === 'dark') return forced;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function paintThemeChrome() {
+      const theme = effectiveTheme();
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+      const btn = document.querySelector('.theme-toggle');
+      if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    function toggleTheme() {
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+      paintThemeChrome();
+    }
+
+    /* ─── MOBILE MENU ─── */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      const open = menu.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      if (burger) burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    paintThemeChrome();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
+  </script>
+</body>
+</html>
