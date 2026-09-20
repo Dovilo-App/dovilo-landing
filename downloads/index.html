@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo</title>
-  <meta name="description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
+  <meta name="description" content="Download Dovilo, the gamified to-do list app that builds a city from finished tasks. Free on iPhone, iPad and Android; Windows and Mac with Pro.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dovilo.app/downloads/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
@@ -17,9 +17,13 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo",
-  "description": "Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.",
+  "description": "Download Dovilo, the gamified to-do list app that builds a city from finished tasks. Free on iPhone, iPad and Android; Windows and Mac with Pro.",
   "url": "https://dovilo.app/downloads/",
   "inLanguage": "en",
+  "dateModified": "2026-09-20",
+  "about": {
+    "@id": "https://dovilo.app/#app"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -52,10 +56,59 @@
 }
   </script>
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which Dovilo downloads are free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The iPhone, iPad and Android apps are free and ad-free. The free tier covers full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, basic city building and both the dark and the light theme. The Windows and Mac desktop apps are the two downloads that need an active Pro subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I install Dovilo Desktop on Windows or Mac?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscribe to Pro in the iOS or Android app first: the desktop app needs an active subscription, and the same subscription unlocks it, so there is no separate desktop purchase. Then download Dovilo-Setup.exe or Dovilo.dmg from the desktop section of this page. Both come from Dovilo's public releases repository, and the app updates itself from there afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I try Pro before paying for it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pro starts with a 7-day free trial, begun from the iOS or Android app. After that it is $2.49 a month, $19.99 a year or $49.99 once. Prices are the USD store baseline, and each store applies its own regional pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to download Dovilo again when it updates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. On iPhone, iPad and Android, updates arrive through the App Store and Google Play like any other app: automatically if automatic updates are on, otherwise from the Updates list in the store. Dovilo Desktop updates itself and picks up each new build on its own. This page is only for the first install."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which download do I need to connect an AI coding agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dovilo Desktop on Windows or macOS, which is the build that carries the local MCP server and its nine tools for Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI and any other MCP-compatible client. Agents reach AI tasks only, the jobs you write for them in the AI Tasks tab, never your personal to-do list, and they cannot create tasks. The AI Tasks tab is on mobile too, so you can write a task and follow the agent's steps from your phone while the agent itself runs on the desktop."
+      }
+    }
+  ]
+}
+  </script>
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/downloads/">
   <meta property="og:title" content="Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo">
-  <meta property="og:description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
+  <meta property="og:description" content="Download Dovilo, the gamified to-do list app that builds a city from finished tasks. Free on iPhone, iPad and Android; Windows and Mac with Pro.">
   <meta property="og:image" content="https://dovilo.app/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -64,7 +117,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@doviloapp">
   <meta name="twitter:title" content="Download Free Gamified To-Do List App: iOS, Android, Windows, Mac - Dovilo">
-  <meta name="twitter:description" content="Turn your to-do list into a city you build. Free on iPhone, iPad and Android, plus Windows and Mac desktop apps with Pro. Download now.">
+  <meta name="twitter:description" content="Download Dovilo, the gamified to-do list app that builds a city from finished tasks. Free on iPhone, iPad and Android; Windows and Mac with Pro.">
   <meta name="twitter:image" content="https://dovilo.app/og-card.jpg">
 
   <meta name="theme-color" content="#161B1D">
@@ -198,6 +251,56 @@
     }
     .note a:hover{text-decoration:underline}
 
+    /* PROSE — the half of the page that says what is being downloaded, for a
+       cold reader and for an answer engine quoting it. base.css owns the type
+       ramp, the ink scale and .table; only the rhythm, the table's scroll box
+       and the disclosure FAQ are page-specific. Held to a prose measure and
+       centred under the full-width card grid above. */
+    .about{
+      max-width:var(--max-prose);margin:var(--s-8) auto 0;
+      padding-top:var(--s-7);border-top:1px solid var(--line);
+    }
+    .about h2{margin-bottom:var(--s-4);scroll-margin-top:calc(var(--nav-h) + 16px)}
+    .about p{
+      font-size:var(--t-1);color:var(--ink-1);line-height:var(--lh-prose);
+      margin-bottom:var(--s-4);
+    }
+    .about > p:last-child{margin-bottom:0}
+
+    /* The four platforms as a table, so the free/Pro split reads in one pass.
+       It scrolls rather than wraps below ~520px. */
+    .table-wrap{
+      overflow-x:auto;margin-bottom:var(--s-5);
+      border:1px solid var(--line);border-radius:var(--radius);
+    }
+    .table-wrap .table{min-width:520px}
+    .table-wrap .table th,.table-wrap .table td{padding:var(--s-3) var(--s-4)}
+    .table-wrap .table tbody th{
+      color:var(--ink);font-weight:600;font-size:var(--t-1);
+      text-transform:none;letter-spacing:normal;
+    }
+    .table-wrap .table tbody tr:last-child th,
+    .table-wrap .table tbody tr:last-child td{border-bottom:0}
+
+    /* FAQ — <details> needs no script. base.css's .faq-* components are the
+       button-driven accordions on / and /faq, which carry their own JS. */
+    .faq{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .faq details{border-bottom:1px solid var(--line);background:var(--card)}
+    .faq details:last-child{border-bottom:0}
+    .faq summary{
+      list-style:none;cursor:pointer;
+      padding:var(--s-4) var(--s-5);
+      font-size:var(--t-1);font-weight:600;color:var(--ink);
+      display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:'+';color:var(--accent);font-size:var(--t-3);font-weight:400;flex:none}
+    .faq details[open] summary::after{content:'\2212'}
+    .faq details p{
+      margin:0;padding:0 var(--s-5) var(--s-4);
+      font-size:var(--t-0);color:var(--ink-2);line-height:var(--lh-prose);
+    }
+
     @media(max-width:640px){
       .platform-cards{grid-template-columns:1fr}
     }
@@ -237,8 +340,8 @@
 
   <main id="main">
     <p class="section-label">Apps</p>
-    <h1 class="section-title">Download Dovilo</h1>
-    <p class="section-sub">Dovilo is a gamified to-do list app: finishing a task earns bricks, and bricks build your city. Free on iPhone, iPad and Android, with Windows and Mac desktop apps for Pro subscribers.</p>
+    <h1 class="section-title">Download Dovilo: the free gamified to-do list app</h1>
+    <p class="section-sub">Dovilo is a to-do list, a focus timer and a city builder in one app: finishing a task or a focus session earns bricks, and bricks build your city. The iPhone, iPad and Android apps are free; the Windows and Mac desktop apps come with Pro.</p>
 
     <ul class="platform-badges" role="list" aria-label="Available platforms">
       <li class="badge">
@@ -303,6 +406,138 @@
       </div>
       <p class="note">Requires an active <a href="/#pricing">Pro subscription</a>. Subscribe from the mobile app first. The desktop app includes the built-in <a href="/ai">MCP server</a> for Cursor, Claude Code, and other AI agents.</p>
     </div>
+
+    <section class="about" aria-labelledby="what-it-is">
+      <h2 id="what-it-is">What a gamified to-do list does once it is installed</h2>
+      <p>
+        Dovilo attaches the game to finishing the work, not to planning it. Every task you complete
+        and every focus session you run pays out in <strong>bricks</strong>, and bricks are the only
+        currency in the Market, where you buy the houses, offices, parks and roads you then place
+        yourself on an isometric grid. The city is the record of what you actually got through, which
+        is what makes it worth opening on a day the list is not.
+      </p>
+      <p>
+        Four things live in the one app. <strong>Tasks</strong> carry due dates, repeats, reminders,
+        stars, flags and your own lists, behind a single view picker holding My Day, Important,
+        Planned, Flagged and every custom list with a live count. <strong>Focus</strong> runs in three
+        shapes &mdash; one session of any length from 1 to 180 minutes, a Pomodoro cycle of 25 minutes
+        with a 5 minute break and a longer break every 4 rounds, or a session bound to one task &mdash;
+        and the timer keeps counting while the app is backgrounded or the phone is locked.
+        <strong>Ambience</strong> fills the screen for the length of a session: six scenes, and up to
+        three sound layers blended at once out of sixteen. It is ambience rather than music, so there
+        is no melody or beat to follow. <strong>AI tasks</strong> are a separate list you keep for
+        coding agents, which <a href="/ai">Dovilo Desktop serves over a local MCP server</a>.
+      </p>
+      <p>
+        All of it is offline-first: tasks, focus history and the city sit on the device, and no
+        internet connection is needed to use the app. Cloud sync is optional and comes with Pro. There
+        are no ads on any tier, the app ships in English, Turkish, Spanish, French and German, and
+        both the dark and the light theme are free.
+      </p>
+    </section>
+
+    <section class="about" aria-labelledby="which-download">
+      <h2 id="which-download">Which download you need</h2>
+      <p>
+        The mobile apps are the free ones, and free here is the whole product rather than a trial: a
+        download from the App Store or Google Play gives you full to-do management, unlimited single
+        and Pomodoro focus sessions, the silent Default ambience scene, city building, both themes and
+        no ads. The desktop apps are the Pro half. They are the builds that carry the local MCP server
+        and the signed <a href="/docs/webhooks">webhooks</a>, so they need an active subscription,
+        which you start in the mobile app.
+      </p>
+      <div class="table-wrap">
+        <table class="table">
+          <caption class="sr-only">Dovilo downloads by platform, with what each one costs and how its updates arrive</caption>
+          <thead>
+            <tr>
+              <th scope="col">Platform</th>
+              <th scope="col">Where it comes from</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Updates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">iPhone, iPad</th>
+              <td>App Store</td>
+              <td>Free</td>
+              <td>Through the App Store</td>
+            </tr>
+            <tr>
+              <th scope="row">Android</th>
+              <td>Google Play</td>
+              <td>Free</td>
+              <td>Through Google Play</td>
+            </tr>
+            <tr>
+              <th scope="row">Windows</th>
+              <td>Dovilo-Setup.exe, from the public releases repository</td>
+              <td>Needs Pro</td>
+              <td>The app updates itself</td>
+            </tr>
+            <tr>
+              <th scope="row">macOS</th>
+              <td>Dovilo.dmg, from the public releases repository</td>
+              <td>Needs Pro</td>
+              <td>The app updates itself</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Mobile and desktop run on separate version lines, so their numbers are not meant to line up.
+        The current mobile release is <strong>1.2.0</strong>, from 9 September 2026; the desktop entry
+        on the <a href="/changelog/">release notes page</a> is read live from the releases repository,
+        so it is never a version behind, and every earlier desktop build stays tagged there. This page
+        is only for the first install: nothing here has to be fetched twice.
+      </p>
+    </section>
+
+    <section class="about" aria-labelledby="free-and-pro">
+      <h2 id="free-and-pro">What is free, and what Pro adds</h2>
+      <p>
+        <strong>Pro</strong> is $2.49 a month, $19.99 a year or $49.99 once, and it begins with a
+        7-day free trial you start in the iOS or Android app. It adds cloud sync across devices, the
+        Windows and Mac desktop app with its MCP server and webhooks, every building, decoration and
+        upgrade, advanced statistics, custom themes, smart notification management and priority
+        support. The same subscription is what unlocks Desktop, so the desktop app is never a separate
+        purchase.
+      </p>
+      <p>
+        Two one-time packs sit outside the subscription: the Focus Ambience Pack at $4.99, which adds
+        the five atmospheric scenes and the twelve sound layers, and the Full City Package at $4.99,
+        which adds every building, decoration and upgrade. Neither is a subscription, and Pro already
+        includes both. AI task packs start at $0.99 for 10, 30 or 75 extra agent tasks, and they never
+        expire. Prices are the USD store baseline; each store applies its own regional pricing.
+      </p>
+    </section>
+
+    <section class="about" aria-labelledby="download-faq">
+      <h2 id="download-faq">Download questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Which Dovilo downloads are free?</summary>
+          <p>The iPhone, iPad and Android apps are free and ad-free. The free tier covers full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, basic city building and both the dark and the light theme. The Windows and Mac desktop apps are the two downloads that need an active Pro subscription.</p>
+        </details>
+        <details>
+          <summary>How do I install Dovilo Desktop on Windows or Mac?</summary>
+          <p>Subscribe to Pro in the iOS or Android app first: the desktop app needs an active subscription, and the same subscription unlocks it, so there is no separate desktop purchase. Then download Dovilo-Setup.exe or Dovilo.dmg from the desktop section of this page. Both come from Dovilo's public releases repository, and the app updates itself from there afterwards.</p>
+        </details>
+        <details>
+          <summary>Can I try Pro before paying for it?</summary>
+          <p>Yes. Pro starts with a 7-day free trial, begun from the iOS or Android app. After that it is $2.49 a month, $19.99 a year or $49.99 once. Prices are the USD store baseline, and each store applies its own regional pricing.</p>
+        </details>
+        <details>
+          <summary>Do I have to download Dovilo again when it updates?</summary>
+          <p>No. On iPhone, iPad and Android, updates arrive through the App Store and Google Play like any other app: automatically if automatic updates are on, otherwise from the Updates list in the store. Dovilo Desktop updates itself and picks up each new build on its own. This page is only for the first install.</p>
+        </details>
+        <details>
+          <summary>Which download do I need to connect an AI coding agent?</summary>
+          <p>Dovilo Desktop on Windows or macOS, which is the build that carries the local MCP server and its nine tools for Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI and any other MCP-compatible client. Agents reach AI tasks only, the jobs you write for them in the AI Tasks tab, never your personal to-do list, and they cannot create tasks. The AI Tasks tab is on mobile too, so you can write a task and follow the agent's steps from your phone while the agent itself runs on the desktop.</p>
+        </details>
+      </div>
+    </section>
 
   </main>
 

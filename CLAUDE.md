@@ -209,11 +209,11 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Three `FAQPage` blocks compete: `/` (8 questions), `/faq` (25) and `/changelog/` (3). The
-  homepage's eight duplicate eight of the FAQ page's, so a wording change has to be made in four
-  places plus `llms-full.txt`.
+- Five `FAQPage` blocks compete: `/` (8 questions), `/faq` (25), `/ai` (10), `/changelog/` (3) and
+  `/downloads/` (5). Only the homepage's eight actually duplicate the FAQ page's, so a wording
+  change there has to be made in four places plus `llms-full.txt`; the other three ask questions
+  that appear nowhere else, which is the condition for adding a sixth.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
-- `/downloads` is thin: a few hundred words of visible text, no H2s.
 - `styles/home.css` still carries legacy hand-written font sizes and ink alphas from before the
   design system existed. They render correctly but do not go through the ramp or the ink scale;
   convert them opportunistically when you touch a rule, not in one sweep.

@@ -4,7 +4,7 @@
 
 This file expands [llms.txt](https://dovilo.app/llms.txt) with the detail an assistant needs to answer questions about Dovilo without guessing: feature behaviour, the agent interface, the webhook contract, pricing, and the complete FAQ. Everything here is public documentation. Source pages are linked at the end.
 
-Last updated: 2026-09-17.
+Last updated: 2026-09-20.
 
 ## What Dovilo is
 
@@ -264,7 +264,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/ — product overview, features, focus and ambience, screenshots, pricing
 - https://dovilo.app/faq — the FAQ reproduced above
 - https://dovilo.app/docs/webhooks — webhook developer reference with verification examples in Node, Python and Go
-- https://dovilo.app/downloads/ — every download in one place: the free iOS and Android apps, plus the Pro-only Windows and macOS desktop installers
+- https://dovilo.app/downloads/ — every download in one place: the free iOS and Android apps, plus the Pro-only Windows and macOS desktop installers, with the free/Pro split per platform, how updates reach each one, and a download FAQ
 - https://dovilo.app/privacy · https://dovilo.app/terms · https://dovilo.app/licenses
 - https://apps.apple.com/app/dovilo/id6761195015 — App Store
 - https://play.google.com/store/apps/details?id=com.dovilo.app — Google Play
