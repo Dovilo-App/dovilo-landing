@@ -46,6 +46,8 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
+- [Task management for AI coding agents: a Dovilo MCP setup guide](https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/) — 2026-09-21. Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.
+- [Deep Work App: How to Choose the Right One for Focus](https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/) — 2026-09-21. Find the right deep work app for your focus style — blockers, timers, task managers, and gamified tools compared with a clear decision framework.
 - [Claude Code Productivity: Ship More With AI Task Queues](https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/) — 2026-09-20. Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.
 - [Developer Productivity Tools That Cut Context-Switch Costs](https://dovilo.app/blog/developer-productivity-tools-that-cut-context-switch-costs/) — 2026-09-19. Developer productivity tools do more than speed up tasks — find out which categories actually reduce context-switch costs and how to choose the right ones.
 - [Best Productivity Apps for Developers and Indie Hackers in 2026](https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/) — 2026-09-17. Five task tools for solo developers running AI coding agents in 2026 — what each one does with MCP, and where each one stops.

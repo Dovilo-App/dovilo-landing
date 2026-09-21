@@ -69,9 +69,23 @@
   <!-- BLOG:START -->
   <url>
     <loc>https://dovilo.app/blog/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>

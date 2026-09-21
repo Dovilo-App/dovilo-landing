@@ -6,7 +6,299 @@
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 20 Sep 2026 07:35:14 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 19:29:13 GMT</lastBuildDate>
+  <item>
+    <title>Task management for AI coding agents: a Dovilo MCP setup guide</title>
+    <link>https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/</guid>
+    <pubDate>Mon, 21 Sep 2026 19:29:13 GMT</pubDate>
+    <description>Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</a></li>
+<li><a href="#what-mcp-is-the-short-version">What MCP is (the short version)</a></li>
+<li><a href="#how-dovilos-mcp-server-works">How Dovilo&#39;s MCP server works</a></li>
+<li><a href="#setting-up-dovilos-mcp-server-step-by-step">Setting up Dovilo&#39;s MCP server: step by step</a></li>
+<li><a href="#the-9-tools-read-and-update-only">The 9 tools: read and update only</a></li>
+<li><a href="#why-the-personal-list-is-invisible-to-the-agent">Why the personal list is invisible to the agent</a></li>
+<li><a href="#statuses-steps-and-telemetry-on-the-phone">Statuses, steps and telemetry on the phone</a></li>
+<li><a href="#webhooks-tell-your-own-systems-a-task-moved">Webhooks: tell your own systems a task moved</a></li>
+<li><a href="#a-real-workflow-example">A real workflow example</a></li>
+<li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
+<li><a href="#requirements-and-compatibility">Requirements and compatibility</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+<li><a href="#get-started">Get started</a></li>
+</ul>
+</nav>
+<p>If you run coding agents on multi-step projects, you have probably hit this wall: the agent finishes a session, context resets, and the next run has no idea what was done, what is still in progress, or what comes next. The fix is to give the agent a persistent, structured task list it can read and update between sessions. This guide walks through how to do that with the local MCP server in Dovilo Desktop.</p>
+<p>I built this layer because I wanted my own coding agent to work a real task list instead of a scratch file. One engineer, in Istanbul. What follows is exactly how it works, including what it doesn&#39;t do yet.</p>
+<h2 id="the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</h2>
+<p>Claude Code, Cursor, Windsurf, Codex CLI, Gemini CLI and Claude Desktop can all handle complex, multi-step work. Most of them can plan inside a session, and several read a rules or memory file you maintain. What none of that gives you is a shared task list with real status, that survives between sessions and that you can check from your phone.</p>
+<p>Pasting a task list into a prompt works for one session. By the third, you are re-explaining context, re-stating what is finished and tracking state in a doc somewhere.</p>
+<p>What you want is a list the agent reads at the start of a session, updates as it works, and leaves in a known state when it stops. That is a task manager problem, not a prompting problem.</p>
+<h2 id="what-mcp-is-the-short-version">What MCP is (the short version)</h2>
+<p>The Model Context Protocol is an open standard that lets AI agents call external tools through a defined interface. Linear and Notion both ship official MCP servers.</p>
+<p>What varies between implementations is what the server exposes, where it runs and what the agent is allowed to do. Those details matter more than the protocol itself.</p>
+<h2 id="how-dovilo39s-mcp-server-works">How Dovilo&#39;s MCP server works</h2>
+<p>The MCP bridge ships inside Dovilo Desktop. No npx, no separate runtime. Your agent client starts it as a local process and talks to it over stdio.</p>
+<p>There is no Dovilo internet endpoint in the agent&#39;s request path, and no MCP traffic goes through Dovilo. The only external call is your agent talking to its own model provider, whichever one you have configured.</p>
+<p>The AI tasks themselves sync to your phone through Pro cloud sync, encrypted in transit and at rest. That is how the agent&#39;s step trail shows up on mobile while it works on your desktop.</p>
+<p>Full integration details are at <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
+<h2 id="setting-up-dovilo39s-mcp-server-step-by-step">Setting up Dovilo&#39;s MCP server: step by step</h2>
+<p>Setup takes about 5 minutes.</p>
+<p><strong>Step 1: Start the Pro trial on mobile</strong></p>
+<p>Dovilo Desktop is part of Pro: $2.49/month, $19.99/year or $49.99 lifetime. Every plan has a 7-day free trial, started in the iOS or Android app. Cancel before day 7 and nothing is charged.</p>
+<p>Get the app on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_mcp_guide&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=mcp_guide" target="_blank" rel="noopener">Google Play</a>.</p>
+<p><strong>Step 2: Install Dovilo Desktop and sign in</strong></p>
+<p>Download Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a> and sign in with the same account you use on mobile. Release notes are in the <a href="https://dovilo.app/changelog/">changelog</a>.</p>
+<p><strong>Step 3: Connect your agent client</strong></p>
+<p>In Desktop, open Settings &gt; AI &gt; Connect AI, pick your client and restart it.</p>
+<ul>
+<li><strong>Claude Desktop</strong> is wired automatically.</li>
+<li><strong>Claude Code, Cursor CLI, Codex CLI and Gemini CLI</strong> get a single <code>mcp add</code> command to paste.</li>
+<li><strong>Cursor GUI, Windsurf and any other MCP client</strong> get a JSON snippet with the bridge path and your API key: <code>&quot;command&quot;: &quot;&lt;dovilo-bridge-path&gt;&quot;</code>, <code>&quot;env&quot;: {&quot;DOVILO_API_KEY&quot;: &quot;&lt;api-key&gt;&quot;}</code>. Desktop fills in both values.</li>
+</ul>
+<p>To verify in Claude Code, run <code>/mcp</code>. You should see &quot;Dovilo connected, 9 tools&quot;. Plain MCP, no lock-in.</p>
+<p><strong>Step 4: Create a project and write the brief</strong></p>
+<p>AI tasks live inside projects. Each project has a brief the agent reads first: goals, constraints, conventions and what to leave alone. An agent sees only the tasks and brief of the project it is scoped to.</p>
+<p><strong>Step 5: Add tasks in the AI Tasks tab</strong></p>
+<p>Add the jobs you want the agent to work through, on desktop or from your phone. This list is separate from your personal My Tasks list, which the agent cannot see.</p>
+<p><strong>Step 6: Ask the agent to start</strong></p>
+<p>The agent does not start on its own. Ask it in plain language, for example: &quot;take my next Dovilo task and work it&quot;. It reads the brief, picks up a task and reports back as it goes.</p>
+<h2 id="the-9-tools-read-and-update-only">The 9 tools: read and update only</h2>
+<p>The server exposes 9 tools, 3 read and 6 write, all scoped to AI tasks in one project.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Access</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>list_tasks</code></td>
+<td>read</td>
+<td>AI tasks in the scoped project, with status</td>
+</tr>
+<tr>
+<td><code>get_task</code></td>
+<td>read</td>
+<td>One task in full: description, steps, notes, telemetry</td>
+</tr>
+<tr>
+<td><code>read_context</code></td>
+<td>read</td>
+<td>The project brief and the context the task carries</td>
+</tr>
+<tr>
+<td><code>update_status</code></td>
+<td>write</td>
+<td>Moves a task between statuses</td>
+</tr>
+<tr>
+<td><code>update_step</code></td>
+<td>write</td>
+<td>Marks a plan step started or finished</td>
+</tr>
+<tr>
+<td><code>add_step</code></td>
+<td>write</td>
+<td>Appends a step the agent discovered</td>
+</tr>
+<tr>
+<td><code>skip_step</code></td>
+<td>write</td>
+<td>Skips a step that turned out unnecessary</td>
+</tr>
+<tr>
+<td><code>append_note</code></td>
+<td>write</td>
+<td>Records what it did, decided or could not do</td>
+</tr>
+<tr>
+<td><code>append_telemetry</code></td>
+<td>write</td>
+<td>Reports model, tokens, cost and duration</td>
+</tr>
+</tbody></table>
+<p>The agent writes status, steps, notes and telemetry. It cannot edit the task you wrote, it cannot create tasks and it cannot delete anything.</p>
+<p>That is deliberate. Creating and deleting work are decisions that stay with you. An agent that can create tasks will create tasks, and an agent that can delete tasks can lose work.</p>
+<p>Two more limits: the agent cannot see other projects, and if you switch MCP off in Desktop settings, connections drop immediately.</p>
+<h2 id="why-the-personal-list-is-invisible-to-the-agent">Why the personal list is invisible to the agent</h2>
+<p>My Tasks is Dovilo&#39;s personal to-do list, where you track your own work.</p>
+<p>It is not on the MCP tool surface at all. There is no filter that hides it and no setting that could be misconfigured. The agent has no tool that reads it, updates it or reveals that it exists.</p>
+<p>That keeps ownership clear. The AI Tasks list is the agent&#39;s workspace. My Tasks is yours.</p>
+<h2 id="statuses-steps-and-telemetry-on-the-phone">Statuses, steps and telemetry on the phone</h2>
+<p>Every AI task moves through the same statuses: <code>queued</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, or <code>failed</code> / <code>cancelled</code>.</p>
+<p><code>awaiting-user</code> is the important one. When the agent needs a decision it cannot make, it sets that status and stops, instead of guessing.</p>
+<p>On mobile, the step trail, notes and telemetry land on each task in real time while the agent runs on your desktop. The list is grouped by what needs you: awaiting you, running, queued. Finished work moves to &quot;Recently done&quot; with its step count. Notifications come in two modes: every step, or only start, finish and error.</p>
+<p>Telemetry is per task and reported by the agent through <code>append_telemetry</code>: model, tokens, cost and duration. Over time it shows you which kinds of tasks are cheap and which are expensive for a given model.</p>
+<h2 id="webhooks-tell-your-own-systems-a-task-moved">Webhooks: tell your own systems a task moved</h2>
+<p>Desktop can send signed webhooks when an AI task changes, to Slack, Linear, n8n, LangGraph or any HTTPS receiver.</p>
+<ul>
+<li><strong>Events:</strong> <code>task.created</code> and <code>task.status_changed</code>, which carries <code>previousStatus</code>. A test button sends <code>webhook.ping</code>.</li>
+<li><strong>Setup:</strong> open a project, go to Webhooks, paste the URL, generate a signing secret and enable it. The secret is shown once and stays in your OS secure storage, never synced.</li>
+<li><strong>Signature:</strong> <code>X-Dovilo-Signature</code> carries a timestamp and an HMAC-SHA256 of the raw body, with a 5-minute replay window.</li>
+<li><strong>Delivery:</strong> <code>X-Dovilo-Delivery</code> stays the same across retries, so use it as your idempotency key. Up to 5 retries, in order per task.</li>
+</ul>
+<p>Payloads are slim on purpose. The webhook tells your system a task moved, and MCP is how the agent then reads it, works it and reports back.</p>
+<p>The open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> runs that loop end to end, and there is a <a href="https://www.youtube.com/watch?v=id_7T8qUfpg" target="_blank" rel="noopener">walkthrough video</a>. Full reference, with verification code in Node, Python and Go: <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
+<h2 id="a-real-workflow-example">A real workflow example</h2>
+<p>You have a project whose brief describes a TypeScript API: stack, test conventions, and &quot;don&#39;t touch the billing module&quot;. The AI Tasks list has five jobs:</p>
+<ol>
+<li>Add input validation to the user endpoint.</li>
+<li>Write unit tests for the auth module.</li>
+<li>Fix the pagination bug in the posts query.</li>
+<li>Update the README with the new env vars.</li>
+<li>Refactor the error handler to use a shared utility.</li>
+</ol>
+<p>You open Claude Code and say &quot;take my next Dovilo task and work it&quot;. The agent reads the brief, lists the queued tasks, opens the first one and sets it to <code>running</code>.</p>
+<p>It marks each plan step as it finishes it. While fixing pagination it finds the query needs an index, so it adds that as a new step. On the error handler it hits a choice that would change the API&#39;s error format, so it writes a note explaining the trade-off, sets the task to <code>awaiting-user</code> and stops.</p>
+<p>Your phone shows the question. You answer, and the next session picks it up.</p>
+<p>If a session ends mid-task, the task stays <code>running</code> with its step trail and notes. The next session reads it with <code>get_task</code> and continues from the last finished step.</p>
+<p>No re-pasting context, no manually updated doc. The task list is the source of truth.</p>
+<h2 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h2>
+<p>Three things, named plainly.</p>
+<ul>
+<li><strong>No remote MCP.</strong> The agent must run on the same machine as Dovilo Desktop, so remote servers and CI won&#39;t work yet. A remote MCP server is on the public roadmap.</li>
+<li><strong>No data export.</strong> Also on the roadmap.</li>
+<li><strong>No desktop-only trial.</strong> The 7-day trial starts in the mobile app.</li>
+</ul>
+<p>I&#39;d rather say that here than have you find out after setup.</p>
+<h2 id="requirements-and-compatibility">Requirements and compatibility</h2>
+<ul>
+<li>Dovilo Desktop for Windows or macOS, included with Pro.</li>
+<li>Pro: $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app.</li>
+<li>Clients with presets: Claude Code, Claude Desktop, Cursor (GUI and CLI), Windsurf, Codex CLI, Gemini CLI. Any other MCP client connects with the JSON snippet.</li>
+<li>AI tasks run on a monthly quota. One-time top-up packs of +10, +30 or +75 tasks start at $0.99 and never expire.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Does MCP traffic go through Dovilo&#39;s servers?</strong>
+No. The bridge runs locally inside Desktop and your client talks to it over stdio. The only external call is the agent talking to its own model provider. AI tasks sync to your phone through Pro cloud sync, which is how you see progress on mobile.</p>
+<p><strong>Can the agent see my personal to-do list?</strong>
+No. My Tasks is not on the MCP tool surface at all. The agent sees only the AI tasks and brief of the project it is scoped to.</p>
+<p><strong>Can the agent create or delete tasks?</strong>
+No. The 9 tools are read and update only. The agent can change status, steps, notes and telemetry, and nothing else.</p>
+<p><strong>Which agent clients are supported?</strong>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets. Any MCP client that accepts a JSON config works too.</p>
+<p><strong>What happens if I switch MCP off?</strong>
+Connections drop immediately and the agent can&#39;t keep working through Dovilo.</p>
+<p><strong>Can I run the agent on a remote server?</strong>
+Not yet. The agent must run on the same machine as Dovilo Desktop. Remote MCP is on the public roadmap.</p>
+<p><strong>How does the quota work?</strong>
+AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you need more, one-time top-up packs start at $0.99 and never expire.</p>
+<h2 id="get-started">Get started</h2>
+<p>If you run coding agents on multi-step work and want a persistent task list they read and update between sessions:</p>
+<ol>
+<li>Start the 7-day free trial in the mobile app: <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_mcp_guide&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=mcp_guide" target="_blank" rel="noopener">Google Play</a>.</li>
+<li>Install Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a>.</li>
+<li>Connect your agent client.</li>
+</ol>
+<p>Read the integration before you install anything: <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Deep Work App: How to Choose the Right One for Focus</title>
+    <link>https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</guid>
+    <pubDate>Mon, 21 Sep 2026 19:29:02 GMT</pubDate>
+    <description>Find the right deep work app for your focus style — blockers, timers, task managers, and gamified tools compared with a clear decision framework.</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#what-deep-work-actually-means-for-an-app">What &quot;deep work&quot; actually means for an app</a></li>
+<li><a href="#the-four-types-of-deep-work-apps">The four types of deep work apps</a><ul>
+<li><a href="#distraction-blockers">Distraction blockers</a></li>
+<li><a href="#focus-timers">Focus timers</a></li>
+<li><a href="#task-managers-with-focus-features">Task managers with focus features</a></li>
+<li><a href="#gamified-focus-apps">Gamified focus apps</a></li>
+</ul>
+</li>
+<li><a href="#how-to-evaluate-a-deep-work-app-before-committing">How to evaluate a deep work app before committing</a></li>
+<li><a href="#what-the-main-options-do-well-and-where-they-stop">What the main options do well and where they stop</a></li>
+<li><a href="#when-a-gamified-city-builder-fits-the-deep-work-use-case">When a gamified city builder fits the deep work use case</a><ul>
+<li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
+</ul>
+</li>
+<li><a href="#a-practical-framework-for-making-the-decision">A practical framework for making the decision</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+<li><a href="#choosing-based-on-fit-not-features">Choosing based on fit, not features</a></li>
+</ul>
+</nav>
+<p>Finding a deep work app that actually fits your workflow is harder than it looks. The category spans blockers, timers, planners, soundscapes, and gamified systems, and most articles treat them as interchangeable. They are not. The right deep work app depends on where your focus breaks down, how you work, and whether you need the tool to stay out of your way or actively keep you on track.</p>
+<p>This guide walks through what to look for, how the main types compare, and which questions to ask before committing to anything.</p>
+<hr>
+<h2 id="what-quotdeep-workquot-actually-means-for-an-app">What &quot;deep work&quot; actually means for an app</h2>
+<p>In practice, deep work means stretches of uninterrupted, cognitively demanding effort. The problem is that most people get far less of it than they expect. According to hubstaff.com&#39;s 2026 Global Work Index, which analyzed anonymized data from more than 140,000 workers across 17,000 organizations, employees spend roughly 39% of their tracked time in genuine deep focus — about two to three hours per day. Reclaim&#39;s 2025 report found that people average 2.9 deep work sessions per week but say they need 4.2 to feel productive. That gap is exactly where a focus app is supposed to help.</p>
+<p>A deep work app is any tool designed to protect, structure, or reinforce those focused sessions. Some do it by blocking distractions. Others give you a timer, a sound environment, a task queue, or a reward system. The best ones combine at least two of these in a way that matches how your attention actually fails.</p>
+<hr>
+<h2 id="the-four-types-of-deep-work-apps">The four types of deep work apps</h2>
+<p>Understanding the category first makes the choice much easier.</p>
+<h3 id="distraction-blockers">Distraction blockers</h3>
+<p>These apps lock you out of websites, apps, or your phone entirely during a session. The approach works well when your main problem is compulsive tab-switching or social media. Routinery cites a preregistered trial of 467 adults in which disabling mobile internet for two weeks improved sustained attention — which gives blockers more evidence behind them than most people assume.</p>
+<p>The limitation is that blockers are passive. They remove friction but do not tell you what to work on or for how long. If your focus problem is more about task clarity or motivation than raw distraction, a blocker alone will not fix it.</p>
+<h3 id="focus-timers">Focus timers</h3>
+<p>Timers, especially Pomodoro-style ones, give your sessions structure. You commit to a fixed window of work, take a short break, and repeat. This works well for people who lose track of time, underestimate how long tasks take, or need a clear stopping point to start at all.</p>
+<p>The Pomodoro method&#39;s 25-minute default is not sacred. Many people do better with 50-minute blocks or task-bound sessions that run until a specific piece of work is done. A good timer app should let you adjust this rather than locking you into one mode.</p>
+<h3 id="task-managers-with-focus-features">Task managers with focus features</h3>
+<p>Some apps combine a to-do list with scheduling or prioritization tools designed to protect focus time. The value is context: you do not have to switch between a planner and a timer. The risk is that a bloated task manager adds its own cognitive overhead, and you end up spending more time organizing than working.</p>
+<h3 id="gamified-focus-apps">Gamified focus apps</h3>
+<p>Gamification adds a reward layer on top of the focus loop. Completing sessions or tasks earns something visible — a growing tree, XP, or buildings in a city. This works well for people who struggle with motivation or find pure productivity tools feel sterile. It also creates a record of effort that plain timers do not.</p>
+<hr>
+<h2 id="how-to-evaluate-a-deep-work-app-before-committing">How to evaluate a deep work app before committing</h2>
+<p>Most people pick a focus app by skimming a list and downloading whatever looks good. A more useful approach is to start with your specific failure mode.</p>
+<p><strong>Where does your focus actually break?</strong> If you reach for your phone every ten minutes, a blocker addresses the root cause. If you sit down to work but cannot decide what to do first, you need task structure. If you start tasks but abandon them halfway through, a timer with visible progress helps. If your effort feels like it disappears without a trace, a system that records and reflects your work back to you matters more than any single feature.</p>
+<p><strong>What platforms do you actually use?</strong> A mobile-only app will not help a developer who spends eight hours at a desktop. A desktop-only app will not help a student who studies on a phone. Cross-device sync is worth paying for if you genuinely move between devices — but only if the sync is reliable and does not require you to manage it manually.</p>
+<p><strong>How much friction can you tolerate?</strong> Some people do better with a complex system because the setup ritual signals the start of work. Others abandon anything that requires more than two taps to begin a session. Be honest about which type you are before choosing a tool with a steep learning curve.</p>
+<p><strong>What is the privacy model?</strong> This is the question almost no focus app review covers. If an app syncs your tasks and focus data to a cloud server, that data is somewhere. For most users this is fine. For developers working on unreleased products or anyone handling sensitive information, a local-first or offline-capable app is worth prioritizing.</p>
+<p><strong>Does the app measure outcomes, or just activity?</strong> A timer that logs hours is not the same as a system that shows you whether your output improved. The most useful focus apps track streaks, completion rates, and session history so you can actually see whether the habit is working.</p>
+<hr>
+<h2 id="what-the-main-options-do-well-and-where-they-stop">What the main options do well and where they stop</h2>
+<p><strong>Forest</strong> has a simple loop: plant a seed, stay focused, grow a tree. The phone-lock mechanic is its core value. It has added limited-time gamified events, including a Spring Focus Fest with prize rewards, but it has no task management, no to-do list, and no ambient soundscape system. It is a strong choice if your only problem is phone distraction and you want a low-friction visual reward.</p>
+<p><strong>Habitica</strong> uses RPG mechanics, guilds, and party quests to make habits and to-dos feel like a game. It covers habits, dailies, and tasks well, and carries a 4.7-star Google Play rating. It has no focus timer and no spatial reward mechanic. It suits people who want social accountability and a character to level up. Pricing is $4.99/month or $47.99/year (cosmetics only).</p>
+<p><strong>Blitzit</strong> combines a to-do list and Pomodoro timer with task time estimation and a local MCP server, making it one of the few productivity apps with confirmed AI agent integration. It was voted Product Hunt&#39;s number one Product of the Day. It has no gamification layer and no ambient soundscapes. It suits developers who want a clean, fast timer-plus-task tool with agent support.</p>
+<p><strong>BeeDone</strong> generates per-task visuals and motivational messages using AI and includes a Doomscroll Blocker. It carries a 4.8-star App Store rating. It has no city-building mechanic, no MCP server, and no ambient soundscapes.</p>
+<hr>
+<h2 id="when-a-gamified-city-builder-fits-the-deep-work-use-case">When a gamified city builder fits the deep work use case</h2>
+<p>For some people, the problem with focus apps is not features. It is that completing a session leaves no visible trace. You close the timer, the session disappears, and tomorrow feels identical to today.</p>
+<p><a href="https://dovilo.app/">Dovilo</a> takes a different approach. Completed tasks and focus sessions earn bricks, and bricks let you place real buildings on an isometric grid. The city grows as a direct spatial record of work done — a longer streak means a larger skyline. Nothing decays, there is no punishment for missing a day, and there is no abstract score that resets.</p>
+<p>The focus timer runs in three modes: single session, Pomodoro cycle, and task-bound session. It runs in the background with Do Not Disturb support, so you do not have to keep the app open. The ambient soundscape system includes six scenes — five available in the Focus Ambience Pack — with a 12-layer blendable mixer, so you can tune the audio environment to whatever helps you concentrate. Scenes include Rainy City, Midnight, Dusk, Snow, and Fog.</p>
+<p>On the task management side, Dovilo covers due dates, repeats, reminders, priorities, stars, flags, and views including My Day, Important, Planned, and Flagged. The free tier on iOS and Android includes tasks and focus sessions. Cloud sync is part of Pro, which costs $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. A 7-day free trial is available with no charge if you cancel before it ends.</p>
+<p>For developers specifically, Dovilo Desktop (Windows and macOS, included in Pro) runs a local MCP server that exposes nine tools — three read, six write — to AI coding agents. More detail at dovilo.app/ai. The server operates on a dedicated AI task queue that is completely separate from your personal to-do list; the agent reads and updates only its own project&#39;s tasks and cannot see your personal list at all. Supported clients include Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI — and any MCP-compatible client works via standard JSON config, so there is no lock-in. The server runs inside Desktop over stdio, meaning no task data leaves your machine through Dovilo&#39;s infrastructure. Signed webhooks can fire into Slack, Linear, n8n, or custom endpoints when agent tasks update — see dovilo.app/docs/webhooks for the full spec.</p>
+<h3 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h3>
+<p>No data export is available at this point. The MCP server is local only — the agent runs where Desktop runs and cannot be accessed remotely. Both are on the roadmap.</p>
+<hr>
+<h2 id="a-practical-framework-for-making-the-decision">A practical framework for making the decision</h2>
+<p>Before downloading anything, answer these three questions:</p>
+<ol>
+<li><strong>What breaks my focus most often?</strong> Phone, browser, unclear priorities, or lack of motivation?</li>
+<li><strong>Where do I do most of my work?</strong> Mobile, desktop, or both?</li>
+<li><strong>Do I need accountability or autonomy?</strong> Social features and streaks help some people; they add pressure for others.</li>
+</ol>
+<p>If your answer is phone distraction plus mobile-first plus autonomy, Forest or a simple blocker is probably enough. If it is unclear priorities plus desktop plus motivation, a gamified task manager with a timer fits better. If you are a developer running AI agents and want your task pipeline connected to your focus system, the overlap of MCP support and gamification is a narrow category.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>What is a deep work app?</strong>
+A deep work app is any tool designed to help you spend more time in focused, uninterrupted work. The category includes distraction blockers, focus timers, task managers with scheduling features, ambient sound tools, and gamified systems that reward completed sessions.</p>
+<p><strong>How is a focus timer different from a distraction blocker?</strong>
+A blocker removes access to distracting sites or apps. A timer structures your work into defined sessions with breaks. Many people need both: the blocker handles the environment, and the timer handles the session itself. Some apps combine them.</p>
+<p><strong>Does gamification actually help with focus?</strong>
+It depends on your motivation style. Gamification tends to help people who struggle to start tasks or feel like their effort is invisible — it gives work a visible record. It is less useful for people who are already self-motivated and find game mechanics distracting.</p>
+<p><strong>What should I look for in a deep work app if I work across mobile and desktop?</strong>
+Look for genuine cross-device sync, not just a web version. Check whether sync is included in the free tier or requires a paid plan. Also check whether the desktop version has feature parity with mobile, since some apps treat desktop as secondary.</p>
+<p><strong>Are there deep work apps built for developers specifically?</strong>
+A small number of apps now support MCP (Model Context Protocol), which lets AI coding agents like Claude Code, Cursor, or Windsurf interact with your task list. Blitzit and Dovilo are two productivity apps with local MCP server support as of September 2026. Dovilo adds a gamified city-building layer on top, with the MCP server running locally inside Desktop — no task data leaves your machine through Dovilo&#39;s infrastructure.</p>
+<p><strong>How long should a deep work session be?</strong>
+The standard Pomodoro interval is 25 minutes of work followed by a 5-minute break. Many people find longer blocks of 50 to 90 minutes more productive for complex tasks. The right length depends on the work type and your attention span. A good focus app lets you adjust this rather than locking you into one mode.</p>
+<p><strong>Is a free focus app good enough, or do I need to pay?</strong>
+Free tiers are often enough to test whether a tool fits your workflow. The features most worth paying for are cross-device sync, advanced statistics, and audio environments. If you use AI coding agents and want MCP integration, that is currently a paid-tier feature in the apps that offer it.</p>
+<hr>
+<h2 id="choosing-based-on-fit-not-features">Choosing based on fit, not features</h2>
+<p>The best deep work app is the one you actually open. A tool with ten features you ignore is worse than a simple timer you use every day. Start with your specific failure mode, test one app for a week with a concrete goal, and measure whether your output changed.</p>
+<p>If you want a system that combines task management, a Pomodoro-style timer, ambient sound, and a city that grows as you work, <a href="https://dovilo.app/">dovilo.app</a> is worth a look. The free tier covers tasks and focus sessions on iOS and Android. Pro adds sync, the full soundscape system, and desktop access including the MCP server for AI agent workflows — download on the App Store or get it on Google Play.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>Claude Code Productivity: Ship More With AI Task Queues</title>
     <link>https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/</link>
