@@ -37,13 +37,13 @@
 <p>This article covers how AI task queues work, why context-switching between your to-do list and your coding agent is the real productivity leak, and how to structure your workflow so Claude Code can run longer sessions with less interruption from you.</p>
 <hr>
 <h2 id="why-claude-code-is-changing-how-solo-developers-work">Why Claude Code is changing how solo developers work</h2>
-<p>Claude Code&#39;s adoption has been fast. According to AINEXT, a report attributed to SemiAnalysis found that Claude Code was responsible for 4% of all GitHub commits worldwide after one year of availability — and that figure could reach 20% of GitHub commits by the end of 2026.</p>
+<p>Claude Code&#39;s adoption has been fast. As of February 2026, <a href="https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point" target="_blank" rel="noopener">SemiAnalysis</a> estimated that Claude Code was authoring roughly 4% of all public GitHub commits, and projected that share would pass 20% of daily commits by the end of 2026.</p>
 <p>Those numbers signal a shift in how code actually gets written, not just assisted. Developers aren&#39;t using Claude Code to autocomplete a line here and there. They&#39;re handing it entire tasks and walking away.</p>
-<p>A 2026 study by Shuai Guan, drawing on 400,000 Claude Code sessions across 235,000 people, put numbers to this behavior. Reporting on that research, news.creeta.com noted that roughly 70% of planning decisions were attributed to users and roughly 80% of execution decisions to Claude during interactive sessions. The dataset covered 398,198 interactive sessions sampled from October 2025 to April 2026.</p>
-<p>That split is the key insight. You plan. Claude executes. The workflow breaks down when those two activities are tangled together in the same moment.</p>
+<p><a href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener">Anthropic&#39;s own research</a> puts numbers to this behavior. A privacy-preserving analysis of around 400,000 interactive Claude Code sessions from around 235,000 people, between October 2025 and April 2026, found that in the typical session the user makes about 70% of the planning decisions while Claude makes about 80% of the execution decisions.</p>
+<p>That split is the key insight. You plan. Claude executes. The workflow breaks down when those two activities are tangled together in the same moment. If you work alone, it breaks down harder: you are the only planner in the building, so every minute spent feeding the agent its next task is a minute not spent deciding what to build.</p>
 <hr>
 <h2 id="the-real-productivity-leak-context-switching-between-lists-and-agents">The real productivity leak: context-switching between lists and agents</h2>
-<p>Most developers running Claude Code still manage their task list somewhere separate — a markdown file, a Notion page, a mental queue. When the agent finishes a task, you stop what you&#39;re doing, check your list, copy the next task into the terminal, and restart. That handoff takes thirty seconds. Over a full day of active development, it adds up to something much larger: broken flow.</p>
+<p>Most developers running Claude Code still manage their task list somewhere separate — a markdown file, a Notion page, a mental queue. When the agent finishes a task, you stop what you&#39;re doing, check your list, copy the next task into the terminal, and restart. Each handoff is short on its own. Over a full day of active development, it adds up to something much larger: broken flow.</p>
 <p>The deeper problem is that your to-do app was never designed to talk to an agent. It holds your tasks, but it can&#39;t surface them to Claude Code. So you become the bridge, manually carrying context from one tool to the other every time the agent needs direction.</p>
 <p>That&#39;s the problem an AI task queue solves. Instead of copying tasks into a terminal prompt, you write them once into a structured queue the agent can read directly. It picks up the next task, works through it, marks it done, and moves on. You come back when the session is finished.</p>
 <hr>
@@ -61,7 +61,7 @@
 <h2 id="mcp-the-protocol-that-makes-task-queues-work-with-claude-code">MCP: the protocol that makes task queues work with Claude Code</h2>
 <p>MCP is an open standard that lets AI coding agents connect to external tools through a defined set of read and write operations. When a task manager runs a local MCP server, Claude Code can query it like any other tool in its environment: ask for the next task, read its brief, update its status, and move on.</p>
 <p>Dovilo runs a local MCP server on Desktop (Windows and macOS, Pro tier) that exposes nine tools to connected agents — three read operations and six write operations. The agent can read and update tasks, but it cannot create or delete them. That boundary keeps you in control of what goes into the queue while the agent handles execution.</p>
-<p>The AI task queue in Dovilo is fully isolated from your personal to-do list. Your personal tasks are invisible to the agent. It only sees the projects you&#39;ve explicitly assigned to it, each with a brief that scopes what it&#39;s working on. Six clients are supported out of the box: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI. Any MCP-compatible client connects via JSON configuration — plain MCP, no lock-in to a specific agent.</p>
+<p>The AI task queue in Dovilo is fully isolated from your personal to-do list. Your personal tasks are invisible to the agent. It only sees the single project you&#39;ve scoped it to, with a brief that defines what it&#39;s working on. Your other projects stay invisible as well. Six clients are supported out of the box: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI. Any MCP-compatible client connects via JSON configuration — plain MCP, no lock-in to a specific agent.</p>
 <p>The server runs locally inside the Desktop app over stdio. No task data is routed through a Dovilo endpoint. Only the agent&#39;s own model calls leave your machine.</p>
 <hr>
 <h2 id="structuring-a-task-queue-for-longer-claude-code-sessions">Structuring a task queue for longer Claude Code sessions</h2>
@@ -69,7 +69,7 @@
 <h3 id="write-tasks-as-briefs-not-one-liners">Write tasks as briefs, not one-liners</h3>
 <p>A task that says &quot;fix login&quot; gives the agent almost nothing to work with. A task that says &quot;the login form submits without validating the email field; add client-side validation before the POST request fires, and return a visible error message if the format is invalid&quot; gives it a complete scope. The more context you put into the brief upfront, the less the agent needs to ask mid-session.</p>
 <h3 id="sequence-tasks-by-dependency-not-priority">Sequence tasks by dependency, not priority</h3>
-<p>Agents work through a queue in order — they don&#39;t multitask. If task three depends on the output of task two, they need to be adjacent and in the right sequence. Sorting by priority often scatters dependencies across the list. Sorting by dependency keeps sessions coherent.</p>
+<p>Within a session, the agent works the queue in order. If task three depends on the output of task two, they need to be adjacent and in the right sequence. Sorting by priority often scatters dependencies across the list. Sorting by dependency keeps sessions coherent.</p>
 <h3 id="batch-similar-work-into-a-single-session">Batch similar work into a single session</h3>
 <p>Context switching is expensive for agents too. If you have five UI tweaks and two API changes, run the UI tweaks in one session and the API changes in another. Mixing them forces the agent to reload different parts of the codebase repeatedly.</p>
 <h3 id="use-the-queue-as-a-session-boundary">Use the queue as a session boundary</h3>
@@ -78,34 +78,35 @@
 <h2 id="staying-in-the-loop-without-interrupting-the-agent">Staying in the loop without interrupting the agent</h2>
 <p>One of the harder parts of agentic development is knowing when to check in without breaking the session. A few patterns help:</p>
 <p><strong>Webhooks on task updates.</strong> When the agent marks a task complete or flags a blocker, a notification can fire to wherever you&#39;re already working. Dovilo&#39;s signed webhooks push those updates into Slack, Linear, n8n, or a custom endpoint when agent tasks change. You see progress without polling the queue manually. See the webhook docs for the payload format and signature verification.</p>
-<p><strong>Flagging blockers explicitly.</strong> Build a convention into your task briefs: if the agent can&#39;t proceed, it flags the task with a specific status rather than stopping silently. You check the queue once, see what&#39;s blocked, and unblock it in a single pass.</p>
-<p><strong>Reviewing completed tasks in batches.</strong> Instead of reviewing each task as it finishes, let the agent run through a full batch and review the results together. This keeps you in planning mode rather than review mode — which matches the 70/30 split the research describes.</p>
+<p><strong>Flagging blockers explicitly.</strong> If the agent can&#39;t proceed, it sets the task to <code>awaiting-user</code> and stops instead of guessing. You check the queue once, see what&#39;s blocked, and unblock it in a single pass.</p>
+<p><strong>Reviewing completed tasks in batches.</strong> Instead of reviewing each task as it finishes, let the agent run through a full batch and review the results together. This keeps you in planning mode rather than review mode — which matches the 70/20 split the research describes.</p>
 <hr>
 <h2 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h2>
 <p>Two things worth knowing before you build a workflow around this:</p>
-<p>There&#39;s no data export for the AI task queue yet. If you want to archive completed agent tasks or pipe them into another system, webhooks are currently the only way out.</p>
+<p>There&#39;s no data export yet — not for AI tasks, not for your personal tasks or focus history. If you want to archive completed agent tasks or pipe them into another system, webhooks are currently the only way out.</p>
 <p>The MCP server is local only. The agent runs where Dovilo Desktop runs. There&#39;s no remote MCP endpoint, so you can&#39;t point a cloud-based agent at it from a different machine. Both of these are on the roadmap, but they&#39;re not available as of September 2026.</p>
+<p>Agent tasks also run on a monthly quota of [CONFIRM: NUMBER] tasks. One-time top-up packs of +10, +30 and +75 start at $0.99 and never expire.</p>
 <hr>
 <h2 id="putting-it-together">Putting it together</h2>
 <p>Claude Code productivity isn&#39;t about prompting faster. It&#39;s about reducing the number of times you have to stop, reorient, and hand something off manually. A structured AI task queue removes the most common interruption in agentic development: the moment when the agent finishes one thing and has nothing to pick up next.</p>
 <p>Write better briefs. Sequence by dependency. Let the agent run. Check in through notifications rather than interruptions. That&#39;s the workflow.</p>
-<p>If you want to try this with Dovilo, the MCP server is part of the Pro Desktop tier at $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. There&#39;s a 7-day free trial with no charge if you cancel before it ends. Download the Desktop app and connect your first agent at <a href="https://dovilo.app/">dovilo.app</a>.</p>
+<p>If you want to try this with Dovilo, the MCP server is part of Dovilo Pro: $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. The 7-day free trial starts in the iOS or Android app — install Dovilo on your phone, start the trial, then sign in on Desktop with the same account and connect your first agent. Nothing is charged if you cancel before day 7.</p>
 <hr>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is an AI task queue in the context of Claude Code?</strong>
 An AI task queue is a structured list of work items that Claude Code can read and update directly, without you copying tasks manually into the terminal. The agent picks up the next task, executes it, marks it done, and continues. A local MCP server is the most reliable way to connect a task manager to Claude Code.</p>
 <p><strong>Does the agent see my personal to-do list?</strong>
-In Dovilo, no. The AI task queue is fully isolated from your personal tasks. The agent only sees projects you&#39;ve explicitly assigned to it, each scoped with a brief. Your personal My Tasks list is not on the tool surface.</p>
+In Dovilo, no. The AI task queue is fully isolated from your personal tasks. The agent only sees the one project you&#39;ve scoped it to, with a brief that defines what it&#39;s working on. Your personal My Tasks list is not on the tool surface.</p>
 <p><strong>What MCP clients work with Dovilo&#39;s local server?</strong>
 Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI are all supported. Any MCP-compatible client can connect via JSON configuration — plain MCP, no lock-in to a specific agent.</p>
 <p><strong>Is the MCP server cloud-based?</strong>
 No. The server runs locally inside Dovilo Desktop over stdio. No task data passes through a Dovilo endpoint. Only the agent&#39;s own model calls leave your machine.</p>
 <p><strong>Which tier includes the MCP server?</strong>
-The MCP server is part of Dovilo Pro on Desktop (Windows and macOS). Pro is $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. A 7-day free trial is included with no charge if you cancel before it ends.</p>
+The MCP server is part of Dovilo Pro, on Desktop (Windows and macOS). Pro is $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. The 7-day free trial is started in the iOS or Android app, not on Desktop — start it on your phone, then sign in on Desktop with the same account. Nothing is charged if you cancel before day 7.</p>
 <p><strong>How do I know when the agent has finished a task?</strong>
 Dovilo&#39;s signed webhooks fire into Slack, Linear, n8n, or a custom endpoint when agent tasks are updated. You get a notification when a task is marked complete or flagged as blocked, without needing to check the queue manually.</p>
 <p><strong>Can I use Claude Code with other task managers that have MCP support?</strong>
-Yes. Todoist has an official MCP server at ai.todoist.net/mcp, and Linear supports agents on every tier including Free. The right tool depends on your workflow. Dovilo&#39;s specific combination is a local-first, agent-only task surface with an isolated queue and a gamified progress layer — a different design from a general project management tool.</p>
+Yes. Todoist ships an official MCP server at ai.todoist.net/mcp, and Linear ships one too. The right tool depends on your workflow. Dovilo&#39;s specific combination is a local-first, agent-only task surface with an isolated queue and a gamified progress layer — a different design from a general project management tool.</p>
 ]]></content:encoded>
   </item>
   <item>
