@@ -199,15 +199,15 @@ AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you ne
 ]]></content:encoded>
   </item>
   <item>
-    <title>Deep Work App: How to Choose the Right One for Focus</title>
+    <title>Deep work app: how to choose one that fits how you focus</title>
     <link>https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</link>
     <guid isPermaLink="true">https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</guid>
     <pubDate>Mon, 21 Sep 2026 19:29:02 GMT</pubDate>
-    <description>Find the right deep work app for your focus style — blockers, timers, task managers, and gamified tools compared with a clear decision framework.</description>
+    <description>Blockers, timers, task managers or gamified apps? A plain framework for choosing a deep work app based on where your focus actually breaks.</description>
     <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
 <p class="toc-title">On this page</p>
 <ul>
-<li><a href="#what-deep-work-actually-means-for-an-app">What &quot;deep work&quot; actually means for an app</a></li>
+<li><a href="#what-deep-work-means-for-an-app">What deep work means for an app</a></li>
 <li><a href="#the-four-types-of-deep-work-apps">The four types of deep work apps</a><ul>
 <li><a href="#distraction-blockers">Distraction blockers</a></li>
 <li><a href="#focus-timers">Focus timers</a></li>
@@ -216,8 +216,8 @@ AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you ne
 </ul>
 </li>
 <li><a href="#how-to-evaluate-a-deep-work-app-before-committing">How to evaluate a deep work app before committing</a></li>
-<li><a href="#what-the-main-options-do-well-and-where-they-stop">What the main options do well and where they stop</a></li>
-<li><a href="#when-a-gamified-city-builder-fits-the-deep-work-use-case">When a gamified city builder fits the deep work use case</a><ul>
+<li><a href="#where-the-well-known-options-fit">Where the well-known options fit</a></li>
+<li><a href="#when-a-gamified-city-builder-fits">When a gamified city builder fits</a><ul>
 <li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
 </ul>
 </li>
@@ -226,77 +226,121 @@ AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you ne
 <li><a href="#choosing-based-on-fit-not-features">Choosing based on fit, not features</a></li>
 </ul>
 </nav>
-<p>Finding a deep work app that actually fits your workflow is harder than it looks. The category spans blockers, timers, planners, soundscapes, and gamified systems, and most articles treat them as interchangeable. They are not. The right deep work app depends on where your focus breaks down, how you work, and whether you need the tool to stay out of your way or actively keep you on track.</p>
-<p>This guide walks through what to look for, how the main types compare, and which questions to ask before committing to anything.</p>
-<hr>
-<h2 id="what-quotdeep-workquot-actually-means-for-an-app">What &quot;deep work&quot; actually means for an app</h2>
-<p>In practice, deep work means stretches of uninterrupted, cognitively demanding effort. The problem is that most people get far less of it than they expect. According to hubstaff.com&#39;s 2026 Global Work Index, which analyzed anonymized data from more than 140,000 workers across 17,000 organizations, employees spend roughly 39% of their tracked time in genuine deep focus — about two to three hours per day. Reclaim&#39;s 2025 report found that people average 2.9 deep work sessions per week but say they need 4.2 to feel productive. That gap is exactly where a focus app is supposed to help.</p>
-<p>A deep work app is any tool designed to protect, structure, or reinforce those focused sessions. Some do it by blocking distractions. Others give you a timer, a sound environment, a task queue, or a reward system. The best ones combine at least two of these in a way that matches how your attention actually fails.</p>
-<hr>
+<p>Finding a deep work app that fits your workflow is harder than it looks. The category covers blockers, timers, planners, soundscapes and gamified systems, and most lists treat them as interchangeable. They are not.</p>
+<p>The right app depends on where your focus breaks down, how you work, and whether you want the tool to stay out of your way or keep you on track. This guide walks through what to look for, how the main types compare and which questions to ask before committing.</p>
+<h2 id="what-deep-work-means-for-an-app">What deep work means for an app</h2>
+<p>Deep work means stretches of uninterrupted, cognitively demanding effort. The hard part is rarely knowing that. It is getting those stretches to happen, day after day, with a phone in reach and a list that never ends.</p>
+<p>A deep work app is any tool built to protect, structure or reinforce focused sessions. Different apps do this in different ways:</p>
+<ul>
+<li>blocking distractions</li>
+<li>giving you a timer</li>
+<li>setting up a sound environment</li>
+<li>keeping a task list</li>
+<li>running a reward system</li>
+</ul>
+<p>The useful ones combine at least two of these in a way that matches how your attention actually fails.</p>
 <h2 id="the-four-types-of-deep-work-apps">The four types of deep work apps</h2>
-<p>Understanding the category first makes the choice much easier.</p>
+<p>Knowing the category first makes the choice much easier.</p>
 <h3 id="distraction-blockers">Distraction blockers</h3>
-<p>These apps lock you out of websites, apps, or your phone entirely during a session. The approach works well when your main problem is compulsive tab-switching or social media. Routinery cites a preregistered trial of 467 adults in which disabling mobile internet for two weeks improved sustained attention — which gives blockers more evidence behind them than most people assume.</p>
-<p>The limitation is that blockers are passive. They remove friction but do not tell you what to work on or for how long. If your focus problem is more about task clarity or motivation than raw distraction, a blocker alone will not fix it.</p>
+<p>Blockers lock you out of websites, apps or your phone during a session. They work well when the main problem is compulsive tab-switching or social media.</p>
+<p>There is decent evidence behind the idea. In a 2025 randomized trial published in <a href="https://academic.oup.com/pnasnexus/article/4/2/pgaf017/8016017" target="_blank" rel="noopener">PNAS Nexus</a>, 467 iPhone users blocked mobile internet for two weeks, and their objectively measured sustained attention improved. Only about a quarter kept the block on the whole time, and partial reductions still helped.</p>
+<p>The limitation is that blockers are passive. They remove temptation but don&#39;t tell you what to work on or for how long. If your problem is task clarity or motivation, a blocker alone won&#39;t fix it.</p>
 <h3 id="focus-timers">Focus timers</h3>
-<p>Timers, especially Pomodoro-style ones, give your sessions structure. You commit to a fixed window of work, take a short break, and repeat. This works well for people who lose track of time, underestimate how long tasks take, or need a clear stopping point to start at all.</p>
-<p>The Pomodoro method&#39;s 25-minute default is not sacred. Many people do better with 50-minute blocks or task-bound sessions that run until a specific piece of work is done. A good timer app should let you adjust this rather than locking you into one mode.</p>
+<p>Timers, especially Pomodoro-style ones, give sessions structure: a fixed window of work, a short break, repeat. They suit people who lose track of time, underestimate tasks or need a clear stopping point before they can start at all.</p>
+<p>The 25-minute Pomodoro default is not sacred. Many people do better with 50-minute blocks, or with sessions tied to one task that run until that piece of work is done. A good timer lets you choose.</p>
 <h3 id="task-managers-with-focus-features">Task managers with focus features</h3>
-<p>Some apps combine a to-do list with scheduling or prioritization tools designed to protect focus time. The value is context: you do not have to switch between a planner and a timer. The risk is that a bloated task manager adds its own cognitive overhead, and you end up spending more time organizing than working.</p>
+<p>Some apps combine a to-do list with a timer or scheduling. The value is context: you don&#39;t switch between a planner and a timer.</p>
+<p>The risk is overhead. A bloated task manager can turn into its own project, and you end up organizing more than working.</p>
 <h3 id="gamified-focus-apps">Gamified focus apps</h3>
-<p>Gamification adds a reward layer on top of the focus loop. Completing sessions or tasks earns something visible — a growing tree, XP, or buildings in a city. This works well for people who struggle with motivation or find pure productivity tools feel sterile. It also creates a record of effort that plain timers do not.</p>
-<hr>
+<p>Gamification adds a reward layer to the focus loop. Finishing sessions or tasks earns something visible: a tree, XP, a building.</p>
+<p>It suits people who struggle to start, or who find plain productivity tools sterile. It also leaves a record of effort that a plain timer doesn&#39;t. The thing to check is what happens when you miss a day. Some systems punish it, and for many people that is exactly when they quit.</p>
 <h2 id="how-to-evaluate-a-deep-work-app-before-committing">How to evaluate a deep work app before committing</h2>
-<p>Most people pick a focus app by skimming a list and downloading whatever looks good. A more useful approach is to start with your specific failure mode.</p>
-<p><strong>Where does your focus actually break?</strong> If you reach for your phone every ten minutes, a blocker addresses the root cause. If you sit down to work but cannot decide what to do first, you need task structure. If you start tasks but abandon them halfway through, a timer with visible progress helps. If your effort feels like it disappears without a trace, a system that records and reflects your work back to you matters more than any single feature.</p>
-<p><strong>What platforms do you actually use?</strong> A mobile-only app will not help a developer who spends eight hours at a desktop. A desktop-only app will not help a student who studies on a phone. Cross-device sync is worth paying for if you genuinely move between devices — but only if the sync is reliable and does not require you to manage it manually.</p>
-<p><strong>How much friction can you tolerate?</strong> Some people do better with a complex system because the setup ritual signals the start of work. Others abandon anything that requires more than two taps to begin a session. Be honest about which type you are before choosing a tool with a steep learning curve.</p>
-<p><strong>What is the privacy model?</strong> This is the question almost no focus app review covers. If an app syncs your tasks and focus data to a cloud server, that data is somewhere. For most users this is fine. For developers working on unreleased products or anyone handling sensitive information, a local-first or offline-capable app is worth prioritizing.</p>
-<p><strong>Does the app measure outcomes, or just activity?</strong> A timer that logs hours is not the same as a system that shows you whether your output improved. The most useful focus apps track streaks, completion rates, and session history so you can actually see whether the habit is working.</p>
-<hr>
-<h2 id="what-the-main-options-do-well-and-where-they-stop">What the main options do well and where they stop</h2>
-<p><strong>Forest</strong> has a simple loop: plant a seed, stay focused, grow a tree. The phone-lock mechanic is its core value. It has added limited-time gamified events, including a Spring Focus Fest with prize rewards, but it has no task management, no to-do list, and no ambient soundscape system. It is a strong choice if your only problem is phone distraction and you want a low-friction visual reward.</p>
-<p><strong>Habitica</strong> uses RPG mechanics, guilds, and party quests to make habits and to-dos feel like a game. It covers habits, dailies, and tasks well, and carries a 4.7-star Google Play rating. It has no focus timer and no spatial reward mechanic. It suits people who want social accountability and a character to level up. Pricing is $4.99/month or $47.99/year (cosmetics only).</p>
-<p><strong>Blitzit</strong> combines a to-do list and Pomodoro timer with task time estimation and a local MCP server, making it one of the few productivity apps with confirmed AI agent integration. It was voted Product Hunt&#39;s number one Product of the Day. It has no gamification layer and no ambient soundscapes. It suits developers who want a clean, fast timer-plus-task tool with agent support.</p>
-<p><strong>BeeDone</strong> generates per-task visuals and motivational messages using AI and includes a Doomscroll Blocker. It carries a 4.8-star App Store rating. It has no city-building mechanic, no MCP server, and no ambient soundscapes.</p>
-<hr>
-<h2 id="when-a-gamified-city-builder-fits-the-deep-work-use-case">When a gamified city builder fits the deep work use case</h2>
-<p>For some people, the problem with focus apps is not features. It is that completing a session leaves no visible trace. You close the timer, the session disappears, and tomorrow feels identical to today.</p>
-<p><a href="https://dovilo.app/">Dovilo</a> takes a different approach. Completed tasks and focus sessions earn bricks, and bricks let you place real buildings on an isometric grid. The city grows as a direct spatial record of work done — a longer streak means a larger skyline. Nothing decays, there is no punishment for missing a day, and there is no abstract score that resets.</p>
-<p>The focus timer runs in three modes: single session, Pomodoro cycle, and task-bound session. It runs in the background with Do Not Disturb support, so you do not have to keep the app open. The ambient soundscape system includes six scenes — five available in the Focus Ambience Pack — with a 12-layer blendable mixer, so you can tune the audio environment to whatever helps you concentrate. Scenes include Rainy City, Midnight, Dusk, Snow, and Fog.</p>
-<p>On the task management side, Dovilo covers due dates, repeats, reminders, priorities, stars, flags, and views including My Day, Important, Planned, and Flagged. The free tier on iOS and Android includes tasks and focus sessions. Cloud sync is part of Pro, which costs $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. A 7-day free trial is available with no charge if you cancel before it ends.</p>
-<p>For developers specifically, Dovilo Desktop (Windows and macOS, included in Pro) runs a local MCP server that exposes nine tools — three read, six write — to AI coding agents. More detail at dovilo.app/ai. The server operates on a dedicated AI task queue that is completely separate from your personal to-do list; the agent reads and updates only its own project&#39;s tasks and cannot see your personal list at all. Supported clients include Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI — and any MCP-compatible client works via standard JSON config, so there is no lock-in. The server runs inside Desktop over stdio, meaning no task data leaves your machine through Dovilo&#39;s infrastructure. Signed webhooks can fire into Slack, Linear, n8n, or custom endpoints when agent tasks update — see dovilo.app/docs/webhooks for the full spec.</p>
+<p>Most people pick a focus app by skimming a list and downloading whatever looks good. Start with your failure mode instead.</p>
+<p><strong>Where does your focus actually break?</strong></p>
+<ul>
+<li>If you reach for your phone every ten minutes, a blocker addresses the root cause.</li>
+<li>If you sit down but can&#39;t decide what to do first, you need task structure.</li>
+<li>If you start tasks and abandon them halfway, a timer with visible progress helps.</li>
+<li>If your effort seems to disappear without a trace, you want a system that records your work and shows it back to you.</li>
+</ul>
+<p><strong>Which devices do you actually use?</strong> A mobile-only app won&#39;t help someone who spends eight hours at a desk, and the reverse is also true. Cross-device sync is worth paying for only if you really move between devices and the sync doesn&#39;t need babysitting.</p>
+<p><strong>How much friction can you tolerate?</strong> For some people a setup ritual signals the start of work. Others drop anything that takes more than two taps to start a session. Be honest about which one you are.</p>
+<p><strong>What is the privacy model?</strong> Few reviews cover this. If an app syncs your tasks and sessions to a server, that data lives somewhere. For most people that&#39;s fine. If you&#39;d rather keep it on the device, look for an offline-first app where sync is optional.</p>
+<p><strong>What does it show you afterwards?</strong> A timer that only logs hours is different from a system that shows completion rates, best days and session history. The first tells you that you were busy. The second lets you see whether the habit is working.</p>
+<h2 id="where-the-well-known-options-fit">Where the well-known options fit</h2>
+<p>These are the tools people usually compare. Features and pricing change, so check each app&#39;s own page before deciding.</p>
+<ul>
+<li><strong>Forest</strong> grows a tree while you stay off your phone. It is a good fit if phone distraction is the main problem and you want a low-friction visual reward.</li>
+<li><strong>Habitica</strong> turns habits, dailies and to-dos into an RPG, with party quests for social accountability. It suits people who are motivated by a character and a group.</li>
+<li><strong>Focus To-Do</strong> pairs a Pomodoro timer with a task list, for people who want both in one simple tool.</li>
+<li><strong>Endel</strong> and <strong>Noisli</strong> focus on sound environments. They suit people for whom audio is the main lever and who already have a task system elsewhere.</li>
+</ul>
+<h2 id="when-a-gamified-city-builder-fits">When a gamified city builder fits</h2>
+<p>For some people the problem with focus apps isn&#39;t missing features. It&#39;s that a finished session leaves no trace. You close the timer, the session is gone, and tomorrow feels like today.</p>
+<p><a href="https://dovilo.app/">Dovilo</a> pays that work out into something that accumulates. Finished tasks and focus sessions earn bricks. You spend bricks in the Market on houses, offices, parks, roads and decorations, and place them on an isometric grid.</p>
+<p>The city only grows. Nothing decays, and no streak punishes you for a quiet week. It is a record that the last months went somewhere.</p>
+<p><strong>Focus.</strong> There are three modes:</p>
+<ul>
+<li>a single session of any length</li>
+<li>a Pomodoro cycle: 25 minutes of focus, 5-minute breaks, and a longer break every 4 rounds</li>
+<li>a session tied to one task</li>
+</ul>
+<p>A short breathing exercise eases you in. The timer keeps running with the phone locked, and Do Not Disturb can silence other apps for the length of the session.</p>
+<p><strong>Ambience.</strong> The Default scene is free and silent. The Focus Ambience Pack adds five full-screen scenes: Rainy City, Midnight, Dusk, Snow and Fog, each with its own weather, skyline and sound. The sound mixer blends up to 3 of 12 layers at once, such as rain, fireplace, café or brown noise. It is ambience, not music: no melody, no beat.</p>
+<p><strong>Tasks.</strong> Due dates, repeats, reminders, priorities, stars and flags, with My Day, Important, Planned and Flagged views plus your own lists.</p>
+<p><strong>What&#39;s free.</strong> On iOS and Android, the free tier includes:</p>
+<ul>
+<li>unlimited tasks, categories and focus sessions</li>
+<li>a starter city</li>
+<li>basic statistics</li>
+<li>dark and light themes</li>
+<li>five languages</li>
+<li>offline-first storage</li>
+<li>no ads, on any tier</li>
+</ul>
+<p><strong>What Pro adds.</strong> Pro costs $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the app. Cancel before day 7 and nothing is charged. Pro adds:</p>
+<ul>
+<li>cloud sync</li>
+<li>advanced statistics</li>
+<li>the Focus Ambience Pack and the Full City Package, each $4.99 on its own</li>
+<li>Dovilo Desktop for Windows and macOS</li>
+</ul>
+<p>If you run AI coding agents, Desktop also gives them a separate task list over a local MCP server, which never exposes your personal list. That is covered in <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">the MCP setup guide</a>.</p>
 <h3 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h3>
-<p>No data export is available at this point. The MCP server is local only — the agent runs where Desktop runs and cannot be accessed remotely. Both are on the roadmap.</p>
-<hr>
+<ul>
+<li><strong>It is not a blocker.</strong> Do Not Disturb silences other apps during a session, but nothing stops you from opening them. If phone access is your main problem, pair it with a blocker.</li>
+<li><strong>No data export yet.</strong> It is on the public roadmap.</li>
+<li><strong>Desktop requires Pro.</strong> The mobile apps work fully without it.</li>
+</ul>
 <h2 id="a-practical-framework-for-making-the-decision">A practical framework for making the decision</h2>
-<p>Before downloading anything, answer these three questions:</p>
+<p>Before downloading anything, answer three questions:</p>
 <ol>
-<li><strong>What breaks my focus most often?</strong> Phone, browser, unclear priorities, or lack of motivation?</li>
-<li><strong>Where do I do most of my work?</strong> Mobile, desktop, or both?</li>
-<li><strong>Do I need accountability or autonomy?</strong> Social features and streaks help some people; they add pressure for others.</li>
+<li><strong>What breaks my focus most often?</strong> The phone, the browser, unclear priorities or low motivation?</li>
+<li><strong>Where do I do most of my work?</strong> Mobile, desktop or both?</li>
+<li><strong>Do I want accountability or autonomy?</strong> Social features and streaks help some people and add pressure for others.</li>
 </ol>
-<p>If your answer is phone distraction plus mobile-first plus autonomy, Forest or a simple blocker is probably enough. If it is unclear priorities plus desktop plus motivation, a gamified task manager with a timer fits better. If you are a developer running AI agents and want your task pipeline connected to your focus system, the overlap of MCP support and gamification is a narrow category.</p>
-<hr>
+<p>Some common answers and what they point to:</p>
+<ul>
+<li><strong>Phone distraction, mobile-first, autonomy:</strong> a blocker or a simple visual timer is probably enough.</li>
+<li><strong>Unclear priorities, low motivation, want to see progress:</strong> a task list with a timer and a visible reward fits better.</li>
+<li><strong>Mostly sound and environment:</strong> start with an ambience tool and add structure only if you need it.</li>
+</ul>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is a deep work app?</strong>
-A deep work app is any tool designed to help you spend more time in focused, uninterrupted work. The category includes distraction blockers, focus timers, task managers with scheduling features, ambient sound tools, and gamified systems that reward completed sessions.</p>
+Any tool designed to help you spend more time in focused, uninterrupted work. The category includes distraction blockers, focus timers, task managers with focus features, ambient sound tools and gamified systems that reward finished sessions.</p>
 <p><strong>How is a focus timer different from a distraction blocker?</strong>
-A blocker removes access to distracting sites or apps. A timer structures your work into defined sessions with breaks. Many people need both: the blocker handles the environment, and the timer handles the session itself. Some apps combine them.</p>
+A blocker removes access to distracting apps or sites. A timer structures the work into sessions with breaks. Many people need both: the blocker handles the environment, the timer handles the session.</p>
 <p><strong>Does gamification actually help with focus?</strong>
-It depends on your motivation style. Gamification tends to help people who struggle to start tasks or feel like their effort is invisible — it gives work a visible record. It is less useful for people who are already self-motivated and find game mechanics distracting.</p>
-<p><strong>What should I look for in a deep work app if I work across mobile and desktop?</strong>
-Look for genuine cross-device sync, not just a web version. Check whether sync is included in the free tier or requires a paid plan. Also check whether the desktop version has feature parity with mobile, since some apps treat desktop as secondary.</p>
-<p><strong>Are there deep work apps built for developers specifically?</strong>
-A small number of apps now support MCP (Model Context Protocol), which lets AI coding agents like Claude Code, Cursor, or Windsurf interact with your task list. Blitzit and Dovilo are two productivity apps with local MCP server support as of September 2026. Dovilo adds a gamified city-building layer on top, with the MCP server running locally inside Desktop — no task data leaves your machine through Dovilo&#39;s infrastructure.</p>
+It depends on your motivation style. It tends to help people who struggle to start or feel their effort is invisible, because it gives work a visible record. It helps less for people who are already self-driven and find game mechanics distracting.</p>
+<p><strong>What should I look for if I work across mobile and desktop?</strong>
+Real cross-device sync, not just a web version. Check whether sync is free or paid, and whether the desktop version does what you need or is treated as secondary.</p>
 <p><strong>How long should a deep work session be?</strong>
-The standard Pomodoro interval is 25 minutes of work followed by a 5-minute break. Many people find longer blocks of 50 to 90 minutes more productive for complex tasks. The right length depends on the work type and your attention span. A good focus app lets you adjust this rather than locking you into one mode.</p>
-<p><strong>Is a free focus app good enough, or do I need to pay?</strong>
-Free tiers are often enough to test whether a tool fits your workflow. The features most worth paying for are cross-device sync, advanced statistics, and audio environments. If you use AI coding agents and want MCP integration, that is currently a paid-tier feature in the apps that offer it.</p>
-<hr>
+The classic Pomodoro is 25 minutes of work and a 5-minute break. Many people prefer 50 to 90 minutes for complex work. The right length depends on the task, so pick an app that lets you change it.</p>
+<p><strong>Is a free focus app good enough?</strong>
+Often, yes. A free tier is enough to find out whether a tool fits. The features most worth paying for are usually sync across devices, deeper statistics and extra audio environments. Tasks and sessions themselves shouldn&#39;t be capped. In Dovilo they aren&#39;t.</p>
 <h2 id="choosing-based-on-fit-not-features">Choosing based on fit, not features</h2>
-<p>The best deep work app is the one you actually open. A tool with ten features you ignore is worse than a simple timer you use every day. Start with your specific failure mode, test one app for a week with a concrete goal, and measure whether your output changed.</p>
-<p>If you want a system that combines task management, a Pomodoro-style timer, ambient sound, and a city that grows as you work, <a href="https://dovilo.app/">dovilo.app</a> is worth a look. The free tier covers tasks and focus sessions on iOS and Android. Pro adds sync, the full soundscape system, and desktop access including the MCP server for AI agent workflows — download on the App Store or get it on Google Play.</p>
+<p>The best deep work app is the one you actually open. A tool with ten features you ignore is worse than a simple timer you use every day. Start with your failure mode, test one app for a week with a concrete goal, and check whether your output changed.</p>
+<p>If you want a to-do list, focus sessions with full-screen ambience and a city that grows from what you finish, Dovilo is free on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_deep_work&amp;mt=8" target="_blank" rel="noopener">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=deep_work" target="_blank" rel="noopener">Google Play</a>. No ads, no limits on tasks or sessions.</p>
 ]]></content:encoded>
   </item>
   <item>
