@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Task Management: How Coding Agents Use To-Dos - Dovilo</title>
+  <meta name="description" content="AI agent task management done right: learn how coding agents use structured to-do queues via MCP to pick up, run, and close tasks automatically.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/">
+  <link rel="alternate" type="application/rss+xml" title="Dovilo blog" href="https://dovilo.app/blog/feed.xml">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/base.css">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/">
+  <meta property="og:title" content="AI Agent Task Management: How Coding Agents Use To-Dos - Dovilo">
+  <meta property="og:description" content="AI agent task management done right: learn how coding agents use structured to-do queues via MCP to pick up, run, and close tasks automatically.">
+  <meta property="og:image" content="https://dovilo.app/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1200x630.jpg">
+  <meta property="og:image:alt" content="A split-screen desktop showing a coding agent terminal alongside a structured task queue with status labels">
+  <meta property="og:site_name" content="Dovilo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="AI Agent Task Management: How Coding Agents Use To-Dos - Dovilo">
+  <meta name="twitter:description" content="AI agent task management done right: learn how coding agents use structured to-do queues via MCP to pick up, run, and close tasks automatically.">
+  <meta name="twitter:image" content="https://dovilo.app/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1200x630.jpg">
+  <meta name="theme-color" content="#161B1D">
+  <meta property="article:published_time" content="2026-09-23T01:56:00.806Z">
+  <meta property="article:modified_time" content="2026-09-23T01:56:00Z">
+  <meta property="article:author" content="Selahaddin Akgün">
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    .page{padding-block:var(--s-7) var(--s-8)}
+    .lede{margin-top:var(--s-3)}
+
+    /* ── index ── */
+    .post-list{margin-top:var(--s-7);display:flex;flex-direction:column;gap:14px}
+    .card h2{font-size:var(--t-3);line-height:1.4;margin:var(--s-2) 0}
+    .card p{font-size:var(--t-1);color:var(--ink-2)}
+    .card .tags{margin-top:var(--s-3)}
+    .empty{
+      border:1px solid var(--line);border-radius:var(--radius-lg);
+      padding:28px var(--s-5);margin-top:var(--s-7);
+      font-size:var(--t-1);color:var(--ink-2);
+    }
+
+    /* ── article ── */
+    .post-head{margin-bottom:var(--s-6)}
+    .post-head .tags{margin-bottom:14px}
+    .post-head h1{margin-bottom:14px}
+    .tags{display:flex;gap:var(--s-2);flex-wrap:wrap}
+    .cover{margin:0 0 var(--s-6)}
+    .cover img{
+      width:100%;height:auto;display:block;
+      border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--card);
+    }
+    figcaption{font-size:var(--t--1);color:var(--ink-3);margin-top:10px;text-align:center}
+
+    /* Table of contents. A boxed card, not the sticky rail /docs/webhooks uses,
+       so it stays local. The site header is .site-nav, so this <nav> inherits
+       nothing from it. */
+    .toc{
+      border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:20px var(--s-5);font-size:var(--t-1);
+    }
+    .toc-title{
+      font-size:var(--t--3);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--ink-3);margin-bottom:10px;
+    }
+    .toc ul{margin-left:18px}
+    .toc li{margin-bottom:var(--s-1)}
+    .toc ul ul{margin-top:var(--s-1)}
+    .toc a{color:var(--accent);font-size:inherit;font-weight:400}
+
+    /* ── end of post ── */
+    .cta{
+      margin-top:56px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:var(--s-5);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .cta div{font-size:var(--t-1);color:var(--ink-2);max-width:46ch}
+    .cta strong{display:block;font-size:var(--t-2);margin-bottom:var(--s-1)}
+    .cta a{
+      background:var(--accent);color:var(--on-accent);text-decoration:none;
+      font-weight:600;font-size:var(--t-0);
+      padding:10px 20px;border-radius:var(--radius-pill);white-space:nowrap;
+    }
+    .cta a:hover{background:var(--muted);color:var(--on-accent)}
+    /* The prev/next row. A <nav>, but the site header is .site-nav, so there is
+       nothing here to undo. */
+    .more{
+      display:flex;
+      margin-top:var(--s-7);padding:var(--s-5) 0 0;
+      border-top:1px solid var(--line);
+      gap:var(--s-5);align-items:flex-start;justify-content:space-between;flex-wrap:wrap;font-size:var(--t-0);
+    }
+    .more a{color:var(--accent);text-decoration:none}
+    .more a:hover{text-decoration:underline}
+    .more span{display:block;font-size:var(--t--2);color:var(--ink-3);margin-bottom:2px}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Agent Task Management: How Coding Agents Use To-Dos",
+  "name": "AI Agent Task Management: How Coding Agents Use To-Dos",
+  "description": "AI agent task management done right: learn how coding agents use structured to-do queues via MCP to pick up, run, and close tasks automatically.",
+  "url": "https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/"
+  },
+  "datePublished": "2026-09-23T01:56:00.806Z",
+  "dateModified": "2026-09-23T01:56:00Z",
+  "inLanguage": "en",
+  "wordCount": 2019,
+  "image": [
+    "https://dovilo.app/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1200x630.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Selahaddin Akgün",
+    "url": "https://sakgun.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dovilo.app/notify-icon.png"
+    }
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://dovilo.app/blog/#blog",
+    "name": "Dovilo blog",
+    "url": "https://dovilo.app/blog/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dovilo",
+      "item": "https://dovilo.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://dovilo.app/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Agent Task Management: How Coding Agents Use To-Dos",
+      "item": "https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo</a>
+    <ul id="nav-menu">
+      <li><a href="/#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
+      <li><a href="/ai" class="nav-ai" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
+      <li><a href="/blog/" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_nav&mt=8" class="nav-store-link" aria-label="App Store" title="App Store">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=nav" class="nav-store-link" aria-label="Google Play" title="Google Play">
+        <svg viewBox="0 0 24 24"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+      </a>
+      <button class="nav-store-link theme-toggle" onclick="toggleTheme()" aria-label="Switch theme" title="Switch theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+  <main id="main">
+    <div class="page wrap-prose">
+
+    <article>
+      <header class="post-head">
+        <h1>AI Agent Task Management: How Coding Agents Use To-Dos</h1>
+        <div class="meta">
+          <time datetime="2026-09-23T01:56:00.806Z">23 September 2026</time>
+          <span class="sep">·</span><span>9 min read</span>
+          <span class="sep">·</span><span>Selahaddin Akgün</span>
+        </div>
+      </header>
+      <figure class="cover"><img src="/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-760.webp" srcset="/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-760.webp 760w, /blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1520.webp 1520w" sizes="(max-width:800px) 100vw, 760px" width="760" height="507" alt="A split-screen desktop showing a coding agent terminal alongside a structured task queue with status labels" loading="lazy" decoding="async"></figure>
+      <div class="prose">
+<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#why-standard-to-do-apps-break-agent-workflows">Why standard to-do apps break agent workflows</a></li>
+<li><a href="#what-an-agent-ready-task-queue-actually-needs">What an agent-ready task queue actually needs</a></li>
+<li><a href="#how-the-model-context-protocol-mcp-fits-in">How the Model Context Protocol (MCP) fits in</a></li>
+<li><a href="#dovilos-approach-a-separate-ai-task-queue-on-desktop">Dovilo&#39;s approach: a separate AI task queue on desktop</a><ul>
+<li><a href="#which-agents-work-with-it">Which agents work with it</a></li>
+<li><a href="#how-it-runs-locally">How it runs locally</a></li>
+<li><a href="#webhooks-for-closing-the-loop">Webhooks for closing the loop</a></li>
+</ul>
+</li>
+<li><a href="#setting-up-an-agent-task-in-practice">Setting up an agent task in practice</a></li>
+<li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
+<li><a href="#how-dovilo-compares-to-other-task-tools-with-agent-support">How Dovilo compares to other task tools with agent support</a></li>
+<li><a href="#the-personal-list-and-the-agent-queue-stay-separate">The personal list and the agent queue stay separate</a></li>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+<p><strong>By Selahaddin Akgün</strong></p>
+<hr>
+<p>AI agent task management is the practice of giving your coding agent a structured queue of work to pull from — so it can pick up, execute, and update tasks without you manually copying context from a to-do list into a chat window. If you use Claude Code, Cursor, or Windsurf to write code, you already know the friction: you keep a task list somewhere, and your agent knows nothing about it.</p>
+<p>This article explains how that handoff works, what makes a to-do list actually usable by an AI agent, and how tools like Dovilo&#39;s MCP server solve the problem at the workflow level rather than the prompt level.</p>
+<hr>
+<h2 id="why-standard-to-do-apps-break-agent-workflows">Why standard to-do apps break agent workflows</h2>
+<p>Most task managers are built for humans reading a list. They store text, maybe a due date, maybe a priority. That works fine when you are the one deciding what to do next.</p>
+<p>An AI coding agent needs something different. It needs a defined surface it can query programmatically — a way to signal that it has started work, a way to mark something done, and ideally a way to post a result back. None of that exists in a typical to-do app, even good ones.</p>
+<p>The result is a workflow that looks like this: you write a task in Notion or Todoist, open your terminal, paste the task description into a Claude Code session, then manually update the task when the agent finishes. Every step is manual. Every step breaks focus.</p>
+<hr>
+<h2 id="what-an-agent-ready-task-queue-actually-needs">What an agent-ready task queue actually needs</h2>
+<p>For a coding agent to use a to-do list without human relay, the task surface needs to support at least four things.</p>
+<p><strong>Programmatic read access.</strong> The agent must be able to list tasks and read their details without a browser or GUI — that means an API or a local protocol the agent&#39;s runtime can speak.</p>
+<p><strong>Status updates.</strong> The agent needs to write back. &quot;In progress&quot;, &quot;done&quot;, &quot;blocked&quot; — whatever the schema is, the agent must be able to set it, not just read it.</p>
+<p><strong>Isolation from your personal list.</strong> You do not want an agent scanning your grocery list or your private notes. It should see only the work you have explicitly assigned to it.</p>
+<p><strong>A handoff mechanism.</strong> When the agent finishes a task, something should notify you. A webhook to Slack, a status change visible on mobile — something that closes the loop without you polling a terminal.</p>
+<hr>
+<h2 id="how-the-model-context-protocol-mcp-fits-in">How the Model Context Protocol (MCP) fits in</h2>
+<p>MCP is an open protocol that lets AI agents communicate with external tools through a standardised interface. Instead of building a custom integration for every agent, a tool exposes a set of MCP-compatible endpoints and any MCP client can use them.</p>
+<p>For task management, that means an agent running inside Claude Code or Cursor can call a &quot;list tasks&quot; tool, get structured data back, pick a task, mark it in progress, and post a result — all within the same session that is also writing code. No copy-paste. No context switch. The agent does not need to know anything about the app&#39;s UI. It just calls tools.</p>
+<hr>
+<h2 id="dovilo39s-approach-a-separate-ai-task-queue-on-desktop">Dovilo&#39;s approach: a separate AI task queue on desktop</h2>
+<p>Dovilo runs a local MCP server on the desktop app (Windows and macOS, part of Pro). The server exposes nine tools split across read and update operations. The agent can read tasks, read project details, and update task status and results. It cannot create or delete tasks — that constraint is intentional. You define the work; the agent executes it.</p>
+<p>The AI task queue is completely separate from your personal to-do list. When an agent connects to Dovilo&#39;s MCP server, it sees only the projects and tasks you have assigned to it. Your My Day list, your flagged items, your personal reminders — none of that is on the tool surface. The agent works from a dedicated queue, not your inbox.</p>
+<p>Full MCP documentation is at dovilo.app/ai.</p>
+<h3 id="which-agents-work-with-it">Which agents work with it</h3>
+<p>Dovilo&#39;s MCP server works with Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any other MCP-compatible client you configure via JSON. No lock-in to a specific agent. If it speaks plain MCP, it connects.</p>
+<h3 id="how-it-runs-locally">How it runs locally</h3>
+<p>The server runs inside the desktop app over stdio. No Dovilo endpoint is involved — the only calls that leave your machine are the agent&#39;s own model calls. Task data stays local. That matters if you are working on proprietary code and do not want task context going through a third-party server.</p>
+<h3 id="webhooks-for-closing-the-loop">Webhooks for closing the loop</h3>
+<p>When an agent updates a task, Dovilo can fire a signed webhook to Slack, Linear, n8n, or a custom endpoint. Set it up once, and every agent task completion posts a notification wherever you are watching. Webhook documentation is at dovilo.app/docs/webhooks.</p>
+<hr>
+<h2 id="setting-up-an-agent-task-in-practice">Setting up an agent task in practice</h2>
+<p>Here is what the workflow looks like once the MCP server is configured:</p>
+<ol>
+<li>You create a project in Dovilo&#39;s AI task queue and write a brief for it. The brief is what the agent reads as context.</li>
+<li>You add tasks to that project with enough detail for the agent to act without asking follow-up questions.</li>
+<li>You open Claude Code — or Cursor, or whichever agent you use — and point it at the MCP server.</li>
+<li>The agent lists the tasks in the project, picks one, marks it in progress, and starts working.</li>
+<li>When it finishes, it marks the task done and posts a result. If you have a webhook set up, you get a Slack message or a Linear comment automatically.</li>
+</ol>
+<p>You are not in the loop during steps 4 and 5. That is the point.</p>
+<hr>
+<h2 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h2>
+<p>Two limitations worth knowing before you commit to a workflow.</p>
+<p><strong>No data export.</strong> You cannot currently export your task history or agent results to CSV or JSON. This is on the roadmap, but as of September 2026 it is not available.</p>
+<p><strong>No remote MCP.</strong> The MCP server runs where the desktop app runs. If your agent is running on a remote machine or a CI environment, it cannot connect to a Dovilo MCP server on your laptop — the agent and the desktop app need to be on the same machine. Remote MCP support is also on the roadmap.</p>
+<p>If you run agents locally alongside your editor, neither limitation affects you. If you run agents in the cloud, remote MCP is a blocker for now.</p>
+<hr>
+<h2 id="how-dovilo-compares-to-other-task-tools-with-agent-support">How Dovilo compares to other task tools with agent support</h2>
+<p>A few other tools have moved toward agent-compatible task management, so it is worth being clear about what exists.</p>
+<p><strong>Todoist</strong> has an official MCP server at ai.todoist.net/mcp that gives agents access to your Todoist tasks. Pro is $5/month or $48/year. The key difference from Dovilo is that Todoist&#39;s MCP connects to your main task list, not a separate agent queue. There is no built-in isolation between personal tasks and agent tasks — you would need to manage that yourself with filters.</p>
+<p><strong>Linear</strong> supports agents natively, with tasks assignable to AI agents on every tier including the free plan. Linear is a team project management tool; Basic is $10 per user per month on annual billing. If you are a solo developer, it is often more tool than you need, but the agent support is real and well-built.</p>
+<p><strong>Blitzit</strong> is a to-do list and Pomodoro timer that also runs a local MCP server. It has logged over two million tasks and was voted Product Hunt&#39;s number one product of the day. It does not have gamification or a city-building reward layer, but if you want a lightweight MCP-connected task list without the game mechanics, it is worth evaluating.</p>
+<p>The honest summary: Dovilo is not the only tool with MCP support. What it does differently is combine the agent task queue with a gamified reward system — completed tasks and focus sessions earn bricks, and bricks build an isometric city that grows as a visible record of real work done. That matters if you find standard task lists feel like admin rather than progress. It does not matter if you just want the plumbing.</p>
+<hr>
+<h2 id="the-personal-list-and-the-agent-queue-stay-separate">The personal list and the agent queue stay separate</h2>
+<p>Worth repeating, because it is easy to assume otherwise. Dovilo has two distinct task surfaces. Your personal to-do list — with My Day, Planned, Important, and Flagged views, due dates, repeating tasks, and reminders — is for you. The AI task queue is for your agents. The agent never sees your personal list, and your personal list never gets polluted with agent output.</p>
+<p>You manage your own work the way you always have. The agent works from what you assign it. The two do not interfere.</p>
+<hr>
+<h2 id="getting-started">Getting started</h2>
+<p>Dovilo is free on iOS and Android. The MCP server and webhooks are part of the desktop Pro plan, available on Windows and macOS. Pro is $2.49/month, $19.99/year, or $49.99 as a one-time lifetime purchase. A 7-day free trial is included — no charge if you cancel before it ends.</p>
+<p>Download on App Store or Google Play, and learn more at <a href="https://dovilo.app/">dovilo.app</a>.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>What is AI agent task management?</strong>
+AI agent task management means giving a coding agent like Claude Code or Cursor a structured queue of tasks it can read, act on, and update programmatically — without you manually copying task descriptions into a chat window each time.</p>
+<p><strong>Does the agent work from my personal to-do list?</strong>
+No. In Dovilo, the AI task queue is completely separate from your personal list. The agent sees only the projects and tasks you have explicitly assigned to it. Your personal tasks are invisible to it.</p>
+<p><strong>What is MCP and why does it matter for task management?</strong>
+MCP (Model Context Protocol) is an open protocol that lets AI agents call external tools through a standardised interface. For task management, it means an agent can list tasks, update their status, and post results without any manual relay from you.</p>
+<p><strong>Which AI coding agents work with Dovilo&#39;s MCP server?</strong>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP-compatible client you configure via JSON. Plain MCP, no lock-in.</p>
+<p><strong>Is the MCP server available on mobile?</strong>
+No. The MCP server runs on the desktop app (Windows and macOS) and is part of the Pro plan. Mobile apps are available for iOS and Android, but MCP is desktop-only.</p>
+<p><strong>Can the agent create or delete my tasks?</strong>
+No. Dovilo&#39;s MCP server is read and update only. The agent can read task details and update status and results, but it cannot create new tasks or delete existing ones. You define the work; the agent executes it.</p>
+<p><strong>What happens when the agent finishes a task?</strong>
+Dovilo can fire a signed webhook to Slack, Linear, n8n, or a custom endpoint when an agent task updates — so you get a notification wherever you are watching, without polling a terminal.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>The gap in most developer workflows is not the agent — it is the handoff. You have a task list and you have a coding agent, and nothing connects them. MCP closes that gap by giving the agent a structured surface to read and update tasks without any manual relay.</p>
+<p>If you run agents locally and want a task queue that is isolated from your personal list, fires webhooks when work is done, and makes your progress visible as a growing city rather than a shrinking backlog, Dovilo is worth a look. Start with the free mobile app, then add desktop Pro when you are ready to connect your first agent.</p>
+
+      </div>
+    </article>
+
+    <div class="cta">
+      <div><strong>Dovilo turns finished work into a city you can see.</strong>
+        A to-do list, focus sessions with full-screen ambience, and an isometric city built from
+        what you complete. Free on iOS and Android.</div>
+      <a href="/downloads/">Get Dovilo</a>
+    </div>
+
+    <nav class="more" aria-label="More posts">
+      <a href="/blog/task-management-for-ai-coding-agents-mcp/"><span>Previous</span>Task management for AI coding agents: a Dovilo MCP setup guide</a>
+      <a href="/blog/"><span>&nbsp;</span>All posts &rarr;</a>
+      <span></span>
+    </nav>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">&copy; 2026 Dovilo. All rights reserved.</div>
+    <ul class="footer-socials">
+      <li><a href="https://x.com/doviloapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://instagram.com/doviloapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/company/doviloapp" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/webhooks">Webhooks</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/downloads/">Downloads</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/licenses">Licenses</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    /* ─── THEME ─── */
+    const THEME_COLORS = { dark: '#161B1D', light: '#F7F8F8' };
+
+    function effectiveTheme() {
+      const forced = document.documentElement.getAttribute('data-theme');
+      if (forced === 'light' || forced === 'dark') return forced;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function paintThemeChrome() {
+      const theme = effectiveTheme();
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+      const btn = document.querySelector('.theme-toggle');
+      if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    function toggleTheme() {
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+      paintThemeChrome();
+    }
+
+    /* ─── MOBILE MENU ─── */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      const open = menu.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      if (burger) burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    paintThemeChrome();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
+  </script>
+</body>
+</html>

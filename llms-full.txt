@@ -248,6 +248,7 @@ No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe a
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
+- [AI Agent Task Management: How Coding Agents Use To-Dos](https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/) — 2026-09-23. AI agent task management done right: learn how coding agents use structured to-do queues via MCP to pick up, run, and close tasks automatically.
 - [Task management for AI coding agents: a Dovilo MCP setup guide](https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/) — 2026-09-21. Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.
 - [Deep work app: how to choose one that fits how you focus](https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/) — 2026-09-21. Blockers, timers, task managers or gamified apps? A plain framework for choosing a deep work app based on where your focus actually breaks.
 - [Claude Code Productivity: Ship More With AI Task Queues](https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/) — 2026-09-20. Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.
