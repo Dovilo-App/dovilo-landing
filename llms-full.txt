@@ -248,6 +248,7 @@ No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe a
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
+- [Time Blocking App Guide: Pick the Best One in 2026](https://dovilo.app/blog/time-blocking-app-guide-pick-the-best-one-in-2026/) — 2026-09-25. Find the best time blocking app for 2026 — this guide compares top tools on focus features, pricing, and AI agent support so you can choose with
 - [Focus session app: how to build a routine that sticks](https://dovilo.app/blog/focus-session-app-build-a-routine-that-sticks-in-2026/) — 2026-09-24. Why focus routines collapse after a missed day, and how to build one that survives it. Session length, task setup, weekly review, and what to look for in an app.
 - [AI agent task management: how coding agents use to-dos](https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/) — 2026-09-23. What a to-do list needs before a coding agent can work from it: programmatic access, real statuses, isolation from your personal list, and a way to hand work back.
 - [Task management for AI coding agents: a Dovilo MCP setup guide](https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/) — 2026-09-21. Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.

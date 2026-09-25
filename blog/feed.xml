@@ -6,7 +6,125 @@
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 24 Sep 2026 07:40:04 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 25 Sep 2026 13:30:33 GMT</lastBuildDate>
+  <item>
+    <title>Time Blocking App Guide: Pick the Best One in 2026</title>
+    <link>https://dovilo.app/blog/time-blocking-app-guide-pick-the-best-one-in-2026/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/time-blocking-app-guide-pick-the-best-one-in-2026/</guid>
+    <pubDate>Fri, 25 Sep 2026 13:30:33 GMT</pubDate>
+    <description>Find the best time blocking app for 2026 — this guide compares top tools on focus features, pricing, and AI agent support so you can choose with</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#what-makes-a-time-blocking-app-worth-using">What makes a time blocking app worth using</a></li>
+<li><a href="#the-main-time-blocking-apps-in-2026">The main time blocking apps in 2026</a><ul>
+<li><a href="#todoist">Todoist</a></li>
+<li><a href="#ticktick">TickTick</a></li>
+<li><a href="#notion">Notion</a></li>
+<li><a href="#linear">Linear</a></li>
+<li><a href="#things-3">Things 3</a></li>
+<li><a href="#habitica">Habitica</a></li>
+</ul>
+</li>
+<li><a href="#a-different-kind-of-option-dovilo">A different kind of option: Dovilo</a><ul>
+<li><a href="#focus-timer">Focus timer</a></li>
+<li><a href="#ambient-soundscapes">Ambient soundscapes</a></li>
+<li><a href="#task-management">Task management</a></li>
+<li><a href="#the-city">The city</a></li>
+<li><a href="#mcp-server-for-ai-coding-agents">MCP server for AI coding agents</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
+</ul>
+</li>
+<li><a href="#how-to-choose">How to choose</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p><strong>By Selahaddin Akgün</strong></p>
+<hr>
+<p>Choosing a time blocking app in 2026 means picking from a wider field than ever, and the differences between options matter more than most comparison posts let on. Some apps give you a calendar grid and nothing else. Others wrap a focus timer around a to-do list. A few go further — connecting to AI coding agents or rewarding you for finishing sessions. This guide covers what time blocking actually needs from an app, which tools deliver it, and how to match the right one to how you actually work.</p>
+<h2 id="what-makes-a-time-blocking-app-worth-using">What makes a time blocking app worth using</h2>
+<p>Time blocking is simple in theory: assign specific time slots to specific tasks so the day has shape before it starts. In practice, most people abandon it because maintaining the system costs more than it returns. A good app reduces that cost.</p>
+<p>The features that matter most:</p>
+<ul>
+<li><strong>Task capture that stays out of your way.</strong> If adding a task takes more than a few seconds, you stop adding tasks.</li>
+<li><strong>A focus mechanism.</strong> Blocking time without a way to protect that time is just calendar decoration.</li>
+<li><strong>Visible progress.</strong> Humans need feedback. An app that shows what you finished is more motivating than one that only shows what remains.</li>
+<li><strong>Cross-device access.</strong> You plan on your phone; you work on your desktop. The list needs to follow you.</li>
+</ul>
+<p>With those criteria in mind, here is how the main options in 2026 compare.</p>
+<hr>
+<h2 id="the-main-time-blocking-apps-in-2026">The main time blocking apps in 2026</h2>
+<h3 id="todoist">Todoist</h3>
+<p>Todoist is one of the most mature task managers available. It handles projects, subtasks, recurring tasks, filters, and labels with precision. Pro is $5 per month or $48 per year.</p>
+<p>For time blocking specifically, Todoist works best when paired with a calendar integration. Its scheduling features are solid, but there is no built-in focus timer — you will need a separate app for that.</p>
+<p>Todoist also runs an official MCP server at ai.todoist.net/mcp, which means AI coding agents can interact with your tasks directly. For developers who want to delegate work to an agent, that is a meaningful feature.</p>
+<h3 id="ticktick">TickTick</h3>
+<p>TickTick bundles a task manager with a built-in Pomodoro timer, making it one of the more complete single-app options for time blocking. The free plan supports up to 9 lists and 99 tasks per list. Premium is $3.99 per month or $35.99 per year.</p>
+<p>The calendar view is genuinely useful — you can drag tasks onto time slots, which is a more direct workflow than most competitors offer. There is no official MCP server, though community-built servers exist for users who want agent integration.</p>
+<h3 id="notion">Notion</h3>
+<p>Notion is a flexible workspace rather than a dedicated task manager, but many people use it for time blocking through custom databases and calendar views. The Plus plan is $10 per month on annual billing ($12 monthly), and the Business plan is $20.</p>
+<p>Notion has an official MCP integration, so agents can read and write to your workspace. The trade-off is setup time. Building a time blocking system in Notion requires real configuration, and that configuration can become its own distraction.</p>
+<h3 id="linear">Linear</h3>
+<p>Linear is built for software teams, not personal time blocking. It is worth mentioning here because it supports AI agents natively on every tier, including the free plan, with agents assignable directly to issues. The Basic plan is $10 per user per month on annual billing ($12 monthly), and the Business plan is $16.</p>
+<p>If you are a solo developer who already uses Linear for project tracking, it is doing some of what a time blocking app would do. But it is not designed for personal daily planning.</p>
+<h3 id="things-3">Things 3</h3>
+<p>Things 3 is a well-regarded task manager for Apple users. It costs $49.99 as a one-time purchase on Mac and runs on iOS and macOS only. There is no official MCP server, and no Android or Windows version.</p>
+<p>For time blocking, Things 3 is clean and fast. Its &quot;Today&quot; view functions as a daily block. The limitations are the Apple-only constraint and the absence of a focus timer.</p>
+<h3 id="habitica">Habitica</h3>
+<p>Habitica turns your to-do list into a role-playing game. You earn XP and gold for completing tasks and lose health points for missing them. The paid plan is $4.99 per month or $47.99 per year, covering cosmetic upgrades.</p>
+<p>Habitica has no focus timer and no time blocking features in the traditional sense. It works well for habit tracking and for people who respond to social accountability through its guild and party system. There is no AI agent integration.</p>
+<hr>
+<h2 id="a-different-kind-of-option-dovilo">A different kind of option: Dovilo</h2>
+<p><a href="https://dovilo.app/">Dovilo</a> takes a different approach to the same problem. It combines task management, a Pomodoro-style focus timer, ambient soundscapes, and an isometric city-building game into one app available on iOS, Android, Windows, and macOS.</p>
+<p>The time blocking loop works like this: you add tasks with due dates, priority levels, and reminders. You open a focus session tied to a specific task. When the session ends, you earn bricks. Bricks let you place buildings on an isometric city grid. The city grows as a direct, spatial record of work completed.</p>
+<p>That last part is not decorative. Seeing a city that only exists because you finished real sessions changes how finishing a session feels — it is a different kind of feedback than a streak counter or an XP bar.</p>
+<h3 id="focus-timer">Focus timer</h3>
+<p>The focus timer runs in three modes: a single session, a Pomodoro cycle (25 minutes on, 5 off), or a session tied to a specific task. It operates in the background with Do Not Disturb support, so notifications do not interrupt your block.</p>
+<h3 id="ambient-soundscapes">Ambient soundscapes</h3>
+<p>Dovilo includes six ambient scenes. Five of them are available in the Focus Ambience Pack: Rainy City, Midnight, Dusk, Snow, and Fog. Each scene uses a 12-layer mixer, and you can blend up to three layers at once — useful for people who find silence distracting but music too engaging.</p>
+<h3 id="task-management">Task management</h3>
+<p>Task views include My Day, Important, Planned, and Flagged. Tasks support due dates, repeating schedules, reminders, priority levels, stars, and flags. The free plan on iOS and Android gives you tasks and focus sessions with no ads. Cloud sync is a Pro feature.</p>
+<h3 id="the-city">The city</h3>
+<p>Bricks are spent in the Build market to place buildings on the isometric grid. Nothing decays. The city you build at the start of the year is still there at the end. That persistence is part of the point: the city is a record, not a game state you can lose.</p>
+<h3 id="mcp-server-for-ai-coding-agents">MCP server for AI coding agents</h3>
+<p>On Desktop Pro (Windows and macOS), Dovilo runs a local MCP server that exposes nine tools to AI coding agents — three read tools and six write tools. Agents can read and update tasks but cannot create or delete them. The AI task queue is completely separate from your personal to-do list; your personal tasks are invisible to the agent. Full details are at dovilo.app/ai.</p>
+<p>Supported agents include Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI. Any MCP-compatible client can connect via JSON configuration — plain MCP, no lock-in to a specific tool.</p>
+<p>Signed webhooks fire into Slack, Linear, n8n, or custom endpoints when agent tasks update. Webhook documentation is at dovilo.app/docs/webhooks.</p>
+<p>The MCP server runs locally inside the Desktop app over stdio. No task data passes through a Dovilo endpoint. Only the agent&#39;s own model calls leave the machine.</p>
+<h3 id="pricing">Pricing</h3>
+<p>The free plan covers iOS and Android with tasks and focus sessions. Pro is $2.49 per month, $19.99 per year (33% less than monthly), or $49.99 as a one-time lifetime purchase. A 7-day free trial starts in the mobile app. Desktop is part of Pro.</p>
+<p>The Focus Ambience Pack (five scenes, 12-layer mixer) is $4.99 as a one-time purchase. The Full City Package is also $4.99 one-time. AI task packs start at $0.99 and never expire.</p>
+<h3 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h3>
+<p>Two things worth knowing before you commit: Dovilo does not currently support data export, and the MCP server is local-only — the agent runs where the Desktop app runs. Both are on the roadmap. If data portability or remote agent access is a hard requirement right now, factor that in.</p>
+<hr>
+<h2 id="how-to-choose">How to choose</h2>
+<p>The right app depends on what your day actually looks like.</p>
+<p><strong>You plan in a calendar and need drag-and-drop scheduling.</strong> TickTick&#39;s calendar view handles this better than most. Todoist is a strong choice if you already live in it and want to add agent support.</p>
+<p><strong>You are a solo developer running AI coding agents.</strong> Dovilo&#39;s local MCP server with an isolated AI task queue is a specific solution to a specific problem: keeping agent tasks separate from personal tasks while staying in one app. Todoist&#39;s official MCP server is worth considering too if you prefer a more established task manager.</p>
+<p><strong>You want team-level project tracking with agent support.</strong> Linear is built for that. It is not a personal time blocking tool, but if your work already lives there, the agent integration is already available.</p>
+<p><strong>You want gamification and social accountability.</strong> Habitica&#39;s guild and party system is mature and has a large community. It does not include a focus timer or time blocking features, but the habit-tracking loop is strong.</p>
+<p><strong>You want focus, a controlled audio environment, and a visual reward that grows over time.</strong> Dovilo is the only option in this list that combines all three. The city mechanic is not available anywhere else in this form.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>What is a time blocking app?</strong>
+A time blocking app helps you assign specific tasks to specific time slots in your day. The best ones combine task capture, scheduling, and a way to protect focus time once it is blocked — such as a Pomodoro timer or a Do Not Disturb mode.</p>
+<p><strong>Is Dovilo free to use?</strong>
+Yes. The free plan on iOS and Android includes tasks and focus sessions with no ads. Cloud sync, Desktop access, and advanced stats require Pro. Pro starts at $2.49 per month, and a 7-day free trial is available in the mobile app.</p>
+<p><strong>Does Dovilo work on Windows and macOS?</strong>
+Yes. The Desktop app runs on both Windows and macOS and is included in the Pro plan. The local MCP server and webhook integrations are Desktop Pro features.</p>
+<p><strong>Can I use Dovilo with Claude Code or Cursor?</strong>
+Yes, on Desktop Pro. The local MCP server exposes nine tools to AI coding agents including Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and Gemini CLI. The AI task queue is separate from your personal to-do list. Details are at dovilo.app/ai.</p>
+<p><strong>What is the difference between Dovilo&#39;s free and Pro plans?</strong>
+Free gives you tasks and focus on iOS and Android. Pro adds cloud sync, Desktop access, advanced stats, the MCP server, webhook integrations, and access to the Focus Ambience Pack scenes. The one-time content packs are purchased separately from the subscription.</p>
+<p><strong>Does the city in Dovilo reset or decay?</strong>
+No. Nothing in the city decays. Every building you place stays there permanently. The city is a record of completed work, not a game state you can lose.</p>
+<p><strong>Which time blocking app is best for developers using AI agents?</strong>
+As of September 2026, both Dovilo and Todoist support AI agent integration. Dovilo&#39;s approach is local-first with an isolated AI task queue on Desktop Pro. Todoist runs an official MCP server at ai.todoist.net/mcp. The right choice comes down to whether you want gamified feedback and local privacy (Dovilo) or a more established task manager with broad integrations (Todoist).</p>
+<hr>
+<p>Time blocking works when the system costs less than it returns. The apps that stick are the ones that reduce friction at the moment you need to start — not the ones with the longest feature list. Pick the one that fits how you actually plan, and give it two weeks before you judge it.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>Focus session app: how to build a routine that sticks</title>
     <link>https://dovilo.app/blog/focus-session-app-build-a-routine-that-sticks-in-2026/</link>
