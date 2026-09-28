@@ -8,110 +8,101 @@
   <language>en</language>
   <lastBuildDate>Mon, 28 Sep 2026 01:47:00 GMT</lastBuildDate>
   <item>
-    <title>Gamified Task Manager: Complete Buyer&#39;s Guide for 2026</title>
+    <title>Gamified task manager: how to pick one that keeps working</title>
     <link>https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/</link>
     <guid isPermaLink="true">https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/</guid>
     <pubDate>Mon, 28 Sep 2026 01:47:00 GMT</pubDate>
-    <description>Find the best gamified task manager for 2026 with this complete buyer&#39;s guide — every major app compared so you can pick the right one.</description>
+    <description>Most gamified task managers fail the same way: the reward stops meaning anything. Here is how to judge the mechanic, and how the main options differ.</description>
     <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
 <p class="toc-title">On this page</p>
 <ul>
-<li><a href="#what-makes-a-gamified-task-manager-worth-using">What makes a gamified task manager worth using</a></li>
-<li><a href="#the-main-options-in-2026">The main options in 2026</a><ul>
-<li><a href="#habitica">Habitica</a></li>
-<li><a href="#forest">Forest</a></li>
-<li><a href="#beedone">BeeDone</a></li>
-<li><a href="#mainquest">MainQuest</a></li>
-<li><a href="#blitzit">Blitzit</a></li>
-<li><a href="#dovilo">Dovilo</a></li>
+<li><a href="#what-a-reward-mechanic-has-to-get-right">What a reward mechanic has to get right</a></li>
+<li><a href="#the-four-mechanics-and-who-each-one-suits">The four mechanics, and who each one suits</a></li>
+<li><a href="#the-failure-mode-punishment-dressed-as-motivation">The failure mode: punishment dressed as motivation</a></li>
+<li><a href="#the-main-options">The main options</a></li>
+<li><a href="#dovilo-a-city-built-from-finished-work">Dovilo: a city built from finished work</a><ul>
+<li><a href="#the-task-layer">The task layer</a></li>
+<li><a href="#focus-and-ambience">Focus and ambience</a></li>
+<li><a href="#for-developers-the-mcp-server">For developers: the MCP server</a></li>
+<li><a href="#pricing-and-whats-free">Pricing and what&#39;s free</a></li>
+<li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
 </ul>
 </li>
-<li><a href="#the-mcp-server-what-it-means-for-developers">The MCP server: what it means for developers</a></li>
-<li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
 <li><a href="#how-to-choose">How to choose</a></li>
 <li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
-<li><a href="#the-short-version">The short version</a></li>
 </ul>
 </nav>
-<p><strong>By Selahaddin Akgün</strong></p>
-<hr>
-<p>A gamified task manager turns completed work into visible progress — points, streaks, rewards, or in some cases an entire city you build brick by brick. If you&#39;re tired of plain to-do lists that feel like admin, and you want finishing tasks to actually mean something, this guide covers every major option in 2026: what each one does well, where each one falls short, and how to pick the right one for how you actually work.</p>
-<hr>
-<h2 id="what-makes-a-gamified-task-manager-worth-using">What makes a gamified task manager worth using</h2>
-<p>The core idea is simple: attach a reward signal to completing work, and your brain treats the task list less like a chore and more like a game you&#39;re winning. But execution varies a lot between apps.</p>
-<p>Some use XP and character levels. Some grow a virtual forest. Some build a city. Some add social quests and boss battles. The mechanism matters because it determines whether the reward feels connected to real output or just decorative.</p>
-<p>Three things separate apps that stick from ones you abandon after a week:</p>
-<p><strong>The reward must reflect real work.</strong> If you can game the system by logging fake tasks, the city or XP bar stops meaning anything. The best apps tie rewards directly to task completion or timed focus sessions, so the visual output is an honest record.</p>
-<p><strong>The task layer has to be functional.</strong> Gamification on top of a broken to-do list is still a broken to-do list. You need due dates, repeating tasks, priority levels, and at minimum a daily view that shows you what to do next.</p>
-<p><strong>The friction of earning rewards should feel proportional.</strong> If every small task earns the same reward as a hard one, there&#39;s no incentive to tackle the hard ones. If rewards come too slowly, the motivation loop breaks.</p>
-<hr>
-<h2 id="the-main-options-in-2026">The main options in 2026</h2>
-<h3 id="habitica">Habitica</h3>
-<p>Habitica is the most established gamified productivity app around, built on a social layer of guilds, party quests, and boss battles. It covers habits, dailies, and to-dos. Your character gains XP, levels up, and can die if you miss too many tasks — which creates real stakes.</p>
-<p>The visual style is retro pixel art, and the community is active. The free tier covers core features; the subscriber tier runs $4.99/month or $47.99/year and unlocks cosmetic rewards.</p>
-<p>Where it falls short: no focus timer, no ambient audio, no spatial reward mechanic. The XP bar moves, but nothing you build persists visually in a way that maps to your actual output. There&#39;s also no integration with AI coding agents at any tier.</p>
-<p>Habitica is a strong pick if you want social accountability and habit tracking. It&#39;s less suited to solo deep work or developer workflows.</p>
-<h3 id="forest">Forest</h3>
-<p>Forest has one of the most recognizable focus loops in any productivity app. You plant a virtual tree when you start a session, and it dies if you leave the app. Over time, your sessions produce a gallery of trees.</p>
-<p>It&#39;s a pure focus tool — no task management, no to-do list, no habit tracking. The v5.11.0 update added a gamified Spring Focus Fest event with limited-edition Land Style prizes, showing the app is layering more game mechanics onto its core loop. The iOS app has a one-time $1.99 purchase; a Plus subscription exists, but pricing isn&#39;t confirmed publicly.</p>
-<p>Forest works well as a phone-lock focus tool. It doesn&#39;t help you plan or prioritize, so it&#39;s best paired with a separate task manager rather than used as a standalone system.</p>
-<h3 id="beedone">BeeDone</h3>
-<p>BeeDone uses AI to generate a unique visual and motivational message for each task you complete. It includes a Doomscroll Blocker and a Deep Work Timer, and it holds a 4.8-star App Store rating.</p>
-<p>There&#39;s no city-building mechanic, no ambient soundscapes, and no MCP server for AI agent integration. Paid pricing isn&#39;t confirmed publicly — check the app directly for current plans.</p>
-<p>BeeDone suits users who want AI-generated encouragement and visual variety per task. The gamification is more personal and less spatial than city-building approaches.</p>
-<h3 id="mainquest">MainQuest</h3>
-<p>MainQuest is designed with ADHD users in mind, using an RPG framework with 16 character classes and XP-scored focus sessions. It&#39;s early-stage, and the feature set is still developing.</p>
-<p>There&#39;s no spatial city-building, no focus timer with audio, and no MCP server. If RPG character progression resonates with you more than building something, it&#39;s worth watching. No health claims here — it&#39;s a productivity tool, not a clinical intervention.</p>
-<h3 id="blitzit">Blitzit</h3>
-<p>Blitzit is a to-do list and Pomodoro timer with task time estimation and scheduling. It&#39;s logged 2.16M+ tasks and won Product Hunt&#39;s number-one of the day. It also runs a local MCP server, making it one of two confirmed apps in this category with direct AI agent integration.</p>
-<p>What it doesn&#39;t have: gamification, city-building, or ambient soundscapes. It&#39;s a clean productivity utility for users who want MCP integration without any game layer. If that&#39;s you, it&#39;s worth a look.</p>
-<h3 id="dovilo">Dovilo</h3>
-<p><a href="https://dovilo.app/">Dovilo</a> sits at an intersection none of the above occupy: a gamified task manager with a local MCP server, a focus timer, and an ambient soundscape system — all in one app.</p>
-<p>The core loop is straightforward. Complete tasks or finish focus sessions, earn bricks, then spend those bricks in the Build market to place buildings on an isometric grid. The city grows as a direct, spatial record of real work done. Nothing decays — every building you place stays there permanently.</p>
-<p>The task layer is fully functional: due dates, repeating tasks, reminders, priority levels, stars, flags, and four views (My Day, Important, Planned, Flagged). The focus timer runs in single session, Pomodoro (25/5), or task-bound mode, with Do Not Disturb support and background operation. The ambient audio system includes six scenes — five of them available in the separately purchasable Focus Ambience Pack — with a 12-layer blendable soundscape mixer that lets you blend up to three layers at once.</p>
-<p>The app is free on iOS and Android, offline-first, and available in five languages: English, Turkish, Spanish, French, and German. There are no ads on any tier. Cloud sync is a Pro feature and is not available on the free plan.</p>
-<p><strong>Pro features and pricing.</strong> The desktop app (Windows and macOS) is Pro only. Pro is $2.49/month, $19.99/year (saves 33% over monthly), or $49.99 as a one-time lifetime purchase. A 7-day free trial is included; it starts in the mobile app, and there&#39;s no charge if you cancel before it ends. The Focus Ambience Pack and Full City Package are each $4.99 as separate one-time purchases and are not included in Pro by default.</p>
-<hr>
-<h2 id="the-mcp-server-what-it-means-for-developers">The MCP server: what it means for developers</h2>
-<p>If you&#39;re running Claude Code, Cursor, Windsurf, or another AI coding agent, the MCP integration changes how you use a task manager entirely.</p>
-<p>Dovilo&#39;s desktop app (Pro) runs a local MCP server that exposes nine tools to AI agents — three read-only and six write, with no create or delete access, so agents can read and update tasks only. The AI task queue is completely separate from your personal to-do list. Your personal tasks are invisible to the agent; it only sees the project it&#39;s been assigned to. More detail on how the AI task layer works is at dovilo.app/ai.</p>
-<p>The server runs locally over stdio inside the Desktop app. No data leaves your machine through Dovilo&#39;s infrastructure — only the agent&#39;s own model calls go out. That local-first design is the key difference from cloud-based integrations.</p>
-<p>Supported clients as of September 2026: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP-compatible client via JSON config. Plain MCP, no lock-in to a specific agent.</p>
-<p>Signed webhooks fire into Slack, Linear, n8n, or custom endpoints when agent tasks update. Webhook documentation is at dovilo.app/docs/webhooks.</p>
-<p>For context: Blitzit also has a local MCP server but no gamification. Todoist has an official MCP at ai.todoist.net/mcp. Linear supports agents on every tier including Free. Notion also has an official MCP. Dovilo&#39;s distinction is the combination of a local MCP server with a city-building reward system — that pairing doesn&#39;t exist anywhere else right now.</p>
-<hr>
-<h2 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h2>
-<p>Being direct about gaps is more useful than glossing over them.</p>
-<p>As of September 2026, Dovilo has no data export feature. If you want to pull your task history into a spreadsheet or another tool, that&#39;s not currently possible. It&#39;s on the roadmap.</p>
-<p>The MCP server is local only. The agent runs where the Desktop app runs — on your machine. There&#39;s no remote MCP endpoint, so you can&#39;t delegate tasks to an agent running on a server elsewhere. That&#39;s also on the roadmap.</p>
-<p>The AI task quota on the free plan is a monthly quota; the specific number isn&#39;t public. If you&#39;re running agents heavily, check current limits in the app.</p>
-<hr>
+<p>A gamified task manager attaches a reward to finishing work, so the list feels less like a ledger of things you have not done. The idea is old and mostly sound. The execution is where these apps separate, and most people pick on the art style rather than on the mechanic.</p>
+<p>This guide covers what makes a reward hold up over months, how the main approaches differ, and what to check before you commit your task list to one.</p>
+<h2 id="what-a-reward-mechanic-has-to-get-right">What a reward mechanic has to get right</h2>
+<p><strong>The reward has to track real work.</strong> If you can farm it by logging trivial tasks, the number stops meaning anything, and you will know that before the app does. The reward should come from completed tasks or finished focus sessions, and it should scale with effort.</p>
+<p><strong>The task layer has to be a real task layer.</strong> Gamification on top of a weak to-do list is a weak to-do list with a progress bar. You need due dates, repeats, reminders, priorities and a daily view you trust.</p>
+<p><strong>It has to survive a bad week.</strong> Everyone misses days. The question is what the system does about it, and that single design choice decides whether you are still using the app in March.</p>
+<h2 id="the-four-mechanics-and-who-each-one-suits">The four mechanics, and who each one suits</h2>
+<ul>
+<li><strong>Points and levels (XP).</strong> Abstract and flexible. Works if numbers motivate you, and fades for people who need something to look at.</li>
+<li><strong>A growing thing.</strong> A tree, a pet, a city. The reward is visual and cumulative, which suits people whose effort otherwise feels invisible.</li>
+<li><strong>Social stakes.</strong> Parties, guilds, shared quests. The strongest pull for people who show up for others more reliably than for themselves, and pressure for people who don&#39;t.</li>
+<li><strong>Loss mechanics.</strong> Streaks that break, plants that die, characters that lose health. Effective at first, and the reason most people eventually quit.</li>
+</ul>
+<h2 id="the-failure-mode-punishment-dressed-as-motivation">The failure mode: punishment dressed as motivation</h2>
+<p>Most gamified apps eventually punish you for stopping. The streak resets, the pet gets sad, the avatar loses HP.</p>
+<p>That works while you are winning. The problem is what it teaches when you are not. Miss two days in a genuinely bad week and the app&#39;s response is to take something away, exactly when the cost of reopening it is already highest. Then you don&#39;t reopen it.</p>
+<p>A reward that only accumulates has the opposite property. A quiet week costs you nothing except a week of not growing, which is already true.</p>
+<p>So before you commit: find out what the app does on the day you miss. That answer matters more than the feature list.</p>
+<h2 id="the-main-options">The main options</h2>
+<p>Names people compare, with what each is built for. Check current pricing and features on each app&#39;s own page, they change.</p>
+<ul>
+<li><strong>Habitica</strong> turns habits, dailies and to-dos into an RPG, with parties and guilds. The strongest social layer in the category. Character health drops when you miss tasks, so the stakes are real in both directions.</li>
+<li><strong>Forest</strong> plants a tree for each focus session and it dies if you leave the app. A clean, recognizable focus loop with no task management, so most people pair it with a separate list.</li>
+<li><strong>Finch</strong> wraps self-care routines around a pet you raise. Gentler in tone than the RPG apps, and aimed more at daily habits than at project work.</li>
+</ul>
+<p>There are also newer entries adding AI-generated rewards, RPG classes or per-task visuals. Worth trying, but check how young the app is before you move your whole task list into it.</p>
+<h2 id="dovilo-a-city-built-from-finished-work">Dovilo: a city built from finished work</h2>
+<p><a href="https://dovilo.app/">Dovilo</a> pays completed work out into a city.</p>
+<p>Finish a task or a focus session and you earn bricks. Spend bricks in the Build Market on houses, offices, parks, roads and decorations, then place them on an isometric grid. Bricks are the only currency, and the only way to earn them is to finish something.</p>
+<p>Nothing decays, and no streak punishes you for a quiet week. The city you built in January is still there in December. It is a record of the last few months, not a score you can lose.</p>
+<h3 id="the-task-layer">The task layer</h3>
+<p>Due dates, repeats, reminders, priorities, stars and flags. One view picker covers My Day, Important, Planned, Flagged, all tasks and your own lists, each with a live count. Tasks group by Today, Tomorrow and No date.</p>
+<p>It is not a project management tool. It covers what one person needs to plan a day.</p>
+<h3 id="focus-and-ambience">Focus and ambience</h3>
+<p>Three timer modes: a single session of any length, a Pomodoro cycle of 25 minutes on and 5 off with a longer break every 4 rounds, and a session tied to one task. A breathing exercise and a countdown ease you in, the timer runs in the background and with the phone locked, and Do Not Disturb can silence other apps for the length of the session.</p>
+<p>The Default ambience scene is free and silent. The Focus Ambience Pack adds five full-screen scenes: Rainy City, Midnight, Dusk, Snow and Fog, each with its own weather, skyline tint and sound. The sound mixer blends up to 3 of 12 layers at once. It is ambience, not music. No melody, no beat.</p>
+<h3 id="for-developers-the-mcp-server">For developers: the MCP server</h3>
+<p>Dovilo Desktop (Windows and macOS, part of Pro) runs a local MCP server that gives AI coding agents their own task list, on a monthly quota. Nine tools, three read and six write, read and update only. No create tool and no delete tool.</p>
+<p>Your personal list is not on that tool surface at all, and an agent is scoped to one project and its brief. MCP traffic stays local over stdio, with no Dovilo endpoint in the agent&#39;s request path. The AI tasks sync to your phone through Pro cloud sync, so you can watch steps and token cost while the agent runs.</p>
+<p>Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets; any other MCP client connects with JSON. Signed webhooks push status changes into Slack, Linear, n8n or a custom endpoint. Details: <a href="https://dovilo.app/ai">dovilo.app/ai</a> and the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">MCP setup guide</a>.</p>
+<h3 id="pricing-and-what39s-free">Pricing and what&#39;s free</h3>
+<p>Free on iOS and Android: unlimited tasks, categories and focus sessions, a starter city, basic statistics, dark and light themes, five languages and offline-first storage. No ads, on any tier.</p>
+<p>Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro adds cloud sync, advanced statistics, Dovilo Desktop, and both content packs: the Focus Ambience Pack and the Full City Package, each $4.99 on its own if you would rather buy just one.</p>
+<h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
+<p>No data export, and no remote MCP, so an agent has to run on the same machine as Desktop. Both are on the public roadmap. Desktop requires Pro; everything else works without it.</p>
 <h2 id="how-to-choose">How to choose</h2>
-<p><strong>You want social accountability and habit tracking.</strong> Habitica is the most mature option, with the largest community and the most developed social layer.</p>
-<p><strong>You want a phone-lock focus tool and nothing else.</strong> Forest does one thing well. Pair it with a separate task manager.</p>
-<p><strong>You want AI-generated per-task visuals and motivational messages.</strong> BeeDone is built around that loop.</p>
-<p><strong>You want MCP integration without any game layer.</strong> Blitzit is a clean utility with a confirmed MCP server and a solid Pomodoro timer.</p>
-<p><strong>You want a gamified task manager that also connects to your AI coding agent.</strong> Dovilo is the only app that combines a local MCP server with a city-building reward system. The free tier covers tasks and focus on mobile. Pro adds desktop, cloud sync, and the MCP server.</p>
-<hr>
+<ul>
+<li><strong>You show up for other people more than for yourself.</strong> Habitica&#39;s parties and guilds are the most developed social layer in the category.</li>
+<li><strong>You just need to stay off your phone.</strong> Forest does one thing, and does it in two taps.</li>
+<li><strong>You want a gentler, habit-shaped system.</strong> Finch is built around routines and tone rather than stakes.</li>
+<li><strong>You want the work to leave something behind.</strong> A city that only grows fits people whose effort otherwise disappears at the end of the week.</li>
+<li><strong>You also run coding agents.</strong> Keep their tasks on a separate surface from your own. Dovilo does that locally on Desktop, with no create or delete tools.</li>
+</ul>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is a gamified task manager?</strong>
-A gamified task manager applies game mechanics — points, rewards, levels, or visual progress — to completing tasks. The goal is to make finishing work feel more satisfying and reduce the friction of starting.</p>
-<p><strong>Which gamified task manager is best for developers using AI coding agents?</strong>
-Dovilo combines a local MCP server for AI coding agents with a city-building reward system. Blitzit also has a local MCP server but no gamification. The right choice depends on whether the game layer matters to you.</p>
-<p><strong>Does Dovilo&#39;s free plan include the focus timer and task management?</strong>
-Yes. Tasks and focus sessions are available on iOS and Android on the free plan. Cloud sync, the desktop app, and the MCP server require Pro.</p>
-<p><strong>How does the MCP server in Dovilo work?</strong>
-The Desktop app (Pro, Windows and macOS) runs a local MCP server over stdio. It exposes nine tools to AI agents — three read and six write — so agents can read and update tasks only. Agents see only their assigned project; your personal to-do list is invisible to them. No data leaves your machine through Dovilo&#39;s infrastructure.</p>
-<p><strong>Can I use Dovilo&#39;s MCP server with Cursor or Claude Code?</strong>
-Yes. Supported clients include Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, Gemini CLI, and any MCP-compatible client via JSON config. Desktop is part of Pro.</p>
-<p><strong>What happens to my city if I stop using the app?</strong>
-Nothing decays. Every building you&#39;ve placed stays on the grid permanently — the city is a lasting record of completed work.</p>
-<p><strong>Is Habitica free?</strong>
-Habitica has a free tier that covers habits, dailies, and to-dos. The subscriber tier is $4.99/month or $47.99/year and unlocks cosmetic rewards.</p>
+A to-do app that attaches a reward to finishing work: points, a growing thing, a character, a city. The goal is to make starting easier and finishing feel like it counted.</p>
+<p><strong>Does gamification actually work?</strong>
+For some people, and it depends on the mechanic. Rewards tied to completed tasks and real focus time hold up better than abstract counters. Loss mechanics motivate early and cost you later, when a missed week turns into a deleted app.</p>
+<p><strong>What happens in Dovilo if I stop for two weeks?</strong>
+Nothing. The city stays exactly as you left it. There is no streak to lose and nothing decays.</p>
+<p><strong>Can I earn bricks without doing real work?</strong>
+Bricks come from completed tasks and completed focus sessions, and focus bricks are paid on duration, so the fastest way to earn is to actually work. Only finished Pomodoro rounds count toward the daily counter.</p>
+<p><strong>Is Dovilo free?</strong>
+Yes, on iOS and Android, with unlimited tasks, categories and focus sessions, and no ads. Pro adds sync, advanced statistics, the desktop app and both content packs, from $2.49/month with a 7-day trial started in the app.</p>
+<p><strong>Can I use it with Claude Code or Cursor?</strong>
+Yes, on Desktop with Pro. Nine tools, read and update only, on a task list separate from your personal one, with the agent scoped to a single project.</p>
+<p><strong>Which is better for habit tracking specifically?</strong>
+Habitica and Finch are built around daily habits. Dovilo is built around tasks and focus sessions, with repeats for the things you do regularly.</p>
 <hr>
-<h2 id="the-short-version">The short version</h2>
-<p>Plain to-do lists are fine for capturing tasks. They&#39;re bad at making you want to open them. A gamified task manager adds a reward signal that connects finishing work to something you can see and keep.</p>
-<p>The right app depends on what kind of reward motivates you, whether you need a full task layer or just a focus tool, and whether AI agent integration is part of your workflow. If you&#39;re a developer shipping code with an AI agent and you want your task manager to reflect real progress visually, Dovilo is built for that specific combination. Start free on mobile at <a href="https://dovilo.app/">dovilo.app</a>.</p>
+<p>Plain to-do lists are good at capture and bad at making you want to open them. A reward layer fixes the second part, as long as the reward tracks real work and survives a bad week.</p>
+<p>Pick the mechanic that matches what motivates you, and check what the app does on the day you miss. Dovilo is free on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_gamified&amp;mt=8" target="_blank" rel="noopener">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=gamified" target="_blank" rel="noopener">Google Play</a>.</p>
 ]]></content:encoded>
   </item>
   <item>
