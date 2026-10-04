@@ -248,6 +248,7 @@ No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe a
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
+- [Task Manager for Programmers: What to Look For in 2026](https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/) — 2026-10-04. Find the best task manager for programmers in 2026. Learn which tools handle time blocking, team tracking, and AI agent orchestration effectively.
 - [Productivity RPG: Can Playing a Game Make You More Focused?](https://dovilo.app/blog/productivity-rpg-can-playing-a-game-make-you-more-focused/) — 2026-10-03. Discover how productivity RPG systems use XP, quests, and rewards to boost focus, beat procrastination, and get more real work done every day.
 - [Productivity gamification: what the research actually shows](https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/) — 2026-10-01. Gamification reliably raises engagement in short studies. Long-term evidence is thinner than the marketing suggests. What holds up, what does not, and how to test it.
 - [Gamified to-do list: why game mechanics beat guilt](https://dovilo.app/blog/gamified-to-do-list-why-game-mechanics-beat-guilt-in-2026/) — 2026-09-30. Guilt gets you through a week. A reward tied to finished work gets you through a year. What separates gamification that lasts from badges and broken streaks.
