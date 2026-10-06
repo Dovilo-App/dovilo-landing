@@ -46,7 +46,7 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 
 Long-form posts, newest first — full text at each link, and an RSS feed at https://dovilo.app/blog/feed.xml.
 
-- [Task Manager for Programmers: What to Look For in 2026](https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/) — 2026-10-04. Find the best task manager for programmers in 2026. Learn which tools handle time blocking, team tracking, and AI agent orchestration effectively.
+- [Task manager for programmers: what to look for](https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/) — 2026-10-04. Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. Most tools cover one. Here is how to tell which you need.
 - [Productivity RPG: how to build an XP system for real work](https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/) — 2026-10-03. XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.
 - [Productivity gamification: what the research actually shows](https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/) — 2026-10-01. Gamification reliably raises engagement in short studies. Long-term evidence is thinner than the marketing suggests. What holds up, what does not, and how to test it.
 - [Gamified to-do list: why game mechanics beat guilt](https://dovilo.app/blog/gamified-to-do-list-why-game-mechanics-beat-guilt-in-2026/) — 2026-09-30. Guilt gets you through a week. A reward tied to finished work gets you through a year. What separates gamification that lasts from badges and broken streaks.
