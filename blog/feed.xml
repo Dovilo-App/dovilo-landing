@@ -128,120 +128,127 @@
 ]]></content:encoded>
   </item>
   <item>
-    <title>Productivity RPG: Can Playing a Game Make You More Focused?</title>
-    <link>https://dovilo.app/blog/productivity-rpg-can-playing-a-game-make-you-more-focused/</link>
-    <guid isPermaLink="true">https://dovilo.app/blog/productivity-rpg-can-playing-a-game-make-you-more-focused/</guid>
+    <title>Productivity RPG: how to build an XP system for real work</title>
+    <link>https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/</link>
+    <guid isPermaLink="true">https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/</guid>
     <pubDate>Sat, 03 Oct 2026 03:45:07 GMT</pubDate>
-    <description>Discover how productivity RPG systems use XP, quests, and rewards to boost focus, beat procrastination, and get more real work done every day.</description>
-    <content:encoded><![CDATA[<p><em>By Selahaddin Akgün</em></p>
-<p>Productivity RPG systems apply game mechanics, XP, leveling, quests, and rewards, to real tasks, making it easier to start, stay focused, and finish. Research shows gamification can meaningfully lift task completion rates and self-reported productivity. The core loop is the same whether you use a dedicated app or a notebook: do work, earn points, level up. The frustration of abandoned to-do lists is not a discipline problem. It is a feedback problem. RPG mechanics solve it by making progress visible and immediate.</p>
-<h2 id="why-rpg-mechanics-actually-work-on-your-brain">Why RPG Mechanics Actually Work on Your Brain</h2>
-<p>The core appeal of any RPG is legible progress. You do something, a number goes up, and the system acknowledges you. That loop is not cosmetic. It maps directly onto how the brain processes motivation.</p>
-<p>When you complete a task and see a reward, XP, a level gain, a new building unlocked, your brain releases dopamine. That release is not just about pleasure. It reinforces the behavior that preceded it, making you more likely to repeat it. RPG systems create a tight feedback loop between effort and reward that most plain to-do lists never offer. A checked checkbox is not the same signal.</p>
-<p>Variable rewards matter too. In a well-designed RPG system, not every task yields the same payoff. Some quests give bonus XP. Some level-ups unlock something unexpected. That unpredictability keeps engagement higher than a flat reward structure would.</p>
-<p>Progress visibility compounds the effect. When your character&#39;s stats rise over weeks, or your city grows building by building, you have an honest record of real work done. That record counters the common experience of feeling busy but going nowhere.</p>
-<p>The numbers support this. A 2019 study cited via <a href="https://rank-up.app/blog/can-video-game-mechanics-make-you-more-productive" target="_blank" rel="noopener">rank-up.app</a> found that XP-based systems can boost task completion rates by up to 45%. Separately, data compiled by <a href="https://training.safetyculture.com/blog/gamification-statistics/" target="_blank" rel="noopener">SC Training&#39;s 2025 report</a> found that 90% of employees surveyed feel gamification improves their productivity at work. Neither figure is a controlled lab result, and both come from vendor-adjacent sources. But the direction is consistent across the literature: structured reward mechanics change behavior.</p>
-<p>The mechanism is not magic. It is Self-Determination Theory in practice: the idea that people stay motivated when they feel competent, autonomous, and connected to meaningful progress. RPG mechanics deliver all three.</p>
-<h2 id="how-does-gamification-affect-focus-for-people-with-adhd">How Does Gamification Affect Focus for People with ADHD?</h2>
-<p>RPG mechanics are especially well-suited to ADHD brains. The short answer is yes. But the research is still catching up to that claim.</p>
-<p>ADHD involves a dysregulation of dopamine signaling. Tasks that feel boring or distant offer too little immediate reward to sustain attention. The result is not laziness. It is a structural mismatch between the brain&#39;s reward system and the way most work is presented. A task with a deadline three weeks out generates almost no motivational pull today.</p>
-<p>RPG mechanics close that gap. Every focus session or completed task triggers an immediate, concrete reward: XP earned, a brick added, a stat increased. The feedback arrives now, not at the end of the quarter. That immediacy is exactly what the ADHD brain needs to initiate and sustain effort.</p>
-<p>The 90% figure on gamification improving productivity comes from a general workforce survey and does not break out ADHD vs. neurotypical respondents. Dedicated research on gamified productivity tools and ADHD is limited. What does exist, mostly in educational and clinical settings, suggests that immediate feedback loops and visible progress markers reduce task avoidance and improve time-on-task for people with attention difficulties.</p>
-<p>The honest limit: no large-scale study has tested a productivity RPG app specifically on adults with ADHD in a real work context. The mechanism is plausible and the anecdotal evidence is strong, particularly in communities like the productivity RPG Reddit threads where ADHD users consistently report that game mechanics help them start tasks they would otherwise avoid. But &quot;plausible and consistent with theory&quot; is not the same as &quot;proven.&quot; Treat it as a well-grounded hypothesis worth testing on yourself.</p>
-<h2 id="core-productivity-rpg-mechanics-xp-quests-stats-and-boss-battles">Core Productivity RPG Mechanics: XP, Quests, Stats, and Boss Battles</h2>
-<p>RPG mechanics translate into a productivity system only when each one maps to something concrete in your actual work. Vague parallels do not hold up. Precise ones do. The gamification market was valued at $11.9 billion, reflecting how widely these mechanics have been adopted beyond games.</p>
-<p>Here are the five building blocks worth understanding, and what each one actually does when applied to tasks.</p>
-<p><strong>XP (experience points)</strong> are the unit of effort. You assign a point value to tasks based on difficulty or duration, complete the task, and log the points. XP does one thing: it makes invisible effort visible over time. A day where you finished six small tasks and one hard one looks different from a day where you finished seven easy ones. The numbers tell that story.</p>
-<p><strong>Leveling</strong> is a threshold mechanic. Once your XP total crosses a defined number, you advance. The level itself is less important than what it triggers: a reward you defined in advance, a new &quot;ability&quot; (a habit you add to your repertoire), or simply the recognition that you crossed a line. Without a level threshold, XP accumulates but means nothing.</p>
-<p><strong>Character stats</strong> let you track different domains of your life separately. A stat called &quot;Deep Work&quot; rises when you log focus sessions. &quot;Health&quot; rises when you exercise. &quot;Learning&quot; rises when you read or study. Stats prevent the common problem of optimizing one area while ignoring others, because the imbalance becomes visible.</p>
-<p><strong>Quests</strong> are the task container. A quest is a goal with defined sub-tasks, a time boundary, and a reward attached. The difference between a quest and a plain project is the reward clause. Without it, completion feels identical to not completing.</p>
-<p><strong>Boss battles</strong> are high-stakes, high-effort quests with a deadline you cannot move. A quarterly review, a product launch, a difficult conversation you have been avoiding. Framing these as boss battles does two things: it signals that they require more preparation than a normal task, and it makes finishing them feel proportionally significant.</p>
-<p>The table below shows how to calibrate XP across task types. These ranges are starting points. Adjust them until the system feels honest rather than gameable.</p>
+    <description>XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.</description>
+    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#what-an-rpg-layer-actually-fixes">What an RPG layer actually fixes</a></li>
+<li><a href="#why-the-loop-works-carefully-stated">Why the loop works, carefully stated</a></li>
+<li><a href="#the-five-mechanics-worth-borrowing">The five mechanics worth borrowing</a></li>
+<li><a href="#calibrating-xp">Calibrating XP</a></li>
+<li><a href="#building-the-system-in-four-steps">Building the system in four steps</a></li>
+<li><a href="#where-diy-systems-break">Where DIY systems break</a></li>
+<li><a href="#running-it-with-an-ai-dungeon-master">Running it with an AI dungeon master</a></li>
+<li><a href="#when-to-switch-to-an-app">When to switch to an app</a><ul>
+<li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
+</ul>
+</li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p>A productivity RPG applies XP, levels, quests and stats to work that has none of those things. The appeal is not the fantasy framing. It is that an RPG makes effort legible, and most work does not.</p>
+<p>This article is a build guide. If you want the evidence behind gamification generally, that is <a href="https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/">in the research post</a>. If you want apps compared, that is <a href="https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/">the buyer&#39;s guide</a>. This one is the system itself.</p>
+<h2 id="what-an-rpg-layer-actually-fixes">What an RPG layer actually fixes</h2>
+<p>A to-do list records obligations. Finishing one removes a line, which is the same visual outcome as deleting it unfinished.</p>
+<p>An XP system records effort instead. A day with six small tasks and one hard one reads differently from a day with seven easy ones, which on a checklist look identical. Over a month the log tells you where your time went, which is information a cleared list cannot give you.</p>
+<p>That is the whole mechanism: it converts work into something that accumulates rather than something that disappears when done.</p>
+<h2 id="why-the-loop-works-carefully-stated">Why the loop works, carefully stated</h2>
+<p>The usual explanation is a dopamine hit at completion. The research is messier than that, and the messy version is more useful.</p>
+<p>Dopamine tracks anticipation and prediction error more than pleasure. Signals cluster around expecting a reward and around the gap between what you expected and what arrived. A reward that lands exactly as predicted, every time, produces less response than one carrying some uncertainty.</p>
+<p>Two things follow:</p>
+<ul>
+<li><strong>Approaching a threshold pulls harder than crossing it.</strong> Being 40 XP from a level does more work than the level itself. Design so progress is visible before it completes.</li>
+<li><strong>Fully predictable rewards flatten.</strong> This is why novelty fades, and why varying payoffs slightly, a bonus for starting something you have avoided, extra XP for a quest closing, keeps a system alive longer than a flat scale.</li>
+</ul>
+<p>Self-Determination Theory, from Deci and Ryan, is the other useful lens: autonomy, competence and relatedness. An RPG layer you design yourself covers autonomy and competence by construction. Relatedness is the one you have to add deliberately, or decide you do not want.</p>
+<h2 id="the-five-mechanics-worth-borrowing">The five mechanics worth borrowing</h2>
+<p><strong>XP</strong> is the unit of effort. Assign points by time and difficulty, log them on completion. Its only job is making invisible effort visible.</p>
+<p><strong>Levels</strong> are thresholds. Crossing one has to trigger something you defined in advance, or XP accumulates and means nothing.</p>
+<p><strong>Stats</strong> separate domains. Deep Work rises with focus sessions, Health with exercise, Learning with study. Their value is exposing imbalance: a stat that has not moved in a week is information.</p>
+<p><strong>Quests</strong> are goals with sub-tasks, a deadline and a reward attached before starting. The reward clause is the whole difference between a quest and a project.</p>
+<p><strong>Boss battles</strong> are high-stakes items with a deadline you cannot move: a launch, a review, the conversation you keep postponing. Naming them separately signals they need preparation, not just a slot.</p>
+<h2 id="calibrating-xp">Calibrating XP</h2>
+<p>Starting ranges. The numbers matter less than keeping them stable long enough to mean something.</p>
 <table>
 <thead>
 <tr>
 <th>Task type</th>
-<th>XP range</th>
+<th>XP</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Quick admin (under 10 min)</td>
-<td>5-10 XP</td>
-<td>Email replies, scheduling, small edits</td>
+<td>Quick admin, under 10 minutes</td>
+<td>5 to 10</td>
+<td>Email, scheduling, small edits</td>
 </tr>
 <tr>
-<td>Standard task (30-60 min)</td>
-<td>20-40 XP</td>
-<td>Writing, research, single-feature work</td>
+<td>Standard task, 30 to 60 minutes</td>
+<td>20 to 40</td>
+<td>Writing, research, one feature</td>
 </tr>
 <tr>
-<td>Deep work session (90+ min)</td>
-<td>50-75 XP</td>
-<td>Uninterrupted focus on one hard problem</td>
+<td>Deep work, 90 minutes or more</td>
+<td>50 to 75</td>
+<td>Uninterrupted work on one hard problem</td>
 </tr>
 <tr>
 <td>Quest completion bonus</td>
-<td>+25 XP</td>
-<td>Awarded on top of task XP when the full quest closes</td>
+<td>+25</td>
+<td>On top of task XP, when the quest closes</td>
 </tr>
 <tr>
-<td>Boss battle completion</td>
-<td>100-150 XP</td>
-<td>Reserved for high-stakes, deadline-bound goals</td>
+<td>Boss battle</td>
+<td>100 to 150</td>
+<td>High stakes, fixed deadline</td>
 </tr>
 </tbody></table>
-<p>The specific numbers matter less than consistency. Pick a scale and keep it stable for at least two weeks before adjusting.</p>
-<h2 id="how-to-build-your-own-productivity-rpg-system-in-4-steps">How to Build Your Own Productivity RPG System in 4 Steps</h2>
-<p>You can build a working productivity RPG with a notebook, a spreadsheet, or a dedicated app. The tool is secondary. The structure is what makes it hold.</p>
+<p>Score time and cognitive load, not outcome. Outcome-based scoring punishes the hard attempts that did not land, which are exactly the ones you want to keep making.</p>
+<p>Give yourself a small bonus for starting something you have been avoiding. Starting is the expensive part.</p>
+<h2 id="building-the-system-in-four-steps">Building the system in four steps</h2>
 <ol>
-<li><p><strong>Define your mountain.</strong> Before you assign a single XP value, name your final destination. Not a quarterly goal. The larger thing: the career you are building, the project that would change your situation, the skill you want to own in two years. This is your mountain. Every quest you design should trace back to it. Without it, you are just collecting points.</p>
-</li>
-<li><p><strong>Select a maximum of three big goals.</strong> From your mountain, pull out no more than three goals to focus on right now. Three is a ceiling, not a target. Two is fine. One is fine. The constraint matters because every goal you add competes for the same daily XP budget. More than three and the system starts to feel like another overwhelming list, which is exactly what you were trying to escape.</p>
-</li>
-<li><p><strong>Assign a character stat to each goal, then build quests under each stat.</strong> Each of your three goals becomes a stat. Name it plainly: &quot;Writing,&quot; &quot;Fitness,&quot; &quot;Client Work.&quot; Then define the quests that raise that stat. A quest needs four things: a name, a list of sub-tasks, a deadline, and a reward. The reward can be small, an hour of guilt-free leisure, a purchase you have been delaying, a meal you enjoy. It needs to be defined before the quest starts, not after, or the brain does not treat it as a real incentive.</p>
-</li>
-<li><p><strong>Level up and claim the reward.</strong> When you complete a quest, add the XP, advance your stat, and take the reward. Do not skip the reward. This step is where most DIY systems collapse. People finish the work and move immediately to the next task, never closing the loop. The reward is not a bonus. It is the signal that tells your brain the behavior was worth it. Without it, the system teaches you that finishing changes nothing.</p>
-</li>
+<li><strong>Name the larger thing.</strong> Not a quarterly goal. The career, the project, the skill you want in two years. Every quest should trace back to it, otherwise you are collecting points.</li>
+<li><strong>Pick at most three goals.</strong> Three is a ceiling, not a target. Every goal competes for the same daily XP budget, and four is how this turns back into the overwhelming list you were escaping.</li>
+<li><strong>One stat per goal, quests underneath.</strong> Name stats plainly: Writing, Fitness, Client Work. Each quest needs a name, sub-tasks, a deadline and a reward chosen before it starts.</li>
+<li><strong>Claim the reward.</strong> When a quest closes, log the XP, raise the stat, take the reward. Do not skip this.</li>
 </ol>
-<p>Run this structure for one real week before changing anything. The first week will expose what your XP values got wrong and which quests were too large to finish in the time you allocated. Adjust after the week, not during it.</p>
-<h2 id="using-a-chatgpt-dungeon-master-to-run-your-productivity-rpg-online">Using a ChatGPT Dungeon Master to Run Your Productivity RPG Online</h2>
-<p>A free, flexible productivity RPG online option already exists in any ChatGPT session. You prompt the model to act as a Dungeon Master, hand it your quest list, and let it assign XP, narrate your progress, and hold you accountable. This is not a validated methodology. It is a practical template you can adapt to your own system.</p>
-<p>The setup takes about ten minutes.</p>
-<ol>
-<li><p><strong>Open a new ChatGPT conversation and set the context.</strong> Note that ChatGPT has no memory across sessions unless you use a paid plan with memory enabled, and even then it is unreliable for precise number-tracking. Keep your own running XP log in a note or spreadsheet, and use the DM conversation for motivation and framing. Then paste a prompt along these lines: &quot;You are my Dungeon Master. I am a Level 1 adventurer. My three active stats are [name them]. My current quest is [name it, list the sub-tasks, and state the deadline]. Award me XP from this scale: [paste your table from the previous section]. When I report a completed task, acknowledge it, update my running XP total, and tell me how far I am from the next level. If I miss a self-reported deadline, ask me what happened before moving on.&quot;</p>
-</li>
-<li><p><strong>Report tasks as you finish them.</strong> After each completed task, return to the conversation and type what you did. Keep it short: &quot;Finished the first draft of the proposal. 40 minutes of focused work.&quot; The model awards XP, updates your total, and adds a line of narration. The narration is optional flavor, but it makes the session feel different from logging into a spreadsheet.</p>
-</li>
-<li><p><strong>End each day with a session summary.</strong> Ask the DM to summarize the day: total XP earned, current level, active quests, and any stat that has not moved in more than two days. That last check is the most useful. A stat that sits still for two days is a signal, not a coincidence.</p>
-</li>
-<li><p><strong>Start a new conversation each week.</strong> Paste your updated stats and quest list into a fresh session. This forces a weekly review and prevents the conversation from becoming too long for the model to track accurately.</p>
-</li>
-</ol>
-<p>The honest limit: treat the model as a narrator and accountability partner, not a database.</p>
-<h2 id="what-productivity-rpg-apps-are-worth-using">What Productivity RPG Apps Are Worth Using?</h2>
-<p>Three broad approaches exist: dedicated productivity RPG apps, general task managers you gamify yourself, and AI-assisted systems like the ChatGPT setup above. Each has a different failure mode.</p>
-<p>General task managers give you full flexibility but no built-in reward mechanic. You can add XP columns to a Notion database or a spreadsheet, but the system only works if you maintain it manually. Most people stop within two weeks because the overhead of tracking outweighs the reward. If you have strong systems discipline already, this works. If you are reading this article because your current system keeps failing, it probably will not.</p>
-<p>AI-assisted systems are low-friction to start and require no subscription, but they depend on you returning to the conversation consistently. The model does not push you. It waits. That passivity suits some people and frustrates others.</p>
-<p>Dedicated productivity RPG apps solve the tracking problem by automating the reward loop. You complete a task, the app awards the points, and the visual feedback arrives immediately. The tradeoff is that you are working within the app&#39;s mechanic design, not your own.</p>
-<p>On that front, <a href="https://dovilo.app">Dovilo</a> is a productivity app that combines task management, a focus timer, and a city-building game. Completed tasks and focus sessions earn bricks, and bricks let you construct buildings on an isometric grid. The city is a direct, persistent record of real work done.</p>
-<p>The free plan gives you access to core features including tasks and focus sessions. Pro adds cloud sync, ambient soundscapes for focus sessions, the full city content, and desktop access. Pro runs $2.49 per month, $19.99 per year, or $49.99 as a one-time lifetime purchase, with a seven-day free trial. The desktop app runs a local MCP server, which lets AI coding agents like Claude Code or Cursor work through a separate AI task list, invisible to your personal to-do list.</p>
-<p>App-based systems win that comparison because the feedback is automatic. A spreadsheet requires you to want to update it. An app updates whether you feel like it or not.</p>
-<p>For a broader look at how dedicated apps compare on specific mechanics, the <a href="https://dovilo.app/blog/best-gamified-productivity-apps">best gamified productivity apps ranked for 2026</a> covers the category in more depth.</p>
-<h2 id="faqs">FAQs</h2>
-<h3 id="can-i-use-a-spreadsheet-instead-of-an-app-to-run-a-productivity-rpg">Can I use a spreadsheet instead of an app to run a productivity RPG?</h3>
-<p>Yes. A spreadsheet works if you have the discipline to update it consistently. Add columns for task name, XP value, stat category, and running total. The weakness is that nothing happens automatically. The reward loop depends entirely on you returning to the sheet after each task, and most people find that friction breaks the habit within two weeks. Start with a spreadsheet to test your XP values, then move to an app once the system feels right.</p>
-<h3 id="how-do-i-decide-how-much-xp-to-award-for-different-tasks">How do I decide how much XP to award for different tasks?</h3>
-<p>Base XP on time and cognitive effort, not outcome. A thirty-minute focused writing session earns more than ten minutes of email. A task you have been avoiding for a week earns a small bonus for the act of starting it. Use the table in the Core Mechanics section as a starting point, run it for two weeks without changing anything, then adjust any value that feels either too easy to earn or too discouraging to attempt.</p>
-<h3 id="what-happens-if-i-miss-a-day-do-i-lose-progress">What happens if I miss a day? Do I lose progress?</h3>
-<p>In a well-designed system, nothing. XP accumulates and persists. Missing a day means you earned zero XP that day, nothing more. Do not add a penalty mechanic for missed days. Punishment teaches the brain that the system is adversarial, and people abandon adversarial systems quickly. The only cost of a missed day is the progress you did not make.</p>
-<h3 id="is-there-a-productivity-rpg-community-on-reddit-i-can-join">Is there a productivity RPG community on Reddit I can join?</h3>
-<p>Several subreddits discuss gamified productivity, including r/getdisciplined, r/productivity, and r/ADHD. Searching &quot;productivity RPG&quot; within those communities surfaces threads where people share their XP formulas, quest designs, and app recommendations. The discussions are practical rather than theoretical, which makes them useful for calibrating your own system against what actually works for other people over time.</p>
-<h3 id="how-long-does-it-take-before-gamification-starts-improving-focus">How long does it take before gamification starts improving focus?</h3>
-<p>Most people notice a change in their willingness to start tasks within the first week, because the reward loop is immediate from day one. Sustained improvement in focus depth takes longer, typically three to four weeks, because that depends on habit formation rather than novelty. The novelty effect is real and will fade. What remains after it fades is the structure, and that is what determines whether the system holds.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Productivity RPG systems work because they solve a feedback problem, not a discipline problem. Attaching visible, immediate rewards to real work changes how the brain evaluates the cost of starting. The research is directionally consistent, the mechanism is grounded in established psychology, and the practical evidence from communities of people who have tried it is strong enough to warrant a serious test.</p>
-<p>Start with the four-step framework in this article. Define your mountain, pick two or three goals, build quests under each stat, and take the reward when you finish. Run that structure for one real week before adding complexity. If you want the tracking automated from day one, try an app that handles the reward loop for you so the system runs even on days when you do not feel like maintaining it.</p>
+<p>Run it a full week before changing anything. The first week shows which XP values were wrong and which quests were too big to finish, and both are easier to fix with data than with intuition.</p>
+<h2 id="where-diy-systems-break">Where DIY systems break</h2>
+<p><strong>You skip the reward.</strong> You finish, feel briefly good, start the next thing. The loop never closes, and the system teaches you that finishing changes nothing. This is the most common failure by a wide margin.</p>
+<p><strong>You stop logging.</strong> Manual tracking has a cost on every task. Most people quit within two weeks, not because the system failed but because the upkeep outlasted the novelty.</p>
+<p><strong>You inflate the scale.</strong> When everything is worth 50 XP, the number stops carrying information. If you find yourself logging trivia to move it, the metric has replaced the work.</p>
+<p><strong>You add a punishment.</strong> Resist this. Losing XP for a missed day makes the system adversarial, and people abandon adversarial systems quickly, usually in the week they most needed the structure.</p>
+<h2 id="running-it-with-an-ai-dungeon-master">Running it with an AI dungeon master</h2>
+<p>A chat model makes a decent narrator, with one caveat: it is not a database. Keep your own XP log in a note or spreadsheet and use the conversation for framing and accountability.</p>
+<p>Give it your stats, your active quest with sub-tasks and deadline, and your XP table. Tell it to acknowledge each reported task, update the running total, say how far the next level is, and ask what happened if you miss a self-set deadline. Report tasks in one line as you finish them. End the day by asking for a summary, including any stat that has not moved in two days.</p>
+<p>Start a fresh conversation weekly and paste in your current state. That forces a review and keeps the context short enough to stay accurate.</p>
+<h2 id="when-to-switch-to-an-app">When to switch to an app</h2>
+<p>A spreadsheet is the right place to discover your XP values. It is a poor place to keep them, because the reward only arrives if you go and fetch it.</p>
+<p>An app closes the loop automatically: finish, and the feedback lands without you maintaining anything. The trade is that you work inside someone else&#39;s mechanic design.</p>
+<p><a href="https://dovilo.app/">Dovilo</a> is one version of that trade. Completed tasks and completed focus sessions earn bricks, which you spend in the Build Market on buildings, roads and decorations placed on an isometric grid. Focus bricks scale with duration, so time in deep work counts, not just checkbox volume. Nothing decays and there are no streaks, so a quiet week costs nothing.</p>
+<p>Free on iOS and Android: unlimited tasks, categories and focus sessions, a starter city, basic statistics, five languages, offline-first, no ads on any tier. Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day trial started in the mobile app. Pro adds cloud sync, advanced statistics, both content packs, and Dovilo Desktop, which runs a local MCP server so AI coding agents can work a separate task list, on a monthly quota, with your personal list invisible to them.</p>
+<h3 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h3>
+<p>No XP, levels, stats or quests: the reward is bricks and a city, not a character sheet. If you want stats and classes, build it yourself or use a dedicated RPG app. Also no data export, no remote MCP, no calendar grid, no team features, and it is not a distraction blocker.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Can I run a productivity RPG in a spreadsheet?</strong>
+Yes, and it is the best way to calibrate your XP values. The weakness is upkeep: the reward only exists if you return to the sheet, which most people stop doing within two weeks.</p>
+<p><strong>How much XP should a task be worth?</strong>
+Score time and cognitive effort, not results. Use the table above, keep it fixed for two weeks, then adjust anything that feels too cheap to earn or too expensive to attempt.</p>
+<p><strong>What happens if I miss a day?</strong>
+Nothing should. You earned zero XP that day. Do not add penalties; they make the system adversarial and adversarial systems get abandoned.</p>
+<p><strong>Why do I lose interest after a few weeks?</strong>
+Usually because the rewards became completely predictable, or because you never actually claimed them. Vary payoffs slightly and close the loop every time.</p>
+<p><strong>Do I need stats and levels, or is XP enough?</strong>
+XP alone works if you review the log. Stats earn their place when you want to see which part of your life has stopped moving.</p>
+<p><strong>Is an app better than doing it manually?</strong>
+An app removes the tracking cost, which is what kills most manual systems. A manual system gives you mechanics you designed yourself. Start manual, switch when the upkeep starts costing more than the feedback returns.</p>
+<hr>
+<p>An RPG layer does not make work fun. It makes effort legible, which turns out to be most of what a plain to-do list is missing.</p>
+<p>Define the larger goal, pick three, write quests with rewards attached, and claim them. If the tracking is what breaks, hand that part to an app. Dovilo is free on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_rpg&amp;mt=8" target="_blank" rel="noopener">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_rpg" target="_blank" rel="noopener">Google Play</a>.</p>
 ]]></content:encoded>
   </item>
   <item>

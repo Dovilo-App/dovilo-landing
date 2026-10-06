@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productivity RPG: how to build an XP system for real work - Dovilo</title>
+  <meta name="description" content="XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/">
+  <link rel="alternate" type="application/rss+xml" title="Dovilo blog" href="https://dovilo.app/blog/feed.xml">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/base.css">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/">
+  <meta property="og:title" content="Productivity RPG: how to build an XP system for real work - Dovilo">
+  <meta property="og:description" content="XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.">
+  <meta property="og:image" content="https://dovilo.app/blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-1200x630.jpg">
+  <meta property="og:image:alt" content="A character level up screen overlaid on a real desk with a notebook and tasks representing a productivity RPG system">
+  <meta property="og:site_name" content="Dovilo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="Productivity RPG: how to build an XP system for real work - Dovilo">
+  <meta name="twitter:description" content="XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.">
+  <meta name="twitter:image" content="https://dovilo.app/blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-1200x630.jpg">
+  <meta name="theme-color" content="#161B1D">
+  <meta property="article:published_time" content="2026-10-03T03:45:07.006Z">
+  <meta property="article:modified_time" content="2026-10-06T17:20:37Z">
+  <meta property="article:author" content="Selahaddin Akgün">
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    .page{padding-block:var(--s-7) var(--s-8)}
+    .lede{margin-top:var(--s-3)}
+
+    /* ── index ── */
+    .post-list{margin-top:var(--s-7);display:flex;flex-direction:column;gap:14px}
+    .card h2{font-size:var(--t-3);line-height:1.4;margin:var(--s-2) 0}
+    .card p{font-size:var(--t-1);color:var(--ink-2)}
+    .card .tags{margin-top:var(--s-3)}
+    .empty{
+      border:1px solid var(--line);border-radius:var(--radius-lg);
+      padding:28px var(--s-5);margin-top:var(--s-7);
+      font-size:var(--t-1);color:var(--ink-2);
+    }
+
+    /* ── article ── */
+    .post-head{margin-bottom:var(--s-6)}
+    .post-head .tags{margin-bottom:14px}
+    .post-head h1{margin-bottom:14px}
+    .tags{display:flex;gap:var(--s-2);flex-wrap:wrap}
+    .cover{margin:0 0 var(--s-6)}
+    .cover img{
+      width:100%;height:auto;display:block;
+      border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--card);
+    }
+    figcaption{font-size:var(--t--1);color:var(--ink-3);margin-top:10px;text-align:center}
+
+    /* Table of contents. A boxed card, not the sticky rail /docs/webhooks uses,
+       so it stays local. The site header is .site-nav, so this <nav> inherits
+       nothing from it. */
+    .toc{
+      border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:20px var(--s-5);font-size:var(--t-1);
+    }
+    .toc-title{
+      font-size:var(--t--3);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--ink-3);margin-bottom:10px;
+    }
+    .toc ul{margin-left:18px}
+    .toc li{margin-bottom:var(--s-1)}
+    .toc ul ul{margin-top:var(--s-1)}
+    .toc a{color:var(--accent);font-size:inherit;font-weight:400}
+
+    /* ── end of post ── */
+    .cta{
+      margin-top:56px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+      padding:var(--s-5);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .cta div{font-size:var(--t-1);color:var(--ink-2);max-width:46ch}
+    .cta strong{display:block;font-size:var(--t-2);margin-bottom:var(--s-1)}
+    .cta a{
+      background:var(--accent);color:var(--on-accent);text-decoration:none;
+      font-weight:600;font-size:var(--t-0);
+      padding:10px 20px;border-radius:var(--radius-pill);white-space:nowrap;
+    }
+    .cta a:hover{background:var(--muted);color:var(--on-accent)}
+    /* The prev/next row. A <nav>, but the site header is .site-nav, so there is
+       nothing here to undo. */
+    .more{
+      display:flex;
+      margin-top:var(--s-7);padding:var(--s-5) 0 0;
+      border-top:1px solid var(--line);
+      gap:var(--s-5);align-items:flex-start;justify-content:space-between;flex-wrap:wrap;font-size:var(--t-0);
+    }
+    .more a{color:var(--accent);text-decoration:none}
+    .more a:hover{text-decoration:underline}
+    .more span{display:block;font-size:var(--t--2);color:var(--ink-3);margin-bottom:2px}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Productivity RPG: how to build an XP system for real work",
+  "name": "Productivity RPG: how to build an XP system for real work",
+  "description": "XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.",
+  "url": "https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/"
+  },
+  "datePublished": "2026-10-03T03:45:07.006Z",
+  "dateModified": "2026-10-06T17:20:37Z",
+  "inLanguage": "en",
+  "wordCount": 1568,
+  "image": [
+    "https://dovilo.app/blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-1200x630.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Selahaddin Akgün",
+    "url": "https://sakgun.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dovilo.app/notify-icon.png"
+    }
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://dovilo.app/blog/#blog",
+    "name": "Dovilo blog",
+    "url": "https://dovilo.app/blog/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dovilo",
+      "item": "https://dovilo.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://dovilo.app/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Productivity RPG: how to build an XP system for real work",
+      "item": "https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="logo"><img src="/notify-icon.webp" width="32" height="32" alt="Dovilo icon">Dovilo</a>
+    <ul id="nav-menu">
+      <li><a href="/#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
+      <li><a href="/ai" class="nav-ai" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
+      <li><a href="/blog/" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_nav&mt=8" class="nav-store-link" aria-label="App Store" title="App Store">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&utm_source=website&utm_medium=nav" class="nav-store-link" aria-label="Google Play" title="Google Play">
+        <svg viewBox="0 0 24 24"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+      </a>
+      <button class="nav-store-link theme-toggle" onclick="toggleTheme()" aria-label="Switch theme" title="Switch theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+  <main id="main">
+    <div class="page wrap-prose">
+
+    <article>
+      <header class="post-head">
+        <h1>Productivity RPG: how to build an XP system for real work</h1>
+        <div class="meta">
+          <time datetime="2026-10-03T03:45:07.006Z">3 October 2026</time>
+          <span class="sep">·</span><span>7 min read</span>
+          <span class="sep">·</span><span>Selahaddin Akgün</span>
+        </div>
+      </header>
+      <figure class="cover"><img src="/blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-760.webp" srcset="/blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-760.webp 760w, /blog/media/ae404f85a99c02b362090ea6748e5d63f16ae487-1520.webp 1520w" sizes="(max-width:800px) 100vw, 760px" width="760" height="507" alt="A character level up screen overlaid on a real desk with a notebook and tasks representing a productivity RPG system" loading="lazy" decoding="async"></figure>
+      <div class="prose">
+<nav class="toc" aria-label="On this page">
+<p class="toc-title">On this page</p>
+<ul>
+<li><a href="#what-an-rpg-layer-actually-fixes">What an RPG layer actually fixes</a></li>
+<li><a href="#why-the-loop-works-carefully-stated">Why the loop works, carefully stated</a></li>
+<li><a href="#the-five-mechanics-worth-borrowing">The five mechanics worth borrowing</a></li>
+<li><a href="#calibrating-xp">Calibrating XP</a></li>
+<li><a href="#building-the-system-in-four-steps">Building the system in four steps</a></li>
+<li><a href="#where-diy-systems-break">Where DIY systems break</a></li>
+<li><a href="#running-it-with-an-ai-dungeon-master">Running it with an AI dungeon master</a></li>
+<li><a href="#when-to-switch-to-an-app">When to switch to an app</a><ul>
+<li><a href="#what-dovilo-does-not-do-yet">What Dovilo does not do yet</a></li>
+</ul>
+</li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</nav>
+<p>A productivity RPG applies XP, levels, quests and stats to work that has none of those things. The appeal is not the fantasy framing. It is that an RPG makes effort legible, and most work does not.</p>
+<p>This article is a build guide. If you want the evidence behind gamification generally, that is <a href="https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/">in the research post</a>. If you want apps compared, that is <a href="https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/">the buyer&#39;s guide</a>. This one is the system itself.</p>
+<h2 id="what-an-rpg-layer-actually-fixes">What an RPG layer actually fixes</h2>
+<p>A to-do list records obligations. Finishing one removes a line, which is the same visual outcome as deleting it unfinished.</p>
+<p>An XP system records effort instead. A day with six small tasks and one hard one reads differently from a day with seven easy ones, which on a checklist look identical. Over a month the log tells you where your time went, which is information a cleared list cannot give you.</p>
+<p>That is the whole mechanism: it converts work into something that accumulates rather than something that disappears when done.</p>
+<h2 id="why-the-loop-works-carefully-stated">Why the loop works, carefully stated</h2>
+<p>The usual explanation is a dopamine hit at completion. The research is messier than that, and the messy version is more useful.</p>
+<p>Dopamine tracks anticipation and prediction error more than pleasure. Signals cluster around expecting a reward and around the gap between what you expected and what arrived. A reward that lands exactly as predicted, every time, produces less response than one carrying some uncertainty.</p>
+<p>Two things follow:</p>
+<ul>
+<li><strong>Approaching a threshold pulls harder than crossing it.</strong> Being 40 XP from a level does more work than the level itself. Design so progress is visible before it completes.</li>
+<li><strong>Fully predictable rewards flatten.</strong> This is why novelty fades, and why varying payoffs slightly, a bonus for starting something you have avoided, extra XP for a quest closing, keeps a system alive longer than a flat scale.</li>
+</ul>
+<p>Self-Determination Theory, from Deci and Ryan, is the other useful lens: autonomy, competence and relatedness. An RPG layer you design yourself covers autonomy and competence by construction. Relatedness is the one you have to add deliberately, or decide you do not want.</p>
+<h2 id="the-five-mechanics-worth-borrowing">The five mechanics worth borrowing</h2>
+<p><strong>XP</strong> is the unit of effort. Assign points by time and difficulty, log them on completion. Its only job is making invisible effort visible.</p>
+<p><strong>Levels</strong> are thresholds. Crossing one has to trigger something you defined in advance, or XP accumulates and means nothing.</p>
+<p><strong>Stats</strong> separate domains. Deep Work rises with focus sessions, Health with exercise, Learning with study. Their value is exposing imbalance: a stat that has not moved in a week is information.</p>
+<p><strong>Quests</strong> are goals with sub-tasks, a deadline and a reward attached before starting. The reward clause is the whole difference between a quest and a project.</p>
+<p><strong>Boss battles</strong> are high-stakes items with a deadline you cannot move: a launch, a review, the conversation you keep postponing. Naming them separately signals they need preparation, not just a slot.</p>
+<h2 id="calibrating-xp">Calibrating XP</h2>
+<p>Starting ranges. The numbers matter less than keeping them stable long enough to mean something.</p>
+<table>
+<thead>
+<tr>
+<th>Task type</th>
+<th>XP</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Quick admin, under 10 minutes</td>
+<td>5 to 10</td>
+<td>Email, scheduling, small edits</td>
+</tr>
+<tr>
+<td>Standard task, 30 to 60 minutes</td>
+<td>20 to 40</td>
+<td>Writing, research, one feature</td>
+</tr>
+<tr>
+<td>Deep work, 90 minutes or more</td>
+<td>50 to 75</td>
+<td>Uninterrupted work on one hard problem</td>
+</tr>
+<tr>
+<td>Quest completion bonus</td>
+<td>+25</td>
+<td>On top of task XP, when the quest closes</td>
+</tr>
+<tr>
+<td>Boss battle</td>
+<td>100 to 150</td>
+<td>High stakes, fixed deadline</td>
+</tr>
+</tbody></table>
+<p>Score time and cognitive load, not outcome. Outcome-based scoring punishes the hard attempts that did not land, which are exactly the ones you want to keep making.</p>
+<p>Give yourself a small bonus for starting something you have been avoiding. Starting is the expensive part.</p>
+<h2 id="building-the-system-in-four-steps">Building the system in four steps</h2>
+<ol>
+<li><strong>Name the larger thing.</strong> Not a quarterly goal. The career, the project, the skill you want in two years. Every quest should trace back to it, otherwise you are collecting points.</li>
+<li><strong>Pick at most three goals.</strong> Three is a ceiling, not a target. Every goal competes for the same daily XP budget, and four is how this turns back into the overwhelming list you were escaping.</li>
+<li><strong>One stat per goal, quests underneath.</strong> Name stats plainly: Writing, Fitness, Client Work. Each quest needs a name, sub-tasks, a deadline and a reward chosen before it starts.</li>
+<li><strong>Claim the reward.</strong> When a quest closes, log the XP, raise the stat, take the reward. Do not skip this.</li>
+</ol>
+<p>Run it a full week before changing anything. The first week shows which XP values were wrong and which quests were too big to finish, and both are easier to fix with data than with intuition.</p>
+<h2 id="where-diy-systems-break">Where DIY systems break</h2>
+<p><strong>You skip the reward.</strong> You finish, feel briefly good, start the next thing. The loop never closes, and the system teaches you that finishing changes nothing. This is the most common failure by a wide margin.</p>
+<p><strong>You stop logging.</strong> Manual tracking has a cost on every task. Most people quit within two weeks, not because the system failed but because the upkeep outlasted the novelty.</p>
+<p><strong>You inflate the scale.</strong> When everything is worth 50 XP, the number stops carrying information. If you find yourself logging trivia to move it, the metric has replaced the work.</p>
+<p><strong>You add a punishment.</strong> Resist this. Losing XP for a missed day makes the system adversarial, and people abandon adversarial systems quickly, usually in the week they most needed the structure.</p>
+<h2 id="running-it-with-an-ai-dungeon-master">Running it with an AI dungeon master</h2>
+<p>A chat model makes a decent narrator, with one caveat: it is not a database. Keep your own XP log in a note or spreadsheet and use the conversation for framing and accountability.</p>
+<p>Give it your stats, your active quest with sub-tasks and deadline, and your XP table. Tell it to acknowledge each reported task, update the running total, say how far the next level is, and ask what happened if you miss a self-set deadline. Report tasks in one line as you finish them. End the day by asking for a summary, including any stat that has not moved in two days.</p>
+<p>Start a fresh conversation weekly and paste in your current state. That forces a review and keeps the context short enough to stay accurate.</p>
+<h2 id="when-to-switch-to-an-app">When to switch to an app</h2>
+<p>A spreadsheet is the right place to discover your XP values. It is a poor place to keep them, because the reward only arrives if you go and fetch it.</p>
+<p>An app closes the loop automatically: finish, and the feedback lands without you maintaining anything. The trade is that you work inside someone else&#39;s mechanic design.</p>
+<p><a href="https://dovilo.app/">Dovilo</a> is one version of that trade. Completed tasks and completed focus sessions earn bricks, which you spend in the Build Market on buildings, roads and decorations placed on an isometric grid. Focus bricks scale with duration, so time in deep work counts, not just checkbox volume. Nothing decays and there are no streaks, so a quiet week costs nothing.</p>
+<p>Free on iOS and Android: unlimited tasks, categories and focus sessions, a starter city, basic statistics, five languages, offline-first, no ads on any tier. Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day trial started in the mobile app. Pro adds cloud sync, advanced statistics, both content packs, and Dovilo Desktop, which runs a local MCP server so AI coding agents can work a separate task list, on a monthly quota, with your personal list invisible to them.</p>
+<h3 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h3>
+<p>No XP, levels, stats or quests: the reward is bricks and a city, not a character sheet. If you want stats and classes, build it yourself or use a dedicated RPG app. Also no data export, no remote MCP, no calendar grid, no team features, and it is not a distraction blocker.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Can I run a productivity RPG in a spreadsheet?</strong>
+Yes, and it is the best way to calibrate your XP values. The weakness is upkeep: the reward only exists if you return to the sheet, which most people stop doing within two weeks.</p>
+<p><strong>How much XP should a task be worth?</strong>
+Score time and cognitive effort, not results. Use the table above, keep it fixed for two weeks, then adjust anything that feels too cheap to earn or too expensive to attempt.</p>
+<p><strong>What happens if I miss a day?</strong>
+Nothing should. You earned zero XP that day. Do not add penalties; they make the system adversarial and adversarial systems get abandoned.</p>
+<p><strong>Why do I lose interest after a few weeks?</strong>
+Usually because the rewards became completely predictable, or because you never actually claimed them. Vary payoffs slightly and close the loop every time.</p>
+<p><strong>Do I need stats and levels, or is XP enough?</strong>
+XP alone works if you review the log. Stats earn their place when you want to see which part of your life has stopped moving.</p>
+<p><strong>Is an app better than doing it manually?</strong>
+An app removes the tracking cost, which is what kills most manual systems. A manual system gives you mechanics you designed yourself. Start manual, switch when the upkeep starts costing more than the feedback returns.</p>
+<hr>
+<p>An RPG layer does not make work fun. It makes effort legible, which turns out to be most of what a plain to-do list is missing.</p>
+<p>Define the larger goal, pick three, write quests with rewards attached, and claim them. If the tracking is what breaks, hand that part to an app. Dovilo is free on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_rpg&amp;mt=8" target="_blank" rel="noopener">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_rpg" target="_blank" rel="noopener">Google Play</a>.</p>
+
+      </div>
+    </article>
+
+    <div class="cta">
+      <div><strong>Dovilo turns finished work into a city you can see.</strong>
+        A to-do list, focus sessions with full-screen ambience, and an isometric city built from
+        what you complete. Free on iOS and Android.</div>
+      <a href="/downloads/">Get Dovilo</a>
+    </div>
+
+    <nav class="more" aria-label="More posts">
+      <a href="/blog/productivity-gamification-what-the-research-actually-shows/"><span>Previous</span>Productivity gamification: what the research actually shows</a>
+      <a href="/blog/"><span>&nbsp;</span>All posts &rarr;</a>
+      <a href="/blog/task-manager-for-programmers-what-to-look-for-in-2026/"><span>Next</span>Task Manager for Programmers: What to Look For in 2026</a>
+    </nav>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">&copy; 2026 Dovilo. All rights reserved.</div>
+    <ul class="footer-socials">
+      <li><a href="https://x.com/doviloapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://instagram.com/doviloapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/company/doviloapp" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/webhooks">Webhooks</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/downloads/">Downloads</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/licenses">Licenses</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    /* ─── THEME ─── */
+    const THEME_COLORS = { dark: '#161B1D', light: '#F7F8F8' };
+
+    function effectiveTheme() {
+      const forced = document.documentElement.getAttribute('data-theme');
+      if (forced === 'light' || forced === 'dark') return forced;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function paintThemeChrome() {
+      const theme = effectiveTheme();
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+      const btn = document.querySelector('.theme-toggle');
+      if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    function toggleTheme() {
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+      paintThemeChrome();
+    }
+
+    /* ─── MOBILE MENU ─── */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      const open = menu.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      if (burger) burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    paintThemeChrome();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
+  </script>
+</body>
+</html>
