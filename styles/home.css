@@ -141,23 +141,14 @@
   margin-bottom:32px;
   align-items:center;
 }
-/* The three pillar pills read as one set, so they stay quiet; only the "3 in 1"
-   lead pill carries the accent fill and the live dot. Four pulsing dots would be
-   noise, and the count is the point. */
+/* The pillar pills read as one set, so they stay quiet: no accent fill, no live
+   dot. The hero names no count, because llms.txt and /downloads/ count the
+   whole product, agent layer included, and the homepage does not show that. */
 .badge{
   background:var(--hover);border-color:transparent;
   font-size:var(--t--1);font-weight:500;letter-spacing:.02em;
   white-space:nowrap;
 }
-.badge-lead{
-  background:var(--accent-wash);border-color:var(--accent-edge);
-  font-weight:700;
-}
-.badge-lead::before{
-  content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 h1{
   /* Capped below base.css's --t-7: at 4.5rem the headline wrapped to four lines
@@ -186,8 +177,8 @@ h1{
 .section-label{margin-bottom:16px;text-align:center}
 .section-title{text-align:center;margin-bottom:64px}
 
-/* ─── THREE PILLARS ───
-   The hero's job is to make the count legible before anyone scrolls, so the three
+/* ─── PILLARS ───
+   The hero's job is to say what Dovilo is before anyone scrolls, so the pillars
    sit directly under the subtitle rather than in the feature grid five screens
    down. */
 .pillars{
