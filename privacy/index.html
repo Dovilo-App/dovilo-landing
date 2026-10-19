@@ -117,7 +117,7 @@
       <p>Dovilo ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
 
       <h2>1. Data Collection</h2>
-      <p>By default, Dovilo stores all your tasks, city progress, focus session data, and app preferences locally on your device. During this anonymous phase, no personal data is collected, transmitted, or stored on external servers. You can use Dovilo fully offline without ever sharing any information.</p>
+      <p>By default, Dovilo stores all your tasks, city progress, focus session data, and app preferences locally on your device. During this anonymous phase, no personal data is collected, transmitted, or stored on external servers. You can use Dovilo fully offline without ever sharing any information. This changes only when you sign in (Section 2) or connect an AI assistant or coding agent (Section 6).</p>
 
       <h2>2. Cloud Sync &amp; Authentication</h2>
       <p>If you choose to enable cloud sync, we use Firebase Authentication to verify your identity via Google Sign-In or Apple Sign-In. In this case, the following data is stored securely on Firebase servers:</p>
@@ -127,7 +127,7 @@
         <li>App preferences and settings</li>
         <li>If you allow notifications, a push token for your device, used only to send the reminders and alerts you turn on.</li>
       </ul>
-      <p>We do not store your email address, password, or any other personal information beyond what is required for authentication. All data is encrypted in transit (TLS) and at rest on Firebase servers.</p>
+      <p>Firebase Authentication stores the email address your sign-in provider shares with us (with Apple, this can be a private relay address). We never see or store your password. All data is encrypted in transit (TLS) and at rest on Firebase servers. Section 6 describes the data we process when you connect an AI assistant or coding agent.</p>
 
       <h2>3. Analytics</h2>
       <p>To improve Dovilo and understand how features are used, we use Firebase Analytics. This service collects aggregated, anonymized usage data such as feature engagement, session duration, and app performance metrics. This data does not identify you personally and is used solely for product improvement.</p>
@@ -143,7 +143,7 @@
         <li>Apple / Google — Sign-in providers and app distribution</li>
         <li>Cloudflare, which routes and protects requests to dovilo.app, including AI connections.</li>
       </ul>
-      <p>We do not sell, rent, or share your personal data with any other third parties.</p>
+      <p>We don't sell or rent your personal data. We share it only with the services listed above, and with the AI assistants, coding agents and webhook URLs you connect yourself (Section 6).</p>
 
       <h2>6. AI Connections</h2>
       <p>Dovilo can connect to AI assistants and coding agents. Every connection is optional, starts only when you set it up, and can be removed at any time.</p>
@@ -170,7 +170,7 @@
       <ul>
         <li>Plans and changes proposed by an AI assistant that you don't act on expire after 14 days.</li>
         <li>AI connections are kept until you remove them or delete your account. Security records are kept as described in Section 6.</li>
-        <li>Deleting your account also deletes your AI connections, agent keys, AI proposals and webhook secrets.</li>
+        <li>Deleting your account also deletes your AI connections, agent keys, AI proposals, webhook secrets and security records.</li>
       </ul>
 
       <h2>8. Your Rights</h2>
