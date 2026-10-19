@@ -73,7 +73,7 @@
   animation:scatter-float 6.8s ease-in-out infinite;
   animation-delay:.6s;
 }
-/* Agent task list (AI) — upper-right */
+/* Ambience scenes — upper-right */
 .hero-phone.p-ambience{
   width:182px;
   top:3%;right:2%;
@@ -99,7 +99,7 @@
   z-index:4;
   animation:scatter-float 6s ease-in-out infinite;
 }
-/* Planned — bottom-right, slight gap from city */
+/* Focus session — bottom-right, slight gap from city */
 .hero-phone.p-focus{
   width:186px;
   top:42%;left:50%;
@@ -141,8 +141,8 @@
   margin-bottom:32px;
   align-items:center;
 }
-/* The four pillar pills read as one set, so they stay quiet; only the "4 in 1"
-   lead pill carries the accent fill and the live dot. Five pulsing dots would be
+/* The three pillar pills read as one set, so they stay quiet; only the "3 in 1"
+   lead pill carries the accent fill and the live dot. Four pulsing dots would be
    noise, and the count is the point. */
 .badge{
   background:var(--hover);border-color:transparent;
@@ -186,8 +186,8 @@ h1{
 .section-label{margin-bottom:16px;text-align:center}
 .section-title{text-align:center;margin-bottom:64px}
 
-/* ─── FOUR PILLARS ───
-   The hero's job is to make the count legible before anyone scrolls, so the four
+/* ─── THREE PILLARS ───
+   The hero's job is to make the count legible before anyone scrolls, so the three
    sit directly under the subtitle rather than in the feature grid five screens
    down. */
 .pillars{
@@ -450,10 +450,6 @@ h1{
   background:var(--hover);color:var(--fg);
   font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
 }
-.mac-caption .mac-caption-tag.ai{
-  background:rgba(var(--accent-rgb),.18);
-  color:var(--accent);
-}
 .mac-stack-gap{height:48px}
 @media(max-width:768px){
   .mac-caption{font-size:.8125rem;flex-wrap:wrap;gap:8px;padding:0 8px}
@@ -466,7 +462,6 @@ h1{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:clamp(16px,3vw,28px);
 }
-.shot-grid.two{grid-template-columns:repeat(2,1fr);max-width:660px;margin:0 auto}
 .shot{display:flex;flex-direction:column;gap:14px;margin:0}
 .shot-screen{
   border-radius:26px;overflow:hidden;background:#fff;
@@ -487,7 +482,7 @@ h1{
   font-size:.875rem;font-weight:600;color:var(--fg);
 }
 @media(max-width:720px){
-  .shot-grid,.shot-grid.two{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+  .shot-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
 }
 
 /* Phone deck — interactive fanned arrangement */
