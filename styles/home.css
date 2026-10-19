@@ -73,7 +73,7 @@
   animation:scatter-float 6.8s ease-in-out infinite;
   animation-delay:.6s;
 }
-/* Agent task list (AI) — upper-right */
+/* Ambience scenes — upper-right */
 .hero-phone.p-ambience{
   width:182px;
   top:3%;right:2%;
@@ -99,7 +99,7 @@
   z-index:4;
   animation:scatter-float 6s ease-in-out infinite;
 }
-/* Planned — bottom-right, slight gap from city */
+/* Focus session — bottom-right, slight gap from city */
 .hero-phone.p-focus{
   width:186px;
   top:42%;left:50%;
@@ -130,51 +130,29 @@
   color:var(--ink-1);
 }
 .hero-trial-line strong{color:var(--fg);font-weight:600}
-.hero-trial-line svg,.hero-ai-line svg{margin-top:3px}
 .hero-trial-line svg{
-  width:17px;height:17px;flex-shrink:0;
+  width:17px;height:17px;flex-shrink:0;margin-top:3px;
   fill:none;stroke:var(--accent);stroke-width:2.4;
   stroke-linecap:round;stroke-linejoin:round;
 }
-.hero-ai-line{
-  display:flex;align-items:flex-start;gap:8px;
-  margin-top:10px;font-size:.875rem;
-  color:rgba(var(--fg-rgb),calc(.5 * var(--fa)));
-}
-.hero-ai-line svg{
-  width:15px;height:15px;flex-shrink:0;
-  fill:none;stroke:var(--accent);stroke-width:2.2;
-  stroke-linecap:round;stroke-linejoin:round;
-}
-.hero-ai-line a{color:var(--accent);font-weight:600;text-decoration:none}
-.hero-ai-line a:hover{text-decoration:underline}
 
 .badges{
   display:flex;flex-wrap:wrap;gap:8px;
   margin-bottom:32px;
   align-items:center;
 }
-/* The four pillar pills read as one set, so they stay quiet; only the "4 in 1"
-   lead pill carries the accent fill and the live dot. Five pulsing dots would be
-   noise, and the count is the point. */
+/* The pillar pills read as one set, so they stay quiet: no accent fill, no live
+   dot. The hero names no count, because llms.txt and /downloads/ count the
+   whole product, agent layer included, and the homepage does not show that. */
 .badge{
   background:var(--hover);border-color:transparent;
   font-size:var(--t--1);font-weight:500;letter-spacing:.02em;
   white-space:nowrap;
 }
-.badge-lead{
-  background:var(--accent-wash);border-color:var(--accent-edge);
-  font-weight:700;
-}
-.badge-lead::before{
-  content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 h1{
-  /* Capped below base.css's --t-7: the headline now names four things, and at
-     4.5rem it wrapped to four lines and pushed the CTA past the fold. */
+  /* Capped below base.css's --t-7: at 4.5rem the headline wrapped to four lines
+     and pushed the store buttons past the fold. */
   font-size:clamp(2rem,3.6vw,3rem);
   line-height:1.1;
   max-width:24ch;
@@ -195,12 +173,12 @@ h1{
    content; /ai, the docs and the blog left-align theirs, so this stays here
    rather than in base.css. The gap is load-bearing: .pricing-trial below tucks
    itself up into it with a negative top margin. The bands that read as prose
-   (.story, .maker-band, .power-band) opt out with an inline text-align:left. */
+   (.story, .maker-band) opt out with an inline text-align:left. */
 .section-label{margin-bottom:16px;text-align:center}
 .section-title{text-align:center;margin-bottom:64px}
 
-/* ─── FOUR PILLARS ───
-   The hero's job is to make the count legible before anyone scrolls, so the four
+/* ─── PILLARS ───
+   The hero's job is to say what Dovilo is before anyone scrolls, so the pillars
    sit directly under the subtitle rather than in the feature grid five screens
    down. */
 .pillars{
@@ -251,51 +229,22 @@ h1{
 
 .cta-group{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ─── AI AGENTS ─── */
+/* ─── DEVELOPERS ───
+   One line, one link. The homepage is written for people who want a to-do list;
+   the developer story lives at /ai. */
 .ai-section{
-  padding:80px clamp(24px,5vw,64px);
+  padding:var(--s-8) clamp(24px,5vw,64px);
   max-width:var(--max);margin:0 auto;
-  position:relative;
 }
-.ai-lead{
-  font-size:1rem;color:rgba(var(--fg-rgb),calc(.6 * var(--fa)));
-  line-height:1.7;margin-bottom:28px;
+.dev-band{
+  display:block;
+  border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
+  padding:var(--s-5) var(--s-6);
+  font-size:var(--t-3);font-weight:600;color:var(--ink);
+  text-align:center;text-decoration:none;
+  transition:border-color .2s ease,color .2s ease;
 }
-.ai-clients{
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
-  padding-top:20px;border-top:1px solid var(--line);
-}
-.ai-clients-label{
-  font-size:.75rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;color:rgba(var(--fg-rgb),calc(.4 * var(--fa)));
-  margin-right:4px;
-}
-.ai-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 12px;border-radius:100px;
-  background:var(--card);border:1px solid var(--line);
-  font-size:.8125rem;font-weight:500;color:var(--ink-1);
-}
-.ai-chip svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2}
-
-.ai-footer-note{
-  margin-top:20px;font-size:.8125rem;
-  color:rgba(var(--fg-rgb),calc(.45 * var(--fa)));
-  display:flex;align-items:center;gap:8px;
-}
-
-/* Compact agent band — the full developer story lives at /ai */
-.power-band{
-  border:1px solid var(--line);border-radius:20px;background:var(--bg-2);
-  padding:clamp(28px,4vw,44px);
-}
-.power-copy h2{
-  font-size:clamp(1.5rem,3vw,2rem);font-weight:700;
-  letter-spacing:-.02em;margin-bottom:14px;
-}
-.power-copy .ai-lead{max-width:70ch;margin-bottom:22px}
-.power-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.power-links .btn{padding:12px 22px;font-size:.9375rem}
+.dev-band:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ─── FOCUS & AMBIENCE ───
    The band keeps the dark palette in both site themes, the same call the
@@ -492,10 +441,6 @@ h1{
   background:var(--hover);color:var(--fg);
   font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
 }
-.mac-caption .mac-caption-tag.ai{
-  background:rgba(var(--accent-rgb),.18);
-  color:var(--accent);
-}
 .mac-stack-gap{height:48px}
 @media(max-width:768px){
   .mac-caption{font-size:.8125rem;flex-wrap:wrap;gap:8px;padding:0 8px}
@@ -508,7 +453,6 @@ h1{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:clamp(16px,3vw,28px);
 }
-.shot-grid.two{grid-template-columns:repeat(2,1fr);max-width:660px;margin:0 auto}
 .shot{display:flex;flex-direction:column;gap:14px;margin:0}
 .shot-screen{
   border-radius:26px;overflow:hidden;background:#fff;
@@ -529,7 +473,7 @@ h1{
   font-size:.875rem;font-weight:600;color:var(--fg);
 }
 @media(max-width:720px){
-  .shot-grid,.shot-grid.two{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+  .shot-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
 }
 
 /* Phone deck — interactive fanned arrangement */
@@ -697,7 +641,6 @@ h1{
   }
   .phone::after{display:none}
   .phone-screen::after{display:none}
-  .ai-footer-note{flex-wrap:wrap}
 }
 
 @media (prefers-reduced-motion:reduce){
