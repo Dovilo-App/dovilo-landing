@@ -52,7 +52,8 @@ Rules:
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
 - **Word budgets**, counted as visible words outside `<details>`/`<summary>`, the nav and the
-  footer: `/` at most 350; `/ai` at most 400 plus one code block; `/pricing` at most 250;
+  footer: `/` at most 350; `/ai` at most 440 (its section headings count) plus one code block;
+  `/pricing` at most 250;
   `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.

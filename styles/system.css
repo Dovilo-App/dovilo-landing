@@ -357,6 +357,18 @@ img{height:auto}
 @media (min-width:600px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:960px){.facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+/* Facts boxes: two facts lists side by side, each under its name and in one
+   column, so a URL keeps a whole line. */
+.facts-boxes{display:grid;gap:var(--space-3)}
+@media (min-width:768px){.facts-boxes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.facts-box{
+  padding:var(--space-3);
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.facts-box h3{margin-bottom:var(--space-1)}
+.facts-box .facts{grid-template-columns:minmax(0,1fr)}
+
 .shipped li,.pricing-summary li{display:grid;gap:0 var(--space-3)}
 .shipped time{font-size:var(--text-small);font-variant-numeric:tabular-nums}
 .shipped a{color:var(--text)}

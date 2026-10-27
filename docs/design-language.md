@@ -269,7 +269,7 @@ at `/#pricing`.
 
 The top of a marketing page: an `<h1>` of **one sentence, at most 9 words, that names Dovilo**; a
 sub of **at most 20 words**; two buttons (one primary, one secondary); one full-width figure. No
-eyebrow, no pill, no badge, no second figure.
+eyebrow, no pill, no badge, no second figure. The name Dovilo does not count toward the 9 words.
 
 ```html
 <section class="hero">
@@ -353,6 +353,24 @@ Five components share one look (1px rules between short lines) and differ in wha
   <li>5 languages</li>
   …
 </ul>
+```
+
+**Facts boxes:** a facts-list variant for two things of the same kind compared line for line, such
+as the two MCP servers. Two boxes side by side from 768px, stacked below, each with its name in an
+`<h3>` and 3 or 4 short lines in one column. Never more than two boxes.
+
+```html
+<div class="facts-boxes">
+  <div class="facts-box">
+    <h3>Agents MCP</h3>
+    <ul class="facts">
+      <li><code>https://dovilo.app/mcp/agents</code></li>
+      <li>For coding agents</li>
+      <li>One key per agent, shown once</li>
+    </ul>
+  </div>
+  <div class="facts-box">…</div>
+</div>
 ```
 
 **Integration lines:** one verb sentence per client. The client's name in `<strong>`, then what it
@@ -585,7 +603,7 @@ and every section sentence count; code inside a code block does not.
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
 | `/` | 350 at most | Collapsibles and the FAQ accordion |
-| `/ai` | 400 at most | One code block, plus collapsibles |
+| `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
 | `/pricing` | 250 at most | Collapsibles |
 | `/downloads` | 150 at most | Collapsibles |
 | `/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
