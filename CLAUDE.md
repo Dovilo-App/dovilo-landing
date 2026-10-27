@@ -92,7 +92,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   "https://dovilo.app/#app"`. Any page describing the app reuses that `@id` and carries only what it
   is authoritative for — the homepage owns `offers` and `featureList`, the changelog owns
   `releaseNotes` and `downloadUrl`. Never mint a second node without the `@id`. (`c7ab5a8`)
-- Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai` and `/docs/webhooks`,
+- Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
   `BreadcrumbList` with position 1 = Dovilo / position 2 = the page. No page ships with zero JSON-LD.
 - Any URL an `ItemList` or anchor points at must resolve — give list cards stable ids before
@@ -111,7 +111,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   (`0384c1f`)
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
-  scale: `/` 1.0, `/ai` 0.9, `/faq` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
+  scale: `/` 1.0, `/ai` 0.9, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
   0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (only `/licenses`) stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
@@ -125,9 +125,10 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   both in the same commit.
 - Keep the "things that are easy to get wrong" section at the end of `llms-full.txt` current. It is
   the correction list a model reads: bricks not coins; ambience has no music; agents read AI tasks
-  only and cannot create them; agents run on desktop but AI Tasks is on mobile too; desktop and MCP
-  need Pro; the two packs are one-time purchases included with Pro; focus sessions are free and
-  unlimited.
+  only and cannot create or delete them, only cancel; since 2.0 agents use remote MCP from any
+  machine and Desktop need not run; chat assistants propose and the user approves; desktop and
+  Agents MCP need Pro; the two packs are one-time purchases included with Pro; focus sessions are
+  free and unlimited.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`)
@@ -209,7 +210,7 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (7 questions), `/faq` (25), `/ai` (10), `/changelog/` (3) and
+- Five `FAQPage` blocks compete: `/` (7 questions), `/faq` (25), `/ai` (11), `/changelog/` (3) and
   `/downloads/` (5). Only the homepage's seven actually duplicate the FAQ page's, so a wording
   change there has to be made in four places plus `llms-full.txt`; the other three ask questions
   that appear nowhere else, which is the condition for adding a sixth.

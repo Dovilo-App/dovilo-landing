@@ -15,10 +15,10 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Webhooks Developer Reference - Dovilo",
-  "description": "HMAC-signed task events from Dovilo Desktop: event types, payload schema, signature verification, retry policy, ordering and idempotency.",
+  "description": "HMAC-signed AI task events from Dovilo, delivered by Dovilo's server to public HTTPS receivers and by Dovilo Desktop to local ones: delivery modes, event types, status values including scheduled, payload schema, signature verification, responses, retry policy, ordering and idempotency.",
   "url": "https://dovilo.app/docs/webhooks",
   "inLanguage": "en",
-  "dateModified": "2026-09-18",
+  "dateModified": "2026-10-27",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -542,6 +542,7 @@
         <ol id="toc-list">
           <li><a href="#integration-prompt">Integration prompt</a></li>
           <li><a href="#quick-start">Quick start</a></li>
+          <li><a href="#delivery-modes">Delivery modes</a></li>
           <li><a href="#transport">Transport</a></li>
           <li>
             <a href="#events">Events</a>
@@ -631,7 +632,10 @@ STEP 1 — ASK ME FIRST
   otherwise ask. (Node/Express, FastAPI, Go net/http, Cloudflare
   Workers, Vercel function, etc.)
 - Where will it be deployed and what's the public URL going to be?
-  For local dev, suggest ngrok / cloudflared / tailscale funnel.
+  Public HTTPS URLs are delivered by Dovilo's server. A localhost URL
+  is delivered by Dovilo Desktop, which must stay open. To test a
+  public URL from a dev machine, suggest ngrok / cloudflared /
+  tailscale funnel.
 
 ────────────────────────────────────────────────────────────────────
 STEP 2 — WRITE THE RECEIVER
@@ -649,9 +653,10 @@ CRITICAL RULES:
        hmac.compare_digest / hmac.Equal). Never use plain `==`.
 - Use `X-Dovilo-Delivery` (also `id` in the body) as the idempotency
   key — store it, drop duplicates. Same id is reused across retries.
-- Respond 2xx on success, 401 on bad signature. Respond 410 ONLY if
-  the integration is permanently dead — Dovilo will disable the
-  webhook on its side when it sees 410.
+- Respond 2xx on success and 401 on a bad signature. NEVER answer a
+  bad signature with 410. Respond 410 ONLY if the integration is
+  permanently dead: Dovilo disables the project's webhook when it
+  sees 410.
 - Read the signing secret from env var `DOVILO_WEBHOOK_SECRET`. Add
   a placeholder to `.env.example`. NEVER commit the real secret.
 
@@ -660,8 +665,10 @@ STEP 3 — HANDLE THESE EVENT TYPES
 ────────────────────────────────────────────────────────────────────
 - `task.created`         — new task created.
 - `task.status_changed`  — body has `previousStatus` + `task.status`.
-                           Status values: queued, running, awaiting-user,
-                           done, failed, cancelled.
+                           Status values: scheduled, queued, running,
+                           awaiting-user, done, done-with-errors, error.
+                           A cancelled task ends in error, with
+                           task.cancelledAt set.
 - `webhook.ping`         — test event from Dovilo's "Send test" button.
                            Acknowledge with 2xx; don't trigger anything.
 
@@ -683,10 +690,14 @@ Payload shape (slim — these are ALL the fields you get):
     "updatedAt": 1715900000000,     // USE THIS to order, not delivery time
     "priority": "high",             // optional: none|low|medium|high|urgent
     "importance": true,             // optional
-    "dueAt": 1716000000000,         // optional, unix ms
+    "scheduledAt": 1715886000000,   // optional, unix ms
+    "isRecurring": true,            // optional
+    "recurrenceType": "weekly",     // optional: daily|weekly|monthly|yearly
+    "seriesId": "tsk_...",          // optional, shared by every run
+    "cancelledAt": 1715900000000,   // optional, set when cancelled
     "startedAt": 1715890000000,     // optional
     "completedAt": 1715900000000,   // optional
-    "error": { "message": "...", "stepId": "..." },  // optional, on failed
+    "error": { "message": "...", "stepId": "..." },  // optional, on error
     "claimedByAgentId": "agent_...",       // optional
     "claimedByAgentName": "Claude Code",   // optional
     "telemetry": {                  // only on terminal transitions
@@ -716,20 +727,20 @@ the actual public URL of the receiver you just built:
   ─────────────────────────────────────────────────────────────
   FINAL STEP — set this up on the Dovilo side:
 
-  1. Open the Dovilo desktop app and open the project you want
-     events from.
-  2. Open the project editor and expand the "Webhooks" section.
+  1. Open Dovilo Desktop (2.0 or later) and open the List settings
+     of the project you want events from.
+  2. Find the "Webhooks" section.
   3. Paste this URL into the URL field:
        &lt;YOUR_URL&gt;
-  4. Click "Generate signing secret". The plaintext secret is
-     shown EXACTLY ONCE — copy it immediately.
-  5. Put the secret in your `.env` (or your host's secret manager):
+  4. Tick the events you want (task.created and/or
+     task.status_changed), switch the webhook to "Enabled" and
+     press Save.
+  5. Click "Generate signing secret". The plaintext secret is
+     shown EXACTLY ONCE: copy it immediately.
+  6. Put the secret in your `.env` (or your host's secret manager):
        DOVILO_WEBHOOK_SECRET=&lt;paste-here&gt;
      Then restart the receiver so it picks up the env var.
-  6. Tick the events you want (task.created and/or
-     task.status_changed).
-  7. Toggle the project's webhook to "Enabled".
-  8. Click "Send test". You should see a 2xx in your receiver logs
+  7. Click "Send test". You should see a 2xx in your receiver logs
      within a second.
   ─────────────────────────────────────────────────────────────
 
@@ -743,20 +754,37 @@ GUARDRAILS
   guessing or stubbing.
 - The webhook payload is intentionally slim. If I need the full task
   (description, agent notes, full telemetry, steps), tell me to
-  fetch it via Dovilo's MCP server using `get_task` / `list_tasks`.
+  fetch it via Dovilo's Agents MCP (https://dovilo.app/mcp/agents,
+  agent key as a Bearer token) using `get_task` / `list_tasks`.
 </code></pre>
       </div>
       <p class="prompt-hint">Tip — for the fastest result, run it inside the project that will host the receiver, so the agent picks up your stack, conventions, and lint/test scripts.</p>
 
       <h2 id="quick-start">Quick start <a class="h-anchor" href="#quick-start" aria-label="Link to Quick start">#</a></h2>
       <ol>
-        <li>Open a project in Dovilo (desktop app) and expand the <strong>Webhooks</strong> section in the project editor.</li>
-        <li>Paste your receiver URL (must be <code>https://</code> for anything that isn't <code>localhost</code>).</li>
-        <li>Click <strong>Generate signing secret</strong>. The plaintext is shown <strong>once</strong> — copy it into your receiver's secret store immediately.</li>
-        <li>Pick which events you want (<code>task.created</code>, <code>task.status_changed</code>).</li>
-        <li>Click <strong>Enable</strong>, then <strong>Send test</strong> to fire a <code>webhook.ping</code> against your endpoint.</li>
+        <li>In Dovilo Desktop 2.0 or later, open the project's <strong>List settings</strong> and find the <strong>Webhooks</strong> section. Webhooks are set up on the desktop only.</li>
+        <li>Paste your receiver URL. It must be <code>https://</code> unless it is a local address; see <a href="#delivery-modes">Delivery modes</a>.</li>
+        <li>Pick which events you want (<code>task.created</code>, <code>task.status_changed</code>), switch the webhook to <strong>Enabled</strong> and press <strong>Save</strong>. For a public URL the server needs the saved address before it can create a secret.</li>
+        <li>Click <strong>Generate signing secret</strong>. The plaintext is shown <strong>once</strong>: copy it into your receiver's secret store immediately.</li>
+        <li>Click <strong>Send test</strong> to fire a <code>webhook.ping</code> against your endpoint.</li>
       </ol>
       <p>Once enabled, every matching task event in that project is delivered as a signed POST to the configured URL.</p>
+
+      <h2 id="delivery-modes">Delivery modes <a class="h-anchor" href="#delivery-modes" aria-label="Link to Delivery modes">#</a></h2>
+      <p>Who sends the request depends on the URL. A public HTTPS receiver is delivered by Dovilo's server, so it gets events even when Desktop is closed. A receiver on your own machine or network is delivered by Dovilo Desktop, because Dovilo's server never sends to a private address; the app labels these <strong>Local</strong>.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Server delivery</th><th>Desktop delivery (Local)</th></tr></thead>
+        <tbody>
+          <tr><td>Applies to</td><td>Public URLs</td><td><code>localhost</code>, <code>*.local</code>, <code>127.0.0.0/8</code>, <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>169.254.0.0/16</code>, <code>::1</code>, <code>fc00::/7</code>, <code>fe80::/10</code></td></tr>
+          <tr><td>URL scheme</td><td><code>https://</code> only; a public <code>http://</code> URL is not saved</td><td><code>http://</code> or <code>https://</code></td></tr>
+          <tr><td>Desktop must be running</td><td>No</td><td>Yes. Events while Desktop is closed are <strong>not</strong> resent</td></tr>
+          <tr><td>Signing secret</td><td>Generated on Dovilo's server, stored encrypted, shown once</td><td>Generated on this computer, kept in OS secure storage, shown once</td></tr>
+          <tr><td>Send test</td><td>From the server; the editor shows the HTTP status your endpoint returned</td><td>From Desktop</td></tr>
+          <tr><td>After <code>410 Gone</code></td><td>Delivery stops for that URL until a successful <strong>Send test</strong>, a new secret or a new URL</td><td>The project's webhook is switched to disabled</td></tr>
+          <tr><td>Failure details</td><td>Last delivery, last HTTP status and last error in the webhook settings</td><td>In-memory failure log in the webhook settings</td></tr>
+        </tbody>
+      </table></div>
+      <p>Signature, headers, payload, retry schedule and per-task ordering are the same in both modes. The server never delivers to a private address, even when a public hostname resolves to one.</p>
 
       <h2 id="transport">Transport <a class="h-anchor" href="#transport" aria-label="Link to Transport">#</a></h2>
       <div class="table-wrap"><table>
@@ -765,12 +793,12 @@ GUARDRAILS
           <tr><td>Method</td><td><code>POST</code></td></tr>
           <tr><td>Content-Type</td><td><code>application/json</code></td></tr>
           <tr><td>User-Agent</td><td><code>Dovilo-Webhook/1.0</code></td></tr>
-          <tr><td>URL schemes</td><td><code>http://</code> (localhost only), <code>https://</code></td></tr>
+          <tr><td>URL schemes</td><td><code>https://</code>; <code>http://</code> for local addresses only (<a href="#delivery-modes">Delivery modes</a>)</td></tr>
           <tr><td>Body encoding</td><td>UTF-8 JSON</td></tr>
           <tr><td>Per-attempt timeout</td><td>10 seconds</td></tr>
         </tbody>
       </table></div>
-      <p>Anything outside <code>http(s)://</code> is rejected before a request is made. Plain <code>http://</code> to a non-<code>localhost</code> host is allowed but flagged with a warning in the UI — don't ship a production integration over cleartext.</p>
+      <p>Anything outside <code>http(s)://</code> is rejected before a request is made. A public <code>http://</code> URL is not saved, because the server delivers only over HTTPS. Plain <code>http://</code> to a local address is allowed, with a warning in the UI; don't ship a production integration over cleartext.</p>
 
       <h2 id="events">Events <a class="h-anchor" href="#events" aria-label="Link to Events">#</a></h2>
       <p>Dovilo currently emits three event types. The set is intentionally small; we'd rather add events later than walk back a half-baked one.</p>
@@ -786,10 +814,12 @@ GUARDRAILS
 
       <h3 id="task-lifecycle-reference">Task lifecycle reference <a class="h-anchor" href="#task-lifecycle-reference" aria-label="Link to Task lifecycle reference">#</a></h3>
       <p><code>task.status_changed</code> carries a <code>previousStatus</code> field. The status values you will see in <code>task.status</code> and <code>previousStatus</code>:</p>
-<pre><code class="language-plaintext">queued  &rarr;  running  &rarr;  awaiting-user  &rarr;  running  &rarr;  done
-                                                  &rarr;  failed
-                                                  &rarr;  cancelled</code></pre>
+<pre><code class="language-plaintext">scheduled  &rarr;  queued  &rarr;  running  &rarr;  awaiting-user  &rarr;  running  &rarr;  done
+                                                              &rarr;  done-with-errors
+                                                              &rarr;  error</code></pre>
+      <p><code>scheduled</code> is a task waiting for its <code>scheduledAt</code> time. Dovilo moves it to <code>queued</code> when the time comes, so <code>previousStatus</code> can be <code>scheduled</code>. A task created without a future time starts at <code>queued</code>.</p>
       <p><code>awaiting-user</code> is entered when an agent pauses for human input (plan approval, mid-task question). It transitions back to <code>running</code> once the user responds.</p>
+      <p>The terminal statuses are <code>done</code>, <code>done-with-errors</code> and <code>error</code>. A cancelled task ends in <code>error</code> with <code>cancelledAt</code> set; an <code>error</code> without it is a failure. For a repeating task, the next run is a new task with the same <code>seriesId</code>, created once the previous one reaches a terminal status.</p>
 
       <h2 id="headers">Headers <a class="h-anchor" href="#headers" aria-label="Link to Headers">#</a></h2>
       <p>Every delivery includes three Dovilo-specific headers in addition to the standard ones.</p>
@@ -839,7 +869,10 @@ GUARDRAILS
   "updatedAt": 1715900000000,
   "priority": "high",
   "importance": true,
-  "dueAt": 1716000000000,
+  "scheduledAt": 1715886000000,
+  "isRecurring": true,
+  "recurrenceType": "weekly",
+  "seriesId": "tsk_7f02...",
   "startedAt": 1715890000000,
   "completedAt": 1715900000000,
   "error": { "message": "...", "stepId": "step_..." },
@@ -865,13 +898,17 @@ GUARDRAILS
           <tr><td><code>updatedAt</code></td><td>number (unix ms)</td><td><strong>Use this — not the event arrival time — to order events for the same task.</strong></td></tr>
           <tr><td><code>priority</code></td><td>string | omitted</td><td><code>none</code> | <code>low</code> | <code>medium</code> | <code>high</code> | <code>urgent</code>.</td></tr>
           <tr><td><code>importance</code></td><td>boolean | omitted</td><td>"Starred" flag.</td></tr>
-          <tr><td><code>dueAt</code></td><td>number | omitted</td><td>Due date, unix ms.</td></tr>
+          <tr><td><code>scheduledAt</code></td><td>number | omitted</td><td>When the task is (or was) scheduled to start, unix ms (UTC).</td></tr>
+          <tr><td><code>isRecurring</code></td><td>boolean | omitted</td><td><code>true</code> while the task repeats; <code>false</code> once repeating was stopped.</td></tr>
+          <tr><td><code>recurrenceType</code></td><td>string | omitted</td><td><code>daily</code> | <code>weekly</code> | <code>monthly</code> | <code>yearly</code>.</td></tr>
+          <tr><td><code>seriesId</code></td><td>string | omitted</td><td>Shared by every run of a repeating task (the first run's task id).</td></tr>
+          <tr><td><code>cancelledAt</code></td><td>number | omitted</td><td>Set with status <code>error</code> when the task was cancelled, including a single run of a repeating task that the user skipped, unix ms. An <code>error</code> without it is a failure. Occurrences missed while an earlier run was still open are never created, so they send no event.</td></tr>
           <tr><td><code>startedAt</code></td><td>number | omitted</td><td>When the task first entered <code>running</code>.</td></tr>
           <tr><td><code>completedAt</code></td><td>number | omitted</td><td>When the task reached a terminal status.</td></tr>
-          <tr><td><code>error</code></td><td>object | omitted</td><td><code>{ message, stepId? }</code>. Present on <code>failed</code>, sometimes carried after recovery.</td></tr>
+          <tr><td><code>error</code></td><td>object | omitted</td><td><code>{ message, stepId? }</code>. Present on <code>error</code>, sometimes carried after recovery.</td></tr>
           <tr><td><code>claimedByAgentId</code></td><td>string | omitted</td><td>Id of the agent that picked up the task.</td></tr>
           <tr><td><code>claimedByAgentName</code></td><td>string | omitted</td><td>Display name resolved at fire time.</td></tr>
-          <tr><td><code>telemetry</code></td><td>object | omitted</td><td><strong>Only on terminal transitions</strong> (<code>done</code>, <code>failed</code>, <code>cancelled</code>). Aggregated totals.</td></tr>
+          <tr><td><code>telemetry</code></td><td>object | omitted</td><td><strong>Only on terminal transitions</strong> (<code>done</code>, <code>done-with-errors</code>, <code>error</code>). Aggregated totals.</td></tr>
         </tbody>
       </table></div>
       <p>Fields with <code>omitted</code> mean: the key is absent from the JSON, not present with a <code>null</code> value. Your receiver should treat missing keys as "not set."</p>
@@ -1065,7 +1102,8 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
         </tbody>
       </table></div>
       <p>Respond quickly — under a few hundred ms is ideal. If your processing is slow, accept the delivery (<code>202</code>) and queue the work asynchronously rather than holding the request open.</p>
-      <p>Use <code>410 Gone</code> deliberately. It is the documented "this endpoint is dead, stop sending" signal — Dovilo will flip the project's webhook to <strong>disabled</strong> on receipt.</p>
+      <p>Use <code>410 Gone</code> deliberately. It is the documented "this endpoint is dead, stop sending" signal. What happens next depends on the <a href="#delivery-modes">delivery mode</a>: Desktop switches the project's webhook to <strong>disabled</strong>, and the server stops delivering to that URL.</p>
+      <div class="callout"><strong>Answer an invalid signature with <code>401</code>, never <code>410</code>.</strong> A request that fails verification may come from an older Dovilo Desktop still signing with a secret you have since replaced. <code>410 Gone</code> disables the subscription, so a <code>410</code> sent to that request would switch off the webhook for the whole project, server delivery included.</div>
 
       <h2 id="retry-policy">Retry policy <a class="h-anchor" href="#retry-policy" aria-label="Link to Retry policy">#</a></h2>
       <p>Failed transient deliveries are retried up to <strong>5 times</strong> on this schedule:</p>
@@ -1080,8 +1118,11 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
           <tr><td>6</td><td>1 hour</td></tr>
         </tbody>
       </table></div>
-      <p>Total delivery window is therefore approximately <strong>1 hour 15 minutes</strong>. After the final attempt, the delivery is dropped and recorded in the failures ring buffer visible in the project editor (last 100 entries per project).</p>
-      <p>The buffer is <strong>in-memory</strong> on the desktop client — it is not persisted across app restarts. Treat it as a debugging aid, not an audit log.</p>
+      <p>Total delivery window is therefore approximately <strong>1 hour 15 minutes</strong>. After the final attempt, the delivery is dropped.</p>
+      <ul>
+        <li><strong>Server delivery:</strong> the webhook settings show the last delivery, its HTTP status and the last error.</li>
+        <li><strong>Desktop delivery:</strong> the failure is recorded in the failures ring buffer in the webhook settings (last 100 entries per project). The buffer is <strong>in-memory</strong> on the desktop client and is not persisted across app restarts, so treat it as a debugging aid, not an audit log. A pending retry is lost if Desktop quits.</li>
+      </ul>
 
       <h2 id="ordering-and-concurrency">Ordering and concurrency <a class="h-anchor" href="#ordering-and-concurrency" aria-label="Link to Ordering and concurrency">#</a></h2>
       <ul>
@@ -1100,15 +1141,17 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
         <li>Anyone who learns the secret can forge requests that pass verification.</li>
         <li>Rotate the secret if you suspect compromise — generating a new one in the UI immediately invalidates the previous secret.</li>
         <li>Plaintext is revealed <strong>exactly once</strong>, when generated. There is no way to retrieve it later — generate, copy into your secret store, move on.</li>
-        <li>The secret is stored locally by the desktop client using OS-level secure storage (Keychain / Credential Manager / libsecret). It is not written to Firestore and is not synced across devices.</li>
+        <li><strong>Server delivery:</strong> the secret is generated and stored by Dovilo's server, encrypted. It is never written where the apps can read it back.</li>
+        <li><strong>Desktop delivery:</strong> the secret is stored by the desktop client using OS-level secure storage (Keychain / Credential Manager / libsecret). It is not written to Firestore and is not synced across devices.</li>
       </ul>
 
       <h2 id="operational-notes">Operational notes <a class="h-anchor" href="#operational-notes" aria-label="Link to Operational notes">#</a></h2>
       <ul>
-        <li><strong>Desktop-bound delivery.</strong> Webhooks fire from the Dovilo desktop app process — they will not deliver when the app is closed. Events that occur while the app is closed are <strong>not queued</strong> for later delivery; they are simply not sent. Tasks already present in Firestore at app launch are treated as historical state, not new events, and do not fire.</li>
-        <li><strong>Mobile- and agent-originated changes fire too.</strong> While the desktop is running, any task created or transitioned by mobile or an MCP agent in another process is observed via Firestore sync and fires the same events as a local write. The desktop persists per-task dedup markers (<code>webhookCreatedFiredAt</code>, <code>webhookLastSentStatus</code>) inside the same Firestore write, so a snapshot echo or a second connected desktop observing the same change will not double-fire.</li>
-        <li><strong>Multi-desktop dedup.</strong> When two desktops are signed in to the same account they race for each cloud-driven event via a Firestore transactional compare-and-swap on the dedup markers. Only the winner delivers — receivers do not need to dedup across desktops on top of <code>X-Dovilo-Delivery</code>.</li>
-        <li><strong>Slim payloads on purpose.</strong> Bulky and sensitive fields are excluded to reduce both bandwidth and the chance of leaking prompt content into third-party integrations. Use MCP (<code>get_task</code>, <code>list_tasks</code>) to fetch the full task when you need it.</li>
+        <li><strong>Desktop-bound delivery (Local only).</strong> Local webhooks fire from the Dovilo desktop app process, so they will not deliver when the app is closed. Events that occur while the app is closed are <strong>not queued</strong> for later delivery; they are simply not sent. Tasks already present in Firestore at app launch are treated as historical state, not new events, and do not fire.</li>
+        <li><strong>Mobile- and agent-originated changes fire too.</strong> Server delivery observes every change. For Desktop delivery, while the desktop is running, any task created or transitioned by mobile or an MCP agent is observed via Firestore sync and fires the same events as a local write. The desktop persists per-task dedup markers (<code>webhookCreatedFiredAt</code>, <code>webhookLastSentStatus</code>) inside the same Firestore write, so a snapshot echo or a second connected desktop observing the same change will not double-fire.</li>
+        <li><strong>Multi-desktop dedup (Desktop delivery).</strong> When two desktops are signed in to the same account they race for each cloud-driven event via a Firestore transactional compare-and-swap on the dedup markers. Only the winner delivers, so receivers do not need to dedup across desktops on top of <code>X-Dovilo-Delivery</code>.</li>
+        <li><strong>Slim payloads on purpose.</strong> Bulky and sensitive fields are excluded to reduce both bandwidth and the chance of leaking prompt content into third-party integrations. Fetch the full task with <code>get_task</code> or <code>list_tasks</code> over <a href="/docs/mcp/">Agents MCP</a> (<code>https://dovilo.app/mcp/agents</code>, agent key as <code>Authorization: Bearer</code>), which works while Desktop is closed.</li>
+        <li><strong>No receiver?</strong> Poll <code>list_tasks</code> over Agents MCP with <code>updated_after</code> set to the largest <code>updatedAt</code> from the previous response.</li>
         <li><strong>No webhook events for deleted tasks.</strong> A <code>task.deleted</code> event is not currently emitted. If you need to know about deletions, reconcile periodically through MCP.</li>
       </ul>
 
@@ -1116,6 +1159,10 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
       <ul>
         <li><strong>v0.6.0</strong> — Initial outbound webhook support. Events: <code>task.created</code>, <code>task.status_changed</code>, <code>webhook.ping</code>. HMAC-SHA256 signing. 5-attempt retry. Per-task FIFO.</li>
         <li><strong>v0.6.x</strong> — Mobile- and agent-driven changes now fire via Firestore sync diff (previously only desktop-initiated writes fired). Persisted per-task dedup markers prevent snapshot-echo refire and double-fire across multiple connected desktops.</li>
+        <li><strong>Dovilo 2.0</strong>: Server delivery for public <code>https://</code> URLs: signing secret, test and delivery status from the server, and delivery while Desktop is closed. Local URLs stay with Desktop. Public <code>http://</code> URLs are not accepted.</li>
+        <li><strong>Dovilo 2.0</strong>: Scheduled and repeating tasks. New status value <code>scheduled</code>, so <code>previousStatus</code> can be <code>scheduled</code>. Task payload: <code>scheduledAt</code>, <code>isRecurring</code>, <code>recurrenceType</code> and <code>seriesId</code> added; receivers that ignore unknown keys need no change for these. <code>dueAt</code> removed: it was not in use, but a receiver that read it should stop.</li>
+        <li><strong>Dovilo 2.0</strong>: <code>cancelledAt</code> (unix ms) on cancelled tasks, including a skipped run of a repeating task, so a cancel can be told apart from a failure without parsing <code>error.message</code>. Additive.</li>
+        <li><strong>Correction</strong>: the terminal status values are <code>done</code>, <code>done-with-errors</code> and <code>error</code>. Earlier versions of this page listed <code>failed</code> and <code>cancelled</code>; a receiver that compares <code>task.status</code> against those strings should check for <code>error</code>, and for <code>cancelledAt</code>, instead.</li>
       </ul>
     </article>
     </div>
@@ -1136,6 +1183,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
     </ul>
     <ul class="footer-links">
       <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/mcp/">MCP reference</a></li>
       <li><a href="/docs/webhooks">Webhooks</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/changelog/">Changelog</a></li>
