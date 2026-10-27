@@ -117,6 +117,9 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   `<link rel="canonical">` with the absolute URL, and
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
+- **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md` and `docs/design-language.md`; a new internal
+  Markdown file goes on that list in the same commit.
 
 ### GEO — writing for answer engines
 
