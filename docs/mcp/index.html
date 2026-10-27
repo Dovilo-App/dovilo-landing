@@ -430,7 +430,7 @@
       <p class="lede">This page is the contract for both: endpoints, sign-in, connecting a client, every tool (with inputs for the agent tools), the status values, scheduling, cancelling, the approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the plan, and the questions developers ask. The short version is the <a href="/ai">developer page</a>.</p>
 
       <div class="resource-grid">
-        <a class="resource-card" href="/ai#connect">
+        <a class="resource-card" href="#connecting">
           <span class="resource-kind">Setup</span>
           <span class="resource-title">Connect a coding agent &rarr;</span>
           <span class="resource-desc">Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</span>
@@ -663,7 +663,7 @@ update_status    → done</code></pre>
       <p>To react when a task moves without keeping an agent running, subscribe the project to <a href="/docs/webhooks">signed webhooks</a>: Dovilo's server delivers them to public HTTPS receivers, and Dovilo Desktop to local addresses (<code>localhost</code>, private network ranges, <code>.local</code>). Without a receiver, poll <code>list_tasks</code> with <code>updated_after</code> set to the largest <code>updatedAt</code> from the previous response. Use the server's value, not your own clock.</p>
 
       <h2 id="upgrading">Upgrading from Desktop 1.8 <a class="h-anchor" href="#upgrading" aria-label="Link to Upgrading from Desktop 1.8">#</a></h2>
-      <p>Desktop 1.8.0 ran the MCP server inside the app, and the client started it as a child process on the same machine. Dovilo 2.0 replaces it with Agents MCP. A client still set up the old way gets an error that explains the switch, and Desktop 2.0 shows a banner, <strong>Move to remote MCP</strong>. Create a key for each agent and point each client at <code>https://dovilo.app/mcp/agents</code>; the tool names and their contract are the same.</p>
+      <p>Desktop 1.8.0 ran the MCP server inside the app, and the client started it as a child process on the same machine. Dovilo 2.0 replaces it with Agents MCP at <code>https://dovilo.app/mcp/agents</code>; the tool names and their contract are the same. To move an agent over:</p>
       <ol>
         <li>Update Dovilo Desktop to 2.0 or later. It updates itself, and shows a banner, <strong>Move to remote MCP</strong>.</li>
         <li>Create a key for each agent, as in <a href="#agent-keys">Agents MCP keys</a>.</li>
@@ -696,7 +696,7 @@ update_status    → done</code></pre>
       <p>Yes. The connect flow has presets for Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and Claude Desktop. Anything else that speaks MCP over HTTP connects with the URL and the key: a LangGraph app, a CI job, your own script. It is the open protocol, not a vendor integration.</p>
 
       <h3>Can ChatGPT or Claude change my tasks?</h3>
-      <p>They can propose; you decide. A plan from ChatGPT, Claude, Gemini or Grok lands in the AI inbox on your phone with a notification, and joins your lists when you approve it. Plans, AI-task proposals and every change to an AI task always need your approval; other changes to your tasks wait for approval by default. There is no delete tool, and you can disconnect an assistant from your phone at any time.</p>
+      <p>They can propose; you decide. A plan from ChatGPT, Claude, Gemini or Grok lands in the AI inbox on your phone with a notification, and joins your lists when you approve it. Plans, AI-task proposals and every change to an AI task always need your approval; other changes to your tasks need it too, because Ask me first is the only write mode until direct apply ships. There is no delete tool, and you can disconnect an assistant from your phone at any time.</p>
 
       <h3>Do I have to be at my desk to use it?</h3>
       <p>No. The agent can run on any machine, and AI Tasks is a tab in the mobile app too: write a task there, watch the agent move through its steps, read its notes and its token and cost telemetry, and answer its questions from the phone.</p>

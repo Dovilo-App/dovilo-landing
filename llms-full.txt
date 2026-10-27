@@ -138,7 +138,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 - **Scheduling and repeat:** a task can open to the agent at a set time (`scheduled` until then, invisible to agents) and repeat daily, weekly, monthly or yearly. One open run per series; missed occurrences are skipped.
 - **Quota:** 15 AI tasks a month on Pro, counted when a task opens to the agent, not when it is created. Replies on the same task cost nothing. One-time top-up packs +10, +30, +75 from $0.99; they never expire.
 - **The AI Tasks tab exists on mobile and on desktop.** An AI task can be written from either one, and both show the agent's live step-by-step progress, its notes and its telemetry, and let the user answer its questions.
-- **Upgrading from Desktop 1.8:** Desktop 1.8.0 ran the MCP server inside the app. It stops with Dovilo 2.0; agents are reconnected with the remote URL and a new key, and Desktop 2.0 shows a banner that says so. The steps: update Dovilo Desktop to 2.0 or later (it updates itself and shows the banner **Move to remote MCP**); create a key for each agent; in each client, replace the old Dovilo entry with the server URL and the new key. An agent still set up the old way gets an error that explains the switch. The tool names and their contract are the same.
+- **Upgrading from Desktop 1.8:** Desktop 1.8.0 ran the MCP server inside the app. It stops with Dovilo 2.0, and the tool names and their contract are the same on the remote server. To move an agent over: update Dovilo Desktop to 2.0 or later (it updates itself and shows the banner **Move to remote MCP**); create a key for each agent; in each client, replace the old Dovilo entry with the server URL and the new key. An agent still set up the old way gets an error that explains the switch.
 
 ### Personal MCP: chat assistants
 
@@ -368,7 +368,7 @@ Yes. The connect flow has presets for Claude Code, Cursor, Cursor CLI, Codex CLI
 
 **Can ChatGPT or Claude change my tasks?**
 
-They can propose; you decide. A plan from ChatGPT, Claude, Gemini or Grok lands in the AI inbox on your phone with a notification, and joins your lists when you approve it. Plans, AI-task proposals and every change to an AI task always need your approval; other changes to your tasks wait for approval by default. There is no delete tool, and you can disconnect an assistant from your phone at any time.
+They can propose; you decide. A plan from ChatGPT, Claude, Gemini or Grok lands in the AI inbox on your phone with a notification, and joins your lists when you approve it. Plans, AI-task proposals and every change to an AI task always need your approval; other changes to your tasks need it too, because Ask me first is the only write mode until direct apply ships. There is no delete tool, and you can disconnect an assistant from your phone at any time.
 
 **Do I have to be at my desk to use it?**
 
