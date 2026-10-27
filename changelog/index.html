@@ -87,7 +87,7 @@
   "name": "Dovilo Release Notes",
   "description": "Changelog of updates across Dovilo mobile (iOS & Android) and desktop (Windows & Mac) platforms.",
   "url": "https://dovilo.app/changelog/",
-  "numberOfItems": 7,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -120,20 +120,27 @@
     {
       "@type": "ListItem",
       "position": 5,
+      "name": "Dovilo Desktop for Windows & Mac 2.0.2",
+      "url": "https://dovilo.app/changelog/#desktop-2-0-2",
+      "description": "Released 27 October 2026. Task details open over the list, long text gets a large view, the agent's latest note sits above the reply box, and AI Agents are named as in the mobile app. Nothing changes in the MCP contract, agent keys or webhooks."
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
       "name": "Dovilo Desktop for Windows & Mac 2.0.1",
       "url": "https://dovilo.app/changelog/#desktop-2-0-1",
       "description": "Released 20 October 2026. Creating, regenerating and revoking an agent key works again, and so do webhook signing secrets and test pings. Connected AIs is now Agents, and Delete agent stops the key right away. Lists and projects are deleted from their List settings only."
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "name": "Dovilo Desktop for Windows & Mac 2.0.0",
       "url": "https://dovilo.app/changelog/#desktop-2-0-0",
       "description": "Released 19 October 2026. AIs connect to Dovilo's remote MCP server with their own key, so Desktop no longer has to run on the same machine; the MCP server built into 1.8 is off. AI tasks can be scheduled and repeat, one List settings window per list or project, public webhook URLs delivered by Dovilo's server, and a new design aligned with the mobile app."
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "name": "Dovilo Desktop for Windows & Mac 1.8.0",
       "url": "https://dovilo.app/changelog/#desktop-1-8-0",
       "description": "Released 17 May 2026. Initial stable release of Dovilo Desktop."
@@ -345,8 +352,22 @@
     <div id="releases">
       <!-- The live fetch at the bottom of the page adds a card here only for a
            build newer than the first one below. -->
+      <div class="rel" id="desktop-2-0-2">
+        <div class="rel-head"><span class="rel-ver">2.0.2</span><span class="rel-date">27 October 2026</span><span class="rel-latest">Latest</span></div>
+        <ul class="rel-notes">
+          <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. The list stays clickable: pick another task and the panel switches; click outside or press Escape to close.</li>
+          <li>A large view for long text. Notes, AI task descriptions, context, notes from AI and project briefs open in a wide, scrollable view, and editable fields stay editable there.</li>
+          <li>When an AI task is waiting for you, the agent's latest note sits inside the "Waiting for your input" card, right where you answer, as in the mobile app.</li>
+          <li>"AI Agents" everywhere: the sidebar, settings and dialogs use the mobile app's names, in all five languages.</li>
+          <li>Fixes: a running AI task's lock banner now reads "Changes are locked while the task runs."; selecting an agent in the sidebar no longer resets My Tasks or squeezes the detail panel; copy cleanup in all five languages, including the window title.</li>
+        </ul>
+        <p class="rel-text">
+          Nothing changes in the MCP contract, agent keys or webhooks: agents set up for 2.0.0 or
+          2.0.1 keep working, and existing installs update on their own.
+        </p>
+      </div>
       <div class="rel" id="desktop-2-0-1">
-        <div class="rel-head"><span class="rel-ver">2.0.1</span><span class="rel-date">20 October 2026</span><span class="rel-latest">Latest</span></div>
+        <div class="rel-head"><span class="rel-ver">2.0.1</span><span class="rel-date">20 October 2026</span></div>
         <ul class="rel-notes">
           <li>Creating, regenerating and revoking an agent key works again; in 2.0.0, connecting a new AI stopped at the key step. Webhook signing secrets and test pings work again too.</li>
           <li>After a key error, Done in the connect wizard closes it. The Claude Desktop preset writes Dovilo's server address.</li>

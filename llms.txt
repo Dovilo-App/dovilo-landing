@@ -44,7 +44,7 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 - [FAQ](https://dovilo.app/faq): how tasks, focus sessions, ambience, the city, Pro, planning with a chat assistant and the MCP integration work, including the AI task quota.
 - [Webhooks reference](https://dovilo.app/docs/webhooks): delivery modes (server or Desktop), event payload schema, signature verification examples, responses, retry and idempotency rules, plus a copy-paste prompt for building a receiver with an AI agent.
 - [Downloads](https://dovilo.app/downloads/): every build in one place — the free iOS and Android apps on the App Store and Google Play, plus the Windows and macOS desktop installers, which need Pro. Also sets out what the free tier covers, what Pro adds, how updates reach each platform, and which download an agent needs.
-- [Release notes](https://dovilo.app/changelog/): every mobile release (2.0.0, with AI planning and AI Agents; 1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and every desktop release since the first stable one (2.0.1 · 20 Oct 2026, 2.0.0 · 19 Oct 2026, 1.8.0 · 17 May 2026), plus how updates reach each platform and what is on the roadmap: data export.
+- [Release notes](https://dovilo.app/changelog/): every mobile release (2.0.0, with AI planning and AI Agents; 1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and every desktop release since the first stable one (2.0.2 · 27 Oct 2026, 2.0.1 · 20 Oct 2026, 2.0.0 · 19 Oct 2026, 1.8.0 · 17 May 2026), plus how updates reach each platform and what is on the roadmap: data export.
 - [Privacy policy](https://dovilo.app/privacy) · [Terms](https://dovilo.app/terms) · [Open-source licenses](https://dovilo.app/licenses)
 
 <!-- BLOG:START -->
