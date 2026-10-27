@@ -187,9 +187,15 @@
     /* This page gutters at the section, not at the container: .hero-grid,
        .trust-grid and .maker-inner are bare centred blocks with no padding of
        their own. base.css's .wrap also pads, so it is zeroed here — otherwise
-       the sections that do use .wrap get the gutter twice. */
-    section{padding:var(--section-y) var(--gutter)}
+       the sections that do use .wrap get the gutter twice.
+       --section-y is sized for the homepage's alternating bands. Here a dozen
+       sections share one background, so it doubled into 224px of empty space
+       between them; this page steps down to s-6..s-7 a side. */
+    section{padding:clamp(var(--s-6),4vw,var(--s-7)) var(--gutter)}
     .wrap{padding-inline:0}
+    section h2{margin-bottom:var(--s-3)}
+    /* The page ends in the maker band, so the footer needs no gap of its own. */
+    footer{margin-top:0}
 
     /* ─── HERO ─── */
     .hero{padding-top:var(--s-7);padding-bottom:var(--s-8);border-bottom:1px solid var(--line)}
@@ -219,6 +225,7 @@
     .hero-sub strong{color:var(--ink)}
 
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+    .cta-row:last-child{margin-bottom:0}
     .hero-note{font-size:var(--t--1);color:var(--ink-3)}
     .code-caption{margin-top:10px;font-size:var(--t--2);color:var(--ink-3)}
 
@@ -295,19 +302,56 @@
     .page-jump a{color:var(--ink-2);text-decoration:none;font-weight:500}
     .page-jump a:hover{color:var(--accent);text-decoration:underline}
 
-    /* ─── PRODUCT SHOT ───
-       The page shipped no product image at all: its only picture was a config
-       file. This is the same asset and responsive set the homepage uses. */
-    .shot-band{padding-top:0}
-    .shot-window{
-      border:1px solid var(--line-strong);border-radius:var(--radius-lg);
-      overflow:hidden;background:var(--bg-2);
-      box-shadow:0 24px 60px -30px var(--shadow-1);
+    /* ─── PRODUCT SHOTS ───
+       One strip of desktop and phone screens. It swipes and snaps with no
+       script; the script at the end of the page adds the buttons and dots
+       (.gallery.js) and keeps them in step with a swipe. 880px wide: the
+       desktop captures are 2844px windows, and a wider frame only blew their
+       UI up past the 1000w file a 1x screen picked. Every frame has the
+       desktop captures' aspect, so slides do not jump in height. */
+    .gallery-inner{max-width:880px;margin:0 auto}
+    .gallery-track{
+      display:flex;align-items:flex-start;overflow-x:auto;
+      scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;
+      border-radius:var(--radius-lg);
     }
-    .shot-window img{width:100%;height:auto;display:block}
-    .shot-caption{
-      margin-top:12px;font-size:var(--t--1);color:var(--ink-3);text-align:center;
+    .gallery-track::-webkit-scrollbar{display:none}
+    .gallery-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    /* On a phone the two-phone slides are taller than the desktop ones; the
+       script sets the strip to the height of the slide in view. */
+    .gallery.js .gallery-track{overflow-y:hidden;transition:height .25s ease}
+    @media (prefers-reduced-motion: reduce){.gallery.js .gallery-track{transition:none}}
+    .slide{flex:0 0 100%;margin:0;scroll-snap-align:start}
+    .slide-frame{
+      aspect-ratio:2844/1846;overflow:hidden;
+      border:1px solid var(--line-strong);border-radius:var(--radius-lg);background:var(--bg-2);
     }
+    .slide-frame img{display:block;width:100%;height:100%;object-fit:contain}
+    .slide-frame.phones{display:flex;justify-content:center;gap:var(--s-6);padding:var(--s-5)}
+    .slide-frame.phones img{width:auto;height:100%;border:1px solid var(--line);border-radius:var(--radius-lg)}
+    .slide figcaption{
+      max-width:66ch;margin:var(--s-3) auto 0;
+      font-size:var(--t--1);color:var(--ink-3);text-align:center;
+    }
+    .slide figcaption strong{color:var(--ink-1)}
+    .gallery-nav{display:none;align-items:center;justify-content:center;gap:var(--s-3);margin-top:var(--s-4)}
+    .gallery.js .gallery-nav{display:flex}
+    .gallery-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:36px;height:36px;padding:0;cursor:pointer;
+      border:1px solid var(--line-strong);border-radius:50%;background:var(--card);color:var(--ink);
+    }
+    .gallery-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .gallery-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+    .gallery-btn:disabled{opacity:.4;cursor:default}
+    .gallery-dots{display:flex}
+    /* 24px buttons for a fingertip; the dot itself is the ::before. */
+    .gallery-dot{width:24px;height:24px;padding:0;border:0;background:none;cursor:pointer}
+    .gallery-dot::before{
+      content:'';display:block;width:8px;height:8px;margin:auto;
+      border-radius:var(--radius-pill);background:var(--line-strong);transition:width .2s ease;
+    }
+    .gallery-dot[aria-current="true"]::before{width:18px;background:var(--accent)}
 
     .tools-inline{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
     .tool{
@@ -365,6 +409,7 @@
     .res-title .arrow{color:var(--accent);transition:transform .15s}
     .res:hover .res-title .arrow{transform:translateX(2px)}
     .res-desc{font-size:.8125rem;color:rgba(var(--fg-rgb),calc(.6 * var(--fa)));line-height:1.5}
+    .steps{margin-top:26px}
     .step .code-block{margin-top:14px}
     .step a{color:var(--accent)}
     .step strong{color:var(--fg);font-weight:600}
@@ -435,7 +480,8 @@
     /* ─── MAKER ─── */
     .maker{border-top:1px solid var(--line);background:var(--bg-2)}
     .maker-inner{max-width:760px;margin:0 auto}
-    .maker p{font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)));margin-bottom:12px}
+    /* :not(.eyebrow): .maker p outranks .eyebrow and turned the label grey. */
+    .maker p:not(.eyebrow){font-size:.9375rem;color:rgba(var(--fg-rgb),calc(.68 * var(--fa)));margin-bottom:12px}
     .maker a{color:var(--accent)}
 
     .quiet-link{
@@ -453,8 +499,11 @@
     @media(max-width:560px){
       .trust-grid{grid-template-columns:1fr}
       .step{grid-template-columns:1fr;gap:12px}
-      section{padding:56px var(--gutter)}
       .logo .logo-subtitle{display:none}
+      /* Two phones in the desktop-shaped frame are too small to read here, so
+         the phone slides take their own height. */
+      .slide-frame.phones{aspect-ratio:auto;gap:var(--s-3);padding:var(--s-4)}
+      .slide-frame.phones img{width:calc(50% - var(--s-2));height:auto}
     }
   </style>
 </head>
@@ -579,16 +628,100 @@
     </div>
   </nav>
 
-  <!-- PRODUCT SHOT -->
-  <section class="shot-band" aria-label="Dovilo Desktop showing the AI tasks of a project">
-    <div class="wrap">
-      <div class="shot-window">
-        <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w, /screenshots/desktop-ai.webp 2764w"
-             sizes="(max-width:1000px) 100vw, 1000px"
-             src="/screenshots/desktop-ai.webp" width="2764" height="1794" loading="lazy"
-             alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+  <!-- PRODUCT SHOTS: a strip that swipes and snaps on its own; the buttons and
+       dots under it come from the script at the end of the page. -->
+  <section class="gallery" aria-roledescription="carousel" aria-label="Dovilo AI screens on desktop and mobile">
+    <div class="gallery-inner">
+      <div class="gallery-track" tabindex="0">
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 of 7: AI Tasks">
+          <div class="slide-frame">
+            <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                 sizes="(max-width:960px) 92vw, 880px"
+                 src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
+                 alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+          </div>
+          <figcaption><strong>AI Tasks.</strong> A project's AI tasks in Dovilo Desktop, grouped by what needs you: awaiting you, running, queued and scheduled.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 7: When an agent asks">
+          <div class="slide-frame">
+            <img srcset="/screenshots/desktop-ai-reply-700.webp 700w, /screenshots/desktop-ai-reply-1000.webp 1000w, /screenshots/desktop-ai-reply-1400.webp 1400w, /screenshots/desktop-ai-reply-2000.webp 2000w"
+                 sizes="(max-width:960px) 92vw, 880px"
+                 src="/screenshots/desktop-ai-reply-1000.webp" width="2000" height="1298" loading="lazy"
+                 alt="Dovilo Desktop: an AI task waiting for the user, with the agent's question and a reply box">
+          </div>
+          <figcaption><strong>When an agent asks.</strong> The agent stopped with a question. You answer it from the task, and it carries on.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 of 7: On your phone">
+          <div class="slide-frame phones">
+            <img srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
+                 sizes="(max-width:560px) 42vw, 250px"
+                 src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy"
+                 alt="Dovilo AI Tasks: a project with tasks awaiting the user, running, queued and scheduled">
+            <img srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w"
+                 sizes="(max-width:560px) 42vw, 250px"
+                 src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy"
+                 alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+          </div>
+          <figcaption><strong>On your phone.</strong> The same AI tasks in the mobile app, and the reply box when an agent needs a decision.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 of 7: Connect an agent">
+          <div class="slide-frame">
+            <img srcset="/screenshots/desktop-ai-connect-700.webp 700w, /screenshots/desktop-ai-connect-1000.webp 1000w, /screenshots/desktop-ai-connect-1400.webp 1400w, /screenshots/desktop-ai-connect-2000.webp 2000w"
+                 sizes="(max-width:960px) 92vw, 880px"
+                 src="/screenshots/desktop-ai-connect-1000.webp" width="2000" height="1298" loading="lazy"
+                 alt="Dovilo Desktop: Connect a new AI, with presets for Cursor, Claude Code, Claude Desktop, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and a custom AI">
+          </div>
+          <figcaption><strong>Connect an agent.</strong> Pick the client, or Custom AI for anything else that speaks MCP. The wizard shows where its config goes.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="5 of 7: The agent key">
+          <div class="slide-frame">
+            <img srcset="/screenshots/desktop-ai-key-700.webp 700w, /screenshots/desktop-ai-key-1000.webp 1000w, /screenshots/desktop-ai-key-1400.webp 1400w, /screenshots/desktop-ai-key-2000.webp 2000w"
+                 sizes="(max-width:960px) 92vw, 880px"
+                 src="/screenshots/desktop-ai-key-1000.webp" width="2000" height="1298" loading="lazy"
+                 alt="Dovilo Desktop: an agent's details with its project, the server URL and the controls for its key">
+          </div>
+          <figcaption><strong>The agent key.</strong> Each agent has its own key and its own projects. Regenerate or revoke the key, or delete the agent.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="6 of 7: Brief and webhook">
+          <div class="slide-frame">
+            <img srcset="/screenshots/desktop-ai-brief-700.webp 700w, /screenshots/desktop-ai-brief-1000.webp 1000w, /screenshots/desktop-ai-brief-1400.webp 1400w, /screenshots/desktop-ai-brief-2000.webp 2000w"
+                 sizes="(max-width:960px) 92vw, 880px"
+                 src="/screenshots/desktop-ai-brief-1000.webp" width="2000" height="1298" loading="lazy"
+                 alt="Dovilo Desktop: a project's List settings with Show in AI Tasks, the brief for AI and the webhook">
+          </div>
+          <figcaption><strong>Brief and webhook.</strong> A project's List settings: Show in AI Tasks, the brief the agent reads before every task, and the webhook.</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="7 of 7: Plan from chat">
+          <div class="slide-frame phones">
+            <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                 sizes="(max-width:560px) 42vw, 250px"
+                 src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+                 alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
+            <img srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w"
+                 sizes="(max-width:560px) 42vw, 250px"
+                 src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy"
+                 alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists">
+          </div>
+          <figcaption><strong>Plan from chat.</strong> A plan from Claude waits in the AI inbox until you approve it. For each connection you choose what the assistant can see.</figcaption>
+        </figure>
       </div>
-      <p class="shot-caption">A project's AI tasks in Dovilo Desktop, grouped by what needs you: awaiting you, running, queued and scheduled. The same list is a tab in the mobile app.</p>
+      <div class="gallery-nav">
+        <button class="gallery-btn gallery-prev" type="button" aria-label="Previous screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="gallery-dots">
+          <button class="gallery-dot" type="button" aria-label="Show AI Tasks"></button>
+          <button class="gallery-dot" type="button" aria-label="Show When an agent asks"></button>
+          <button class="gallery-dot" type="button" aria-label="Show On your phone"></button>
+          <button class="gallery-dot" type="button" aria-label="Show Connect an agent"></button>
+          <button class="gallery-dot" type="button" aria-label="Show The agent key"></button>
+          <button class="gallery-dot" type="button" aria-label="Show Brief and webhook"></button>
+          <button class="gallery-dot" type="button" aria-label="Show Plan from chat"></button>
+        </div>
+        <button class="gallery-btn gallery-next" type="button" aria-label="Next screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1261,6 +1394,54 @@ update_status    → done</span></div>
 
     paintThemeChrome();
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', paintThemeChrome);
+  </script>
+
+  <script>
+    /* ─── SCREENS ───
+       The strip already swipes and snaps; this adds the buttons and dots,
+       keeps them on the slide in view however it got there, and sizes the
+       strip to that slide. */
+    (function(){
+      const root = document.querySelector('.gallery');
+      if (!root) return;
+      const track = root.querySelector('.gallery-track');
+      const slides = root.querySelectorAll('.slide');
+      const dots = root.querySelectorAll('.gallery-dot');
+      const prev = root.querySelector('.gallery-prev');
+      const next = root.querySelector('.gallery-next');
+      const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = -1;
+
+      function show(i) {
+        track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+      }
+      function fit() {
+        if (current >= 0) track.style.height = slides[current].offsetHeight + 'px';
+      }
+      function sync() {
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        if (i === current) return;
+        current = i;
+        dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+        prev.disabled = i === 0;
+        next.disabled = i === slides.length - 1;
+        fit();
+      }
+
+      let queued = false;
+      track.addEventListener('scroll', () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => { queued = false; sync(); });
+      }, { passive: true });
+      window.addEventListener('resize', fit);
+      window.addEventListener('load', fit); /* captions reflow once Inter swaps in */
+      prev.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+      root.classList.add('js');
+      sync();
+    })();
   </script>
 
 

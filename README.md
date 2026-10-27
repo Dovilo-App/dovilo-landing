@@ -39,9 +39,12 @@ applied before first paint so there is no flash.
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The hero and the two desktop shots also carry `srcset`/`sizes`, whose
-candidate widths are named in the filename (`-193`, `-700` … ). To add or replace a screenshot,
-drop the PNG in [`screenshots/`](screenshots/) and re-encode it with ffmpeg:
+variants can be regenerated. The hero, the homepage desktop shot and the screen slider on `/ai`
+also carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
+`-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
+smaller file and stretches it. The `/ai` slider's phone shots add a `-772` variant for 2x screens.
+To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
+with ffmpeg:
 
 ```bash
 # full-size WebP (quality 80 for the busy city render, 88 elsewhere)
