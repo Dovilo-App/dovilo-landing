@@ -19,12 +19,13 @@ Two things here have already cost real time and must not be undone by a later ch
 
 ## Release timing
 
-Dovilo 2.0 shipped on 27 Oct 2026, the release day the product docs call R: mobile 2.0.0 on iOS and
-Android, with Desktop 2.0.x already out since 19 Oct. Remote MCP (Agents MCP at `/mcp/agents`, Personal MCP at
-`/mcp`), planning from chat assistants, scheduling and repeat for AI tasks, and server delivery of
-webhooks are public: never write "local" about MCP, and never put any of them "on the roadmap".
-**Not yet:** directory listings (ChatGPT, Claude, the MCP Registry) and data export. Say so plainly
-where it matters, and give neither a date. Blog posts come from Sanity and still carry pre-2.0
+Dovilo 2.0 shipped on 27 Oct 2026, the release day the product docs call R: mobile 2.0.0 reached
+Google Play (Android) that day, and Desktop 2.0.x has been out since 19 Oct. **The iOS release of
+2.0.0 has no date yet**: never say 2.0 is on the App Store and never give it a date. Remote MCP
+(Agents MCP at `/mcp/agents`, Personal MCP at `/mcp`), planning from chat assistants, scheduling and
+repeat for AI tasks, and server delivery of webhooks are public: never write "local" about MCP, and
+never put any of them "on the roadmap". **Not yet:** directory listings (ChatGPT, Claude, the MCP
+Registry) and data export. Say so plainly where it matters, and give neither a date. Blog posts come from Sanity and still carry pre-2.0
 sentences: do not edit them here and do not quote them on the site. They are fixed at the source.
 
 ---
