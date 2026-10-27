@@ -290,20 +290,21 @@ The figure may be a figure pair (below): still one figure, with one caption.
 </section>
 ```
 
-**Figure pair:** the desktop screen with one phone screen standing in front of its right edge, the
-way the app's detail pane sits beside its list. The phone shows the detail of something on the
-desktop screen (the task the list says is waiting, say). From 768px the desktop takes 86% of the
-width and the phone 24%, set 32px lower; below 768px the desktop takes the full width and the phone
-overlaps its lower right corner at 36%. An 8px ring of `--bg` separates the phone from the screen
-behind it: no shadow. Both images are above the fold, so neither is lazy; the desktop one is the
-LCP image.
+**Figure pair:** the desktop screen with one phone screen standing in front of its top right
+corner. The phone shows the same screen as the desktop, so the pair reads "on the desktop, and on
+the phone". From 768px the desktop takes 86% of
+the width and the phone 24%, rising 96px above the desktop into the hero's empty right side; the
+h1, the sub and the buttons keep to the left, so it covers none of them. Below 768px the desktop
+takes the full width and the phone overlaps its top right corner at 36%, rising 24px. An 8px ring
+of `--bg` separates the phone from the screen behind it: no shadow. Both images are above the fold,
+so neither is lazy; the desktop one is the LCP image.
 
 ```html
 <figure class="figure figure-pair">
   <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
        src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
   <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-       src="…" width="386" height="840" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+       src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
   <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
 </figure>
 ```
