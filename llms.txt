@@ -4,15 +4,14 @@
 
 Dovilo runs offline-first with optional cloud sync, has no ads on any tier, and is available in English, Turkish, Spanish, French and German. Completed tasks and focus sessions earn **bricks**, the currency you spend on buildings, decorations and upgrades in your city.
 
-## The four pillars
-
-The four are **Tasks**, **Focus** (with its Ambience scenes), the **City**, and **AI tasks** — the same four the homepage names. Ambience is part of a focus session, not a fifth pillar.
+## What Dovilo does
 
 - **Tasks** — due dates, repeats, reminders, stars, flags and your own lists. One view picker holds My Day, Important, Planned, Flagged, all Tasks and every custom list, each with a live count. Lists group by date (Today, Tomorrow, No date); each task opens a detail sheet with its properties and notes.
 - **Focus** — three ways to run a session: a single session of any duration, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds, breaks start on their own), or a session bound to one specific task. The timer keeps counting while the app is backgrounded or the phone is locked, Do Not Disturb can silence other apps for the length of the session, and a breathing exercise plus countdown precede the start. Only completed Pomodoro rounds count toward the daily round counter.
-- **Ambience** (part of Focus, not a pillar of its own) — a scene fills the whole screen and brings its own sound: Rainy City (rain, fireplace), Midnight (city hum, brown noise), Dusk (birds, breeze), Snow (winter wind, pink noise), Fog (fog horn, white noise). The Default scene is always available and is silent. Up to three sound layers can be blended at once with per-layer levels, chosen from rain, fireplace, city hum, birds, breeze, winter wind, fog horn, forest, waves, café, library, train, thunder and brown/pink/white noise. The mix can follow the session rhythm — opening softly in the first 5 minutes and brightening in the last 2 — and the scene can switch to Dusk when a break begins. This is ambience, not music: there is no melody or beat, and no lo-fi or instrumental tracks.
+- **Ambience** (part of a focus session) — a scene fills the whole screen and brings its own sound: Rainy City (rain, fireplace), Midnight (city hum, brown noise), Dusk (birds, breeze), Snow (winter wind, pink noise), Fog (fog horn, white noise). The Default scene is always available and is silent. Up to three sound layers can be blended at once with per-layer levels, chosen from rain, fireplace, city hum, birds, breeze, winter wind, fog horn, forest, waves, café, library, train, thunder and brown/pink/white noise. The mix can follow the session rhythm — opening softly in the first 5 minutes and brightening in the last 2 — and the scene can switch to Dusk when a break begins. This is ambience, not music: there is no melody or beat, and no lo-fi or instrumental tracks.
 - **City** — an isometric city built from bricks earned by finishing tasks and focus sessions. Buildings, roads and decorations are bought in the Market and placed on the grid.
 - **AI tasks** — a task list you keep for AI coding agents, separate from your personal to-do list. Coding agents reach it over remote MCP from any machine (Pro); the AI Tasks tab is on mobile and desktop, so you can write a task and watch the agent's steps, notes and token/cost telemetry arrive from your phone. Detail in the agent layer below.
+- **Planning with your AI**: ChatGPT, Claude, Gemini or Grok propose a plan; it lands in the AI inbox on the phone and goes into your lists with one tap once you approve it. Sending a plan works on Free; approving needs Pro. Detail under Personal MCP below.
 
 ## Agent layer (Pro, Dovilo 2.0 or later)
 
@@ -31,8 +30,8 @@ Two remote MCP servers, both at dovilo.app over Streamable HTTP. Full reference:
 ## Pricing
 
 - **Free** — full to-do management, unlimited focus sessions (single and Pomodoro), the silent Default ambience scene, basic city, dark and light themes, no ads.
-- **Pro** — $2.49/month, $19.99/year (best value), or $49.99 lifetime. Adds cloud sync, remote MCP for coding agents (15 AI tasks a month), approving plans from ChatGPT, Claude, Gemini or Grok, the desktop app for Windows and Mac (full to-do management, AI task management and webhook setup), both one-time packs (Focus Ambience Pack and Full City Package), advanced statistics and priority support. Unlimited tasks and categories and no ads are free-tier features; there are no custom themes.
-- **One-time packs** (not subscriptions, both included with Pro) — Focus Ambience Pack $4.99 (5 scenes, 16 sound layers), Full City Package $4.99 (every building, decoration and upgrade).
+- **Pro** — $2.49/month, $19.99/year (best value), or $49.99 lifetime. Adds, in the order the app lists them: planning with ChatGPT, Claude, Gemini or Grok, approved in Dovilo; AI Agents like Claude Code and Cursor working through 15 AI tasks a month over remote MCP; Dovilo Desktop for Windows and Mac (full to-do management, AI task management and webhook setup); cloud sync; the Focus Ambience Pack; the Full City Package; advanced statistics; +6 build permits a day; a 30-minute snooze from the reminder notification. Unlimited tasks and categories, reminders and no ads are free-tier features; there are no custom themes.
+- **One-time packs** (not subscriptions, both included with Pro) — Focus Ambience Pack $4.99 (5 scenes, 16 sound layers: 13 recordings and 3 generated noises), Full City Package $4.99 (every building, decoration and upgrade).
 - **AI task packs** — from $0.99 (+10, +30 or +75 agent tasks; they never expire).
 
 Pro starts with a **7-day free trial**, begun from the iOS or Android app; the same subscription unlocks Dovilo Desktop on Windows and macOS. Prices are the USD store baseline; each store applies its own regional pricing.
@@ -42,10 +41,10 @@ Pro starts with a **7-day free trial**, begun from the iOS or Android app; the s
 - [Homepage](https://dovilo.app/): the consumer page — tasks, focus and ambience, the city, pricing, download links.
 - [AI / developer page](https://dovilo.app/ai): the agent layer on its own: the two MCP servers, connecting a coding agent in three steps, the nine agent tools, scheduling and cancelling, planning from chat assistants, a webhooks summary, how to try it, and upgrading from Desktop 1.8.
 - [MCP reference](https://dovilo.app/docs/mcp/): both MCP servers in full: endpoints, authentication and 401 responses, all 22 tools (with inputs for the nine agent tools), status values, scheduling and repeat, cancelling, approval rules and connection controls.
-- [FAQ](https://dovilo.app/faq): how tasks, focus sessions, ambience, the city, Pro and the MCP integration work.
+- [FAQ](https://dovilo.app/faq): how tasks, focus sessions, ambience, the city, Pro, planning with a chat assistant and the MCP integration work, including the AI task quota.
 - [Webhooks reference](https://dovilo.app/docs/webhooks): delivery modes (server or Desktop), event payload schema, signature verification examples, responses, retry and idempotency rules, plus a copy-paste prompt for building a receiver with an AI agent.
 - [Downloads](https://dovilo.app/downloads/): every build in one place — the free iOS and Android apps on the App Store and Google Play, plus the Windows and macOS desktop installers, which need Pro. Also sets out what the free tier covers, what Pro adds, how updates reach each platform, and which download an agent needs.
-- [Release notes](https://dovilo.app/changelog/): every mobile release with its date (1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and the current desktop build, read live from the public releases repo, plus how updates reach each platform and what is on the roadmap.
+- [Release notes](https://dovilo.app/changelog/): every mobile release (2.0.0, with AI planning and AI Agents; 1.2.0 · 9 Sep 2026, 1.1.0 · 3 Sep 2026, 1.0.0 · 16 May 2026) and every desktop release since the first stable one (2.0.1 · 20 Oct 2026, 2.0.0 · 19 Oct 2026, 1.8.0 · 17 May 2026), plus how updates reach each platform and what is on the roadmap: data export.
 - [Privacy policy](https://dovilo.app/privacy) · [Terms](https://dovilo.app/terms) · [Open-source licenses](https://dovilo.app/licenses)
 
 <!-- BLOG:START -->

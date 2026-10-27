@@ -51,7 +51,7 @@
       "name": "Is Dovilo free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, the desktop app with its AI task list for coding agents, the Focus Ambience Pack, all buildings and advanced statistics."
+        "text": "Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics."
       }
     },
     {
@@ -59,7 +59,7 @@
       "name": "What platforms is Dovilo available on?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo is available on iOS (iPhone & iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces — full to-do management for your own list and AI task management for your agents — plus the MCP server and webhooks that mobile does not have. Focus sessions and the city are mobile features."
+        "text": "Dovilo is available on iOS (iPhone & iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces, full to-do management for your own list and AI task management for your agents, plus agent keys and each project's webhook settings. Coding agents connect to Dovilo directly, so Desktop does not need to be running for them to work. Focus sessions and the city are mobile features."
       }
     },
     {
@@ -115,7 +115,7 @@
       "name": "What does Dovilo Pro include?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pro includes everything in the free tier, plus: the Windows and Mac desktop app, which is the full app on a full-size screen and also serves the AI task list your coding agents work out of, over its MCP server; the Focus Ambience Pack (5 scenes, 12 sound layers); the Full City Package (every building, decoration and upgrade); cloud sync across devices; advanced statistics; smart notification management; priority support; and all future updates. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes."
+        "text": "Pro includes everything in the free tier, plus: planning with ChatGPT, Claude, Gemini or Grok, where the assistant proposes and you approve in Dovilo; AI Agents like Claude Code and Cursor working through 15 AI tasks a month; Dovilo Desktop for Windows and Mac; cloud sync across devices; the Focus Ambience Pack (5 scenes, 16 sound layers: 13 recordings and 3 generated noises); the Full City Package (every building, decoration and upgrade); advanced statistics; +6 build permits a day; and a 30-minute snooze from the reminder notification. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories, reminders and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes."
       }
     },
     {
@@ -123,7 +123,15 @@
       "name": "What are the pricing options?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo Pro is available as: Monthly ($2.49/month), Yearly ($19.99/year — best value, saves 33%), or Lifetime ($49.99 one-time payment). All plans include the same Pro features. There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 12 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro."
+        "text": "Dovilo Pro is available as: Monthly ($2.49/month), Yearly ($19.99/year — best value, saves 33%), or Lifetime ($49.99 one-time payment). All plans include the same Pro features. There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 16 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many AI tasks does Pro include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
       }
     },
     {
@@ -131,7 +139,7 @@
       "name": "Do I need the Focus Ambience Pack?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 12 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it."
+        "text": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it."
       }
     },
     {
@@ -144,10 +152,26 @@
     },
     {
       "@type": "Question",
+      "name": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add Dovilo to the assistant as a custom connector with the URL https://dovilo.app/mcp and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and by default its changes wait for your approval: the setting is called Ask me first. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is Dovilo's MCP integration?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo Desktop (Pro) ships with a built-in Model Context Protocol server that runs locally on your machine. Any MCP-compatible client — Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI, Gemini CLI, and others — can connect and call Dovilo's tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note, and append_telemetry. Those tools reach AI tasks only — the jobs you write for an agent in the AI Tasks tab, inside a project. The personal to-do list in My Tasks is a separate surface agents cannot read, and agents cannot create tasks."
+        "text": "Dovilo runs two remote Model Context Protocol servers. Agents MCP, at https://dovilo.app/mcp/agents, is for coding agents such as Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI. Each agent connects with its own key and gets nine tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note and append_telemetry. Those tools reach AI tasks only, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. Personal MCP, at https://dovilo.app/mcp, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the developer page, and every tool with its inputs is in the MCP reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my coding agent need Dovilo Desktop running?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at https://dovilo.app/mcp/agents with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the developer page."
       }
     },
     {
@@ -155,7 +179,7 @@
       "name": "How do I connect Claude Code, Cursor, or another AI agent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Open Dovilo Desktop and go to Settings → AI → Connect AI. Pick your IDE and Dovilo generates the right config for it: Claude Desktop is auto-wired in one click; Claude Code, Cursor CLI, Codex CLI, and Gemini CLI get a single mcp add command; Cursor (GUI), Windsurf, and custom MCP clients get a JSON snippet to paste. Restart your AI client and it will see Dovilo as an available MCP server."
+        "text": "Create the agent in the app first. In the mobile app, open AI Agents and tap New agent; in Dovilo Desktop, use Connect a new AI. Give it a name, pick the projects it may work on and create its key, which is shown once. Then add the server URL https://dovilo.app/mcp/agents to your client, with the key as a bearer token in the Authorization header. The connect flow has presets for Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and Claude Desktop, shows where each config goes and fills in your key."
       }
     },
     {
@@ -163,7 +187,7 @@
       "name": "Which AI clients does Dovilo support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Connect AI flow has presets for Claude Desktop, Claude Code, Cursor (GUI & CLI), Windsurf, Codex CLI, and Gemini CLI. Anything else that speaks the MCP protocol can also connect using the generic snippet — Dovilo doesn't lock you to a specific vendor."
+        "text": "The connect flow has presets for Claude Code, Cursor (app and CLI), Codex CLI, Gemini CLI, Windsurf and Claude Desktop. Anything else that speaks MCP over HTTP, LangGraph or a CI job included, connects with the same URL and key, so Dovilo doesn't lock you to a specific vendor. For planning rather than coding, ChatGPT, Claude, Gemini and Grok connect to Personal MCP."
       }
     },
     {
@@ -171,15 +195,7 @@
       "name": "Can agents create or modify tasks I didn't authorize?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The MCP tool surface intentionally excludes task creation — agents can only read, update status, mark steps, leave notes, and report telemetry. You decide exactly which tasks an agent sees through a per-project scope and a project brief that the agent reads first. Disabling MCP in Desktop settings immediately terminates every active agent connection."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the MCP integration send my data to the cloud?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The MCP server runs entirely on your device and listens only on a local port. Dovilo itself doesn't transmit MCP traffic anywhere. The only external data flow is what your agent chooses to send to its own model provider (e.g. OpenAI, Anthropic) — that's governed by the agent and model provider's privacy policies, not ours."
+        "text": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
       }
     },
     {
@@ -187,7 +203,7 @@
       "name": "Do I get notified when an agent works on my task?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. You can choose between two notification modes: every step (each progress update the agent pushes) or start / finish / error only (quieter, summary-style). The AI Tasks tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there — step trail, agent notes and telemetry (tokens, cost, duration) all land on the task. Only the agent itself runs on the desktop."
+        "text": "Yes. You can choose between two notification modes: every step (each progress update the agent pushes) or start / finish / error only (quieter, summary-style). The AI Tasks tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there: step trail, agent notes and telemetry (tokens, cost, duration) all land on the task, wherever the agent runs. When an agent stops with a question, you answer it from the task."
       }
     },
     {
@@ -195,7 +211,7 @@
       "name": "Can Dovilo send task events to Slack, Linear, or my own service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Dovilo Desktop fires HMAC-signed HTTPS webhooks on every task change — task.created and task.status_changed — so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Each delivery includes a Stripe-style X-Dovilo-Signature header for verification, a unique X-Dovilo-Delivery id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Open a project → Webhooks in Desktop, paste your URL, generate a signing secret, and click Enable. Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the webhooks reference."
+        "text": "Yes. Dovilo sends HMAC-signed HTTPS webhooks when an AI task is created or changes status (task.created and task.status_changed), so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Public HTTPS receivers are delivered by Dovilo's server, even when Desktop is closed; localhost receivers are delivered by Desktop while it is open, and the app labels them Local. Each delivery includes a Stripe-style X-Dovilo-Signature header for verification, a unique X-Dovilo-Delivery id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Set it up in Dovilo Desktop, in the project's List settings: paste your URL, pick the events, enable it and press Save, then generate the signing secret. Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the webhooks reference."
       }
     },
     {
@@ -286,7 +302,7 @@
        it still needs the guard against selecting the question on a click. */
     .faq-q{-webkit-user-select:none;user-select:none}
 
-    /* Four answers here run to two paragraphs, which is why every .faq-a wraps
+    /* Several answers here run to two paragraphs, which is why every .faq-a wraps
        its copy in one <div>: base.css collapses the answer with
        grid-template-rows:0fr, and that only constrains the first row. base.css
        pads the gap under the closing paragraph; an inner one needs less. */
@@ -365,7 +381,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro unlocks additional features like cloud sync, the desktop app with its AI task list for coding agents, the Focus Ambience Pack, all buildings and advanced statistics.</p>
+            <p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.</p>
           </div>
         </div>
       </div>
@@ -377,7 +393,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Dovilo is available on iOS (iPhone &amp; iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces — full to-do management for your own list and AI task management for your agents — plus the MCP server and webhooks that mobile does not have. Focus sessions and the city are mobile features.</p>
+            <p>Dovilo is available on iOS (iPhone &amp; iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces, full to-do management for your own list and AI task management for your agents, plus agent keys and each project's webhook settings. Coding agents connect to Dovilo directly, so Desktop does not need to be running for them to work. Focus sessions and the city are mobile features.</p>
           </div>
         </div>
       </div>
@@ -478,7 +494,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Pro includes everything in the free tier, plus: the Windows and Mac desktop app, which is the full app on a full-size screen and also serves the AI task list your coding agents work out of, over its MCP server; the Focus Ambience Pack (5 scenes, 12 sound layers); the Full City Package (every building, decoration and upgrade); cloud sync across devices; advanced statistics; smart notification management; priority support; and all future updates. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes.</p>
+            <p>Pro includes everything in the free tier, plus: planning with ChatGPT, Claude, Gemini or Grok, where the assistant proposes and you approve in Dovilo; AI Agents like Claude Code and Cursor working through 15 AI tasks a month; Dovilo Desktop for Windows and Mac; cloud sync across devices; the Focus Ambience Pack (5 scenes, 16 sound layers: 13 recordings and 3 generated noises); the Full City Package (every building, decoration and upgrade); advanced statistics; +6 build permits a day; and a 30-minute snooze from the reminder notification. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories, reminders and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes.</p>
           </div>
         </div>
       </div>
@@ -491,7 +507,19 @@
         <div class="faq-a">
           <div>
             <p>Dovilo Pro is available as: Monthly ($2.49/month), Yearly ($19.99/year — best value, saves 33%), or Lifetime ($49.99 one-time payment). All plans include the same Pro features.</p>
-            <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 12 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
+            <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99 — 5 scenes and 16 sound layers), the Full City Package ($4.99 — every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>How many AI tasks does Pro include?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire.</p>
           </div>
         </div>
       </div>
@@ -503,7 +531,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 12 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.</p>
+            <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.</p>
           </div>
         </div>
       </div>
@@ -527,12 +555,38 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggle(this)">
+          <h3>Can I plan with ChatGPT, Claude, Gemini or Grok?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>Yes. Add Dovilo to the assistant as a custom connector with the URL <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it.</p>
+            <p>For each connection you choose what the assistant can read and which lists and projects it sees, and by default its changes wait for your approval: the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
           <h3>What is Dovilo's MCP integration?</h3>
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="faq-a">
           <div>
-            <p>Dovilo Desktop (Pro) ships with a built-in <strong>Model Context Protocol</strong> server that runs locally on your machine. Any MCP-compatible client — <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI, Gemini CLI</strong>, and others — can connect and call Dovilo's tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code>, and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong> — the jobs you write for an agent in the AI Tasks tab, inside a project. Your personal to-do list in My Tasks is a separate surface an agent cannot read, and no agent can create a task. Setup, the full tool reference and the trust boundaries are on the <a href="/ai">developer page</a>.</p>
+            <p>Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task.</p>
+            <p><strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the <a href="/ai">developer page</a>, and every tool with its inputs is in the <a href="/docs/mcp/">MCP reference</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          <h3>Does my coding agent need Dovilo Desktop running?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <div>
+            <p>No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at <code>https://dovilo.app/mcp/agents</code> with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the <a href="/ai">developer page</a>.</p>
           </div>
         </div>
       </div>
@@ -544,7 +598,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Open Dovilo Desktop and go to <strong>Settings → AI → Connect AI</strong>. Pick your IDE and Dovilo generates the right config for it: <strong>Claude Desktop</strong> is auto-wired in one click; <strong>Claude Code, Cursor CLI, Codex CLI, and Gemini CLI</strong> get a single <code>mcp add</code> command; <strong>Cursor (GUI), Windsurf, and custom MCP clients</strong> get a JSON snippet to paste. Restart your AI client and it will see Dovilo as an available MCP server.</p>
+            <p>Create the agent in the app first. In the mobile app, open <strong>AI Agents</strong> and tap <strong>New agent</strong>; in Dovilo Desktop, use <strong>Connect a new AI</strong>. Give it a name, pick the projects it may work on and create its key, which is shown once. Then add the server URL <code>https://dovilo.app/mcp/agents</code> to your client, with the key as a bearer token in the <code>Authorization</code> header. The connect flow has presets for Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and Claude Desktop, shows where each config goes and fills in your key.</p>
           </div>
         </div>
       </div>
@@ -556,7 +610,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>The Connect AI flow has presets for <strong>Claude Desktop</strong>, <strong>Claude Code</strong>, <strong>Cursor</strong> (GUI &amp; CLI), <strong>Windsurf</strong>, <strong>Codex CLI</strong>, and <strong>Gemini CLI</strong>. Anything else that speaks the MCP protocol can also connect using the generic snippet — Dovilo doesn't lock you to a specific vendor.</p>
+            <p>The connect flow has presets for <strong>Claude Code</strong>, <strong>Cursor</strong> (app and CLI), <strong>Codex CLI</strong>, <strong>Gemini CLI</strong>, <strong>Windsurf</strong> and <strong>Claude Desktop</strong>. Anything else that speaks MCP over HTTP, LangGraph or a CI job included, connects with the same URL and key, so Dovilo doesn't lock you to a specific vendor. For planning rather than coding, ChatGPT, Claude, Gemini and Grok connect to Personal MCP.</p>
           </div>
         </div>
       </div>
@@ -568,19 +622,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>No. The MCP tool surface intentionally excludes task creation — agents can only read, update status, mark steps, leave notes, and report telemetry. You decide exactly which tasks an agent sees through a per-project scope and a project brief that the agent reads first. Disabling MCP in Desktop settings immediately terminates every active agent connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">
-          <h3>Does the MCP integration send my data to the cloud?</h3>
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="faq-a">
-          <div>
-            <p>No. The MCP server runs entirely on your device and listens only on a local port. Dovilo itself doesn't transmit MCP traffic anywhere. The only external data flow is what your agent chooses to send to <em>its own</em> model provider (e.g. OpenAI, Anthropic) — that's governed by the agent and model provider's privacy policies, not ours.</p>
+            <p>No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval.</p>
           </div>
         </div>
       </div>
@@ -592,7 +634,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Yes. You can choose between two notification modes: <strong>every step</strong> (each progress update the agent pushes) or <strong>start / finish / error only</strong> (quieter, summary-style). The <strong>AI Tasks</strong> tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there — step trail, agent notes and telemetry (tokens, cost, duration) all land on the task. Only the agent itself runs on the desktop.</p>
+            <p>Yes. You can choose between two notification modes: <strong>every step</strong> (each progress update the agent pushes) or <strong>start / finish / error only</strong> (quieter, summary-style). The <strong>AI Tasks</strong> tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there: step trail, agent notes and telemetry (tokens, cost, duration) all land on the task, wherever the agent runs. When an agent stops with a question, you answer it from the task.</p>
           </div>
         </div>
       </div>
@@ -604,7 +646,7 @@
         </div>
         <div class="faq-a">
           <div>
-            <p>Yes. Dovilo Desktop fires <strong>HMAC-signed HTTPS webhooks</strong> on every task change — <code>task.created</code> and <code>task.status_changed</code> — so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Open a project &rarr; <strong>Webhooks</strong> in Desktop, paste your URL, generate a signing secret, and click Enable.</p>
+            <p>Yes. Dovilo sends <strong>HMAC-signed HTTPS webhooks</strong> when an AI task is created or changes status (<code>task.created</code> and <code>task.status_changed</code>), so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Public HTTPS receivers are delivered by Dovilo's server, even when Desktop is closed; localhost receivers are delivered by Desktop while it is open, and the app labels them Local. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Set it up in Dovilo Desktop, in the project's <strong>List settings</strong>: paste your URL, pick the events, enable it and press Save, then generate the signing secret.</p>
             <p>Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href="/docs/webhooks">webhooks reference</a>.</p>
           </div>
         </div>
