@@ -325,6 +325,26 @@ A numbered flow of four steps. Each has an amber numeral chip, a **label of at m
 `role="list"` keeps list semantics in Safari once the bullets are gone; the numeral is
 `aria-hidden` because the `<ol>` already announces the position.
 
+**Steps with screens:** when every step has a real phone screen of its own, each step carries it
+under its detail (`steps-shots` on the list, `step-shot` on the image). The screen is at most 288px
+wide, lazy-loaded, with alt text that names what is on it. The step's label and detail are its
+caption, so there is no `<figcaption>`. All four steps get a screen or none does, and no screen
+repeats one shown elsewhere on the page. From 960px the screens line up along the bottom of the row.
+
+```html
+<ol class="steps steps-shots" role="list">
+  <li class="step">
+    <span class="step-num" aria-hidden="true">02</span>
+    <span class="step-label">Approve it on your phone</span>
+    <span class="step-detail">Nothing reaches an agent before you say yes.</span>
+    <img class="step-shot" srcset="… 386w, … 772w" sizes="(min-width:960px) 246px, 288px"
+         src="…" width="386" height="840" loading="lazy"
+         alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
+  </li>
+  …
+</ol>
+```
+
 ### Feature rows
 
 A heading and **one sentence of at most 18 words**. No icon. **At most five rows** in a section.
