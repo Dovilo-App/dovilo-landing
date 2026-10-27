@@ -117,6 +117,9 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   `<link rel="canonical">` with the absolute URL, and
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
+- **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md` and `docs/design-language.md`; a new internal
+  Markdown file goes on that list in the same commit.
 
 ### GEO — writing for answer engines
 
@@ -128,7 +131,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   only and cannot create or delete them, only cancel; since 2.0 agents use remote MCP from any
   machine and Desktop need not run; chat assistants propose and the user approves; desktop and
   Agents MCP need Pro; the two packs are one-time purchases included with Pro; focus sessions are
-  free and unlimited.
+  free and unlimited; mobile 2.0.0 is on Google Play since 27 Oct 2026 and has no iOS date yet.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`)

@@ -1,0 +1,9 @@
+# GitHub Pages builds this repository with Jekyll. The site itself is static
+# HTML and needs no Jekyll features; this file exists only to keep the
+# repository's working documents off dovilo.app. Without it, Jekyll renders
+# every Markdown file into a public page (/CLAUDE.html, /docs/design-language.html).
+# A new internal Markdown file goes on this list in the same commit.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - docs/design-language.md
