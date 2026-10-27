@@ -654,8 +654,9 @@ Visible text shrinks; indexable text does not.
   `dateModified` and the sitemap `lastmod` in the same commit.
 - **`llms.txt` and `llms-full.txt` are regenerated from the page source, never shortened.** A
   shorter page does not mean a shorter `llms-full.txt`.
-- **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG. The `/ai` card is
-  a later task.
+- **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG: the page's hero
+  screenshot on the light `--bg`, under its `<h1>` set in Inter 700. The `/ai` card is
+  `/og-ai.jpg`.
 - **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` is `noindex` by meta
   tag, not by a `Disallow`.
 
