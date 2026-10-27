@@ -1,0 +1,485 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Dovilo design language: the stylesheet.
+
+   docs/design-language.md is the spec; this file implements it and nothing
+   else. A redesigned page links this file and no other stylesheet: never
+   base.css or home.css next to it, and no page <style> block. If a page needs
+   something this file does not have, the doc gets a new component first.
+
+   Layers, in order:
+     1. Font         Inter, self-hosted (the same files base.css uses)
+     2. Reset
+     3. Tokens       colour (two themes), type, space, shape, motion
+     4. Elements     body, headings, text, links, code, media, focus
+     5. Layout       container, section, split, flow
+     6. Components   in the order the doc lists them
+     7. Utilities
+     8. Motion
+
+   Themes: light tokens sit on :root, dark ones under prefers-color-scheme and
+   again under [data-theme="dark"]. An explicit data-theme on <html>, set by the
+   inline boot script before first paint, always beats the OS preference. The
+   same selectors work on any element, which is how /styleguide/ renders each
+   component in both themes on one page.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ─── 1. FONT ─── */
+@font-face{
+  font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url('/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* ─── 2. RESET ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ─── 3. TOKENS ───
+   Five neutrals per theme and one accent. Every colour on a page is one of
+   these seven; there are no alphas to invent. */
+:root,[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F7F8F8;
+  --surface:#FFFFFF;
+  --border:#D5DADC;
+  --text-muted:#5B656A;
+  --text:#161B1D;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#161B1D;
+    --surface:#1E2427;
+    --border:#2F373A;
+    --text-muted:#9AA3A7;
+    --text:#E8EAEB;
+  }
+}
+:root[data-theme="dark"],[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#161B1D;
+  --surface:#1E2427;
+  --border:#2F373A;
+  --text-muted:#9AA3A7;
+  --text:#E8EAEB;
+}
+
+:root{
+  /* The app's amber, identical in both themes. It fills primary buttons and
+     the 01-04 numerals and is never used as text colour: on the light
+     background it reads at 2.7:1, so it always carries --on-accent text. */
+  --accent:#D4880A;
+  --on-accent:#161B1D;
+
+  /* Type */
+  --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --text-hero:clamp(2.25rem,5vw,3.5rem);          /* 36-56px */
+  --text-h2:clamp(1.75rem,1.5rem + 1vw,2rem);     /* 28-32px */
+  --text-h3:1.25rem;                              /* 20px */
+  --text-body:1.0625rem;                          /* 17px */
+  --text-small:.875rem;                           /* 14px */
+  --text-code:.875rem;                            /* 14px, mono */
+  --lh-heading:1.15;
+  --lh-body:1.55;
+  --measure:64ch;
+
+  /* Space: an 8px grid, nothing between the steps. */
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:32px;
+  --space-5:48px;
+  --space-6:64px;
+  --space-7:96px;
+  --section-y:var(--space-7);
+  --container:1080px;
+  --gutter:24px;
+
+  /* Shape and chrome */
+  --radius:8px;
+  --nav-h:64px;
+
+  /* Motion: hover and focus only. */
+  --duration:150ms;
+}
+@media (max-width:767px){
+  :root{--section-y:var(--space-6);--gutter:16px}
+}
+
+/* ─── 4. ELEMENTS ─── */
+html{
+  -webkit-text-size-adjust:100%;
+  /* Anchors land below the sticky nav, not under it. */
+  scroll-padding-top:calc(var(--nav-h) + var(--space-2));
+}
+body{
+  font-family:var(--font-sans);
+  font-size:var(--text-body);
+  line-height:var(--lh-body);
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+[data-theme]{background:var(--bg);color:var(--text)}
+
+h1,h2,h3{color:var(--text);line-height:var(--lh-heading);font-weight:600;text-wrap:balance}
+h1{font-size:var(--text-hero);font-weight:700;letter-spacing:-.025em}
+h2{font-size:var(--text-h2);letter-spacing:-.02em}
+h3{font-size:var(--text-h3);letter-spacing:-.01em}
+
+p{max-width:var(--measure);text-wrap:pretty}
+strong,b{font-weight:600}
+small{font-size:var(--text-small)}
+ul,ol{padding-left:1.5em}
+li{max-width:var(--measure)}
+
+a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-color:var(--text-muted);
+  text-decoration-thickness:1px;
+  text-underline-offset:.2em;
+  transition:text-decoration-color var(--duration),color var(--duration);
+}
+a:hover{text-decoration-color:currentColor}
+
+code,kbd,pre{font-family:var(--font-mono);font-size:var(--text-code)}
+:not(pre) > code{
+  padding:0 .3em;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:calc(var(--radius) / 2);
+  overflow-wrap:anywhere;
+}
+
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
+
+:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+
+/* ─── 5. LAYOUT ─── */
+.container{
+  width:100%;
+  max-width:calc(var(--container) + 2 * var(--gutter));
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+/* A section makes one claim and shows one proof. */
+.section{padding-block:var(--section-y)}
+.section + .section{border-top:1px solid var(--border)}
+.section-head{margin-bottom:var(--space-5)}
+.section-head p{margin-top:var(--space-2);color:var(--text-muted)}
+
+/* Claim on one side, proof on the other. Stacks below 768px. */
+.split{display:grid;gap:var(--space-5);align-items:start}
+.split .section-head{margin-bottom:0}
+@media (min-width:768px){
+  .split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space-6)}
+}
+
+/* Running text on /faq, /docs/*, /changelog and the legal pages. */
+.flow > * + *{margin-top:var(--space-2)}
+.flow > h2{margin-top:var(--space-6)}
+.flow > h3{margin-top:var(--space-4)}
+.flow > :first-child{margin-top:0}
+.flow li + li{margin-top:var(--space-1)}
+
+/* ─── 6. COMPONENTS ─── */
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  position:relative;
+  display:flex;align-items:center;gap:var(--space-3);
+  min-height:var(--nav-h);
+}
+.nav-logo{
+  display:inline-flex;align-items:center;gap:var(--space-1);
+  margin-right:auto;
+  font-weight:700;letter-spacing:-.01em;
+  text-decoration:none;
+}
+.nav-logo img{width:32px;height:32px;border-radius:var(--radius)}
+.nav-links{display:flex;gap:var(--space-3);list-style:none;padding:0}
+.nav-links a{
+  display:block;
+  font-size:var(--text-small);font-weight:500;
+  color:var(--text-muted);text-decoration:none;
+}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--text)}
+.nav-actions{display:flex;gap:var(--space-1)}
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;
+  background:none;color:var(--text-muted);
+  border:1px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;
+  transition:color var(--duration),border-color var(--duration);
+}
+.icon-btn:hover{color:var(--text);border-color:var(--text-muted)}
+.icon-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* The theme toggle shows the theme it switches to. */
+.theme-toggle .icon-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun{display:block}
+}
+
+.nav-menu{display:none}
+@media (max-width:767px){
+  .nav-menu{display:inline-flex}
+  /* Closed, the menu leaves layout entirely, so nothing parked off-screen can
+     widen the page on a phone. Open, it drops below the bar, in the page's
+     own colours: no overlay, no shadow. */
+  .nav-links{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;
+    padding:var(--space-1) var(--gutter) var(--space-2);
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding-block:var(--space-1);font-size:var(--text-body)}
+}
+
+/* Buttons */
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--space-1);
+  min-height:44px;padding:var(--space-1) var(--space-3);
+  font:inherit;font-size:var(--text-small);font-weight:600;line-height:1.3;text-align:center;
+  color:var(--text);text-decoration:none;
+  background:none;
+  border:1px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;
+  transition:background-color var(--duration),border-color var(--duration),color var(--duration);
+}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{
+  background:color-mix(in srgb,var(--accent) 90%,var(--text));
+  border-color:color-mix(in srgb,var(--accent) 90%,var(--text));
+}
+.btn-secondary:hover{border-color:var(--text-muted)}
+
+/* Links that stand on their own line, outside running text. */
+.link{font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* Hero */
+.hero{padding-block:var(--space-7) var(--space-6)}
+.hero h1{max-width:18ch}
+.hero-sub{margin-top:var(--space-3);font-size:var(--text-h3);color:var(--text-muted);max-width:48ch}
+.hero .actions{margin-top:var(--space-4)}
+.hero .figure{margin-top:var(--space-6)}
+@media (max-width:767px){
+  .hero{padding-block:var(--space-6) var(--space-5)}
+  .hero .figure{margin-top:var(--space-5)}
+}
+
+/* Steps 01-04 */
+.steps{
+  list-style:none;padding:0;
+  display:grid;gap:var(--space-3) var(--space-4);
+}
+.step{
+  max-width:none;
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--space-1) var(--space-2);
+  align-items:baseline;
+  padding-top:var(--space-2);
+  border-top:1px solid var(--border);
+}
+.step-num{
+  grid-row:span 2;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:40px;height:32px;padding-inline:var(--space-1);
+  font-family:var(--font-mono);font-size:var(--text-small);font-weight:600;
+  font-variant-numeric:tabular-nums;
+  background:var(--accent);color:var(--on-accent);
+  border-radius:var(--radius);
+}
+.step-label{font-weight:600}
+.step-detail{font-size:var(--text-small);color:var(--text-muted)}
+@media (min-width:600px){
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:960px){
+  .steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .step{grid-template-columns:minmax(0,1fr);padding-top:var(--space-3)}
+  .step-num{grid-row:auto;justify-self:start;margin-bottom:var(--space-1)}
+}
+
+/* Feature rows */
+.features{border-top:1px solid var(--border)}
+.feature{
+  display:grid;gap:var(--space-1) var(--space-4);
+  padding-block:var(--space-3);
+  border-bottom:1px solid var(--border);
+}
+.feature p{color:var(--text-muted)}
+@media (min-width:768px){
+  .feature{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+}
+
+/* Line lists: facts, integrations, trust, recently shipped, pricing summary.
+   One look, five content rules (see the doc). */
+.facts,.integrations,.trust,.shipped,.pricing-summary{list-style:none;padding:0}
+.facts li,.integrations li,.trust li,.shipped li,.pricing-summary li{
+  max-width:none;
+  padding-block:var(--space-2);
+  border-top:1px solid var(--border);
+}
+.integrations li,.shipped li,.pricing-summary li{color:var(--text-muted)}
+.integrations strong,.trust strong,.pricing-summary strong{color:var(--text)}
+.integrations,.trust,.shipped,.pricing-summary{border-bottom:1px solid var(--border)}
+
+.facts{display:grid;column-gap:var(--space-4)}
+.facts li{font-weight:500}
+@media (min-width:600px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.shipped li,.pricing-summary li{display:grid;gap:0 var(--space-3)}
+.shipped time{font-size:var(--text-small);font-variant-numeric:tabular-nums}
+.shipped a{color:var(--text)}
+@media (min-width:600px){
+  .shipped li,.pricing-summary li{grid-template-columns:128px minmax(0,1fr)}
+  .shipped time{padding-top:2px}
+}
+.shipped + .link,.pricing-summary + .link{display:inline-block;margin-top:var(--space-3)}
+
+/* Figure */
+.figure img{
+  width:100%;
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.figure figcaption{margin-top:var(--space-2);font-size:var(--text-small);color:var(--text-muted)}
+.figure-phone{max-width:288px}
+
+/* Code block. Themed like the page; no highlighting library. */
+.code{
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;
+}
+.code-head{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);
+  min-height:40px;padding-inline:var(--space-2) var(--space-1);
+  border-bottom:1px solid var(--border);
+  font-size:var(--text-small);color:var(--text-muted);
+}
+.code pre{margin:0;padding:var(--space-2);overflow-x:auto;line-height:1.6;color:var(--text)}
+.code pre code{white-space:pre}
+.copy-btn{
+  min-height:32px;padding-inline:var(--space-1);
+  font:inherit;font-size:var(--text-small);font-weight:500;
+  color:var(--text-muted);background:none;
+  border:1px solid transparent;border-radius:var(--radius);
+  cursor:pointer;
+  transition:color var(--duration),border-color var(--duration);
+}
+.copy-btn:hover{color:var(--text);border-color:var(--border)}
+.copy-btn.copied{color:var(--text)}
+
+/* Collapsible and FAQ accordion: native <details>, no script. */
+.collapsible{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.collapsible > summary,
+.faq-accordion > details > summary{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);
+  cursor:pointer;list-style:none;
+}
+.collapsible > summary{padding:var(--space-2) var(--space-3);font-weight:600}
+.collapsible > summary::-webkit-details-marker,
+.faq-accordion > details > summary::-webkit-details-marker{display:none}
+.collapsible > summary::after,
+.faq-accordion > details > summary::after{
+  content:"";flex:none;
+  width:8px;height:8px;margin-right:4px;
+  border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);
+  transform:translateY(-2px) rotate(45deg);
+}
+.collapsible[open] > summary::after,
+.faq-accordion > details[open] > summary::after{transform:translateY(2px) rotate(-135deg)}
+.collapsible-body{padding:0 var(--space-3) var(--space-3)}
+
+.faq-accordion{border-top:1px solid var(--border)}
+.faq-accordion > details{border-bottom:1px solid var(--border)}
+.faq-accordion > details > summary{padding-block:var(--space-3)}
+.faq-accordion > details > summary h3{font-size:var(--text-body);font-weight:600;letter-spacing:0}
+.faq-answer{padding-bottom:var(--space-3);color:var(--text-muted)}
+
+/* Table. Longer than six rows, it goes inside a .collapsible. */
+.table-wrap{overflow-x:auto}
+.table{width:100%;border-collapse:collapse;font-size:var(--text-small)}
+.table th,.table td{padding:var(--space-1) var(--space-2) var(--space-1) 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.table th{font-weight:600}
+.table td{color:var(--text-muted)}
+/* Identifiers and URLs never break mid-word in a table: the wrapper scrolls. */
+.table code{color:var(--text);white-space:nowrap;overflow-wrap:normal}
+
+/* Note: one line, said plainly. */
+.note{
+  padding:var(--space-2);
+  font-size:var(--text-small);color:var(--text-muted);
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.note strong{color:var(--text)}
+
+/* Closing CTA */
+.closing{text-align:center}
+.closing h2{max-width:24ch;margin-inline:auto}
+.closing p{margin:var(--space-2) auto 0;color:var(--text-muted)}
+.closing .actions{justify-content:center;margin-top:var(--space-4)}
+
+/* Footer */
+.footer{
+  padding-block:var(--space-6) var(--space-5);
+  border-top:1px solid var(--border);
+  font-size:var(--text-small);color:var(--text-muted);
+}
+.footer-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+@media (min-width:768px){.footer-cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.footer-title{margin-bottom:var(--space-1);font-weight:600;color:var(--text)}
+.footer ul{list-style:none;padding:0}
+.footer li + li{margin-top:var(--space-1)}
+.footer a{text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-meta{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-1) var(--space-3);
+  margin-top:var(--space-5);padding-top:var(--space-3);
+  border-top:1px solid var(--border);
+}
+
+/* ─── 7. UTILITIES ─── */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.skip-link{
+  position:absolute;left:var(--space-2);top:-100px;z-index:20;
+  padding:var(--space-1) var(--space-2);
+  background:var(--text);color:var(--bg);
+  border-radius:var(--radius);
+  font-weight:600;text-decoration:none;
+}
+.skip-link:focus{top:var(--space-1)}
+
+/* ─── 8. MOTION ─── */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.001ms !important}
+}

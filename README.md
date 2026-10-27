@@ -36,6 +36,12 @@ browser either.
 Light and dark themes are CSS custom properties, with the choice stored in `localStorage` and
 applied before first paint so there is no flash.
 
+A redesign is moving the pages, one at a time, onto a new design language:
+[`docs/design-language.md`](docs/design-language.md) is the spec,
+[`styles/system.css`](styles/system.css) implements it, and `/styleguide/` (not indexed, not
+linked) renders every component in both themes. Pages not yet moved stay on
+[`styles/base.css`](styles/base.css).
+
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
