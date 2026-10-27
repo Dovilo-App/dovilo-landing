@@ -814,11 +814,11 @@ GUARDRAILS
 
       <h3 id="task-lifecycle-reference">Task lifecycle reference <a class="h-anchor" href="#task-lifecycle-reference" aria-label="Link to Task lifecycle reference">#</a></h3>
       <p><code>task.status_changed</code> carries a <code>previousStatus</code> field. The status values you will see in <code>task.status</code> and <code>previousStatus</code>:</p>
-<pre><code class="language-plaintext">scheduled  &rarr;  queued  &rarr;  running  &rarr;  awaiting-user  &rarr;  running  &rarr;  done
-                                                              &rarr;  done-with-errors
-                                                              &rarr;  error</code></pre>
+<pre><code class="language-plaintext">scheduled  &rarr;  queued  &rarr;  running  &rarr;  awaiting-user  &rarr;  queued  &rarr;  running  &rarr;  done
+                                                                           &rarr;  done-with-errors
+                                                                           &rarr;  error</code></pre>
       <p><code>scheduled</code> is a task waiting for its <code>scheduledAt</code> time. Dovilo moves it to <code>queued</code> when the time comes, so <code>previousStatus</code> can be <code>scheduled</code>. A task created without a future time starts at <code>queued</code>.</p>
-      <p><code>awaiting-user</code> is entered when an agent pauses for human input (plan approval, mid-task question). It transitions back to <code>running</code> once the user responds.</p>
+      <p><code>awaiting-user</code> is entered when an agent pauses for human input (plan approval, mid-task question). Once the user responds, it goes back to <code>queued</code>, and an agent picks it up again on its next turn.</p>
       <p>The terminal statuses are <code>done</code>, <code>done-with-errors</code> and <code>error</code>. A cancelled task ends in <code>error</code> with <code>cancelledAt</code> set; an <code>error</code> without it is a failure. For a repeating task, the next run is a new task with the same <code>seriesId</code>, created once the previous one reaches a terminal status.</p>
 
       <h2 id="headers">Headers <a class="h-anchor" href="#headers" aria-label="Link to Headers">#</a></h2>
