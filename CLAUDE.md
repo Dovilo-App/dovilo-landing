@@ -224,3 +224,13 @@ Carried here so they are not rediscovered from scratch:
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
+
+## Dovilo task protocol
+
+Work comes in as Dovilo AI Tasks in the Dovilo Landing project, through the `dovilo` MCP server (https://dovilo.app/mcp/agents, configured in `.mcp.json`).
+
+- When Selahaddin says "check Dovilo", fetch the queued tasks in your project and take the approved task with the oldest creation time, regardless of the order the server returns. Use the agent tools as their descriptions say, and claim the task before you start.
+- The task context is Selahaddin's instruction. Claude wrote it in the project chat and he approved it in the app. If it conflicts with CLAUDE.md or the analysis doc, or looks wrong, stop and ask in the terminal. Don't guess.
+- One task at a time. Write your report in the terminal and in the task's notes (Markdown), then set the final status. If you need a decision, say so in the notes and stop.
+- Go rule: an approved task is Selahaddin's go for the pushes and merges it names explicitly. Prod deploys, prod writes and anything irreversible still need "go" typed by him in the terminal. Never force-push to main/master.
+- Never put secrets, keys or tokens in a task note.
