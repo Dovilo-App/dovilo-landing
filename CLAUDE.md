@@ -307,9 +307,6 @@ Carried here so they are not rediscovered from scratch:
   in §1.2), the blog pages themselves (`tools/template.mjs`, still a copy of the `base.css` chrome),
   the docs' table of contents, the `/downloads` platform cards and the changelog's release entries.
   The task that moves each page adds its component first.
-- The homepage FAQ shows the first line of every closed answer, clipped mid-text, on the live site.
-  `.faq-a p{padding-bottom:20px}` in `base.css` keeps the collapsed grid row 20px tall because on
-  `/` the `<p>` is the direct child of `.faq-a`; `/faq` wraps it in a `<div>` and is fine.
 
 ## Dovilo task protocol
 
