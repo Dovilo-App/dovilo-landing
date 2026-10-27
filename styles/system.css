@@ -179,7 +179,7 @@ img{height:auto}
 
 /* A section makes one claim and shows one proof. */
 .section{padding-block:var(--section-y)}
-.section + .section{border-top:1px solid var(--border)}
+.section + .section,.hero + .section{border-top:1px solid var(--border)}
 .section-head{margin-bottom:var(--space-5)}
 .section-head p{margin-top:var(--space-2);color:var(--text-muted)}
 

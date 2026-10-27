@@ -196,7 +196,8 @@ The unit of a page. One claim (an `<h2>` and at most one sentence), one proof.
 </section>
 ```
 
-Consecutive sections are separated by a 1px rule. Components stacked inside one section (a code
+Consecutive sections are separated by a 1px rule, and so are the hero and the section after it.
+Components stacked inside one section (a code
 block and a collapsible, a table and a note) sit 24px apart without any extra markup. Give a section
 an `id` whenever anything links to it, and keep every `id` the old page had (section 7).
 
