@@ -284,7 +284,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="hero-title">Hero</h2>
-          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons, one full-width figure.</p>
+          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons, one full-width figure: here a figure pair, the desktop screen with the phone screen in front of its right edge.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -296,13 +296,18 @@
                 <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
                 <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP reference</a>
               </div>
-              <figure class="figure">
-                <!-- On a page this image is the LCP: fetchpriority="high" and no loading
-                     attribute. Here it sits far below the fold, so it loads lazily. -->
-                <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
-                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(100vw - 48px), 1080px"
+              <figure class="figure figure-pair">
+                <!-- On a page these images are above the fold: the desktop one is the
+                     LCP (fetchpriority="high") and neither is lazy. Here they sit far
+                     below the fold, so they load lazily. -->
+                <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
                      src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
                      alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+                <img class="pair-phone" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w"
+                     sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                     src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
               </figure>
             </div>
@@ -318,13 +323,18 @@
                 <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
                 <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP reference</a>
               </div>
-              <figure class="figure">
-                <!-- On a page this image is the LCP: fetchpriority="high" and no loading
-                     attribute. Here it sits far below the fold, so it loads lazily. -->
-                <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
-                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(100vw - 48px), 1080px"
+              <figure class="figure figure-pair">
+                <!-- On a page these images are above the fold: the desktop one is the
+                     LCP (fetchpriority="high") and neither is lazy. Here they sit far
+                     below the fold, so they load lazily. -->
+                <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
                      src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
                      alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+                <img class="pair-phone" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w"
+                     sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                     src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
               </figure>
             </div>
@@ -419,13 +429,13 @@
           <div class="sg-sample">
             <ol class="steps steps-shots" role="list">
               <li class="step"><span class="step-num" aria-hidden="true">01</span><span class="step-label">Write the task</span><span class="step-detail">Or let ChatGPT or Claude propose it.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy" alt="Dovilo AI Tasks: a project with tasks awaiting the user, running, queued and scheduled"></li>
               <li class="step"><span class="step-num" aria-hidden="true">02</span><span class="step-label">Approve it on your phone</span><span class="step-detail">Nothing reaches an agent before you say yes.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons"></li>
               <li class="step"><span class="step-num" aria-hidden="true">03</span><span class="step-label">Your agent works it</span><span class="step-detail">Steps, notes and cost land on the task as it runs.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy" alt="Dovilo AI Tasks: a project with tasks awaiting the user, running, queued and scheduled"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai-agent.webp 386w, /screenshots/mobile-ai-agent-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-agent.webp" width="386" height="840" loading="lazy" alt="Dovilo agent details: Claude Code, its project Website, the server URL and the controls for its key"></li>
               <li class="step"><span class="step-num" aria-hidden="true">04</span><span class="step-label">It asks, you answer</span><span class="step-detail">It stops at a decision; you reply from your phone or chat.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
             </ol>
           </div>
         </div>
@@ -434,13 +444,13 @@
           <div class="sg-sample">
             <ol class="steps steps-shots" role="list">
               <li class="step"><span class="step-num" aria-hidden="true">01</span><span class="step-label">Write the task</span><span class="step-detail">Or let ChatGPT or Claude propose it.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy" alt="Dovilo AI Tasks: a project with tasks awaiting the user, running, queued and scheduled"></li>
               <li class="step"><span class="step-num" aria-hidden="true">02</span><span class="step-label">Approve it on your phone</span><span class="step-detail">Nothing reaches an agent before you say yes.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons"></li>
               <li class="step"><span class="step-num" aria-hidden="true">03</span><span class="step-label">Your agent works it</span><span class="step-detail">Steps, notes and cost land on the task as it runs.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy" alt="Dovilo AI Tasks: a project with tasks awaiting the user, running, queued and scheduled"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai-agent.webp 386w, /screenshots/mobile-ai-agent-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-agent.webp" width="386" height="840" loading="lazy" alt="Dovilo agent details: Claude Code, its project Website, the server URL and the controls for its key"></li>
               <li class="step"><span class="step-num" aria-hidden="true">04</span><span class="step-label">It asks, you answer</span><span class="step-detail">It stops at a decision; you reply from your phone or chat.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box"></li>
+                <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
             </ol>
           </div>
         </div>

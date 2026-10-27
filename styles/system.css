@@ -401,6 +401,33 @@ img{height:auto}
 .figure figcaption{margin-top:var(--space-2);font-size:var(--text-small);color:var(--text-muted)}
 .figure-phone{max-width:288px}
 
+/* Figure pair: the desktop screen with one phone screen in front of its right
+   edge. The phone sits in the desktop's second row only, so a phone taller
+   than the desktop grows that row instead of opening a gap under it. The
+   ring in --bg parts it from the screen behind; outlines are ink overflow,
+   so the ring never widens the page. */
+.figure-pair{
+  display:grid;
+  grid-template-columns:minmax(0,64fr) minmax(0,36fr);
+  grid-template-rows:var(--space-6) auto auto;
+}
+.figure-pair img{align-self:start}
+.figure-pair .pair-desktop{grid-column:1 / -1;grid-row:1 / 3}
+.figure-pair .pair-phone{
+  grid-column:2;grid-row:2;
+  position:relative;z-index:1;
+  outline:var(--space-1) solid var(--bg);
+}
+.figure-pair figcaption{grid-column:1 / -1;grid-row:3}
+@media (min-width:768px){
+  .figure-pair{
+    grid-template-columns:minmax(0,76fr) minmax(0,10fr) minmax(0,14fr);
+    grid-template-rows:var(--space-4) auto auto;
+  }
+  .figure-pair .pair-desktop{grid-column:1 / 3}
+  .figure-pair .pair-phone{grid-column:2 / 4}
+}
+
 /* Code block. Themed like the page; no highlighting library. */
 .code{
   background:var(--surface);

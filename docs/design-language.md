@@ -270,6 +270,7 @@ at `/#pricing`.
 The top of a marketing page: an `<h1>` of **one sentence, at most 9 words, that names Dovilo**; a
 sub of **at most 20 words**; two buttons (one primary, one secondary); one full-width figure. No
 eyebrow, no pill, no badge, no second figure. The name Dovilo does not count toward the 9 words.
+The figure may be a figure pair (below): still one figure, with one caption.
 
 ```html
 <section class="hero">
@@ -287,6 +288,24 @@ eyebrow, no pill, no badge, no second figure. The name Dovilo does not count tow
     </figure>
   </div>
 </section>
+```
+
+**Figure pair:** the desktop screen with one phone screen standing in front of its right edge, the
+way the app's detail pane sits beside its list. The phone shows the detail of something on the
+desktop screen (the task the list says is waiting, say). From 768px the desktop takes 86% of the
+width and the phone 24%, set 32px lower; below 768px the desktop takes the full width and the phone
+overlaps its lower right corner at 36%. An 8px ring of `--bg` separates the phone from the screen
+behind it: no shadow. Both images are above the fold, so neither is lazy; the desktop one is the
+LCP image.
+
+```html
+<figure class="figure figure-pair">
+  <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+       src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+  <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+       src="…" width="386" height="840" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+  <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
+</figure>
 ```
 
 The hero sub is the page's first paragraph, so it carries the GEO rule in section 7 and the
