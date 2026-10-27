@@ -209,8 +209,8 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (8 questions), `/faq` (25), `/ai` (10), `/changelog/` (3) and
-  `/downloads/` (5). Only the homepage's eight actually duplicate the FAQ page's, so a wording
+- Five `FAQPage` blocks compete: `/` (7 questions), `/faq` (25), `/ai` (10), `/changelog/` (3) and
+  `/downloads/` (5). Only the homepage's seven actually duplicate the FAQ page's, so a wording
   change there has to be made in four places plus `llms-full.txt`; the other three ask questions
   that appear nowhere else, which is the condition for adding a sixth.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.

@@ -357,13 +357,18 @@ img{height:auto}
     width:min(280px,80vw);height:100dvh;z-index:99;
     padding:calc(var(--nav-h) + 24px) var(--s-6) var(--s-6);
     background:var(--bg-2);border-left:1px solid var(--line);
-    /* visibility, not just transform: a fixed element parked past the right
-       edge still counts toward the scrollable area, and body{overflow-x:hidden}
-       does not clip it — the page ends up scrolling sideways into empty space. */
-    visibility:hidden;
-    transition:transform .25s ease,visibility 0s linear .25s;
+    /* display, not visibility: a fixed menu parked past the right edge keeps
+       its box even when hidden, and a phone widens its layout viewport to fit
+       it (576px on a 320px screen), so the page zooms out and drags sideways
+       into empty space. body{overflow-x:hidden} does not stop that. Closed, the
+       menu leaves layout; allow-discrete and @starting-style keep the slide in
+       browsers that have them, and the rest open and close without it. */
+    display:none;
+    transition:transform .25s ease;
+    transition:transform .25s ease,display .25s allow-discrete;
   }
-  .site-nav ul.open{transform:translateX(0);visibility:visible;transition:transform .25s ease}
+  .site-nav ul.open{display:flex;transform:translateX(0)}
+  @starting-style{.site-nav ul.open{transform:translateX(100%)}}
   .site-nav ul a{font-size:1.0625rem}
   .hamburger{display:flex}
 }
