@@ -511,7 +511,7 @@ Content-Type: application/json
           <tr><td><code>scheduled</code></td><td>Waiting for its start time. Agents cannot list or read it.</td></tr>
           <tr><td><code>queued</code></td><td>Ready for an agent.</td></tr>
           <tr><td><code>running</code></td><td>Claimed by an agent.</td></tr>
-          <tr><td><code>awaiting-user</code></td><td>The agent stopped for a decision or for plan approval. Goes back to <code>running</code> when the user answers.</td></tr>
+          <tr><td><code>awaiting-user</code></td><td>The agent stopped for a decision or for plan approval. Goes back to <code>queued</code> when the user answers, and an agent picks it up again on its next turn.</td></tr>
           <tr><td><code>done</code></td><td>Finished.</td></tr>
           <tr><td><code>done-with-errors</code></td><td>Finished, with errors along the way.</td></tr>
           <tr><td><code>error</code></td><td>Failed, or cancelled. A cancelled task carries <code>cancelledAt</code> and is shown to the user as Cancelled.</td></tr>
@@ -550,9 +550,9 @@ Content-Type: application/json
           <tr><td><code>list_lists</code></td><td class="rw">read</td><td>Names and ids of the lists visible to this connection.</td><td></td></tr>
           <tr><td><code>list_tasks</code></td><td class="rw">read</td><td>Tasks in one view: My Day, Planned, Important, Flagged or one list. Needs read access.</td><td></td></tr>
           <tr><td><code>create_plan</code></td><td class="rw">write</td><td>Sends a titled plan of tasks to the AI inbox. The user picks which tasks to keep.</td><td>Always</td></tr>
-          <tr><td><code>create_task</code></td><td class="rw">write</td><td>Proposes one new task.</td><td>By default</td></tr>
-          <tr><td><code>update_task</code></td><td class="rw">write</td><td>Proposes changes to one task.</td><td>By default</td></tr>
-          <tr><td><code>complete_task</code></td><td class="rw">write</td><td>Proposes marking one task done.</td><td>By default</td></tr>
+          <tr><td><code>create_task</code></td><td class="rw">write</td><td>Proposes one new task.</td><td>Always</td></tr>
+          <tr><td><code>update_task</code></td><td class="rw">write</td><td>Proposes changes to one task.</td><td>Always</td></tr>
+          <tr><td><code>complete_task</code></td><td class="rw">write</td><td>Proposes marking one task done.</td><td>Always</td></tr>
           <tr class="group"><td colspan="4">AI tasks</td></tr>
           <tr><td><code>list_projects</code></td><td class="rw">read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
           <tr><td><code>create_agent_task</code></td><td class="rw">write</td><td>Proposes an AI task under a project, optionally with a start time and a repeat. An agent sees it only after approval.</td><td>Always</td></tr>
@@ -564,7 +564,7 @@ Content-Type: application/json
         </tbody>
       </table></div>
       <ul>
-        <li><em>By default</em> follows the connection's write mode, which starts at needing the user's approval.</li>
+        <li>A direct-apply mode is planned; until it ships, every write waits for your approval.</li>
         <li>No tool deletes a task, a list or a project, and none ever will.</li>
         <li>Agent notes are written by a coding agent. Assistants get them as data to show the user, never as instructions to follow.</li>
         <li>Telemetry and attachments of AI tasks are never returned to an assistant.</li>
@@ -575,7 +575,7 @@ Content-Type: application/json
       <p>The AI proposes. You approve. What a chat assistant writes waits in the AI inbox on the user's phone, which gets a notification, until the user approves it there.</p>
       <ul>
         <li>Plans, AI-task proposals and every change to an AI task (a reply, an edit, a cancel) always need approval, whatever the write mode. Text that reaches a coding agent becomes its instructions, so a person reads it first.</li>
-        <li>Other changes to personal tasks follow the connection's write mode, which starts at needing approval.</li>
+        <li>Other changes to personal tasks follow the connection's write mode, which is <strong>Ask me first</strong> until direct apply ships, so they need approval too.</li>
         <li>The user can edit a proposal before approving it, and pick which tasks of a plan to keep.</li>
         <li>If the task has moved on by the time the user approves (an agent claimed it, it finished, or it was cancelled), the change is rejected.</li>
       </ul>
@@ -584,7 +584,7 @@ Content-Type: application/json
       <p>In <strong>Connected AI apps</strong>, per assistant, the user controls:</p>
       <ul>
         <li><strong>Read access:</strong> whether the assistant can see the tasks in visible lists, or only the list names.</li>
-        <li><strong>Write mode:</strong> whether changes to personal tasks wait for approval. They do by default.</li>
+        <li><strong>Write mode:</strong> whether changes to personal tasks wait for approval. For now the only mode is <strong>Ask me first</strong>, so they always do.</li>
         <li><strong>Visible lists and visible projects.</strong> Hidden lists and projects are invisible to the assistant.</li>
         <li><strong>AI task access:</strong> whether the assistant can read the AI tasks and briefs of visible projects and propose replies, edits and cancels. Off by default.</li>
         <li><strong>Disconnect,</strong> which takes effect right away.</li>
