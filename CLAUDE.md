@@ -19,7 +19,8 @@ Two things here have already cost real time and must not be undone by a later ch
 
 ## Release timing
 
-Dovilo 2.0 shipped on 27 Oct 2026 (R). Remote MCP (Agents MCP at `/mcp/agents`, Personal MCP at
+Dovilo 2.0 shipped on 27 Oct 2026, the release day the product docs call R: mobile 2.0.0 on iOS and
+Android, with Desktop 2.0.x already out since 19 Oct. Remote MCP (Agents MCP at `/mcp/agents`, Personal MCP at
 `/mcp`), planning from chat assistants, scheduling and repeat for AI tasks, and server delivery of
 webhooks are public: never write "local" about MCP, and never put any of them "on the roadmap".
 **Not yet:** directory listings (ChatGPT, Claude, the MCP Registry) and data export. Say so plainly
@@ -35,15 +36,17 @@ sentences: do not edit them here and do not quote them on the site. They are fix
 [`docs/design-language.md`](docs/design-language.md) is the one design reference: principles,
 tokens, components with their HTML, copy rules, word budgets, the GEO layer and theming. A page task
 that says "follow docs/design-language.md" needs nothing else about design. `styles/system.css`
-implements the doc and nothing else, and [`/styleguide/`](styleguide/index.html) renders every
-component in light and dark with real copy.
+implements the doc and nothing else, and `/styleguide/` (source `styleguide/index.html`, named here
+without a link on purpose) renders every component in light and dark with real copy.
 
 Rules:
 
 - **No page may introduce a component the doc does not have.** If a page needs one, add it to the
   doc, to `system.css` and to `/styleguide/` in the same commit, then use it.
 - **A redesigned page links `system.css` and nothing else.** No `base.css` or `home.css` next to it,
-  no `<style>` block, no inline style. A page is on one system or the other, never both.
+  no `<style>` block, no inline style. A page is on one system or the other, never both. The one
+  exception is the highlight.js theme `/docs/webhooks` inlines (§2 Performance), until its redesign
+  task decides otherwise.
 - **Tokens live in `system.css` only**: five neutrals per theme and one accent, `#D4880A`. The
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
@@ -64,14 +67,18 @@ Rules:
   text as well as headings. `llms.txt` and `llms-full.txt` are the only exception.
 - **Class names are a contract with the site script** at the end of every redesigned page:
   `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
-  `.copy-btn.copied`, `.code`. The theme stays in `localStorage['dovilo-theme']`, the key the old
-  pages use, so a visitor's choice carries across both systems.
+  `.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. The theme stays in
+  `localStorage['dovilo-theme']`, the key the old pages use, so a visitor's choice carries across
+  both systems. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
+  contents) go in a page script after the site script; the doc's §3 says how.
 - **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
   twice, once per theme: edit both copies together.
 
 The redesign runs on the `redesign` branch, one task per page: `/ai`, then `/`, then a new
-`/pricing`, then `/downloads`, `/faq`, `/docs/*` and `/changelog`. When the last page has moved,
-`base.css`, `home.css` and §1.2 are deleted.
+`/pricing`, then `/downloads`, `/faq`, `/docs/*` and `/changelog`. `/privacy`, `/terms`, `/licenses`
+and every blog page (`tools/template.mjs`) also link `base.css` and are not on that list yet.
+`base.css`, `home.css` and §1.2 are deleted only when no page links `base.css` any more: check with
+a search across the repo and the blog template, not by the list above.
 
 ### 1.2 The old system (pages not yet redesigned)
 
@@ -88,7 +95,8 @@ only what is specific to that page.
 
 Rules:
 
-- **Never redeclare a token.** `:root` is declared in `base.css` and nowhere else. A page that
+- **Never redeclare a token.** On these pages `:root` is declared in `base.css` and nowhere else
+  (`system.css` is the redesigned pages' own single declaration). A page that
   re-declares `--bg` or `--accent` re-introduces exactly the drift this system removed. `.keep-dark`
   is the one sanctioned override, for surfaces that stay dark in both themes (terminals, focus
   scenes).
@@ -264,7 +272,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
 - [ ] No new token, font size or ink alpha outside `styles/base.css` (old pages) or
       `styles/system.css` (redesigned pages).
 - [ ] Redesigned page: only components from `docs/design-language.md`, visible words within the
-      page's budget, and the doc's own checklist (its section 9) run.
+      page's budget, and the doc's own checklist (its section 10) run.
 - [ ] Both themes checked — dark and light — and the page still reads at 320px wide.
 
 ## 4. Known issues, not yet fixed
@@ -290,11 +298,14 @@ Carried here so they are not rediscovered from scratch:
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
-- Two generated surfaces have no component in `docs/design-language.md` yet: the homepage blog
-  band (written by `tools/build-blog.mjs` between the `BLOG` markers, classes listed in §1.2) and
-  the blog pages themselves (`tools/template.mjs`, still a copy of the `base.css` chrome). The `/`
-  redesign task has to give the band a component, or move it, before the homepage can leave
-  `home.css`.
+- Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
+  homepage blog band (written by `tools/build-blog.mjs` between the `BLOG` markers, classes listed
+  in §1.2), the blog pages themselves (`tools/template.mjs`, still a copy of the `base.css` chrome),
+  the docs' table of contents, the `/downloads` platform cards and the changelog's release entries.
+  The task that moves each page adds its component first.
+- The homepage FAQ shows the first line of every closed answer, clipped mid-text, on the live site.
+  `.faq-a p{padding-bottom:20px}` in `base.css` keeps the collapsed grid row 20px tall because on
+  `/` the `<p>` is the direct child of `.faq-a`; `/faq` wraps it in a `<div>` and is fine.
 
 ## Dovilo task protocol
 

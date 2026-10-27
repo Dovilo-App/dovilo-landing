@@ -6,14 +6,17 @@ layer intact. Nothing else about design needs saying.
 
 - **Stylesheet:** [`styles/system.css`](../styles/system.css) implements this document and nothing
   else.
-- **Live reference:** [`/styleguide/`](https://dovilo.app/styleguide/) renders every component in
-  both themes with real copy. It is `noindex`, not in the sitemap and linked from nowhere.
+- **Live reference:** `/styleguide/` (source: `styleguide/index.html`) renders every component in
+  both themes with real copy. It is `noindex`, not in the sitemap and linked from nowhere, so this
+  document names it without linking it.
 - **Rule:** a page may only use components this document has. A page that needs something new adds
   it here first, then to `system.css`, then to `/styleguide/`, in the same commit.
 
 The redesign moves pages over one task at a time (`/ai`, `/`, a new `/pricing`, then `/downloads`,
 `/faq`, `/docs/*` and `/changelog`). Until a page moves, it stays on `styles/base.css` and its old
-rules in `CLAUDE.md`. A page is on one system or the other, never both.
+rules in `CLAUDE.md`. A page is on one system or the other, never both. `/privacy`, `/terms`,
+`/licenses` and the blog (`tools/template.mjs`) also link `base.css` and are not in that list yet:
+`base.css` can only be deleted once they have moved too.
 
 ---
 
@@ -53,7 +56,8 @@ Contrast (WCAG 2.x): `--text` on `--bg` is 16.3:1 light and 14.4:1 dark; `--text
 5.6:1 and 6.8:1; `--on-accent` on `--accent` is 6.1:1. The accent itself reads at only 2.7:1 on the
 light background, so **the accent is never a text colour**. It is always a fill with `--on-accent`
 text on it. That is why links are `--text` with an underline, not amber, and why the numerals are
-amber chips rather than amber digits.
+amber chips rather than amber digits. Hover adds no colour either: a primary button's outline turns
+`--text`, a secondary one's `--text-muted`.
 
 `#D4880A` is the amber the existing site already uses (`styles/base.css`, mirroring the app's
 tokens). `#161B1D` is the app's dark background and the site's `theme-color`.
@@ -65,7 +69,7 @@ stack. Code is the system monospace stack. No other webfont, ever.
 
 | Token | Size | Used for |
 | --- | --- | --- |
-| `--text-hero` | `clamp(36px, 5vw, 56px)` | The page's `<h1>` |
+| `--text-hero` | 36px to 56px: `clamp(2.25rem, 1.5rem + 3vw, 3.5rem)` | The page's `<h1>` |
 | `--text-h2` | `clamp(28px, 24px + 1vw, 32px)` | Section headings |
 | `--text-h3` | `20px` | Feature and step headings, the hero sub |
 | `--text-body` | `17px` | Body text, FAQ questions |
@@ -73,7 +77,8 @@ stack. Code is the system monospace stack. No other webfont, ever.
 | `--text-code` | `14px` mono | Code blocks and inline code |
 
 Sizes are declared in `rem` (17px is `1.0625rem`) so a reader's browser font setting still scales
-them. Line height is **1.15** for headings and **1.55** for body. A line of text is at most
+them. That is also why the hero's fluid size carries a `rem` term rather than the plain `5vw` the
+brief sketched: a size made of `vw` alone ignores text zoom. Line height is **1.15** for headings and **1.55** for body. A line of text is at most
 **64ch** (`--measure`). Headings are **sentence case**: "Connect a coding agent", not "Connect A
 Coding Agent". Weights: 700 for the `<h1>`, 600 for other headings, labels and buttons, 400 for body.
 
@@ -157,11 +162,21 @@ The stylesheet is render-blocking on purpose, for the same reasons `CLAUDE.md` g
 ### Site script
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
-menu and the copy buttons. Copy it from `/styleguide/index.html` verbatim. It keys on these class
-names, which are therefore a contract: `.theme-toggle`, `.nav-menu` (with `aria-controls`),
-`.nav-links.open`, `.copy-btn`, `.copy-btn.copied`, `.code`. The theme choice is stored in
-`localStorage['dovilo-theme']`, the same key the old pages use, so a visitor's choice follows them
-across both systems.
+menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed") and the email
+links. Copy it from `styleguide/index.html` verbatim. It keys on these names, which are therefore a
+contract: `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
+`.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. A copy button's label is plain
+text. The theme choice is stored in `localStorage['dovilo-theme']`, the same key the old pages use,
+so a visitor's choice follows them across both systems.
+
+### Page scripts
+
+A page may keep a behaviour it already has, in a second inline script after the site script: the
+changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
+table-of-contents highlight on `/docs/*`. Its class names stay a contract (`CLAUDE.md` §1.2 lists
+them). A page script never styles anything and never builds content a crawler should read. If the
+behaviour needs a visual part this document does not have (a table of contents, a platform card, a
+release entry), that part is added here first, like any other component.
 
 ## 4. Layout
 
@@ -181,8 +196,9 @@ The unit of a page. One claim (an `<h2>` and at most one sentence), one proof.
 </section>
 ```
 
-Consecutive sections are separated by a 1px rule. Give a section an `id` whenever anything links to
-it, and keep every `id` the old page had (section 7).
+Consecutive sections are separated by a 1px rule. Components stacked inside one section (a code
+block and a collapsible, a table and a note) sit 24px apart without any extra markup. Give a section
+an `id` whenever anything links to it, and keep every `id` the old page had (section 7).
 
 ### Split
 
@@ -259,7 +275,7 @@ eyebrow, no pill, no badge, no second figure.
 <section class="hero">
   <div class="container">
     <h1>Dovilo gives your coding agent its own task list</h1>
-    <p class="hero-sub">Claude Code, Cursor and any MCP client connect over remote MCP. Pro includes 15 AI tasks a month.</p>
+    <p class="hero-sub">Dovilo is a to-do app with remote MCP for coding agents. Pro includes 15 AI tasks a month.</p>
     <div class="actions">
       <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
       <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP reference</a>
@@ -273,9 +289,10 @@ eyebrow, no pill, no badge, no second figure.
 </section>
 ```
 
-The hero sub is the page's first paragraph, so it carries the GEO rule in section 7: declarative
-sentences, with a number, that say what Dovilo is and for whom. The hero image is the LCP element:
-`fetchpriority="high"`, no `loading` attribute.
+The hero sub is the page's first paragraph, so it carries the GEO rule in section 7 and the
+`CLAUDE.md` rule for the paragraph under the H1: declarative sentences, with a number, that name
+Dovilo, say what it is and for whom, and carry the page's primary keyword without repeating the
+H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute.
 
 Pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`) open with a plain
 section instead of a hero: an `<h1>` and the first paragraph, no buttons, no figure.
@@ -412,7 +429,8 @@ window dots.
 ```
 
 `/docs/webhooks` keeps highlight.js and its inlined theme until its own redesign task decides
-otherwise (see `CLAUDE.md`).
+otherwise (see `CLAUDE.md`). That inlined theme is the one `<style>` block a redesigned page may
+still carry.
 
 ### Collapsible
 
@@ -492,7 +510,8 @@ The last section of a marketing page: an `<h2>`, one sentence, two buttons. Cent
 ### Footer
 
 Four columns of text links, then the copyright and the support address. No icons, no newsletter
-box. The full markup is in `/styleguide/index.html`.
+box. The full markup is in `styleguide/index.html`. The address is split in the markup, as on the
+old pages, and the site script assembles the `mailto:`, so scrapers find no parseable address.
 
 ```html
 <footer class="footer">
@@ -506,7 +525,7 @@ box. The full markup is in `/styleguide/index.html`.
     </nav>
     <div class="footer-meta">
       <p>&copy; 2026 Dovilo. All rights reserved.</p>
-      <p><a href="mailto:support@dovilo.app">support@dovilo.app</a></p>
+      <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
     </div>
   </div>
 </footer>
@@ -531,7 +550,8 @@ Store links keep their tracking parameters from the product brief (`?ct=…` for
 ### Links
 
 Inside running text a link is `--text`, underlined in `--text-muted`, and the underline darkens on
-hover. It is never amber. A link that stands on its own line is a `.link`, bold, with an arrow.
+hover. It is never amber. A link that stands on its own line is a `.link`: bold, with an arrow, a
+block of its own, 16px below whatever precedes it.
 
 ```html
 <p>Agents connect to <code>https://dovilo.app/mcp/agents</code>, and the <a href="/docs/mcp/">MCP reference</a> lists all 22 tools.</p>
@@ -609,12 +629,28 @@ Visible text shrinks; indexable text does not.
   script in `<head>`, before first paint, so there is no flash. It beats the OS preference.
 - `<body>` has an explicit `--bg` background and `--text` colour; `color-scheme` follows the theme
   so form controls and scrollbars match.
-- The toggle in the nav shows the theme it switches to (a sun in dark, a moon in light) and its
-  `aria-label` says so.
-- The same selectors work on any element: `data-theme="dark"` on a wrapper renders its contents in
-  the dark theme. `/styleguide/` uses this to show each component twice. Pages do not.
+- The toggle in the nav shows the current theme, as on the old pages (a moon in dark, a sun in
+  light), and its `aria-label` names the theme it switches to.
+- The same selectors work on any element: `data-theme="dark"` on a wrapper renders its contents,
+  toggle icon included, in the dark theme. `/styleguide/` uses this to show each component twice.
+  Pages do not.
+- Light is the fallback when a browser reports no preference at all; the old pages fall back to
+  dark. Every current browser reports one, so the two only differ in very old browsers.
 
-## 9. Checks before a redesigned page ships
+## 9. Not covered yet
+
+Surfaces the redesign will need that this document does not have yet. The task that moves the page
+adds the component here first.
+
+- **The homepage blog band**, written by `tools/build-blog.mjs` between the `BLOG` markers, and the
+  blog pages from `tools/template.mjs`.
+- **A table of contents** for `/docs/*` (today's `.toc`, with its scroll highlight).
+- **Platform cards** for `/downloads` (`#card-ios|android|windows|mac`, with platform detection).
+- **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).
+- `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
+  as they are.
+
+## 10. Checks before a redesigned page ships
 
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
 - [ ] Visible words within budget (section 6), counted outside details, nav and footer.

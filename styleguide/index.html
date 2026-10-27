@@ -60,10 +60,10 @@
     .sg-head{margin-bottom:var(--space-3)}
     .sg-head p{margin-top:var(--space-1);color:var(--text-muted)}
     .sg-label{margin:var(--space-3) 0 var(--space-1);font-size:var(--text-small);font-weight:600;color:var(--text-muted)}
-    .sg-panel{position:relative;border:1px solid var(--border);border-radius:var(--radius)}
+    .sg-panel{position:relative;margin-top:0;border:1px solid var(--border);border-radius:var(--radius)}
     .sg-panel > :first-child{border-top-left-radius:var(--radius);border-top-right-radius:var(--radius)}
     .sg-panel > :last-child{border-bottom-left-radius:var(--radius);border-bottom-right-radius:var(--radius)}
-    .sg-panel .nav{position:relative}
+    .sg-panel .nav{position:relative;z-index:auto}
     .sg-panel .footer{margin-top:0}
     .sg-sample{padding:var(--space-4) var(--gutter)}
     .sg-toc{columns:2 180px;column-gap:var(--space-4);list-style:none;padding:0}
@@ -289,15 +289,17 @@
           <section class="hero">
             <div class="container">
               <h1>Dovilo gives your coding agent its own task list</h1>
-              <p class="hero-sub">Claude Code, Cursor and any MCP client connect over remote MCP. Pro includes 15 AI tasks a month.</p>
+              <p class="hero-sub">Dovilo is a to-do app with remote MCP for coding agents. Pro includes 15 AI tasks a month.</p>
               <div class="actions">
                 <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
                 <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP reference</a>
               </div>
               <figure class="figure">
+                <!-- On a page this image is the LCP: fetchpriority="high" and no loading
+                     attribute. Here it sits far below the fold, so it loads lazily. -->
                 <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
                      sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(100vw - 48px), 1080px"
-                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
+                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
                      alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
               </figure>
@@ -309,15 +311,17 @@
           <section class="hero">
             <div class="container">
               <h1>Dovilo gives your coding agent its own task list</h1>
-              <p class="hero-sub">Claude Code, Cursor and any MCP client connect over remote MCP. Pro includes 15 AI tasks a month.</p>
+              <p class="hero-sub">Dovilo is a to-do app with remote MCP for coding agents. Pro includes 15 AI tasks a month.</p>
               <div class="actions">
                 <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
                 <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP reference</a>
               </div>
               <figure class="figure">
+                <!-- On a page this image is the LCP: fetchpriority="high" and no loading
+                     attribute. Here it sits far below the fold, so it loads lazily. -->
                 <img srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
                      sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(100vw - 48px), 1080px"
-                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
+                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
                      alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
               </figure>
@@ -415,7 +419,7 @@
               <div class="feature"><h3>Tasks</h3><p>Due dates, repeats, reminders, stars and your own lists, with no limit on tasks.</p></div>
               <div class="feature"><h3>Focus</h3><p>Single sessions, Pomodoro cycles or a session bound to one task, free and unlimited.</p></div>
               <div class="feature"><h3>Ambience</h3><p>A scene fills the screen with its own sound, mixed from up to three layers.</p></div>
-              <div class="feature"><h3>City</h3><p>Finished tasks and focus sessions earn bricks, and bricks build a city that never decays.</p></div>
+              <div class="feature"><h3>City</h3><p>Finished tasks and focus sessions earn bricks to spend on buildings, roads and decorations.</p></div>
               <div class="feature"><h3>AI tasks</h3><p>Coding agents work through the AI tasks you write, over remote MCP, from any machine.</p></div>
             </div>
           </div>
@@ -427,7 +431,7 @@
               <div class="feature"><h3>Tasks</h3><p>Due dates, repeats, reminders, stars and your own lists, with no limit on tasks.</p></div>
               <div class="feature"><h3>Focus</h3><p>Single sessions, Pomodoro cycles or a session bound to one task, free and unlimited.</p></div>
               <div class="feature"><h3>Ambience</h3><p>A scene fills the screen with its own sound, mixed from up to three layers.</p></div>
-              <div class="feature"><h3>City</h3><p>Finished tasks and focus sessions earn bricks, and bricks build a city that never decays.</p></div>
+              <div class="feature"><h3>City</h3><p>Finished tasks and focus sessions earn bricks to spend on buildings, roads and decorations.</p></div>
               <div class="feature"><h3>AI tasks</h3><p>Coding agents work through the AI tasks you write, over remote MCP, from any machine.</p></div>
             </div>
           </div>
@@ -862,14 +866,14 @@
         <div class="sg-panel" data-theme="light">
           <div class="sg-sample">
             <p>Agents connect to <code>https://dovilo.app/mcp/agents</code>, and the <a href="/docs/mcp/">MCP reference</a> lists all 22 tools.</p>
-            <p style="margin-top:var(--space-2)"><a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a></p>
+            <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
         <p class="sg-label">Dark</p>
         <div class="sg-panel" data-theme="dark">
           <div class="sg-sample">
             <p>Agents connect to <code>https://dovilo.app/mcp/agents</code>, and the <a href="/docs/mcp/">MCP reference</a> lists all 22 tools.</p>
-            <p style="margin-top:var(--space-2)"><a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a></p>
+            <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -961,7 +965,7 @@
               </nav>
               <div class="footer-meta">
                 <p>&copy; 2026 Dovilo. All rights reserved.</p>
-                <p><a href="mailto:support@dovilo.app">support@dovilo.app</a></p>
+                <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
               </div>
             </div>
           </footer>
@@ -1009,7 +1013,7 @@
               </nav>
               <div class="footer-meta">
                 <p>&copy; 2026 Dovilo. All rights reserved.</p>
-                <p><a href="mailto:support@dovilo.app">support@dovilo.app</a></p>
+                <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
               </div>
             </div>
           </footer>
@@ -1060,13 +1064,14 @@
       </nav>
       <div class="footer-meta">
         <p>&copy; 2026 Dovilo. All rights reserved.</p>
-        <p><a href="mailto:support@dovilo.app">support@dovilo.app</a></p>
+        <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
       </div>
     </div>
   </footer>
 
   <script>
-    /* Site script: theme toggle, mobile menu, copy buttons. The same on every page. */
+    /* Site script: theme toggle, mobile menu, copy buttons, email links. The
+       same on every page. */
     (function(){
       var root = document.documentElement;
       var dark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -1110,16 +1115,47 @@
         });
       });
 
+      /* Copy: the clipboard API where the page is a secure context, a hidden
+         textarea everywhere else, and a visible "Copy failed" if both refuse. */
       document.querySelectorAll('.copy-btn').forEach(function(b){
+        var label = b.textContent, timer;
+        function show(ok){
+          b.classList.toggle('copied', ok);
+          b.textContent = ok ? 'Copied' : 'Copy failed';
+          clearTimeout(timer);
+          timer = setTimeout(function(){ b.classList.remove('copied'); b.textContent = label; }, 1500);
+        }
+        function fallback(text){
+          var ta = document.createElement('textarea'), ok = false;
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '-1000px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          show(ok);
+        }
         b.addEventListener('click', function(){
-          var pre = b.closest('.code').querySelector('pre');
-          if (!navigator.clipboard) return;
-          navigator.clipboard.writeText(pre.innerText).then(function(){
-            b.classList.add('copied');
-            b.textContent = 'Copied';
-            setTimeout(function(){ b.classList.remove('copied'); b.textContent = 'Copy'; }, 1500);
-          });
+          var block = b.closest('.code'), pre = block && block.querySelector('pre');
+          if (!pre) return;
+          var text = pre.innerText;
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ fallback(text); });
+          } else {
+            fallback(text);
+          }
         });
+      });
+
+      /* Addresses are split in the markup so scrapers do not find a parseable
+         address; the real mailto is assembled here, in the browser. */
+      var at = String.fromCharCode(64);
+      document.querySelectorAll('a.mail').forEach(function(a){
+        var addr = a.getAttribute('data-u') + at + a.getAttribute('data-d');
+        a.setAttribute('href', 'mailto:' + addr);
+        a.textContent = addr;
       });
     })();
   </script>
