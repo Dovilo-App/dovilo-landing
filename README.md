@@ -2,8 +2,8 @@
 
 Source for **[dovilo.app](https://dovilo.app)**, the marketing and documentation site for
 [Dovilo](https://dovilo.app) — a to-do list, focus timer and city builder for iOS, Android,
-Windows and macOS, with a local MCP server on desktop that lets AI coding agents work through
-tasks you write for them.
+Windows and macOS, with two remote MCP servers: one that lets AI coding agents work through tasks
+you write for them, and one that lets chat assistants propose plans you approve.
 
 The app itself is closed source; this repository is the public website only.
 
@@ -12,8 +12,9 @@ The app itself is closed source; this repository is the public website only.
 | Path | What it is |
 | --- | --- |
 | [`/`](https://dovilo.app) | Product overview — tasks, focus, ambience, the city, pricing, FAQ |
-| [`/ai`](https://dovilo.app/ai/) | The MCP integration: nine tools, client presets, what agents can and cannot reach |
-| [`/docs/webhooks`](https://dovilo.app/docs/webhooks/) | Signed webhook events — payload schema, signature verification, retry policy |
+| [`/ai`](https://dovilo.app/ai/) | The MCP integration: both servers, client setup, the nine agent tools, planning from chat assistants |
+| [`/docs/mcp`](https://dovilo.app/docs/mcp/) | MCP reference: endpoints, auth, all 22 tools, statuses, scheduling, approval rules |
+| [`/docs/webhooks`](https://dovilo.app/docs/webhooks/) | Signed webhook events — delivery modes, payload schema, signature verification, retry policy |
 | [`/downloads`](https://dovilo.app/downloads/) | App Store, Play Store and desktop installers |
 | [`/changelog`](https://dovilo.app/changelog/) | Release notes per platform, plus the roadmap |
 | [`/blog`](https://dovilo.app/blog/) | Posts, generated from Sanity — see [The blog](#the-blog) |
@@ -38,9 +39,12 @@ applied before first paint so there is no flash.
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The hero and the two desktop shots also carry `srcset`/`sizes`, whose
-candidate widths are named in the filename (`-193`, `-700` … ). To add or replace a screenshot,
-drop the PNG in [`screenshots/`](screenshots/) and re-encode it with ffmpeg:
+variants can be regenerated. The hero, the homepage desktop shot and the screen slider on `/ai`
+also carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
+`-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
+smaller file and stretches it. The `/ai` slider's phone shots add a `-772` variant for 2x screens.
+To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
+with ffmpeg:
 
 ```bash
 # full-size WebP (quality 80 for the busy city render, 88 elsewhere)

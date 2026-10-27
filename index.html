@@ -90,7 +90,7 @@
     "@id": "https://dovilo.app/#app",
     "name": "Dovilo",
     "alternateName": ["Dovilo", "Dovilo To-Do", "Dovilo Focus Timer"],
-    "description": "Dovilo is a gamified productivity app that turns your to-do list into a thriving isometric city. Complete tasks, run Pomodoro focus sessions with full-screen ambience scenes and a three-layer sound mixer, earn bricks, and build your city. Dovilo Desktop (Pro) adds an AI task list your coding agents work out of.",
+    "description": "Dovilo is a gamified productivity app that turns your to-do list into a thriving isometric city. Complete tasks, run Pomodoro focus sessions with full-screen ambience scenes and a three-layer sound mixer, earn bricks, and build your city. Pro adds planning with ChatGPT, Claude, Gemini or Grok, where the assistant proposes and you approve in Dovilo, and AI tasks that coding agents like Claude Code and Cursor work through over remote MCP.",
     "applicationCategory": "ProductivityApplication",
     "applicationSubCategory": "Task Management",
     "operatingSystem": ["iOS", "Android", "Windows", "macOS"],
@@ -105,7 +105,7 @@
         "@type": "Offer",
         "price": "2.49",
         "priceCurrency": "USD",
-        "description": "Pro Monthly — cloud sync, the desktop app with its AI task list for coding agents, and both one-time packs",
+        "description": "Pro Monthly: planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app, cloud sync and both one-time packs",
         "priceValidUntil": "2027-12-31",
         "billingIncrement": "P1M"
       },
@@ -127,7 +127,7 @@
         "@type": "Offer",
         "price": "4.99",
         "priceCurrency": "USD",
-        "description": "Focus Ambience Pack — one-time purchase, 5 ambience scenes and 12 sound layers (included with Pro)"
+        "description": "Focus Ambience Pack: one-time purchase, 5 ambience scenes and 16 sound layers, 13 recordings and 3 generated noises (included with Pro)"
       },
       {
         "@type": "Offer",
@@ -144,16 +144,17 @@
       "Three-layer ambience sound mixer with per-layer levels — rain, fireplace, forest, waves, cafe, library, train, thunder, brown, pink and white noise",
       "Isometric city builder — completed tasks become buildings",
       "Reward market — spend the bricks you earn on buildings, decorations and upgrades",
-      "An AI task list your coding agents work out of, on Dovilo Desktop (Pro)",
+      "Plan with ChatGPT, Claude, Gemini or Grok: the assistant proposes, you approve in Dovilo (Pro)",
+      "AI Agents: Claude Code, Cursor and other MCP clients work through 15 AI tasks a month over remote MCP (Pro)",
       "Dark and light themes",
       "Available in 5 languages: English, Turkish, Spanish, French, German",
       "Offline-first — works without internet",
-      "Cloud sync across devices",
+      "Cloud sync across devices (Pro)",
       "Desktop app for Windows and Mac (Pro)",
       "No ads in free or paid tiers"
     ],
     "screenshot": "https://dovilo.app/ss.jpg",
-    "softwareVersion": "1.2.0",
+    "softwareVersion": "2.0.0",
     "releaseNotes": "https://dovilo.app/changelog/",
     "author": {
       "@type": "Organization",
@@ -219,7 +220,7 @@
       "name": "What is Dovilo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then build houses, offices, parks and more in your own virtual city."
+        "text": "Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then build houses, offices, parks, and more in your own virtual city."
       }
     },
     {
@@ -227,7 +228,15 @@
       "name": "Is Dovilo free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The free tier covers full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building and no ads. Pro adds cloud sync, the desktop app for Windows and Mac with its AI task list, the Focus Ambience Pack, all buildings and decorations, and advanced statistics, from $2.49 per month, and starts with a 7-day free trial."
+        "text": "Yes! The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building, dark & light themes, and zero ads. Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics, from $2.49 a month, and it starts with a 7-day free trial, so you can try everything before paying. Cancel before the week is up and nothing is charged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add Dovilo to the assistant as a custom connector with the URL https://dovilo.app/mcp and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and by default its changes wait for your approval: the setting is called Ask me first. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
       }
     },
     {
@@ -235,7 +244,7 @@
       "name": "What is new in the Focus tab?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break and a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting in the background, Do Not Disturb silences other apps during the session, and each ambience scene - Rainy City, Midnight, Dusk, Snow or Fog - fills the screen and brings its own sound."
+        "text": "Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience — Rainy City, Midnight, Dusk, Snow or Fog."
       }
     },
     {
@@ -243,7 +252,7 @@
       "name": "Do I need the Focus Ambience Pack?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available, simply silent. The Focus Ambience Pack adds 5 atmospheric scenes and 12 sound layers that can be blended three at a time. It is a one-time $4.99 purchase and is already included with Dovilo Pro."
+        "text": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The Focus Ambience Pack adds the 5 atmospheric scenes and 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and it is already included with Pro."
       }
     },
     {
@@ -251,7 +260,7 @@
       "name": "Does Dovilo work offline?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Dovilo is offline-first. Tasks, focus sessions and city progress are stored locally on your device. Cloud sync is an optional Pro feature for keeping data across multiple devices."
+        "text": "Yes! Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. Cloud sync is an optional Pro feature for keeping data across multiple devices."
       }
     },
     {
@@ -259,7 +268,23 @@
       "name": "Does Dovilo have ads?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Dovilo is completely ad-free, both in the free tier and in Pro."
+        "text": "No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my coding agent need Dovilo Desktop running?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at https://dovilo.app/mcp/agents with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the developer page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many AI tasks does Pro include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
       }
     },
     {
@@ -267,7 +292,7 @@
       "name": "How do I cancel my subscription?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, open your device's subscription settings. Pro access continues until the end of the current billing period."
+        "text": "Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period."
       }
     }
   ]
@@ -383,9 +408,11 @@
 
       <p>Tasks and focus sessions are free and unlimited, ads never appear on any tier, and the app is
       offline-first: your tasks live on the device and work with no connection. <strong>Pro</strong>
-      ($2.49/month, $19.99/year, or $49.99 once) adds cloud sync across devices, the Windows and Mac
-      desktop app with the AI task list your coding agents work out of, the Focus Ambience Pack, every
-      building and decoration, and advanced statistics. It starts with a 7-day free trial. Two content
+      ($2.49/month, $19.99/year, or $49.99 once) adds planning with ChatGPT, Claude, Gemini or Grok,
+      where the assistant proposes and you approve in Dovilo; 15 AI tasks a month for coding agents
+      like Claude Code and Cursor; the Windows and Mac desktop app; cloud sync across devices; the
+      Focus Ambience Pack; every building and decoration; and advanced statistics. It starts with a
+      7-day free trial. Two content
       packs are one-time $4.99 purchases and are included with Pro, so the parts you want most are
       never a rented subscription.</p>
 
@@ -512,13 +539,13 @@
         </ul>
         <div class="focus-stats">
           <span class="focus-stat"><b>6</b> scenes</span>
-          <span class="focus-stat"><b>12</b> sound layers</span>
+          <span class="focus-stat"><b>16</b> sound layers</span>
           <span class="focus-stat"><b>3</b> layers at once</span>
           <span class="focus-stat"><b>25 + 5</b> Pomodoro</span>
         </div>
         <p class="focus-note">
           <span class="pro-pill">Pack</span>
-          Focus Ambience Pack — 5 scenes and 12 sound layers, one time. Already included with Pro.
+          Focus Ambience Pack — 5 scenes and 16 sound layers, one time. Already included with Pro.
         </p>
       </div>
 
@@ -652,7 +679,7 @@
       <div class="stat-label">Ambience scenes</div>
     </div>
     <div>
-      <div class="stat-number">12</div>
+      <div class="stat-number">16</div>
       <div class="stat-label">Sound layers</div>
     </div>
     <div>
@@ -689,14 +716,15 @@
       <div class="plan-box pro">
         <h3>Pro <span>Everything in Free, plus</span></h3>
         <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Plan with ChatGPT, Claude, Gemini or Grok</strong>: the assistant proposes a plan, you approve it in Dovilo, and it goes into your lists.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>AI Agents</strong>: Claude Code, Cursor and other coding agents work through 15 AI tasks a month. Top-up packs from $0.99.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Dovilo Desktop</strong> for Windows and Mac: your lists and AI tasks on a full-size screen. Focus sessions and the city stay on mobile.</span></li>
           <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cloud sync across devices</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Focus Ambience Pack</strong> &mdash; the five full-screen scenes, Rainy City, Midnight, Dusk, Snow and Fog, plus 12 sound layers for the three-layer sound mixer. A $4.99 pack on its own, included here.</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Full City Package</strong> &mdash; every building, decoration and upgrade. Also a $4.99 pack, also included.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Focus Ambience Pack</strong>: the five full-screen scenes, Rainy City, Midnight, Dusk, Snow and Fog, plus 16 sound layers (13 recordings and 3 generated noises) for the three-layer sound mixer. A $4.99 pack on its own, included here.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Full City Package</strong>: every building, decoration and upgrade. Also a $4.99 pack, also included.</span></li>
           <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Advanced statistics</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Smart notification management</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority support</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>All future updates included</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Dovilo Desktop for Windows and Mac, with the AI task list your coding agents work out of. Focus sessions and the city stay on mobile.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>+6 build permits a day</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>30-minute snooze from the reminder notification</li>
         </ul>
       </div>
     </div>
@@ -735,7 +763,7 @@
         <ul class="packs-list">
           <li>
             <span>Focus Ambience Pack</span><b>$4.99</b>
-            <em>5 scenes and 12 sound layers for your focus sessions</em>
+            <em>5 scenes and 16 sound layers for your focus sessions</em>
           </li>
           <li>
             <span>Full City Package</span><b>$4.99</b>
@@ -774,7 +802,17 @@
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="faq-a">
-          <p>Yes! The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building, dark &amp; light themes, and zero ads. Pro unlocks cloud sync, the desktop app with the AI task list your coding agents work out of, the Focus Ambience Pack, all buildings and advanced statistics &mdash; and it <strong>starts with a 7-day free trial</strong>, so you can try everything before paying. Cancel before the week is up and nothing is charged.</p>
+          <p>Yes! The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building, dark &amp; light themes, and zero ads. Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics, from $2.49 a month, and it <strong>starts with a 7-day free trial</strong>, so you can try everything before paying. Cancel before the week is up and nothing is charged.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Can I plan with ChatGPT, Claude, Gemini or Grok?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>Yes. Add Dovilo to the assistant as a custom connector with the URL <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and by default its changes wait for your approval: the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro.</p>
         </div>
       </div>
 
@@ -794,7 +832,7 @@
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="faq-a">
-          <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The Focus Ambience Pack adds the 5 atmospheric scenes and 12 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and it is already included with Pro.</p>
+          <p>No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The Focus Ambience Pack adds the 5 atmospheric scenes and 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and it is already included with Pro.</p>
         </div>
       </div>
 
@@ -815,6 +853,26 @@
         </div>
         <div class="faq-a">
           <p>No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Does my coding agent need Dovilo Desktop running?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at <code>https://dovilo.app/mcp/agents</code> with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the <a href="/ai">developer page</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>How many AI tasks does Pro include?</h3>
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a">
+          <p>15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire.</p>
         </div>
       </div>
 
@@ -943,6 +1001,7 @@
     </ul>
     <ul class="footer-links">
       <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/mcp/">MCP reference</a></li>
       <li><a href="/docs/webhooks">Webhooks</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/changelog/">Changelog</a></li>

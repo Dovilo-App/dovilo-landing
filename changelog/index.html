@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Release Notes & Changelog - Dovilo</title>
-  <meta name="description" content="What changed in Dovilo, per platform — mobile releases and the current desktop build — plus what is on the roadmap.">
+  <meta name="description" content="What changed in Dovilo, per platform: mobile and desktop releases with what each one shipped, plus what is on the roadmap.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dovilo.app/changelog/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt — structured summary for language models">
@@ -13,17 +13,17 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dovilo.app/changelog/">
   <meta property="og:title" content="Release Notes & Changelog - Dovilo">
-  <meta property="og:description" content="Every Dovilo release with its date — iOS and Android builds, the current Windows and Mac build, how updates reach you, and what is on the roadmap.">
+  <meta property="og:description" content="Every Dovilo release: iOS and Android builds, Windows and Mac builds, how updates reach you, and what is on the roadmap.">
   <meta property="og:site_name" content="Dovilo">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Release Notes & Changelog - Dovilo",
-  "description": "What changed in Dovilo, per platform — mobile releases and the current desktop build — plus what is on the roadmap.",
+  "description": "What changed in Dovilo, per platform: mobile and desktop releases with what each one shipped, plus what is on the roadmap.",
   "url": "https://dovilo.app/changelog/",
   "inLanguage": "en",
-  "dateModified": "2026-09-18",
+  "dateModified": "2026-10-27",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -87,35 +87,63 @@
   "name": "Dovilo Release Notes",
   "description": "Changelog of updates across Dovilo mobile (iOS & Android) and desktop (Windows & Mac) platforms.",
   "url": "https://dovilo.app/changelog/",
-  "numberOfItems": 4,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
+      "name": "Dovilo for iOS & Android 2.0.0",
+      "url": "https://dovilo.app/changelog/#mobile-2-0-0",
+      "description": "Plan with your AI: ChatGPT, Claude, Gemini or Grok propose plans that go into your lists once you approve them. AI Agents: Claude Code, Cursor and any MCP client connect to https://dovilo.app/mcp/agents with a key created in the app and work through AI tasks, 15 a month on Pro, which can be scheduled and repeated. Connected AI apps, a new Pro list and fixes."
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
       "name": "Dovilo for iOS & Android 1.2.0",
       "url": "https://dovilo.app/changelog/#mobile-1-2-0",
       "description": "Released 9 September 2026. Game layer completely redesigned — every asset redrawn, with animations, so the isometric city reads as a place rather than a progress bar."
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "name": "Dovilo for iOS & Android 1.1.0",
       "url": "https://dovilo.app/changelog/#mobile-1-1-0",
       "description": "Released 3 September 2026. Brand new Focus page: single sessions, a Pomodoro cycle of 25 minutes with a 5 minute break and a longer break every 4 rounds, or a session bound to one task, with a background timer, Do Not Disturb and full-screen ambience scenes. UI and UX improvements throughout the app."
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "name": "Dovilo for iOS & Android 1.0.0",
       "url": "https://dovilo.app/changelog/#mobile-1-0-0",
       "description": "Released 16 May 2026. Initial release on the App Store and Google Play: the to-do list, the focus timer and the city they feed, offline-first and free to start."
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
+      "name": "Dovilo Desktop for Windows & Mac 2.0.2",
+      "url": "https://dovilo.app/changelog/#desktop-2-0-2",
+      "description": "Released 27 October 2026. Task details open over the list, long text gets a large view, the agent's latest note sits above the reply box, and AI Agents are named as in the mobile app. Nothing changes in the MCP contract, agent keys or webhooks."
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Dovilo Desktop for Windows & Mac 2.0.1",
+      "url": "https://dovilo.app/changelog/#desktop-2-0-1",
+      "description": "Released 20 October 2026. Creating, regenerating and revoking an agent key works again, and so do webhook signing secrets and test pings. Connected AIs is now Agents, and Delete agent stops the key right away. Lists and projects are deleted from their List settings only."
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Dovilo Desktop for Windows & Mac 2.0.0",
+      "url": "https://dovilo.app/changelog/#desktop-2-0-0",
+      "description": "Released 19 October 2026. AIs connect to Dovilo's remote MCP server with their own key, so Desktop no longer has to run on the same machine; the MCP server built into 1.8 is off. AI tasks can be scheduled and repeat, one List settings window per list or project, public webhook URLs delivered by Dovilo's server, and a new design aligned with the mobile app."
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
       "name": "Dovilo Desktop for Windows & Mac 1.8.0",
-      "url": "https://dovilo.app/changelog/#desktop",
-      "description": "Released 17 May 2026. Initial stable release of Dovilo Desktop, the Pro build that carries the local MCP server and HMAC-signed webhooks."
+      "url": "https://dovilo.app/changelog/#desktop-1-8-0",
+      "description": "Released 17 May 2026. Initial stable release of Dovilo Desktop."
     }
   ]
 }
@@ -131,7 +159,7 @@
       "name": "What features are coming to Dovilo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two things are on the roadmap and not shipped yet. Data export: get your tasks and history out of Dovilo in an open format — everything the app knows already sits on your device, and Pro syncs it between devices, but there is no way yet to hand that data to another tool. Remote MCP server: connect an agent to your AI tasks without the desktop app running on the same machine — today the server is local by design, and the remote version keeps the same boundaries, meaning AI tasks only, scoped per project, with no task creation. Neither has a date yet, and each will appear in the release notes in the release that carries it."
+        "text": "One thing is on the roadmap and not shipped yet. Data export: get your tasks and history out of Dovilo in an open format — everything the app knows already sits on your device, and Pro syncs it between devices, but there is no way yet to hand that data to another tool. It has no date yet, and it will appear in the release notes in the release that carries it."
       }
     },
     {
@@ -147,7 +175,7 @@
       "name": "Where else does Dovilo publish changes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The webhooks reference at https://dovilo.app/docs/webhooks carries its own changelog for the payload contract, so an integration that depends on the schema has one place to watch. The MCP tool surface at https://dovilo.app/ai is versioned with the desktop app. Every desktop build is also tagged in the public releases repository at https://github.com/Dovilo-App/dovilo-desktop-releases/releases."
+        "text": "The webhooks reference at https://dovilo.app/docs/webhooks carries its own changelog for the payload contract, so an integration that depends on the schema has one place to watch. The MCP reference at https://dovilo.app/docs/mcp/ documents both MCP servers; since Dovilo 2.0 they run on Dovilo's server, not inside the desktop app. Every desktop build is also tagged in the public releases repository at https://github.com/Dovilo-App/dovilo-desktop-releases/releases."
       }
     }
   ]
@@ -172,7 +200,7 @@
     h2{margin:var(--s-7) 0 var(--s-4);scroll-margin-top:calc(var(--nav-h) + 16px)}
 
     /* Release cards. The .rel* names are a contract with the live GitHub fetch
-       at the bottom of this page — it writes this markup by hand. */
+       at the bottom of this page, which writes a card for a newer desktop build. */
     .rel{
       border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-2);
       padding:var(--s-5);margin-bottom:var(--s-4);
@@ -184,7 +212,6 @@
       font-size:var(--t--3);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
       background:var(--accent);color:var(--on-accent);padding:2px 9px;border-radius:var(--radius-pill);
     }
-    .rel-body{font-size:var(--t-1);margin-top:var(--s-3);white-space:pre-wrap;color:var(--ink-1)}
     .rel-notes{margin:var(--s-3) 0 0 20px;font-size:var(--t-1);color:var(--ink-1)}
     .rel-notes li{margin-bottom:5px}
     .rel-notes li:last-child{margin-bottom:0}
@@ -247,16 +274,33 @@
       numbers below are not meant to line up.
     </p>
     <p class="lede">
-      Each platform is tracked on its own below. The desktop entry is read live from the
-      <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>
-      when you open this page, so it is never a version behind.
+      Each platform is tracked on its own below. Desktop builds are also tagged in the
+      <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">public releases repository</a>;
+      if a newer one is published there than the builds listed here, this page adds it when you
+      open it, so it is never a version behind.
     </p>
     </header>
 
     <h2>Mobile: iOS &amp; Android</h2>
 
+    <div class="rel" id="mobile-2-0-0">
+      <div class="rel-head"><span class="rel-ver">2.0.0</span><span class="rel-latest">Latest</span></div>
+      <ul class="rel-notes">
+        <li>Plan with your AI: connect ChatGPT, Claude, Gemini or Grok to Dovilo. Plans land in the AI inbox and go into your lists with one tap once you approve them. Sending a plan is free; approving needs Pro.</li>
+        <li>AI Agents: connect Claude Code, Cursor or any MCP client to <code>https://dovilo.app/mcp/agents</code> with a key you create in the app. Agents work through AI tasks (15 a month on Pro, top-ups from $0.99), which can be scheduled and repeated, and ask you from the task when they need a decision.</li>
+        <li>Connected AI apps: for each connection, read access, approval mode (Ask me first by default), visible lists and projects, AI task access, and revoke.</li>
+        <li>A new Pro list. Reminders stay free; Pro adds +6 build permits a day and a 30-minute snooze.</li>
+        <li>Fixes: sheet animations and the keyboard, the bottom bars, deleting a list from the top navigation, the add button's shadow, signing out now clears AI data, and iOS declares all five languages.</li>
+      </ul>
+      <p class="rel-text">
+        2.0 connects Dovilo to the AI you already use. A chat assistant plans with you and
+        proposes; nothing reaches your lists until you approve it on your phone. A coding agent
+        gets its own key and its own AI tasks, and works them from any machine, without Dovilo
+        Desktop running.
+      </p>
+    </div>
     <div class="rel" id="mobile-1-2-0">
-      <div class="rel-head"><span class="rel-ver">1.2.0</span><span class="rel-date">9 September 2026</span><span class="rel-latest">Latest</span></div>
+      <div class="rel-head"><span class="rel-ver">1.2.0</span><span class="rel-date">9 September 2026</span></div>
       <ul class="rel-notes">
         <li>Game layer completely redesigned — every asset redrawn, with animations. The city feels alive now.</li>
       </ul>
@@ -297,23 +341,68 @@
     <h2 id="desktop">Desktop: Windows &amp; Mac</h2>
     <p class="sec-text">
       Desktop runs on its own version line, which is why its numbers sit well ahead of mobile’s.
-      It needs an active Pro subscription — you subscribe from the mobile app — and it is the only
-      build that carries the local MCP server: nine tools an agent in
-      <a href="/ai">Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI or Gemini CLI</a> can
-      call against the AI tasks you write for it, never against your personal to-do list. The same
-      build sends the HMAC-signed <a href="/docs/webhooks">webhooks</a>.
+      It needs an active Pro subscription, which you start from the mobile app. Since 2.0 it no
+      longer carries an MCP server: coding agents in
+      <a href="/ai">Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI or Gemini CLI</a>
+      connect to Dovilo's server from any machine and work only the AI tasks you write for them,
+      never your personal to-do list. Desktop is the desktop client for your lists and AI tasks,
+      where you also create agent keys and set up each project's
+      <a href="/docs/webhooks">webhook</a>.
     </p>
     <div id="releases">
-      <!-- Snapshot; the live fetch replaces it with the current build. -->
-      <div class="rel">
-        <div class="rel-head"><span class="rel-ver">1.8.0</span><span class="rel-date">17 May 2026</span><span class="rel-latest">Latest</span></div>
+      <!-- The live fetch at the bottom of the page adds a card here only for a
+           build newer than the first one below. -->
+      <div class="rel" id="desktop-2-0-2">
+        <div class="rel-head"><span class="rel-ver">2.0.2</span><span class="rel-date">27 October 2026</span><span class="rel-latest">Latest</span></div>
+        <ul class="rel-notes">
+          <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. The list stays clickable: pick another task and the panel switches; click outside or press Escape to close.</li>
+          <li>A large view for long text. Notes, AI task descriptions, context, notes from AI and project briefs open in a wide, scrollable view, and editable fields stay editable there.</li>
+          <li>When an AI task is waiting for you, the agent's latest note sits inside the "Waiting for your input" card, right where you answer, as in the mobile app.</li>
+          <li>"AI Agents" everywhere: the sidebar, settings and dialogs use the mobile app's names, in all five languages.</li>
+          <li>Fixes: a running AI task's lock banner now reads "Changes are locked while the task runs."; selecting an agent in the sidebar no longer resets My Tasks or squeezes the detail panel; copy cleanup in all five languages, including the window title.</li>
+        </ul>
+        <p class="rel-text">
+          Nothing changes in the MCP contract, agent keys or webhooks: agents set up for 2.0.0 or
+          2.0.1 keep working, and existing installs update on their own.
+        </p>
+      </div>
+      <div class="rel" id="desktop-2-0-1">
+        <div class="rel-head"><span class="rel-ver">2.0.1</span><span class="rel-date">20 October 2026</span></div>
+        <ul class="rel-notes">
+          <li>Creating, regenerating and revoking an agent key works again; in 2.0.0, connecting a new AI stopped at the key step. Webhook signing secrets and test pings work again too.</li>
+          <li>After a key error, Done in the connect wizard closes it. The Claude Desktop preset writes Dovilo's server address.</li>
+          <li>"Connected AIs" is now Agents. Disconnect is now Delete agent: it stops the agent's key right away, and the tasks it is running go back to the queue. "Last seen" is shown in your language.</li>
+          <li>A list or project is deleted only from the trash icon in its List settings, and the confirmation says what happens to its tasks and AI tasks. AI Tasks no longer shows an empty list after the project you were viewing is deleted or hidden.</li>
+        </ul>
+      </div>
+      <div class="rel" id="desktop-2-0-0">
+        <div class="rel-head"><span class="rel-ver">2.0.0</span><span class="rel-date">19 October 2026</span></div>
+        <ul class="rel-notes">
+          <li>AIs connect to Dovilo's remote MCP server with their own key. The desktop app no longer has to be running on the same machine.</li>
+          <li>The MCP server built into 1.8 is off. An AI still set up for it gets an error that explains the switch, and the app shows a banner asking you to reconnect it.</li>
+          <li>The connect wizard has presets for Claude Code, Codex CLI, Cursor, Cursor CLI, Windsurf, Gemini CLI, Claude Desktop and any other MCP client, and shows where each config goes.</li>
+          <li>AI tasks can start at a set time and repeat. The list is grouped by status, notes from AI render as Markdown, safely, and you can answer an agent's question from the task. Tasks you cancel and runs that were skipped show as Cancelled.</li>
+          <li>One List settings window per list or project, with its name, Show in AI Tasks, the brief and the webhook. Nothing is written until you press Save. List edits from two devices no longer overwrite each other.</li>
+          <li>Public webhook URLs are delivered by Dovilo's server, and a project whose webhook the server can't deliver is flagged.</li>
+          <li>A new design aligned with the mobile app. Spanish, French and German are fully translated. Dovilo can require a minimum desktop version and asks you to update before you sign in.</li>
+        </ul>
+        <p class="rel-text">
+          2.0 moves the agent connection off the desktop. A coding agent reaches its AI tasks
+          through <code>https://dovilo.app/mcp/agents</code> with a key of its own, from a laptop,
+          a server or a CI runner, and keeps working when Desktop is closed. Agents set up for 1.8
+          need the new URL and a new key; the <a href="/ai#upgrade">developer page</a> walks
+          through it.
+        </p>
+      </div>
+      <div class="rel" id="desktop-1-8-0">
+        <div class="rel-head"><span class="rel-ver">1.8.0</span><span class="rel-date">17 May 2026</span></div>
         <ul class="rel-notes">
           <li>Initial stable release.</li>
         </ul>
       </div>
     </div>
     <p class="rel-foot">
-      Every desktop build before this one is tagged in the
+      Every desktop build before these is tagged in the
       <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.
     </p>
 
@@ -328,17 +417,10 @@
           out as a file you can read and keep, so walking away from Dovilo costs you nothing you
           made here.
         </li>
-        <li>
-          <strong>Remote MCP server</strong> — connect an agent to your AI tasks without the
-          desktop app running on the same machine. Today the server is local by design: the agent
-          and the app share one computer, and quitting the app ends every connection. The remote
-          version keeps the same boundaries — AI tasks only, scoped per project, no task creation
-          — and drops the requirement that both sit at the same desk.
-        </li>
       </ul>
       <p style="margin-top:12px">
-        Each will appear above when it ships, in the release that carries it. Neither has a date:
-        naming one before it is real would make the rest of this list worth less.
+        It will appear above when it ships, in the release that carries it. It has no date:
+        naming one before it is real would make the promise worth less.
       </p>
     </div>
 
@@ -361,7 +443,8 @@
       <p>
         The <a href="/docs/webhooks">webhooks reference</a> carries its own changelog for the payload
         contract, so an integration that depends on the schema has one place to watch. The
-        <a href="/ai">MCP tool surface</a> is versioned with the desktop app.
+        <a href="/docs/mcp/">MCP reference</a> documents both MCP servers; since Dovilo 2.0 they
+        run on Dovilo's server, not inside the desktop app.
       </p>
     </div>
   </main>
@@ -381,6 +464,7 @@
     </ul>
     <ul class="footer-links">
       <li><a href="/ai">For developers</a></li>
+      <li><a href="/docs/mcp/">MCP reference</a></li>
       <li><a href="/docs/webhooks">Webhooks</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/changelog/">Changelog</a></li>
@@ -443,14 +527,23 @@
   </script>
 
   <script>
-    /* The desktop entry is rendered live so the version and date stay current;
-       the note text is kept here, because release bodies in that repo are empty.
-       A body published on GitHub always wins over the local copy. */
-    const DESKTOP_NOTES = {
-      '1.8.0': ['Initial stable release.']
-    };
-
+    /* The desktop builds are written out above, like mobile's. This only adds a
+       build published after the newest card, so the page is never a version
+       behind. Its notes stay on GitHub: release bodies there are Markdown written
+       for the repo, not for this page. The ItemList schema keeps to the cards
+       written above, so it never claims more than the page shows. */
     (function(){
+      const box = document.getElementById('releases');
+      const newest = box.querySelector('.rel .rel-ver');
+      const known = newest ? newest.textContent.trim() : '';
+      const parse = v => v.split('.').map(n => parseInt(n, 10) || 0);
+      const newer = (a, b) => {
+        const x = parse(a), y = parse(b);
+        for (let i = 0; i < Math.max(x.length, y.length); i++) {
+          if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+        }
+        return false;
+      };
       const fmt = new Intl.DateTimeFormat('en-GB', { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' });
       const esc = t => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -459,40 +552,25 @@
         .then(list => {
           const latest = (Array.isArray(list) ? list : []).filter(r => !r.draft && !r.prerelease)[0];
           if (!latest) return;
-          const ver  = esc((latest.tag_name || latest.name || '').replace(/^v/, ''));
+          const tag = String(latest.tag_name || '');
+          const ver = tag.replace(/^v/, '');
+          if (!/^\d+(\.\d+)*$/.test(ver) || !newer(ver, known)) return;
           const date = latest.published_at ? fmt.format(new Date(latest.published_at)) : '';
-          const body = (latest.body || '').trim();
-          const kept = DESKTOP_NOTES[ver];
-          let notes = '';
-          if (body) {
-            notes = '<div class="rel-body">' + esc(body) + '</div>';
-          } else if (kept) {
-            notes = '<ul class="rel-notes">' + kept.map(n => '<li>' + esc(n) + '</li>').join('') + '</ul>';
-          }
-          document.getElementById('releases').innerHTML =
+          const url = 'https://github.com/Dovilo-App/dovilo-desktop-releases/releases/tag/' + encodeURIComponent(tag);
+
+          const badge = box.querySelector('.rel-latest');
+          if (badge) badge.remove();
+          box.insertAdjacentHTML('afterbegin',
             '<div class="rel">' +
               '<div class="rel-head">' +
-                '<span class="rel-ver">' + ver + '</span>' +
+                '<span class="rel-ver">' + esc(ver) + '</span>' +
                 (date ? '<span class="rel-date">' + date + '</span>' : '') +
                 '<span class="rel-latest">Latest</span>' +
-              '</div>' + notes +
-            '</div>';
-
-          /* Keep the ItemList schema on the same build as the card above, so the
-             markup never claims a version the page no longer shows. */
-          try {
-            const node = document.getElementById('release-list-ld');
-            const data = JSON.parse(node.textContent);
-            const entry = data.itemListElement.find(i => /^Dovilo Desktop/.test(i.name));
-            if (entry) {
-              entry.name = 'Dovilo Desktop for Windows & Mac ' + ver;
-              const text = body || (kept ? kept.join(' ') : '');
-              if (text) entry.description = (date ? 'Released ' + date + '. ' : '') + text;
-            }
-            node.textContent = JSON.stringify(data, null, 2);
-          } catch (e) {}
+              '</div>' +
+              '<p class="rel-text">What changed is in the <a href="' + esc(url) + '" target="_blank" rel="noopener">release notes on GitHub</a>.</p>' +
+            '</div>');
         })
-        .catch(() => { /* keep the snapshot above */ });
+        .catch(() => { /* keep the builds written above */ });
     })();
   </script>
 </body>

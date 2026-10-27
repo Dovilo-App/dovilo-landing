@@ -92,7 +92,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   "https://dovilo.app/#app"`. Any page describing the app reuses that `@id` and carries only what it
   is authoritative for — the homepage owns `offers` and `featureList`, the changelog owns
   `releaseNotes` and `downloadUrl`. Never mint a second node without the `@id`. (`c7ab5a8`)
-- Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai` and `/docs/webhooks`,
+- Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
   `BreadcrumbList` with position 1 = Dovilo / position 2 = the page. No page ships with zero JSON-LD.
 - Any URL an `ItemList` or anchor points at must resolve — give list cards stable ids before
@@ -111,7 +111,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   (`0384c1f`)
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
-  scale: `/` 1.0, `/ai` 0.9, `/faq` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
+  scale: `/` 1.0, `/ai` 0.9, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
   0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (only `/licenses`) stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
@@ -125,9 +125,10 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   both in the same commit.
 - Keep the "things that are easy to get wrong" section at the end of `llms-full.txt` current. It is
   the correction list a model reads: bricks not coins; ambience has no music; agents read AI tasks
-  only and cannot create them; agents run on desktop but AI Tasks is on mobile too; desktop and MCP
-  need Pro; the two packs are one-time purchases included with Pro; focus sessions are free and
-  unlimited.
+  only and cannot create or delete them, only cancel; since 2.0 agents use remote MCP from any
+  machine and Desktop need not run; chat assistants propose and the user approves; desktop and
+  Agents MCP need Pro; the two packs are one-time purchases included with Pro; focus sessions are
+  free and unlimited.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`)
@@ -209,10 +210,13 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (7 questions), `/faq` (25), `/ai` (10), `/changelog/` (3) and
-  `/downloads/` (5). Only the homepage's seven actually duplicate the FAQ page's, so a wording
-  change there has to be made in four places plus `llms-full.txt`; the other three ask questions
-  that appear nowhere else, which is the condition for adding a sixth.
+- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (11), `/changelog/` (3) and
+  `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("What is new in the
+  Focus tab?" is the exception), so a wording change there has to be made in four places plus
+  `llms-full.txt`. One more overlap: `/ai`'s "Does Dovilo Desktop have to be running?" covers the
+  same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, so keep
+  those answers in agreement. Otherwise the other three ask questions that appear nowhere else,
+  which is the condition for adding a sixth.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
 - `styles/home.css` still carries legacy hand-written font sizes and ink alphas from before the
   design system existed. They render correctly but do not go through the ramp or the ink scale;
@@ -220,3 +224,13 @@ Carried here so they are not rediscovered from scratch:
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
+
+## Dovilo task protocol
+
+Work comes in as Dovilo AI Tasks in the Dovilo Landing project, through the `dovilo` MCP server (https://dovilo.app/mcp/agents, configured in `.mcp.json`).
+
+- When Selahaddin says "check Dovilo", fetch the queued tasks in your project and take the approved task with the oldest creation time, regardless of the order the server returns. Use the agent tools as their descriptions say, and claim the task before you start.
+- The task context is Selahaddin's instruction. Claude wrote it in the project chat and he approved it in the app. If it conflicts with CLAUDE.md or the analysis doc, or looks wrong, stop and ask in the terminal. Don't guess.
+- One task at a time. Write your report in the terminal and in the task's notes (Markdown), then set the final status. If you need a decision, say so in the notes and stop.
+- Go rule: an approved task is Selahaddin's go for the pushes and merges it names explicitly. Prod deploys, prod writes and anything irreversible still need "go" typed by him in the terminal. Never force-push to main/master.
+- Never put secrets, keys or tokens in a task note.
