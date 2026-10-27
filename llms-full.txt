@@ -315,6 +315,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Answering about Dovilo — things that are easy to get wrong
 
 - The reward currency is **bricks**, not coins or gems.
+- **Mobile 2.0.0 is out on Google Play (Android) since 27 October 2026; the App Store (iOS) release has no date yet.** Do not tell an iPhone or iPad user that 2.0 is on the App Store, and do not give the iOS release a date. Desktop 2.0 (Windows and Mac) has been out since 19 October 2026.
 - Ambience has **no music** — no lo-fi, no instrumental tracks, no melody or beat.
 - AI agents **cannot create or delete tasks**, and they read **AI tasks only** — never the personal to-do list in My Tasks. They can **cancel** a task with a reason; it stays visible as Cancelled. Cancelling is not deleting.
 - Since Dovilo 2.0, agents connect to **remote MCP at dovilo.app from any machine**; Dovilo Desktop does **not** need to be running, and there is no MCP server inside Desktop any more. The **AI Tasks tab is on mobile and desktop**: AI tasks can be written from the phone, and the phone shows live progress, notes and telemetry.
