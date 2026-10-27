@@ -45,7 +45,7 @@ linked) renders every component in both themes. Pages not yet moved stay on
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The hero, the homepage desktop shot and the two screenshots on `/ai`
+variants can be regenerated. The hero, the homepage desktop shot and the screenshots on `/ai`
 also carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
 `-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
 smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
