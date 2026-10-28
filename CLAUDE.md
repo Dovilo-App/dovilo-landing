@@ -189,8 +189,8 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
 - **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
-  page. `_config.yml` excludes `CLAUDE.md`, `README.md` and `docs/design-language.md`; a new internal
-  Markdown file goes on that list in the same commit.
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md` and the copy decks in
+  `docs/copy/`; a new internal Markdown file goes on that list in the same commit.
 
 ### GEO — writing for answer engines
 
