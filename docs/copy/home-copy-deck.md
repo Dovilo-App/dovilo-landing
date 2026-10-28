@@ -80,7 +80,7 @@ No step screens: the plan and the list are in the hero; Focus and the city have 
 
 - h2: «One engineer, in Istanbul.»
 - «No company, no funding. A public release history you can check.» → /changelog/
-- Buttons: App Store badge (`ct=website_download`) · Google Play badge (`utm_medium=download`) · Text link: «Dovilo Desktop for Windows and Mac needs Pro» → /downloads/
+- Buttons: App Store badge (`ct=website_home`) · Google Play badge (`utm_medium=home`), changed on 28 Oct 2026 from `website_download` / `download` so these installs are told apart from /downloads · Text link: «Dovilo Desktop for Windows and Mac needs Pro» → /downloads/
 
 ## Removed from today's /
 
