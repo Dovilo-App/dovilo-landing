@@ -558,10 +558,14 @@ sees first. The site script then points every `source.src-dark` at the nearest e
 `data-theme` (`all` for dark, `not all` for light), on load and on every toggle, and back to the OS
 query when there is no choice; the browser swaps the image without a reload. Only the capture for
 the current theme is fetched, and a lazy one only when it nears the viewport; the other is fetched
-the first time the theme changes. One edge: a visitor whose saved choice differs from the OS may
-fetch the hero's OS-theme capture once on a page's first load, because the preload scanner reads
-the markup before any script runs. `<picture>` adds no box (`display:contents`), so the
-`figure-pair`, `figure-phones`, `figure-row` and `step-shot` layouts are unchanged. A screen that
+the first time the theme changes. One edge: when a visitor's saved choice differs from the OS, the
+preload scanner, which reads the markup before any script runs, fetches every eager hero capture in
+the OS theme first (both phones on `/`, the phone on `/ai`), and the shown one only starts when the
+site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
+script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
+(`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
+`figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
+a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
 looks the same in both themes (the city) keeps one source. Desktop captures and share cards stay
 light.
 

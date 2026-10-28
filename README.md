@@ -58,10 +58,17 @@ To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) a
 with ffmpeg:
 
 ```bash
-# full-size WebP (quality 80 for the busy city render, 88 elsewhere)
-ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
+# Quality 80 for the busy city render, 88 elsewhere.
 
-# 1x variant for the phone slots (~193 CSS px wide)
+# A phone capture at full size (1206px PNG): the 386w and 772w pair the
+# redesigned pages use. A dark twin takes the same commands with -dark before
+# the width suffix (mobile-x-dark.webp, mobile-x-dark-772.webp).
+ffmpeg -i screenshots/mobile-x.png -vf scale=386:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
+ffmpeg -i screenshots/mobile-x.png -vf scale=772:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-772.webp
+
+# An older 386px PNG: encode it at its own size, plus the 1x variant for the
+# old pages' phone slots (~193 CSS px wide)
+ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
 ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-193.webp
 ```
 

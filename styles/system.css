@@ -166,10 +166,10 @@ code,kbd,pre{font-family:var(--font-mono);font-size:var(--text-code)}
 
 img,svg,video{display:block;max-width:100%}
 img{height:auto}
-/* A <picture> adds no box of its own: its <img> lays out exactly as it would
-   alone, so a figure with a dark capture needs no CSS of its own. Its
-   <source> would otherwise become an empty grid item and take a cell; the
-   browser picks the image from the markup, not from layout. */
+/* A <picture> adds no box of its own, so grids and figures lay out its <img>
+   directly. Its <source> would otherwise become an empty grid item and take
+   a cell; the browser picks the image from the markup, not from layout.
+   Selectors that count siblings (figure-phones below) must allow for it. */
 picture{display:contents}
 picture > source{display:none}
 
@@ -467,13 +467,13 @@ picture > source{display:none}
   max-width:480px;
 }
 .figure-phones img{align-self:start}
-.figure-phones > img + img,
-.figure-phones > picture + picture img{margin-top:var(--space-5)}
+.figure-phones > img:nth-child(2),
+.figure-phones > picture:nth-child(2) > img{margin-top:var(--space-5)}
 .figure-phones figcaption{grid-column:1 / -1}
 @media (min-width:600px){
   .figure-phones{column-gap:var(--space-3)}
-  .figure-phones > img + img,
-  .figure-phones > picture + picture img{margin-top:var(--space-6)}
+  .figure-phones > img:nth-child(2),
+  .figure-phones > picture:nth-child(2) > img{margin-top:var(--space-6)}
 }
 
 /* Figure row: two figures side by side, each with its own caption, as the
