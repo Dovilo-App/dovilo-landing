@@ -36,9 +36,11 @@ The rest of the page, block by block:
 - **Building with Claude Code or Cursor?** Your agent gets its own task list: 9 tools, no create, no delete, your list invisible. The detail is on the developer page, https://dovilo.app/ai.
 - **What it costs.** Free is the whole personal app: unlimited tasks and focus sessions, the city, no ads. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial, and adds AI planning, AI Agents, Desktop, cloud sync, both packs and advanced statistics.
 - **Recently shipped**, the newest release of each line: Mobile 2.0.0 on Android, 27 Oct 2026 (plan with ChatGPT, Claude, Gemini or Grok; AI Agents; the iOS release of 2.0.0 has no date yet), and Desktop 2.0.2, 27 Oct 2026 (task details open over the list). Every release: https://dovilo.app/changelog/
-- **One engineer, in Istanbul.** No company, no funding, and a public release history you can check. Dovilo is built by Selahaddin Akgün (https://sakgun.com): 14 years of production software, most recently as a lead engineer, and before that leading Android engineering at stc pay. It is a solo project: one person writes the mobile app, the desktop client and the website.
+- **One engineer, in Istanbul.** No company, no funding, and a public release history you can check.
 
 The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left, and the ambience mixer with Rain and Fireplace layered and Follow the session rhythm on; and a city at level 26 with a stadium, a hospital and a city hall.
+
+Who builds it, in more detail than the homepage gives: Dovilo is built by Selahaddin Akgün (https://sakgun.com), with 14 years of production software, most recently as a lead engineer and before that leading Android engineering at stc pay. It is a solo project: one person writes the mobile app, the desktop client and the website.
 
 The homepage answers ten questions. Nine of them are also on the FAQ page and are reproduced below in the FAQ's own wording; the tenth is only on the homepage:
 

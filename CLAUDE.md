@@ -51,16 +51,17 @@ Rules:
 - **Tokens live in `system.css` only**: five neutrals per theme and one accent, `#D4880A`. The
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
-- **Word budgets**, counted as visible words outside `<details>`/`<summary>`, the nav and the
-  footer: `/` at most 450, body copy under 350 (headings, labels, captions, links and the FAQ
-  questions count; store badges and alt text do not); `/ai` at most 440 (its section headings
+- **Word budgets**, counted as visible words outside the nav, the footer and the body of every
+  `<details>`: `/` at most 450, body copy under 350 (headings, labels, captions, links and the FAQ
+  questions in their `<summary>` count; FAQ answers, store badges and alt text do not); `/ai` at most 440 (its section headings
   count) plus one code block;
   `/pricing` at most 250;
   `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
-  paragraph is two or three declarative sentences with a number and counts toward the budget; depth
+  paragraph (the hero sub, or the "In short" paragraph straight after a one-line sub, as on `/ai`
+  and `/`) is two or three declarative sentences with a number and counts toward the budget; depth
   goes into `<details>` on the same page as real HTML, never injected; one `<h1>`, an `<h2>` per
   section, FAQ `<h3>`s phrased as questions; every existing URL and anchor `id` keeps resolving;
   JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
@@ -147,7 +148,9 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
 - `<title>`, `og:title`, `twitter:title` and the JSON-LD `name`/`headline` are **four copies of one
   string**. Change one, change all four, in the same commit.
 - The H1 need not equal the title, but it must cover the same topic, and the paragraph under it must
-  carry the brand plus the page's primary keyword without repeating the H1. (`7357794`)
+  carry the brand plus the page's primary keyword without repeating the H1. (`7357794`) On a
+  redesigned page whose hero sub is one line, the "In short" paragraph straight after the hero
+  carries this (`/ai`, `/`).
 - Meta description **≤ 150 characters**, hook in the first clause, and it may not claim anything the
   page contradicts. (`fd80943`)
 

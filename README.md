@@ -71,7 +71,7 @@ engine or model — gets the whole post in the first response, with its own meta
 JSON-LD and share card. That is the entire reason for the build step.
 
 ```
-tools/config.mjs       project, origin, how many posts the homepage shows
+tools/config.mjs       project, origin, blog paths and page size
 tools/template.mjs     the page shell — a copy of the hand-written pages' tokens and chrome
 tools/build-blog.mjs   fetch → render → write
 studio/                Sanity Studio: the schema, and the editor at dovilo.sanity.studio

@@ -734,8 +734,9 @@ Internal links use the URL form the target's canonical names, until the canonica
 
 ### Word budgets
 
-Visible words per page: text outside `<details>`/`<summary>`, the nav and the footer. The hero sub
-and every section sentence count; code inside a code block does not.
+Visible words per page: text outside the nav, the footer and the body of every `<details>`. The
+hero sub and every section sentence count; code inside a code block does not. A FAQ question in its
+`<summary>` counts on `/`; its answer does not.
 
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
@@ -757,8 +758,9 @@ Visible text shrinks; indexable text does not.
 
 - **The `<h1>` names the entity.** Every marketing page's `<h1>` contains "Dovilo".
 - **The first paragraph answers "what is this and for whom"** in two or three declarative
-  sentences with at least one number. On a page with a hero, that paragraph is the hero sub. It
-  counts toward the budget.
+  sentences with at least one number. On a page with a hero, that paragraph is the hero sub, or,
+  when the sub is one line, the "In short" paragraph straight after the hero (section 4). It counts
+  toward the budget.
 - **Depth moves to `<details>` on the same page**: tool tables, payload examples, long answers.
   Crawlable HTML, hidden only by default, excluded from the budget.
 - **One `<h1>` per page, an `<h2>` per section**, `<h3>` below that. FAQ `<h3>`s are questions.
@@ -809,8 +811,9 @@ adds the component here first.
 ## 10. Checks before a redesigned page ships
 
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
-- [ ] Visible words within budget (section 6), counted outside details, nav and footer.
-- [ ] `<h1>` names Dovilo; first paragraph is 2-3 declarative sentences with a number.
+- [ ] Visible words within budget, counted as section 6 says.
+- [ ] `<h1>` names Dovilo; the first paragraph (hero sub or In short) is 2-3 declarative sentences
+      with a number.
 - [ ] Every old URL and anchor `id` still resolves.
 - [ ] JSON-LD mirrors the visible text; `dateModified` = sitemap `lastmod`.
 - [ ] `llms.txt` and `llms-full.txt` updated from the page, not shortened.
