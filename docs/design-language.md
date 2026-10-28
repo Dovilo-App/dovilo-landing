@@ -176,10 +176,10 @@ A page may keep a behaviour it already has, in a second inline script after the 
 changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
 table-of-contents highlight on `/docs/mcp/` and `/docs/webhooks`. Its class names stay a contract
 (`CLAUDE.md` §1.1 lists them). A page script never styles anything and never builds content a
-crawler should read. If the behaviour needs a visual part this document does not have (a release
-entry), that part is added here first, like any other component. The platform detection's visual
-part is the highlighted card of the download boxes (section 5); the table of contents' is the
-reference layout (section 4).
+crawler should read. If the behaviour needs a visual part this document does not have, that part
+is added here first, like any other component. The release feed's visual part is the release
+entry and the platform detection's the highlighted card of the download boxes (both section 5);
+the table of contents' is the reference layout (section 4).
 
 ## 4. Layout
 
@@ -832,7 +832,45 @@ are in its HTML.
 </div>
 ```
 
-The old pages' `.faq-item.open` accordion and its script stay on the old pages only.
+An answer may run to more than one paragraph; the paragraphs sit 16px apart, and the JSON-LD
+joins them with a space. On `/faq` the questions come in groups: each group is a section with an
+`<h2>` and an `id` (`#general`, `#pro-pricing`, `#data-privacy` and so on) holding one accordion,
+and the page closes with the support address under `#contact`, as `/docs/` closes.
+
+The old pages' `.faq-item.open` accordion and its script are gone with the old `/faq`: no page
+uses it now, and its rules in `base.css` go when that file does.
+
+### Release entries
+
+The builds on `/changelog`, newest first, one version line (mobile, desktop) per section. Each
+entry sits under a 1px rule: the version as an `<h3>` (`rel-ver`), its date in a `<time>`
+(`rel-date`, in `--text-muted`), and on the newest build of each line the word Latest
+(`rel-latest`) in a 1px outline. Latest is a label, not a badge: no fill, no colour, and it states
+a fact rather than selling anything. Then what shipped as a bulleted list (`rel-notes`) and, where
+the build needs one, a paragraph of context in `--text-muted` (`rel-text`). A line under the list
+of entries (`rel-foot`) may say where older builds are. Each entry keeps its `id`
+(`#mobile-2-0-0`, `#desktop-2-0-2`): the home page's Recently shipped list and the changelog's
+`ItemList` point at them.
+
+```html
+<div class="releases" id="releases">
+  <div class="rel" id="desktop-2-0-2">
+    <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+    <ul class="rel-notes">
+      <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. …</li>
+    </ul>
+    <p class="rel-text">Nothing changes in the MCP contract, agent keys or webhooks: …</p>
+  </div>
+  …
+</div>
+<p class="rel-foot">Every desktop build before these is tagged in the <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.</p>
+```
+
+The `.rel*` names and `#releases` are a contract with the changelog's page script, the release
+feed: it reads the version of the first entry in `#releases`, asks the GitHub releases API for the
+newest desktop tag and, only when that tag is newer, writes an entry of the same markup above it,
+with a link to its notes on GitHub, and moves Latest to it. Every other entry is in the HTML, and
+the `ItemList` keeps to those.
 
 ### Note
 
@@ -1064,7 +1102,6 @@ adds the component here first.
 
 - **The blog pages** from `tools/template.mjs`. (The home page's blog band is gone: `/` links the
   blog in one line, and `tools/build-blog.mjs` no longer writes into `index.html`.)
-- **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).
 - `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
   as they are.
 
