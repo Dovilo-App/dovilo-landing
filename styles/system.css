@@ -387,7 +387,8 @@ picture > source{display:none}
 }
 
 /* Line lists: facts, integrations, trust, recently shipped, pricing summary.
-   One look, five content rules (see the doc). */
+   One look, five content rules (see the doc). Price lines, with the pricing
+   columns below, share the look. */
 .facts,.integrations,.trust,.shipped,.pricing-summary{list-style:none;padding:0}
 .facts li,.integrations li,.trust li,.shipped li,.pricing-summary li{
   max-width:none;
@@ -404,16 +405,39 @@ picture > source{display:none}
 @media (min-width:960px){.facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 /* Facts boxes: two facts lists side by side, each under its name and in one
-   column, so a URL keeps a whole line. */
-.facts-boxes{display:grid;gap:var(--space-3)}
-@media (min-width:768px){.facts-boxes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.facts-box{
+   column, so a URL keeps a whole line. Pricing columns and download boxes
+   are the same two boxes with other contents. */
+.facts-boxes,.plans,.download-boxes{display:grid;gap:var(--space-3)}
+@media (min-width:768px){.facts-boxes,.plans,.download-boxes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.facts-box,.plan,.download-box{
   padding:var(--space-3);
   background:var(--surface);
   border:1px solid var(--border);border-radius:var(--radius);
 }
 .facts-box h3{margin-bottom:var(--space-1)}
 .facts-box .facts{grid-template-columns:minmax(0,1fr)}
+
+/* Pricing columns: one box per plan, both alike, no badge and no plan
+   singled out. The plan's name is an h2 for the outline, set at the h3 size. */
+.plan h2,.download-box h2{font-size:var(--text-h3);letter-spacing:-.01em}
+.plan-prices{list-style:none;padding:0;margin-top:var(--space-2)}
+.plan-prices li{font-size:var(--text-h3);font-weight:600;line-height:var(--lh-heading)}
+.plan-prices li + li{margin-top:var(--space-1)}
+.plan-lead{margin-top:var(--space-3);font-weight:600}
+/* Price lines: the line-list look in one column, for what a plan or a
+   one-time purchase includes. */
+.price-lines{list-style:none;padding:0;border-bottom:1px solid var(--border)}
+.price-lines li{max-width:none;padding-block:var(--space-1);border-top:1px solid var(--border)}
+.plan .price-lines{margin-top:var(--space-3)}
+.plan-lead + .price-lines{margin-top:var(--space-1)}
+
+/* Download boxes: phones and desktop, each with its badges and a line or two.
+   The page script marks the visitor's platform with a ring, no colour. */
+.download-box > * + *{margin-top:var(--space-3)}
+.download-box p{color:var(--text-muted)}
+.download-box p a{color:var(--text)}
+/* Not while focused: the focus ring must stay the one a keyboard user sees. */
+.store-badge.highlighted:not(:focus-visible){outline:1px solid var(--text);outline-offset:3px}
 
 .shipped li,.pricing-summary li{display:grid;gap:0 var(--space-3)}
 .shipped time{font-size:var(--text-small);font-variant-numeric:tabular-nums}
@@ -561,6 +585,8 @@ picture > source{display:none}
 .closing p{margin:var(--space-2) auto 0;color:var(--text-muted)}
 .closing .actions,.closing .store-badges{justify-content:center;margin-top:var(--space-4)}
 .closing .link{margin-inline:auto}
+/* A closing that is the badges alone (/pricing) starts at the section's edge. */
+.closing .container > :first-child{margin-top:0}
 
 /* Footer */
 .footer{

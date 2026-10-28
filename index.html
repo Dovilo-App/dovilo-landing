@@ -77,43 +77,53 @@
   "offers": [
     {
       "@type": "Offer",
+      "name": "Free",
+      "url": "https://dovilo.app/pricing/#free",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Free tier with full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building and no ads"
+      "description": "$0. Full to-do management; Unlimited tasks & categories; Due dates, stars & priorities; Unlimited focus sessions; Basic city with starter buildings; Basic statistics; Dark & light themes; Offline-first, always works; No ads, ever"
     },
     {
       "@type": "Offer",
+      "name": "Pro: $2.49 a month",
+      "url": "https://dovilo.app/pricing/#pro",
       "price": "2.49",
       "priceCurrency": "USD",
-      "description": "Pro Monthly: planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app, cloud sync and both one-time packs",
-      "priceValidUntil": "2027-12-31",
-      "billingIncrement": "P1M"
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2.49", "priceCurrency": "USD", "billingDuration": "P1M" },
+      "description": "7-day trial in the app. Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
     },
     {
       "@type": "Offer",
+      "name": "Pro: $19.99 a year",
+      "url": "https://dovilo.app/pricing/#pro",
       "price": "19.99",
       "priceCurrency": "USD",
-      "description": "Pro Yearly — best value, save 33%",
-      "priceValidUntil": "2027-12-31",
-      "billingIncrement": "P1Y"
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19.99", "priceCurrency": "USD", "billingDuration": "P1Y" },
+      "description": "7-day trial in the app. Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
     },
     {
       "@type": "Offer",
+      "name": "Pro: $49.99 once",
+      "url": "https://dovilo.app/pricing/#pro",
       "price": "49.99",
       "priceCurrency": "USD",
-      "description": "Pro Lifetime — one-time payment, all features forever"
+      "description": "Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
     },
     {
       "@type": "Offer",
+      "name": "Focus Ambience Pack",
+      "url": "https://dovilo.app/pricing/#packs",
       "price": "4.99",
       "priceCurrency": "USD",
-      "description": "Focus Ambience Pack: one-time purchase, 5 ambience scenes and 16 sound layers, 13 recordings and 3 generated noises (included with Pro)"
+      "description": "One-time purchase. Focus Ambience Pack, $4.99: 5 scenes, 16 sound layers. Both packs are included with Pro."
     },
     {
       "@type": "Offer",
+      "name": "Full City Package",
+      "url": "https://dovilo.app/pricing/#packs",
       "price": "4.99",
       "priceCurrency": "USD",
-      "description": "Full City Package — one-time purchase, all buildings, decorations and upgrades (included with Pro)"
+      "description": "One-time purchase. Full City Package, $4.99: every building, decoration and upgrade. Both packs are included with Pro."
     }
   ],
   "featureList": [
@@ -291,7 +301,7 @@
       <nav aria-label="Main">
         <ul class="nav-links" id="nav-links">
           <li><a href="/ai">AI</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/downloads/">Downloads</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog/">Blog</a></li>
@@ -457,6 +467,7 @@
           <li><strong>Free</strong><span>The whole personal app: unlimited tasks and focus sessions, the city, no ads.</span></li>
           <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, 7-day trial. AI planning, AI Agents, Desktop, cloud sync, both packs, advanced statistics.</span></li>
         </ul>
+        <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -552,7 +563,7 @@
           <ul>
             <li><a href="/ai">For developers</a></li>
             <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/changelog/">Changelog</a></li>
           </ul>
         </div>

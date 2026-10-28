@@ -160,7 +160,7 @@ const NAV = (current) => `<a class="skip-link" href="#main">Skip to content</a>
       <li><a href="/#focus" onclick="closeMenu()">Focus</a></li>
       <li><a href="/ai" class="nav-ai" onclick="closeMenu()">AI<span class="nav-dot" aria-hidden="true"></span></a></li>
       <li><a href="/blog/"${current === 'blog' ? ' aria-current="page"' : ''} onclick="closeMenu()">Blog</a></li>
-      <li><a href="/#pricing" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="/pricing/" onclick="closeMenu()">Pricing</a></li>
       <li><a href="/downloads/" onclick="closeMenu()">Download</a></li>
     </ul>
     <div class="nav-actions">
