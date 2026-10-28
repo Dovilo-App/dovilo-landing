@@ -328,7 +328,7 @@ No. On iPhone, iPad and Android, updates arrive through the App Store and Google
 
 None beyond the phone app. Since Dovilo 2.0, a coding agent such as Claude Code, Cursor, Windsurf, Codex CLI or Gemini CLI connects to Dovilo's server at https://dovilo.app/mcp/agents with a key you create in the iOS or Android app, or in Dovilo Desktop, so the agent can run on any machine and Desktop does not need to be running. Agents reach AI tasks only, the jobs you write for them in the AI Tasks tab, never your personal to-do list, and they cannot create or delete tasks. You need Pro and Dovilo 2.0 or later.
 
-## Release notes (https://dovilo.app/changelog/)
+## Dovilo release notes (https://dovilo.app/changelog/)
 
 Dovilo is a gamified productivity app for iPhone, iPad, Android, Windows and Mac: a to-do list, focus sessions with full-screen ambience, and an isometric city built out of the work you actually finish. The release notes track every build that shipped on all four platforms: new features, redesigns and fixes. Mobile and desktop carry separate version lines, so their numbers are not meant to line up. Desktop builds are also tagged in the public releases repository, https://github.com/Dovilo-App/dovilo-desktop-releases/releases; if a newer one is published there than the builds the page lists, the page adds it when it is opened, with a link to its notes on GitHub. Each build has its own anchor on the page, given below.
 
@@ -425,6 +425,8 @@ The webhooks reference (https://dovilo.app/docs/webhooks) carries its own change
 By default everything is stored locally on the device. Enabling cloud sync stores the Firebase user id, task and city data, and preferences on Firebase, encrypted in transit and at rest. Analytics are aggregated and anonymised. AI connections (coding agents and chat assistants) go through dovilo.app, routed by Cloudflare; agent keys and OAuth tokens are stored only as hashes, and webhook secrets for server delivery are stored encrypted. Subscriptions run through RevenueCat; Dovilo never sees payment details. Full policy: https://dovilo.app/privacy
 
 ## Frequently asked questions (28 questions, verbatim from https://dovilo.app/faq)
+
+**Dovilo FAQ: straight answers on the app, Pro and AI.** Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 28 questions in six groups, from what is free to what an AI agent can see. Anything missing: support [at] dovilo.app.
 
 ### General
 

@@ -320,8 +320,9 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Six `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4),
-  `/changelog/` (3) and `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("How
+- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4) and
+  `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
+  questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
   does Focus work?" is the exception), so a wording change there has to be made in four places plus
   `llms-full.txt`. `/pricing/`'s four are copied word for word from `/faq`, which made it the one
   exception to the rule below, approved in its task: "Is Dovilo free?", "How many AI tasks does Pro
@@ -330,9 +331,8 @@ Carried here so they are not rediscovered from scratch:
   and JSON-LD on each) plus `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
   the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
   "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
-  authorize?", so keep those answers in agreement. Otherwise `/ai`, `/changelog/` and
-  `/downloads/` ask questions that appear nowhere else, which is the condition for adding a
-  seventh. The eight questions `/ai` dropped
+  authorize?", so keep those answers in agreement. Otherwise `/ai` and `/downloads/` ask
+  questions that appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
   in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
   way. One of them, "Can I get my data out?", covers the ground of `/faq`'s "Can I export my
   data?" (added 29 Oct 2026): both say not yet, on the roadmap, no date; keep them in agreement.
