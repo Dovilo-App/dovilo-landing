@@ -196,7 +196,8 @@ The unit of a page. One claim (an `<h2>` and at most one sentence), one proof.
 </section>
 ```
 
-Consecutive sections are separated by a 1px rule. Components stacked inside one section (a code
+Consecutive sections are separated by a 1px rule, and so are the hero and the section after it.
+Components stacked inside one section (a code
 block and a collapsible, a table and a note) sit 24px apart without any extra markup. Give a section
 an `id` whenever anything links to it, and keep every `id` the old page had (section 7).
 
@@ -269,7 +270,8 @@ at `/#pricing`.
 
 The top of a marketing page: an `<h1>` of **one sentence, at most 9 words, that names Dovilo**; a
 sub of **at most 20 words**; two buttons (one primary, one secondary); one full-width figure. No
-eyebrow, no pill, no badge, no second figure.
+eyebrow, no pill, no badge, no second figure. The name Dovilo does not count toward the 9 words.
+The figure may be a figure pair (below): still one figure, with one caption.
 
 ```html
 <section class="hero">
@@ -287,6 +289,25 @@ eyebrow, no pill, no badge, no second figure.
     </figure>
   </div>
 </section>
+```
+
+**Figure pair:** the desktop screen with one phone screen standing in front of its top right
+corner. The phone shows the same screen as the desktop, so the pair reads "on the desktop, and on
+the phone". From 768px the desktop takes 86% of
+the width and the phone 24%, rising 96px above the desktop into the hero's empty right side; the
+h1, the sub and the buttons keep to the left, so it covers none of them. Below 768px the desktop
+takes the full width and the phone overlaps its top right corner at 36%, rising 24px. An 8px ring
+of `--bg` separates the phone from the screen behind it: no shadow. Both images are above the fold,
+so neither is lazy; the desktop one is the LCP image.
+
+```html
+<figure class="figure figure-pair">
+  <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+       src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+  <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+       src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+  <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
+</figure>
 ```
 
 The hero sub is the page's first paragraph, so it carries the GEO rule in section 7 and the
@@ -325,6 +346,26 @@ A numbered flow of four steps. Each has an amber numeral chip, a **label of at m
 `role="list"` keeps list semantics in Safari once the bullets are gone; the numeral is
 `aria-hidden` because the `<ol>` already announces the position.
 
+**Steps with screens:** when every step has a real phone screen of its own, each step carries it
+under its detail (`steps-shots` on the list, `step-shot` on the image). The screen is at most 288px
+wide, lazy-loaded, with alt text that names what is on it. The step's label and detail are its
+caption, so there is no `<figcaption>`. All four steps get a screen or none does, and no screen
+repeats one shown elsewhere on the page. From 960px the screens line up along the bottom of the row.
+
+```html
+<ol class="steps steps-shots" role="list">
+  <li class="step">
+    <span class="step-num" aria-hidden="true">02</span>
+    <span class="step-label">Approve it on your phone</span>
+    <span class="step-detail">Nothing reaches an agent before you say yes.</span>
+    <img class="step-shot" srcset="… 386w, … 772w" sizes="(min-width:960px) 246px, 288px"
+         src="…" width="386" height="840" loading="lazy"
+         alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
+  </li>
+  …
+</ol>
+```
+
 ### Feature rows
 
 A heading and **one sentence of at most 18 words**. No icon. **At most five rows** in a section.
@@ -353,6 +394,24 @@ Five components share one look (1px rules between short lines) and differ in wha
   <li>5 languages</li>
   …
 </ul>
+```
+
+**Facts boxes:** a facts-list variant for two things of the same kind compared line for line, such
+as the two MCP servers. Two boxes side by side from 768px, stacked below, each with its name in an
+`<h3>` and 3 or 4 short lines in one column. Never more than two boxes.
+
+```html
+<div class="facts-boxes">
+  <div class="facts-box">
+    <h3>Agents MCP</h3>
+    <ul class="facts">
+      <li><code>https://dovilo.app/mcp/agents</code></li>
+      <li>For coding agents</li>
+      <li>One key per agent, shown once</li>
+    </ul>
+  </div>
+  <div class="facts-box">…</div>
+</div>
 ```
 
 **Integration lines:** one verb sentence per client. The client's name in `<strong>`, then what it
@@ -585,7 +644,7 @@ and every section sentence count; code inside a code block does not.
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
 | `/` | 350 at most | Collapsibles and the FAQ accordion |
-| `/ai` | 400 at most | One code block, plus collapsibles |
+| `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
 | `/pricing` | 250 at most | Collapsibles |
 | `/downloads` | 150 at most | Collapsibles |
 | `/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
@@ -616,8 +675,9 @@ Visible text shrinks; indexable text does not.
   `dateModified` and the sitemap `lastmod` in the same commit.
 - **`llms.txt` and `llms-full.txt` are regenerated from the page source, never shortened.** A
   shorter page does not mean a shorter `llms-full.txt`.
-- **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG. The `/ai` card is
-  a later task.
+- **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG: the page's hero
+  screenshot on the light `--bg`, under its `<h1>` set in Inter 700. The `/ai` card is
+  `/og-ai.jpg`.
 - **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` is `noindex` by meta
   tag, not by a `Disallow`.
 

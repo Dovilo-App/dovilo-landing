@@ -12,8 +12,8 @@ The app itself is closed source; this repository is the public website only.
 | Path | What it is |
 | --- | --- |
 | [`/`](https://dovilo.app) | Product overview — tasks, focus, ambience, the city, pricing, FAQ |
-| [`/ai`](https://dovilo.app/ai/) | The MCP integration: both servers, client setup, the nine agent tools, planning from chat assistants |
-| [`/docs/mcp`](https://dovilo.app/docs/mcp/) | MCP reference: endpoints, auth, all 22 tools, statuses, scheduling, approval rules |
+| [`/ai`](https://dovilo.app/ai/) | The developer page, on the design system: the agent layer in about 400 visible words, the depth on `/docs/mcp` |
+| [`/docs/mcp`](https://dovilo.app/docs/mcp/) | MCP reference: endpoints, auth, client setup, all 22 tools, statuses, scheduling, approval rules, planning from chat assistants, upgrading from 1.8, developer questions |
 | [`/docs/webhooks`](https://dovilo.app/docs/webhooks/) | Signed webhook events — delivery modes, payload schema, signature verification, retry policy |
 | [`/downloads`](https://dovilo.app/downloads/) | App Store, Play Store and desktop installers |
 | [`/changelog`](https://dovilo.app/changelog/) | Release notes per platform, plus the roadmap |
@@ -45,10 +45,11 @@ linked) renders every component in both themes. Pages not yet moved stay on
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The hero, the homepage desktop shot and the screen slider on `/ai`
+variants can be regenerated. The hero, the homepage desktop shot and the screenshots on `/ai`
 also carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
 `-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
-smaller file and stretches it. The `/ai` slider's phone shots add a `-772` variant for 2x screens.
+smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
+variant for 2x screens.
 To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
 with ffmpeg:
 

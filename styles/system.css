@@ -179,7 +179,7 @@ img{height:auto}
 
 /* A section makes one claim and shows one proof. */
 .section{padding-block:var(--section-y)}
-.section + .section{border-top:1px solid var(--border)}
+.section + .section,.hero + .section{border-top:1px solid var(--border)}
 .section-head{margin-bottom:var(--space-5)}
 .section-head p{margin-top:var(--space-2);color:var(--text-muted)}
 
@@ -328,6 +328,20 @@ img{height:auto}
   .step-num{grid-row:auto;justify-self:start;margin-bottom:var(--space-1)}
 }
 
+/* Steps with screens: each step carries its phone screen under the detail.
+   From 960px the detail row takes the slack, so the screens share a bottom
+   edge however many lines a label wraps to. */
+.step-shot{
+  grid-column:1 / -1;
+  width:100%;max-width:288px;
+  margin-top:var(--space-2);
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+@media (min-width:960px){
+  .steps-shots .step{grid-template-rows:auto auto 1fr auto}
+}
+
 /* Feature rows */
 .features{border-top:1px solid var(--border)}
 .feature{
@@ -357,6 +371,18 @@ img{height:auto}
 @media (min-width:600px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:960px){.facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+/* Facts boxes: two facts lists side by side, each under its name and in one
+   column, so a URL keeps a whole line. */
+.facts-boxes{display:grid;gap:var(--space-3)}
+@media (min-width:768px){.facts-boxes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.facts-box{
+  padding:var(--space-3);
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.facts-box h3{margin-bottom:var(--space-1)}
+.facts-box .facts{grid-template-columns:minmax(0,1fr)}
+
 .shipped li,.pricing-summary li{display:grid;gap:0 var(--space-3)}
 .shipped time{font-size:var(--text-small);font-variant-numeric:tabular-nums}
 .shipped a{color:var(--text)}
@@ -374,6 +400,32 @@ img{height:auto}
 }
 .figure figcaption{margin-top:var(--space-2);font-size:var(--text-small);color:var(--text-muted)}
 .figure-phone{max-width:288px}
+
+/* Figure pair: the desktop screen with one phone screen in front of its top
+   right corner, rising above it into the hero's empty right side (the h1 and
+   sub keep to the left, the buttons end well short of it). Both share one
+   grid row; the phone's negative margin lifts it without moving the desktop,
+   and a phone taller than the desktop simply grows the row. The ring in --bg
+   parts it from the screen behind; outlines are ink overflow, so the ring
+   never widens the page. */
+.figure-pair{
+  display:grid;
+  grid-template-columns:minmax(0,64fr) minmax(0,36fr);
+}
+.figure-pair img{align-self:start}
+.figure-pair .pair-desktop{grid-column:1 / -1;grid-row:1}
+.figure-pair .pair-phone{
+  grid-column:2;grid-row:1;
+  margin-top:calc(-1 * var(--space-3));
+  position:relative;z-index:1;
+  outline:var(--space-1) solid var(--bg);
+}
+.figure-pair figcaption{grid-column:1 / -1;grid-row:2}
+@media (min-width:768px){
+  .figure-pair{grid-template-columns:minmax(0,76fr) minmax(0,10fr) minmax(0,14fr)}
+  .figure-pair .pair-desktop{grid-column:1 / 3}
+  .figure-pair .pair-phone{grid-column:2 / 4;margin-top:calc(-1 * var(--space-7))}
+}
 
 /* Code block. Themed like the page; no highlighting library. */
 .code{

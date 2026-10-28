@@ -52,7 +52,8 @@ Rules:
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
 - **Word budgets**, counted as visible words outside `<details>`/`<summary>`, the nav and the
-  footer: `/` at most 350; `/ai` at most 400 plus one code block; `/pricing` at most 250;
+  footer: `/` at most 350; `/ai` at most 440 (its section headings count) plus one code block;
+  `/pricing` at most 250;
   `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
@@ -288,13 +289,16 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (11), `/changelog/` (3) and
+- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/changelog/` (3) and
   `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("What is new in the
   Focus tab?" is the exception), so a wording change there has to be made in four places plus
-  `llms-full.txt`. One more overlap: `/ai`'s "Does Dovilo Desktop have to be running?" covers the
-  same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, so keep
-  those answers in agreement. Otherwise the other three ask questions that appear nowhere else,
-  which is the condition for adding a sixth.
+  `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
+  the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
+  "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
+  authorize?", so keep those answers in agreement. Otherwise the other three ask questions that
+  appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
+  in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
+  way.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
 - `styles/home.css` still carries legacy hand-written font sizes and ink alphas from before the
   design system existed. They render correctly but do not go through the ramp or the ink scale;
