@@ -209,10 +209,14 @@
                sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
                src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
                alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
-          <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
-               sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-               src="/screenshots/mobile-ai.webp" width="386" height="840"
-               alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+          <picture>
+            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-dark.webp 386w, /screenshots/mobile-ai-dark-772.webp 772w"
+                   sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="840">
+            <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
+                 sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                 src="/screenshots/mobile-ai.webp" width="386" height="840"
+                 alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+          </picture>
           <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
         </figure>
       </div>
@@ -235,33 +239,49 @@
             <span class="step-num" aria-hidden="true">01</span>
             <span class="step-label">Write the task</span>
             <span class="step-detail">Or let ChatGPT or Claude propose it.</span>
-            <img class="step-shot" srcset="/screenshots/mobile-ai-new-task.webp 386w, /screenshots/mobile-ai-new-task-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                 src="/screenshots/mobile-ai-new-task.webp" width="386" height="840" loading="lazy"
-                 alt="Dovilo: new AI task form with title and description">
+            <picture>
+              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-new-task-dark.webp 386w, /screenshots/mobile-ai-new-task-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+              <img class="step-shot" srcset="/screenshots/mobile-ai-new-task.webp 386w, /screenshots/mobile-ai-new-task-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/mobile-ai-new-task.webp" width="386" height="840" loading="lazy"
+                   alt="Dovilo: new AI task form with title and description">
+            </picture>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">02</span>
             <span class="step-label">Approve it on your phone</span>
             <span class="step-detail">Nothing reaches an agent before you say yes.</span>
-            <img class="step-shot" srcset="/screenshots/mobile-ai-proposal.webp 386w, /screenshots/mobile-ai-proposal-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                 src="/screenshots/mobile-ai-proposal.webp" width="386" height="840" loading="lazy"
-                 alt="Dovilo AI inbox: an AI task proposed by Claude with an approve button">
+            <picture>
+              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-proposal-dark.webp 386w, /screenshots/mobile-ai-proposal-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+              <img class="step-shot" srcset="/screenshots/mobile-ai-proposal.webp 386w, /screenshots/mobile-ai-proposal-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/mobile-ai-proposal.webp" width="386" height="840" loading="lazy"
+                   alt="Dovilo AI inbox: an AI task proposed by Claude with an approve button">
+            </picture>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">03</span>
             <span class="step-label">Your agent works it</span>
             <span class="step-detail">Steps and notes land on the task as it runs.</span>
-            <img class="step-shot" srcset="/screenshots/mobile-ai-running.webp 386w, /screenshots/mobile-ai-running-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                 src="/screenshots/mobile-ai-running.webp" width="386" height="840" loading="lazy"
-                 alt="Dovilo AI task detail while the agent runs: steps and agent notes">
+            <picture>
+              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-running-dark.webp 386w, /screenshots/mobile-ai-running-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+              <img class="step-shot" srcset="/screenshots/mobile-ai-running.webp 386w, /screenshots/mobile-ai-running-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/mobile-ai-running.webp" width="386" height="840" loading="lazy"
+                   alt="Dovilo AI task detail while the agent runs: steps and agent notes">
+            </picture>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">04</span>
             <span class="step-label">It asks, you answer</span>
             <span class="step-detail">It stops at a decision; you reply from your phone or chat.</span>
-            <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                 src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy"
-                 alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+            <picture>
+              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-done-dark.webp 386w, /screenshots/mobile-ai-done-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+              <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy"
+                   alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+            </picture>
           </li>
         </ol>
       </div>
@@ -479,8 +499,8 @@
   </footer>
 
   <script>
-    /* Site script: theme toggle, mobile menu, copy buttons, email links. The
-       same on every page. */
+    /* Site script: theme toggle, mobile menu, copy buttons, email links and
+       the dark captures of figures. The same on every page. */
     (function(){
       var root = document.documentElement;
       var dark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -498,6 +518,14 @@
         if (root.hasAttribute('data-theme')) {
           document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
         }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme, or the OS when there is none, so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : h === 'light' ? 'not all' : '(prefers-color-scheme: dark)';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
       }
       document.querySelectorAll('.theme-toggle').forEach(function(b){
         b.addEventListener('click', function(){

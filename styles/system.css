@@ -166,6 +166,12 @@ code,kbd,pre{font-family:var(--font-mono);font-size:var(--text-code)}
 
 img,svg,video{display:block;max-width:100%}
 img{height:auto}
+/* A <picture> adds no box of its own, so grids and figures lay out its <img>
+   directly. Its <source> would otherwise become an empty grid item and take
+   a cell; the browser picks the image from the markup, not from layout.
+   Selectors that count siblings (figure-phones below) must allow for it. */
+picture{display:contents}
+picture > source{display:none}
 
 :focus-visible{outline:2px solid var(--text);outline-offset:2px}
 
@@ -461,11 +467,13 @@ img{height:auto}
   max-width:480px;
 }
 .figure-phones img{align-self:start}
-.figure-phones img + img{margin-top:var(--space-5)}
+.figure-phones > img:nth-child(2),
+.figure-phones > picture:nth-child(2) > img{margin-top:var(--space-5)}
 .figure-phones figcaption{grid-column:1 / -1}
 @media (min-width:600px){
   .figure-phones{column-gap:var(--space-3)}
-  .figure-phones img + img{margin-top:var(--space-6)}
+  .figure-phones > img:nth-child(2),
+  .figure-phones > picture:nth-child(2) > img{margin-top:var(--space-6)}
 }
 
 /* Figure row: two figures side by side, each with its own caption, as the

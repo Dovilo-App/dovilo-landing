@@ -31,7 +31,7 @@ No step screens: the plan and the list are in the hero; Focus and the city have 
 
 - h2: «Focus that fills the whole screen»
 - «A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.»
-- Figure A: `en-08`. Caption: «Rainy City, 22 minutes left.» Alt: «Dovilo focus session in the Rainy City scene with the timer at 22:40»
+- Figure A: `en-08`. Caption: «Rainy City, 22 minutes left.» Alt: «Dovilo focus session in the Rainy City scene with 22 minutes left»
 - Figure B: `en-09`, cropped so the "The Sound of My City · Soon" card is out. Caption: «Rain and fireplace.» Alt: «Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on»
 
 ## 5. City [feature-row with one figure] · id showcase

@@ -49,15 +49,26 @@ variants can be regenerated. The screenshots on `/` and `/ai`
 carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
 `-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
 smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
-variant for 2x screens.
+variant for 2x screens. A phone screen that the app draws differently in its dark theme also has a dark
+twin with the same crop, named with `-dark` before any width suffix (`mobile-ai-inbox-dark.webp`,
+`mobile-ai-inbox-dark-772.webp`); the page pairs the two in a `<picture>` and shows the one that
+matches its theme (see the Figure section of the design doc). The sources of both sets are in
+`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`.
 To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
 with ffmpeg:
 
 ```bash
-# full-size WebP (quality 80 for the busy city render, 88 elsewhere)
-ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
+# Quality 80 for the busy city render, 88 elsewhere.
 
-# 1x variant for the phone slots (~193 CSS px wide)
+# A phone capture at full size (1206px PNG): the 386w and 772w pair the
+# redesigned pages use. A dark twin takes the same commands with -dark before
+# the width suffix (mobile-x-dark.webp, mobile-x-dark-772.webp).
+ffmpeg -i screenshots/mobile-x.png -vf scale=386:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
+ffmpeg -i screenshots/mobile-x.png -vf scale=772:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-772.webp
+
+# An older 386px PNG: encode it at its own size, plus the 1x variant for the
+# old pages' phone slots (~193 CSS px wide)
+ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
 ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-193.webp
 ```
 

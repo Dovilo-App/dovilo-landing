@@ -162,10 +162,11 @@ The stylesheet is render-blocking on purpose, for the same reasons `CLAUDE.md` g
 ### Site script
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
-menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed") and the email
-links. Copy it from `styleguide/index.html` verbatim. It keys on these names, which are therefore a
-contract: `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
-`.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. A copy button's label is plain
+menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed"), the email
+links and the dark captures of figures (section 5, Figure). Copy it from `styleguide/index.html`
+verbatim. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
+(with `aria-controls`), `.nav-links.open`, `.copy-btn`, `.copy-btn.copied`, `.code`, `a.mail` with
+`data-u`/`data-d`, and `source.src-dark`. A copy button's label is plain
 text. The theme choice is stored in `localStorage['dovilo-theme']`, the same key the old pages use,
 so a visitor's choice follows them across both systems.
 
@@ -533,6 +534,40 @@ caps them at 288px wide.
 
 One figure per claim, and **the same image never appears twice on a page**. Images follow the
 WebP, `width`/`height`, `srcset`/`sizes` and lazy-loading rules in `CLAUDE.md`.
+
+**Dark capture:** a phone screen that the app draws differently in its dark theme carries both
+captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
+capture, its alt text, `loading`, `fetchpriority` and `width`/`height`; a `<source class="src-dark">`
+before it in a `<picture>` holds the dark capture, with the same `sizes` and the same
+`width`/`height`, so swapping never moves the layout. The dark file has the light file's name plus
+`-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`), and the same crop.
+
+```html
+<picture>
+  <source class="src-dark" media="(prefers-color-scheme: dark)"
+          srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+          sizes="…" width="386" height="840">
+  <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+       alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+</picture>
+```
+
+The markup's `media` follows the OS setting, which is what the browser (and its preload scanner)
+sees first. The site script then points every `source.src-dark` at the nearest explicit
+`data-theme` (`all` for dark, `not all` for light), on load and on every toggle, and back to the OS
+query when there is no choice; the browser swaps the image without a reload. Only the capture for
+the current theme is fetched, and a lazy one only when it nears the viewport; the other is fetched
+the first time the theme changes. One edge: when a visitor's saved choice differs from the OS, the
+preload scanner, which reads the markup before any script runs, fetches every eager hero capture in
+the OS theme first (both phones on `/`, the phone on `/ai`), and the shown one only starts when the
+site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
+script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
+(`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
+`figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
+a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
+looks the same in both themes (the city) keeps one source. Desktop captures and share cards stay
+light.
 
 ### Code block
 
