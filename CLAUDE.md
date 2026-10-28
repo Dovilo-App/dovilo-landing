@@ -9,16 +9,84 @@ Two things here have already cost real time and must not be undone by a later ch
 
 1. **The SEO / GEO work.** Every rule below came out of a specific commit that fixed a specific
    audit finding. Re-read the commit if you need the reasoning: the messages carry it.
-2. **The design system.** `styles/base.css` is the single source of truth for type, colour, spacing
-   and chrome on every page. Before this existed the site had three unrelated type systems under
-   one brand.
+2. **The design system.** [`docs/design-language.md`](docs/design-language.md) is the single design
+   reference, and `styles/system.css` implements it. Pages move onto it one redesign task at a time;
+   until a page moves, `styles/base.css` stays the source of truth for it. Before `base.css` existed
+   the site had three unrelated type systems under one brand; two systems on one page would bring
+   that back.
+
+---
+
+## Release timing
+
+Dovilo 2.0 shipped on 27 Oct 2026, the release day the product docs call R: mobile 2.0.0 reached
+Google Play (Android) that day, and Desktop 2.0.x has been out since 19 Oct. **The iOS release of
+2.0.0 has no date yet**: never say 2.0 is on the App Store and never give it a date. Remote MCP
+(Agents MCP at `/mcp/agents`, Personal MCP at `/mcp`), planning from chat assistants, scheduling and
+repeat for AI tasks, and server delivery of webhooks are public: never write "local" about MCP, and
+never put any of them "on the roadmap". **Not yet:** directory listings (ChatGPT, Claude, the MCP
+Registry) and data export. Say so plainly where it matters, and give neither a date. Blog posts come from Sanity and still carry pre-2.0
+sentences: do not edit them here and do not quote them on the site. They are fixed at the source.
 
 ---
 
 ## 1. The design system
 
+### 1.1 The design language (redesigned pages)
+
+[`docs/design-language.md`](docs/design-language.md) is the one design reference: principles,
+tokens, components with their HTML, copy rules, word budgets, the GEO layer and theming. A page task
+that says "follow docs/design-language.md" needs nothing else about design. `styles/system.css`
+implements the doc and nothing else, and `/styleguide/` (source `styleguide/index.html`, named here
+without a link on purpose) renders every component in light and dark with real copy.
+
+Rules:
+
+- **No page may introduce a component the doc does not have.** If a page needs one, add it to the
+  doc, to `system.css` and to `/styleguide/` in the same commit, then use it.
+- **A redesigned page links `system.css` and nothing else.** No `base.css` or `home.css` next to it,
+  no `<style>` block, no inline style. A page is on one system or the other, never both. The one
+  exception is the highlight.js theme `/docs/webhooks` inlines (§2 Performance), until its redesign
+  task decides otherwise.
+- **Tokens live in `system.css` only**: five neutrals per theme and one accent, `#D4880A`. The
+  accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
+  background it reads at 2.7:1.
+- **Word budgets**, counted as visible words outside `<details>`/`<summary>`, the nav and the
+  footer: `/` at most 350; `/ai` at most 440 (its section headings count) plus one code block;
+  `/pricing` at most 250;
+  `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
+  budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
+  depth; the fact is never deleted.
+- **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
+  paragraph is two or three declarative sentences with a number and counts toward the budget; depth
+  goes into `<details>` on the same page as real HTML, never injected; one `<h1>`, an `<h2>` per
+  section, FAQ `<h3>`s phrased as questions; every existing URL and anchor `id` keeps resolving;
+  JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
+  never shortened.
+- **The 300-word floor in §2 still applies.** On a budgeted page it is met by the visible text plus
+  what its collapsibles hold.
+- **No em dash anywhere a person reads** on a redesigned page: body copy, captions, buttons and alt
+  text as well as headings. `llms.txt` and `llms-full.txt` are the only exception.
+- **Class names are a contract with the site script** at the end of every redesigned page:
+  `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
+  `.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. The theme stays in
+  `localStorage['dovilo-theme']`, the key the old pages use, so a visitor's choice carries across
+  both systems. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
+  contents) go in a page script after the site script; the doc's §3 says how.
+- **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
+  twice, once per theme: edit both copies together.
+
+The redesign runs on the `redesign` branch, one task per page: `/ai`, then `/`, then a new
+`/pricing`, then `/downloads`, `/faq`, `/docs/*` and `/changelog`. `/privacy`, `/terms`, `/licenses`
+and every blog page (`tools/template.mjs`) also link `base.css` and are not on that list yet.
+`base.css`, `home.css` and §1.2 are deleted only when no page links `base.css` any more: check with
+a search across the repo and the blog template, not by the list above.
+
+### 1.2 The old system (pages not yet redesigned)
+
 `styles/base.css` holds the tokens, the type ramp, the ink scale, the nav, the footer and every
-shared component. **Every page links it first**, then adds only what is specific to that page.
+shared component of the pages that have not moved yet. **Every such page links it first**, then adds
+only what is specific to that page.
 
 ```html
 <!-- First in <head>, straight after canonical, above Open Graph and far above the JSON-LD:
@@ -29,7 +97,8 @@ shared component. **Every page links it first**, then adds only what is specific
 
 Rules:
 
-- **Never redeclare a token.** `:root` is declared in `base.css` and nowhere else. A page that
+- **Never redeclare a token.** On these pages `:root` is declared in `base.css` and nowhere else
+  (`system.css` is the redesigned pages' own single declaration). A page that
   re-declares `--bg` or `--accent` re-introduces exactly the drift this system removed. `.keep-dark`
   is the one sanctioned override, for surfaces that stay dark in both themes (terminals, focus
   scenes).
@@ -72,7 +141,8 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   spaces around it. Never an em dash, never brand-first. (`7357794`)
 - **No em dash in any heading.** `<h1>`–`<h4>`, `<title>`, `.section-title` and `<summary>` use a
   colon, a comma or a plain hyphen instead. "Mobile: iOS & Android", not "Mobile — iOS & Android".
-  Em dashes are fine in body copy; a heading is a label, and the dash reads as a typographic tic and
+  On redesigned pages the rule covers body copy too (§1.1). On the old pages
+  em dashes are fine in body copy; a heading is a label, and the dash reads as a typographic tic and
   breaks the one-pattern rule above. This applies to blog post headings too, which come from the
   Markdown body in Sanity — fix them at the source, since the build regenerates the pages.
 - `<title>`, `og:title`, `twitter:title` and the JSON-LD `name`/`headline` are **four copies of one
@@ -112,7 +182,8 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
-  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (only `/licenses`) stays out.
+  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`)
+  stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
@@ -164,6 +235,8 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   gzipped against a 17.6 KB document. Compression is already at its floor and is not ours to tune:
   Pages sits behind Cloudflare, which answers an `Accept-Encoding: br` request with a low-quality
   7.9 KB body — larger than the gzip it would replace.
+  `styles/system.css` on redesigned pages is the same case for the same reasons: one same-origin,
+  render-blocking stylesheet that is the whole design system. Never async-load it, never inline it.
 - The one permitted third-party runtime dependency is highlight.js on `/docs/webhooks`, loaded at
   the end of `<body>` with a `preconnect` in `<head>`. Its atom-one-dark theme is **inlined at the
   top of that page's `<style>`**, above the page's own overrides, with its BSD-3-Clause attribution.
@@ -201,7 +274,10 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
 - [ ] Facts changed? `llms.txt` and `llms-full.txt` updated in the same commit.
 - [ ] New page? Linked from the shared nav or footer, and in `sitemap.xml`.
 - [ ] Every new `<img>`: alt, width, height, WebP, lazy unless above the fold.
-- [ ] No new token, font size or ink alpha outside `styles/base.css`.
+- [ ] No new token, font size or ink alpha outside `styles/base.css` (old pages) or
+      `styles/system.css` (redesigned pages).
+- [ ] Redesigned page: only components from `docs/design-language.md`, visible words within the
+      page's budget, and the doc's own checklist (its section 10) run.
 - [ ] Both themes checked — dark and light — and the page still reads at 320px wide.
 
 ## 4. Known issues, not yet fixed
@@ -213,13 +289,16 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (11), `/changelog/` (3) and
+- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/changelog/` (3) and
   `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("What is new in the
   Focus tab?" is the exception), so a wording change there has to be made in four places plus
-  `llms-full.txt`. One more overlap: `/ai`'s "Does Dovilo Desktop have to be running?" covers the
-  same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, so keep
-  those answers in agreement. Otherwise the other three ask questions that appear nowhere else,
-  which is the condition for adding a sixth.
+  `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
+  the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
+  "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
+  authorize?", so keep those answers in agreement. Otherwise the other three ask questions that
+  appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
+  in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
+  way.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
 - `styles/home.css` still carries legacy hand-written font sizes and ink alphas from before the
   design system existed. They render correctly but do not go through the ramp or the ink scale;
@@ -227,6 +306,11 @@ Carried here so they are not rediscovered from scratch:
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
+- Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
+  homepage blog band (written by `tools/build-blog.mjs` between the `BLOG` markers, classes listed
+  in §1.2), the blog pages themselves (`tools/template.mjs`, still a copy of the `base.css` chrome),
+  the docs' table of contents, the `/downloads` platform cards and the changelog's release entries.
+  The task that moves each page adds its component first.
 
 ## Dovilo task protocol
 
