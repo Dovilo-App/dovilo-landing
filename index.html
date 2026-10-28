@@ -329,14 +329,22 @@
           <a class="link" href="/ai">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
         </div>
         <figure class="figure figure-phones">
-          <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
-               sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-               src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" fetchpriority="high"
-               alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
-          <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
-               sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-               src="/screenshots/mobile-list-birthday.webp" width="386" height="840"
-               alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+          <picture>
+            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+                   sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+            <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                 sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                 src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" fetchpriority="high"
+                 alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+          </picture>
+          <picture>
+            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-list-birthday-dark.webp 386w, /screenshots/mobile-list-birthday-dark-772.webp 772w"
+                   sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+            <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
+                 sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                 src="/screenshots/mobile-list-birthday.webp" width="386" height="840"
+                 alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+          </picture>
           <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
         </figure>
       </div>
@@ -388,17 +396,25 @@
           </div>
           <div class="figure-row">
             <figure class="figure">
-              <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w"
-                   sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-                   src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
-                   alt="Dovilo focus session in the Rainy City scene with the timer at 22:40">
+              <picture>
+                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-focus-rain-dark.webp 386w, /screenshots/mobile-focus-rain-dark-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo focus session in the Rainy City scene with the timer at 22:40">
+              </picture>
               <figcaption>Rainy City, 22 minutes left.</figcaption>
             </figure>
             <figure class="figure">
-              <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w"
-                   sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-                   src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
-                   alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+              <picture>
+                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ambience-mixer-dark.webp 386w, /screenshots/mobile-ambience-mixer-dark-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="350">
+                <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
+                     alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+              </picture>
               <figcaption>Rain and fireplace.</figcaption>
             </figure>
           </div>
@@ -594,6 +610,14 @@
         if (root.hasAttribute('data-theme')) {
           document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
         }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme, or the OS when there is none, so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : h === 'light' ? 'not all' : '(prefers-color-scheme: dark)';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
       }
       document.querySelectorAll('.theme-toggle').forEach(function(b){
         b.addEventListener('click', function(){
