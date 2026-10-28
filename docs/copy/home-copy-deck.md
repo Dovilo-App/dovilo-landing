@@ -59,7 +59,7 @@ No step screens: the plan and the list are in the hero; Focus and the city have 
 - «27 Oct 2026» «Desktop 2.0.2: task details open over the list.»
 - «9 Sep 2026» «Mobile 1.2.0: the city redrawn, with animations.»
 - Link: «All release notes» → /changelog/
-- iOS 2.0.0 is not mentioned here; the changelog carries the iOS date when Apple approves.
+- iOS 2.0.0 reached the App Store on 27 Oct 2026, the evening of the Android release, so the mobile line names no store (it said "on Android" until then).
 
 ## 9. FAQ [faq-accordion, 10 questions; FAQPage JSON-LD word for word] · id faq
 

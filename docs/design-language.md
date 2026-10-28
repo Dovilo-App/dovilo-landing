@@ -500,7 +500,8 @@ already state; never a promise they do not.
 **Recently shipped:** the newest **dated** entry of each version line on `/changelog/` (today two:
 mobile and desktop), newest first, each linking to its anchor there, then a link to the rest. An
 entry without a date on the changelog does not appear. A release that reached one store only says
-so in its line ("Mobile 2.0.0 on Android"), and a platform without a date is not mentioned.
+so in its line (as "Mobile 2.0.0 on Android" did until the App Store release on the same evening),
+and a platform without a date is not mentioned.
 
 ```html
 <ul class="shipped">
