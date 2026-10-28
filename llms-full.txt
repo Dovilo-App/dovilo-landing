@@ -198,7 +198,7 @@ Dovilo is a gamified productivity app that combines a to-do list, focus sessions
 
 **Is Dovilo free?**
 
-Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.
+Yes. Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark & light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.
 
 **What platforms is Dovilo available on?**
 
@@ -254,7 +254,7 @@ There are also one-time purchases that are not subscriptions: the Focus Ambience
 
 **Do I need the Focus Ambience Pack?**
 
-No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available — it is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.
+No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available and is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it.
 
 **How do I cancel my subscription?**
 
@@ -266,7 +266,7 @@ Subscriptions are managed through the Apple App Store or Google Play Store. To c
 
 Yes. Add Dovilo to the assistant as a custom connector with the URL https://dovilo.app/mcp and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it.
 
-For each connection you choose what the assistant can read and which lists and projects it sees, and by default its changes wait for your approval: the setting is called Ask me first. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro.
+For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called Ask me first. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro.
 
 **What is Dovilo's MCP integration?**
 
@@ -308,7 +308,7 @@ Yes — dovilo-langgraph-demo is an open-source LangGraph receiver that verifies
 
 **Does Dovilo work offline?**
 
-Yes! Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. You don't need an internet connection to use the app. Cloud sync is an optional Pro feature.
+Yes. Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. You don't need an internet connection to use the app. Cloud sync is an optional Pro feature.
 
 **How does cloud sync work?**
 
