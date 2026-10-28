@@ -201,6 +201,18 @@ Components stacked inside one section (a code
 block and a collapsible, a table and a note) sit 24px apart without any extra markup. Give a section
 an `id` whenever anything links to it, and keep every `id` the old page had (section 7).
 
+**In short:** when the hero sub is one line, the section straight after the hero carries the GEO
+paragraph (section 7) under the `<h2>` "In short", with no proof. `/ai` and `/` do this.
+
+```html
+<section class="section" id="about">
+  <div class="container">
+    <h2>In short</h2>
+    <p>Dovilo is a free to-do list for iOS and Android with … Pro is $2.49 a month.</p>
+  </div>
+</section>
+```
+
 ### Split
 
 Claim beside proof, for a phone screenshot or a short code block. Two equal columns from 768px,
@@ -210,6 +222,20 @@ stacked below.
 <div class="split">
   <div class="section-head">…</div>
   <figure class="figure figure-phone">…</figure>
+</div>
+```
+
+**Figure row:** when the claim needs two phone screens, each with its own caption, the proof side
+of a split holds a `figure-row`: the two figures side by side at any width, at most 480px together,
+so each screen stays at most 228px wide.
+
+```html
+<div class="split">
+  <div class="section-head">…</div>
+  <div class="figure-row">
+    <figure class="figure">…</figure>
+    <figure class="figure">…</figure>
+  </div>
 </div>
 ```
 
@@ -269,9 +295,10 @@ at `/#pricing`.
 ### Hero
 
 The top of a marketing page: an `<h1>` of **one sentence, at most 9 words, that names Dovilo**; a
-sub of **at most 20 words**; two buttons (one primary, one secondary); one full-width figure. No
-eyebrow, no pill, no badge, no second figure. The name Dovilo does not count toward the 9 words.
-The figure may be a figure pair (below): still one figure, with one caption.
+sub of **at most 20 words**; two buttons (one primary, one secondary) or the two store badges; one
+full-width figure. No eyebrow, no pill, no badge other than the store badges, no second figure. The
+name Dovilo does not count toward the 9 words. The figure may be a figure pair or a phone pair
+(below): still one figure, with one caption.
 
 ```html
 <section class="hero">
@@ -310,10 +337,39 @@ so neither is lazy; the desktop one is the LCP image.
 </figure>
 ```
 
+**Hero with a phone pair:** when the hero's proof is a flow on the phone rather than a desktop
+screen (the home page), the figure is a phone pair: two phone screens of one flow side by side, the
+second 64px lower (48px below 600px), at most 480px wide together, under one caption. They never
+overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
+text (`h1`, sub, store badges and at most one `.link`) and the phone pair sit side by side, the
+phones at the right edge; below 960px the phones follow the text. Both images are above the fold:
+the first is the LCP image (`fetchpriority="high"`), neither is lazy.
+
+```html
+<section class="hero">
+  <div class="container hero-split">
+    <div>
+      <h1>Dovilo: the to-do list that builds you a city.</h1>
+      <p class="hero-sub">…</p>
+      <div class="store-badges">…</div>
+      <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <figure class="figure figure-phones">
+      <img srcset="… 386w, … 772w" sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+           src="…" width="386" height="840" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="840" alt="…">
+      <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
+    </figure>
+  </div>
+</section>
+```
+
 The hero sub is the page's first paragraph, so it carries the GEO rule in section 7 and the
 `CLAUDE.md` rule for the paragraph under the H1: declarative sentences, with a number, that name
 Dovilo, say what it is and for whom, and carry the page's primary keyword without repeating the
-H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute.
+H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute. When the
+sub is a single line that cannot carry all of that, an "In short" section straight after the hero
+does (section 4).
 
 Pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`) open with a plain
 section instead of a hero: an `<h1>` and the first paragraph, no buttons, no figure.
@@ -435,8 +491,10 @@ already state; never a promise they do not.
 </ul>
 ```
 
-**Recently shipped:** the three newest **dated** entries from `/changelog/`, each linking to its
-anchor there, then a link to the rest. An entry without a date on the changelog does not appear.
+**Recently shipped:** the newest **dated** entry of each version line on `/changelog/` (today two:
+mobile and desktop), newest first, each linking to its anchor there, then a link to the rest. An
+entry without a date on the changelog does not appear. A release that reached one store only says
+so in its line ("Mobile 2.0.0 on Android"), and a platform without a date is not mentioned.
 
 ```html
 <ul class="shipped">
@@ -446,8 +504,9 @@ anchor there, then a link to the rest. An entry without a date on the changelog 
 <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
 ```
 
-**Pricing summary:** exactly three lines and a link to the pricing page. Prices from `llms.txt`,
-never rounded or restated.
+**Pricing summary:** two or three lines, then a link to the pricing page. Prices from `llms.txt`,
+never rounded or restated. Until `/pricing/` exists, the home page's summary has no link: it is the
+`#pricing` anchor the nav's Pricing link points at.
 
 ```html
 <ul class="pricing-summary">
@@ -566,6 +625,20 @@ The last section of a marketing page: an `<h2>`, one sentence, two buttons. Cent
 </section>
 ```
 
+On the home page the closing sends the reader to the stores: the two store badges take the place
+of the buttons, and one `.link` under them may point at the desktop downloads.
+
+```html
+<section class="section closing" id="download">
+  <div class="container">
+    <h2>One engineer, in Istanbul.</h2>
+    <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+    <div class="store-badges">…</div>
+    <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+```
+
 ### Footer
 
 Four columns of text links, then the copyright and the support address. No icons, no newsletter
@@ -606,6 +679,27 @@ label is a verb phrase in sentence case ("Download Dovilo"), never "Click here" 
 Store links keep their tracking parameters from the product brief (`?ct=…` for the App Store,
 `utm_source`/`utm_medium` for Google Play, `?source=` for desktop installers and `/downloads`).
 
+**Store badges:** where a page sends the reader straight to the stores (the home hero and
+closing), the App Store and Google Play badges take the place of the two buttons. A badge is the
+store's logo and its two-line label on an inverted fill (`--text` behind `--bg` text), 48px tall.
+Hover adds no colour: the outline turns `--text-muted`. Their text counts as an image's, not toward
+the word budget.
+
+```html
+<div class="store-badges">
+  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+    <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+    <span><small>Download on the</small><strong>App Store</strong></span>
+  </a>
+  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+    <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+    <span><small>Get it on</small><strong>Google Play</strong></span>
+  </a>
+</div>
+```
+
+The logo paths are in `/styleguide/`.
+
 ### Links
 
 Inside running text a link is `--text`, underlined in `--text-muted`, and the underline darkens on
@@ -635,6 +729,8 @@ Internal links use the URL form the target's canonical names, until the canonica
 - **Nothing invented**: no feature, price, platform, date, quote, testimonial, user count or rating
   that is not already in `llms.txt`, `llms-full.txt`, `/faq` or the page itself.
 - Plain about what is missing: "Not yet: there is no data export today."
+- A heading never breaks a line at the hyphen of a compound: wrap it in `<span class="nowrap">`,
+  as in `the <span class="nowrap">to-do</span> list`.
 
 ### Word budgets
 
@@ -643,7 +739,7 @@ and every section sentence count; code inside a code block does not.
 
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
-| `/` | 350 at most | Collapsibles and the FAQ accordion |
+| `/` | 450 at most, body copy under 350; headings, step labels, captions, links and FAQ questions count, store badges do not | Collapsibles and the FAQ accordion |
 | `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
 | `/pricing` | 250 at most | Collapsibles |
 | `/downloads` | 150 at most | Collapsibles |
@@ -702,8 +798,8 @@ Visible text shrinks; indexable text does not.
 Surfaces the redesign will need that this document does not have yet. The task that moves the page
 adds the component here first.
 
-- **The homepage blog band**, written by `tools/build-blog.mjs` between the `BLOG` markers, and the
-  blog pages from `tools/template.mjs`.
+- **The blog pages** from `tools/template.mjs`. (The home page's blog band is gone: `/` links the
+  blog in one line, and `tools/build-blog.mjs` no longer writes into `index.html`.)
 - **A table of contents** for `/docs/*` (today's `.toc`, with its scroll highlight).
 - **Platform cards** for `/downloads` (`#card-ios|android|windows|mac`, with platform detection).
 - **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).

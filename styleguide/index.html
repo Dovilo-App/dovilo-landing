@@ -134,6 +134,7 @@
             <li><a href="#faq">FAQ accordion</a></li>
             <li><a href="#note">Note</a></li>
             <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#store-badges">Store badges</a></li>
             <li><a href="#links">Links</a></li>
             <li><a href="#closing">Closing CTA</a></li>
             <li><a href="#footer">Footer</a></li>
@@ -206,7 +207,7 @@
           <table class="table">
             <thead><tr><th scope="col">Page</th><th scope="col">Visible words</th><th scope="col">Also allowed</th></tr></thead>
             <tbody>
-              <tr><td><code>/</code></td><td>350 at most</td><td>Collapsibles and the FAQ accordion</td></tr>
+              <tr><td><code>/</code></td><td>450 at most, body copy under 350; headings, labels, captions, links and FAQ questions count, store badges do not</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/ai</code></td><td>440 at most, its section headings included</td><td>One code block, plus collapsibles</td></tr>
               <tr><td><code>/pricing</code></td><td>250 at most</td><td>Collapsibles</td></tr>
               <tr><td><code>/downloads</code></td><td>150 at most</td><td>Collapsibles</td></tr>
@@ -284,7 +285,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="hero-title">Hero</h2>
-          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons, one full-width figure: here a figure pair, the desktop screen with the phone screen in front of its right edge.</p>
+          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons or the store badges, one figure. First a figure pair, the desktop screen with the phone screen in front of its right edge; then a phone pair, two phones of one flow beside the text from 960px.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -340,6 +341,76 @@
             </div>
           </section>
         </div>
+        <p class="sg-label">Light, with a phone pair and store badges</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="hero">
+            <div class="container hero-split">
+              <div>
+                <h1>Dovilo: the <span class="nowrap">to-do</span> list that builds you a city.</h1>
+                <p class="hero-sub">Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city.</p>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="figure figure-phones">
+                <!-- On the page both phones are above the fold: the first is the LCP
+                     (fetchpriority="high") and neither is lazy. Here they load lazily. -->
+                <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+                <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-list-birthday.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+                <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, with a phone pair and store badges</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="hero">
+            <div class="container hero-split">
+              <div>
+                <h1>Dovilo: the <span class="nowrap">to-do</span> list that builds you a city.</h1>
+                <p class="hero-sub">Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city.</p>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="figure figure-phones">
+                <!-- On the page both phones are above the fold: the first is the LCP
+                     (fetchpriority="high") and neither is lazy. Here they load lazily. -->
+                <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+                <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
+                     sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                     src="/screenshots/mobile-list-birthday.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+                <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
 
@@ -348,7 +419,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="section-title">Section and split</h2>
-          <p>A section makes one claim (h2 and one sentence) and shows one proof. Split puts the claim beside the proof and stacks below 768px.</p>
+          <p>A section makes one claim (h2 and one sentence) and shows one proof. Split puts the claim beside the proof and stacks below 768px. In short carries the GEO paragraph after a one-line hero sub. A figure row holds two captioned phone screens.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -379,6 +450,74 @@
                      alt="Dovilo focus session running in the Rainy City ambience scene">
                 <figcaption>Rainy City, a Focus Ambience Pack scene.</figcaption>
               </figure>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, In short</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="section">
+            <div class="container">
+              <h2>In short</h2>
+              <p>Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month.</p>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, In short</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="section">
+            <div class="container">
+              <h2>In short</h2>
+              <p>Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month.</p>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Light, split with a figure row</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="split">
+              <div class="section-head">
+                <h2>Focus that fills the whole screen</h2>
+                <p>A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.</p>
+              </div>
+              <div class="figure-row">
+                <figure class="figure">
+                  <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo focus session in the Rainy City scene with the timer at 22:40">
+                  <figcaption>Rainy City, 22 minutes left.</figcaption>
+                </figure>
+                <figure class="figure">
+                  <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
+                       alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+                  <figcaption>Rain and fireplace.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, split with a figure row</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="split">
+              <div class="section-head">
+                <h2>Focus that fills the whole screen</h2>
+                <p>A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.</p>
+              </div>
+              <div class="figure-row">
+                <figure class="figure">
+                  <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo focus session in the Rainy City scene with the timer at 22:40">
+                  <figcaption>Rainy City, 22 minutes left.</figcaption>
+                </figure>
+                <figure class="figure">
+                  <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
+                       alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+                  <figcaption>Rain and fireplace.</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -814,15 +953,14 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="shipped-title">Recently shipped</h2>
-          <p>The three newest dated entries from the changelog, each linking to its anchor there, and a link to the rest.</p>
+          <p>The newest dated entry of each version line on the changelog (mobile and desktop), each linking to its anchor there, and a link to the rest.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
           <div class="sg-sample">
             <ul class="shipped">
-              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list</a></li>
-              <li><time datetime="2026-10-20">20 Oct 2026</time><a href="/changelog/#desktop-2-0-1">Desktop 2.0.1: agent keys and webhook secrets work again</a></li>
-              <li><time datetime="2026-10-19">19 Oct 2026</time><a href="/changelog/#desktop-2-0-0">Desktop 2.0.0: agents connect over remote MCP</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#mobile-2-0-0">Mobile 2.0.0 on Android: plan with ChatGPT, Claude, Gemini or Grok; AI Agents.</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list.</a></li>
             </ul>
             <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
@@ -831,9 +969,8 @@
         <div class="sg-panel" data-theme="dark">
           <div class="sg-sample">
             <ul class="shipped">
-              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list</a></li>
-              <li><time datetime="2026-10-20">20 Oct 2026</time><a href="/changelog/#desktop-2-0-1">Desktop 2.0.1: agent keys and webhook secrets work again</a></li>
-              <li><time datetime="2026-10-19">19 Oct 2026</time><a href="/changelog/#desktop-2-0-0">Desktop 2.0.0: agents connect over remote MCP</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#mobile-2-0-0">Mobile 2.0.0 on Android: plan with ChatGPT, Claude, Gemini or Grok; AI Agents.</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list.</a></li>
             </ul>
             <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
@@ -846,7 +983,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="pricing-title">Pricing summary</h2>
-          <p>Three lines and a link to the pricing page. Prices are the USD store baseline.</p>
+          <p>Two or three lines and a link to the pricing page; on the home page, no link until /pricing/ exists. Prices are the USD store baseline.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -963,6 +1100,46 @@
       </div>
     </section>
 
+    <!-- Store badges -->
+    <section class="section" id="store-badges" aria-labelledby="store-badges-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="store-badges-title">Store badges</h2>
+          <p>The App Store and Google Play links where a page sends the reader to the stores, in place of the two buttons. Inverted fill, 48px tall; the text counts as an image's.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="store-badges">
+              <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                <span><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="store-badges">
+              <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                <span><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Links -->
     <section class="section" id="links" aria-labelledby="links-title">
       <div class="container">
@@ -992,7 +1169,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="closing-title">Closing CTA</h2>
-          <p>The last section of a marketing page: an h2, one sentence, two buttons.</p>
+          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1017,6 +1194,46 @@
                 <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
                 <a class="btn btn-secondary" href="/faq">Read the FAQ</a>
               </div>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Light, with store badges</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="section closing">
+            <div class="container">
+              <h2>One engineer, in Istanbul.</h2>
+              <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, with store badges</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="section closing">
+            <div class="container">
+              <h2>One engineer, in Istanbul.</h2>
+              <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
             </div>
           </section>
         </div>

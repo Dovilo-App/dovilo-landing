@@ -280,6 +280,23 @@ img{height:auto}
 .btn-primary:hover{border-color:var(--text)}
 .btn-secondary:hover{border-color:var(--text-muted)}
 
+/* Store badges: the App Store and Google Play links where a page sends the
+   reader to the stores (the home hero and closing) in place of the two
+   buttons. The inverted fill reads as a store badge rather than a second
+   primary button, and stays on the neutrals in both themes. */
+.store-badges{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.store-badge{
+  display:inline-flex;align-items:center;gap:var(--space-1);
+  min-height:48px;padding:var(--space-1) var(--space-2);
+  line-height:1.15;text-align:left;text-decoration:none;
+  background:var(--text);color:var(--bg);
+  border:1px solid var(--text);border-radius:var(--radius);
+  transition:border-color var(--duration);
+}
+.store-badge:hover{border-color:var(--text-muted)}
+.store-badge svg{flex:none;width:24px;height:24px;fill:currentColor}
+.store-badge small,.store-badge strong{display:block}
+
 /* Links that stand on their own line, outside running text. */
 .link{display:block;width:fit-content;font-weight:600;text-decoration:none}
 .link:hover{text-decoration:underline}
@@ -289,11 +306,20 @@ img{height:auto}
 .hero{padding-block:var(--space-7) var(--space-6)}
 .hero h1{max-width:18ch}
 .hero-sub{margin-top:var(--space-3);font-size:var(--text-h3);color:var(--text-muted);max-width:48ch}
-.hero .actions{margin-top:var(--space-4)}
+.hero .actions,.hero .store-badges{margin-top:var(--space-4)}
 .hero .figure{margin-top:var(--space-6)}
 @media (max-width:767px){
   .hero{padding-block:var(--space-6) var(--space-5)}
   .hero .figure{margin-top:var(--space-5)}
+}
+/* Hero with a phone pair: the text and the phones side by side from 960px,
+   the phones under the text below that. */
+@media (min-width:960px){
+  .hero-split{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:var(--space-6);align-items:center;
+  }
+  .hero-split .figure{margin-top:0;justify-self:end}
 }
 
 /* Steps 01-04 */
@@ -427,6 +453,30 @@ img{height:auto}
   .figure-pair .pair-phone{grid-column:2 / 4;margin-top:calc(-1 * var(--space-7))}
 }
 
+/* Phone pair: two phone screens of one flow side by side, the second a step
+   lower, under one caption. They never overlap, so they need no ring. */
+.figure-phones{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 var(--space-2);
+  max-width:480px;
+}
+.figure-phones img{align-self:start}
+.figure-phones img + img{margin-top:var(--space-5)}
+.figure-phones figcaption{grid-column:1 / -1}
+@media (min-width:600px){
+  .figure-phones{column-gap:var(--space-3)}
+  .figure-phones img + img{margin-top:var(--space-6)}
+}
+
+/* Figure row: two figures side by side, each with its own caption, as the
+   proof in a split. */
+.figure-row{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--space-2);align-items:start;
+  max-width:480px;
+}
+@media (min-width:600px){.figure-row{gap:var(--space-3)}}
+
 /* Code block. Themed like the page; no highlighting library. */
 .code{
   background:var(--surface);
@@ -501,7 +551,8 @@ img{height:auto}
 .closing{text-align:center}
 .closing h2{max-width:24ch;margin-inline:auto}
 .closing p{margin:var(--space-2) auto 0;color:var(--text-muted)}
-.closing .actions{justify-content:center;margin-top:var(--space-4)}
+.closing .actions,.closing .store-badges{justify-content:center;margin-top:var(--space-4)}
+.closing .link{margin-inline:auto}
 
 /* Footer */
 .footer{
@@ -535,6 +586,8 @@ img{height:auto}
   font-weight:600;text-decoration:none;
 }
 .skip-link:focus{top:var(--space-1)}
+/* Keeps a hyphenated compound ("to-do") on one line in a heading. */
+.nowrap{white-space:nowrap}
 
 /* ─── 8. MOTION ─── */
 @media (prefers-reduced-motion:reduce){
