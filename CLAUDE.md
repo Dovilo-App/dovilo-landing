@@ -26,7 +26,9 @@ gives iOS no date is out of date. Remote MCP
 (Agents MCP at `/mcp/agents`, Personal MCP at `/mcp`), planning from chat assistants, scheduling and
 repeat for AI tasks, and server delivery of webhooks are public: never write "local" about MCP, and
 never put any of them "on the roadmap". **Not yet:** directory listings (ChatGPT, Claude, the MCP
-Registry) and data export. Say so plainly where it matters, and give neither a date. Blog posts come from Sanity and still carry pre-2.0
+Registry), data export and Apply directly, the direct-apply write mode (until it ships, every write
+from an assistant waits for approval; the changelog's roadmap lists it and data export since 29 Oct
+2026). Say so plainly where it matters, and give none of them a date. Blog posts come from Sanity and still carry pre-2.0
 sentences: do not edit them here and do not quote them on the site. They are fixed at the source.
 
 ---
@@ -86,7 +88,11 @@ Rules:
   script keys on `#card-ios|android|windows|mac` and adds `.highlighted`; it does not read
   `?source=`, which the page accepts and ignores until a task gives the per-source lines. The page
   script of `/docs/mcp/` and `/docs/webhooks` opens `.toc details` from 960px and sets `.active` on
-  the `.toc a` of the heading in view (`.doc-body h2[id]`, `h3[id]`).
+  the `.toc a` of the heading in view (`.doc-body h2[id]`, `h3[id]`). `/changelog/`'s page script,
+  the release feed, reads the first `.rel .rel-ver` in `#releases` and, for a newer desktop tag on
+  GitHub, writes a `.rel` entry of the same markup above it and moves `.rel-latest` to it
+  (design-language §5, Release entries). `/faq` has no page script: its accordion is native
+  `<details>`.
 - **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
   twice, once per theme: edit both copies together.
 
@@ -132,10 +138,10 @@ Rules:
   chrome rules in the same edit.
 - **The nav is sticky, not fixed.** It stays in flow, so no page needs a magic `padding-top`.
   `scroll-padding-top` is set once in `base.css` from `--nav-h`.
-- **Class names are a contract with inline JS.** Do not rename `.faq-item.open`, `nav ul.open`,
-  `.menu-overlay.open`, `.theme-toggle .icon-sun/.icon-moon`,
-  `#card-ios|android|windows|mac`, `.copy-btn.copied`, or the `.rel*` nodes the
-  changelog's live GitHub fetch writes into. They are queried by hand-written script in the same
+- **Class names are a contract with inline JS.** Do not rename `nav ul.open`,
+  `.menu-overlay.open` or `.theme-toggle .icon-sun/.icon-moon`. (The rest of this list left with
+  its pages: `#card-*`, `.copy-btn.copied` and the changelog's `.rel*` nodes are in §1.1 now, and
+  `.faq-item.open` is gone, since `/faq` uses native `<details>`.) They are queried by hand-written script in the same
   files.
 
 Page-specific CSS still belongs in the page's own `<style>` block. If a page's inline CSS passes
@@ -175,8 +181,10 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   "https://dovilo.app/#app"`. Any page describing the app reuses that `@id` and carries only what it
   is authoritative for — `/pricing/` owns `offers` (one per price line on the page, no "best
   value", no "save 33%"), the homepage keeps the same offers minus the AI task top-ups, word for
-  word, and owns `featureList`, the changelog owns `releaseNotes` and `downloadUrl`. Change a price
-  on `/pricing/`, change both `offers` lists. Never mint a second node without the `@id`.
+  word, and owns `featureList`, the changelog owns `releaseNotes` and `downloadUrl` and carries
+  `/pricing/`'s Free offer word for word (since 29 Oct 2026). Change a price on `/pricing/`, change
+  both `offers` lists, and the changelog's Free offer too when Free changes. Never mint a second
+  node without the `@id`.
   (`c7ab5a8`)
 - Every page carries a page-level type (`WebPage`, `CollectionPage` for `/docs/`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
@@ -222,7 +230,8 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   only and cannot create or delete them, only cancel; since 2.0 agents use remote MCP from any
   machine and Desktop need not run; chat assistants propose and the user approves; desktop and
   Agents MCP need Pro; the two packs are one-time purchases included with Pro; focus sessions are
-  free and unlimited; mobile 2.0.0 is on Google Play and the App Store since 27 Oct 2026.
+  free and unlimited; mobile 2.0.0 is on Google Play and the App Store since 27 Oct 2026; data
+  export and Apply directly are on the roadmap, not shipped, with no date.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`) `/docs/`, the hub of the two references, is the one accepted
@@ -311,8 +320,9 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Six `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/pricing/` (4),
-  `/changelog/` (3) and `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("How
+- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4) and
+  `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
+  questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
   does Focus work?" is the exception), so a wording change there has to be made in four places plus
   `llms-full.txt`. `/pricing/`'s four are copied word for word from `/faq`, which made it the one
   exception to the rule below, approved in its task: "Is Dovilo free?", "How many AI tasks does Pro
@@ -321,26 +331,25 @@ Carried here so they are not rediscovered from scratch:
   and JSON-LD on each) plus `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
   the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
   "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
-  authorize?", so keep those answers in agreement. Otherwise `/ai`, `/changelog/` and
-  `/downloads/` ask questions that appear nowhere else, which is the condition for adding a
-  seventh. The eight questions `/ai` dropped
+  authorize?", so keep those answers in agreement. Otherwise `/ai` and `/downloads/` ask
+  questions that appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
   in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
-  way.
+  way. One of them, "Can I get my data out?", covers the ground of `/faq`'s "Can I export my
+  data?" (added 29 Oct 2026): both say not yet, on the roadmap, no date; keep them in agreement.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
 - `styles/home.css` is no longer linked by any page since `/` moved to `system.css`; delete it
   together with `base.css`.
 - `og-card.jpg` is still the share card of every page not yet redesigned; `/` has `og-home.jpg`
   and `/ai` has `og-ai.jpg`. `/pricing/` has `og-pricing.jpg`, `/downloads/` has
   `og-downloads.jpg` and `/docs/` has `og-docs.jpg`: the page background and the `<h1>` in Inter
-  700, with no capture. `/docs/mcp/` keeps `og-card.jpg` and `/docs/webhooks` has none: their move
-  to `system.css` was style only.
+  700, with no capture. `/docs/mcp/` and `/faq` keep `og-card.jpg`, and `/docs/webhooks` and
+  `/changelog/` have none: their move to `system.css` was a style move.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
-- Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
-  blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome) and the changelog's
-  release entries.
-  The task that moves each page adds its component first.
+- One surface has no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
+  blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome). The task that moves
+  them adds their component first.
 
 ## Dovilo task protocol
 

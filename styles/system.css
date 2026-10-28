@@ -629,6 +629,27 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
 .faq-accordion > details > summary{padding-block:var(--space-3)}
 .faq-accordion > details > summary h3{font-size:var(--text-body);font-weight:600;letter-spacing:0}
 .faq-answer{padding-bottom:var(--space-3);color:var(--text-muted)}
+/* An answer that runs to more than one paragraph (/faq). */
+.faq-answer > * + *{margin-top:var(--space-2)}
+
+/* Release entries: one per build on /changelog, newest first, each under a
+   1px rule. The .rel* names are a contract with the changelog's release
+   feed, which writes an entry of the same markup for a newer desktop build.
+   Latest is a label in a 1px outline: no fill, no colour. */
+.rel{padding-top:var(--space-3);border-top:1px solid var(--border)}
+.rel + .rel{margin-top:var(--space-5)}
+.rel-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-1) var(--space-2)}
+.rel-date{font-size:var(--text-small);color:var(--text-muted);font-variant-numeric:tabular-nums}
+.rel-latest{
+  padding-inline:var(--space-1);
+  font-size:var(--text-small);font-weight:600;
+  border:1px solid var(--border);border-radius:calc(var(--radius) / 2);
+}
+.rel-notes{margin-top:var(--space-2)}
+.rel-notes li + li{margin-top:var(--space-1)}
+.rel-text{margin-top:var(--space-2);color:var(--text-muted)}
+.rel-foot{font-size:var(--text-small);color:var(--text-muted)}
+* + .rel-foot{margin-top:var(--space-3)}
 
 /* Table. On a page with a word budget, a table longer than six rows goes
    inside a .collapsible; the pages that carry the depth keep it open. */
