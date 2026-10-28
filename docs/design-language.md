@@ -675,7 +675,8 @@ ids, so the page script also opens a collapsible when the URL's fragment names i
 
 Two places to go next, side by side from 768px and stacked below, in the same box as the pricing
 columns: each card is one link holding a title with an arrow and **one line** of what is there.
-Hover adds no colour; the outline darkens to `--text-muted`. Never more than two. On `/docs/` the
+Hover adds no colour; the outline darkens to `--text-muted`. Never more than two; a single card
+keeps the width of one column, as on `/docs/webhooks`. On `/docs/` the
 cards are the page's two sections, so the title is an `<h2>` (set at the `<h3>` size, like a plan's
 name); where they sit inside a section, as in the opening of the two references, it is a
 `<span>`, and a card may carry a short kind label above it (`card-kind`, in `--text-muted`).
@@ -1010,7 +1011,8 @@ A budget is a ceiling, not a target. A page over its budget moves text into a co
 the page that carries the depth; it does not drop facts.
 
 The 300-word floor in `CLAUDE.md` still holds for every page: on a budgeted page it is met by the
-visible text plus what is in its collapsibles.
+visible text plus what is in its collapsibles. `/docs/` is the one exception: a hub whose depth is
+the two references it links, accepted under the floor.
 
 ## 7. GEO and SEO content layer
 

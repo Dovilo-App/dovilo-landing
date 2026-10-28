@@ -71,7 +71,9 @@ Rules:
   JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
   never shortened.
 - **The 300-word floor in §2 still applies.** On a budgeted page it is met by the visible text plus
-  what its collapsibles hold.
+  what its collapsibles hold. The one exception is `/docs/`, a hub page of 139 visible words with
+  no collapsibles: its depth is the two references it links, and Selahaddin accepted it under the
+  floor on 29 Oct 2026. Any other page under 300 words is still a defect.
 - **No em dash anywhere a person reads** on a redesigned page: body copy, captions, buttons and alt
   text as well as headings. `llms.txt` and `llms-full.txt` are the only exception.
 - **Class names are a contract with the site script** at the end of every redesigned page:
@@ -223,7 +225,8 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   free and unlimited; mobile 2.0.0 is on Google Play and the App Store since 27 Oct 2026.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
-  complete statement. (`c703fa3`)
+  complete statement. (`c703fa3`) `/docs/`, the hub of the two references, is the one accepted
+  exception (§1.1).
 - **Every claim must already be documented in the repo** — `llms.txt`, `llms-full.txt`, the FAQ or
   the page itself. Nothing unreleased gets a date. Do not invent capabilities, integrations, prices
   or platforms to make a section read better.
@@ -331,9 +334,6 @@ Carried here so they are not rediscovered from scratch:
   `og-downloads.jpg` and `/docs/` has `og-docs.jpg`: the page background and the `<h1>` in Inter
   700, with no capture. `/docs/mcp/` keeps `og-card.jpg` and `/docs/webhooks` has none: their move
   to `system.css` was style only.
-- `/docs/` carries 139 visible words and no collapsibles, under the 300-word floor in §2. Its task
-  gave exact copy with a 150-word cap, so the floor was left open for a decision rather than met
-  with added text.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
