@@ -246,10 +246,13 @@ picture > source{display:none}
   .toc a.active{border-left-color:var(--text)}
 }
 
-/* Heading anchors: a # after each docs heading, shown on hover and focus, for
-   copying a link to that heading. */
+/* Heading anchors: a # after each docs heading, shown on hover, for copying a
+   link to that heading. The # is drawn here, so a heading's text is its own
+   for crawlers and screen readers; the table of contents carries the same
+   links for the keyboard. */
 .h-anchor{margin-left:var(--space-1);font-weight:400;color:var(--text-muted);text-decoration:none;opacity:0}
-h2:hover > .h-anchor,h3:hover > .h-anchor,.h-anchor:focus-visible{opacity:1}
+.h-anchor::after{content:"#"}
+h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
 
 /* ─── 6. COMPONENTS ─── */
 

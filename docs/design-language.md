@@ -284,7 +284,7 @@ article. Inside the article each `<h2>` after the first sits under a 1px rule, l
       </details>
     </aside>
     <article class="flow doc-body">
-      <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-label="Link to Endpoints">#</a></h2>
+      <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-hidden="true" tabindex="-1"></a></h2>
       <p>…</p>
     </article>
   </div>
@@ -293,12 +293,16 @@ article. Inside the article each `<h2>` after the first sits under a 1px rule, l
 
 The list ships closed, so a phone never sees it fold after the page has painted. The page script
 opens it from 960px, where opening it moves nothing else on the page and the summary is hidden so
-it cannot be closed, closes it again below 960px, and sets `.active` on the link of the heading in
-view; those are its whole job (section 3). Without script the rail shows the closed collapsible's
-summary as a plain label, which still opens it. Nested entries are `<h3>`s, one level
-deep. Each heading the contents link to carries a **heading anchor**, `.h-anchor`: a `#` after the
-heading text, in `--text-muted`, shown on hover and on keyboard focus, so a reader can copy a link
-to that heading. The section holding the reference has no heading of its own, so it is a `<div>`.
+it cannot be closed, closes it again below 960px, and sets `.active` on the link of the section
+being read (the last heading above a line 30% down the viewport, whichever way the reader
+scrolls); those are its whole job (section 3). Without script the rail shows the closed
+collapsible's summary as a plain label, which still opens it. Nested entries are `<h3>`s, one
+level deep. Each heading the contents link to carries a **heading anchor**, `.h-anchor`: a `#`
+after the heading text, in `--text-muted`, shown on hover, so a reader can copy a link to that
+heading. The `#` is drawn by the stylesheet and the anchor is `aria-hidden` and out of the tab
+order, so the heading's text stays its own for crawlers and screen readers; the table of contents
+carries the same links for the keyboard. The section holding the reference has no heading of its
+own, so it is a `<div>`.
 
 ## 5. Components
 

@@ -184,7 +184,7 @@
         </aside>
 
         <article class="flow doc-body">
-          <h2 id="integration-prompt">Integration prompt <a class="h-anchor" href="#integration-prompt" aria-label="Link to Integration prompt">#</a></h2>
+          <h2 id="integration-prompt">Integration prompt <a class="h-anchor" href="#integration-prompt" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Paste this into Claude Code, Cursor, Windsurf, or any other AI coding agent and it will build you a webhook receiver in your project's stack, set up signature verification correctly, and end with a checklist for the Dovilo-side setup.</p>
 
           <div class="code code-long">
@@ -332,7 +332,7 @@ GUARDRAILS
           </div>
           <p>Tip: for the fastest result, run it inside the project that will host the receiver, so the agent picks up your stack, conventions, and lint/test scripts.</p>
 
-          <h2 id="quick-start">Quick start <a class="h-anchor" href="#quick-start" aria-label="Link to Quick start">#</a></h2>
+          <h2 id="quick-start">Quick start <a class="h-anchor" href="#quick-start" aria-hidden="true" tabindex="-1"></a></h2>
           <ol>
             <li>In Dovilo Desktop 2.0 or later, open the project's <strong>List settings</strong> and find the <strong>Webhooks</strong> section. Webhooks are set up on the desktop only.</li>
             <li>Paste your receiver URL. It must be <code>https://</code> unless it is a local address; see <a href="#delivery-modes">Delivery modes</a>.</li>
@@ -342,7 +342,7 @@ GUARDRAILS
           </ol>
           <p>Once enabled, every matching task event in that project is delivered as a signed POST to the configured URL.</p>
 
-          <h2 id="delivery-modes">Delivery modes <a class="h-anchor" href="#delivery-modes" aria-label="Link to Delivery modes">#</a></h2>
+          <h2 id="delivery-modes">Delivery modes <a class="h-anchor" href="#delivery-modes" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Who sends the request depends on the URL. A public HTTPS receiver is delivered by Dovilo's server, so it gets events even when Desktop is closed. A receiver on your own machine or network is delivered by Dovilo Desktop, because Dovilo's server never sends to a private address; the app labels these <strong>Local</strong>.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th></th><th>Server delivery</th><th>Desktop delivery (Local)</th></tr></thead>
@@ -358,7 +358,7 @@ GUARDRAILS
           </table></div>
           <p>Signature, headers, payload, retry schedule and per-task ordering are the same in both modes. The server never delivers to a private address, even when a public hostname resolves to one.</p>
 
-          <h2 id="transport">Transport <a class="h-anchor" href="#transport" aria-label="Link to Transport">#</a></h2>
+          <h2 id="transport">Transport <a class="h-anchor" href="#transport" aria-hidden="true" tabindex="-1"></a></h2>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Property</th><th>Value</th></tr></thead>
             <tbody>
@@ -372,7 +372,7 @@ GUARDRAILS
           </table></div>
           <p>Anything outside <code>http(s)://</code> is rejected before a request is made. A public <code>http://</code> URL is not saved, because the server delivers only over HTTPS. Plain <code>http://</code> to a local address is allowed, with a warning in the UI; don't ship a production integration over cleartext.</p>
 
-          <h2 id="events">Events <a class="h-anchor" href="#events" aria-label="Link to Events">#</a></h2>
+          <h2 id="events">Events <a class="h-anchor" href="#events" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Dovilo currently emits three event types. The set is intentionally small; we'd rather add events later than walk back a half-baked one.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Event type</th><th>When it fires</th></tr></thead>
@@ -384,7 +384,7 @@ GUARDRAILS
           </table></div>
           <p>You select which events to subscribe to per project. <code>webhook.ping</code> is always delivered when the test button is pressed, regardless of subscription.</p>
 
-          <h3 id="task-lifecycle-reference">Task lifecycle reference <a class="h-anchor" href="#task-lifecycle-reference" aria-label="Link to Task lifecycle reference">#</a></h3>
+          <h3 id="task-lifecycle-reference">Task lifecycle reference <a class="h-anchor" href="#task-lifecycle-reference" aria-hidden="true" tabindex="-1"></a></h3>
           <p><code>task.status_changed</code> carries a <code>previousStatus</code> field. The status values you will see in <code>task.status</code> and <code>previousStatus</code>:</p>
           <div class="code">
 <pre><code class="language-plaintext">scheduled  &rarr;  queued  &rarr;  running  &rarr;  awaiting-user  &rarr;  queued  &rarr;  running  &rarr;  done
@@ -395,7 +395,7 @@ GUARDRAILS
           <p><code>awaiting-user</code> is entered when an agent pauses for human input (plan approval, mid-task question). Once the user responds, it goes back to <code>queued</code>, and an agent picks it up again on its next turn.</p>
           <p>The terminal statuses are <code>done</code>, <code>done-with-errors</code> and <code>error</code>. A cancelled task ends in <code>error</code> with <code>cancelledAt</code> set; an <code>error</code> without it is a failure. For a repeating task, the next run is a new task with the same <code>seriesId</code>, created once the previous one reaches a terminal status.</p>
 
-          <h2 id="headers">Headers <a class="h-anchor" href="#headers" aria-label="Link to Headers">#</a></h2>
+          <h2 id="headers">Headers <a class="h-anchor" href="#headers" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Every delivery includes three Dovilo-specific headers in addition to the standard ones.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Header</th><th>Example</th><th>Purpose</th></tr></thead>
@@ -407,10 +407,10 @@ GUARDRAILS
           </table></div>
           <p>The delivery id is stable across retries of the <strong>same</strong> delivery, so it is safe to use as an idempotency key in your receiver.</p>
 
-          <h2 id="payload-schema">Payload schema <a class="h-anchor" href="#payload-schema" aria-label="Link to Payload schema">#</a></h2>
+          <h2 id="payload-schema">Payload schema <a class="h-anchor" href="#payload-schema" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The body is a JSON object. Field set is deliberately slim: just enough to route and decide whether to fetch more. Large or sensitive fields (<code>description</code>, <code>agentNotes</code>, <code>context</code>, <code>steps</code>, full <code>telemetry</code>) are not included; fetch the full task via MCP (<code>get_task</code>) if you need them.</p>
 
-          <h3 id="top-level">Top-level <a class="h-anchor" href="#top-level" aria-label="Link to Top-level">#</a></h3>
+          <h3 id="top-level">Top-level <a class="h-anchor" href="#top-level" aria-hidden="true" tabindex="-1"></a></h3>
           <div class="code">
             <div class="code-head"><span>JSON</span><button class="copy-btn" type="button">Copy</button></div>
 <pre><code class="language-json">{
@@ -436,7 +436,7 @@ GUARDRAILS
             </tbody>
           </table></div>
 
-          <h3 id="task-object"><code>task</code> object <a class="h-anchor" href="#task-object" aria-label="Link to task object">#</a></h3>
+          <h3 id="task-object"><code>task</code> object <a class="h-anchor" href="#task-object" aria-hidden="true" tabindex="-1"></a></h3>
           <div class="code">
             <div class="code-head"><span>JSON</span><button class="copy-btn" type="button">Copy</button></div>
 <pre><code class="language-json">{
@@ -493,7 +493,7 @@ GUARDRAILS
           </table></div>
           <p>Fields with <code>omitted</code> mean: the key is absent from the JSON, not present with a <code>null</code> value. Your receiver should treat missing keys as "not set."</p>
 
-          <h3 id="webhook-ping-payload"><code>webhook.ping</code> payload <a class="h-anchor" href="#webhook-ping-payload" aria-label="Link to webhook.ping payload">#</a></h3>
+          <h3 id="webhook-ping-payload"><code>webhook.ping</code> payload <a class="h-anchor" href="#webhook-ping-payload" aria-hidden="true" tabindex="-1"></a></h3>
           <p>The test delivery uses a stripped-down body:</p>
           <div class="code">
             <div class="code-head"><span>JSON</span><button class="copy-btn" type="button">Copy</button></div>
@@ -506,10 +506,10 @@ GUARDRAILS
           </div>
           <p>No <code>task</code>, no signature differences: same headers, same HMAC scheme.</p>
 
-          <h2 id="signature-verification">Signature verification <a class="h-anchor" href="#signature-verification" aria-label="Link to Signature verification">#</a></h2>
+          <h2 id="signature-verification">Signature verification <a class="h-anchor" href="#signature-verification" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Every delivery is signed with an HMAC-SHA256 of <code>{timestamp}.{rawBody}</code> using the per-project signing secret you generated in the UI. The format is modelled after Stripe's so it should look familiar.</p>
 
-          <h3 id="algorithm">Algorithm <a class="h-anchor" href="#algorithm" aria-label="Link to Algorithm">#</a></h3>
+          <h3 id="algorithm">Algorithm <a class="h-anchor" href="#algorithm" aria-hidden="true" tabindex="-1"></a></h3>
           <ol>
             <li>Read <code>X-Dovilo-Signature</code>. It looks like <code>t=1715900000000,v1=4b2a...c7</code>.</li>
             <li>Parse out the timestamp (<code>t</code>, unix ms) and the v1 signature (<code>v1</code>, hex).</li>
@@ -519,7 +519,7 @@ GUARDRAILS
           </ol>
           <p class="note"><strong>Critical:</strong> Use the <strong>raw, unparsed</strong> request body bytes. Frameworks that auto-parse JSON often discard the original bytes; re-serializing the parsed object will produce a different signature.</p>
 
-          <h3 id="nodejs-express">Node.js (Express) <a class="h-anchor" href="#nodejs-express" aria-label="Link to Node.js (Express)">#</a></h3>
+          <h3 id="nodejs-express">Node.js (Express) <a class="h-anchor" href="#nodejs-express" aria-hidden="true" tabindex="-1"></a></h3>
           <div class="code">
             <div class="code-head"><span>JavaScript</span><button class="copy-btn" type="button">Copy</button></div>
 <pre><code class="language-javascript">const crypto = require('node:crypto');
@@ -573,7 +573,7 @@ app.post('/webhooks/dovilo', (req, res) => {
 });</code></pre>
           </div>
 
-          <h3 id="python-flask">Python (Flask) <a class="h-anchor" href="#python-flask" aria-label="Link to Python (Flask)">#</a></h3>
+          <h3 id="python-flask">Python (Flask) <a class="h-anchor" href="#python-flask" aria-hidden="true" tabindex="-1"></a></h3>
           <div class="code">
             <div class="code-head"><span>Python</span><button class="copy-btn" type="button">Copy</button></div>
 <pre><code class="language-python">import hmac
@@ -610,7 +610,7 @@ def dovilo_webhook():
     return "", 204</code></pre>
           </div>
 
-          <h3 id="go">Go <a class="h-anchor" href="#go" aria-label="Link to Go">#</a></h3>
+          <h3 id="go">Go <a class="h-anchor" href="#go" aria-hidden="true" tabindex="-1"></a></h3>
           <div class="code">
             <div class="code-head"><span>Go</span><button class="copy-btn" type="button">Copy</button></div>
 <pre><code class="language-go">package main
@@ -671,7 +671,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
           </div>
 
-          <h3 id="common-verification-mistakes">Common verification mistakes <a class="h-anchor" href="#common-verification-mistakes" aria-label="Link to Common verification mistakes">#</a></h3>
+          <h3 id="common-verification-mistakes">Common verification mistakes <a class="h-anchor" href="#common-verification-mistakes" aria-hidden="true" tabindex="-1"></a></h3>
           <ul>
             <li><strong>Re-serializing the body.</strong> If you <code>JSON.parse &rarr; JSON.stringify</code> before hashing, byte-for-byte differences (key order, whitespace) will break the signature. Hash the raw bytes.</li>
             <li><strong>String comparison instead of constant time.</strong> Use <code>timingSafeEqual</code> / <code>hmac.compare_digest</code> / <code>hmac.Equal</code>. Plain <code>==</code> leaks timing info.</li>
@@ -679,7 +679,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
             <li><strong>Trusting the body before verifying.</strong> Verify the signature on the raw bytes first, then parse the JSON.</li>
           </ul>
 
-          <h2 id="responses-dovilo-expects">Responses Dovilo expects <a class="h-anchor" href="#responses-dovilo-expects" aria-label="Link to Responses Dovilo expects">#</a></h2>
+          <h2 id="responses-dovilo-expects">Responses Dovilo expects <a class="h-anchor" href="#responses-dovilo-expects" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Your receiver's HTTP status determines what happens next.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Status range</th><th>Dovilo's behavior</th></tr></thead>
@@ -697,7 +697,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
           <p>Use <code>410 Gone</code> deliberately. It is the documented "this endpoint is dead, stop sending" signal. What happens next depends on the <a href="#delivery-modes">delivery mode</a>: Desktop switches the project's webhook to <strong>disabled</strong>, and the server stops delivering to that URL.</p>
           <p class="note"><strong>Answer an invalid signature with <code>401</code>, never <code>410</code>.</strong> A request that fails verification may come from an older Dovilo Desktop still signing with a secret you have since replaced. <code>410 Gone</code> disables the subscription, so a <code>410</code> sent to that request would switch off the webhook for the whole project, server delivery included.</p>
 
-          <h2 id="retry-policy">Retry policy <a class="h-anchor" href="#retry-policy" aria-label="Link to Retry policy">#</a></h2>
+          <h2 id="retry-policy">Retry policy <a class="h-anchor" href="#retry-policy" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Failed transient deliveries are retried up to <strong>5 times</strong> on this schedule:</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Attempt</th><th>Wait before attempt</th></tr></thead>
@@ -716,18 +716,18 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
             <li><strong>Desktop delivery:</strong> the failure is recorded in the failures ring buffer in the webhook settings (last 100 entries per project). The buffer is <strong>in-memory</strong> on the desktop client and is not persisted across app restarts, so treat it as a debugging aid, not an audit log. A pending retry is lost if Desktop quits.</li>
           </ul>
 
-          <h2 id="ordering-and-concurrency">Ordering and concurrency <a class="h-anchor" href="#ordering-and-concurrency" aria-label="Link to Ordering and concurrency">#</a></h2>
+          <h2 id="ordering-and-concurrency">Ordering and concurrency <a class="h-anchor" href="#ordering-and-concurrency" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
             <li><strong>Same task:</strong> events are delivered in FIFO order. A retry of an older event will not pass a newer event for the same task.</li>
             <li><strong>Different tasks:</strong> events run in parallel. There is <strong>no ordering guarantee across tasks.</strong></li>
             <li>Receivers should not rely on delivery time. Use <code>task.updatedAt</code> (and <code>previousStatus</code> for transitions) to reconstruct order.</li>
           </ul>
 
-          <h2 id="idempotency">Idempotency <a class="h-anchor" href="#idempotency" aria-label="Link to Idempotency">#</a></h2>
+          <h2 id="idempotency">Idempotency <a class="h-anchor" href="#idempotency" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Use <code>X-Dovilo-Delivery</code> (also available as <code>id</code> in the body) as your idempotency key. The same delivery id is reused across retries of the same event, so deduplication on this key is both safe and correct.</p>
           <p>Recommended pattern: insert the delivery id into a unique-keyed table inside the same transaction as your side effects. On retry, the duplicate key collision becomes a no-op.</p>
 
-          <h2 id="security">Security <a class="h-anchor" href="#security" aria-label="Link to Security">#</a></h2>
+          <h2 id="security">Security <a class="h-anchor" href="#security" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
             <li>The signing secret is the only thing standing between your endpoint and a spoofed Dovilo request. <strong>Treat it like a password.</strong></li>
             <li>Anyone who learns the secret can forge requests that pass verification.</li>
@@ -737,7 +737,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
             <li><strong>Desktop delivery:</strong> the secret is stored by the desktop client using OS-level secure storage (Keychain / Credential Manager / libsecret). It is not written to Firestore and is not synced across devices.</li>
           </ul>
 
-          <h2 id="operational-notes">Operational notes <a class="h-anchor" href="#operational-notes" aria-label="Link to Operational notes">#</a></h2>
+          <h2 id="operational-notes">Operational notes <a class="h-anchor" href="#operational-notes" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
             <li><strong>Desktop-bound delivery (Local only).</strong> Local webhooks fire from the Dovilo desktop app process, so they will not deliver when the app is closed. Events that occur while the app is closed are <strong>not queued</strong> for later delivery; they are simply not sent. Tasks already present in Firestore at app launch are treated as historical state, not new events, and do not fire.</li>
             <li><strong>Mobile- and agent-originated changes fire too.</strong> Server delivery observes every change. For Desktop delivery, while the desktop is running, any task created or transitioned by mobile or an MCP agent is observed via Firestore sync and fires the same events as a local write. The desktop persists per-task dedup markers (<code>webhookCreatedFiredAt</code>, <code>webhookLastSentStatus</code>) inside the same Firestore write, so a snapshot echo or a second connected desktop observing the same change will not double-fire.</li>
@@ -747,7 +747,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
             <li><strong>No webhook events for deleted tasks.</strong> A <code>task.deleted</code> event is not currently emitted. If you need to know about deletions, reconcile periodically through MCP.</li>
           </ul>
 
-          <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-label="Link to Changelog">#</a></h2>
+          <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
             <li><strong>v0.6.0</strong> — Initial outbound webhook support. Events: <code>task.created</code>, <code>task.status_changed</code>, <code>webhook.ping</code>. HMAC-SHA256 signing. 5-attempt retry. Per-task FIFO.</li>
             <li><strong>v0.6.x</strong> — Mobile- and agent-driven changes now fire via Firestore sync diff (previously only desktop-initiated writes fired). Persisted per-task dedup markers prevent snapshot-echo refire and double-fire across multiple connected desktops.</li>
@@ -911,7 +911,9 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
     /* Page script: the table of contents (the reference layout in
        docs/design-language.md). It ships closed; from 960px it opens into the
        rail, where opening it moves nothing else, and below 960px it closes
-       again. The link of the heading in view gets .active. */
+       again. The link of the section being read gets .active: the last
+       heading above a line 30% down the viewport, whichever way the reader
+       scrolls. */
     (function(){
       var toc = document.querySelector('.toc details');
       if (toc) {
@@ -929,19 +931,22 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
         document.querySelectorAll('.doc-body h2[id], .doc-body h3[id]'),
         function(h){ return links[h.id]; }
       );
-      if (!heads.length || !('IntersectionObserver' in window)) return;
-      var seen = {};
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting; });
-        /* The topmost heading in the band near the top of the viewport. */
-        for (var i = 0; i < heads.length; i++) {
-          if (!seen[heads[i].id]) continue;
-          for (var id in links) links[id].classList.remove('active');
-          links[heads[i].id].classList.add('active');
-          break;
-        }
-      }, { rootMargin: '-10% 0px -70% 0px' });
-      heads.forEach(function(h){ io.observe(h); });
+      if (!heads.length) return;
+      var current = null, queued = false;
+      function mark(){
+        queued = false;
+        var line = window.innerHeight * 0.3, next = null;
+        for (var i = 0; i < heads.length && heads[i].getBoundingClientRect().top <= line; i++) next = heads[i];
+        if (next === current) return;
+        if (current) links[current.id].classList.remove('active');
+        if (next) links[next.id].classList.add('active');
+        current = next;
+      }
+      window.addEventListener('scroll', function(){
+        if (!queued) { queued = true; requestAnimationFrame(mark); }
+      }, { passive: true });
+      window.addEventListener('resize', mark);
+      mark();
     })();
   </script>
 </body>

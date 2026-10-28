@@ -186,7 +186,7 @@
         </aside>
 
         <article class="flow doc-body">
-          <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-label="Link to Endpoints">#</a></h2>
+          <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The two servers share a host and nothing else. They take different credentials and reach different data, so a chat assistant never holds an agent's access, and an agent never holds yours.</p>
           <div class="table-wrap"><table class="table">
             <caption class="sr-only">Agents MCP and Personal MCP compared</caption>
@@ -202,10 +202,10 @@
           </table></div>
           <p>The transport is Streamable HTTP, stateless: every request is a <code>POST</code> and the answer comes back as JSON. A <code>GET</code> for an event stream gets <code>405</code>, and the older HTTP+SSE transport is not supported. Opening either URL in a browser takes you to the downloads page.</p>
 
-          <h2 id="authentication">Authentication <a class="h-anchor" href="#authentication" aria-label="Link to Authentication">#</a></h2>
+          <h2 id="authentication">Authentication <a class="h-anchor" href="#authentication" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Agents authenticate with a key the user creates for them; assistants authenticate as the user, through a sign-in the user completes. Both are revoked from the phone, and both stop working at once when revoked.</p>
 
-          <h3 id="agent-keys">Agents MCP: one key per agent <a class="h-anchor" href="#agent-keys" aria-label="Link to Agents MCP keys">#</a></h3>
+          <h3 id="agent-keys">Agents MCP: one key per agent <a class="h-anchor" href="#agent-keys" aria-hidden="true" tabindex="-1"></a></h3>
           <ul>
             <li>The user creates the agent in the app: in the mobile app, <strong>AI Agents</strong>, then <strong>New agent</strong> (a name, its projects, its key); in Dovilo Desktop, <strong>Connect a new AI</strong>.</li>
             <li>Send the key on every request as <code>Authorization: Bearer &lt;key&gt;</code>.</li>
@@ -214,7 +214,7 @@
             <li>The key can be regenerated or revoked from the mobile app or Desktop. Either takes effect right away; regenerating stops the old key.</li>
           </ul>
 
-          <h3 id="personal-sign-in">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#personal-sign-in" aria-label="Link to Personal MCP sign-in">#</a></h3>
+          <h3 id="personal-sign-in">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#personal-sign-in" aria-hidden="true" tabindex="-1"></a></h3>
           <ul>
             <li>OAuth 2.1 with PKCE (<code>S256</code>). The user signs in with their Dovilo account, Google or Apple, and approves one consent screen.</li>
             <li>Clients discover the authorization server from the <code>WWW-Authenticate</code> header of a <code>401</code>, which names the protected resource metadata: <code>https://dovilo.app/.well-known/oauth-protected-resource/mcp</code>.</li>
@@ -223,7 +223,7 @@
             <li>The user disconnects an assistant in <strong>Connected AI apps</strong>, and it loses access right away.</li>
           </ul>
 
-          <h3 id="auth-errors">Missing or wrong credentials <a class="h-anchor" href="#auth-errors" aria-label="Link to Missing or wrong credentials">#</a></h3>
+          <h3 id="auth-errors">Missing or wrong credentials <a class="h-anchor" href="#auth-errors" aria-hidden="true" tabindex="-1"></a></h3>
           <p>Both servers answer <code>401</code> with a JSON body. A wrong key and a missing key get the same answer, so the response never says which it was. The message is written for a person: an agent should show it to the user as it is.</p>
           <div class="code">
             <div class="code-head"><span>HTTP</span><button class="copy-btn" type="button">Copy</button></div>
@@ -238,7 +238,7 @@ Content-Type: application/json
           </div>
           <p>Personal MCP sends <code>WWW-Authenticate: Bearer resource_metadata="https://dovilo.app/.well-known/oauth-protected-resource/mcp"</code> instead, with the message <em>Sign in with your Dovilo account.</em> and the same download link.</p>
 
-          <h2 id="connecting">Connecting a client <a class="h-anchor" href="#connecting" aria-label="Link to Connecting a client">#</a></h2>
+          <h2 id="connecting">Connecting a client <a class="h-anchor" href="#connecting" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Every client gets the same two things: the server URL and the agent's key as a bearer token in the <code>Authorization</code> header. The app's connect flow has a preset for Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and Claude Desktop, shows where each config goes, and fills in the key. The agent can run on a laptop, a server or a CI runner, and Dovilo Desktop does not need to be open. You need Pro and Dovilo 2.0 or later.</p>
           <p><strong>Claude Code</strong>, one command:</p>
           <div class="code">
@@ -260,7 +260,7 @@ Content-Type: application/json
           <p>Field names differ between clients: Windsurf calls the URL <code>serverUrl</code>, Codex CLI takes a TOML block, and Gemini CLI has its own <code>mcp add</code> command. That is why the presets exist; use the one for your client. Claude Desktop has no field for a custom header, so its preset runs the server through <code>mcp-remote</code>, which needs Node.js on that machine. Claude Code can also keep the entry in a <code>.mcp.json</code> in the repository; that file holds the key, so the app reminds you to add it to <code>.gitignore</code>.</p>
           <p>To check the connection in Claude Code, run <code>/mcp</code>: it lists <code>dovilo</code> as connected, with 9 tools.</p>
 
-          <h3 id="first-task">The first AI task <a class="h-anchor" href="#first-task" aria-label="Link to The first AI task">#</a></h3>
+          <h3 id="first-task">The first AI task <a class="h-anchor" href="#first-task" aria-hidden="true" tabindex="-1"></a></h3>
           <p>Agent work lives in its own place: create a project, write a short brief (goals, constraints, what to leave alone), then add the job in the <strong>AI Tasks</strong> tab, on the phone or on the desktop. That tab is the entire surface an agent can read. Your personal to-do list in My Tasks is never exposed to it, so nothing you keep there needs excluding. Then ask your agent for the work in plain language; it discovers the tools on its own.</p>
           <div class="code">
 <pre><code>&gt; take my next Dovilo task and work it
@@ -277,7 +277,7 @@ update_status    → done</code></pre>
           </div>
           <p>Every one of those calls lands on the task itself, so the AI Tasks tab on your phone shows the step trail, the notes and the cost while it happens. If the agent needs a decision it sets <code>awaiting-user</code> and stops. You answer from the task, the agent reads your reply with <code>get_task</code> and carries on, and the answer costs no quota.</p>
 
-          <h2 id="agents-tools">Agents MCP tools <a class="h-anchor" href="#agents-tools" aria-label="Link to Agents MCP tools">#</a></h2>
+          <h2 id="agents-tools">Agents MCP tools <a class="h-anchor" href="#agents-tools" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Nine tools: three read, six write. They reach only the AI tasks of the agent's projects. There is no tool that creates a task and no tool that deletes one, and the user's personal to-do list is not on this server at all. Every write takes the task <code>id</code>.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Tool</th><th>Access</th><th>Inputs</th><th>What it does</th></tr></thead>
@@ -294,7 +294,7 @@ update_status    → done</code></pre>
             </tbody>
           </table></div>
 
-          <h3 id="claiming">Claiming a task <a class="h-anchor" href="#claiming" aria-label="Link to Claiming a task">#</a></h3>
+          <h3 id="claiming">Claiming a task <a class="h-anchor" href="#claiming" aria-hidden="true" tabindex="-1"></a></h3>
           <p>Two agents can see the same queued task, so the first write is a claim, and the claim is atomic.</p>
           <ol>
             <li>Read the task with <code>read_context</code> and <code>get_task</code>. The project brief in <code>read_context</code> is the user's instructions for the work.</li>
@@ -304,7 +304,7 @@ update_status    → done</code></pre>
             <li>When the agent needs a decision, it sets <code>awaiting-user</code> with a note and stops. The user's answer arrives as <code>approvalFeedback</code> on <code>get_task</code>, and answering costs no quota.</li>
           </ol>
 
-          <h2 id="statuses">Status values <a class="h-anchor" href="#statuses" aria-label="Link to Status values">#</a></h2>
+          <h2 id="statuses">Status values <a class="h-anchor" href="#statuses" aria-hidden="true" tabindex="-1"></a></h2>
           <p>An AI task moves through these values. The same values appear in <a href="/docs/webhooks#task-lifecycle-reference">webhook payloads</a>.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
@@ -324,7 +324,7 @@ update_status    → done</code></pre>
             <li>There is no separate cancelled status. <code>update_status</code> accepts <code>cancelled</code> and stores it as <code>error</code> with <code>cancelledAt</code>.</li>
           </ul>
 
-          <h2 id="scheduling">Scheduling and repeat <a class="h-anchor" href="#scheduling" aria-label="Link to Scheduling and repeat">#</a></h2>
+          <h2 id="scheduling">Scheduling and repeat <a class="h-anchor" href="#scheduling" aria-hidden="true" tabindex="-1"></a></h2>
           <p>A task can wait for a set time before it opens to an agent, and it can repeat. The user sets both in the app; a chat assistant can propose them with <code>create_agent_task</code>.</p>
           <ul>
             <li>A task whose start time is in the future is <code>scheduled</code>. Every minute the server opens the tasks whose time has come and moves them to <code>queued</code>.</li>
@@ -333,7 +333,7 @@ update_status    → done</code></pre>
             <li>Quota: Pro includes 15 AI tasks a month, charged when a task opens to the agent, not when it is created. Replies on the same task cost nothing. Top-ups of +10, +30 or +75 start at $0.99 and never expire. A scheduled task that comes due with no quota left stays <code>scheduled</code>, and the user is told.</li>
           </ul>
 
-          <h2 id="cancelling">Cancelling <a class="h-anchor" href="#cancelling" aria-label="Link to Cancelling">#</a></h2>
+          <h2 id="cancelling">Cancelling <a class="h-anchor" href="#cancelling" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Cancelling stops a task without removing it. Nothing on either server deletes a task.</p>
           <ul>
             <li>An agent cancels a task it should not run with <code>update_status</code>, status <code>cancelled</code> and a <code>reason</code>. It may cancel a queued task in its projects that nobody has claimed, or a task it claimed itself.</li>
@@ -342,7 +342,7 @@ update_status    → done</code></pre>
             <li>A chat assistant proposes a cancel with <code>cancel_agent_task</code>. It happens when the user approves it.</li>
           </ul>
 
-          <h2 id="personal-tools">Personal MCP tools <a class="h-anchor" href="#personal-tools" aria-label="Link to Personal MCP tools">#</a></h2>
+          <h2 id="personal-tools">Personal MCP tools <a class="h-anchor" href="#personal-tools" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Thirteen tools for chat assistants. Read tools return only what the user made visible to that connection. Write tools propose: each one creates a proposal that waits in the Dovilo app, and the tool answers with its id and the status <code>pending</code>.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Tool</th><th>Access</th><th>What it does</th><th>Approval</th></tr></thead>
@@ -374,7 +374,7 @@ update_status    → done</code></pre>
             <li>Sending a plan works on Free; approving it, and everything else, needs Pro.</li>
           </ul>
 
-          <h2 id="approval">Approval rules <a class="h-anchor" href="#approval" aria-label="Link to Approval rules">#</a></h2>
+          <h2 id="approval">Approval rules <a class="h-anchor" href="#approval" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The AI proposes. You approve. What a chat assistant writes waits in the AI inbox on the user's phone, which gets a notification, until the user approves it there.</p>
           <ul>
             <li>Plans, AI-task proposals and every change to an AI task (a reply, an edit, a cancel) always need approval, whatever the write mode. Text that reaches a coding agent becomes its instructions, so a person reads it first.</li>
@@ -383,7 +383,7 @@ update_status    → done</code></pre>
             <li>If the task has moved on by the time the user approves (an agent claimed it, it finished, or it was cancelled), the change is rejected.</li>
           </ul>
 
-          <h3 id="connection-controls">Connection controls <a class="h-anchor" href="#connection-controls" aria-label="Link to Connection controls">#</a></h3>
+          <h3 id="connection-controls">Connection controls <a class="h-anchor" href="#connection-controls" aria-hidden="true" tabindex="-1"></a></h3>
           <p>In <strong>Connected AI apps</strong>, per assistant, the user controls:</p>
           <ul>
             <li><strong>Read access:</strong> whether the assistant can see the tasks in visible lists, or only the list names.</li>
@@ -393,7 +393,7 @@ update_status    → done</code></pre>
             <li><strong>Disconnect,</strong> which takes effect right away.</li>
           </ul>
 
-          <h2 id="planning">Planning from a chat assistant <a class="h-anchor" href="#planning" aria-label="Link to Planning from a chat assistant">#</a></h2>
+          <h2 id="planning">Planning from a chat assistant <a class="h-anchor" href="#planning" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Personal MCP connects the chat assistant you already use, ChatGPT, Claude, Gemini or Grok, to your Dovilo account. It proposes; nothing lands in your lists or your agent's queue until you approve it on your phone.</p>
           <ol>
             <li>In the assistant, add a custom connector (some apps call it a custom MCP server) with the URL <code>https://dovilo.app/mcp</code>.</li>
@@ -407,7 +407,7 @@ update_status    → done</code></pre>
             <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>.
             Availability depends on the vendor's plan and region. In the app, <strong>How to connect</strong> under Connected AI apps walks through each one.</p>
 
-          <h3 id="chat-to-task">From a chat to a finished task <a class="h-anchor" href="#chat-to-task" aria-label="Link to From a chat to a finished task">#</a></h3>
+          <h3 id="chat-to-task">From a chat to a finished task <a class="h-anchor" href="#chat-to-task" aria-hidden="true" tabindex="-1"></a></h3>
           <ol>
             <li>Plan in ChatGPT. It proposes an AI task under one of your Dovilo projects.</li>
             <li>Approve it on your phone.</li>
@@ -416,10 +416,10 @@ update_status    → done</code></pre>
             <li>Approve the answer, and the agent carries on.</li>
           </ol>
 
-          <h2 id="webhooks-or-polling">Webhooks or polling <a class="h-anchor" href="#webhooks-or-polling" aria-label="Link to Webhooks or polling">#</a></h2>
+          <h2 id="webhooks-or-polling">Webhooks or polling <a class="h-anchor" href="#webhooks-or-polling" aria-hidden="true" tabindex="-1"></a></h2>
           <p>To react when a task moves without keeping an agent running, subscribe the project to <a href="/docs/webhooks">signed webhooks</a>: Dovilo's server delivers them to public HTTPS receivers, and Dovilo Desktop to local addresses (<code>localhost</code>, private network ranges, <code>.local</code>). Without a receiver, poll <code>list_tasks</code> with <code>updated_after</code> set to the largest <code>updatedAt</code> from the previous response. Use the server's value, not your own clock.</p>
 
-          <h2 id="upgrading">Upgrading from Desktop 1.8 <a class="h-anchor" href="#upgrading" aria-label="Link to Upgrading from Desktop 1.8">#</a></h2>
+          <h2 id="upgrading">Upgrading from Desktop 1.8 <a class="h-anchor" href="#upgrading" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Desktop 1.8.0 ran the MCP server inside the app, and the client started it as a child process on the same machine. Dovilo 2.0 replaces it with Agents MCP at <code>https://dovilo.app/mcp/agents</code>; the tool names and their contract are the same. To move an agent over:</p>
           <ol>
             <li>Update Dovilo Desktop to 2.0 or later. It updates itself, and shows a banner, <strong>Move to remote MCP</strong>.</li>
@@ -427,7 +427,7 @@ update_status    → done</code></pre>
             <li>In each client, replace the old Dovilo entry with the server URL and the new key, as in <a href="#connecting">Connecting a client</a>. An agent still set up the old way gets an error that explains the switch.</li>
           </ol>
 
-          <h2 id="plan">Plan and trial <a class="h-anchor" href="#plan" aria-label="Link to Plan and trial">#</a></h2>
+          <h2 id="plan">Plan and trial <a class="h-anchor" href="#plan" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The agent layer is part of Dovilo Pro, not a separate purchase. Pro covers Agents MCP, planning from ChatGPT, Claude, Gemini or Grok, Dovilo Desktop, webhooks and cloud sync.</p>
           <ul>
             <li>Pro is $2.49 a month, $19.99 a year, or $49.99 once. Store pricing is regional; these are the USD baseline.</li>
@@ -437,7 +437,7 @@ update_status    → done</code></pre>
             <li>On Personal MCP, sending a plan works on Free; approving it, and everything else, needs Pro.</li>
           </ul>
 
-          <h2 id="questions">Questions developers ask <a class="h-anchor" href="#questions" aria-label="Link to Questions developers ask">#</a></h2>
+          <h2 id="questions">Questions developers ask <a class="h-anchor" href="#questions" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The <a href="/ai">developer page</a> answers five questions in a line each. These are the ones that need more room.</p>
 
           <h3>How hard is this to set up?</h3>
@@ -464,7 +464,7 @@ update_status    → done</code></pre>
           <h3>Is this a real product or a weekend project?</h3>
           <p>It is a solo-built product, shipping regularly on four platforms. Releases are public in the <a href="/changelog/">changelog</a> and on <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">GitHub</a>. There is no funding round behind it and no independent review of it yet; judge it from the release history and the <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">demo repo</a>.</p>
 
-          <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-label="Link to Changelog">#</a></h2>
+          <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
             <li><strong>Dovilo 2.0</strong>: Agents MCP over HTTPS at <code>https://dovilo.app/mcp/agents</code>, with a key per agent; the server built into Desktop 1.8 stops. New status <code>scheduled</code> and repeating tasks. Agents can cancel a task with a reason. <code>get_task</code> returns <code>approvalFeedback</code>. Personal MCP at <code>https://dovilo.app/mcp</code>, with 13 tools.</li>
           </ul>
@@ -623,7 +623,9 @@ update_status    → done</code></pre>
     /* Page script: the table of contents (the reference layout in
        docs/design-language.md). It ships closed; from 960px it opens into the
        rail, where opening it moves nothing else, and below 960px it closes
-       again. The link of the heading in view gets .active. */
+       again. The link of the section being read gets .active: the last
+       heading above a line 30% down the viewport, whichever way the reader
+       scrolls. */
     (function(){
       var toc = document.querySelector('.toc details');
       if (toc) {
@@ -641,19 +643,22 @@ update_status    → done</code></pre>
         document.querySelectorAll('.doc-body h2[id], .doc-body h3[id]'),
         function(h){ return links[h.id]; }
       );
-      if (!heads.length || !('IntersectionObserver' in window)) return;
-      var seen = {};
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting; });
-        /* The topmost heading in the band near the top of the viewport. */
-        for (var i = 0; i < heads.length; i++) {
-          if (!seen[heads[i].id]) continue;
-          for (var id in links) links[id].classList.remove('active');
-          links[heads[i].id].classList.add('active');
-          break;
-        }
-      }, { rootMargin: '-10% 0px -70% 0px' });
-      heads.forEach(function(h){ io.observe(h); });
+      if (!heads.length) return;
+      var current = null, queued = false;
+      function mark(){
+        queued = false;
+        var line = window.innerHeight * 0.3, next = null;
+        for (var i = 0; i < heads.length && heads[i].getBoundingClientRect().top <= line; i++) next = heads[i];
+        if (next === current) return;
+        if (current) links[current.id].classList.remove('active');
+        if (next) links[next.id].classList.add('active');
+        current = next;
+      }
+      window.addEventListener('scroll', function(){
+        if (!queued) { queued = true; requestAnimationFrame(mark); }
+      }, { passive: true });
+      window.addEventListener('resize', mark);
+      mark();
     })();
   </script>
 </body>

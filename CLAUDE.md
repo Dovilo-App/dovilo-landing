@@ -178,7 +178,9 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   (`c7ab5a8`)
 - Every page carries a page-level type (`WebPage`, `CollectionPage` for `/docs/`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
-  `BreadcrumbList` with position 1 = Dovilo / position 2 = the page. No page ships with zero JSON-LD.
+  `BreadcrumbList` with position 1 = Dovilo and the page last, its parent between them where it
+  has one (Dovilo / Docs / the page on `/docs/mcp/` and `/docs/webhooks`). No page ships with zero
+  JSON-LD.
 - Any URL an `ItemList` or anchor points at must resolve — give list cards stable ids before
   referencing them. (`c7ab5a8`)
 - **No self-serving review markup.** Do not add `aggregateRating` unless the page visibly shows
@@ -192,7 +194,9 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   Meta-ExternalAgent, cohere-ai, CCBot. Only `/notes/` is disallowed. **Never add a Disallow for an
   AI crawler.**
 - Change a URL's content → bump its `<lastmod>` in `sitemap.xml` to that day. A retitle counts.
-  (`0384c1f`)
+  (`0384c1f`) A link added to the shared nav or footer alone is not a content change and moves
+  neither date: the nav's link to `/pricing/` (PR #11) and the footer's to `/docs/` (29 Oct 2026)
+  went in on every page without one, since lastmod tells crawlers the content moved.
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
