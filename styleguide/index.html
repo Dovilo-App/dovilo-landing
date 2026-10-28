@@ -34,7 +34,7 @@
   "description": "Every component of the Dovilo design language in light and dark, with the tokens and the word budgets the site's pages follow.",
   "url": "https://dovilo.app/styleguide/",
   "inLanguage": "en",
-  "dateModified": "2026-10-27",
+  "dateModified": "2026-10-28",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -82,7 +82,7 @@
       <nav aria-label="Main">
         <ul class="nav-links" id="nav-links">
           <li><a href="/ai">AI</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/downloads/">Downloads</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog/">Blog</a></li>
@@ -131,6 +131,8 @@
             <li><a href="#trust">Trust list</a></li>
             <li><a href="#shipped">Recently shipped</a></li>
             <li><a href="#pricing">Pricing summary</a></li>
+            <li><a href="#plans">Pricing columns</a></li>
+            <li><a href="#download-boxes">Download boxes</a></li>
             <li><a href="#faq">FAQ accordion</a></li>
             <li><a href="#note">Note</a></li>
             <li><a href="#buttons">Buttons</a></li>
@@ -209,7 +211,7 @@
             <tbody>
               <tr><td><code>/</code></td><td>450 at most, body copy under 350; headings, labels, captions, links and FAQ questions count, store badges do not</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/ai</code></td><td>440 at most, its section headings included</td><td>One code block, plus collapsibles</td></tr>
-              <tr><td><code>/pricing</code></td><td>250 at most</td><td>Collapsibles</td></tr>
+              <tr><td><code>/pricing</code></td><td>320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/downloads</code></td><td>150 at most</td><td>Collapsibles</td></tr>
               <tr><td><code>/faq</code>, <code>/docs/*</code>, <code>/changelog</code>, <code>/privacy</code>, <code>/terms</code></td><td>No budget</td><td>These pages carry the depth</td></tr>
             </tbody>
@@ -233,7 +235,7 @@
               <nav aria-label="Main, light sample">
                 <ul class="nav-links" id="nav-links-light">
                   <li><a href="/ai">AI</a></li>
-                  <li><a href="/#pricing">Pricing</a></li>
+                  <li><a href="/pricing/">Pricing</a></li>
                   <li><a href="/downloads/">Downloads</a></li>
                   <li><a href="/faq">FAQ</a></li>
                   <li><a href="/blog/">Blog</a></li>
@@ -259,7 +261,7 @@
               <nav aria-label="Main, dark sample">
                 <ul class="nav-links" id="nav-links-dark">
                   <li><a href="/ai">AI</a></li>
-                  <li><a href="/#pricing">Pricing</a></li>
+                  <li><a href="/pricing/">Pricing</a></li>
                   <li><a href="/downloads/">Downloads</a></li>
                   <li><a href="/faq">FAQ</a></li>
                   <li><a href="/blog/">Blog</a></li>
@@ -1069,7 +1071,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="pricing-title">Pricing summary</h2>
-          <p>Two or three lines and a link to the pricing page; on the home page, no link until /pricing/ exists. Prices are the USD store baseline.</p>
+          <p>Two or three lines and a link to the pricing page. Prices are the USD store baseline.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1079,7 +1081,7 @@
               <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
               <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
             </ul>
-            <a class="link" href="/#pricing">Compare plans <span aria-hidden="true">&rarr;</span></a>
+            <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
         <p class="sg-label">Dark</p>
@@ -1090,7 +1092,185 @@
               <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
               <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
             </ul>
-            <a class="link" href="/#pricing">Compare plans <span aria-hidden="true">&rarr;</span></a>
+            <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing columns -->
+    <section class="section" id="plans" aria-labelledby="plans-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="plans-title">Pricing columns</h2>
+          <p>One box per plan on /pricing, both alike: the name, the prices one per line, then what it includes as price lines. No badge, no plan singled out.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="plans">
+              <div class="plan">
+                <h2>Free</h2>
+                <ul class="plan-prices"><li>$0</li></ul>
+                <ul class="price-lines">
+                  <li>Full to-do management</li>
+                  <li>Unlimited tasks &amp; categories</li>
+                  <li>Due dates, stars &amp; priorities</li>
+                  <li>Unlimited focus sessions</li>
+                  <li>Basic city with starter buildings</li>
+                  <li>Basic statistics</li>
+                  <li>Dark &amp; light themes</li>
+                  <li>Offline-first, always works</li>
+                  <li>No ads, ever</li>
+                </ul>
+              </div>
+              <div class="plan">
+                <h2>Pro</h2>
+                <ul class="plan-prices">
+                  <li>$2.49 a month</li>
+                  <li>$19.99 a year</li>
+                  <li>$49.99 once</li>
+                  <li>7-day trial in the app</li>
+                </ul>
+                <p class="plan-lead">Everything in Free, plus</p>
+                <ul class="price-lines">
+                  <li>Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo.</li>
+                  <li>AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you.</li>
+                  <li>Dovilo Desktop for Windows and Mac</li>
+                  <li>Cloud sync across your devices</li>
+                  <li>Focus Ambience Pack: 5 scenes and 16 sound layers</li>
+                  <li>Full City Package: every building and upgrade</li>
+                  <li>Advanced statistics</li>
+                  <li>+6 build permits a day</li>
+                  <li>Snooze a reminder for 30 minutes right from the notification</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note">Sending a plan is free; approving needs Pro.</p>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="plans">
+              <div class="plan">
+                <h2>Free</h2>
+                <ul class="plan-prices"><li>$0</li></ul>
+                <ul class="price-lines">
+                  <li>Full to-do management</li>
+                  <li>Unlimited tasks &amp; categories</li>
+                  <li>Due dates, stars &amp; priorities</li>
+                  <li>Unlimited focus sessions</li>
+                  <li>Basic city with starter buildings</li>
+                  <li>Basic statistics</li>
+                  <li>Dark &amp; light themes</li>
+                  <li>Offline-first, always works</li>
+                  <li>No ads, ever</li>
+                </ul>
+              </div>
+              <div class="plan">
+                <h2>Pro</h2>
+                <ul class="plan-prices">
+                  <li>$2.49 a month</li>
+                  <li>$19.99 a year</li>
+                  <li>$49.99 once</li>
+                  <li>7-day trial in the app</li>
+                </ul>
+                <p class="plan-lead">Everything in Free, plus</p>
+                <ul class="price-lines">
+                  <li>Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo.</li>
+                  <li>AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you.</li>
+                  <li>Dovilo Desktop for Windows and Mac</li>
+                  <li>Cloud sync across your devices</li>
+                  <li>Focus Ambience Pack: 5 scenes and 16 sound layers</li>
+                  <li>Full City Package: every building and upgrade</li>
+                  <li>Advanced statistics</li>
+                  <li>+6 build permits a day</li>
+                  <li>Snooze a reminder for 30 minutes right from the notification</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note">Sending a plan is free; approving needs Pro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download boxes -->
+    <section class="section" id="download-boxes" aria-labelledby="download-boxes-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="download-boxes-title">Download boxes</h2>
+          <p>Phones and desktop on /downloads, each with its badges and a line or two. The installers share the store badge look; the visitor&rsquo;s platform gets a ring (here: Windows).</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="download-boxes">
+              <div class="download-box">
+                <h2>Phones</h2>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <p>Free, with a 7-day Pro trial in the app.</p>
+              </div>
+              <div class="download-box">
+                <h2>Desktop</h2>
+                <div class="store-badges">
+                  <a class="store-badge highlighted" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span><small>Dovilo for</small><strong>Windows</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Dovilo for</small><strong>Mac</strong></span>
+                  </a>
+                </div>
+                <p>Latest: 2.0.2, 27 Oct 2026. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="download-boxes">
+              <div class="download-box">
+                <h2>Phones</h2>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <p>Free, with a 7-day Pro trial in the app.</p>
+              </div>
+              <div class="download-box">
+                <h2>Desktop</h2>
+                <div class="store-badges">
+                  <a class="store-badge highlighted" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span><small>Dovilo for</small><strong>Windows</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Dovilo for</small><strong>Mac</strong></span>
+                  </a>
+                </div>
+                <p>Latest: 2.0.2, 27 Oct 2026. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1255,7 +1435,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="closing-title">Closing CTA</h2>
-          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them.</p>
+          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them; /pricing keeps only the badges and the link.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1323,6 +1503,42 @@
             </div>
           </section>
         </div>
+        <p class="sg-label">Light, badges only (/pricing)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="section closing">
+            <div class="container">
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_pricing&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=pricing">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, badges only (/pricing)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="section closing">
+            <div class="container">
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_pricing&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=pricing">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1343,7 +1559,7 @@
                   <ul>
                     <li><a href="/ai">For developers</a></li>
                     <li><a href="/downloads/">Downloads</a></li>
-                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/pricing/">Pricing</a></li>
                     <li><a href="/changelog/">Changelog</a></li>
                   </ul>
                 </div>
@@ -1391,7 +1607,7 @@
                   <ul>
                     <li><a href="/ai">For developers</a></li>
                     <li><a href="/downloads/">Downloads</a></li>
-                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/pricing/">Pricing</a></li>
                     <li><a href="/changelog/">Changelog</a></li>
                   </ul>
                 </div>
@@ -1442,7 +1658,7 @@
           <ul>
             <li><a href="/ai">For developers</a></li>
             <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/changelog/">Changelog</a></li>
           </ul>
         </div>

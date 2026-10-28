@@ -15,7 +15,8 @@ The app itself is closed source; this repository is the public website only.
 | [`/ai`](https://dovilo.app/ai/) | The developer page, on the design system: the agent layer in about 400 visible words, the depth on `/docs/mcp` |
 | [`/docs/mcp`](https://dovilo.app/docs/mcp/) | MCP reference: endpoints, auth, client setup, all 22 tools, statuses, scheduling, approval rules, planning from chat assistants, upgrading from 1.8, developer questions |
 | [`/docs/webhooks`](https://dovilo.app/docs/webhooks/) | Signed webhook events — delivery modes, payload schema, signature verification, retry policy |
-| [`/downloads`](https://dovilo.app/downloads/) | App Store, Play Store and desktop installers |
+| [`/pricing`](https://dovilo.app/pricing/) | The canonical prices, on the design system: Free and Pro side by side, the one-time purchases, managing the subscription and four questions in about 310 visible words; it owns the `offers` JSON-LD |
+| [`/downloads`](https://dovilo.app/downloads/) | App Store, Play Store and desktop installers, on the design system in about 80 visible words, with the depth in collapsibles; accepts `?source=` from the app and the MCP servers |
 | [`/changelog`](https://dovilo.app/changelog/) | Release notes per platform, plus the roadmap |
 | [`/blog`](https://dovilo.app/blog/) | Posts, generated from Sanity — see [The blog](#the-blog) |
 | [`/faq`](https://dovilo.app/faq/) | Tasks, focus, ambience, the city, Pro and MCP |
@@ -25,7 +26,7 @@ The app itself is closed source; this repository is the public website only.
 
 Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
 is a single `index.html` with its CSS inlined and its structured data in `application/ld+json`
-blocks. Redesigned pages (`/`, `/ai`) instead link the one design-system stylesheet and carry no CSS
+blocks. Redesigned pages (`/`, `/ai`, `/pricing`, `/downloads`) instead link the one design-system stylesheet and carry no CSS
 of their own; [`styles/home.css`](styles/home.css), the old homepage's stylesheet, is no longer
 linked and goes with `base.css`. Nothing is fetched from a third
 party: Inter is self-hosted from [`fonts/`](fonts/) as a variable `woff2` declared with

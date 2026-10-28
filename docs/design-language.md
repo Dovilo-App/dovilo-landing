@@ -176,8 +176,9 @@ A page may keep a behaviour it already has, in a second inline script after the 
 changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
 table-of-contents highlight on `/docs/*`. Its class names stay a contract (`CLAUDE.md` §1.2 lists
 them). A page script never styles anything and never builds content a crawler should read. If the
-behaviour needs a visual part this document does not have (a table of contents, a platform card, a
-release entry), that part is added here first, like any other component.
+behaviour needs a visual part this document does not have (a table of contents, a release entry),
+that part is added here first, like any other component. The platform detection's visual part is
+the highlighted card of the download boxes (section 5).
 
 ## 4. Layout
 
@@ -290,8 +291,8 @@ with `aria-current="page"`.
 </header>
 ```
 
-The SVG paths are in `/styleguide/index.html`. Until `/pricing/` exists, the Pricing link points
-at `/#pricing`.
+The SVG paths are in `/styleguide/index.html`. The Pricing link points at `/pricing/`; the old pages'
+nav points there too.
 
 ### Hero
 
@@ -371,6 +372,10 @@ Dovilo, say what it is and for whom, and carry the page's primary keyword withou
 H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute. When the
 sub is a single line that cannot carry all of that, an "In short" section straight after the hero
 does (section 4).
+
+**Hero without a proof:** on `/pricing` and `/downloads` the proof is the section straight after
+the hero (the pricing columns, the download boxes), so the hero is the `<h1>` and the sub alone:
+no buttons, no figure.
 
 Pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`) open with a plain
 section instead of a hero: an `<h1>` and the first paragraph, no buttons, no figure.
@@ -506,8 +511,8 @@ so in its line ("Mobile 2.0.0 on Android"), and a platform without a date is not
 ```
 
 **Pricing summary:** two or three lines, then a link to the pricing page. Prices from `llms.txt`,
-never rounded or restated. Until `/pricing/` exists, the home page's summary has no link: it is the
-`#pricing` anchor the nav's Pricing link points at.
+never rounded or restated. The home page's summary keeps its `#pricing` anchor, and its link, like
+the one on `/ai`, goes to `/pricing/`.
 
 ```html
 <ul class="pricing-summary">
@@ -515,7 +520,84 @@ never rounded or restated. Until `/pricing/` exists, the home page's summary has
   <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
   <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
 </ul>
-<a class="link" href="/pricing/">Compare plans <span aria-hidden="true">&rarr;</span></a>
+<a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+```
+
+### Pricing columns
+
+The plans side by side, on `/pricing` only: one box per plan, two boxes, side by side from 768px
+and stacked below. A box has the plan's name in an `<h2>` (set at the `<h3>` size), its prices one
+per line (`plan-prices`), and what it includes as price lines. The second plan may open its list
+with one lead line ("Everything in Free, plus"). **No badges**: no "Best value", no "Save 33%", no
+highlighted plan; both boxes look the same. Each box carries the plan's id, so `/pricing/#pro`
+links to it.
+
+**Price lines** (`price-lines`): the line-list look in one column, for what a plan or a one-time
+purchase includes. The copy is the product brief's list verbatim, never paraphrased to fit. A
+caveat that applies to the whole block goes in a note under it (Note, below).
+
+```html
+<div class="plans">
+  <div class="plan" id="free">
+    <h2>Free</h2>
+    <ul class="plan-prices"><li>$0</li></ul>
+    <ul class="price-lines">
+      <li>Full to-do management</li>
+      <li>Unlimited tasks &amp; categories</li>
+      …
+    </ul>
+  </div>
+  <div class="plan" id="pro">
+    <h2>Pro</h2>
+    <ul class="plan-prices">
+      <li>$2.49 a month</li>
+      <li>$19.99 a year</li>
+      <li>$49.99 once</li>
+      <li>7-day trial in the app</li>
+    </ul>
+    <p class="plan-lead">Everything in Free, plus</p>
+    <ul class="price-lines">…</ul>
+  </div>
+</div>
+<p class="note">Sending a plan is free; approving needs Pro.</p>
+```
+
+### Download boxes
+
+Where to get each app, on `/downloads` only: two boxes like the pricing columns, one for the phones
+and one for the desktop. The phone box holds the two store badges; the desktop box holds the two
+installers in the same badge look, with the OS logo and a two-line label that reads "Dovilo for
+Windows" and "Dovilo for Mac". Under the badges, one or two short lines. Each box keeps the ids
+the old page had: the box takes the new id, its heading the old group id, and each badge its old
+card id (`#card-ios|android|windows|mac`).
+
+The page script marks the download for the visitor's platform with `highlighted` on its card: a
+1px `--text` ring around the badge, nothing else, and never while the badge has keyboard focus. No
+label, no pulsing dot, no colour. The old page's prose sections are collapsibles that keep their
+ids, so the page script also opens a collapsible when the URL's fragment names it.
+
+```html
+<div class="download-boxes">
+  <div class="download-box" id="mobile">
+    <h2 id="group-mobile">Phones</h2>
+    <div class="store-badges">
+      <a class="store-badge" id="card-ios" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">…</a>
+      <a class="store-badge" id="card-android" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">…</a>
+    </div>
+    <p>Free, with a 7-day Pro trial in the app.</p>
+  </div>
+  <div class="download-box" id="desktop">
+    <h2 id="group-desktop">Desktop</h2>
+    <div class="store-badges">
+      <a class="store-badge" id="card-windows" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+        <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+        <span><small>Dovilo for</small><strong>Windows</strong></span>
+      </a>
+      …
+    </div>
+    <p>Latest: 2.0.2, 27 Oct 2026. …</p>
+  </div>
+</div>
 ```
 
 ### Figure
@@ -674,6 +756,19 @@ of the buttons, and one `.link` under them may point at the desktop downloads.
 </section>
 ```
 
+On `/pricing` the section before the closing has already made the case, so the closing is the store
+badges and the Desktop line alone, with no heading and no sentence. With no heading, it is a `<div>`
+rather than a `<section>`.
+
+```html
+<div class="section closing">
+  <div class="container">
+    <div class="store-badges">…</div>
+    <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+```
+
 ### Footer
 
 Four columns of text links, then the copyright and the support address. No icons, no newsletter
@@ -715,7 +810,9 @@ Store links keep their tracking parameters from the product brief (`?ct=…` for
 `utm_source`/`utm_medium` for Google Play, `?source=` for desktop installers and `/downloads`).
 
 **Store badges:** where a page sends the reader straight to the stores (the home hero and
-closing), the App Store and Google Play badges take the place of the two buttons. A badge is the
+closing, the `/pricing` closing, the `/downloads` phone box), the App Store and Google Play badges
+take the place of the two buttons. The desktop installers on `/downloads` share the look (Download
+boxes, above). A badge is the
 store's logo and its two-line label on an inverted fill (`--text` behind `--bg` text), 48px tall.
 Hover adds no colour: the outline turns `--text-muted`. Their text counts as an image's, not toward
 the word budget.
@@ -777,7 +874,7 @@ hero sub and every section sentence count; code inside a code block does not. A 
 | --- | --- | --- |
 | `/` | 450 at most, body copy under 350; headings, step labels, captions, links and FAQ questions count, store badges do not | Collapsibles and the FAQ accordion |
 | `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
-| `/pricing` | 250 at most | Collapsibles |
+| `/pricing` | 320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither | Collapsibles and the FAQ accordion |
 | `/downloads` | 150 at most | Collapsibles |
 | `/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
 
@@ -838,7 +935,6 @@ adds the component here first.
 - **The blog pages** from `tools/template.mjs`. (The home page's blog band is gone: `/` links the
   blog in one line, and `tools/build-blog.mjs` no longer writes into `index.html`.)
 - **A table of contents** for `/docs/*` (today's `.toc`, with its scroll highlight).
-- **Platform cards** for `/downloads` (`#card-ios|android|windows|mac`, with platform detection).
 - **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).
 - `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
   as they are.

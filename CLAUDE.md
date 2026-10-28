@@ -55,13 +55,15 @@ Rules:
   `<details>`: `/` at most 450, body copy under 350 (headings, labels, captions, links and the FAQ
   questions in their `<summary>` count; FAQ answers, store badges and alt text do not); `/ai` at most 440 (its section headings
   count) plus one code block;
-  `/pricing` at most 250;
+  `/pricing` at most 320, body copy (paragraphs, list lines and notes) under 250 (headings,
+  prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
+  answers and store badges count toward neither);
   `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
-  paragraph (the hero sub, or the "In short" paragraph straight after a one-line sub, as on `/ai`
-  and `/`) is two or three declarative sentences with a number and counts toward the budget; depth
+  paragraph (the hero sub, or the "In short" paragraph straight after a one-line sub, as on `/ai`,
+  `/` and `/pricing`) is two or three declarative sentences with a number and counts toward the budget; depth
   goes into `<details>` on the same page as real HTML, never injected; one `<h1>`, an `<h2>` per
   section, FAQ `<h3>`s phrased as questions; every existing URL and anchor `id` keeps resolving;
   JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
@@ -76,7 +78,9 @@ Rules:
   capture of a figure, swapped with the theme; design-language §5). The theme stays in
   `localStorage['dovilo-theme']`, the key the old pages use, so a visitor's choice carries across
   both systems. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
-  contents) go in a page script after the site script; the doc's §3 says how.
+  contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
+  script keys on `#card-ios|android|windows|mac` and adds `.highlighted`; it does not read
+  `?source=`, which the page accepts and ignores until a task gives the per-source lines.
 - **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
   twice, once per theme: edit both copies together.
 
@@ -163,8 +167,11 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   (`c703fa3`, `c7ab5a8`)
 - There is **one** `SoftwareApplication` entity for the whole site: `"@id":
   "https://dovilo.app/#app"`. Any page describing the app reuses that `@id` and carries only what it
-  is authoritative for — the homepage owns `offers` and `featureList`, the changelog owns
-  `releaseNotes` and `downloadUrl`. Never mint a second node without the `@id`. (`c7ab5a8`)
+  is authoritative for — `/pricing/` owns `offers` (one per price line on the page, no "best
+  value", no "save 33%"), the homepage keeps the same offers minus the AI task top-ups, word for
+  word, and owns `featureList`, the changelog owns `releaseNotes` and `downloadUrl`. Change a price
+  on `/pricing/`, change both `offers` lists. Never mint a second node without the `@id`.
+  (`c7ab5a8`)
 - Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
   `BreadcrumbList` with position 1 = Dovilo / position 2 = the page. No page ships with zero JSON-LD.
@@ -184,7 +191,7 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   (`0384c1f`)
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
-  scale: `/` 1.0, `/ai` 0.9, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
+  scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
   0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`)
   stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
@@ -293,27 +300,33 @@ Carried here so they are not rediscovered from scratch:
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
 - `hreflang` is declared only on the homepage.
-- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/changelog/` (3) and
-  `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("How does Focus
-  work?" is the exception), so a wording change there has to be made in four places plus
-  `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
+- Six `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/pricing/` (4),
+  `/changelog/` (3) and `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("How
+  does Focus work?" is the exception), so a wording change there has to be made in four places plus
+  `llms-full.txt`. `/pricing/`'s four are copied word for word from `/faq`, which made it the one
+  exception to the rule below, approved in its task: "Is Dovilo free?", "How many AI tasks does Pro
+  include?", "Do I need the Focus Ambience Pack?" and "How do I cancel my subscription?". All four
+  are on `/` too, so a wording change to any of them is made on `/faq`, `/pricing/` and `/` (HTML
+  and JSON-LD on each) plus `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
   the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
   "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
-  authorize?", so keep those answers in agreement. Otherwise the other three ask questions that
-  appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
+  authorize?", so keep those answers in agreement. Otherwise `/ai`, `/changelog/` and
+  `/downloads/` ask questions that appear nowhere else, which is the condition for adding a
+  seventh. The eight questions `/ai` dropped
   in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
   way.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
 - `styles/home.css` is no longer linked by any page since `/` moved to `system.css`; delete it
   together with `base.css`.
 - `og-card.jpg` is still the share card of every page not yet redesigned; `/` has `og-home.jpg`
-  and `/ai` has `og-ai.jpg`.
+  and `/ai` has `og-ai.jpg`. `/pricing/` has `og-pricing.jpg` and `/downloads/` has
+  `og-downloads.jpg`: the page background and the `<h1>` in Inter 700, with no capture.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
 - Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
   blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome), the docs' table of
-  contents, the `/downloads` platform cards and the changelog's release entries.
+  contents and the changelog's release entries.
   The task that moves each page adds its component first.
 
 ## Dovilo task protocol
