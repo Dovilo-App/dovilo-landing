@@ -72,7 +72,8 @@ Rules:
   text as well as headings. `llms.txt` and `llms-full.txt` are the only exception.
 - **Class names are a contract with the site script** at the end of every redesigned page:
   `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
-  `.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. The theme stays in
+  `.copy-btn.copied`, `.code`, `a.mail` with `data-u`/`data-d`, and `source.src-dark` (the dark
+  capture of a figure, swapped with the theme; design-language §5). The theme stays in
   `localStorage['dovilo-theme']`, the key the old pages use, so a visitor's choice carries across
   both systems. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how.

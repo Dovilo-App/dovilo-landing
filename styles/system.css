@@ -166,6 +166,9 @@ code,kbd,pre{font-family:var(--font-mono);font-size:var(--text-code)}
 
 img,svg,video{display:block;max-width:100%}
 img{height:auto}
+/* A <picture> adds no box of its own: its <img> lays out exactly as it would
+   alone, so a figure with a dark capture needs no CSS of its own. */
+picture{display:contents}
 
 :focus-visible{outline:2px solid var(--text);outline-offset:2px}
 
@@ -461,11 +464,13 @@ img{height:auto}
   max-width:480px;
 }
 .figure-phones img{align-self:start}
-.figure-phones img + img{margin-top:var(--space-5)}
+.figure-phones > img + img,
+.figure-phones > picture + picture img{margin-top:var(--space-5)}
 .figure-phones figcaption{grid-column:1 / -1}
 @media (min-width:600px){
   .figure-phones{column-gap:var(--space-3)}
-  .figure-phones img + img{margin-top:var(--space-6)}
+  .figure-phones > img + img,
+  .figure-phones > picture + picture img{margin-top:var(--space-6)}
 }
 
 /* Figure row: two figures side by side, each with its own caption, as the

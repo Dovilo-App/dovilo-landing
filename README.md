@@ -49,7 +49,11 @@ variants can be regenerated. The screenshots on `/` and `/ai`
 carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
 `-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
 smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
-variant for 2x screens.
+variant for 2x screens. A phone screen that the app draws differently in its dark theme also has a dark
+twin with the same crop, named with `-dark` before any width suffix (`mobile-ai-inbox-dark.webp`,
+`mobile-ai-inbox-dark-772.webp`); the page pairs the two in a `<picture>` and shows the one that
+matches its theme (see the Figure section of the design doc). The sources of both sets are in
+`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`.
 To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
 with ffmpeg:
 
