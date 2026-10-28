@@ -20,8 +20,9 @@ Two things here have already cost real time and must not be undone by a later ch
 ## Release timing
 
 Dovilo 2.0 shipped on 27 Oct 2026, the release day the product docs call R: mobile 2.0.0 reached
-Google Play (Android) that day, and Desktop 2.0.x has been out since 19 Oct. **The iOS release of
-2.0.0 has no date yet**: never say 2.0 is on the App Store and never give it a date. Remote MCP
+Google Play (Android) that day and the App Store (iOS) the same evening (18:45 UTC), and Desktop
+2.0.x has been out since 19 Oct. **2.0.0 is on both stores**: a line that says "on Android" alone or
+gives iOS no date is out of date. Remote MCP
 (Agents MCP at `/mcp/agents`, Personal MCP at `/mcp`), planning from chat assistants, scheduling and
 repeat for AI tasks, and server delivery of webhooks are public: never write "local" about MCP, and
 never put any of them "on the roadmap". **Not yet:** directory listings (ChatGPT, Claude, the MCP
@@ -212,7 +213,7 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   only and cannot create or delete them, only cancel; since 2.0 agents use remote MCP from any
   machine and Desktop need not run; chat assistants propose and the user approves; desktop and
   Agents MCP need Pro; the two packs are one-time purchases included with Pro; focus sessions are
-  free and unlimited; mobile 2.0.0 is on Google Play since 27 Oct 2026 and has no iOS date yet.
+  free and unlimited; mobile 2.0.0 is on Google Play and the App Store since 27 Oct 2026.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`)

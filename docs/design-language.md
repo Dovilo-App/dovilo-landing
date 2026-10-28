@@ -329,12 +329,21 @@ takes the full width and the phone overlaps its top right corner at 36%, rising 
 of `--bg` separates the phone from the screen behind it: no shadow. Both images are above the fold,
 so neither is lazy; the desktop one is the LCP image.
 
+Both screens have a dark capture, so each sits in a `<picture>` (Figure, below); `<picture>` adds
+no box, and the classes stay on the `<img>`s.
+
 ```html
 <figure class="figure figure-pair">
-  <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
-       src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
-  <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-       src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+  <picture>
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark-700.webp 700w, …" sizes="…the same…" width="2000" height="1298">
+    <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+         src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+  </picture>
+  <picture>
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="840">
+    <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+         src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+  </picture>
   <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
 </figure>
 ```
@@ -500,7 +509,8 @@ already state; never a promise they do not.
 **Recently shipped:** the newest **dated** entry of each version line on `/changelog/` (today two:
 mobile and desktop), newest first, each linking to its anchor there, then a link to the rest. An
 entry without a date on the changelog does not appear. A release that reached one store only says
-so in its line ("Mobile 2.0.0 on Android"), and a platform without a date is not mentioned.
+so in its line (as "Mobile 2.0.0 on Android" did until the App Store release on the same evening),
+and a platform without a date is not mentioned.
 
 ```html
 <ul class="shipped">
@@ -617,12 +627,16 @@ caps them at 288px wide.
 One figure per claim, and **the same image never appears twice on a page**. Images follow the
 WebP, `width`/`height`, `srcset`/`sizes` and lazy-loading rules in `CLAUDE.md`.
 
-**Dark capture:** a phone screen that the app draws differently in its dark theme carries both
-captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
+**Dark capture:** a phone or desktop screen that the app draws differently in its dark theme
+carries both captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
 capture, its alt text, `loading`, `fetchpriority` and `width`/`height`; a `<source class="src-dark">`
 before it in a `<picture>` holds the dark capture, with the same `sizes` and the same
 `width`/`height`, so swapping never moves the layout. The dark file has the light file's name plus
-`-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`), and the same crop.
+`-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`, `desktop-ai-dark-2000.webp`),
+and the same crop. A dark capture taken in a slightly larger window (the desktop set: 2874x1866
+against 2844x1846) is scaled to the light file's size before encoding, never cropped: every width
+variant then has its light twin's exact `width`/`height`, so the box never moves, though the
+content inside may sit a pixel or two off its light twin.
 
 ```html
 <picture>
@@ -642,14 +656,13 @@ query when there is no choice; the browser swaps the image without a reload. Onl
 the current theme is fetched, and a lazy one only when it nears the viewport; the other is fetched
 the first time the theme changes. One edge: when a visitor's saved choice differs from the OS, the
 preload scanner, which reads the markup before any script runs, fetches every eager hero capture in
-the OS theme first (both phones on `/`, the phone on `/ai`), and the shown one only starts when the
+the OS theme first (both phones on `/`, the desktop and the phone on `/ai`), and the shown one only starts when the
 site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
 script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
 (`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
 `figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
 a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
-looks the same in both themes (the city) keeps one source. Desktop captures and share cards stay
-light.
+looks the same in both themes (the city) keeps one source. Share cards stay light.
 
 ### Code block
 

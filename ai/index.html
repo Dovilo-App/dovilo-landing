@@ -205,10 +205,14 @@
           <a class="btn btn-secondary" href="/docs/mcp/">Read the MCP docs</a>
         </div>
         <figure class="figure figure-pair">
-          <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
-               sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
-               src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
-               alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+          <picture>
+            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/desktop-ai-dark-700.webp 700w, /screenshots/desktop-ai-dark-1000.webp 1000w, /screenshots/desktop-ai-dark-1400.webp 1400w, /screenshots/desktop-ai-dark-2000.webp 2000w"
+                   sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px" width="2000" height="1298">
+            <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                 sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+                 src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
+                 alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+          </picture>
           <picture>
             <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-dark.webp 386w, /screenshots/mobile-ai-dark-772.webp 772w"
                    sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="840">

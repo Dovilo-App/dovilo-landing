@@ -54,7 +54,11 @@ variant for 2x screens. A phone screen that the app draws differently in its dar
 twin with the same crop, named with `-dark` before any width suffix (`mobile-ai-inbox-dark.webp`,
 `mobile-ai-inbox-dark-772.webp`); the page pairs the two in a `<picture>` and shows the one that
 matches its theme (see the Figure section of the design doc). The sources of both sets are in
-`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`.
+`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`. Desktop captures work the same
+way (`desktop-ai-dark-2000.webp`), with their sources in `screenshots/new/desktop/light/` and
+`screenshots/new/desktop/dark/`. The dark desktop set was captured at 2874x1866 against the light
+set's 2844x1846, so it is scaled to the light file's size first, never cropped, and every width
+variant then has its light twin's exact `width`/`height`.
 To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
 with ffmpeg:
 
@@ -66,6 +70,15 @@ with ffmpeg:
 # the width suffix (mobile-x-dark.webp, mobile-x-dark-772.webp).
 ffmpeg -i screenshots/mobile-x.png -vf scale=386:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
 ffmpeg -i screenshots/mobile-x.png -vf scale=772:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-772.webp
+
+# A desktop capture: scale the source to the light file's size (desktop-ai.png
+# is 2764x1794, the others 2844x1846), then the four widths at the light
+# variants' exact heights. Shown for the dark twin of desktop-ai. The dark
+# captures have no alpha: the corners outside the rounded window are pure black,
+# which occurs nowhere else in them, so colorkey makes exactly those transparent,
+# as the light captures are.
+ffmpeg -i screenshots/new/desktop/dark/desktop-01-ai-tasks.png -vf "format=rgba,colorkey=0x000000:0.0001:0,scale=2764:1794:flags=lanczos,format=rgba" -pred mixed -compression_level 9 screenshots/desktop-ai-dark.png
+for wh in 700x454 1000x650 1400x908 2000x1298; do ffmpeg -i screenshots/desktop-ai-dark.png -vf scale=${wh%x*}:${wh#*x}:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/desktop-ai-dark-${wh%x*}.webp; done
 
 # An older 386px PNG: encode it at its own size, plus the 1x variant for the
 # old pages' phone slots (~193 CSS px wide)
