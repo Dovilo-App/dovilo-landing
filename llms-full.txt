@@ -85,7 +85,7 @@ How an AI task moves:
 
 1. **Write the task**, or let ChatGPT or Claude propose it.
 2. **Approve it on your phone.** Nothing reaches an agent before you say yes.
-3. **Your agent works it.** Steps, notes and cost land on the task as it runs.
+3. **Your agent works it.** Steps and notes land on the task as it runs.
 4. **It asks, you answer.** It stops at a decision; you reply from your phone or chat.
 
 Who plans and who works (plain MCP, no lock-in):
