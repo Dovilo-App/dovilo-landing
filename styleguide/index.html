@@ -34,7 +34,7 @@
   "description": "Every component of the Dovilo design language in light and dark, with the tokens and the word budgets the site's pages follow.",
   "url": "https://dovilo.app/styleguide/",
   "inLanguage": "en",
-  "dateModified": "2026-10-28",
+  "dateModified": "2026-10-29",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -118,6 +118,7 @@
             <li><a href="#nav">Nav</a></li>
             <li><a href="#hero">Hero</a></li>
             <li><a href="#section">Section and split</a></li>
+            <li><a href="#reference">Reference layout</a></li>
             <li><a href="#steps">Steps 01-04</a></li>
             <li><a href="#steps-shots">Steps with screens</a></li>
             <li><a href="#features">Feature rows</a></li>
@@ -131,8 +132,10 @@
             <li><a href="#trust">Trust list</a></li>
             <li><a href="#shipped">Recently shipped</a></li>
             <li><a href="#pricing">Pricing summary</a></li>
+            <li><a href="#link-list">Link list</a></li>
             <li><a href="#plans">Pricing columns</a></li>
             <li><a href="#download-boxes">Download boxes</a></li>
+            <li><a href="#cards">Link cards</a></li>
             <li><a href="#faq">FAQ accordion</a></li>
             <li><a href="#note">Note</a></li>
             <li><a href="#buttons">Buttons</a></li>
@@ -213,7 +216,8 @@
               <tr><td><code>/ai</code></td><td>440 at most, its section headings included</td><td>One code block, plus collapsibles</td></tr>
               <tr><td><code>/pricing</code></td><td>320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/downloads</code></td><td>150 at most</td><td>Collapsibles</td></tr>
-              <tr><td><code>/faq</code>, <code>/docs/*</code>, <code>/changelog</code>, <code>/privacy</code>, <code>/terms</code></td><td>No budget</td><td>These pages carry the depth</td></tr>
+              <tr><td><code>/docs/</code></td><td>150 at most</td><td>Link cards and a link list</td></tr>
+              <tr><td><code>/faq</code>, <code>/docs/mcp/</code>, <code>/docs/webhooks</code>, <code>/changelog</code>, <code>/privacy</code>, <code>/terms</code></td><td>No budget</td><td>These pages carry the depth</td></tr>
             </tbody>
           </table>
         </div>
@@ -574,6 +578,102 @@
       </div>
     </section>
 
+    <!-- Reference layout -->
+    <section class="section" id="reference" aria-labelledby="reference-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="reference-title">Reference layout</h2>
+          <p>A docs article beside its table of contents: a rail from 960px with the section in view marked, a closed collapsible above the article below that. Each heading the contents link to carries a # anchor, shown on hover and focus.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="doc">
+              <aside class="toc" aria-label="On this page">
+                <details class="collapsible" open>
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <p class="toc-title">On this page</p>
+                    <ol>
+                      <li><a class="active" href="#sg-endpoints-l">Endpoints</a></li>
+                      <li>
+                        <a href="#sg-authentication-l">Authentication</a>
+                        <ol>
+                          <li><a href="#sg-agent-keys-l">Agents MCP keys</a></li>
+                          <li><a href="#sg-personal-sign-in-l">Personal MCP sign-in</a></li>
+                        </ol>
+                      </li>
+                      <li><a href="#sg-statuses-l">Status values</a></li>
+                    </ol>
+                  </div>
+                </details>
+              </aside>
+              <article class="flow doc-body">
+                <h2 id="sg-endpoints-l">Endpoints <a class="h-anchor" href="#sg-endpoints-l" aria-label="Link to Endpoints">#</a></h2>
+                <p>The two servers share a host and nothing else. They take different credentials and reach different data, so a chat assistant never holds an agent's access, and an agent never holds yours.</p>
+                <h2 id="sg-authentication-l">Authentication <a class="h-anchor" href="#sg-authentication-l" aria-label="Link to Authentication">#</a></h2>
+                <p>Agents authenticate with a key the user creates for them; assistants authenticate as the user, through a sign-in the user completes.</p>
+                <h3 id="sg-agent-keys-l">Agents MCP: one key per agent <a class="h-anchor" href="#sg-agent-keys-l" aria-label="Link to Agents MCP keys">#</a></h3>
+                <ul>
+                  <li>Send the key on every request as <code>Authorization: Bearer &lt;key&gt;</code>.</li>
+                  <li>The key is shown once. Dovilo stores only a hash of it.</li>
+                </ul>
+                <h3 id="sg-personal-sign-in-l">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#sg-personal-sign-in-l" aria-label="Link to Personal MCP sign-in">#</a></h3>
+                <ul>
+                  <li>Access tokens expire after 1 hour and refresh tokens after 90 days.</li>
+                </ul>
+                <h2 id="sg-statuses-l">Status values <a class="h-anchor" href="#sg-statuses-l" aria-label="Link to Status values">#</a></h2>
+                <p>An AI task moves through these values. The same values appear in webhook payloads.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="doc">
+              <aside class="toc" aria-label="On this page">
+                <details class="collapsible" open>
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <p class="toc-title">On this page</p>
+                    <ol>
+                      <li><a class="active" href="#sg-endpoints-d">Endpoints</a></li>
+                      <li>
+                        <a href="#sg-authentication-d">Authentication</a>
+                        <ol>
+                          <li><a href="#sg-agent-keys-d">Agents MCP keys</a></li>
+                          <li><a href="#sg-personal-sign-in-d">Personal MCP sign-in</a></li>
+                        </ol>
+                      </li>
+                      <li><a href="#sg-statuses-d">Status values</a></li>
+                    </ol>
+                  </div>
+                </details>
+              </aside>
+              <article class="flow doc-body">
+                <h2 id="sg-endpoints-d">Endpoints <a class="h-anchor" href="#sg-endpoints-d" aria-label="Link to Endpoints">#</a></h2>
+                <p>The two servers share a host and nothing else. They take different credentials and reach different data, so a chat assistant never holds an agent's access, and an agent never holds yours.</p>
+                <h2 id="sg-authentication-d">Authentication <a class="h-anchor" href="#sg-authentication-d" aria-label="Link to Authentication">#</a></h2>
+                <p>Agents authenticate with a key the user creates for them; assistants authenticate as the user, through a sign-in the user completes.</p>
+                <h3 id="sg-agent-keys-d">Agents MCP: one key per agent <a class="h-anchor" href="#sg-agent-keys-d" aria-label="Link to Agents MCP keys">#</a></h3>
+                <ul>
+                  <li>Send the key on every request as <code>Authorization: Bearer &lt;key&gt;</code>.</li>
+                  <li>The key is shown once. Dovilo stores only a hash of it.</li>
+                </ul>
+                <h3 id="sg-personal-sign-in-d">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#sg-personal-sign-in-d" aria-label="Link to Personal MCP sign-in">#</a></h3>
+                <ul>
+                  <li>Access tokens expire after 1 hour and refresh tokens after 90 days.</li>
+                </ul>
+                <h2 id="sg-statuses-d">Status values <a class="h-anchor" href="#sg-statuses-d" aria-label="Link to Status values">#</a></h2>
+                <p>An AI task moves through these values. The same values appear in webhook payloads.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Steps 01-04 -->
     <section class="section" id="steps" aria-labelledby="steps-title">
       <div class="container">
@@ -887,7 +987,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="code-title">Code block</h2>
-          <p>A title, a copy button and the code. Themed with the page; no highlighting library.</p>
+          <p>A title, a copy button and the code. Themed with the page; no highlighting library. Code that is read rather than copied drops the head; a long prompt written to be pasted scrolls inside 480px.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -904,6 +1004,108 @@
             <div class="code">
               <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Copy</button></div>
               <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, without a head (read, not copied)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="code">
+<pre><code>&gt; take my next Dovilo task and work it
+
+list_tasks       → 3 queued in "Landing rewrite"
+get_task         → "Split the pricing table by plan" (4 steps)
+read_context     → project brief + constraints
+update_status    → running</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, without a head (read, not copied)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="code">
+<pre><code>&gt; take my next Dovilo task and work it
+
+list_tasks       → 3 queued in "Landing rewrite"
+get_task         → "Split the pricing table by plan" (4 steps)
+read_context     → project brief + constraints
+update_status    → running</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, long (code-long)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="code code-long">
+              <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+<pre><code>- What should happen when an event arrives? (Slack notification?
+  Linear sync? CI trigger? Database log? Hand off to an LLM?)
+- Which stack should the receiver use? Match this project if obvious;
+  otherwise ask. (Node/Express, FastAPI, Go net/http, Cloudflare
+  Workers, Vercel function, etc.)
+- Where will it be deployed and what's the public URL going to be?
+  Public HTTPS URLs are delivered by Dovilo's server. A localhost URL
+  is delivered by Dovilo Desktop, which must stay open. To test a
+  public URL from a dev machine, suggest ngrok / cloudflared /
+  tailscale funnel.
+
+Route: POST /webhooks/dovilo  (or fit the project's conventions)
+
+CRITICAL RULES:
+- Read the RAW request body before any JSON parsing. The HMAC is
+  computed over the raw bytes; re-serializing breaks the signature.
+- Verify `X-Dovilo-Signature` (format: `t=&lt;unix-ms&gt;,v1=&lt;hex&gt;`):
+    1. Parse `t` and `v1`.
+    2. Reject if `|Date.now() - t|` &gt; 5 minutes (replay protection).
+    3. Compute `HMAC_SHA256(secret, `${t}.${rawBody}`)`, hex-encode.
+    4. Compare to `v1` in CONSTANT TIME (timingSafeEqual /
+       hmac.compare_digest / hmac.Equal). Never use plain `==`.
+- Use `X-Dovilo-Delivery` (also `id` in the body) as the idempotency
+  key, store it, drop duplicates. Same id is reused across retries.
+- Respond 2xx on success and 401 on a bad signature. NEVER answer a
+  bad signature with 410. Respond 410 ONLY if the integration is
+  permanently dead: Dovilo disables the project's webhook when it
+  sees 410.
+- Read the signing secret from env var `DOVILO_WEBHOOK_SECRET`. Add
+  a placeholder to `.env.example`. NEVER commit the real secret.</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, long (code-long)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="code code-long">
+              <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+<pre><code>- What should happen when an event arrives? (Slack notification?
+  Linear sync? CI trigger? Database log? Hand off to an LLM?)
+- Which stack should the receiver use? Match this project if obvious;
+  otherwise ask. (Node/Express, FastAPI, Go net/http, Cloudflare
+  Workers, Vercel function, etc.)
+- Where will it be deployed and what's the public URL going to be?
+  Public HTTPS URLs are delivered by Dovilo's server. A localhost URL
+  is delivered by Dovilo Desktop, which must stay open. To test a
+  public URL from a dev machine, suggest ngrok / cloudflared /
+  tailscale funnel.
+
+Route: POST /webhooks/dovilo  (or fit the project's conventions)
+
+CRITICAL RULES:
+- Read the RAW request body before any JSON parsing. The HMAC is
+  computed over the raw bytes; re-serializing breaks the signature.
+- Verify `X-Dovilo-Signature` (format: `t=&lt;unix-ms&gt;,v1=&lt;hex&gt;`):
+    1. Parse `t` and `v1`.
+    2. Reject if `|Date.now() - t|` &gt; 5 minutes (replay protection).
+    3. Compute `HMAC_SHA256(secret, `${t}.${rawBody}`)`, hex-encode.
+    4. Compare to `v1` in CONSTANT TIME (timingSafeEqual /
+       hmac.compare_digest / hmac.Equal). Never use plain `==`.
+- Use `X-Dovilo-Delivery` (also `id` in the body) as the idempotency
+  key, store it, drop duplicates. Same id is reused across retries.
+- Respond 2xx on success and 401 on a bad signature. NEVER answer a
+  bad signature with 410. Respond 410 ONLY if the integration is
+  permanently dead: Dovilo disables the project's webhook when it
+  sees 410.
+- Read the signing secret from env var `DOVILO_WEBHOOK_SECRET`. Add
+  a placeholder to `.env.example`. NEVER commit the real secret.</code></pre>
             </div>
           </div>
         </div>
@@ -977,7 +1179,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="table-title">Table</h2>
-          <p>Up to six rows in the open. Longer tables go inside a collapsible, like the one above.</p>
+          <p>Up to six rows in the open on a page with a word budget; longer tables go inside a collapsible there, like the one above. The pages that carry the depth keep reference tables open. A grouped table opens each tbody with a row header.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1002,6 +1204,46 @@
                 <tbody>
                   <tr><td>Agents MCP</td><td><code>https://dovilo.app/mcp/agents</code></td><td>Claude Code, Cursor and other coding agents</td><td>An API key per agent</td></tr>
                   <tr><td>Personal MCP</td><td><code>https://dovilo.app/mcp</code></td><td>ChatGPT, Claude, Gemini and Grok</td><td>OAuth with your Dovilo account</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, grouped</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">Tool</th><th scope="col">Access</th><th scope="col">What it does</th><th scope="col">Approval</th></tr></thead>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">Personal tasks</th></tr>
+                  <tr><td><code>list_lists</code></td><td>read</td><td>Names and ids of the lists visible to this connection.</td><td></td></tr>
+                  <tr><td><code>create_plan</code></td><td>write</td><td>Sends a titled plan of tasks to the AI inbox. The user picks which tasks to keep.</td><td>Always</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
+                  <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
+                  <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, grouped</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">Tool</th><th scope="col">Access</th><th scope="col">What it does</th><th scope="col">Approval</th></tr></thead>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">Personal tasks</th></tr>
+                  <tr><td><code>list_lists</code></td><td>read</td><td>Names and ids of the lists visible to this connection.</td><td></td></tr>
+                  <tr><td><code>create_plan</code></td><td>write</td><td>Sends a titled plan of tasks to the AI inbox. The user picks which tasks to keep.</td><td>Always</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
+                  <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
+                  <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1101,6 +1343,36 @@
               <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
             </ul>
             <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link list -->
+    <section class="section" id="link-list" aria-labelledby="link-list-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="link-list-title">Link list</h2>
+          <p>Three to six links into sections of other pages, one per line. The whole line is the link, and each one points at an anchor that exists.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <ul class="link-list">
+              <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/mcp/#planning">Plan from ChatGPT or Claude <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <ul class="link-list">
+              <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/mcp/#planning">Plan from ChatGPT or Claude <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1284,6 +1556,80 @@
       </div>
     </section>
 
+    <!-- Link cards -->
+    <section class="section" id="cards" aria-labelledby="cards-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="cards-title">Link cards</h2>
+          <p>Two places to go next, each box one link with a title and a line. On /docs/ the title is an h2; inside a section it is a span, and may carry a kind label.</p>
+        </div>
+        <p class="sg-label">Light, as on /docs/</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/">
+                <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <h2 class="card-title">Webhooks reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Events, payload, signature, retries, verification code in Node, Python and Go.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, as on /docs/</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/">
+                <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <h2 class="card-title">Webhooks reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Events, payload, signature, retries, verification code in Node, Python and Go.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, with kind labels</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/#connecting">
+                <span class="card-kind">Setup</span>
+                <span class="card-title">Connect a coding agent <span aria-hidden="true">&rarr;</span></span>
+                <p>Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <span class="card-kind">Reference</span>
+                <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+                <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, with kind labels</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/#connecting">
+                <span class="card-kind">Setup</span>
+                <span class="card-title">Connect a coding agent <span aria-hidden="true">&rarr;</span></span>
+                <p>Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <span class="card-kind">Reference</span>
+                <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+                <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ accordion -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="container">
@@ -1443,7 +1789,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="closing-title">Closing CTA</h2>
-          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them; /pricing keeps only the badges and the link.</p>
+          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them; /pricing keeps only the badges and the link; /docs/ has the support line and one link.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1547,6 +1893,24 @@
             </div>
           </div>
         </div>
+        <p class="sg-label">Light, support line and a link (/docs/)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="section closing">
+            <div class="container">
+              <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+              <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, support line and a link (/docs/)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="section closing">
+            <div class="container">
+              <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+              <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1574,6 +1938,7 @@
                 <div>
                   <p class="footer-title">Docs</p>
                   <ul>
+                    <li><a href="/docs/">Docs</a></li>
                     <li><a href="/docs/mcp/">MCP reference</a></li>
                     <li><a href="/docs/webhooks">Webhooks</a></li>
                     <li><a href="/faq">FAQ</a></li>
@@ -1622,6 +1987,7 @@
                 <div>
                   <p class="footer-title">Docs</p>
                   <ul>
+                    <li><a href="/docs/">Docs</a></li>
                     <li><a href="/docs/mcp/">MCP reference</a></li>
                     <li><a href="/docs/webhooks">Webhooks</a></li>
                     <li><a href="/faq">FAQ</a></li>
@@ -1673,6 +2039,7 @@
         <div>
           <p class="footer-title">Docs</p>
           <ul>
+            <li><a href="/docs/">Docs</a></li>
             <li><a href="/docs/mcp/">MCP reference</a></li>
             <li><a href="/docs/webhooks">Webhooks</a></li>
             <li><a href="/faq">FAQ</a></li>

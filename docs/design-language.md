@@ -174,11 +174,12 @@ so a visitor's choice follows them across both systems.
 
 A page may keep a behaviour it already has, in a second inline script after the site script: the
 changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
-table-of-contents highlight on `/docs/*`. Its class names stay a contract (`CLAUDE.md` §1.2 lists
-them). A page script never styles anything and never builds content a crawler should read. If the
-behaviour needs a visual part this document does not have (a table of contents, a release entry),
-that part is added here first, like any other component. The platform detection's visual part is
-the highlighted card of the download boxes (section 5).
+table-of-contents highlight on `/docs/mcp/` and `/docs/webhooks`. Its class names stay a contract
+(`CLAUDE.md` §1.1 lists them). A page script never styles anything and never builds content a
+crawler should read. If the behaviour needs a visual part this document does not have (a release
+entry), that part is added here first, like any other component. The platform detection's visual
+part is the highlighted card of the download boxes (section 5); the table of contents' is the
+reference layout (section 4).
 
 ## 4. Layout
 
@@ -254,6 +255,50 @@ and `<code>` inside it need no classes.
   <ul><li>…</li></ul>
 </div>
 ```
+
+### Reference
+
+The layout of `/docs/mcp/` and `/docs/webhooks`: a flow article beside its table of contents. The
+page opens with a plain section (the `<h1>`, the first paragraphs and any link cards, section 5),
+then one section holds the reference. From 960px the table of contents is a 240px rail beside the
+article that stays in view while the article scrolls, with a 1px rule down it and the link of the
+section in view marked in `--text`. Below 960px it folds into a closed collapsible above the
+article. Inside the article each `<h2>` after the first sits under a 1px rule, like a section.
+
+```html
+<div class="section">
+  <div class="container doc">
+    <aside class="toc" aria-label="On this page">
+      <details class="collapsible">
+        <summary>On this page</summary>
+        <div class="collapsible-body">
+          <p class="toc-title">On this page</p>
+          <ol id="toc-list">
+            <li><a href="#endpoints">Endpoints</a></li>
+            <li>
+              <a href="#authentication">Authentication</a>
+              <ol><li><a href="#agent-keys">Agents MCP keys</a></li></ol>
+            </li>
+          </ol>
+        </div>
+      </details>
+    </aside>
+    <article class="flow doc-body">
+      <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-label="Link to Endpoints">#</a></h2>
+      <p>…</p>
+    </article>
+  </div>
+</div>
+```
+
+The list ships closed, so a phone never sees it fold after the page has painted. The page script
+opens it from 960px, where opening it moves nothing else on the page and the summary is hidden so
+it cannot be closed, closes it again below 960px, and sets `.active` on the link of the heading in
+view; those are its whole job (section 3). Without script the rail shows the closed collapsible's
+summary as a plain label, which still opens it. Nested entries are `<h3>`s, one level
+deep. Each heading the contents link to carries a **heading anchor**, `.h-anchor`: a `#` after the
+heading text, in `--text-muted`, shown on hover and on keyboard focus, so a reader can copy a link
+to that heading. The section holding the reference has no heading of its own, so it is a `<div>`.
 
 ## 5. Components
 
@@ -382,12 +427,13 @@ H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attr
 sub is a single line that cannot carry all of that, an "In short" section straight after the hero
 does (section 4).
 
-**Hero without a proof:** on `/pricing` and `/downloads` the proof is the section straight after
-the hero (the pricing columns, the download boxes), so the hero is the `<h1>` and the sub alone:
-no buttons, no figure.
+**Hero without a proof:** on `/pricing`, `/downloads` and `/docs/` the proof is a section after
+the hero (the pricing columns, the download boxes, the link cards), so the hero is the `<h1>` and
+the sub alone: no buttons, no figure.
 
-Pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`) open with a plain
-section instead of a hero: an `<h1>` and the first paragraph, no buttons, no figure.
+Pages that carry depth (`/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms`)
+open with a plain section instead of a hero: an `<h1>` and the first paragraph, no buttons, no
+figure.
 
 ```html
 <section class="section">
@@ -454,7 +500,7 @@ Two columns from 768px (heading, then sentence).
 
 ### Line lists
 
-Five components share one look (1px rules between short lines) and differ in what they may say.
+Six components share one look (1px rules between short lines) and differ in what they may say.
 
 **Facts list:** 4 to 6 short lines, no explanation. A grid of three columns from 960px.
 
@@ -531,6 +577,17 @@ the one on `/ai`, goes to `/pricing/`.
   <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
 </ul>
 <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+```
+
+**Link list:** 3 to 6 links into sections of other pages, one per line, each a short label with an
+arrow; the whole line is the link. Each points at an anchor that exists (section 7). `/docs/` uses
+it for its deep links.
+
+```html
+<ul class="link-list">
+  <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+  <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+</ul>
 ```
 
 ### Pricing columns
@@ -610,6 +667,29 @@ ids, so the page script also opens a collapsible when the URL's fragment names i
 </div>
 ```
 
+### Link cards
+
+Two places to go next, side by side from 768px and stacked below, in the same box as the pricing
+columns: each card is one link holding a title with an arrow and **one line** of what is there.
+Hover adds no colour; the outline darkens to `--text-muted`. Never more than two. On `/docs/` the
+cards are the page's two sections, so the title is an `<h2>` (set at the `<h3>` size, like a plan's
+name); where they sit inside a section, as in the opening of the two references, it is a
+`<span>`, and a card may carry a short kind label above it (`card-kind`, in `--text-muted`).
+
+```html
+<div class="cards">
+  <a class="card" href="/docs/mcp/">
+    <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+    <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+  </a>
+  <a class="card" href="/docs/webhooks">
+    <span class="card-kind">Reference</span>
+    <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+    <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+  </a>
+</div>
+```
+
 ### Figure
 
 A **real screenshot**, a caption of **one line**, and alt text that names the product and what is on
@@ -676,9 +756,22 @@ window dots.
 </div>
 ```
 
-`/docs/webhooks` keeps highlight.js and its inlined theme until its own redesign task decides
-otherwise (see `CLAUDE.md`). That inlined theme is the one `<style>` block a redesigned page may
-still carry.
+The title names the client or the format (`Claude Code`, `JSON`, `Python`). Code that is read
+rather than copied (a transcript of an agent's calls, a status diagram in text) drops the head:
+no title and no copy button, just the `<pre>` in the box. A long block written to be pasted into
+an agent rather than read, as the integration prompt on `/docs/webhooks`, takes `code-long`: it
+scrolls inside 480px and the copy button still copies all of it. Code samples a reader studies
+(the verification code, the payloads) stay at full height.
+
+```html
+<div class="code code-long">
+  <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+  <pre><code>…</code></pre>
+</div>
+```
+
+`/docs/webhooks` dropped highlight.js and its inlined theme when it moved to this system: its code
+blocks are themed like every other page's, so no redesigned page carries a `<style>` block.
 
 ### Collapsible
 
@@ -699,8 +792,14 @@ The summary is a plain label, not a heading, and ends without punctuation.
 
 ### Table
 
-For reference data. **At most six rows in the open**; a longer table goes inside a collapsible.
-Always inside `.table-wrap`, which scrolls sideways on a phone instead of squeezing the cells.
+For reference data. **At most six rows in the open** on a page with a word budget; a longer table
+goes inside a collapsible there. The pages that carry the depth (`/docs/mcp/`, `/docs/webhooks`,
+`/faq`, `/changelog`) are where those collapsibles send the reader, so their reference tables stay
+open at any length. Always inside `.table-wrap`, which scrolls sideways on a phone instead of
+squeezing the cells: below 768px a table of three or more columns is at least 48em wide, so its
+sentence column keeps room for a phrase rather than shrinking to its longest word, while a
+two-column table still fits the screen. A table split into groups puts each group in its own `<tbody>`, opened by a
+row whose one cell is `<th colspan="…" scope="rowgroup">`.
 
 ```html
 <div class="table-wrap">
@@ -778,6 +877,17 @@ rather than a `<section>`.
   <div class="container">
     <div class="store-badges">…</div>
     <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+```
+
+`/docs/` closes the same way, with the support line and one link in place of the badges.
+
+```html
+<div class="section closing">
+  <div class="container">
+    <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+    <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div>
 ```
@@ -889,7 +999,8 @@ hero sub and every section sentence count; code inside a code block does not. A 
 | `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
 | `/pricing` | 320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither | Collapsibles and the FAQ accordion |
 | `/downloads` | 150 at most | Collapsibles |
-| `/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
+| `/docs/` | 150 at most | Link cards and a link list |
+| `/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
 
 A budget is a ceiling, not a target. A page over its budget moves text into a collapsible or onto
 the page that carries the depth; it does not drop facts.
@@ -947,7 +1058,6 @@ adds the component here first.
 
 - **The blog pages** from `tools/template.mjs`. (The home page's blog band is gone: `/` links the
   blog in one line, and `tools/build-blog.mjs` no longer writes into `index.html`.)
-- **A table of contents** for `/docs/*` (today's `.toc`, with its scroll highlight).
 - **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).
 - `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
   as they are.
