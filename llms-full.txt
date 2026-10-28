@@ -4,7 +4,7 @@
 
 This file expands [llms.txt](https://dovilo.app/llms.txt) with the detail an assistant needs to answer questions about Dovilo without guessing: feature behaviour, the agent interface, the webhook contract, pricing, and the complete FAQ. Everything here is public documentation. Source pages are linked at the end.
 
-Last updated: 2026-10-27.
+Last updated: 2026-10-28.
 
 ## What Dovilo is
 
