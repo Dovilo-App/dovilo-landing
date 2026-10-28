@@ -16,6 +16,36 @@ Dovilo turns a to-do list into a city. Finishing tasks and focus sessions earns 
 - No ads on any tier, including free.
 - Themes: dark and light.
 
+## The homepage (https://dovilo.app/)
+
+**Dovilo: the to-do list that builds you a city.** Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city. The App Store and Google Play links sit right under that line.
+
+**In short:** Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month.
+
+How it works:
+
+1. **Plan.** Write tasks, or let ChatGPT or Claude propose them.
+2. **Approve.** Nothing lands in your list until you tap yes.
+3. **Focus.** A session, a Pomodoro cycle, or a timer on one task.
+4. **Build.** Bricks from finished work buy a city that stays.
+
+The rest of the page, block by block:
+
+- **Focus that fills the whole screen.** A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.
+- **A city that stays.** Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.
+- **Building with Claude Code or Cursor?** Your agent gets its own task list: 9 tools, no create, no delete, your list invisible. The detail is on the developer page, https://dovilo.app/ai.
+- **What it costs.** Free is the whole personal app: unlimited tasks and focus sessions, the city, no ads. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial, and adds AI planning, AI Agents, Desktop, cloud sync, both packs and advanced statistics.
+- **Recently shipped**, the newest release of each line: Mobile 2.0.0 on Android, 27 Oct 2026 (plan with ChatGPT, Claude, Gemini or Grok; AI Agents; the iOS release of 2.0.0 has no date yet), and Desktop 2.0.2, 27 Oct 2026 (task details open over the list). Every release: https://dovilo.app/changelog/
+- **One engineer, in Istanbul.** No company, no funding, and a public release history you can check. Dovilo is built by Selahaddin Akgün (https://sakgun.com): 14 years of production software, most recently as a lead engineer, and before that leading Android engineering at stc pay. It is a solo project: one person writes the mobile app, the desktop client and the website.
+
+The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left, and the ambience mixer with Rain and Fireplace layered and Follow the session rhythm on; and a city at level 26 with a stadium, a hospital and a city hall.
+
+The homepage answers ten questions. Nine of them are also on the FAQ page and are reproduced below in the FAQ's own wording; the tenth is only on the homepage:
+
+**How does Focus work?**
+
+Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog.
+
 ## Tasks
 
 - Task properties: due date, repeat, reminder, star (important), flag, list, and free-form notes. A task opens into a detail sheet where these sit in one property grid.
@@ -412,7 +442,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 
 ## Source pages
 
-- https://dovilo.app/ — product overview, features, focus and ambience, screenshots, pricing
+- https://dovilo.app/ — the homepage, in short: what Dovilo is, how it works in four steps (plan, approve, focus, build), focus and the Focus Ambience Pack, the city, a line for developers, the price, the newest mobile and desktop release, ten questions, the App Store and Google Play links, and who builds it
 - https://dovilo.app/faq — the FAQ reproduced above
 - https://dovilo.app/ai — the developer page, in short: how an AI task moves, who plans and who works, both MCP servers, the Claude Code setup command, the trust lines and the nine agent tools, webhooks and the demo, pricing, five developer questions
 - https://dovilo.app/docs/mcp/ — MCP reference: endpoints and the server comparison, authentication, connecting a client, all 22 tools (with inputs for the nine agent tools), status values, scheduling, approval rules, planning from chat assistants, upgrading from Desktop 1.8, plan and trial, developer questions

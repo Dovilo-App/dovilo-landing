@@ -11,7 +11,7 @@ The app itself is closed source; this repository is the public website only.
 
 | Path | What it is |
 | --- | --- |
-| [`/`](https://dovilo.app) | Product overview — tasks, focus, ambience, the city, pricing, FAQ |
+| [`/`](https://dovilo.app) | The homepage, on the design system: what Dovilo is, how it works, focus, the city, the price and ten questions in about 420 visible words |
 | [`/ai`](https://dovilo.app/ai/) | The developer page, on the design system: the agent layer in about 400 visible words, the depth on `/docs/mcp` |
 | [`/docs/mcp`](https://dovilo.app/docs/mcp/) | MCP reference: endpoints, auth, client setup, all 22 tools, statuses, scheduling, approval rules, planning from chat assistants, upgrading from 1.8, developer questions |
 | [`/docs/webhooks`](https://dovilo.app/docs/webhooks/) | Signed webhook events — delivery modes, payload schema, signature verification, retry policy |
@@ -25,9 +25,9 @@ The app itself is closed source; this repository is the public website only.
 
 Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
 is a single `index.html` with its CSS inlined and its structured data in `application/ld+json`
-blocks. The homepage is the one exception: its stylesheet outgrew the page it styles, so it lives in
-[`styles/home.css`](styles/home.css) and is linked from the `<head>` — the markup is then half the
-bytes it was, which is what a search or AI crawler actually reads. Nothing is fetched from a third
+blocks. Redesigned pages (`/`, `/ai`) instead link the one design-system stylesheet and carry no CSS
+of their own; [`styles/home.css`](styles/home.css), the old homepage's stylesheet, is no longer
+linked and goes with `base.css`. Nothing is fetched from a third
 party: Inter is self-hosted from [`fonts/`](fonts/) as a variable `woff2` declared with
 `@font-face`, so no third-party stylesheet blocks the first paint. Blog pages are generated to the
 same shape and committed, so they are served the same way — nothing about a post is fetched in the
@@ -45,8 +45,8 @@ linked) renders every component in both themes. Pages not yet moved stay on
 ### Screenshots
 
 Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The hero, the homepage desktop shot and the screenshots on `/ai`
-also carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
+variants can be regenerated. The screenshots on `/` and `/ai`
+carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
 `-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
 smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
 variant for 2x screens.
@@ -79,8 +79,8 @@ studio/                Sanity Studio: the schema, and the editor at dovilo.sanit
 
 `npm run build:blog` writes `blog/index.html`, `blog/<slug>/index.html`, `blog/feed.xml` and
 `blog/media/`, then rewrites the block between `<!-- BLOG:START -->` and `<!-- BLOG:END -->` in
-[`index.html`](index.html), [`sitemap.xml`](sitemap.xml), [`llms.txt`](llms.txt) and
-[`llms-full.txt`](llms-full.txt). Everything it writes is committed. Unpublish a post in Sanity and
+[`sitemap.xml`](sitemap.xml), [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt). The
+homepage links the blog in one line and is not touched. Everything it writes is committed. Unpublish a post in Sanity and
 the next build deletes its directory.
 
 ### Writing a post

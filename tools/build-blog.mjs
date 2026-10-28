@@ -16,7 +16,9 @@
  *   blog/feed.xml              RSS 2.0, full text
  *   blog/media/*               post images, pulled off the Sanity CDN
  * Rewrites, between BLOG:START / BLOG:END markers:
- *   index.html  sitemap.xml  llms.txt  llms-full.txt
+ *   sitemap.xml  llms.txt  llms-full.txt
+ * (The homepage links the blog in one line and has no markers since its
+ * redesign; nothing here writes into index.html.)
  *
  *   node tools/build-blog.mjs
  *   BLOG_FIXTURE=posts.json node tools/build-blog.mjs   # render without Sanity
@@ -544,32 +546,6 @@ async function patch(file, block) {
   return true;
 }
 
-function homeSection(posts) {
-  if (!posts.length) return '';
-  const cards = posts
-    .slice(0, BLOG.postsOnHome)
-    .map(
-      (p) => `        <a class="blog-card" href="${BLOG.base}${p.slug}/">
-          <div class="blog-card-meta"><time datetime="${p.publishedAt}">${fmtDate(p.publishedAt)}</time> · ${p.readingTime} min read</div>
-          <h3>${esc(p.title)}</h3>
-          <p>${esc(clip(p.cardText, 180))}</p>
-          <span class="blog-card-more">Read the post &rarr;</span>
-        </a>`
-    )
-    .join('\n');
-
-  return `  <section class="blog-band" id="blog" aria-label="From the Dovilo blog">
-    <div class="blog-inner">
-      <p class="section-label">Blog</p>
-      <h2 class="section-title">Written while building Dovilo</h2>
-      <div class="blog-grid">
-${cards}
-      </div>
-      <div class="blog-all"><a href="${BLOG.base}">All posts &rarr;</a></div>
-    </div>
-  </section>`;
-}
-
 function sitemapBlock(posts) {
   const entry = (loc, lastmod, changefreq, priority) =>
     `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
@@ -679,7 +655,6 @@ async function main() {
 
   await prune(new Set(posts.map((p) => p.slug)));
 
-  await patch('index.html', homeSection(posts));
   await patch('sitemap.xml', sitemapBlock(posts));
   await patch('llms.txt', llmsBlock(posts));
   await patch('llms-full.txt', llmsBlock(posts));

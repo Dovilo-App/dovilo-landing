@@ -121,17 +121,14 @@ Rules:
 - **The nav is sticky, not fixed.** It stays in flow, so no page needs a magic `padding-top`.
   `scroll-padding-top` is set once in `base.css` from `--nav-h`.
 - **Class names are a contract with inline JS.** Do not rename `.faq-item.open`, `nav ul.open`,
-  `.menu-overlay.open`, `.theme-toggle .icon-sun/.icon-moon`, `.mac-window.in-view`,
+  `.menu-overlay.open`, `.theme-toggle .icon-sun/.icon-moon`,
   `#card-ios|android|windows|mac`, `.toc a.active`, `.copy-btn.copied`, or the `.rel*` nodes the
   changelog's live GitHub fetch writes into. They are queried by hand-written script in the same
   files.
-- **The homepage blog band's class names are a contract with the generator** —  `.blog-band`,
-  `.blog-inner`, `.blog-grid`, `.blog-card`, `.blog-card-meta`, `.blog-card-more`, `.blog-all`.
-  Rename them in `tools/build-blog.mjs` and the CSS together or not at all.
 
-Page-specific CSS still belongs in the page's own `<style>` block, except the homepage, whose
-stylesheet outgrew its markup and lives in `styles/home.css`. If any other page's inline CSS passes
-roughly 15 KB, move it out too — markup weight is what a crawler reads.
+Page-specific CSS still belongs in the page's own `<style>` block. If a page's inline CSS passes
+roughly 15 KB, move it out to its own file — markup weight is what a crawler reads.
+(`styles/home.css`, the old homepage's file, is no longer linked: `/` moved to `system.css`.)
 
 ---
 
@@ -220,7 +217,7 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
   variable woff2 files declared with `@font-face`, `font-display:swap` and `unicode-range`, with
   `/fonts/inter-latin.woff2` preloaded. Never add a Google Fonts link back. (`bdb41bd`)
 - **The stylesheets are render-blocking by design. Leave them that way.** A Lighthouse or SEO audit
-  will flag `base.css` — and `home.css` on the homepage — under "eliminate render-blocking
+  will flag `base.css` (and `system.css` on redesigned pages) under "eliminate render-blocking
   resources". That audit fires on any blocking stylesheet, it is not a defect here, and both of the
   usual remedies are regressions on this site. This call was already made once, in `39565c3` —
   do not spend a third afternoon on it:
@@ -261,8 +258,9 @@ roughly 15 KB, move it out too — markup weight is what a crawler reads.
 ### The blog is generated
 
 - **Never hand-edit anything between `<!-- BLOG:START -->` and `<!-- BLOG:END -->`.** Those regions
-  live in `index.html`, `sitemap.xml`, `llms.txt` and `llms-full.txt` and are overwritten by
-  `npm run build:blog`.
+  live in `sitemap.xml`, `llms.txt` and `llms-full.txt` and are overwritten by
+  `npm run build:blog`. The homepage has no such region since its redesign: it links the blog in
+  one line, and the build no longer writes into `index.html`.
 - `blog/index.html` and every `blog/<slug>/index.html` are build output. Edit `tools/template.mjs`
   and re-run the build; editing the HTML is silently reverted on the next publish.
 
@@ -292,8 +290,8 @@ Carried here so they are not rediscovered from scratch:
   together.
 - `hreflang` is declared only on the homepage.
 - Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (27), `/ai` (5), `/changelog/` (3) and
-  `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("What is new in the
-  Focus tab?" is the exception), so a wording change there has to be made in four places plus
+  `/downloads/` (5). Nine of the homepage's ten duplicate the FAQ page's ("How does Focus
+  work?" is the exception), so a wording change there has to be made in four places plus
   `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
   the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
   "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
@@ -302,16 +300,16 @@ Carried here so they are not rediscovered from scratch:
   in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
   way.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
-- `styles/home.css` still carries legacy hand-written font sizes and ink alphas from before the
-  design system existed. They render correctly but do not go through the ramp or the ink scale;
-  convert them opportunistically when you touch a rule, not in one sweep.
+- `styles/home.css` is no longer linked by any page since `/` moved to `system.css`; delete it
+  together with `base.css`.
+- `og-card.jpg` is still the share card of every page not yet redesigned; `/` has `og-home.jpg`
+  and `/ai` has `og-ai.jpg`.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
 - Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
-  homepage blog band (written by `tools/build-blog.mjs` between the `BLOG` markers, classes listed
-  in §1.2), the blog pages themselves (`tools/template.mjs`, still a copy of the `base.css` chrome),
-  the docs' table of contents, the `/downloads` platform cards and the changelog's release entries.
+  blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome), the docs' table of
+  contents, the `/downloads` platform cards and the changelog's release entries.
   The task that moves each page adds its component first.
 
 ## Dovilo task protocol

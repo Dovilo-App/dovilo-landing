@@ -24,8 +24,6 @@ export const BLOG = {
   title: 'Blog',
   /* Sits in <title> after the post name, and is the blog index description. */
   tagline: 'Focus, productivity and agent workflows — written while building Dovilo.',
-  /* How many of the newest posts the homepage section shows. */
-  postsOnHome: 3,
   /* Newest-first entries per blog index page. One page until there is more than this. */
   perPage: 24,
 };
