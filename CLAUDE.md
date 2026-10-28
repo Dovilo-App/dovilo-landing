@@ -46,9 +46,9 @@ Rules:
 - **No page may introduce a component the doc does not have.** If a page needs one, add it to the
   doc, to `system.css` and to `/styleguide/` in the same commit, then use it.
 - **A redesigned page links `system.css` and nothing else.** No `base.css` or `home.css` next to it,
-  no `<style>` block, no inline style. A page is on one system or the other, never both. The one
-  exception is the highlight.js theme `/docs/webhooks` inlines (§2 Performance), until its redesign
-  task decides otherwise.
+  no `<style>` block, no inline style. A page is on one system or the other, never both. There is
+  no exception: `/docs/webhooks` dropped highlight.js and its inlined theme when it moved (§2
+  Performance).
 - **Tokens live in `system.css` only**: five neutrals per theme and one accent, `#D4880A`. The
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
@@ -59,7 +59,8 @@ Rules:
   `/pricing` at most 320, body copy (paragraphs, list lines and notes) under 250 (headings,
   prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
   answers and store badges count toward neither);
-  `/downloads` at most 150; `/faq`, `/docs/*`, `/changelog`, `/privacy` and `/terms` have none. A
+  `/downloads` at most 150; `/docs/` at most 150; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
+  `/changelog`, `/privacy` and `/terms` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
@@ -70,7 +71,9 @@ Rules:
   JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
   never shortened.
 - **The 300-word floor in §2 still applies.** On a budgeted page it is met by the visible text plus
-  what its collapsibles hold.
+  what its collapsibles hold. The one exception is `/docs/`, a hub page of 139 visible words with
+  no collapsibles: its depth is the two references it links, and Selahaddin accepted it under the
+  floor on 29 Oct 2026. Any other page under 300 words is still a defect.
 - **No em dash anywhere a person reads** on a redesigned page: body copy, captions, buttons and alt
   text as well as headings. `llms.txt` and `llms-full.txt` are the only exception.
 - **Class names are a contract with the site script** at the end of every redesigned page:
@@ -81,7 +84,9 @@ Rules:
   both systems. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
   script keys on `#card-ios|android|windows|mac` and adds `.highlighted`; it does not read
-  `?source=`, which the page accepts and ignores until a task gives the per-source lines.
+  `?source=`, which the page accepts and ignores until a task gives the per-source lines. The page
+  script of `/docs/mcp/` and `/docs/webhooks` opens `.toc details` from 960px and sets `.active` on
+  the `.toc a` of the heading in view (`.doc-body h2[id]`, `h3[id]`).
 - **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
   twice, once per theme: edit both copies together.
 
@@ -129,7 +134,7 @@ Rules:
   `scroll-padding-top` is set once in `base.css` from `--nav-h`.
 - **Class names are a contract with inline JS.** Do not rename `.faq-item.open`, `nav ul.open`,
   `.menu-overlay.open`, `.theme-toggle .icon-sun/.icon-moon`,
-  `#card-ios|android|windows|mac`, `.toc a.active`, `.copy-btn.copied`, or the `.rel*` nodes the
+  `#card-ios|android|windows|mac`, `.copy-btn.copied`, or the `.rel*` nodes the
   changelog's live GitHub fetch writes into. They are queried by hand-written script in the same
   files.
 
@@ -173,9 +178,11 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   word, and owns `featureList`, the changelog owns `releaseNotes` and `downloadUrl`. Change a price
   on `/pricing/`, change both `offers` lists. Never mint a second node without the `@id`.
   (`c7ab5a8`)
-- Every page carries a page-level type (`WebPage`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
+- Every page carries a page-level type (`WebPage`, `CollectionPage` for `/docs/`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
-  `BreadcrumbList` with position 1 = Dovilo / position 2 = the page. No page ships with zero JSON-LD.
+  `BreadcrumbList` with position 1 = Dovilo and the page last, its parent between them where it
+  has one (Dovilo / Docs / the page on `/docs/mcp/` and `/docs/webhooks`). No page ships with zero
+  JSON-LD.
 - Any URL an `ItemList` or anchor points at must resolve — give list cards stable ids before
   referencing them. (`c7ab5a8`)
 - **No self-serving review markup.** Do not add `aggregateRating` unless the page visibly shows
@@ -189,10 +196,12 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   Meta-ExternalAgent, cohere-ai, CCBot. Only `/notes/` is disallowed. **Never add a Disallow for an
   AI crawler.**
 - Change a URL's content → bump its `<lastmod>` in `sitemap.xml` to that day. A retitle counts.
-  (`0384c1f`)
+  (`0384c1f`) A link added to the shared nav or footer alone is not a content change and moves
+  neither date: the nav's link to `/pricing/` (PR #11) and the footer's to `/docs/` (29 Oct 2026)
+  went in on every page without one, since lastmod tells crawlers the content moved.
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
-  scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
+  scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
   0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`)
   stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
@@ -216,7 +225,8 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   free and unlimited; mobile 2.0.0 is on Google Play and the App Store since 27 Oct 2026.
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
-  complete statement. (`c703fa3`)
+  complete statement. (`c703fa3`) `/docs/`, the hub of the two references, is the one accepted
+  exception (§1.1).
 - **Every claim must already be documented in the repo** — `llms.txt`, `llms-full.txt`, the FAQ or
   the page itself. Nothing unreleased gets a date. Do not invent capabilities, integrations, prices
   or platforms to make a section read better.
@@ -248,10 +258,10 @@ roughly 15 KB, move it out to its own file — markup weight is what a crawler r
   7.9 KB body — larger than the gzip it would replace.
   `styles/system.css` on redesigned pages is the same case for the same reasons: one same-origin,
   render-blocking stylesheet that is the whole design system. Never async-load it, never inline it.
-- The one permitted third-party runtime dependency is highlight.js on `/docs/webhooks`, loaded at
-  the end of `<body>` with a `preconnect` in `<head>`. Its atom-one-dark theme is **inlined at the
-  top of that page's `<style>`**, above the page's own overrides, with its BSD-3-Clause attribution.
-  Do not re-externalise it and do not move it below the overrides.
+- **No third-party runtime dependency.** `/docs/webhooks` loaded highlight.js from cdnjs until
+  its move to `system.css` (29 Oct 2026). Its dark-only theme could not sit on the light
+  `--surface`, and the design language's code block is themed like the page with no highlighting
+  library, so it went. Do not add a highlighting library back.
 - Screenshots ship as **WebP**. Every content `<img>` carries descriptive alt text naming what is on
   screen, plus `width` and `height` so the box is reserved. The LCP image gets `fetchpriority="high"`
   and no `loading` attribute; everything below the fold gets `loading="lazy"`. Images whose CSS width
@@ -320,14 +330,16 @@ Carried here so they are not rediscovered from scratch:
 - `styles/home.css` is no longer linked by any page since `/` moved to `system.css`; delete it
   together with `base.css`.
 - `og-card.jpg` is still the share card of every page not yet redesigned; `/` has `og-home.jpg`
-  and `/ai` has `og-ai.jpg`. `/pricing/` has `og-pricing.jpg` and `/downloads/` has
-  `og-downloads.jpg`: the page background and the `<h1>` in Inter 700, with no capture.
+  and `/ai` has `og-ai.jpg`. `/pricing/` has `og-pricing.jpg`, `/downloads/` has
+  `og-downloads.jpg` and `/docs/` has `og-docs.jpg`: the page background and the `<h1>` in Inter
+  700, with no capture. `/docs/mcp/` keeps `og-card.jpg` and `/docs/webhooks` has none: their move
+  to `system.css` was style only.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
   palette rather than the amber accent. The shape is now correct for a share card; the colours are
   not the brand's.
 - Some surfaces have no component in `docs/design-language.md` yet (its §9 "Not covered yet"): the
-  blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome), the docs' table of
-  contents and the changelog's release entries.
+  blog pages (`tools/template.mjs`, still a copy of the `base.css` chrome) and the changelog's
+  release entries.
   The task that moves each page adds its component first.
 
 ## Dovilo task protocol

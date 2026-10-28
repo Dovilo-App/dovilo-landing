@@ -530,10 +530,7 @@ a.card:hover{border-color:rgba(var(--accent-rgb),.45);transform:translateY(-1px)
 .code-body .c{color:rgba(232,234,235,.4)}         /* comment */
 .code-body .cmd{color:#E8A832}                    /* command the reader types */
 .code-body .out{color:rgba(232,234,235,.6)}       /* program output */
-/* Inline code only. A <code> inside a <pre> keeps the block's own background —
-   /docs/webhooks inlines the highlight.js theme in its page <style>, which
-   loads after this file, so anything painted here would be overridden there
-   anyway and the two would fight over every token. */
+/* Inline code only. A <code> inside a <pre> keeps the block's own background. */
 code{
   font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
   font-size:.875em;background:var(--card);border:1px solid var(--line);

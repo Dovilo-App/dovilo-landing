@@ -4,7 +4,7 @@
 
 This file expands [llms.txt](https://dovilo.app/llms.txt) with the detail an assistant needs to answer questions about Dovilo without guessing: feature behaviour, the agent interface, the webhook contract, pricing, and the complete FAQ. Everything here is public documentation. Source pages are linked at the end.
 
-Last updated: 2026-10-28.
+Last updated: 2026-10-29.
 
 ## What Dovilo is
 
@@ -197,6 +197,29 @@ Full reference: https://dovilo.app/docs/webhooks
 - **Retries:** up to 5 after the first attempt, at 5s, 30s, 2m, 10m and 1h — a delivery window of roughly 1 hour 15 minutes.
 - **Ordering:** FIFO per task (a retry never overtakes a newer event for the same task); no ordering guarantee across tasks. Reconstruct order from `task.updatedAt` and `previousStatus`.
 - **Secret:** shown in plaintext exactly once at generation. For server delivery it is generated and stored encrypted on Dovilo's server; for Desktop delivery it stays in OS-level secure storage on the desktop client, never written to Firestore or synced. Regenerating invalidates the previous secret immediately.
+
+## Developer docs (https://dovilo.app/docs/)
+
+The entry page for the two developer references, and the documentation URL for the agent layer. As the page states it:
+
+**Dovilo docs: the MCP servers and webhooks your agents use.** Two references, one URL and a key.
+
+**In short:** Dovilo has two MCP servers. Agents MCP at dovilo.app/mcp/agents is for coding agents: 9 tools, no create, no delete, one key per agent. Personal MCP at dovilo.app/mcp is for ChatGPT, Claude, Gemini and Grok: 13 tools, sign in with your Dovilo account, every write approved by you. Webhooks tell your systems when an AI task moves.
+
+The two references:
+
+- **MCP reference** (https://dovilo.app/docs/mcp/): endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.
+- **Webhooks reference** (https://dovilo.app/docs/webhooks): events, payload, signature, retries, verification code in Node, Python and Go.
+
+Start here:
+
+- Connect Claude Code, Cursor or any MCP client: https://dovilo.app/docs/mcp/#connecting
+- Plan from ChatGPT or Claude: https://dovilo.app/docs/mcp/#planning
+- The nine agent tools: https://dovilo.app/docs/mcp/#agents-tools
+- Verify a webhook signature: https://dovilo.app/docs/webhooks#signature-verification
+- Coming from Desktop 1.8: https://dovilo.app/docs/mcp/#upgrading
+
+Machine-readable copies: https://dovilo.app/llms.txt and https://dovilo.app/llms-full.txt (this file). Questions: support [at] dovilo.app. The page closes with a link to the developer page, https://dovilo.app/ai.
 
 ## Pricing (https://dovilo.app/pricing/)
 
@@ -536,6 +559,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/ — the homepage, in short: what Dovilo is, how it works in four steps (plan, approve, focus, build), focus and the Focus Ambience Pack, the city, a line for developers, the price, the newest mobile and desktop release, ten questions, the App Store and Google Play links, and who builds it
 - https://dovilo.app/faq — the FAQ reproduced above
 - https://dovilo.app/ai — the developer page, in short: how an AI task moves, who plans and who works, both MCP servers, the Claude Code setup command, the trust lines and the nine agent tools, webhooks and the demo, pricing, five developer questions
+- https://dovilo.app/docs/ — developer docs: the two MCP servers and webhooks in short, the two references, five deep links into them, and the machine-readable copies
 - https://dovilo.app/docs/mcp/ — MCP reference: endpoints and the server comparison, authentication, connecting a client, all 22 tools (with inputs for the nine agent tools), status values, scheduling, approval rules, planning from chat assistants, upgrading from Desktop 1.8, plan and trial, developer questions
 - https://dovilo.app/docs/webhooks — webhook developer reference with delivery modes and verification examples in Node, Python and Go
 - https://dovilo.app/pricing/ — the canonical prices: Free and Pro side by side with the Pro list as the app shows it, the one-time purchases, managing the subscription, four questions from the FAQ
