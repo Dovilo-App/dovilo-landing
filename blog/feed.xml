@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
-  <title>Dovilo — Blog</title>
+  <title>Dovilo blog</title>
   <link>https://dovilo.app/blog/</link>
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>Focus, productivity and agent workflows — written while building Dovilo.</description>
+  <description>Focus, productivity and agent workflows, written while building Dovilo.</description>
   <language>en</language>
   <lastBuildDate>Sun, 04 Oct 2026 08:56:07 GMT</lastBuildDate>
   <item>
@@ -13,8 +13,8 @@
     <guid isPermaLink="true">https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/</guid>
     <pubDate>Sun, 04 Oct 2026 08:56:07 GMT</pubDate>
     <description>Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. Most tools cover one. Here is how to tell which you need.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#three-layers-not-one">Three layers, not one</a></li>
 <li><a href="#auditing-your-workflow-before-you-shop">Auditing your workflow before you shop</a></li>
@@ -110,8 +110,8 @@ Not yet. It must run where Dovilo Desktop runs. Remote MCP is on the roadmap.</p
     <guid isPermaLink="true">https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/</guid>
     <pubDate>Sat, 03 Oct 2026 03:45:07 GMT</pubDate>
     <description>XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-an-rpg-layer-actually-fixes">What an RPG layer actually fixes</a></li>
 <li><a href="#why-the-loop-works-carefully-stated">Why the loop works, carefully stated</a></li>
@@ -150,7 +150,7 @@ Not yet. It must run where Dovilo Desktop runs. Remote MCP is on the roadmap.</p
 <p><strong>Boss battles</strong> are high-stakes items with a deadline you cannot move: a launch, a review, the conversation you keep postponing. Naming them separately signals they need preparation, not just a slot.</p>
 <h2 id="calibrating-xp">Calibrating XP</h2>
 <p>Starting ranges. The numbers matter less than keeping them stable long enough to mean something.</p>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>Task type</th>
@@ -184,6 +184,7 @@ Not yet. It must run where Dovilo Desktop runs. Remote MCP is on the roadmap.</p
 <td>High stakes, fixed deadline</td>
 </tr>
 </tbody></table>
+</div>
 <p>Score time and cognitive load, not outcome. Outcome-based scoring punishes the hard attempts that did not land, which are exactly the ones you want to keep making.</p>
 <p>Give yourself a small bonus for starting something you have been avoiding. Starting is the expensive part.</p>
 <h2 id="building-the-system-in-four-steps">Building the system in four steps</h2>
@@ -234,8 +235,8 @@ An app removes the tracking cost, which is what kills most manual systems. A man
     <guid isPermaLink="true">https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/</guid>
     <pubDate>Thu, 01 Oct 2026 20:49:02 GMT</pubDate>
     <description>Gamification reliably raises engagement in short studies. Long-term evidence is thinner than the marketing suggests. What holds up, what does not, and how to test it.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-the-evidence-supports">What the evidence supports</a></li>
 <li><a href="#what-dopamine-does-and-does-not-explain">What &quot;dopamine&quot; does and does not explain</a></li>
@@ -328,8 +329,8 @@ Measure one real outcome for a week before you start, then again after 30 days. 
     <guid isPermaLink="true">https://dovilo.app/blog/gamified-to-do-list-why-game-mechanics-beat-guilt-in-2026/</guid>
     <pubDate>Wed, 30 Sep 2026 13:47:21 GMT</pubDate>
     <description>Guilt gets you through a week. A reward tied to finished work gets you through a year. What separates gamification that lasts from badges and broken streaks.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#the-problem-with-a-plain-task-list">The problem with a plain task list</a></li>
 <li><a href="#why-guilt-stops-working">Why guilt stops working</a></li>
@@ -408,8 +409,8 @@ No. Some people are already self-directed and find game layers distracting. It h
     <guid isPermaLink="true">https://dovilo.app/blog/task-prioritization-app-showdown-top-picks-for-2026/</guid>
     <pubDate>Tue, 29 Sep 2026 08:09:13 GMT</pubDate>
     <description>Prioritization is a decision you make, not a feature you buy. Here are three ranking methods that survive a real day, and what an app has to do to support them.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#prioritization-is-a-decision-not-a-feature">Prioritization is a decision, not a feature</a></li>
 <li><a href="#three-ranking-methods-that-survive-a-real-day">Three ranking methods that survive a real day</a></li>
@@ -477,7 +478,7 @@ No. Some people are already self-directed and find game layers distracting. It h
 <h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
 <p>No data export. No remote MCP, so the agent runs where Desktop runs. No team features, no shared workspaces: this is a single-person app. Export and remote MCP are on the public roadmap.</p>
 <h2 id="side-by-side">Side by side</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>App</th>
@@ -537,6 +538,7 @@ No. Some people are already self-directed and find game layers distracting. It h
 <td>Apple only</td>
 </tr>
 </tbody></table>
+</div>
 <p>If you already have a ranking habit and just need a fast list, Todoist or Things 3 will serve you for years. If the gap is between deciding and starting, an app with a timer attached does more than a better sort order. If you work on a team shipping software, Linear is built for that and this comparison is the wrong one.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is a task prioritization app?</strong>
@@ -566,8 +568,8 @@ Both attach a reward to finishing work. Habitica uses RPG mechanics and a social
     <guid isPermaLink="true">https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/</guid>
     <pubDate>Mon, 28 Sep 2026 01:47:00 GMT</pubDate>
     <description>Most gamified task managers fail the same way: the reward stops meaning anything. Here is how to judge the mechanic, and how the main options differ.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-a-reward-mechanic-has-to-get-right">What a reward mechanic has to get right</a></li>
 <li><a href="#the-four-mechanics-and-who-each-one-suits">The four mechanics, and who each one suits</a></li>
@@ -664,8 +666,8 @@ Habitica and Finch are built around daily habits. Dovilo is built around tasks a
     <guid isPermaLink="true">https://dovilo.app/blog/ai-productivity-tools-that-actually-save-you-time-in-2026/</guid>
     <pubDate>Sat, 26 Sep 2026 19:54:03 GMT</pubDate>
     <description>Measured time savings from AI are smaller than they feel. Here is what the data shows, which categories hold up, and why the handoffs between tools cost the most.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-the-measured-numbers-look-like">What the measured numbers look like</a></li>
 <li><a href="#why-the-gains-feel-bigger-than-they-are">Why the gains feel bigger than they are</a></li>
@@ -747,8 +749,8 @@ Dovilo is free on iOS and Android with unlimited tasks, categories and focus ses
     <guid isPermaLink="true">https://dovilo.app/blog/time-blocking-app-guide-pick-the-best-one-in-2026/</guid>
     <pubDate>Fri, 25 Sep 2026 13:30:33 GMT</pubDate>
     <description>Time blocking needs three layers: a calendar, a task list, and something that protects the block. Here is what each type of app does and how to combine them.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-time-blocking-actually-asks-of-an-app">What time blocking actually asks of an app</a></li>
 <li><a href="#the-three-layers">The three layers</a></li>
@@ -856,8 +858,8 @@ Yes, on Desktop with Pro. Nine tools, read and update only, on a task list that 
     <guid isPermaLink="true">https://dovilo.app/blog/focus-session-app-build-a-routine-that-sticks-in-2026/</guid>
     <pubDate>Thu, 24 Sep 2026 07:40:04 GMT</pubDate>
     <description>Why focus routines collapse after a missed day, and how to build one that survives it. Session length, task setup, weekly review, and what to look for in an app.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#why-most-focus-routines-fall-apart">Why most focus routines fall apart</a></li>
 <li><a href="#the-five-habits-that-keep-a-routine-alive">The five habits that keep a routine alive</a></li>
@@ -961,8 +963,8 @@ Yes. Tasks, categories and focus sessions are unlimited and there are no ads. Pr
     <guid isPermaLink="true">https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/</guid>
     <pubDate>Wed, 23 Sep 2026 01:56:00 GMT</pubDate>
     <description>What a to-do list needs before a coding agent can work from it: programmatic access, real statuses, isolation from your personal list, and a way to hand work back.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#why-standard-to-do-apps-break-agent-workflows">Why standard to-do apps break agent workflows</a></li>
 <li><a href="#what-an-agent-ready-task-list-actually-needs">What an agent-ready task list actually needs</a></li>
@@ -1014,7 +1016,7 @@ Yes. Tasks, categories and focus sessions are unlimited and there are no ads. Pr
 <p>Integration details are at <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
 <h3 id="the-nine-tools">The nine tools</h3>
 <p>Three read, six write.</p>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>Tool</th>
@@ -1068,6 +1070,7 @@ Yes. Tasks, categories and focus sessions are unlimited and there are no ads. Pr
 <td>Reports model, tokens, cost and duration</td>
 </tr>
 </tbody></table>
+</div>
 <p>There is no create tool and no delete tool. The agent can&#39;t write the task you wrote, and it can&#39;t remove work. Creating and deleting stay with you. An agent that can create tasks will create tasks, and an agent that can delete them can lose work.</p>
 <p>Any MCP client connects: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets, everything else uses a JSON config. Plain MCP, no lock-in.</p>
 <h3 id="statuses-and-the-one-that-stops-the-agent">Statuses, and the one that stops the agent</h3>
@@ -1127,8 +1130,8 @@ AI tasks run on a monthly quota, shown in the AI Tasks view. Top-up packs start 
     <guid isPermaLink="true">https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/</guid>
     <pubDate>Mon, 21 Sep 2026 19:29:13 GMT</pubDate>
     <description>Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</a></li>
 <li><a href="#what-mcp-is-the-short-version">What MCP is (the short version)</a></li>
@@ -1182,7 +1185,7 @@ AI tasks run on a monthly quota, shown in the AI Tasks view. Top-up packs start 
 <p>The agent does not start on its own. Ask it in plain language, for example: &quot;take my next Dovilo task and work it&quot;. It reads the brief, picks up a task and reports back as it goes.</p>
 <h2 id="the-9-tools-read-and-update-only">The 9 tools: read and update only</h2>
 <p>The server exposes 9 tools, 3 read and 6 write, all scoped to AI tasks in one project.</p>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>Tool</th>
@@ -1236,6 +1239,7 @@ AI tasks run on a monthly quota, shown in the AI Tasks view. Top-up packs start 
 <td>Reports model, tokens, cost and duration</td>
 </tr>
 </tbody></table>
+</div>
 <p>The agent writes status, steps, notes and telemetry. It cannot edit the task you wrote, it cannot create tasks and it cannot delete anything.</p>
 <p>That is deliberate. Creating and deleting work are decisions that stay with you. An agent that can create tasks will create tasks, and an agent that can delete tasks can lose work.</p>
 <p>Two more limits: the agent cannot see other projects, and if you switch MCP off in Desktop settings, connections drop immediately.</p>
@@ -1318,8 +1322,8 @@ AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you ne
     <guid isPermaLink="true">https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</guid>
     <pubDate>Mon, 21 Sep 2026 19:29:02 GMT</pubDate>
     <description>Blockers, timers, task managers or gamified apps? A plain framework for choosing a deep work app based on where your focus actually breaks.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-deep-work-means-for-an-app">What deep work means for an app</a></li>
 <li><a href="#the-four-types-of-deep-work-apps">The four types of deep work apps</a><ul>
@@ -1463,8 +1467,8 @@ Often, yes. A free tier is enough to find out whether a tool fits. The features 
     <guid isPermaLink="true">https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/</guid>
     <pubDate>Sun, 20 Sep 2026 07:35:14 GMT</pubDate>
     <description>Boost Claude Code productivity by replacing manual task handoffs with an AI task queue that lets the agent run longer sessions with less interruption.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#why-claude-code-is-changing-how-solo-developers-work">Why Claude Code is changing how solo developers work</a></li>
 <li><a href="#the-real-productivity-leak-context-switching-between-lists-and-agents">The real productivity leak: context-switching between lists and agents</a></li>
@@ -1565,8 +1569,8 @@ Yes. Todoist ships an official MCP server at ai.todoist.net/mcp, and Linear ship
     <guid isPermaLink="true">https://dovilo.app/blog/developer-productivity-tools-that-cut-context-switch-costs/</guid>
     <pubDate>Sat, 19 Sep 2026 01:44:08 GMT</pubDate>
     <description>Developer productivity tools do more than speed up tasks — find out which categories actually reduce context-switch costs and how to choose the right ones.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#why-context-switching-is-expensive-for-developers">Why context switching is expensive for developers</a></li>
 <li><a href="#the-ai-coding-assistant-paradox">The AI coding assistant paradox</a></li>
@@ -1677,8 +1681,8 @@ Track the metrics that matter to your workflow: task completion rate, time from 
     <guid isPermaLink="true">https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</guid>
     <pubDate>Thu, 17 Sep 2026 18:25:06 GMT</pubDate>
     <description>Five task tools for solo developers running AI coding agents in 2026 — what each one does with MCP, and where each one stops.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#the-core-problem-context-switching-kills-agent-workflows">The core problem: context-switching kills agent workflows</a></li>
 <li><a href="#dovilo-built-for-the-agent-aware-developer">Dovilo: built for the agent-aware developer</a></li>
@@ -1742,7 +1746,7 @@ Track the metrics that matter to your workflow: task completion rate, time from 
 <p>If you want something that combines focus sessions with task management and agent awareness in one app, Dovilo is the only tool on this list that does all three.</p>
 <hr>
 <h2 id="how-to-choose">How to choose</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>Tool</th>
@@ -1788,6 +1792,7 @@ Track the metrics that matter to your workflow: task completion rate, time from 
 <td>Yes</td>
 </tr>
 </tbody></table>
+</div>
 <p>The right tool depends on what&#39;s actually slowing you down. If context-switching between your agent and your task list is the bottleneck, that narrows the list quickly.</p>
 <hr>
 <h2 id="get-started-with-dovilo">Get started with Dovilo</h2>
@@ -1820,8 +1825,8 @@ Not yet (as of September 2026). The agent runs on the machine where Desktop is i
     <guid isPermaLink="true">https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/</guid>
     <pubDate>Wed, 16 Sep 2026 11:38:00 GMT</pubDate>
     <description>Looking for a Forest app alternative with real task management and gamification? These 5 focus apps go further than a simple timer.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-forest-does-well-and-where-it-stops">What Forest does well (and where it stops)</a></li>
 <li><a href="#5-forest-app-alternatives-with-more-features">5 Forest app alternatives with more features</a><ul>
@@ -1881,7 +1886,7 @@ Not yet (as of September 2026). The agent runs on the machine where Desktop is i
 <p><strong>Best for:</strong> Users who want a simple stat-based RPG layer on top of habit tracking without a lot of complexity.</p>
 <hr>
 <h2 id="how-these-alternatives-compare-at-a-glance">How these alternatives compare at a glance</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>App</th>
@@ -1941,6 +1946,7 @@ Not yet (as of September 2026). The agent runs on the machine where Desktop is i
 <td>Limited</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="which-alternative-is-right-for-you">Which alternative is right for you?</h2>
 <p><strong>You want a task manager and a focus timer together.</strong> Forest won&#39;t give you this. Dovilo, BeeDone, and Habitica (minus the timer) are the realistic options. Dovilo is the only one that includes all three — task management, Pomodoro timer, and visual reward — in a single free download.</p>
@@ -1975,8 +1981,8 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
     <guid isPermaLink="true">https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/</guid>
     <pubDate>Tue, 15 Sep 2026 19:52:29 GMT</pubDate>
     <description>Find the right TickTick alternative for your workflow — from gamified task apps to AI-agent-ready tools for developers.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#why-people-leave-ticktick">Why people leave TickTick</a></li>
 <li><a href="#alternatives-for-general-productivity-and-focus-users">Alternatives for general productivity and focus users</a><ul>
@@ -2063,7 +2069,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <p>Both data export and remote MCP are on the public roadmap, but neither is available as of September 2026.</p>
 <hr>
 <h2 id="side-by-side-comparison">Side-by-side comparison</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>Feature</th>
@@ -2130,6 +2136,7 @@ If ambient audio matters to your focus sessions, yes. The pack adds five full-sc
 <td>$49.99</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="which-alternative-should-you-choose">Which alternative should you choose?</h2>
 <p><strong>Choose Todoist</strong> if you want a clean, reliable task manager with no motivation layer and don&#39;t need focus timers or gamification.</p>
@@ -2164,8 +2171,8 @@ TickTick has a calendar view, habit tracking, and data export. Dovilo doesn&#39;
     <guid isPermaLink="true">https://dovilo.app/blog/habitica-alternative-6-gamified-apps-ranked-for-2026/</guid>
     <pubDate>Sun, 13 Sep 2026 01:50:52 GMT</pubDate>
     <description>Find the best Habitica alternative for 2026 with this ranked guide to 6 gamified productivity apps, from city-builders to RPG habit trackers.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-makes-a-good-habitica-alternative">What Makes a Good Habitica Alternative?</a></li>
 <li><a href="#1-dovilo-best-for-developers-and-focus-driven-work">1. Dovilo: Best for Developers and Focus-Driven Work</a><ul>
@@ -2266,7 +2273,7 @@ TickTick has a calendar view, habit tracking, and data export. Dovilo doesn&#39;
 <p>Users who want serious task management without any gamification layer.</p>
 <hr>
 <h2 id="how-these-six-apps-compare">How These Six Apps Compare</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>App</th>
@@ -2326,6 +2333,7 @@ TickTick has a calendar view, habit tracking, and data export. Dovilo doesn&#39;
 <td>Yes</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="which-habitica-alternative-should-you-pick">Which Habitica Alternative Should You Pick?</h2>
 <p>The honest answer depends on what you actually want to replace.</p>
@@ -2359,8 +2367,8 @@ Yes, and some combinations make sense. Forest pairs well with Todoist if you wan
     <guid isPermaLink="true">https://dovilo.app/blog/cursor-ai-tools-how-developers-use-them-daily-in-2026/</guid>
     <pubDate>Fri, 11 Sep 2026 19:56:23 GMT</pubDate>
     <description>Cursor AI tools are reshaping how developers work in 2026. Learn the daily workflows, agent habits, and MCP integrations that help solo devs ship faster.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-cursor-ai-actually-does-in-a-developers-day">What Cursor AI Actually Does in a Developer&#39;s Day</a></li>
 <li><a href="#how-solo-developers-structure-their-day-around-cursor">How Solo Developers Structure Their Day Around Cursor</a><ul>
@@ -2467,8 +2475,8 @@ Working alone without a team means fewer external signals that you are making pr
     <guid isPermaLink="true">https://dovilo.app/blog/best-gamified-productivity-apps/</guid>
     <pubDate>Thu, 10 Sep 2026 15:06:23 GMT</pubDate>
     <description>The gamified productivity apps worth using in 2026 — city builders, RPG habit trackers and focus timers, with what each costs and where each stops.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-makes-a-gamified-productivity-app-worth-using">What Makes a Gamified Productivity App Worth Using?</a></li>
 <li><a href="#1-dovilo-best-overall-for-2026">1. Dovilo — Best Overall for 2026</a><ul>
@@ -2584,7 +2592,7 @@ Working alone without a team means fewer external signals that you are making pr
 <p><strong>Verdict:</strong> Excellent for its intended use case of gentle habit-building and self-care. Not the right tool if you need a serious work productivity system.</p>
 <hr>
 <h2 id="how-the-apps-compare-at-a-glance">How the Apps Compare at a Glance</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>App</th>
@@ -2668,6 +2676,7 @@ Working alone without a team means fewer external signals that you are making pr
 <td>Yes</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="which-gamified-productivity-app-should-you-choose">Which Gamified Productivity App Should You Choose?</h2>
 <p>The right app depends on what&#39;s actually blocking you.</p>
@@ -2700,8 +2709,8 @@ Dovilo is the option here built around AI coding agents. Its Pro tier runs a loc
     <guid isPermaLink="true">https://dovilo.app/blog/todoist-alternative-7-apps-worth-switching-to-in-2026/</guid>
     <pubDate>Thu, 10 Sep 2026 14:01:09 GMT</pubDate>
     <description>Find the best Todoist alternative in 2026 — from gamified apps to AI-native tools — with honest notes on who each one suits best.</description>
-    <content:encoded><![CDATA[<nav class="toc" aria-label="On this page">
-<p class="toc-title">On this page</p>
+    <content:encoded><![CDATA[<nav aria-label="On this page">
+<p>On this page</p>
 <ul>
 <li><a href="#what-makes-a-good-todoist-alternative">What Makes a Good Todoist Alternative?</a></li>
 <li><a href="#7-todoist-alternatives-worth-switching-to-in-2026">7 Todoist Alternatives Worth Switching To in 2026</a><ul>
@@ -2790,7 +2799,7 @@ Dovilo is the option here built around AI coding agents. Its Pro tier runs a loc
 <p>Auto-generated JSON config snippets handle the MCP client setup, which cuts down the friction of getting started. The feature is Pro and desktop-only, but at $1.67 per month on the yearly plan — or $49.99 for lifetime access — the barrier to try it is low.</p>
 <hr>
 <h2 id="quick-comparison">Quick Comparison</h2>
-<table>
+<div class="table-wrap"><table class="table">
 <thead>
 <tr>
 <th>App</th>
@@ -2850,6 +2859,7 @@ Dovilo is the option here built around AI coding agents. Its Pro tier runs a loc
 <td>Unclear</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <p><strong>What is the best free Todoist alternative?</strong>

@@ -95,8 +95,12 @@ async function fetchPosts() {
 
 /* ─────────────────────────── images ─────────────────────────── */
 
-/* Rendered content is 760 CSS px wide; 2x covers retina. */
+/* A post's column is the measure, 64ch at body size (Post in
+   docs/design-language.md): 686 CSS px, or the screen less its 16px gutters
+   below 718px. 760 covers it at 1x, 1520 on retina. */
 const WIDTHS = [760, 1520];
+const COLUMN_PX = 686;
+const COLUMN_SIZES = `(max-width:${COLUMN_PX + 32}px) calc(100vw - 32px), ${COLUMN_PX}px`;
 const usedMedia = new Set();
 let downloaded = 0;
 
@@ -155,13 +159,15 @@ async function localise(a, { alt = '', caption = '', og = false } = {}) {
   };
 }
 
-function imgTag(img) {
+/* `lcp` is the cover: above the fold, so it is fetched first and never lazy
+   (CLAUDE.md, Performance). Every other image waits until it nears the view. */
+function imgTag(img, { lcp = false } = {}) {
   const responsive = img.srcset?.includes(',')
-    ? ` srcset="${esc(img.srcset)}" sizes="(max-width:800px) 100vw, 760px"`
+    ? ` srcset="${esc(img.srcset)}" sizes="${COLUMN_SIZES}"`
     : '';
   return (
     `<img src="${esc(img.src)}"${responsive} width="${img.width}" height="${img.height}"` +
-    ` alt="${esc(img.alt)}" loading="lazy" decoding="async">`
+    ` alt="${esc(img.alt)}"${lcp ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`
   );
 }
 
@@ -232,6 +238,14 @@ function checkHeadingDashes(html, slug) {
   return html;
 }
 
+/* The summary shows as body copy on /blog/, where no em dash belongs either
+   (CLAUDE.md §1.1). It is the post's excerpt in Sanity, so again: report it. */
+function checkCardDashes(cardText, slug) {
+  if (/[—–]/.test(cardText)) {
+    console.warn(`  ! ${slug}: the blog index summary (excerpt) uses an em dash; fix it in Sanity`);
+  }
+}
+
 function renderMarkdown(md, images, slug) {
   const seen = new Map();
   const marked = new Marked({ gfm: true });
@@ -261,12 +275,31 @@ function renderMarkdown(md, images, slug) {
     },
   });
 
-  return marked.parse(String(md || ''), { async: false });
+  return components(marked.parse(String(md || ''), { async: false }));
 }
 
-/* A leading list of nothing but in-page links is a table of contents; give it
-   the frame it deserves instead of leaving it as a naked bullet list. */
-function liftTableOfContents(html) {
+/* What Markdown makes, mapped onto the design system's components (Post in
+   docs/design-language.md): a table into .table-wrap/.table, a code fence into a
+   code block without a head, an image alone in its paragraph into a figure.
+   Each open tag is matched with its own close, so raw HTML in a post (a
+   <table class="…">) is left whole rather than half-wrapped. Code inside a fence
+   is escaped, so none of these can match inside one. A figure draws its image at
+   the column's full width, so only an image at least that wide is lifted into
+   one; a smaller one keeps its own size in its paragraph. */
+function components(html) {
+  return html
+    .replace(/<table>([\s\S]*?)<\/table>/g, '<div class="table-wrap"><table class="table">$1</table></div>')
+    .replace(/<pre>([\s\S]*?)<\/pre>/g, '<div class="code"><pre>$1</pre></div>')
+    .replace(/<p>(<img [^>]*\bwidth="(\d+)"[^>]*>)<\/p>/g, (whole, img, w) =>
+      +w >= COLUMN_PX ? `<figure class="figure">${img}</figure>` : whole
+    );
+}
+
+/* A leading list of nothing but in-page links is a table of contents. On the
+   page it goes in a closed collapsible, the docs' table of contents on a phone;
+   in the feed it stays an open list, since feed readers handle <details>
+   unevenly. */
+function liftTableOfContents(html, { collapsible = true } = {}) {
   const start = html.search(/\S/);
   if (start === -1 || !html.startsWith('<ul>', start)) return html;
 
@@ -288,10 +321,11 @@ function liftTableOfContents(html) {
   const links = [...list.matchAll(/<a href="([^"]+)"/g)].map((x) => x[1]);
   if (!links.length || !links.every((h) => h.startsWith('#'))) return html;
 
-  return (
-    `<nav class="toc" aria-label="On this page">\n<p class="toc-title">On this page</p>\n${list}\n</nav>` +
-    html.slice(end)
-  );
+  const toc = collapsible
+    ? `<nav aria-label="On this page">\n<details class="collapsible">\n<summary>On this page</summary>\n` +
+      `<div class="collapsible-body">\n${list}\n</div>\n</details>\n</nav>`
+    : `<nav aria-label="On this page">\n<p>On this page</p>\n${list}\n</nav>`;
+  return toc + html.slice(end);
 }
 
 /** Markdown stripped back to prose, for word counts and description fallbacks. */
@@ -342,36 +376,49 @@ const prettify = (html) =>
 
 /* ───────────────────────── page bodies ───────────────────────── */
 
-const tagRow = (tags) =>
-  tags?.length ? `<div class="tags">${tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : '';
+/* The meta line (design-language §5): date and reading time, then whatever
+   else the caller adds (the author, the tags), separated by middle dots. */
+const metaLine = (p, ...more) =>
+  `<p class="meta">` +
+  [`<time datetime="${p.publishedAt}">${fmtDate(p.publishedAt)}</time>`, `${p.readingTime} min read`, ...more]
+    .filter(Boolean)
+    .join(' · ') +
+  `</p>`;
 
-function postCard(p) {
-  return `      <a class="card" href="${BLOG.base}${p.slug}/">
-        <div class="meta">
-          <time datetime="${p.publishedAt}">${fmtDate(p.publishedAt)}</time>
-          <span class="sep">·</span><span>${p.readingTime} min read</span>
-        </div>
-        <h2>${esc(p.title)}</h2>
-        <p>${esc(p.cardText)}</p>${p.tags?.length ? `\n        ${tagRow(p.tags)}` : ''}
-      </a>`;
+const tagText = (tags) => (tags?.length ? tags.map(esc).join(', ') : '');
+
+/* One entry of the post list: the title is the link. */
+function postEntry(p) {
+  return `          <li>
+            <h2><a href="${BLOG.base}${p.slug}/">${esc(p.title)}</a></h2>
+            ${metaLine(p, tagText(p.tags))}
+            <p>${esc(p.cardText)}</p>
+          </li>`;
 }
 
 function indexPage(posts) {
-  const body = `    <h1>${BLOG.title}</h1>
-    <p class="lede">${esc(BLOG.tagline)} <a href="${BLOG.base}feed.xml">RSS</a>.</p>
+  const body = `    <section class="section">
+      <div class="container flow">
+        <h1>${BLOG.title}</h1>
+        <p>${esc(BLOG.tagline)} <a href="${BLOG.base}feed.xml">RSS</a>.</p>
+      </div>
+    </section>
 
+    <div class="section">
+      <div class="container">
 ${
   posts.length
-    ? `    <div class="post-list">\n${posts.map(postCard).join('\n')}\n    </div>`
-    : `    <div class="empty">No posts yet. The first one is being written — in the meantime, the
-      <a href="/changelog/">release notes</a> carry what changed in the app.</div>`
-}`;
+    ? `        <ol class="posts" role="list">\n${posts.map(postEntry).join('\n')}\n        </ol>`
+    : `        <p class="note">No posts yet. The first one is being written; in the meantime, the
+          <a href="/changelog/">release notes</a> carry what changed in the app.</p>`
+}
+      </div>
+    </div>`;
 
   return page({
     title: `Blog - ${SITE.name}`,
     description: BLOG.tagline,
     canonical: BLOG_URL,
-    back: { href: '/', label: 'Dovilo' },
     body,
     jsonLd: [
       {
@@ -411,38 +458,47 @@ ${
 
 function postPage(p, prev, next) {
   const url = `${BLOG_URL}${p.slug}/`;
-  const body = `    <article>
-      <header class="post-head">${p.tags?.length ? `\n        ${tagRow(p.tags)}` : ''}
+  /* Post in docs/design-language.md: the article in a measure column, then
+     More posts (a link list) and the closing CTA as sections of their own. */
+  const more = [
+    prev && [`${BLOG.base}${prev.slug}/`, `Previous: ${esc(prev.title)}`],
+    [BLOG.base, 'All posts'],
+    next && [`${BLOG.base}${next.slug}/`, `Next: ${esc(next.title)}`],
+  ]
+    .filter(Boolean)
+    .map(([href, label]) => `          <li><a href="${href}">${label} <span aria-hidden="true">&rarr;</span></a></li>`)
+    .join('\n');
+
+  const body = `    <article class="section">
+      <div class="container"><div class="flow measure">
         <h1>${esc(p.title)}</h1>
-        <div class="meta">
-          <time datetime="${p.publishedAt}">${fmtDate(p.publishedAt)}</time>
-          <span class="sep">·</span><span>${p.readingTime} min read</span>
-          <span class="sep">·</span><span>${esc(p.authorName)}</span>
-        </div>
-      </header>
+        ${metaLine(p, esc(p.authorName), tagText(p.tags))}
 ${
   p.cover
-    ? `      <figure class="cover">${imgTag({ ...p.cover, alt: p.cover.alt || p.title })}${
+    ? `        <figure class="figure">${imgTag({ ...p.cover, alt: p.cover.alt || p.title }, { lcp: true })}${
         p.cover.caption ? `<figcaption>${esc(p.cover.caption)}</figcaption>` : ''
       }</figure>\n`
     : ''
-}      <div class="prose">
-${p.html}
-      </div>
+}${p.html}
+      </div></div>
     </article>
 
-    <div class="cta">
-      <div><strong>Dovilo turns finished work into a city you can see.</strong>
-        A to-do list, focus sessions with full-screen ambience, and an isometric city built from
-        what you complete. Free on iOS and Android.</div>
-      <a href="/downloads/">Get Dovilo</a>
-    </div>
+    <nav class="section" aria-label="More posts">
+      <div class="container">
+        <ul class="link-list">
+${more}
+        </ul>
+      </div>
+    </nav>
 
-    <nav class="more" aria-label="More posts">
-      ${prev ? `<a href="${BLOG.base}${prev.slug}/"><span>Previous</span>${esc(prev.title)}</a>` : '<span></span>'}
-      <a href="${BLOG.base}"><span>&nbsp;</span>All posts &rarr;</a>
-      ${next ? `<a href="${BLOG.base}${next.slug}/"><span>Next</span>${esc(next.title)}</a>` : '<span></span>'}
-    </nav>`;
+    <section class="section closing">
+      <div class="container">
+        <h2>Dovilo turns finished work into a city you can see.</h2>
+        <p>A to-do list, focus sessions with full-screen ambience, and an isometric city built from
+          what you complete. Free on iOS and Android.</p>
+        <div class="actions"><a class="btn btn-primary" href="/downloads/">Get Dovilo</a></div>
+      </div>
+    </section>`;
 
   return page({
     title: `${p.seoTitle || p.title} - ${SITE.name}`,
@@ -456,7 +512,6 @@ ${p.html}
       `  <meta property="article:modified_time" content="${p.dateModified}">\n` +
       `  <meta property="article:author" content="${esc(p.authorName)}">\n` +
       (p.tags ?? []).map((t) => `  <meta property="article:tag" content="${esc(t)}">\n`).join(''),
-    back: { href: BLOG.base, label: 'Blog' },
     body,
     jsonLd: [
       {
@@ -504,7 +559,7 @@ function feed(posts) {
     <guid isPermaLink="true">${BLOG_URL}${p.slug}/</guid>
     <pubDate>${rfc822(p.publishedAt)}</pubDate>
     <description>${esc(p.description)}</description>
-${(p.tags ?? []).map((t) => `    <category>${esc(t)}</category>\n`).join('')}    <content:encoded><![CDATA[${p.html.replace(/]]>/g, ']]&gt;')}]]></content:encoded>
+${(p.tags ?? []).map((t) => `    <category>${esc(t)}</category>\n`).join('')}    <content:encoded><![CDATA[${p.feedHtml.replace(/]]>/g, ']]&gt;')}]]></content:encoded>
   </item>`
     )
     .join('\n');
@@ -512,7 +567,7 @@ ${(p.tags ?? []).map((t) => `    <category>${esc(t)}</category>\n`).join('')}   
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
-  <title>Dovilo — Blog</title>
+  <title>${SITE.name} blog</title>
   <link>${BLOG_URL}</link>
   <atom:link href="${BLOG_URL}feed.xml" rel="self" type="application/rss+xml"/>
   <description>${esc(BLOG.tagline)}</description>
@@ -550,7 +605,9 @@ function sitemapBlock(posts) {
   const entry = (loc, lastmod, changefreq, priority) =>
     `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 
-  const lastmod = posts.length ? isoDay(posts[0].dateModified) : isoDay(new Date().toISOString());
+  /* The index moves when a post does, or when its own copy changes (BLOG.indexUpdated). */
+  const newest = posts.length ? isoDay(posts[0].dateModified) : isoDay(new Date().toISOString());
+  const lastmod = BLOG.indexUpdated > newest ? BLOG.indexUpdated : newest;
   return [
     entry(BLOG_URL, lastmod, 'weekly', '0.8'),
     ...posts.map((p) => entry(`${BLOG_URL}${p.slug}/`, isoDay(p.dateModified), 'monthly', '0.7')),
@@ -622,19 +679,19 @@ async function main() {
     const text = plainText(post.markdownBody);
     const words = text.split(/\s+/).filter(Boolean).length;
     const coverAsset = assetFromRef(post.cover?.asset?._ref);
+    const body = checkHeadingDashes(resolveAnchors(renderMarkdown(post.markdownBody, images, post.slug), post.slug), post.slug);
+    const cardText = post.excerpt ? post.excerpt.replace(/\s+/g, ' ').trim() : clip(text, 200);
+    checkCardDashes(cardText, post.slug);
 
     posts.push({
       ...post,
-      html: prettify(
-        liftTableOfContents(
-          checkHeadingDashes(resolveAnchors(renderMarkdown(post.markdownBody, images, post.slug), post.slug), post.slug)
-        )
-      ),
+      html: prettify(liftTableOfContents(body)),
+      feedHtml: prettify(liftTableOfContents(body, { collapsible: false })),
       cover: coverAsset
         ? await localise(coverAsset, { alt: post.cover.alt || '', caption: post.cover.caption || '', og: true })
         : null,
       description: describe(post, text),
-      cardText: post.excerpt ? post.excerpt.replace(/\s+/g, ' ').trim() : clip(text, 200),
+      cardText,
       wordCount: words,
       readingTime: Math.max(1, Math.round(words / 220)),
       dateModified: post.updatedAt || post._updatedAt || post.publishedAt,

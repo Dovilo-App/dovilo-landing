@@ -21,9 +21,14 @@ export const SANITY = {
 export const BLOG = {
   dir: 'blog',
   base: '/blog/',
-  title: 'Blog',
-  /* Sits in <title> after the post name, and is the blog index description. */
-  tagline: 'Focus, productivity and agent workflows — written while building Dovilo.',
+  /* The blog index's <h1>: it names Dovilo, as every page's does (design-language §7). */
+  title: 'Dovilo blog',
+  /* The blog index description and its first paragraph. No em dash: a person reads it. */
+  tagline: 'Focus, productivity and agent workflows, written while building Dovilo.',
+  /* The day the index's own copy last changed (its h1, the tagline). Its sitemap
+     lastmod is the later of this and the newest post's, so bump it with any
+     change to the index's words (CLAUDE.md: a retitle counts). */
+  indexUpdated: '2026-10-29',
   /* Newest-first entries per blog index page. One page until there is more than this. */
   perPage: 24,
 };

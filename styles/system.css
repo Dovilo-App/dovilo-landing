@@ -2,12 +2,12 @@
    Dovilo design language: the stylesheet.
 
    docs/design-language.md is the spec; this file implements it and nothing
-   else. A redesigned page links this file and no other stylesheet: never
-   base.css or home.css next to it, and no page <style> block. If a page needs
+   else. Every page, the generated blog pages included, links this file and
+   no other stylesheet, and carries no <style> block. If a page needs
    something this file does not have, the doc gets a new component first.
 
    Layers, in order:
-     1. Font         Inter, self-hosted (the same files base.css uses)
+     1. Font         Inter, self-hosted from /fonts/
      2. Reset
      3. Tokens       colour (two themes), type, space, shape, motion
      4. Elements     body, headings, text, links, code, media, focus
@@ -134,16 +134,20 @@ body{
 }
 [data-theme]{background:var(--bg);color:var(--text)}
 
-h1,h2,h3{color:var(--text);line-height:var(--lh-heading);font-weight:600;text-wrap:balance}
+h1,h2,h3,h4{color:var(--text);line-height:var(--lh-heading);font-weight:600;text-wrap:balance}
 h1{font-size:var(--text-hero);font-weight:700;letter-spacing:-.025em}
 h2{font-size:var(--text-h2);letter-spacing:-.02em}
 h3{font-size:var(--text-h3);letter-spacing:-.01em}
+h4{font-size:var(--text-body)}
 
 p{max-width:var(--measure);text-wrap:pretty}
 strong,b{font-weight:600}
 small{font-size:var(--text-small)}
 ul,ol{padding-left:1.5em}
 li{max-width:var(--measure)}
+/* Only blog posts have these today: Markdown's --- and > from Sanity. */
+hr{height:0;border:0;border-top:1px solid var(--border)}
+blockquote{padding-left:var(--space-2);border-left:1px solid var(--border);color:var(--text-muted)}
 
 a{
   color:inherit;
@@ -200,12 +204,20 @@ picture > source{display:none}
    any component's own margin (and .flow below) wins over it. */
 :where(.section > .container) > * + *{margin-top:var(--space-3)}
 
-/* Running text on /faq, /docs/*, /changelog and the legal pages. */
+/* Running text on /faq, /docs/*, /changelog, the legal pages and blog posts. */
 .flow > * + *{margin-top:var(--space-2)}
 .flow > h2{margin-top:var(--space-6)}
 .flow > h3{margin-top:var(--space-4)}
+.flow > h4{margin-top:var(--space-3)}
+/* A rule stands 48px clear on both sides, the heading after it included. */
+.flow > hr,.flow > hr + *{margin-top:var(--space-5)}
 .flow > :first-child{margin-top:0}
 .flow li + li{margin-top:var(--space-1)}
+
+/* Measure column: a flow held to the measure as a whole, for a document read
+   top to bottom (a blog post, /licenses). Its ch resolves at body size, so the
+   heading, the cover, a table and a rule all line up with the text. */
+.measure{max-width:var(--measure)}
 
 /* Reference layout: a /docs/* article with its table of contents. From 960px
    the contents ride in a rail beside the article and stay in view; below that
@@ -666,6 +678,21 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
 @media (max-width:767px){
   .table:has(th:nth-child(3)){min-width:48em}
 }
+
+/* Meta line: the date and counts under a title (a post's date, reading time
+   and author; a legal page's Last updated). */
+.meta{font-size:var(--text-small);color:var(--text-muted)}
+
+/* Post list: the blog index, newest first, one post per entry under a 1px
+   rule. The title is the link: an h2 for the outline, set at the h3 size, as
+   a plan's name is. */
+.posts{list-style:none;padding:0;border-bottom:1px solid var(--border)}
+.posts > li{max-width:none;padding-block:var(--space-3);border-top:1px solid var(--border)}
+.posts > li > * + *{margin-top:var(--space-1)}
+.posts h2{font-size:var(--text-h3);letter-spacing:-.01em}
+.posts h2 a{text-decoration:none}
+.posts h2 a:hover{text-decoration:underline}
+.posts p{color:var(--text-muted)}
 
 /* Note: one line, said plainly. */
 .note{
