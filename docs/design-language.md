@@ -670,7 +670,8 @@ the one on `/ai`, goes to `/pricing/`.
 **Link list:** 3 to 6 links into sections of other pages, one per line, each a short label with an
 arrow; the whole line is the link. Each points at an anchor that exists (section 7). `/docs/` uses
 it for its deep links, and a blog post for its More posts nav (Post, section 4), where a label is
-"Previous:" or "Next:" and the post's title.
+"Previous:" or "Next:" and the post's title. `/404.html` uses it for five pages to try instead,
+each label the page's name.
 
 ```html
 <ul class="link-list">
@@ -1232,11 +1233,13 @@ here first, then to `system.css` and `/styleguide/`, in the same commit.
 
 ## 10. Checks before a redesigned page ships
 
+On `/404.html` the budget, `<h1>`, anchor, JSON-LD and `llms` checks do not apply (section 3).
+
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
 - [ ] Visible words within budget, counted as section 6 says.
 - [ ] `<h1>` names Dovilo; the first paragraph (hero sub or In short) is 2-3 declarative sentences
       with a number. Not on the legal pages, whose text changes only word for word from a task,
-      not on a post, whose title and text are Sanity's, and not on `/404.html` (section 6).
+      and not on a post, whose title and text are Sanity's.
 - [ ] Every old URL and anchor `id` still resolves.
 - [ ] JSON-LD mirrors the visible text; `dateModified` = sitemap `lastmod`.
 - [ ] `llms.txt` and `llms-full.txt` updated from the page, not shortened.

@@ -62,7 +62,7 @@ Rules:
   prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
   answers and store badges count toward neither);
   `/downloads` at most 150; `/docs/` at most 150; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
-  `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/` and the posts have none. A
+  `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/`, the posts and `/404.html` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
@@ -104,10 +104,12 @@ Rules:
 - **`/404.html` is the `noindex` exception.** GitHub Pages serves it, with status 404, at every
   address that has no file, so it has no URL of its own: no description, canonical, `llms.txt` link,
   Open Graph tags or JSON-LD, and it stays out of `sitemap.xml`, `llms.txt` and `llms-full.txt`.
-  Its `<h1>` does not name Dovilo and it sits far under the 300-word floor; its copy is fixed by
-  its task and Selahaddin approved the exceptions on 29 Oct 2026. Like every page it keeps the boot
-  script, the site script, the nav and the footer, with no page script, and every path in it starts
-  at the site root, since it renders at any depth.
+  Its `<h1>` does not name Dovilo, the paragraph under it carries neither the brand nor a keyword
+  (§2, Titles), and it sits far under the 300-word floor; its copy is fixed by its task and
+  Selahaddin approved the exceptions on 29 Oct 2026. Like every page it keeps the boot script, the
+  site script, the nav and the footer, with no page script, and every path in it starts at the site
+  root, since it renders at any depth. It is the one hand-written page that is not an
+  `index.html`: a nav, footer or site script change that globs `*/index.html` misses it.
 
 The redesign moved one page per task: `/ai`, `/`, a new `/pricing`, `/downloads`, `/faq`,
 `/docs/*`, `/changelog`, then the legal pages and the blog template together. With no page left on
@@ -289,7 +291,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - [ ] Did visible text change? Then the JSON-LD mirroring it changed too.
 - [ ] `sitemap.xml` lastmod bumped, and JSON-LD `dateModified` with it?
 - [ ] Facts changed? `llms.txt` and `llms-full.txt` updated in the same commit.
-- [ ] New page? Linked from the shared nav or footer, and in `sitemap.xml`.
+- [ ] New indexable page? Linked from the shared nav or footer, and in `sitemap.xml`.
 - [ ] Every new `<img>`: alt, width, height, WebP, lazy unless above the fold.
 - [ ] No new token, colour, font size or spacing outside `styles/system.css`.
 - [ ] Only components from `docs/design-language.md`, visible words within the page's budget, and
