@@ -175,14 +175,16 @@ so a visitor's choice follows them across both systems.
 
 ### Page scripts
 
-A page may keep a behaviour it already has, in a second inline script after the site script: the
-changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
-table-of-contents highlight on `/docs/mcp/` and `/docs/webhooks`. Its class names stay a contract
-(`CLAUDE.md` §1.1 lists them). A page script never styles anything and never builds content a
-crawler should read. If the behaviour needs a visual part this document does not have, that part
-is added here first, like any other component. The release feed's visual part is the release
-entry and the platform detection's the highlighted card of the download boxes (both section 5);
-the table of contents' is the reference layout (section 4).
+A page may keep a behaviour it already has, or take one a task gives it, in a second inline script
+after the site script: the changelog's live GitHub releases fetch, the platform detection on
+`/downloads` and the version in its Latest line, the table-of-contents highlight on `/docs/mcp/` and
+`/docs/webhooks`. Its class names stay a contract (`CLAUDE.md` §1.1 lists them). A page script
+never styles anything and never builds content a crawler should read. If the behaviour needs a
+visual part this document does not have, that part is added here first, like any other component.
+The release feed's visual part is the release entry and the platform detection's the highlighted
+card of the download boxes (both section 5); the table of contents' is the reference layout
+(section 4). The Latest line has none: the script swaps the text of a line already on the page,
+and the page carries that line in full without it.
 
 ## 4. Layout
 
@@ -733,6 +735,11 @@ The page script marks the download for the visitor's platform with `highlighted`
 label, no pulsing dot, no colour. The old page's prose sections are collapsibles that keep their
 ids, so the page script also opens a collapsible when the URL's fragment names it.
 
+The desktop box's Latest line names the newest desktop build and its date. The page script reads
+GitHub's latest release, the one the installer links download, and writes its version into
+`#desktop-ver` and its date, as "27 Oct 2026", into `time#desktop-date`. When the request fails the
+line written in the page stays, so it is kept correct by hand as well.
+
 ```html
 <div class="download-boxes">
   <div class="download-box" id="mobile">
@@ -752,7 +759,7 @@ ids, so the page script also opens a collapsible when the URL's fragment names i
       </a>
       …
     </div>
-    <p>Latest: 2.0.2, 27 Oct 2026. …</p>
+    <p>Latest: <span id="desktop-ver">2.0.2</span>, <time id="desktop-date" datetime="2026-10-27">27 Oct 2026</time>. …</p>
   </div>
 </div>
 ```

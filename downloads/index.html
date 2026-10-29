@@ -186,7 +186,7 @@
                 <span><small>Dovilo for</small><strong>Mac</strong></span>
               </a>
             </div>
-            <p>Latest: 2.0.2, 27 Oct 2026. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
+            <p>Latest: <span id="desktop-ver">2.0.2</span>, <time id="desktop-date" datetime="2026-10-27">27 Oct 2026</time>. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
             <p>Coming from Desktop 1.8? <a href="/docs/mcp/#upgrading">Agents now connect to dovilo.app/mcp/agents with a key.</a></p>
           </div>
         </div>
@@ -398,11 +398,12 @@
   </script>
   <script>
     /* Page script: marks the download for this device (#card-ios, -android,
-       -windows, -mac) and opens the collapsible an old anchor points at
+       -windows, -mac), opens the collapsible an old anchor points at
        (#what-it-is, #which-download, #free-and-pro, #download-faq were open
-       sections before). It only adds a class and sets open; the ring is the
-       download boxes' component in system.css. ?source= is accepted and not
-       read here. */
+       sections before) and brings the desktop box's Latest line up to the
+       newest release. It only adds a class, sets open and swaps that line's
+       version and date; the ring is the download boxes' component in
+       system.css. ?source= is accepted and not read here. */
     (function(){
       function openTarget(){
         var id = location.hash.slice(1), el = null;
@@ -427,6 +428,32 @@
       }
       var card = os && document.getElementById('card-' + os);
       if (card) card.classList.add('highlighted');
+    })();
+    /* The Latest line follows GitHub's latest release, the same one the
+       installers' releases/latest links download, so it reads what the
+       buttons fetch. One unauthenticated request, rate-limited per IP: on any
+       failure or an answer that is not a version and a date, the line written
+       above stays. */
+    (function(){
+      var ver = document.getElementById('desktop-ver');
+      var date = document.getElementById('desktop-date');
+      if (!ver || !date || !window.fetch) return;
+      /* Spelled out: Intl's en-GB short September is "Sept", not "Sep". */
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      fetch('https://api.github.com/repos/Dovilo-App/dovilo-desktop-releases/releases/latest', {
+        headers: { Accept: 'application/vnd.github+json' }
+      })
+        .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function(rel){
+          var v = String(rel && rel.tag_name || '').replace(/^v/, '');
+          var when = rel && typeof rel.published_at === 'string' ? new Date(rel.published_at) : null;
+          if (!/^\d+(\.\d+)*$/.test(v) || !when || isNaN(when.getTime())) return;
+          ver.textContent = v;
+          date.setAttribute('datetime', when.toISOString().slice(0, 10));
+          date.textContent = when.getUTCDate() + ' ' + MONTHS[when.getUTCMonth()] + ' ' + when.getUTCFullYear();
+        })
+        .catch(function(){ /* keep the line written above */ });
     })();
   </script>
 </body>

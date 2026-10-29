@@ -92,7 +92,13 @@ Rules:
   hand-written pages and there in the same commit, then rebuild the blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
   script keys on `#card-ios|android|windows|mac` and adds `.highlighted`; it does not read
-  `?source=`, which the page accepts and ignores until a task gives the per-source lines. The page
+  `?source=`, which the page accepts and ignores until a task gives the per-source lines. It makes
+  one request, GitHub's `releases/latest` for the desktop releases repo (the release the installer
+  links download), and writes the tag without its `v` into `#desktop-ver` and the publish date, as
+  "27 Oct 2026" in UTC, into `time#desktop-date` and its `datetime`, in the desktop box's Latest
+  line. On any failure the static line stays. The page source, `llms.txt` and `llms-full.txt`
+  carry only that static text, so it is still updated by hand at a release; Googlebot runs the
+  script and may index the fetched version instead. The page
   script of `/docs/mcp/` and `/docs/webhooks` opens `.toc details` from 960px and sets `.active` on
   the `.toc a` of the heading in view (`.doc-body h2[id]`, `h3[id]`). `/changelog/`'s page script,
   the release feed, reads the first `.rel .rel-ver` in `#releases` and, for a newer desktop tag on
@@ -249,7 +255,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - **No third-party runtime dependency.** `/docs/webhooks` loaded highlight.js from cdnjs until
   its move to `system.css` (29 Oct 2026). Its dark-only theme could not sit on the light
   `--surface`, and the design language's code block is themed like the page with no highlighting
-  library, so it went. Do not add a highlighting library back.
+  library, so it went. Do not add a highlighting library back. The two GitHub releases requests,
+  `/changelog/`'s feed and `/downloads/`' Latest line, are not dependencies: each page reads in
+  full on its static text when the request fails.
 - Screenshots ship as **WebP**. Every content `<img>` carries descriptive alt text naming what is on
   screen, plus `width` and `height` so the box is reserved. The LCP image gets `fetchpriority="high"`
   and no `loading` attribute; everything below the fold gets `loading="lazy"`. Images whose CSS width
@@ -334,6 +342,10 @@ Carried here so they are not rediscovered from scratch:
   not the brand's.
 - `/licenses` is 154 words, under the 300-word floor; it is `noindex`, and its text changes only
   word for word (§1.2).
+- `/changelog/` and `/downloads/` call `api.github.com` on page view (§1.1), which hands the
+  visitor's IP and user agent to GitHub before any click. `/privacy` §5 lists the services Dovilo
+  shares data with and GitHub is not among them; the text changes only from wording a task gives
+  (§1.2).
 - Post bodies in Sanity still carry pre-2.0 sentences, Title Case headings, headings with an em
   dash and in-page links that match no heading. The blog build warns about the em-dash headings and
   the dead links on every run. All of it is fixed in Sanity, not here.
