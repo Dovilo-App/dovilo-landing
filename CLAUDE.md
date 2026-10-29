@@ -265,8 +265,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   (the shell) or the page bodies in `tools/build-blog.mjs`, and re-run the build; editing the HTML
   is silently reverted on the next publish.
 - The `/blog/` index's sitemap `lastmod` is the later of its newest post's date and
-  `BLOG.indexUpdated` in `tools/config.mjs`. Change the index's own words (its `<h1>`, the tagline)
-  and bump that date in the same commit.
+  `BLOG.indexUpdated` in `tools/config.mjs`. Change the index's own words (its `<h1>`, `BLOG.intro`,
+  `BLOG.topics`) and bump that date in the same commit. The post count in its first paragraph comes
+  from the build; never write it as a literal.
 - The blog workflow publishes from `main`. A template change merged from another branch reaches
   `blog/` only through a build: run `npm run build:blog` on the branch and commit its output, and
   expect `blog/` to conflict with any publish the workflow made on `main` in between. Resolve by

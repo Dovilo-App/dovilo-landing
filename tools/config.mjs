@@ -23,9 +23,13 @@ export const BLOG = {
   base: '/blog/',
   /* The blog index's <h1>: it names Dovilo, as every page's does (design-language §7). */
   title: 'Dovilo blog',
-  /* The blog index description and its first paragraph. No em dash: a person reads it. */
-  tagline: 'Focus, productivity and agent workflows, written while building Dovilo.',
-  /* The day the index's own copy last changed (its h1, the tagline). Its sitemap
+  /* The blog index's first paragraph is `intro`, then the post count the build
+     counts, then `topics`. `intro` alone is also the index's meta description,
+     its Blog JSON-LD description and the feed's, so it stays a sentence of 150
+     characters at most. No em dash in either: a person reads them. */
+  intro: 'Notes written while building Dovilo, a free to-do list with a focus timer and a city builder, by one engineer in Istanbul.',
+  topics: 'so far on focus, gamification and task management for coding agents.',
+  /* The day the index's own copy last changed (its h1, the intro). Its sitemap
      lastmod is the later of this and the newest post's, so bump it with any
      change to the index's words (CLAUDE.md: a retitle counts). */
   indexUpdated: '2026-10-29',

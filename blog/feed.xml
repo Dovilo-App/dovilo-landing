@@ -4,7 +4,7 @@
   <title>Dovilo blog</title>
   <link>https://dovilo.app/blog/</link>
   <atom:link href="https://dovilo.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>Focus, productivity and agent workflows, written while building Dovilo.</description>
+  <description>Notes written while building Dovilo, a free to-do list with a focus timer and a city builder, by one engineer in Istanbul.</description>
   <language>en</language>
   <lastBuildDate>Sun, 04 Oct 2026 08:56:07 GMT</lastBuildDate>
   <item>

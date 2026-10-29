@@ -330,8 +330,9 @@ closing CTA has the one primary button.
 <section class="section closing">…</section>
 ```
 
-The blog index (`/blog/`) opens with a plain section, the `<h1>` and one paragraph, and lists the
-posts in a section of its own (Post list, section 5).
+The blog index (`/blog/`) opens with a plain section: the `<h1>`, one paragraph whose second
+sentence carries the post count the build counts, and a `.link` to the RSS feed. It lists the posts
+in a section of its own (Post list, section 5).
 
 ### Reference
 

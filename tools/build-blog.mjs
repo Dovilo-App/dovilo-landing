@@ -397,10 +397,14 @@ function postEntry(p) {
 }
 
 function indexPage(posts) {
+  /* The count is the build's, never a literal: it is right after every publish. */
+  const n = posts.length;
+  const count = n ? ` ${n} post${n === 1 ? '' : 's'} ${BLOG.topics}` : '';
   const body = `    <section class="section">
       <div class="container flow">
         <h1>${BLOG.title}</h1>
-        <p>${esc(BLOG.tagline)} <a href="${BLOG.base}feed.xml">RSS</a>.</p>
+        <p>${esc(BLOG.intro)}${esc(count)}</p>
+        <a class="link" href="${BLOG.base}feed.xml">RSS feed <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -417,7 +421,7 @@ ${
 
   return page({
     title: `Blog - ${SITE.name}`,
-    description: BLOG.tagline,
+    description: BLOG.intro,
     canonical: BLOG_URL,
     body,
     jsonLd: [
@@ -426,7 +430,7 @@ ${
         '@type': 'Blog',
         '@id': `${BLOG_URL}#blog`,
         name: `${SITE.name} blog`,
-        description: BLOG.tagline,
+        description: BLOG.intro,
         url: BLOG_URL,
         inLanguage: 'en',
         publisher: {
@@ -570,7 +574,7 @@ ${(p.tags ?? []).map((t) => `    <category>${esc(t)}</category>\n`).join('')}   
   <title>${SITE.name} blog</title>
   <link>${BLOG_URL}</link>
   <atom:link href="${BLOG_URL}feed.xml" rel="self" type="application/rss+xml"/>
-  <description>${esc(BLOG.tagline)}</description>
+  <description>${esc(BLOG.intro)}</description>
   <language>en</language>
 ${posts.length ? `  <lastBuildDate>${rfc822(posts[0].publishedAt)}</lastBuildDate>\n` : ''}${items}
 </channel>
