@@ -12,11 +12,10 @@ layer intact. Nothing else about design needs saying.
 - **Rule:** a page may only use components this document has. A page that needs something new adds
   it here first, then to `system.css`, then to `/styleguide/`, in the same commit.
 
-The redesign moves pages over one task at a time (`/ai`, `/`, a new `/pricing`, then `/downloads`,
-`/faq`, `/docs/*` and `/changelog`). Until a page moves, it stays on `styles/base.css` and its old
-rules in `CLAUDE.md`. A page is on one system or the other, never both. `/privacy`, `/terms`,
-`/licenses` and the blog (`tools/template.mjs`) also link `base.css` and are not in that list yet:
-`base.css` can only be deleted once they have moved too.
+The redesign moved the pages over one task at a time (`/ai`, `/`, a new `/pricing`, then
+`/downloads`, `/faq`, `/docs/*` and `/changelog`, and last `/privacy`, `/terms`, `/licenses` and the
+blog pages that `tools/template.mjs` renders). Every page is on this system now, and the old
+`styles/base.css` is gone with its rules.
 
 ---
 
@@ -59,8 +58,7 @@ text on it. That is why links are `--text` with an underline, not amber, and why
 amber chips rather than amber digits. Hover adds no colour either: a primary button's outline turns
 `--text`, a secondary one's `--text-muted`.
 
-`#D4880A` is the amber the existing site already uses (`styles/base.css`, mirroring the app's
-tokens). `#161B1D` is the app's dark background and the site's `theme-color`.
+`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#161B1D` is the app's dark background and the site's `theme-color`.
 
 ### Type
 
@@ -156,8 +154,8 @@ Every redesigned page has this head, in this order, and this body frame.
 </html>
 ```
 
-The stylesheet is render-blocking on purpose, for the same reasons `CLAUDE.md` gives for
-`base.css`: never async-load it and never inline it.
+The stylesheet is render-blocking on purpose, for the reasons `CLAUDE.md` gives under
+Performance: never async-load it and never inline it.
 
 ### Site script
 
@@ -244,9 +242,12 @@ so each screen stays at most 228px wide.
 
 ### Flow
 
-Running text on the pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`).
-Spaces paragraphs, lists and sub-headings on the grid. Plain `<h2>`, `<h3>`, `<p>`, `<ul>`, `<ol>`
-and `<code>` inside it need no classes.
+Running text on the pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`,
+`/licenses` and blog posts). Spaces paragraphs, lists and sub-headings on the grid. Plain `<h2>`,
+`<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>`, `<hr>`, `<blockquote>` and `<code>` inside it need no
+classes. An `<hr>` is a 1px rule 48px clear of both sides, the heading after it included; an `<h4>`
+is set at the body size; a `<blockquote>` is `--text-muted` with a 1px rule on its left. Only blog
+posts use those three today, from Markdown in Sanity.
 
 ```html
 <div class="container flow">
@@ -255,6 +256,83 @@ and `<code>` inside it need no classes.
   <ul><li>…</li></ul>
 </div>
 ```
+
+### Measure column
+
+A document read top to bottom (the legal pages, a blog post) holds its whole flow to the measure
+with `measure`, so the heading, a figure, a table and a rule line up with the text instead of
+running out to the container's edge. It sits inside the container, which keeps the gutters and
+the left edge every other page has. Its `64ch` resolves at the body size, so a large heading
+inside it wraps rather than widening it.
+
+```html
+<section class="section">
+  <div class="container"><div class="flow measure">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 20 October 2026</p>
+    <p>…</p>
+  </div></div>
+</section>
+```
+
+The legal pages are one such section: the `<h1>`, the meta line, then the text as it was written,
+in the order and the elements it was written in. On `/licenses` each list is a table (section 5).
+
+### Post
+
+A blog post, written by `tools/build-blog.mjs` from Sanity through `tools/template.mjs`; neither the
+markup nor the copy below is edited by hand in `blog/`. The post is one `<article class="section">`
+holding a measure column: the title as the `<h1>`, a meta line (date, reading time, author, then
+the tags when a post has any), the cover in a figure, the table of contents in a closed
+collapsible, then the body. A More posts nav and the closing CTA follow as sections of their own.
+
+The body is the post's Markdown and takes no classes: the flow spaces it, and the build maps what
+Markdown makes onto components. A table goes in `.table-wrap` as a `.table`; a code fence becomes
+a code block without a head (read, not copied); an image alone in its paragraph and at least as
+wide as the column becomes a figure (a narrower one keeps its own size, since a figure fills the
+column); a list of in-page links at the very top becomes the table of contents, which the RSS feed
+keeps as an open list.
+
+The cover is the post's own image from Sanity, often an illustration: the Figure rule on real
+screenshots holds for the site's pages, while a post's images are its content and are fixed in
+Sanity. The cover is the LCP image (`fetchpriority="high"`, no `loading`); images in the body are
+lazy. The column is 686px, or the screen less its gutters below 718px, so a post image's `sizes`
+is `(max-width:718px) calc(100vw - 32px), 686px`. The More posts nav is a link list (section 5):
+the older post as Previous, all posts, the newer post as Next, as many of the three as exist. The
+closing CTA has the one primary button.
+
+```html
+<article class="section">
+  <div class="container"><div class="flow measure">
+    <h1>Task management for AI coding agents: a Dovilo MCP setup guide</h1>
+    <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+    <figure class="figure"><img srcset="…" sizes="…" src="…" width="760" height="…" fetchpriority="high" alt="…"></figure>
+    <nav aria-label="On this page">
+      <details class="collapsible">
+        <summary>On this page</summary>
+        <div class="collapsible-body"><ul><li><a href="#the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</a></li> …</ul></div>
+      </details>
+    </nav>
+    <p>…</p>
+    <h2 id="the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</h2>
+    …
+  </div></div>
+</article>
+<nav class="section" aria-label="More posts">
+  <div class="container">
+    <ul class="link-list">
+      <li><a href="/blog/…/">Previous: … <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/blog/">All posts <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/blog/…/">Next: … <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </div>
+</nav>
+<section class="section closing">…</section>
+```
+
+The blog index (`/blog/`) opens with a plain section: the `<h1>`, one paragraph whose second
+sentence carries the post count the build counts, and a `.link` to the RSS feed. It lists the posts
+in a section of its own (Post list, section 5).
 
 ### Reference
 
@@ -435,9 +513,10 @@ does (section 4).
 the hero (the pricing columns, the download boxes, the link cards), so the hero is the `<h1>` and
 the sub alone: no buttons, no figure.
 
-Pages that carry depth (`/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms`)
-open with a plain section instead of a hero: an `<h1>` and the first paragraph, no buttons, no
-figure.
+Pages that carry depth (`/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms`,
+`/licenses`, `/blog/`) open with a plain section instead of a hero: an `<h1>` and the first
+paragraph, no buttons, no figure. A post opens the same way, with its cover as the one figure
+(Post, section 4).
 
 ```html
 <section class="section">
@@ -585,7 +664,8 @@ the one on `/ai`, goes to `/pricing/`.
 
 **Link list:** 3 to 6 links into sections of other pages, one per line, each a short label with an
 arrow; the whole line is the link. Each points at an anchor that exists (section 7). `/docs/` uses
-it for its deep links.
+it for its deep links, and a blog post for its More posts nav (Post, section 4), where a label is
+"Previous:" or "Next:" and the post's title.
 
 ```html
 <ul class="link-list">
@@ -837,8 +917,8 @@ joins them with a space. On `/faq` the questions come in groups: each group is a
 `<h2>` and an `id` (`#general`, `#pro-pricing`, `#data-privacy` and so on) holding one accordion,
 and the page closes with the support address under `#contact`, as `/docs/` closes.
 
-The old pages' `.faq-item.open` accordion and its script are gone with the old `/faq`: no page
-uses it now, and its rules in `base.css` go when that file does.
+The old pages' `.faq-item.open` accordion and its script are gone with the old `/faq`, and its
+rules went with `base.css`.
 
 ### Release entries
 
@@ -871,6 +951,35 @@ feed: it reads the version of the first entry in `#releases`, asks the GitHub re
 newest desktop tag and, only when that tag is newer, writes an entry of the same markup above it,
 with a link to its notes on GitHub, and moves Latest to it. Every other entry is in the HTML, and
 the `ItemList` keeps to those.
+
+### Meta line
+
+The date and counts under a title, in `--text-small` and `--text-muted`: a legal page's Last
+updated, a post's date, reading time and author. Items are separated by a middle dot in the text.
+It belongs to the title above it; it is not a caption and not a sentence of the page.
+
+```html
+<p class="meta">Last updated: 20 October 2026</p>
+<p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+```
+
+### Post list
+
+The posts on `/blog/`, newest first, one entry per post under a 1px rule, in the line-list look:
+the title as an `<h2>` set at the `<h3>` size, a meta line with the date and reading time (then the
+tags when a post has any), and the post's summary in `--text-muted`. The title is the entry's one link, underlined on hover. The build
+writes the list; nothing in it is typed by hand.
+
+```html
+<ol class="posts" role="list">
+  <li>
+    <h2><a href="/blog/task-manager-for-programmers-what-to-look-for-in-2026/">Task manager for programmers: what to look for</a></h2>
+    <p class="meta"><time datetime="…">4 October 2026</time> · 7 min read</p>
+    <p>Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. …</p>
+  </li>
+  …
+</ol>
+```
 
 ### Note
 
@@ -933,6 +1042,19 @@ rather than a `<section>`.
     <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div>
+```
+
+A blog post closes with a heading, its sentence and one primary button, no secondary: the build
+writes the same closing under every post.
+
+```html
+<section class="section closing">
+  <div class="container">
+    <h2>Dovilo turns finished work into a city you can see.</h2>
+    <p>A to-do list, focus sessions with full-screen ambience, and an isometric city built from what you complete. Free on iOS and Android.</p>
+    <div class="actions"><a class="btn btn-primary" href="/downloads/">Get Dovilo</a></div>
+  </div>
+</section>
 ```
 
 ### Footer
@@ -1044,6 +1166,7 @@ hero sub and every section sentence count; code inside a code block does not. A 
 | `/downloads` | 150 at most | Collapsibles |
 | `/docs/` | 150 at most | Link cards and a link list |
 | `/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
+| `/licenses`, `/blog/` and every post | No budget | Generated or legal text, not written to a budget |
 
 A budget is a ceiling, not a target. A page over its budget moves text into a collapsible or onto
 the page that carries the depth; it does not drop facts.
@@ -1097,20 +1220,17 @@ Visible text shrinks; indexable text does not.
 
 ## 9. Not covered yet
 
-Surfaces the redesign will need that this document does not have yet. The task that moves the page
-adds the component here first.
-
-- **The blog pages** from `tools/template.mjs`. (The home page's blog band is gone: `/` links the
-  blog in one line, and `tools/build-blog.mjs` no longer writes into `index.html`.)
-- `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
-  as they are.
+Nothing today: every page on the site, the blog pages that `tools/template.mjs` renders included,
+is built from the components above. A surface this document does not cover adds its component
+here first, then to `system.css` and `/styleguide/`, in the same commit.
 
 ## 10. Checks before a redesigned page ships
 
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
 - [ ] Visible words within budget, counted as section 6 says.
 - [ ] `<h1>` names Dovilo; the first paragraph (hero sub or In short) is 2-3 declarative sentences
-      with a number.
+      with a number. Not on the legal pages, whose text changes only word for word from a task,
+      and not on a post, whose title and text are Sanity's.
 - [ ] Every old URL and anchor `id` still resolves.
 - [ ] JSON-LD mirrors the visible text; `dateModified` = sitemap `lastmod`.
 - [ ] `llms.txt` and `llms-full.txt` updated from the page, not shortened.

@@ -19,30 +19,27 @@ The app itself is closed source; this repository is the public website only.
 | [`/pricing`](https://dovilo.app/pricing/) | The canonical prices, on the design system: Free and Pro side by side, the one-time purchases, managing the subscription and four questions in about 310 visible words; it owns the `offers` JSON-LD |
 | [`/downloads`](https://dovilo.app/downloads/) | App Store, Play Store and desktop installers, on the design system in about 80 visible words, with the depth in collapsibles; accepts `?source=` from the app and the MCP servers |
 | [`/changelog`](https://dovilo.app/changelog/) | Release notes per platform, on the design system, plus the roadmap (data export, Apply directly); adds a newer desktop build from the releases repo when the page opens |
-| [`/blog`](https://dovilo.app/blog/) | Posts, generated from Sanity — see [The blog](#the-blog) |
+| [`/blog`](https://dovilo.app/blog/) | Posts, generated from Sanity onto the design system — see [The blog](#the-blog) |
 | [`/faq`](https://dovilo.app/faq/) | 28 questions in six groups, on the design system: tasks, focus, ambience, the city, Pro, MCP and data |
-| [`/privacy`](https://dovilo.app/privacy/) · [`/terms`](https://dovilo.app/terms/) · [`/licenses`](https://dovilo.app/licenses/) | Legal and third-party attributions |
+| [`/privacy`](https://dovilo.app/privacy/) · [`/terms`](https://dovilo.app/terms/) · [`/licenses`](https://dovilo.app/licenses/) | Legal and third-party attributions, on the design system; the text changes only word for word |
 
 ## Stack
 
 Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
-is a single `index.html` with its CSS inlined and its structured data in `application/ld+json`
-blocks. Redesigned pages (`/`, `/ai`, `/pricing`, `/downloads`, `/docs/` and both references, `/faq`, `/changelog`) instead link the one design-system stylesheet and carry no CSS
-of their own; [`styles/home.css`](styles/home.css), the old homepage's stylesheet, is no longer
-linked and goes with `base.css`. Nothing is fetched from a third
-party: Inter is self-hosted from [`fonts/`](fonts/) as a variable `woff2` declared with
-`@font-face`, so no third-party stylesheet blocks the first paint. Blog pages are generated to the
-same shape and committed, so they are served the same way — nothing about a post is fetched in the
-browser either.
+is a single `index.html` with its structured data in `application/ld+json` blocks. Every page links
+the one design-system stylesheet, [`styles/system.css`](styles/system.css), and carries no CSS of
+its own. Nothing is fetched from a third party: Inter is self-hosted from [`fonts/`](fonts/) as a
+variable `woff2` declared with `@font-face`, so no third-party stylesheet blocks the first paint.
+Blog pages are generated to the same shape and committed, so they are served the same way —
+nothing about a post is fetched in the browser either.
 
 Light and dark themes are CSS custom properties, with the choice stored in `localStorage` and
 applied before first paint so there is no flash.
 
-A redesign is moving the pages, one at a time, onto a new design language:
-[`docs/design-language.md`](docs/design-language.md) is the spec,
+[`docs/design-language.md`](docs/design-language.md) is the design spec,
 [`styles/system.css`](styles/system.css) implements it, and `/styleguide/` (not indexed, not
-linked) renders every component in both themes. Pages not yet moved stay on
-[`styles/base.css`](styles/base.css).
+linked) renders every component in both themes. The redesign moved every page onto it, one at a
+time; the stylesheets before it, `styles/base.css` and `styles/home.css`, are gone.
 
 ### Screenshots
 
@@ -98,7 +95,7 @@ JSON-LD and share card. That is the entire reason for the build step.
 
 ```
 tools/config.mjs       project, origin, blog paths and page size
-tools/template.mjs     the page shell — a copy of the hand-written pages' tokens and chrome
+tools/template.mjs     the page shell: system.css, and copies of the hand-written pages' head, nav, footer and site script
 tools/build-blog.mjs   fetch → render → write
 studio/                Sanity Studio: the schema, and the editor at dovilo.sanity.studio
 ```
@@ -117,7 +114,10 @@ exporting to it drops tables and turns most inline links into plain text.
 
 - `## headings` get GitHub-style ids, so a list of `[Section](#section)` links at the top of the
   body renders as a table of contents whose anchors resolve.
-- Tables, lists, code fences, `---` rules and bold all render into [`tools/template.mjs`](tools/template.mjs)'s prose styles.
+- Tables, lists, code fences, `---` rules and bold render as the design system's components (Post in
+  [`docs/design-language.md`](docs/design-language.md)): the build wraps a table in `.table-wrap`, a
+  code fence in a code block and an image that stands alone in a figure, and the post column is the
+  measure.
 - A cover image goes in `mainImage`, with alt text. Images on the Sanity CDN are pulled into
   `blog/media/` as WebP at build time (plus a 1200×630 JPEG for share cards, because social
   crawlers are unreliable with WebP); anything hosted elsewhere stays remote and the build says so.
