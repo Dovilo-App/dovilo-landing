@@ -157,6 +157,11 @@ Every redesigned page has this head, in this order, and this body frame.
 The stylesheet is render-blocking on purpose, for the reasons `CLAUDE.md` gives under
 Performance: never async-load it and never inline it.
 
+`/404.html` keeps this skeleton minus the description, the canonical, the `llms.txt` link, Open
+Graph and JSON-LD, with `noindex` as its robots value: Pages serves it at every unknown address, so
+it has no URL of its own. Every path in it starts at the site root. Its body is one plain section:
+the `<h1>`, one paragraph and a link list (section 5).
+
 ### Site script
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
@@ -1173,7 +1178,8 @@ the page that carries the depth; it does not drop facts.
 
 The 300-word floor in `CLAUDE.md` still holds for every page: on a budgeted page it is met by the
 visible text plus what is in its collapsibles. `/docs/` is the one exception: a hub whose depth is
-the two references it links, accepted under the floor.
+the two references it links, accepted under the floor. `/404.html` is `noindex` and outside the
+floor, the GEO layer (section 7) and the budgets.
 
 ## 7. GEO and SEO content layer
 
@@ -1199,8 +1205,8 @@ Visible text shrinks; indexable text does not.
 - **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG: the page's hero
   screenshot on the light `--bg`, under its `<h1>` set in Inter 700. The `/ai` card is
   `/og-ai.jpg`.
-- **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` is `noindex` by meta
-  tag, not by a `Disallow`.
+- **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` and `/404.html` are
+  `noindex` by meta tag, not by a `Disallow`.
 
 ## 8. Theming
 
@@ -1230,7 +1236,7 @@ here first, then to `system.css` and `/styleguide/`, in the same commit.
 - [ ] Visible words within budget, counted as section 6 says.
 - [ ] `<h1>` names Dovilo; the first paragraph (hero sub or In short) is 2-3 declarative sentences
       with a number. Not on the legal pages, whose text changes only word for word from a task,
-      and not on a post, whose title and text are Sanity's.
+      not on a post, whose title and text are Sanity's, and not on `/404.html` (section 6).
 - [ ] Every old URL and anchor `id` still resolves.
 - [ ] JSON-LD mirrors the visible text; `dateModified` = sitemap `lastmod`.
 - [ ] `llms.txt` and `llms-full.txt` updated from the page, not shortened.
