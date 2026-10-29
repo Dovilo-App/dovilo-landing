@@ -22,11 +22,13 @@ The app itself is closed source; this repository is the public website only.
 | [`/blog`](https://dovilo.app/blog/) | Posts, generated from Sanity onto the design system — see [The blog](#the-blog) |
 | [`/faq`](https://dovilo.app/faq/) | 28 questions in six groups, on the design system: tasks, focus, ambience, the city, Pro, MCP and data |
 | [`/privacy`](https://dovilo.app/privacy/) · [`/terms`](https://dovilo.app/terms/) · [`/licenses`](https://dovilo.app/licenses/) | Legal and third-party attributions, on the design system; the text changes only word for word |
+| `/404.html` | The page GitHub Pages shows, with status 404, at any address that has no file: on the design system, `noindex`, with the shared nav and footer and five links to try |
 
 ## Stack
 
 Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
-is a single `index.html` with its structured data in `application/ld+json` blocks. Every page links
+is a single `index.html` with its structured data in `application/ld+json` blocks, except
+[`404.html`](404.html) at the root, which has no structured data. Every page links
 the one design-system stylesheet, [`styles/system.css`](styles/system.css), and carries no CSS of
 its own. Nothing is fetched from a third party: Inter is self-hosted from [`fonts/`](fonts/) as a
 variable `woff2` declared with `@font-face`, so no third-party stylesheet blocks the first paint.

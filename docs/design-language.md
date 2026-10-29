@@ -157,6 +157,11 @@ Every redesigned page has this head, in this order, and this body frame.
 The stylesheet is render-blocking on purpose, for the reasons `CLAUDE.md` gives under
 Performance: never async-load it and never inline it.
 
+`/404.html` keeps this skeleton minus the description, the canonical, the `llms.txt` link, Open
+Graph and JSON-LD, with `noindex` as its robots value: Pages serves it at every unknown address, so
+it has no URL of its own. Every path in it starts at the site root. Its body is one plain section:
+the `<h1>`, one paragraph and a link list (section 5).
+
 ### Site script
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
@@ -665,7 +670,8 @@ the one on `/ai`, goes to `/pricing/`.
 **Link list:** 3 to 6 links into sections of other pages, one per line, each a short label with an
 arrow; the whole line is the link. Each points at an anchor that exists (section 7). `/docs/` uses
 it for its deep links, and a blog post for its More posts nav (Post, section 4), where a label is
-"Previous:" or "Next:" and the post's title.
+"Previous:" or "Next:" and the post's title. `/404.html` uses it for five pages to try instead,
+each label the page's name.
 
 ```html
 <ul class="link-list">
@@ -1173,7 +1179,8 @@ the page that carries the depth; it does not drop facts.
 
 The 300-word floor in `CLAUDE.md` still holds for every page: on a budgeted page it is met by the
 visible text plus what is in its collapsibles. `/docs/` is the one exception: a hub whose depth is
-the two references it links, accepted under the floor.
+the two references it links, accepted under the floor. `/404.html` is `noindex` and outside the
+floor, the GEO layer (section 7) and the budgets.
 
 ## 7. GEO and SEO content layer
 
@@ -1199,8 +1206,8 @@ Visible text shrinks; indexable text does not.
 - **Share cards:** each page gets a real-screenshot card, a 1200×630 PNG or JPG: the page's hero
   screenshot on the light `--bg`, under its `<h1>` set in Inter 700. The `/ai` card is
   `/og-ai.jpg`.
-- **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` is `noindex` by meta
-  tag, not by a `Disallow`.
+- **Crawlers:** `robots.txt` keeps every AI crawler allowed. `/styleguide/` and `/404.html` are
+  `noindex` by meta tag, not by a `Disallow`.
 
 ## 8. Theming
 
@@ -1225,6 +1232,8 @@ is built from the components above. A surface this document does not cover adds 
 here first, then to `system.css` and `/styleguide/`, in the same commit.
 
 ## 10. Checks before a redesigned page ships
+
+On `/404.html` the budget, `<h1>`, anchor, JSON-LD and `llms` checks do not apply (section 3).
 
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
 - [ ] Visible words within budget, counted as section 6 says.

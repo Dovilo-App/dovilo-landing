@@ -62,7 +62,7 @@ Rules:
   prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
   answers and store badges count toward neither);
   `/downloads` at most 150; `/docs/` at most 150; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
-  `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/` and the posts have none. A
+  `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/`, the posts and `/404.html` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
@@ -73,11 +73,12 @@ Rules:
   JSON-LD stays and mirrors the page; `llms.txt` and `llms-full.txt` are regenerated from the page,
   never shortened. The legal pages (`/privacy`, `/terms`, `/licenses`) are the exception to the
   `<h1>` and first-paragraph rules: their text, headings included, changes only word for word from
-  text a task gives. A post's title and text are Sanity's.
+  text a task gives. A post's title and text are Sanity's. `/404.html` is outside the GEO layer
+  altogether (below).
 - **The 300-word floor in §2 still applies.** On a budgeted page it is met by the visible text plus
   what its collapsibles hold. The one exception is `/docs/`, a hub page of 139 visible words with
   no collapsibles: its depth is the two references it links, and Selahaddin accepted it under the
-  floor on 29 Oct 2026. Any other page under 300 words is still a defect.
+  floor on 29 Oct 2026. Any other page under 300 words is still a defect, `/404.html` aside (below).
 - **No em dash anywhere a person reads**: body copy, captions, buttons and alt text as well as
   headings. `llms.txt` and `llms-full.txt` are the only exception in what we write. Legal text keeps
   what it has until a task gives new text (`/privacy` §8 has one), and post bodies are fixed in
@@ -100,6 +101,15 @@ Rules:
   `<details>`.
 - **`/styleguide/` stays `noindex`, out of `sitemap.xml` and unlinked.** It shows every sample
   twice, once per theme: edit both copies together.
+- **`/404.html` is the `noindex` exception.** GitHub Pages serves it, with status 404, at every
+  address that has no file, so it has no URL of its own: no description, canonical, `llms.txt` link,
+  Open Graph tags or JSON-LD, and it stays out of `sitemap.xml`, `llms.txt` and `llms-full.txt`.
+  Its `<h1>` does not name Dovilo, the paragraph under it carries neither the brand nor a keyword
+  (§2, Titles), and it sits far under the 300-word floor; its copy is fixed by its task and
+  Selahaddin approved the exceptions on 29 Oct 2026. Like every page it keeps the boot script, the
+  site script, the nav and the footer, with no page script, and every path in it starts at the site
+  root, since it renders at any depth. It is the one hand-written page that is not an
+  `index.html`: a nav, footer or site script change that globs `*/index.html` misses it.
 
 The redesign moved one page per task: `/ai`, `/`, a new `/pricing`, `/downloads`, `/faq`,
 `/docs/*`, `/changelog`, then the legal pages and the blog template together. With no page left on
@@ -159,7 +169,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
   `BreadcrumbList` with position 1 = Dovilo and the page last, its parent between them where it
   has one (Dovilo / Docs / the page on `/docs/mcp/` and `/docs/webhooks`). No page ships with zero
-  JSON-LD.
+  JSON-LD, except `/404.html`, which has no URL of its own (§1.1).
 - Any URL an `ItemList` or anchor points at must resolve — give list cards stable ids before
   referencing them. (`c7ab5a8`)
 - **No self-serving review markup.** Do not add `aggregateRating` unless the page visibly shows
@@ -179,8 +189,8 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
-  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`)
-  stays out.
+  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`,
+  `/404.html`) stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
@@ -204,7 +214,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - **A page under 300 words of visible prose is a defect.** Give every section an intro saying what
   the thing is and why it works that way, so a cold reader and a quoting answer engine both get a
   complete statement. (`c703fa3`) `/docs/`, the hub of the two references, is the one accepted
-  exception (§1.1).
+  exception among indexable pages, and the `noindex` `/404.html` is outside the rule (§1.1).
 - **Every claim must already be documented in the repo** — `llms.txt`, `llms-full.txt`, the FAQ or
   the page itself. Nothing unreleased gets a date. Do not invent capabilities, integrations, prices
   or platforms to make a section read better.
@@ -281,7 +291,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - [ ] Did visible text change? Then the JSON-LD mirroring it changed too.
 - [ ] `sitemap.xml` lastmod bumped, and JSON-LD `dateModified` with it?
 - [ ] Facts changed? `llms.txt` and `llms-full.txt` updated in the same commit.
-- [ ] New page? Linked from the shared nav or footer, and in `sitemap.xml`.
+- [ ] New indexable page? Linked from the shared nav or footer, and in `sitemap.xml`.
 - [ ] Every new `<img>`: alt, width, height, WebP, lazy unless above the fold.
 - [ ] No new token, colour, font size or spacing outside `styles/system.css`.
 - [ ] Only components from `docs/design-language.md`, visible words within the page's budget, and
