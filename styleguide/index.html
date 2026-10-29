@@ -34,7 +34,7 @@
   "description": "Every component of the Dovilo design language in light and dark, with the tokens and the word budgets the site's pages follow.",
   "url": "https://dovilo.app/styleguide/",
   "inLanguage": "en",
-  "dateModified": "2026-10-27",
+  "dateModified": "2026-10-29",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -82,7 +82,7 @@
       <nav aria-label="Main">
         <ul class="nav-links" id="nav-links">
           <li><a href="/ai">AI</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/downloads/">Downloads</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog/">Blog</a></li>
@@ -118,6 +118,8 @@
             <li><a href="#nav">Nav</a></li>
             <li><a href="#hero">Hero</a></li>
             <li><a href="#section">Section and split</a></li>
+            <li><a href="#reference">Reference layout</a></li>
+            <li><a href="#measure">Measure column and post</a></li>
             <li><a href="#steps">Steps 01-04</a></li>
             <li><a href="#steps-shots">Steps with screens</a></li>
             <li><a href="#features">Feature rows</a></li>
@@ -131,9 +133,17 @@
             <li><a href="#trust">Trust list</a></li>
             <li><a href="#shipped">Recently shipped</a></li>
             <li><a href="#pricing">Pricing summary</a></li>
+            <li><a href="#link-list">Link list</a></li>
+            <li><a href="#plans">Pricing columns</a></li>
+            <li><a href="#download-boxes">Download boxes</a></li>
+            <li><a href="#cards">Link cards</a></li>
             <li><a href="#faq">FAQ accordion</a></li>
+            <li><a href="#releases">Release entries</a></li>
+            <li><a href="#meta">Meta line</a></li>
+            <li><a href="#posts">Post list</a></li>
             <li><a href="#note">Note</a></li>
             <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#store-badges">Store badges</a></li>
             <li><a href="#links">Links</a></li>
             <li><a href="#closing">Closing CTA</a></li>
             <li><a href="#footer">Footer</a></li>
@@ -206,11 +216,12 @@
           <table class="table">
             <thead><tr><th scope="col">Page</th><th scope="col">Visible words</th><th scope="col">Also allowed</th></tr></thead>
             <tbody>
-              <tr><td><code>/</code></td><td>350 at most</td><td>Collapsibles and the FAQ accordion</td></tr>
+              <tr><td><code>/</code></td><td>450 at most, body copy under 350; headings, labels, captions, links and FAQ questions count, store badges do not</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/ai</code></td><td>440 at most, its section headings included</td><td>One code block, plus collapsibles</td></tr>
-              <tr><td><code>/pricing</code></td><td>250 at most</td><td>Collapsibles</td></tr>
+              <tr><td><code>/pricing</code></td><td>320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither</td><td>Collapsibles and the FAQ accordion</td></tr>
               <tr><td><code>/downloads</code></td><td>150 at most</td><td>Collapsibles</td></tr>
-              <tr><td><code>/faq</code>, <code>/docs/*</code>, <code>/changelog</code>, <code>/privacy</code>, <code>/terms</code></td><td>No budget</td><td>These pages carry the depth</td></tr>
+              <tr><td><code>/docs/</code></td><td>150 at most</td><td>Link cards and a link list</td></tr>
+              <tr><td><code>/faq</code>, <code>/docs/mcp/</code>, <code>/docs/webhooks</code>, <code>/changelog</code>, <code>/privacy</code>, <code>/terms</code></td><td>No budget</td><td>These pages carry the depth</td></tr>
             </tbody>
           </table>
         </div>
@@ -232,7 +243,7 @@
               <nav aria-label="Main, light sample">
                 <ul class="nav-links" id="nav-links-light">
                   <li><a href="/ai">AI</a></li>
-                  <li><a href="/#pricing">Pricing</a></li>
+                  <li><a href="/pricing/">Pricing</a></li>
                   <li><a href="/downloads/">Downloads</a></li>
                   <li><a href="/faq">FAQ</a></li>
                   <li><a href="/blog/">Blog</a></li>
@@ -258,7 +269,7 @@
               <nav aria-label="Main, dark sample">
                 <ul class="nav-links" id="nav-links-dark">
                   <li><a href="/ai">AI</a></li>
-                  <li><a href="/#pricing">Pricing</a></li>
+                  <li><a href="/pricing/">Pricing</a></li>
                   <li><a href="/downloads/">Downloads</a></li>
                   <li><a href="/faq">FAQ</a></li>
                   <li><a href="/blog/">Blog</a></li>
@@ -284,7 +295,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="hero-title">Hero</h2>
-          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons, one full-width figure: here a figure pair, the desktop screen with the phone screen in front of its right edge.</p>
+          <p>A one-sentence h1 that names Dovilo in up to 9 other words, a sub of up to 20 words, two buttons or the store badges, one figure. First a figure pair, the desktop screen with the phone screen in front of its right edge; then a phone pair, two phones of one flow beside the text from 960px.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -300,14 +311,22 @@
                 <!-- On a page these images are above the fold: the desktop one is the
                      LCP (fetchpriority="high") and neither is lazy. Here they sit far
                      below the fold, so they load lazily. -->
-                <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
-                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
-                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
-                     alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
-                <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
-                     sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-                     src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy"
-                     alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/desktop-ai-dark-700.webp 700w, /screenshots/desktop-ai-dark-1000.webp 1000w, /screenshots/desktop-ai-dark-1400.webp 1400w, /screenshots/desktop-ai-dark-2000.webp 2000w"
+                         sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px" width="2000" height="1298">
+                  <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                       sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+                       src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
+                       alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+                </picture>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-dark.webp 386w, /screenshots/mobile-ai-dark-772.webp 772w"
+                         sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="840">
+                  <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
+                       sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                       src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+                </picture>
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
               </figure>
             </div>
@@ -327,15 +346,109 @@
                 <!-- On a page these images are above the fold: the desktop one is the
                      LCP (fetchpriority="high") and neither is lazy. Here they sit far
                      below the fold, so they load lazily. -->
-                <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
-                     sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
-                     src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
-                     alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
-                <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
-                     sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-                     src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy"
-                     alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/desktop-ai-dark-700.webp 700w, /screenshots/desktop-ai-dark-1000.webp 1000w, /screenshots/desktop-ai-dark-1400.webp 1400w, /screenshots/desktop-ai-dark-2000.webp 2000w"
+                         sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px" width="2000" height="1298">
+                  <img class="pair-desktop" srcset="/screenshots/desktop-ai-700.webp 700w, /screenshots/desktop-ai-1000.webp 1000w, /screenshots/desktop-ai-1400.webp 1400w, /screenshots/desktop-ai-2000.webp 2000w"
+                       sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+                       src="/screenshots/desktop-ai-1000.webp" width="2000" height="1298" loading="lazy"
+                       alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+                </picture>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-dark.webp 386w, /screenshots/mobile-ai-dark-772.webp 772w"
+                         sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="840">
+                  <img class="pair-phone" srcset="/screenshots/mobile-ai.webp 386w, /screenshots/mobile-ai-772.webp 772w"
+                       sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                       src="/screenshots/mobile-ai.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+                </picture>
                 <figcaption>AI Tasks in Dovilo Desktop, grouped by what needs you.</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Light, with a phone pair and store badges</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="hero">
+            <div class="container hero-split">
+              <div>
+                <h1>Dovilo: the <span class="nowrap">to-do</span> list that builds you a city.</h1>
+                <p class="hero-sub">Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city.</p>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="figure figure-phones">
+                <!-- On the page both phones are above the fold: the first is the LCP
+                     (fetchpriority="high") and neither is lazy. Here they load lazily. -->
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+                         sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                  <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+                </picture>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-list-birthday-dark.webp 386w, /screenshots/mobile-list-birthday-dark-772.webp 772w"
+                         sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                  <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-list-birthday.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+                </picture>
+                <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, with a phone pair and store badges</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="hero">
+            <div class="container hero-split">
+              <div>
+                <h1>Dovilo: the <span class="nowrap">to-do</span> list that builds you a city.</h1>
+                <p class="hero-sub">Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city.</p>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="figure figure-phones">
+                <!-- On the page both phones are above the fold: the first is the LCP
+                     (fetchpriority="high") and neither is lazy. Here they load lazily. -->
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+                         sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                  <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+                </picture>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-list-birthday-dark.webp 386w, /screenshots/mobile-list-birthday-dark-772.webp 772w"
+                         sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                  <img srcset="/screenshots/mobile-list-birthday.webp 386w, /screenshots/mobile-list-birthday-772.webp 772w"
+                       sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                       src="/screenshots/mobile-list-birthday.webp" width="386" height="840" loading="lazy"
+                       alt="Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week">
+                </picture>
+                <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
               </figure>
             </div>
           </section>
@@ -348,7 +461,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="section-title">Section and split</h2>
-          <p>A section makes one claim (h2 and one sentence) and shows one proof. Split puts the claim beside the proof and stacks below 768px.</p>
+          <p>A section makes one claim (h2 and one sentence) and shows one proof. Split puts the claim beside the proof and stacks below 768px. In short carries the GEO paragraph after a one-line hero sub. A figure row holds two captioned phone screens.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -379,6 +492,288 @@
                      alt="Dovilo focus session running in the Rainy City ambience scene">
                 <figcaption>Rainy City, a Focus Ambience Pack scene.</figcaption>
               </figure>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, In short</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="section">
+            <div class="container">
+              <h2>In short</h2>
+              <p>Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month.</p>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, In short</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="section">
+            <div class="container">
+              <h2>In short</h2>
+              <p>Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month.</p>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Light, split with a figure row</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="split">
+              <div class="section-head">
+                <h2>Focus that fills the whole screen</h2>
+                <p>A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.</p>
+              </div>
+              <div class="figure-row">
+                <figure class="figure">
+                  <picture>
+                    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-focus-rain-dark.webp 386w, /screenshots/mobile-focus-rain-dark-772.webp 772w"
+                           sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                    <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                         src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
+                         alt="Dovilo focus session in the Rainy City scene with 22 minutes left">
+                  </picture>
+                  <figcaption>Rainy City, 22 minutes left.</figcaption>
+                </figure>
+                <figure class="figure">
+                  <picture>
+                    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ambience-mixer-dark.webp 386w, /screenshots/mobile-ambience-mixer-dark-772.webp 772w"
+                           sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="350">
+                    <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                         src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
+                         alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+                  </picture>
+                  <figcaption>Rain and fireplace.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, split with a figure row</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="split">
+              <div class="section-head">
+                <h2>Focus that fills the whole screen</h2>
+                <p>A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.</p>
+              </div>
+              <div class="figure-row">
+                <figure class="figure">
+                  <picture>
+                    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-focus-rain-dark.webp 386w, /screenshots/mobile-focus-rain-dark-772.webp 772w"
+                           sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="840">
+                    <img srcset="/screenshots/mobile-focus-rain.webp 386w, /screenshots/mobile-focus-rain-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                         src="/screenshots/mobile-focus-rain.webp" width="386" height="840" loading="lazy"
+                         alt="Dovilo focus session in the Rainy City scene with 22 minutes left">
+                  </picture>
+                  <figcaption>Rainy City, 22 minutes left.</figcaption>
+                </figure>
+                <figure class="figure">
+                  <picture>
+                    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ambience-mixer-dark.webp 386w, /screenshots/mobile-ambience-mixer-dark-772.webp 772w"
+                           sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)" width="386" height="350">
+                    <img srcset="/screenshots/mobile-ambience-mixer.webp 386w, /screenshots/mobile-ambience-mixer-772.webp 772w" sizes="(min-width:1128px) 228px, (min-width:768px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+                         src="/screenshots/mobile-ambience-mixer.webp" width="386" height="350" loading="lazy"
+                         alt="Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on">
+                  </picture>
+                  <figcaption>Rain and fireplace.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reference layout -->
+    <section class="section" id="reference" aria-labelledby="reference-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="reference-title">Reference layout</h2>
+          <p>A docs article beside its table of contents: a rail from 960px with the section in view marked, a closed collapsible above the article below that. Each heading the contents link to carries a # anchor, shown on hover.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="doc">
+              <aside class="toc" aria-label="On this page">
+                <details class="collapsible" open>
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <p class="toc-title">On this page</p>
+                    <ol>
+                      <li><a class="active" href="#sg-endpoints-l">Endpoints</a></li>
+                      <li>
+                        <a href="#sg-authentication-l">Authentication</a>
+                        <ol>
+                          <li><a href="#sg-agent-keys-l">Agents MCP keys</a></li>
+                          <li><a href="#sg-personal-sign-in-l">Personal MCP sign-in</a></li>
+                        </ol>
+                      </li>
+                      <li><a href="#sg-statuses-l">Status values</a></li>
+                    </ol>
+                  </div>
+                </details>
+              </aside>
+              <article class="flow doc-body">
+                <h2 id="sg-endpoints-l">Endpoints <a class="h-anchor" href="#sg-endpoints-l" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>The two servers share a host and nothing else. They take different credentials and reach different data, so a chat assistant never holds an agent's access, and an agent never holds yours.</p>
+                <h2 id="sg-authentication-l">Authentication <a class="h-anchor" href="#sg-authentication-l" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>Agents authenticate with a key the user creates for them; assistants authenticate as the user, through a sign-in the user completes.</p>
+                <h3 id="sg-agent-keys-l">Agents MCP: one key per agent <a class="h-anchor" href="#sg-agent-keys-l" aria-hidden="true" tabindex="-1"></a></h3>
+                <ul>
+                  <li>Send the key on every request as <code>Authorization: Bearer &lt;key&gt;</code>.</li>
+                  <li>The key is shown once. Dovilo stores only a hash of it.</li>
+                </ul>
+                <h3 id="sg-personal-sign-in-l">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#sg-personal-sign-in-l" aria-hidden="true" tabindex="-1"></a></h3>
+                <ul>
+                  <li>Access tokens expire after 1 hour and refresh tokens after 90 days.</li>
+                </ul>
+                <h2 id="sg-statuses-l">Status values <a class="h-anchor" href="#sg-statuses-l" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>An AI task moves through these values. The same values appear in webhook payloads.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="doc">
+              <aside class="toc" aria-label="On this page">
+                <details class="collapsible" open>
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <p class="toc-title">On this page</p>
+                    <ol>
+                      <li><a class="active" href="#sg-endpoints-d">Endpoints</a></li>
+                      <li>
+                        <a href="#sg-authentication-d">Authentication</a>
+                        <ol>
+                          <li><a href="#sg-agent-keys-d">Agents MCP keys</a></li>
+                          <li><a href="#sg-personal-sign-in-d">Personal MCP sign-in</a></li>
+                        </ol>
+                      </li>
+                      <li><a href="#sg-statuses-d">Status values</a></li>
+                    </ol>
+                  </div>
+                </details>
+              </aside>
+              <article class="flow doc-body">
+                <h2 id="sg-endpoints-d">Endpoints <a class="h-anchor" href="#sg-endpoints-d" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>The two servers share a host and nothing else. They take different credentials and reach different data, so a chat assistant never holds an agent's access, and an agent never holds yours.</p>
+                <h2 id="sg-authentication-d">Authentication <a class="h-anchor" href="#sg-authentication-d" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>Agents authenticate with a key the user creates for them; assistants authenticate as the user, through a sign-in the user completes.</p>
+                <h3 id="sg-agent-keys-d">Agents MCP: one key per agent <a class="h-anchor" href="#sg-agent-keys-d" aria-hidden="true" tabindex="-1"></a></h3>
+                <ul>
+                  <li>Send the key on every request as <code>Authorization: Bearer &lt;key&gt;</code>.</li>
+                  <li>The key is shown once. Dovilo stores only a hash of it.</li>
+                </ul>
+                <h3 id="sg-personal-sign-in-d">Personal MCP: sign in with Dovilo <a class="h-anchor" href="#sg-personal-sign-in-d" aria-hidden="true" tabindex="-1"></a></h3>
+                <ul>
+                  <li>Access tokens expire after 1 hour and refresh tokens after 90 days.</li>
+                </ul>
+                <h2 id="sg-statuses-d">Status values <a class="h-anchor" href="#sg-statuses-d" aria-hidden="true" tabindex="-1"></a></h2>
+                <p>An AI task moves through these values. The same values appear in webhook payloads.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Measure column and post -->
+    <section class="section" id="measure" aria-labelledby="measure-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="measure-title">Measure column and post</h2>
+          <p>A document read top to bottom holds its flow to the measure, so its heading, cover, tables and rules line up with the text. The legal pages are one such section; a blog post adds its cover, its table of contents in a closed collapsible and its body from Sanity.</p>
+        </div>
+        <p class="sg-label">Light, legal page</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h1>Privacy Policy</h1>
+              <p class="meta">Last updated: 20 October 2026</p>
+              <p><strong>Your Privacy is Our Priority</strong></p>
+              <p>Dovilo ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use Dovilo: the mobile and desktop apps, the website dovilo.app, and the AI connections described in Section 6.</p>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, legal page</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h1>Privacy Policy</h1>
+              <p class="meta">Last updated: 20 October 2026</p>
+              <p><strong>Your Privacy is Our Priority</strong></p>
+              <p>Dovilo ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use Dovilo: the mobile and desktop apps, the website dovilo.app, and the AI connections described in Section 6.</p>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, blog post</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h1>Task management for AI coding agents: a Dovilo MCP setup guide</h1>
+              <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+              <figure class="figure"><img src="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp" srcset="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp 760w, /blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1520.webp 1520w" sizes="(max-width:718px) calc(100vw - 32px), 686px" width="760" height="507" loading="lazy" alt="Illustration: a robot and a cat at laptops, working from one shared task list"></figure>
+              <nav aria-label="On this page">
+                <details class="collapsible">
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="#sg-post-problem-l">The problem: agents lose the thread between sessions</a></li>
+                      <li><a href="#sg-post-mcp-l">What MCP is (the short version)</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </nav>
+              <hr>
+              <h2 id="sg-post-problem-l">The problem: agents lose the thread between sessions</h2>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, blog post</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h1>Task management for AI coding agents: a Dovilo MCP setup guide</h1>
+              <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+              <figure class="figure"><img src="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp" srcset="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp 760w, /blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1520.webp 1520w" sizes="(max-width:718px) calc(100vw - 32px), 686px" width="760" height="507" loading="lazy" alt="Illustration: a robot and a cat at laptops, working from one shared task list"></figure>
+              <nav aria-label="On this page">
+                <details class="collapsible">
+                  <summary>On this page</summary>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="#sg-post-problem-d">The problem: agents lose the thread between sessions</a></li>
+                      <li><a href="#sg-post-mcp-d">What MCP is (the short version)</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </nav>
+              <hr>
+              <h2 id="sg-post-problem-d">The problem: agents lose the thread between sessions</h2>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, what Markdown adds: a fourth-level heading, a quote and a rule</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h4>Agents MCP keys</h4>
+              <p>One key per agent, shown once.</p>
+              <blockquote><p>Review them before approving: AI output can be wrong.</p></blockquote>
+              <hr>
+              <p>Until it ships, every write waits for your approval.</p>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, what Markdown adds: a fourth-level heading, a quote and a rule</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="flow measure">
+              <h4>Agents MCP keys</h4>
+              <p>One key per agent, shown once.</p>
+              <blockquote><p>Review them before approving: AI output can be wrong.</p></blockquote>
+              <hr>
+              <p>Until it ships, every write waits for your approval.</p>
             </div>
           </div>
         </div>
@@ -431,11 +826,19 @@
               <li class="step"><span class="step-num" aria-hidden="true">01</span><span class="step-label">Write the task</span><span class="step-detail">Or let ChatGPT or Claude propose it.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
               <li class="step"><span class="step-num" aria-hidden="true">02</span><span class="step-label">Approve it on your phone</span><span class="step-detail">Nothing reaches an agent before you say yes.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons"></li>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+                         sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                  <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
+                </picture></li>
               <li class="step"><span class="step-num" aria-hidden="true">03</span><span class="step-label">Your agent works it</span><span class="step-detail">Steps and notes land on the task as it runs.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-agent.webp 386w, /screenshots/mobile-ai-agent-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-agent.webp" width="386" height="840" loading="lazy" alt="Dovilo agent details: Claude Code, its project Website, the server URL and the controls for its key"></li>
               <li class="step"><span class="step-num" aria-hidden="true">04</span><span class="step-label">It asks, you answer</span><span class="step-detail">It stops at a decision; you reply from your phone or chat.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box"></li>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-done-dark.webp 386w, /screenshots/mobile-ai-done-dark-772.webp 772w"
+                         sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                  <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+                </picture></li>
             </ol>
           </div>
         </div>
@@ -446,11 +849,19 @@
               <li class="step"><span class="step-num" aria-hidden="true">01</span><span class="step-label">Write the task</span><span class="step-detail">Or let ChatGPT or Claude propose it.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-connection.webp 386w, /screenshots/mobile-ai-connection-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-connection.webp" width="386" height="840" loading="lazy" alt="Dovilo Connected AI apps: Claude's read access, AI task access, Ask me first and its visible lists"></li>
               <li class="step"><span class="step-num" aria-hidden="true">02</span><span class="step-label">Approve it on your phone</span><span class="step-detail">Nothing reaches an agent before you say yes.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons"></li>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+                         sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                  <img class="step-shot" srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy" alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
+                </picture></li>
               <li class="step"><span class="step-num" aria-hidden="true">03</span><span class="step-label">Your agent works it</span><span class="step-detail">Steps and notes land on the task as it runs.</span>
                 <img class="step-shot" srcset="/screenshots/mobile-ai-agent.webp 386w, /screenshots/mobile-ai-agent-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-agent.webp" width="386" height="840" loading="lazy" alt="Dovilo agent details: Claude Code, its project Website, the server URL and the controls for its key"></li>
               <li class="step"><span class="step-num" aria-hidden="true">04</span><span class="step-label">It asks, you answer</span><span class="step-detail">It stops at a decision; you reply from your phone or chat.</span>
-                <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box"></li>
+                <picture>
+                  <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-done-dark.webp 386w, /screenshots/mobile-ai-done-dark-772.webp 772w"
+                         sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                  <img class="step-shot" srcset="/screenshots/mobile-ai-done.webp 386w, /screenshots/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px" src="/screenshots/mobile-ai-done.webp" width="386" height="840" loading="lazy" alt="Dovilo AI task waiting for an answer, with the agent's question and a reply box">
+                </picture></li>
             </ol>
           </div>
         </div>
@@ -622,7 +1033,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="figure-title">Figure</h2>
-          <p>A real screenshot, one line of caption, alt text that names what is on screen. Phone captures use figure-phone.</p>
+          <p>A real screenshot, one line of caption, alt text that names what is on screen. Phone captures use figure-phone. A phone or desktop screen the app draws differently in dark carries a dark capture in a picture, swapped with the theme: here the dark panel shows it, and the hero's figure pair above does it for both screens.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -644,6 +1055,36 @@
             </figure>
           </div>
         </div>
+        <p class="sg-label">Light, with a dark capture</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <figure class="figure figure-phone">
+              <picture>
+                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-new-task-dark.webp 386w, /screenshots/mobile-ai-new-task-dark-772.webp 772w"
+                       sizes="288px" width="386" height="840">
+                <img srcset="/screenshots/mobile-ai-new-task.webp 386w, /screenshots/mobile-ai-new-task-772.webp 772w" sizes="288px"
+                     src="/screenshots/mobile-ai-new-task.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo: new AI task form with title and description">
+              </picture>
+              <figcaption>A new AI task, written on the phone.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p class="sg-label">Dark, with a dark capture</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <figure class="figure figure-phone">
+              <picture>
+                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-ai-new-task-dark.webp 386w, /screenshots/mobile-ai-new-task-dark-772.webp 772w"
+                       sizes="288px" width="386" height="840">
+                <img srcset="/screenshots/mobile-ai-new-task.webp 386w, /screenshots/mobile-ai-new-task-772.webp 772w" sizes="288px"
+                     src="/screenshots/mobile-ai-new-task.webp" width="386" height="840" loading="lazy"
+                     alt="Dovilo: new AI task form with title and description">
+              </picture>
+              <figcaption>A new AI task, written on the phone.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -652,7 +1093,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="code-title">Code block</h2>
-          <p>A title, a copy button and the code. Themed with the page; no highlighting library.</p>
+          <p>A title, a copy button and the code. Themed with the page; no highlighting library. Code that is read rather than copied drops the head; a long prompt written to be pasted scrolls inside 480px.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -669,6 +1110,108 @@
             <div class="code">
               <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Copy</button></div>
               <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, without a head (read, not copied)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="code">
+<pre><code>&gt; take my next Dovilo task and work it
+
+list_tasks       → 3 queued in "Landing rewrite"
+get_task         → "Split the pricing table by plan" (4 steps)
+read_context     → project brief + constraints
+update_status    → running</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, without a head (read, not copied)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="code">
+<pre><code>&gt; take my next Dovilo task and work it
+
+list_tasks       → 3 queued in "Landing rewrite"
+get_task         → "Split the pricing table by plan" (4 steps)
+read_context     → project brief + constraints
+update_status    → running</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, long (code-long)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="code code-long">
+              <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+<pre><code>- What should happen when an event arrives? (Slack notification?
+  Linear sync? CI trigger? Database log? Hand off to an LLM?)
+- Which stack should the receiver use? Match this project if obvious;
+  otherwise ask. (Node/Express, FastAPI, Go net/http, Cloudflare
+  Workers, Vercel function, etc.)
+- Where will it be deployed and what's the public URL going to be?
+  Public HTTPS URLs are delivered by Dovilo's server. A localhost URL
+  is delivered by Dovilo Desktop, which must stay open. To test a
+  public URL from a dev machine, suggest ngrok / cloudflared /
+  tailscale funnel.
+
+Route: POST /webhooks/dovilo  (or fit the project's conventions)
+
+CRITICAL RULES:
+- Read the RAW request body before any JSON parsing. The HMAC is
+  computed over the raw bytes; re-serializing breaks the signature.
+- Verify `X-Dovilo-Signature` (format: `t=&lt;unix-ms&gt;,v1=&lt;hex&gt;`):
+    1. Parse `t` and `v1`.
+    2. Reject if `|Date.now() - t|` &gt; 5 minutes (replay protection).
+    3. Compute `HMAC_SHA256(secret, `${t}.${rawBody}`)`, hex-encode.
+    4. Compare to `v1` in CONSTANT TIME (timingSafeEqual /
+       hmac.compare_digest / hmac.Equal). Never use plain `==`.
+- Use `X-Dovilo-Delivery` (also `id` in the body) as the idempotency
+  key, store it, drop duplicates. Same id is reused across retries.
+- Respond 2xx on success and 401 on a bad signature. NEVER answer a
+  bad signature with 410. Respond 410 ONLY if the integration is
+  permanently dead: Dovilo disables the project's webhook when it
+  sees 410.
+- Read the signing secret from env var `DOVILO_WEBHOOK_SECRET`. Add
+  a placeholder to `.env.example`. NEVER commit the real secret.</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, long (code-long)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="code code-long">
+              <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+<pre><code>- What should happen when an event arrives? (Slack notification?
+  Linear sync? CI trigger? Database log? Hand off to an LLM?)
+- Which stack should the receiver use? Match this project if obvious;
+  otherwise ask. (Node/Express, FastAPI, Go net/http, Cloudflare
+  Workers, Vercel function, etc.)
+- Where will it be deployed and what's the public URL going to be?
+  Public HTTPS URLs are delivered by Dovilo's server. A localhost URL
+  is delivered by Dovilo Desktop, which must stay open. To test a
+  public URL from a dev machine, suggest ngrok / cloudflared /
+  tailscale funnel.
+
+Route: POST /webhooks/dovilo  (or fit the project's conventions)
+
+CRITICAL RULES:
+- Read the RAW request body before any JSON parsing. The HMAC is
+  computed over the raw bytes; re-serializing breaks the signature.
+- Verify `X-Dovilo-Signature` (format: `t=&lt;unix-ms&gt;,v1=&lt;hex&gt;`):
+    1. Parse `t` and `v1`.
+    2. Reject if `|Date.now() - t|` &gt; 5 minutes (replay protection).
+    3. Compute `HMAC_SHA256(secret, `${t}.${rawBody}`)`, hex-encode.
+    4. Compare to `v1` in CONSTANT TIME (timingSafeEqual /
+       hmac.compare_digest / hmac.Equal). Never use plain `==`.
+- Use `X-Dovilo-Delivery` (also `id` in the body) as the idempotency
+  key, store it, drop duplicates. Same id is reused across retries.
+- Respond 2xx on success and 401 on a bad signature. NEVER answer a
+  bad signature with 410. Respond 410 ONLY if the integration is
+  permanently dead: Dovilo disables the project's webhook when it
+  sees 410.
+- Read the signing secret from env var `DOVILO_WEBHOOK_SECRET`. Add
+  a placeholder to `.env.example`. NEVER commit the real secret.</code></pre>
             </div>
           </div>
         </div>
@@ -742,7 +1285,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="table-title">Table</h2>
-          <p>Up to six rows in the open. Longer tables go inside a collapsible, like the one above.</p>
+          <p>Up to six rows in the open on a page with a word budget; longer tables go inside a collapsible there, like the one above. The pages that carry the depth keep reference tables open. A grouped table opens each tbody with a row header.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -767,6 +1310,46 @@
                 <tbody>
                   <tr><td>Agents MCP</td><td><code>https://dovilo.app/mcp/agents</code></td><td>Claude Code, Cursor and other coding agents</td><td>An API key per agent</td></tr>
                   <tr><td>Personal MCP</td><td><code>https://dovilo.app/mcp</code></td><td>ChatGPT, Claude, Gemini and Grok</td><td>OAuth with your Dovilo account</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, grouped</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">Tool</th><th scope="col">Access</th><th scope="col">What it does</th><th scope="col">Approval</th></tr></thead>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">Personal tasks</th></tr>
+                  <tr><td><code>list_lists</code></td><td>read</td><td>Names and ids of the lists visible to this connection.</td><td></td></tr>
+                  <tr><td><code>create_plan</code></td><td>write</td><td>Sends a titled plan of tasks to the AI inbox. The user picks which tasks to keep.</td><td>Always</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
+                  <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
+                  <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, grouped</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">Tool</th><th scope="col">Access</th><th scope="col">What it does</th><th scope="col">Approval</th></tr></thead>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">Personal tasks</th></tr>
+                  <tr><td><code>list_lists</code></td><td>read</td><td>Names and ids of the lists visible to this connection.</td><td></td></tr>
+                  <tr><td><code>create_plan</code></td><td>write</td><td>Sends a titled plan of tasks to the AI inbox. The user picks which tasks to keep.</td><td>Always</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
+                  <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
+                  <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
                 </tbody>
               </table>
             </div>
@@ -814,15 +1397,14 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="shipped-title">Recently shipped</h2>
-          <p>The three newest dated entries from the changelog, each linking to its anchor there, and a link to the rest.</p>
+          <p>The newest dated entry of each version line on the changelog (mobile and desktop), each linking to its anchor there, and a link to the rest.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
           <div class="sg-sample">
             <ul class="shipped">
-              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list</a></li>
-              <li><time datetime="2026-10-20">20 Oct 2026</time><a href="/changelog/#desktop-2-0-1">Desktop 2.0.1: agent keys and webhook secrets work again</a></li>
-              <li><time datetime="2026-10-19">19 Oct 2026</time><a href="/changelog/#desktop-2-0-0">Desktop 2.0.0: agents connect over remote MCP</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#mobile-2-0-0">Mobile 2.0.0: plan with ChatGPT, Claude, Gemini or Grok; AI Agents.</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list.</a></li>
             </ul>
             <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
@@ -831,9 +1413,8 @@
         <div class="sg-panel" data-theme="dark">
           <div class="sg-sample">
             <ul class="shipped">
-              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list</a></li>
-              <li><time datetime="2026-10-20">20 Oct 2026</time><a href="/changelog/#desktop-2-0-1">Desktop 2.0.1: agent keys and webhook secrets work again</a></li>
-              <li><time datetime="2026-10-19">19 Oct 2026</time><a href="/changelog/#desktop-2-0-0">Desktop 2.0.0: agents connect over remote MCP</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#mobile-2-0-0">Mobile 2.0.0: plan with ChatGPT, Claude, Gemini or Grok; AI Agents.</a></li>
+              <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list.</a></li>
             </ul>
             <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
           </div>
@@ -846,7 +1427,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="pricing-title">Pricing summary</h2>
-          <p>Three lines and a link to the pricing page. Prices are the USD store baseline.</p>
+          <p>Two or three lines and a link to the pricing page. Prices are the USD store baseline.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -856,7 +1437,7 @@
               <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
               <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
             </ul>
-            <a class="link" href="/#pricing">Compare plans <span aria-hidden="true">&rarr;</span></a>
+            <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
         <p class="sg-label">Dark</p>
@@ -867,7 +1448,289 @@
               <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
               <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
             </ul>
-            <a class="link" href="/#pricing">Compare plans <span aria-hidden="true">&rarr;</span></a>
+            <a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link list -->
+    <section class="section" id="link-list" aria-labelledby="link-list-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="link-list-title">Link list</h2>
+          <p>Three to six links into sections of other pages, one per line. The whole line is the link, and each one points at an anchor that exists.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <ul class="link-list">
+              <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/mcp/#planning">Plan from ChatGPT or Claude <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <ul class="link-list">
+              <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/mcp/#planning">Plan from ChatGPT or Claude <span aria-hidden="true">&rarr;</span></a></li>
+              <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing columns -->
+    <section class="section" id="plans" aria-labelledby="plans-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="plans-title">Pricing columns</h2>
+          <p>One box per plan on /pricing, both alike: the name, the prices one per line, then what it includes as price lines. No badge, no plan singled out.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="plans">
+              <div class="plan">
+                <h2>Free</h2>
+                <ul class="plan-prices"><li>$0</li></ul>
+                <ul class="price-lines">
+                  <li>Full to-do management</li>
+                  <li>Unlimited tasks &amp; categories</li>
+                  <li>Due dates, stars &amp; priorities</li>
+                  <li>Unlimited focus sessions</li>
+                  <li>Basic city with starter buildings</li>
+                  <li>Basic statistics</li>
+                  <li>Dark &amp; light themes</li>
+                  <li>Offline-first, always works</li>
+                  <li>No ads, ever</li>
+                </ul>
+              </div>
+              <div class="plan">
+                <h2>Pro</h2>
+                <ul class="plan-prices">
+                  <li>$2.49 a month</li>
+                  <li>$19.99 a year</li>
+                  <li>$49.99 once</li>
+                  <li>7-day trial in the app</li>
+                </ul>
+                <p class="plan-lead">Everything in Free, plus</p>
+                <ul class="price-lines">
+                  <li>Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo.</li>
+                  <li>AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you.</li>
+                  <li>Dovilo Desktop for Windows and Mac</li>
+                  <li>Cloud sync across your devices</li>
+                  <li>Focus Ambience Pack: 5 scenes and 16 sound layers</li>
+                  <li>Full City Package: every building and upgrade</li>
+                  <li>Advanced statistics</li>
+                  <li>+6 build permits a day</li>
+                  <li>Snooze a reminder for 30 minutes right from the notification</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note">Sending a plan is free; approving needs Pro.</p>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="plans">
+              <div class="plan">
+                <h2>Free</h2>
+                <ul class="plan-prices"><li>$0</li></ul>
+                <ul class="price-lines">
+                  <li>Full to-do management</li>
+                  <li>Unlimited tasks &amp; categories</li>
+                  <li>Due dates, stars &amp; priorities</li>
+                  <li>Unlimited focus sessions</li>
+                  <li>Basic city with starter buildings</li>
+                  <li>Basic statistics</li>
+                  <li>Dark &amp; light themes</li>
+                  <li>Offline-first, always works</li>
+                  <li>No ads, ever</li>
+                </ul>
+              </div>
+              <div class="plan">
+                <h2>Pro</h2>
+                <ul class="plan-prices">
+                  <li>$2.49 a month</li>
+                  <li>$19.99 a year</li>
+                  <li>$49.99 once</li>
+                  <li>7-day trial in the app</li>
+                </ul>
+                <p class="plan-lead">Everything in Free, plus</p>
+                <ul class="price-lines">
+                  <li>Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo.</li>
+                  <li>AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you.</li>
+                  <li>Dovilo Desktop for Windows and Mac</li>
+                  <li>Cloud sync across your devices</li>
+                  <li>Focus Ambience Pack: 5 scenes and 16 sound layers</li>
+                  <li>Full City Package: every building and upgrade</li>
+                  <li>Advanced statistics</li>
+                  <li>+6 build permits a day</li>
+                  <li>Snooze a reminder for 30 minutes right from the notification</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note">Sending a plan is free; approving needs Pro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download boxes -->
+    <section class="section" id="download-boxes" aria-labelledby="download-boxes-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="download-boxes-title">Download boxes</h2>
+          <p>Phones and desktop on /downloads, each with its badges and a line or two. The installers share the store badge look; the visitor&rsquo;s platform gets a ring (here: Windows).</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="download-boxes">
+              <div class="download-box">
+                <h2>Phones</h2>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <p>Free, with a 7-day Pro trial in the app.</p>
+              </div>
+              <div class="download-box">
+                <h2>Desktop</h2>
+                <div class="store-badges">
+                  <a class="store-badge highlighted" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span><small>Dovilo for</small><strong>Windows</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Dovilo for</small><strong>Mac</strong></span>
+                  </a>
+                </div>
+                <p>Latest: 2.0.2, 27 Oct 2026. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="download-boxes">
+              <div class="download-box">
+                <h2>Phones</h2>
+                <div class="store-badges">
+                  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                    <span><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+                <p>Free, with a 7-day Pro trial in the app.</p>
+              </div>
+              <div class="download-box">
+                <h2>Desktop</h2>
+                <div class="store-badges">
+                  <a class="store-badge highlighted" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span><small>Dovilo for</small><strong>Windows</strong></span>
+                  </a>
+                  <a class="store-badge" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=download">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span><small>Dovilo for</small><strong>Mac</strong></span>
+                  </a>
+                </div>
+                <p>Latest: 2.0.2, 27 Oct 2026. <a href="/pricing/#pro">Needs Pro</a>: sign in with the account you subscribed with.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link cards -->
+    <section class="section" id="cards" aria-labelledby="cards-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="cards-title">Link cards</h2>
+          <p>Two places to go next, each box one link with a title and a line. On /docs/ the title is an h2; inside a section it is a span, and may carry a kind label.</p>
+        </div>
+        <p class="sg-label">Light, as on /docs/</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/">
+                <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <h2 class="card-title">Webhooks reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Events, payload, signature, retries, verification code in Node, Python and Go.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, as on /docs/</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/">
+                <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <h2 class="card-title">Webhooks reference <span aria-hidden="true">&rarr;</span></h2>
+                <p>Events, payload, signature, retries, verification code in Node, Python and Go.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, with kind labels</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/#connecting">
+                <span class="card-kind">Setup</span>
+                <span class="card-title">Connect a coding agent <span aria-hidden="true">&rarr;</span></span>
+                <p>Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <span class="card-kind">Reference</span>
+                <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+                <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, with kind labels</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="cards">
+              <a class="card" href="/docs/mcp/#connecting">
+                <span class="card-kind">Setup</span>
+                <span class="card-title">Connect a coding agent <span aria-hidden="true">&rarr;</span></span>
+                <p>Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</p>
+              </a>
+              <a class="card" href="/docs/webhooks">
+                <span class="card-kind">Reference</span>
+                <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+                <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -878,7 +1741,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="faq-title">FAQ accordion</h2>
-          <p>Each question an h3 inside a summary; the answer matches the page's FAQPage JSON-LD word for word.</p>
+          <p>Each question an h3 inside a summary; the answer matches the page's FAQPage JSON-LD word for word. An answer may run to two paragraphs (the third question, open).</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -886,11 +1749,18 @@
             <div class="faq-accordion">
               <details>
                 <summary><h3>Is Dovilo free?</h3></summary>
-                <div class="faq-answer"><p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.</p></div>
+                <div class="faq-answer"><p>Yes. Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.</p></div>
               </details>
               <details>
                 <summary><h3>Does Dovilo have ads?</h3></summary>
                 <div class="faq-answer"><p>No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do.</p></div>
+              </details>
+              <details open>
+                <summary><h3>What are the pricing options?</h3></summary>
+                <div class="faq-answer">
+                  <p>Dovilo Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial in the app. All plans include the same Pro features.</p>
+                  <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99: 5 scenes and 16 sound layers), the Full City Package ($4.99: every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
+                </div>
               </details>
             </div>
           </div>
@@ -901,13 +1771,142 @@
             <div class="faq-accordion">
               <details>
                 <summary><h3>Is Dovilo free?</h3></summary>
-                <div class="faq-answer"><p>Yes! Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.</p></div>
+                <div class="faq-answer"><p>Yes. Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics.</p></div>
               </details>
               <details>
                 <summary><h3>Does Dovilo have ads?</h3></summary>
                 <div class="faq-answer"><p>No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do.</p></div>
               </details>
+              <details open>
+                <summary><h3>What are the pricing options?</h3></summary>
+                <div class="faq-answer">
+                  <p>Dovilo Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial in the app. All plans include the same Pro features.</p>
+                  <p>There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99: 5 scenes and 16 sound layers), the Full City Package ($4.99: every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro.</p>
+                </div>
+              </details>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Release entries -->
+    <section class="section" id="releases" aria-labelledby="releases-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="releases-title">Release entries</h2>
+          <p>The builds on the changelog, newest first: the version, its date, Latest on the newest of each line, what shipped and a line of context. The release feed writes the same markup for a newer desktop build.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="releases">
+              <div class="rel">
+                <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+                <ul class="rel-notes">
+                  <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. The list stays clickable: pick another task and the panel switches; click outside or press Escape to close.</li>
+                  <li>A large view for long text. Notes, AI task descriptions, context, notes from AI and project briefs open in a wide, scrollable view, and editable fields stay editable there.</li>
+                </ul>
+                <p class="rel-text">Nothing changes in the MCP contract, agent keys or webhooks: agents set up for 2.0.0 or 2.0.1 keep working, and existing installs update on their own.</p>
+              </div>
+              <div class="rel">
+                <div class="rel-head"><h3 class="rel-ver">1.8.0</h3><time class="rel-date" datetime="2026-05-17">17 May 2026</time></div>
+                <ul class="rel-notes">
+                  <li>Initial stable release.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="rel-foot">Every desktop build before these is tagged in the <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.</p>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="releases">
+              <div class="rel">
+                <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+                <ul class="rel-notes">
+                  <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. The list stays clickable: pick another task and the panel switches; click outside or press Escape to close.</li>
+                  <li>A large view for long text. Notes, AI task descriptions, context, notes from AI and project briefs open in a wide, scrollable view, and editable fields stay editable there.</li>
+                </ul>
+                <p class="rel-text">Nothing changes in the MCP contract, agent keys or webhooks: agents set up for 2.0.0 or 2.0.1 keep working, and existing installs update on their own.</p>
+              </div>
+              <div class="rel">
+                <div class="rel-head"><h3 class="rel-ver">1.8.0</h3><time class="rel-date" datetime="2026-05-17">17 May 2026</time></div>
+                <ul class="rel-notes">
+                  <li>Initial stable release.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="rel-foot">Every desktop build before these is tagged in the <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meta line -->
+    <section class="section" id="meta" aria-labelledby="meta-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="meta-title">Meta line</h2>
+          <p>The date and counts under a title: a legal page's Last updated, a post's date, reading time and author.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample flow">
+            <p class="meta">Last updated: 20 October 2026</p>
+            <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample flow">
+            <p class="meta">Last updated: 20 October 2026</p>
+            <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post list -->
+    <section class="section" id="posts" aria-labelledby="posts-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="posts-title">Post list</h2>
+          <p>The blog index, newest first, one post per entry under a 1px rule. The title is the link.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <ol class="posts" role="list">
+              <li>
+                <h2><a href="/blog/task-manager-for-programmers-what-to-look-for-in-2026/">Task manager for programmers: what to look for</a></h2>
+                <p class="meta"><time datetime="2026-10-04T08:56:07.967Z">4 October 2026</time> · 7 min read</p>
+                <p>Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. Most tools cover one. Here is how to tell which you need.</p>
+              </li>
+              <li>
+                <h2><a href="/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/">Productivity RPG: how to build an XP system for real work</a></h2>
+                <p class="meta"><time datetime="2026-10-03T03:45:07.006Z">3 October 2026</time> · 7 min read</p>
+                <p>XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <ol class="posts" role="list">
+              <li>
+                <h2><a href="/blog/task-manager-for-programmers-what-to-look-for-in-2026/">Task manager for programmers: what to look for</a></h2>
+                <p class="meta"><time datetime="2026-10-04T08:56:07.967Z">4 October 2026</time> · 7 min read</p>
+                <p>Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. Most tools cover one. Here is how to tell which you need.</p>
+              </li>
+              <li>
+                <h2><a href="/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/">Productivity RPG: how to build an XP system for real work</a></h2>
+                <p class="meta"><time datetime="2026-10-03T03:45:07.006Z">3 October 2026</time> · 7 min read</p>
+                <p>XP, quests, stats and levels applied to actual tasks. A four-step system you can run in a notebook, with XP ranges to start from and the parts that usually break.</p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -963,6 +1962,46 @@
       </div>
     </section>
 
+    <!-- Store badges -->
+    <section class="section" id="store-badges" aria-labelledby="store-badges-title">
+      <div class="container">
+        <div class="sg-head">
+          <h2 id="store-badges-title">Store badges</h2>
+          <p>The App Store and Google Play links where a page sends the reader to the stores, in place of the two buttons. Inverted fill, 48px tall; the text counts as an image's.</p>
+        </div>
+        <p class="sg-label">Light</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="sg-sample">
+            <div class="store-badges">
+              <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                <span><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="sg-sample">
+            <div class="store-badges">
+              <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                <span><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Links -->
     <section class="section" id="links" aria-labelledby="links-title">
       <div class="container">
@@ -992,7 +2031,7 @@
       <div class="container">
         <div class="sg-head">
           <h2 id="closing-title">Closing CTA</h2>
-          <p>The last section of a marketing page: an h2, one sentence, two buttons.</p>
+          <p>The last section of a marketing page: an h2, one sentence, two buttons. The home page puts the store badges in place of the buttons, with one link under them; /pricing keeps only the badges and the link; /docs/ has the support line and one link.</p>
         </div>
         <p class="sg-label">Light</p>
         <div class="sg-panel" data-theme="light">
@@ -1020,6 +2059,120 @@
             </div>
           </section>
         </div>
+        <p class="sg-label">Light, with store badges</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="section closing">
+            <div class="container">
+              <h2>One engineer, in Istanbul.</h2>
+              <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_home&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=home">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, with store badges</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="section closing">
+            <div class="container">
+              <h2>One engineer, in Istanbul.</h2>
+              <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_home&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=home">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Light, badges only (/pricing)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="section closing">
+            <div class="container">
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_pricing&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=pricing">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, badges only (/pricing)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="section closing">
+            <div class="container">
+              <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_pricing&amp;mt=8">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=pricing">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
+              <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, support line and a link (/docs/)</p>
+        <div class="sg-panel" data-theme="light">
+          <div class="section closing">
+            <div class="container">
+              <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+              <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Dark, support line and a link (/docs/)</p>
+        <div class="sg-panel" data-theme="dark">
+          <div class="section closing">
+            <div class="container">
+              <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+              <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="sg-label">Light, under a blog post</p>
+        <div class="sg-panel" data-theme="light">
+          <section class="section closing">
+            <div class="container">
+              <h2>Dovilo turns finished work into a city you can see.</h2>
+              <p>A to-do list, focus sessions with full-screen ambience, and an isometric city built from what you complete. Free on iOS and Android.</p>
+              <div class="actions"><a class="btn btn-primary" href="/downloads/">Get Dovilo</a></div>
+            </div>
+          </section>
+        </div>
+        <p class="sg-label">Dark, under a blog post</p>
+        <div class="sg-panel" data-theme="dark">
+          <section class="section closing">
+            <div class="container">
+              <h2>Dovilo turns finished work into a city you can see.</h2>
+              <p>A to-do list, focus sessions with full-screen ambience, and an isometric city built from what you complete. Free on iOS and Android.</p>
+              <div class="actions"><a class="btn btn-primary" href="/downloads/">Get Dovilo</a></div>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
 
@@ -1040,13 +2193,14 @@
                   <ul>
                     <li><a href="/ai">For developers</a></li>
                     <li><a href="/downloads/">Downloads</a></li>
-                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/pricing/">Pricing</a></li>
                     <li><a href="/changelog/">Changelog</a></li>
                   </ul>
                 </div>
                 <div>
                   <p class="footer-title">Docs</p>
                   <ul>
+                    <li><a href="/docs/">Docs</a></li>
                     <li><a href="/docs/mcp/">MCP reference</a></li>
                     <li><a href="/docs/webhooks">Webhooks</a></li>
                     <li><a href="/faq">FAQ</a></li>
@@ -1088,13 +2242,14 @@
                   <ul>
                     <li><a href="/ai">For developers</a></li>
                     <li><a href="/downloads/">Downloads</a></li>
-                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/pricing/">Pricing</a></li>
                     <li><a href="/changelog/">Changelog</a></li>
                   </ul>
                 </div>
                 <div>
                   <p class="footer-title">Docs</p>
                   <ul>
+                    <li><a href="/docs/">Docs</a></li>
                     <li><a href="/docs/mcp/">MCP reference</a></li>
                     <li><a href="/docs/webhooks">Webhooks</a></li>
                     <li><a href="/faq">FAQ</a></li>
@@ -1139,13 +2294,14 @@
           <ul>
             <li><a href="/ai">For developers</a></li>
             <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/changelog/">Changelog</a></li>
           </ul>
         </div>
         <div>
           <p class="footer-title">Docs</p>
           <ul>
+            <li><a href="/docs/">Docs</a></li>
             <li><a href="/docs/mcp/">MCP reference</a></li>
             <li><a href="/docs/webhooks">Webhooks</a></li>
             <li><a href="/faq">FAQ</a></li>
@@ -1178,8 +2334,8 @@
   </footer>
 
   <script>
-    /* Site script: theme toggle, mobile menu, copy buttons, email links. The
-       same on every page. */
+    /* Site script: theme toggle, mobile menu, copy buttons, email links and
+       the dark captures of figures. The same on every page. */
     (function(){
       var root = document.documentElement;
       var dark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -1197,6 +2353,14 @@
         if (root.hasAttribute('data-theme')) {
           document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
         }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme, or the OS when there is none, so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : h === 'light' ? 'not all' : '(prefers-color-scheme: dark)';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
       }
       document.querySelectorAll('.theme-toggle').forEach(function(b){
         b.addEventListener('click', function(){

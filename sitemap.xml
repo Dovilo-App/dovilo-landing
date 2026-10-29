@@ -4,16 +4,28 @@
 
   <url>
     <loc>https://dovilo.app/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://dovilo.app/screenshots/mobile-focus.webp</image:loc>
-      <image:title>Dovilo focus session in the Rainy City ambience scene</image:title>
+      <image:loc>https://dovilo.app/screenshots/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo AI inbox: a plan of six tasks from Claude with an Approve button</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://dovilo.app/screenshots/mobile-city.webp</image:loc>
-      <image:title>Dovilo isometric city built from completed tasks</image:title>
+      <image:loc>https://dovilo.app/screenshots/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo list Mia&apos;s birthday with the six approved tasks under Today, Tomorrow and This week</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo focus session in the Rainy City scene with 22 minutes left</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
+      <image:title>Dovilo isometric city at level 26 with a stadium, a hospital and a city hall</image:title>
     </image:image>
   </url>
 
@@ -25,36 +37,50 @@
   </url>
 
   <url>
+    <loc>https://dovilo.app/pricing/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://dovilo.app/changelog/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/faq</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/docs/</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/docs/webhooks</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/docs/mcp/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/downloads/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -76,7 +102,7 @@
   <!-- BLOG:START -->
   <url>
     <loc>https://dovilo.app/blog/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

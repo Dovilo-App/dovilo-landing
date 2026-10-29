@@ -12,11 +12,10 @@ layer intact. Nothing else about design needs saying.
 - **Rule:** a page may only use components this document has. A page that needs something new adds
   it here first, then to `system.css`, then to `/styleguide/`, in the same commit.
 
-The redesign moves pages over one task at a time (`/ai`, `/`, a new `/pricing`, then `/downloads`,
-`/faq`, `/docs/*` and `/changelog`). Until a page moves, it stays on `styles/base.css` and its old
-rules in `CLAUDE.md`. A page is on one system or the other, never both. `/privacy`, `/terms`,
-`/licenses` and the blog (`tools/template.mjs`) also link `base.css` and are not in that list yet:
-`base.css` can only be deleted once they have moved too.
+The redesign moved the pages over one task at a time (`/ai`, `/`, a new `/pricing`, then
+`/downloads`, `/faq`, `/docs/*` and `/changelog`, and last `/privacy`, `/terms`, `/licenses` and the
+blog pages that `tools/template.mjs` renders). Every page is on this system now, and the old
+`styles/base.css` is gone with its rules.
 
 ---
 
@@ -59,8 +58,7 @@ text on it. That is why links are `--text` with an underline, not amber, and why
 amber chips rather than amber digits. Hover adds no colour either: a primary button's outline turns
 `--text`, a secondary one's `--text-muted`.
 
-`#D4880A` is the amber the existing site already uses (`styles/base.css`, mirroring the app's
-tokens). `#161B1D` is the app's dark background and the site's `theme-color`.
+`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#161B1D` is the app's dark background and the site's `theme-color`.
 
 ### Type
 
@@ -156,16 +154,17 @@ Every redesigned page has this head, in this order, and this body frame.
 </html>
 ```
 
-The stylesheet is render-blocking on purpose, for the same reasons `CLAUDE.md` gives for
-`base.css`: never async-load it and never inline it.
+The stylesheet is render-blocking on purpose, for the reasons `CLAUDE.md` gives under
+Performance: never async-load it and never inline it.
 
 ### Site script
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
-menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed") and the email
-links. Copy it from `styleguide/index.html` verbatim. It keys on these names, which are therefore a
-contract: `.theme-toggle`, `.nav-menu` (with `aria-controls`), `.nav-links.open`, `.copy-btn`,
-`.copy-btn.copied`, `.code`, and `a.mail` with `data-u`/`data-d`. A copy button's label is plain
+menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed"), the email
+links and the dark captures of figures (section 5, Figure). Copy it from `styleguide/index.html`
+verbatim. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
+(with `aria-controls`), `.nav-links.open`, `.copy-btn`, `.copy-btn.copied`, `.code`, `a.mail` with
+`data-u`/`data-d`, and `source.src-dark`. A copy button's label is plain
 text. The theme choice is stored in `localStorage['dovilo-theme']`, the same key the old pages use,
 so a visitor's choice follows them across both systems.
 
@@ -173,10 +172,12 @@ so a visitor's choice follows them across both systems.
 
 A page may keep a behaviour it already has, in a second inline script after the site script: the
 changelog's live GitHub releases fetch, the platform detection on `/downloads`, the
-table-of-contents highlight on `/docs/*`. Its class names stay a contract (`CLAUDE.md` §1.2 lists
-them). A page script never styles anything and never builds content a crawler should read. If the
-behaviour needs a visual part this document does not have (a table of contents, a platform card, a
-release entry), that part is added here first, like any other component.
+table-of-contents highlight on `/docs/mcp/` and `/docs/webhooks`. Its class names stay a contract
+(`CLAUDE.md` §1.1 lists them). A page script never styles anything and never builds content a
+crawler should read. If the behaviour needs a visual part this document does not have, that part
+is added here first, like any other component. The release feed's visual part is the release
+entry and the platform detection's the highlighted card of the download boxes (both section 5);
+the table of contents' is the reference layout (section 4).
 
 ## 4. Layout
 
@@ -201,6 +202,18 @@ Components stacked inside one section (a code
 block and a collapsible, a table and a note) sit 24px apart without any extra markup. Give a section
 an `id` whenever anything links to it, and keep every `id` the old page had (section 7).
 
+**In short:** when the hero sub is one line, the section straight after the hero carries the GEO
+paragraph (section 7) under the `<h2>` "In short", with no proof. `/ai` and `/` do this.
+
+```html
+<section class="section" id="about">
+  <div class="container">
+    <h2>In short</h2>
+    <p>Dovilo is a free to-do list for iOS and Android with … Pro is $2.49 a month.</p>
+  </div>
+</section>
+```
+
 ### Split
 
 Claim beside proof, for a phone screenshot or a short code block. Two equal columns from 768px,
@@ -213,11 +226,28 @@ stacked below.
 </div>
 ```
 
+**Figure row:** when the claim needs two phone screens, each with its own caption, the proof side
+of a split holds a `figure-row`: the two figures side by side at any width, at most 480px together,
+so each screen stays at most 228px wide.
+
+```html
+<div class="split">
+  <div class="section-head">…</div>
+  <div class="figure-row">
+    <figure class="figure">…</figure>
+    <figure class="figure">…</figure>
+  </div>
+</div>
+```
+
 ### Flow
 
-Running text on the pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`).
-Spaces paragraphs, lists and sub-headings on the grid. Plain `<h2>`, `<h3>`, `<p>`, `<ul>`, `<ol>`
-and `<code>` inside it need no classes.
+Running text on the pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`,
+`/licenses` and blog posts). Spaces paragraphs, lists and sub-headings on the grid. Plain `<h2>`,
+`<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>`, `<hr>`, `<blockquote>` and `<code>` inside it need no
+classes. An `<hr>` is a 1px rule 48px clear of both sides, the heading after it included; an `<h4>`
+is set at the body size; a `<blockquote>` is `--text-muted` with a 1px rule on its left. Only blog
+posts use those three today, from Markdown in Sanity.
 
 ```html
 <div class="container flow">
@@ -226,6 +256,131 @@ and `<code>` inside it need no classes.
   <ul><li>…</li></ul>
 </div>
 ```
+
+### Measure column
+
+A document read top to bottom (the legal pages, a blog post) holds its whole flow to the measure
+with `measure`, so the heading, a figure, a table and a rule line up with the text instead of
+running out to the container's edge. It sits inside the container, which keeps the gutters and
+the left edge every other page has. Its `64ch` resolves at the body size, so a large heading
+inside it wraps rather than widening it.
+
+```html
+<section class="section">
+  <div class="container"><div class="flow measure">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 20 October 2026</p>
+    <p>…</p>
+  </div></div>
+</section>
+```
+
+The legal pages are one such section: the `<h1>`, the meta line, then the text as it was written,
+in the order and the elements it was written in. On `/licenses` each list is a table (section 5).
+
+### Post
+
+A blog post, written by `tools/build-blog.mjs` from Sanity through `tools/template.mjs`; neither the
+markup nor the copy below is edited by hand in `blog/`. The post is one `<article class="section">`
+holding a measure column: the title as the `<h1>`, a meta line (date, reading time, author, then
+the tags when a post has any), the cover in a figure, the table of contents in a closed
+collapsible, then the body. A More posts nav and the closing CTA follow as sections of their own.
+
+The body is the post's Markdown and takes no classes: the flow spaces it, and the build maps what
+Markdown makes onto components. A table goes in `.table-wrap` as a `.table`; a code fence becomes
+a code block without a head (read, not copied); an image alone in its paragraph and at least as
+wide as the column becomes a figure (a narrower one keeps its own size, since a figure fills the
+column); a list of in-page links at the very top becomes the table of contents, which the RSS feed
+keeps as an open list.
+
+The cover is the post's own image from Sanity, often an illustration: the Figure rule on real
+screenshots holds for the site's pages, while a post's images are its content and are fixed in
+Sanity. The cover is the LCP image (`fetchpriority="high"`, no `loading`); images in the body are
+lazy. The column is 686px, or the screen less its gutters below 718px, so a post image's `sizes`
+is `(max-width:718px) calc(100vw - 32px), 686px`. The More posts nav is a link list (section 5):
+the older post as Previous, all posts, the newer post as Next, as many of the three as exist. The
+closing CTA has the one primary button.
+
+```html
+<article class="section">
+  <div class="container"><div class="flow measure">
+    <h1>Task management for AI coding agents: a Dovilo MCP setup guide</h1>
+    <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+    <figure class="figure"><img srcset="…" sizes="…" src="…" width="760" height="…" fetchpriority="high" alt="…"></figure>
+    <nav aria-label="On this page">
+      <details class="collapsible">
+        <summary>On this page</summary>
+        <div class="collapsible-body"><ul><li><a href="#the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</a></li> …</ul></div>
+      </details>
+    </nav>
+    <p>…</p>
+    <h2 id="the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</h2>
+    …
+  </div></div>
+</article>
+<nav class="section" aria-label="More posts">
+  <div class="container">
+    <ul class="link-list">
+      <li><a href="/blog/…/">Previous: … <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/blog/">All posts <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/blog/…/">Next: … <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </div>
+</nav>
+<section class="section closing">…</section>
+```
+
+The blog index (`/blog/`) opens with a plain section: the `<h1>`, one paragraph whose second
+sentence carries the post count the build counts, and a `.link` to the RSS feed. It lists the posts
+in a section of its own (Post list, section 5).
+
+### Reference
+
+The layout of `/docs/mcp/` and `/docs/webhooks`: a flow article beside its table of contents. The
+page opens with a plain section (the `<h1>`, the first paragraphs and any link cards, section 5),
+then one section holds the reference. From 960px the table of contents is a 240px rail beside the
+article that stays in view while the article scrolls, with a 1px rule down it and the link of the
+section in view marked in `--text`. Below 960px it folds into a closed collapsible above the
+article. Inside the article each `<h2>` after the first sits under a 1px rule, like a section.
+
+```html
+<div class="section">
+  <div class="container doc">
+    <aside class="toc" aria-label="On this page">
+      <details class="collapsible">
+        <summary>On this page</summary>
+        <div class="collapsible-body">
+          <p class="toc-title">On this page</p>
+          <ol id="toc-list">
+            <li><a href="#endpoints">Endpoints</a></li>
+            <li>
+              <a href="#authentication">Authentication</a>
+              <ol><li><a href="#agent-keys">Agents MCP keys</a></li></ol>
+            </li>
+          </ol>
+        </div>
+      </details>
+    </aside>
+    <article class="flow doc-body">
+      <h2 id="endpoints">Endpoints <a class="h-anchor" href="#endpoints" aria-hidden="true" tabindex="-1"></a></h2>
+      <p>…</p>
+    </article>
+  </div>
+</div>
+```
+
+The list ships closed, so a phone never sees it fold after the page has painted. The page script
+opens it from 960px, where opening it moves nothing else on the page and the summary is hidden so
+it cannot be closed, closes it again below 960px, and sets `.active` on the link of the section
+being read (the last heading above a line 30% down the viewport, whichever way the reader
+scrolls); those are its whole job (section 3). Without script the rail shows the closed
+collapsible's summary as a plain label, which still opens it. Nested entries are `<h3>`s, one
+level deep. Each heading the contents link to carries a **heading anchor**, `.h-anchor`: a `#`
+after the heading text, in `--text-muted`, shown on hover, so a reader can copy a link to that
+heading. The `#` is drawn by the stylesheet and the anchor is `aria-hidden` and out of the tab
+order, so the heading's text stays its own for crawlers and screen readers; the table of contents
+carries the same links for the keyboard. The section holding the reference has no heading of its
+own, so it is a `<div>`.
 
 ## 5. Components
 
@@ -263,15 +418,16 @@ with `aria-current="page"`.
 </header>
 ```
 
-The SVG paths are in `/styleguide/index.html`. Until `/pricing/` exists, the Pricing link points
-at `/#pricing`.
+The SVG paths are in `/styleguide/index.html`. The Pricing link points at `/pricing/`; the old pages'
+nav points there too.
 
 ### Hero
 
 The top of a marketing page: an `<h1>` of **one sentence, at most 9 words, that names Dovilo**; a
-sub of **at most 20 words**; two buttons (one primary, one secondary); one full-width figure. No
-eyebrow, no pill, no badge, no second figure. The name Dovilo does not count toward the 9 words.
-The figure may be a figure pair (below): still one figure, with one caption.
+sub of **at most 20 words**; two buttons (one primary, one secondary) or the two store badges; one
+full-width figure. No eyebrow, no pill, no badge other than the store badges, no second figure. The
+name Dovilo does not count toward the 9 words. The figure may be a figure pair or a phone pair
+(below): still one figure, with one caption.
 
 ```html
 <section class="hero">
@@ -300,23 +456,67 @@ takes the full width and the phone overlaps its top right corner at 36%, rising 
 of `--bg` separates the phone from the screen behind it: no shadow. Both images are above the fold,
 so neither is lazy; the desktop one is the LCP image.
 
+Both screens have a dark capture, so each sits in a `<picture>` (Figure, below); `<picture>` adds
+no box, and the classes stay on the `<img>`s.
+
 ```html
 <figure class="figure figure-pair">
-  <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
-       src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
-  <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-       src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+  <picture>
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark-700.webp 700w, …" sizes="…the same…" width="2000" height="1298">
+    <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+         src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
+  </picture>
+  <picture>
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="840">
+    <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+         src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+  </picture>
   <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
 </figure>
+```
+
+**Hero with a phone pair:** when the hero's proof is a flow on the phone rather than a desktop
+screen (the home page), the figure is a phone pair: two phone screens of one flow side by side, the
+second 64px lower (48px below 600px), at most 480px wide together, under one caption. They never
+overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
+text (`h1`, sub, store badges and at most one `.link`) and the phone pair sit side by side, the
+phones at the right edge; below 960px the phones follow the text. Both images are above the fold:
+the first is the LCP image (`fetchpriority="high"`), neither is lazy.
+
+```html
+<section class="hero">
+  <div class="container hero-split">
+    <div>
+      <h1>Dovilo: the to-do list that builds you a city.</h1>
+      <p class="hero-sub">…</p>
+      <div class="store-badges">…</div>
+      <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <figure class="figure figure-phones">
+      <img srcset="… 386w, … 772w" sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
+           src="…" width="386" height="840" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="840" alt="…">
+      <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
+    </figure>
+  </div>
+</section>
 ```
 
 The hero sub is the page's first paragraph, so it carries the GEO rule in section 7 and the
 `CLAUDE.md` rule for the paragraph under the H1: declarative sentences, with a number, that name
 Dovilo, say what it is and for whom, and carry the page's primary keyword without repeating the
-H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute.
+H1. The hero image is the LCP element: `fetchpriority="high"`, no `loading` attribute. When the
+sub is a single line that cannot carry all of that, an "In short" section straight after the hero
+does (section 4).
 
-Pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`) open with a plain
-section instead of a hero: an `<h1>` and the first paragraph, no buttons, no figure.
+**Hero without a proof:** on `/pricing`, `/downloads` and `/docs/` the proof is a section after
+the hero (the pricing columns, the download boxes, the link cards), so the hero is the `<h1>` and
+the sub alone: no buttons, no figure.
+
+Pages that carry depth (`/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms`,
+`/licenses`, `/blog/`) open with a plain section instead of a hero: an `<h1>` and the first
+paragraph, no buttons, no figure. A post opens the same way, with its cover as the one figure
+(Post, section 4).
 
 ```html
 <section class="section">
@@ -383,7 +583,7 @@ Two columns from 768px (heading, then sentence).
 
 ### Line lists
 
-Five components share one look (1px rules between short lines) and differ in what they may say.
+Six components share one look (1px rules between short lines) and differ in what they may say.
 
 **Facts list:** 4 to 6 short lines, no explanation. A grid of three columns from 960px.
 
@@ -435,8 +635,11 @@ already state; never a promise they do not.
 </ul>
 ```
 
-**Recently shipped:** the three newest **dated** entries from `/changelog/`, each linking to its
-anchor there, then a link to the rest. An entry without a date on the changelog does not appear.
+**Recently shipped:** the newest **dated** entry of each version line on `/changelog/` (today two:
+mobile and desktop), newest first, each linking to its anchor there, then a link to the rest. An
+entry without a date on the changelog does not appear. A release that reached one store only says
+so in its line (as "Mobile 2.0.0 on Android" did until the App Store release on the same evening),
+and a platform without a date is not mentioned.
 
 ```html
 <ul class="shipped">
@@ -446,8 +649,9 @@ anchor there, then a link to the rest. An entry without a date on the changelog 
 <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
 ```
 
-**Pricing summary:** exactly three lines and a link to the pricing page. Prices from `llms.txt`,
-never rounded or restated.
+**Pricing summary:** two or three lines, then a link to the pricing page. Prices from `llms.txt`,
+never rounded or restated. The home page's summary keeps its `#pricing` anchor, and its link, like
+the one on `/ai`, goes to `/pricing/`.
 
 ```html
 <ul class="pricing-summary">
@@ -455,7 +659,120 @@ never rounded or restated.
   <li><strong>Pro</strong><span>$2.49 a month, $19.99 a year or $49.99 once, with a 7-day free trial.</span></li>
   <li><strong>Packs</strong><span>Focus Ambience Pack and Full City Package, $4.99 each, included in Pro.</span></li>
 </ul>
-<a class="link" href="/pricing/">Compare plans <span aria-hidden="true">&rarr;</span></a>
+<a class="link" href="/pricing/">See pricing <span aria-hidden="true">&rarr;</span></a>
+```
+
+**Link list:** 3 to 6 links into sections of other pages, one per line, each a short label with an
+arrow; the whole line is the link. Each points at an anchor that exists (section 7). `/docs/` uses
+it for its deep links, and a blog post for its More posts nav (Post, section 4), where a label is
+"Previous:" or "Next:" and the post's title.
+
+```html
+<ul class="link-list">
+  <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
+  <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+</ul>
+```
+
+### Pricing columns
+
+The plans side by side, on `/pricing` only: one box per plan, two boxes, side by side from 768px
+and stacked below. A box has the plan's name in an `<h2>` (set at the `<h3>` size), its prices one
+per line (`plan-prices`), and what it includes as price lines. The second plan may open its list
+with one lead line ("Everything in Free, plus"). **No badges**: no "Best value", no "Save 33%", no
+highlighted plan; both boxes look the same. Each box carries the plan's id, so `/pricing/#pro`
+links to it.
+
+**Price lines** (`price-lines`): the line-list look in one column, for what a plan or a one-time
+purchase includes. The copy is the product brief's list verbatim, never paraphrased to fit. A
+caveat that applies to the whole block goes in a note under it (Note, below).
+
+```html
+<div class="plans">
+  <div class="plan" id="free">
+    <h2>Free</h2>
+    <ul class="plan-prices"><li>$0</li></ul>
+    <ul class="price-lines">
+      <li>Full to-do management</li>
+      <li>Unlimited tasks &amp; categories</li>
+      …
+    </ul>
+  </div>
+  <div class="plan" id="pro">
+    <h2>Pro</h2>
+    <ul class="plan-prices">
+      <li>$2.49 a month</li>
+      <li>$19.99 a year</li>
+      <li>$49.99 once</li>
+      <li>7-day trial in the app</li>
+    </ul>
+    <p class="plan-lead">Everything in Free, plus</p>
+    <ul class="price-lines">…</ul>
+  </div>
+</div>
+<p class="note">Sending a plan is free; approving needs Pro.</p>
+```
+
+### Download boxes
+
+Where to get each app, on `/downloads` only: two boxes like the pricing columns, one for the phones
+and one for the desktop. The phone box holds the two store badges; the desktop box holds the two
+installers in the same badge look, with the OS logo and a two-line label that reads "Dovilo for
+Windows" and "Dovilo for Mac". Under the badges, one or two short lines. Each box keeps the ids
+the old page had: the box takes the new id, its heading the old group id, and each badge its old
+card id (`#card-ios|android|windows|mac`).
+
+The page script marks the download for the visitor's platform with `highlighted` on its card: a
+1px `--text` ring around the badge, nothing else, and never while the badge has keyboard focus. No
+label, no pulsing dot, no colour. The old page's prose sections are collapsibles that keep their
+ids, so the page script also opens a collapsible when the URL's fragment names it.
+
+```html
+<div class="download-boxes">
+  <div class="download-box" id="mobile">
+    <h2 id="group-mobile">Phones</h2>
+    <div class="store-badges">
+      <a class="store-badge" id="card-ios" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">…</a>
+      <a class="store-badge" id="card-android" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">…</a>
+    </div>
+    <p>Free, with a 7-day Pro trial in the app.</p>
+  </div>
+  <div class="download-box" id="desktop">
+    <h2 id="group-desktop">Desktop</h2>
+    <div class="store-badges">
+      <a class="store-badge" id="card-windows" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+        <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+        <span><small>Dovilo for</small><strong>Windows</strong></span>
+      </a>
+      …
+    </div>
+    <p>Latest: 2.0.2, 27 Oct 2026. …</p>
+  </div>
+</div>
+```
+
+### Link cards
+
+Two places to go next, side by side from 768px and stacked below, in the same box as the pricing
+columns: each card is one link holding a title with an arrow and **one line** of what is there.
+Hover adds no colour; the outline darkens to `--text-muted`. Never more than two; a single card
+keeps the width of one column, as on `/docs/webhooks`. On `/docs/` the
+cards are the page's two sections, so the title is an `<h2>` (set at the `<h3>` size, like a plan's
+name); where they sit inside a section, as in the opening of the two references, it is a
+`<span>`, and a card may carry a short kind label above it (`card-kind`, in `--text-muted`).
+
+```html
+<div class="cards">
+  <a class="card" href="/docs/mcp/">
+    <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
+    <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
+  </a>
+  <a class="card" href="/docs/webhooks">
+    <span class="card-kind">Reference</span>
+    <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
+    <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
+  </a>
+</div>
 ```
 
 ### Figure
@@ -475,6 +792,43 @@ caps them at 288px wide.
 One figure per claim, and **the same image never appears twice on a page**. Images follow the
 WebP, `width`/`height`, `srcset`/`sizes` and lazy-loading rules in `CLAUDE.md`.
 
+**Dark capture:** a phone or desktop screen that the app draws differently in its dark theme
+carries both captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
+capture, its alt text, `loading`, `fetchpriority` and `width`/`height`; a `<source class="src-dark">`
+before it in a `<picture>` holds the dark capture, with the same `sizes` and the same
+`width`/`height`, so swapping never moves the layout. The dark file has the light file's name plus
+`-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`, `desktop-ai-dark-2000.webp`),
+and the same crop. A dark capture taken in a slightly larger window (the desktop set: 2874x1866
+against 2844x1846) is scaled to the light file's size before encoding, never cropped: every width
+variant then has its light twin's exact `width`/`height`, so the box never moves, though the
+content inside may sit a pixel or two off its light twin.
+
+```html
+<picture>
+  <source class="src-dark" media="(prefers-color-scheme: dark)"
+          srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
+          sizes="…" width="386" height="840">
+  <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
+       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+       alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+</picture>
+```
+
+The markup's `media` follows the OS setting, which is what the browser (and its preload scanner)
+sees first. The site script then points every `source.src-dark` at the nearest explicit
+`data-theme` (`all` for dark, `not all` for light), on load and on every toggle, and back to the OS
+query when there is no choice; the browser swaps the image without a reload. Only the capture for
+the current theme is fetched, and a lazy one only when it nears the viewport; the other is fetched
+the first time the theme changes. One edge: when a visitor's saved choice differs from the OS, the
+preload scanner, which reads the markup before any script runs, fetches every eager hero capture in
+the OS theme first (both phones on `/`, the desktop and the phone on `/ai`), and the shown one only starts when the
+site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
+script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
+(`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
+`figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
+a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
+looks the same in both themes (the city) keeps one source. Share cards stay light.
+
 ### Code block
 
 A title, a copy button and the code, themed like the page. No highlighting library and no fake
@@ -487,9 +841,22 @@ window dots.
 </div>
 ```
 
-`/docs/webhooks` keeps highlight.js and its inlined theme until its own redesign task decides
-otherwise (see `CLAUDE.md`). That inlined theme is the one `<style>` block a redesigned page may
-still carry.
+The title names the client or the format (`Claude Code`, `JSON`, `Python`). Code that is read
+rather than copied (a transcript of an agent's calls, a status diagram in text) drops the head:
+no title and no copy button, just the `<pre>` in the box. A long block written to be pasted into
+an agent rather than read, as the integration prompt on `/docs/webhooks`, takes `code-long`: it
+scrolls inside 480px and the copy button still copies all of it. Code samples a reader studies
+(the verification code, the payloads) stay at full height.
+
+```html
+<div class="code code-long">
+  <div class="code-head"><span>AI integration prompt</span><button class="copy-btn" type="button">Copy prompt</button></div>
+  <pre><code>…</code></pre>
+</div>
+```
+
+`/docs/webhooks` dropped highlight.js and its inlined theme when it moved to this system: its code
+blocks are themed like every other page's, so no redesigned page carries a `<style>` block.
 
 ### Collapsible
 
@@ -510,8 +877,14 @@ The summary is a plain label, not a heading, and ends without punctuation.
 
 ### Table
 
-For reference data. **At most six rows in the open**; a longer table goes inside a collapsible.
-Always inside `.table-wrap`, which scrolls sideways on a phone instead of squeezing the cells.
+For reference data. **At most six rows in the open** on a page with a word budget; a longer table
+goes inside a collapsible there. The pages that carry the depth (`/docs/mcp/`, `/docs/webhooks`,
+`/faq`, `/changelog`) are where those collapsibles send the reader, so their reference tables stay
+open at any length. Always inside `.table-wrap`, which scrolls sideways on a phone instead of
+squeezing the cells: below 768px a table of three or more columns is at least 48em wide, so its
+sentence column keeps room for a phrase rather than shrinking to its longest word, while a
+two-column table still fits the screen. A table split into groups puts each group in its own `<tbody>`, opened by a
+row whose one cell is `<th colspan="…" scope="rowgroup">`.
 
 ```html
 <div class="table-wrap">
@@ -539,7 +912,74 @@ are in its HTML.
 </div>
 ```
 
-The old pages' `.faq-item.open` accordion and its script stay on the old pages only.
+An answer may run to more than one paragraph; the paragraphs sit 16px apart, and the JSON-LD
+joins them with a space. On `/faq` the questions come in groups: each group is a section with an
+`<h2>` and an `id` (`#general`, `#pro-pricing`, `#data-privacy` and so on) holding one accordion,
+and the page closes with the support address under `#contact`, as `/docs/` closes.
+
+The old pages' `.faq-item.open` accordion and its script are gone with the old `/faq`, and its
+rules went with `base.css`.
+
+### Release entries
+
+The builds on `/changelog`, newest first, one version line (mobile, desktop) per section. Each
+entry sits under a 1px rule: the version as an `<h3>` (`rel-ver`), its date in a `<time>`
+(`rel-date`, in `--text-muted`), and on the newest build of each line the word Latest
+(`rel-latest`) in a 1px outline. Latest is a label, not a badge: no fill, no colour, and it states
+a fact rather than selling anything. Then what shipped as a bulleted list (`rel-notes`) and, where
+the build needs one, a paragraph of context in `--text-muted` (`rel-text`). A line under the list
+of entries (`rel-foot`) may say where older builds are. Each entry keeps its `id`
+(`#mobile-2-0-0`, `#desktop-2-0-2`): the home page's Recently shipped list and the changelog's
+`ItemList` point at them.
+
+```html
+<div class="releases" id="releases">
+  <div class="rel" id="desktop-2-0-2">
+    <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+    <ul class="rel-notes">
+      <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. …</li>
+    </ul>
+    <p class="rel-text">Nothing changes in the MCP contract, agent keys or webhooks: …</p>
+  </div>
+  …
+</div>
+<p class="rel-foot">Every desktop build before these is tagged in the <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases" target="_blank" rel="noopener">releases repository</a>.</p>
+```
+
+The `.rel*` names and `#releases` are a contract with the changelog's page script, the release
+feed: it reads the version of the first entry in `#releases`, asks the GitHub releases API for the
+newest desktop tag and, only when that tag is newer, writes an entry of the same markup above it,
+with a link to its notes on GitHub, and moves Latest to it. Every other entry is in the HTML, and
+the `ItemList` keeps to those.
+
+### Meta line
+
+The date and counts under a title, in `--text-small` and `--text-muted`: a legal page's Last
+updated, a post's date, reading time and author. Items are separated by a middle dot in the text.
+It belongs to the title above it; it is not a caption and not a sentence of the page.
+
+```html
+<p class="meta">Last updated: 20 October 2026</p>
+<p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
+```
+
+### Post list
+
+The posts on `/blog/`, newest first, one entry per post under a 1px rule, in the line-list look:
+the title as an `<h2>` set at the `<h3>` size, a meta line with the date and reading time (then the
+tags when a post has any), and the post's summary in `--text-muted`. The title is the entry's one link, underlined on hover. The build
+writes the list; nothing in it is typed by hand.
+
+```html
+<ol class="posts" role="list">
+  <li>
+    <h2><a href="/blog/task-manager-for-programmers-what-to-look-for-in-2026/">Task manager for programmers: what to look for</a></h2>
+    <p class="meta"><time datetime="…">4 October 2026</time> · 7 min read</p>
+    <p>Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. …</p>
+  </li>
+  …
+</ol>
+```
 
 ### Note
 
@@ -562,6 +1002,57 @@ The last section of a marketing page: an `<h2>`, one sentence, two buttons. Cent
       <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
       <a class="btn btn-secondary" href="/faq">Read the FAQ</a>
     </div>
+  </div>
+</section>
+```
+
+On the home page the closing sends the reader to the stores: the two store badges take the place
+of the buttons, and one `.link` under them may point at the desktop downloads.
+
+```html
+<section class="section closing" id="download">
+  <div class="container">
+    <h2>One engineer, in Istanbul.</h2>
+    <p>No company, no funding. <a href="/changelog/">A public release history you can check.</a></p>
+    <div class="store-badges">…</div>
+    <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+```
+
+On `/pricing` the section before the closing has already made the case, so the closing is the store
+badges and the Desktop line alone, with no heading and no sentence. With no heading, it is a `<div>`
+rather than a `<section>`.
+
+```html
+<div class="section closing">
+  <div class="container">
+    <div class="store-badges">…</div>
+    <a class="link" href="/downloads/">Dovilo Desktop for Windows and Mac needs Pro <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+```
+
+`/docs/` closes the same way, with the support line and one link in place of the badges.
+
+```html
+<div class="section closing">
+  <div class="container">
+    <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+    <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+```
+
+A blog post closes with a heading, its sentence and one primary button, no secondary: the build
+writes the same closing under every post.
+
+```html
+<section class="section closing">
+  <div class="container">
+    <h2>Dovilo turns finished work into a city you can see.</h2>
+    <p>A to-do list, focus sessions with full-screen ambience, and an isometric city built from what you complete. Free on iOS and Android.</p>
+    <div class="actions"><a class="btn btn-primary" href="/downloads/">Get Dovilo</a></div>
   </div>
 </section>
 ```
@@ -606,6 +1097,29 @@ label is a verb phrase in sentence case ("Download Dovilo"), never "Click here" 
 Store links keep their tracking parameters from the product brief (`?ct=…` for the App Store,
 `utm_source`/`utm_medium` for Google Play, `?source=` for desktop installers and `/downloads`).
 
+**Store badges:** where a page sends the reader straight to the stores (the home hero and
+closing, the `/pricing` closing, the `/downloads` phone box), the App Store and Google Play badges
+take the place of the two buttons. The desktop installers on `/downloads` share the look (Download
+boxes, above). A badge is the
+store's logo and its two-line label on an inverted fill (`--text` behind `--bg` text), 48px tall.
+Hover adds no colour: the outline turns `--text-muted`. Their text counts as an image's, not toward
+the word budget.
+
+```html
+<div class="store-badges">
+  <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_hero&amp;mt=8">
+    <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+    <span><small>Download on the</small><strong>App Store</strong></span>
+  </a>
+  <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=hero">
+    <svg viewBox="0 0 24 24" aria-hidden="true">…</svg>
+    <span><small>Get it on</small><strong>Google Play</strong></span>
+  </a>
+</div>
+```
+
+The logo paths are in `/styleguide/`.
+
 ### Links
 
 Inside running text a link is `--text`, underlined in `--text-muted`, and the underline darkens on
@@ -635,25 +1149,31 @@ Internal links use the URL form the target's canonical names, until the canonica
 - **Nothing invented**: no feature, price, platform, date, quote, testimonial, user count or rating
   that is not already in `llms.txt`, `llms-full.txt`, `/faq` or the page itself.
 - Plain about what is missing: "Not yet: there is no data export today."
+- A heading never breaks a line at the hyphen of a compound: wrap it in `<span class="nowrap">`,
+  as in `the <span class="nowrap">to-do</span> list`.
 
 ### Word budgets
 
-Visible words per page: text outside `<details>`/`<summary>`, the nav and the footer. The hero sub
-and every section sentence count; code inside a code block does not.
+Visible words per page: text outside the nav, the footer and the body of every `<details>`. The
+hero sub and every section sentence count; code inside a code block does not. A FAQ question in its
+`<summary>` counts on `/`; its answer does not.
 
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
-| `/` | 350 at most | Collapsibles and the FAQ accordion |
+| `/` | 450 at most, body copy under 350; headings, step labels, captions, links and FAQ questions count, store badges do not | Collapsibles and the FAQ accordion |
 | `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
-| `/pricing` | 250 at most | Collapsibles |
+| `/pricing` | 320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither | Collapsibles and the FAQ accordion |
 | `/downloads` | 150 at most | Collapsibles |
-| `/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
+| `/docs/` | 150 at most | Link cards and a link list |
+| `/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
+| `/licenses`, `/blog/` and every post | No budget | Generated or legal text, not written to a budget |
 
 A budget is a ceiling, not a target. A page over its budget moves text into a collapsible or onto
 the page that carries the depth; it does not drop facts.
 
 The 300-word floor in `CLAUDE.md` still holds for every page: on a budgeted page it is met by the
-visible text plus what is in its collapsibles.
+visible text plus what is in its collapsibles. `/docs/` is the one exception: a hub whose depth is
+the two references it links, accepted under the floor.
 
 ## 7. GEO and SEO content layer
 
@@ -661,8 +1181,9 @@ Visible text shrinks; indexable text does not.
 
 - **The `<h1>` names the entity.** Every marketing page's `<h1>` contains "Dovilo".
 - **The first paragraph answers "what is this and for whom"** in two or three declarative
-  sentences with at least one number. On a page with a hero, that paragraph is the hero sub. It
-  counts toward the budget.
+  sentences with at least one number. On a page with a hero, that paragraph is the hero sub, or,
+  when the sub is one line, the "In short" paragraph straight after the hero (section 4). It counts
+  toward the budget.
 - **Depth moves to `<details>` on the same page**: tool tables, payload examples, long answers.
   Crawlable HTML, hidden only by default, excluded from the budget.
 - **One `<h1>` per page, an `<h2>` per section**, `<h3>` below that. FAQ `<h3>`s are questions.
@@ -699,22 +1220,17 @@ Visible text shrinks; indexable text does not.
 
 ## 9. Not covered yet
 
-Surfaces the redesign will need that this document does not have yet. The task that moves the page
-adds the component here first.
-
-- **The homepage blog band**, written by `tools/build-blog.mjs` between the `BLOG` markers, and the
-  blog pages from `tools/template.mjs`.
-- **A table of contents** for `/docs/*` (today's `.toc`, with its scroll highlight).
-- **Platform cards** for `/downloads` (`#card-ios|android|windows|mac`, with platform detection).
-- **Release entries** for `/changelog` (the `.rel*` nodes the live GitHub fetch writes into).
-- `/privacy`, `/terms` and `/licenses` are not on the redesign list; they can move onto `.flow`
-  as they are.
+Nothing today: every page on the site, the blog pages that `tools/template.mjs` renders included,
+is built from the components above. A surface this document does not cover adds its component
+here first, then to `system.css` and `/styleguide/`, in the same commit.
 
 ## 10. Checks before a redesigned page ships
 
 - [ ] Only components from this document; no `<style>` block, no inline style, no new token.
-- [ ] Visible words within budget (section 6), counted outside details, nav and footer.
-- [ ] `<h1>` names Dovilo; first paragraph is 2-3 declarative sentences with a number.
+- [ ] Visible words within budget, counted as section 6 says.
+- [ ] `<h1>` names Dovilo; the first paragraph (hero sub or In short) is 2-3 declarative sentences
+      with a number. Not on the legal pages, whose text changes only word for word from a task,
+      and not on a post, whose title and text are Sanity's.
 - [ ] Every old URL and anchor `id` still resolves.
 - [ ] JSON-LD mirrors the visible text; `dateModified` = sitemap `lastmod`.
 - [ ] `llms.txt` and `llms-full.txt` updated from the page, not shortened.
