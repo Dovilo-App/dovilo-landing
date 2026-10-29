@@ -91,12 +91,17 @@ Rules:
   holds. `tools/template.mjs` carries a copy of the site script, nav and footer: change them on the
   hand-written pages and there in the same commit, then rebuild the blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
-  script keys on `#card-ios|android|windows|mac` and adds `.highlighted`; it does not read
-  `?source=`, which the page accepts and ignores until a task gives the per-source lines. It makes
-  one request, GitHub's `releases/latest` for the desktop releases repo (the release the installer
-  links download), and writes the tag without its `v` into `#desktop-ver` and the publish date, as
-  "27 Oct 2026" in UTC, into `time#desktop-date` and its `datetime`, in the desktop box's Latest
-  line. On any failure the static line stays. The page source, `llms.txt` and `llms-full.txt`
+  script keys on `#card-ios|android|windows|mac` and adds `.highlighted`. It reads `?source=`
+  against a fixed map of the five values product brief §12 reserves (`mcp_401`, `mcp_browser`,
+  `mcp_pro_required`, `desktop_update`, `mcp_new_user`) and, for one of them, inserts a
+  `div.note` before `.download-boxes` (design-language §5, Note); any other value, or none, shows
+  nothing. The five lines are final copy from their task and live in that map, never in the
+  page's text, `llms.txt` or `llms-full.txt`; the canonical stays `/downloads/`. The Note samples
+  in `/styleguide/` and design-language §5 repeat the `mcp_browser` line: change them with it. The
+  page script also makes one request, GitHub's `releases/latest` for the desktop releases repo
+  (the release the installer links download), and writes the tag without its `v` into
+  `#desktop-ver` and the publish date, as "27 Oct 2026" in UTC, into `time#desktop-date` and its
+  `datetime`, in the desktop box's Latest line. On any failure the static line stays. The page source, `llms.txt` and `llms-full.txt`
   carry only that static text, so it is still updated by hand at a release; Googlebot runs the
   script and may index the fetched version instead. The page
   script of `/docs/mcp/` and `/docs/webhooks` opens `.toc details` from 960px and sets `.active` on
@@ -168,8 +173,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   value", no "save 33%"), the homepage keeps the same offers minus the AI task top-ups, word for
   word, and owns `featureList`, the changelog owns `releaseNotes` and `downloadUrl` and carries
   `/pricing/`'s Free offer word for word (since 29 Oct 2026). Change a price on `/pricing/`, change
-  both `offers` lists, and the changelog's Free offer too when Free changes. Never mint a second
-  node without the `@id`.
+  both `offers` lists, and the changelog's Free offer too when Free changes; the Pro prices also
+  sit in the `mcp_pro_required` line of `/downloads`' page script, seen only with that `?source=`.
+  Never mint a second node without the `@id`.
   (`c7ab5a8`)
 - Every page carries a page-level type (`WebPage`, `CollectionPage` for `/docs/`, `TechArticle` for `/ai`, `/docs/mcp/` and `/docs/webhooks`,
   `FAQPage` for `/faq`, `Blog`/`BlogPosting` for the blog) and, except the homepage, a
