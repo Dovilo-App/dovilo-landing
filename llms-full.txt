@@ -4,7 +4,7 @@
 
 This file expands [llms.txt](https://dovilo.app/llms.txt) with the detail an assistant needs to answer questions about Dovilo without guessing: feature behaviour, the agent interface, the webhook contract, pricing, and the complete FAQ. Everything here is public documentation. Source pages are linked at the end.
 
-Last updated: 2026-10-29.
+Last updated: 2026-10-30.
 
 ## What Dovilo is
 
@@ -293,7 +293,7 @@ Pro adds, in the order the app lists them: planning with ChatGPT, Claude, Gemini
 - **Desktop:** Dovilo for Windows (`Dovilo-Setup.exe`) and Dovilo for Mac (`Dovilo.dmg`), both from the public releases repository, https://github.com/Dovilo-App/dovilo-desktop-releases. Latest: 2.0.2, 27 Oct 2026. Needs Pro: sign in with the account you subscribed with.
 - **Coming from Desktop 1.8?** Agents now connect to dovilo.app/mcp/agents with a key. The steps are at https://dovilo.app/docs/mcp/#upgrading.
 
-The page marks the download that matches the visitor's device. Links from the app and from the MCP servers' error messages carry a `?source=` value (for example `?source=mcp_401`); the page shows the same content whatever it is.
+The page marks the download that matches the visitor's device. Links from the app and from the MCP servers' error messages carry a `?source=` value (for example `?source=mcp_401`). For five of those values the page adds a short note above the download boxes saying why the visitor landed there and what to do next; the downloads and the rest of the page are the same whatever the value.
 
 Which download you need, as the page sets it out:
 

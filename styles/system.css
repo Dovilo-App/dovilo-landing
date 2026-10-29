@@ -701,7 +701,7 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
   background:var(--surface);
   border:1px solid var(--border);border-radius:var(--radius);
 }
-.note strong{color:var(--text)}
+.note strong,.note a{color:var(--text)}
 
 /* Closing CTA */
 .closing{text-align:center}

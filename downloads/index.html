@@ -400,10 +400,68 @@
     /* Page script: marks the download for this device (#card-ios, -android,
        -windows, -mac), opens the collapsible an old anchor points at
        (#what-it-is, #which-download, #free-and-pro, #download-faq were open
-       sections before) and brings the desktop box's Latest line up to the
-       newest release. It only adds a class, sets open and swaps that line's
-       version and date; the ring is the download boxes' component in
-       system.css. ?source= is accepted and not read here. */
+       sections before), brings the desktop box's Latest line up to the
+       newest release and, for one of five ?source= values, puts a note
+       above the download boxes. It only adds a class, sets open, swaps that
+       line's version and date and inserts the note; the ring and the note
+       are components in system.css. */
+    (function(){
+      /* The five values Dovilo's servers and apps put in links here (product
+         brief §12). Their lines live only in this map, never in the page
+         text, so they stay out of the index and out of llms.txt. Any other
+         value, or none, shows nothing. */
+      var NOTES = {
+        mcp_401: {
+          lead: "Your AI app couldn't sign in to Dovilo.",
+          text: 'Install the app, sign in with the same Google or Apple account, then connect again. For a coding agent, create or regenerate its key in AI Tasks.'
+        },
+        mcp_browser: {
+          lead: 'dovilo.app/mcp is an endpoint for AI apps, not a web page.',
+          text: 'Add it as a connector in ChatGPT, Claude, Gemini or Grok. Coding agents use dovilo.app/mcp/agents with an agent key from the app.',
+          link: ['Read the MCP docs', '/docs/mcp/']
+        },
+        mcp_pro_required: {
+          lead: 'That needs Dovilo Pro.',
+          text: 'Start the 7-day free trial in the iOS or Android app: $2.49 a month, $19.99 a year or $49.99 once. Cancel before day 7 and nothing is charged.',
+          link: ['See what Pro includes', '/pricing/']
+        },
+        desktop_update: {
+          lead: "This version of Dovilo Desktop can't connect any more.",
+          text: 'Download the latest release below and install it over the old one.'
+        },
+        mcp_new_user: {
+          lead: 'Your plan is waiting in Dovilo.',
+          text: 'Install the app and sign in with the same Google or Apple account you used in your AI app. The plan is in your inbox, ready to approve.'
+        }
+      };
+      var boxes = document.querySelector('.download-boxes');
+      if (!boxes || !window.URLSearchParams) return;
+      var source = new URLSearchParams(location.search).get('source');
+      /* Own keys only, so ?source=constructor finds nothing. */
+      if (!source || !Object.prototype.hasOwnProperty.call(NOTES, source)) return;
+      var n = NOTES[source];
+
+      var note = document.createElement('div');
+      note.className = 'note';
+      var p = document.createElement('p');
+      var lead = document.createElement('strong');
+      lead.textContent = n.lead;
+      p.appendChild(lead);
+      p.appendChild(document.createTextNode(' ' + n.text));
+      note.appendChild(p);
+      if (n.link) {
+        var a = document.createElement('a');
+        var arrow = document.createElement('span');
+        a.className = 'link';
+        a.href = n.link[1];
+        a.textContent = n.link[0] + ' ';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '→';
+        a.appendChild(arrow);
+        note.appendChild(a);
+      }
+      boxes.parentNode.insertBefore(note, boxes);
+    })();
     (function(){
       function openTarget(){
         var id = location.hash.slice(1), el = null;

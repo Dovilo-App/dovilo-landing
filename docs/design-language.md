@@ -177,14 +177,15 @@ so a visitor's choice follows them across both systems.
 
 A page may keep a behaviour it already has, or take one a task gives it, in a second inline script
 after the site script: the changelog's live GitHub releases fetch, the platform detection on
-`/downloads` and the version in its Latest line, the table-of-contents highlight on `/docs/mcp/` and
-`/docs/webhooks`. Its class names stay a contract (`CLAUDE.md` §1.1 lists them). A page script
-never styles anything and never builds content a crawler should read. If the behaviour needs a
-visual part this document does not have, that part is added here first, like any other component.
-The release feed's visual part is the release entry and the platform detection's the highlighted
-card of the download boxes (both section 5); the table of contents' is the reference layout
-(section 4). The Latest line has none: the script swaps the text of a line already on the page,
-and the page carries that line in full without it.
+`/downloads`, the version in its Latest line and its source note, the table-of-contents highlight
+on `/docs/mcp/` and `/docs/webhooks`. Its class names stay a contract (`CLAUDE.md` §1.1 lists
+them). A page script never styles anything and never builds content a crawler should read. If the
+behaviour needs a visual part this document does not have, that part is added here first, like
+any other component. The release feed's visual part is the release entry, the platform
+detection's the highlighted card of the download boxes and the source note's the Note (all
+section 5); the table of contents' is the reference layout (section 4). The Latest line has none:
+the script swaps the text of a line already on the page, and the page carries that line in full
+without it.
 
 ## 4. Layout
 
@@ -738,7 +739,8 @@ ids, so the page script also opens a collapsible when the URL's fragment names i
 The desktop box's Latest line names the newest desktop build and its date. The page script reads
 GitHub's latest release, the one the installer links download, and writes its version into
 `#desktop-ver` and its date, as "27 Oct 2026", into `time#desktop-date`. When the request fails the
-line written in the page stays, so it is kept correct by hand as well.
+line written in the page stays, so it is kept correct by hand as well. For one of the five
+`?source=` values the page script also puts the source note (Note, below) above the boxes.
 
 ```html
 <div class="download-boxes">
@@ -996,10 +998,25 @@ writes the list; nothing in it is typed by hand.
 
 ### Note
 
-A one-line callout for a limit or a caveat. Said plainly, never as a warning banner.
+A one-line callout for a limit or a caveat. Said plainly, never as a warning banner. A link in it
+is `--text`, like the `<strong>` lead.
 
 ```html
 <p class="note"><strong>Not yet:</strong> there is no data export today.</p>
+```
+
+One note is longer: the source note on `/downloads`, which tells a visitor sent by Dovilo's servers
+or apps why they landed there. The page script puts it first in the download section, above the
+boxes, when `?source=` is one of the five values in its map, and only then; the page text never
+holds it. It is a `<div class="note">` with one paragraph, its first sentence as the `<strong>`
+lead, and at most one `.link`. The section's own spacing sets it apart from the boxes; the note
+needs no rule of its own.
+
+```html
+<div class="note">
+  <p><strong>dovilo.app/mcp is an endpoint for AI apps, not a web page.</strong> Add it as a connector in ChatGPT, Claude, Gemini or Grok. Coding agents use dovilo.app/mcp/agents with an agent key from the app.</p>
+  <a class="link" href="/docs/mcp/">Read the MCP docs <span aria-hidden="true">&rarr;</span></a>
+</div>
 ```
 
 ### Closing CTA
