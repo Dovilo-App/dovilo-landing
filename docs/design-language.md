@@ -1014,7 +1014,7 @@ needs no rule of its own.
 
 ```html
 <div class="note">
-  <p><strong>dovilo.app/mcp is an endpoint for AI apps, not a web page.</strong> Add it as a connector in ChatGPT, Claude, Gemini or Grok. Coding agents use dovilo.app/mcp/agents with an agent key from the app.</p>
+  <p><strong>This address is an endpoint for AI apps, not a web page.</strong> Add it as a connector in ChatGPT, Claude, Gemini or Grok. Coding agents use dovilo.app/mcp/agents with an agent key from the app.</p>
   <a class="link" href="/docs/mcp/">Read the MCP docs <span aria-hidden="true">&rarr;</span></a>
 </div>
 ```
