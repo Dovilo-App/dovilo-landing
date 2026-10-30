@@ -14,7 +14,8 @@
  *   favicon.ico            16, 32 and 48 from the glyph, PNG entries
  *   favicon.svg            the glyph, byte for byte
  *   apple-touch-icon.png   180, opaque, from the square
- *   notify-icon.webp       64, transparent, from the glyph: the nav logo, shown at 32
+ *   notify-icon.webp       96, transparent, from the glyph: the nav logo, shown at 32,
+ *                          so 3x phones get their own pixels and 1x and 2x scale down
  *   notify-icon.png        512, opaque, from the square: the JSON-LD logo
  *
  * Nothing is written until every file has rendered, so a failing source leaves
@@ -100,7 +101,7 @@ const files = {
   'favicon.ico': ico(favicon),
   'favicon.svg': glyph.svg,
   'apple-touch-icon.png': await (await opaque(await render(square, 180), 'apple-touch-icon.png')).png(PNG).toBuffer(),
-  'notify-icon.webp': await (await render(glyph, 64)).webp({ lossless: true, effort: 6 }).toBuffer(),
+  'notify-icon.webp': await (await render(glyph, 96)).webp({ lossless: true, effort: 6 }).toBuffer(),
   'notify-icon.png': await (await opaque(await render(square, 512), 'notify-icon.png')).png(PNG).toBuffer(),
 };
 
