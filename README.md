@@ -26,7 +26,8 @@ The app itself is closed source; this repository is the public website only.
 
 ## Stack
 
-Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
+Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) and the
+[icons](#icons), whose output is committed like the blog's — each page
 is a single `index.html` with its structured data in `application/ld+json` blocks, except
 [`404.html`](404.html) at the root, which has no structured data. Every page links
 the one design-system stylesheet, [`styles/system.css`](styles/system.css), and carries no CSS of
@@ -87,6 +88,28 @@ ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -
 ```
 
 Share cards (`og:image`, `twitter:image`) stay on PNG/JPG — social crawlers are unreliable with WebP.
+
+### Icons
+
+The icon is the app's own, the flat brick D, kept as four SVGs in [`docs/brand/`](docs/brand/):
+the square with its `#161B1D` field, the mark, the glyph (the mark without mortar, for anything
+under 48px) and the glyph in white. Jekyll leaves the folder off the site. Every icon file the site
+serves is rasterised from those sources, by scale alone, with one command:
+
+```bash
+npm run build:icons     # tools/build-icons.mjs, through sharp
+```
+
+| File | From | Size | Used by |
+| --- | --- | --- | --- |
+| `favicon.ico` | glyph | 16, 32, 48 | the fallback `rel="icon"` |
+| `favicon.svg` | glyph, copied as is | any | `rel="icon"` in browsers that read SVG |
+| `apple-touch-icon.png` | square, opaque | 180 | `rel="apple-touch-icon"`, the iOS home screen |
+| `notify-icon.webp` | glyph, transparent | 96 | the nav logo, shown at 32 (3x) on both themes |
+| `notify-icon.png` | square, opaque | 512 | the `Organization` and `publisher` logo in the JSON-LD |
+
+The names `notify-icon.*` and `favicon.ico` predate the brick D and stay, so no URL changes. Change
+a source, re-run the command and commit what it writes.
 
 ## The blog
 
