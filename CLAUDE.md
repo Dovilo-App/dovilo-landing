@@ -276,7 +276,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   `notify-icon.webp` but is not its source.
 - **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` and
   `notify-icon.webp|png` are written by `npm run build:icons` from the brick D SVGs (A126), by scale
-  alone; never edit or redraw them by hand. Every page, `tools/template.mjs` and the design doc's
+  and crop alone; never edit or redraw them by hand. The three glyph files use the glyph cropped to
+  its ink plus a 1/16 margin: the sources keep the app icon's safe area, and uncropped the glyph
+  filled 69% of the favicon against 88% for the old icon and Gmail's (31 Oct 2026). Every page, `tools/template.mjs` and the design doc's
   head carry the same three tags after the theme boot script: the ICO with `sizes="32x32"`, then
   `favicon.svg`, then `apple-touch-icon.png`. Keep the `sizes`: without it Chrome (156, tested
   31 Oct 2026) takes the ICO and never loads the SVG, whatever the tag order.
