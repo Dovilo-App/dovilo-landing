@@ -406,7 +406,7 @@ with `aria-current="page"`.
 ```html
 <header class="nav">
   <div class="container nav-inner">
-    <a class="nav-logo" href="/"><img src="/notify-icon.webp" width="32" height="32" alt="">Dovilo</a>
+    <a class="nav-logo" href="/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
     <nav aria-label="Main">
       <ul class="nav-links" id="nav-links">
         <li><a href="/ai">AI</a></li>

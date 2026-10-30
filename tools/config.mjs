@@ -6,7 +6,7 @@ export const SITE = {
   origin: 'https://dovilo.app',
   name: 'Dovilo',
   twitter: '@doviloapp',
-  logo: '/notify-icon.png',
+  logo: '/dovilo-icon.png',
   defaultOgImage: '/og-card.jpg',
   author: { name: 'Selahaddin Akgün', url: 'https://sakgun.com' },
 };
