@@ -88,6 +88,28 @@ ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -
 
 Share cards (`og:image`, `twitter:image`) stay on PNG/JPG — social crawlers are unreliable with WebP.
 
+### Icons
+
+The icon is the app's own, the flat brick D, kept as four SVGs in [`docs/brand/`](docs/brand/):
+the square with its `#161B1D` field, the mark, the glyph (the mark without mortar, for anything
+under 48px) and the glyph in white. Jekyll leaves the folder off the site. Every icon file the site
+serves is rasterised from those sources, by scale alone, with one command:
+
+```bash
+npm run build:icons     # tools/build-icons.mjs, through sharp
+```
+
+| File | From | Size | Used by |
+| --- | --- | --- | --- |
+| `favicon.ico` | glyph | 16, 32, 48 | the fallback `rel="icon"` |
+| `favicon.svg` | glyph, copied as is | any | `rel="icon"` in browsers that read SVG |
+| `apple-touch-icon.png` | square, opaque | 180 | `rel="apple-touch-icon"`, the iOS home screen |
+| `notify-icon.webp` | glyph, transparent | 64 | the nav logo, shown at 32 on both themes |
+| `notify-icon.png` | square, opaque | 512 | the `Organization` and `publisher` logo in the JSON-LD |
+
+The names `notify-icon.*` and `favicon.ico` predate the brick D and stay, so no URL changes. Change
+a source, re-run the command and commit what it writes.
+
 ## The blog
 
 Posts live in [Sanity](https://sanity.io) (project `3unyshld`, dataset `production`) and are
