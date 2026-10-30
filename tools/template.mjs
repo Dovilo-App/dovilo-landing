@@ -250,7 +250,9 @@ ${ogImageAlt ? `  <meta property="og:image:alt" content="${esc(ogImageAlt)}">\n`
   <meta name="twitter:image" content="${esc(img)}">
 ${head}
   ${THEME_BOOT}
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 ${ld ? ld + '\n' : ''}</head>
 <body>

@@ -208,8 +208,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
 - **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
-  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md` and the copy decks in
-  `docs/copy/`; a new internal Markdown file goes on that list in the same commit.
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md`, the copy decks in
+  `docs/copy/` and the icon sources in `docs/brand/`; a new internal Markdown file goes on that list
+  in the same commit.
 
 ### GEO — writing for answer engines
 
@@ -272,6 +273,12 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   and never declare `og:image:width`/`height` the file does not have.
 - Keep the PNG sources next to every WebP and regenerate variants with the ffmpeg recipe in
   `README.md`.
+- **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` and
+  `notify-icon.webp|png` are written by `npm run build:icons` from the brick D SVGs (A126), by scale
+  alone; never edit or redraw them by hand. Every page, `tools/template.mjs` and the design doc's
+  head carry the same three tags after the theme boot script: the ICO with `sizes="32x32"`, then
+  `favicon.svg`, then `apple-touch-icon.png`. Keep the `sizes`: without it Chrome (156, tested
+  31 Oct 2026) takes the ICO and never loads the SVG, whatever the tag order.
 - Keep the theme boot script — the inline IIFE reading `localStorage['dovilo-theme']` and setting
   `data-theme` on `<html>` — inline in `<head>` before any painted content, on every page including
   generated blog pages.
