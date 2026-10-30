@@ -272,16 +272,17 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 - **Share cards stay PNG/JPG and must be a real 1200×630 file.** Never point `og:image` at a WebP,
   and never declare `og:image:width`/`height` the file does not have.
 - Keep the PNG sources next to every WebP screenshot and regenerate variants with the ffmpeg
-  recipe in `README.md`. The icons are the exception (next rule): `notify-icon.png` sits next to
-  `notify-icon.webp` but is not its source.
-- **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` and
-  `notify-icon.webp|png` are written by `npm run build:icons` from the brick D SVGs (A126), by scale
-  and crop alone; never edit or redraw them by hand. The three glyph files use the glyph cropped to
-  its ink plus a 1/16 margin: the sources keep the app icon's safe area, and uncropped the glyph
-  filled 69% of the favicon against 88% for the old icon and Gmail's (31 Oct 2026). Every page, `tools/template.mjs` and the design doc's
-  head carry the same three tags after the theme boot script: the ICO with `sizes="32x32"`, then
-  `favicon.svg`, then `apple-touch-icon.png`. Keep the `sizes`: without it Chrome (156, tested
-  31 Oct 2026) takes the ICO and never loads the SVG, whatever the tag order.
+  recipe in `README.md`. The icons are the exception (next rule).
+- **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`,
+  `dovilo-logo.webp` (the nav logo) and `dovilo-icon.png` (the app icon square, the JSON-LD logo)
+  are written by `npm run build:icons` from the brick D SVGs (A126), by scale and crop alone; never
+  edit or redraw them by hand. They replaced `notify-icon.webp|png` on 31 Oct 2026, and those two
+  URLs no longer resolve. The three glyph files use the glyph cropped to its ink plus a 1/16
+  margin: the sources keep the app icon's safe area, and uncropped the glyph filled 69% of the
+  favicon against 88% for the old icon and Gmail's (31 Oct 2026). Every page, `tools/template.mjs`
+  and the design doc's head carry the same three tags after the theme boot script: the ICO with
+  `sizes="32x32"`, then `favicon.svg`, then `apple-touch-icon.png`. Keep the `sizes`: without it
+  Chrome (156, tested 31 Oct 2026) takes the ICO and never loads the SVG, whatever the tag order.
 - Keep the theme boot script — the inline IIFE reading `localStorage['dovilo-theme']` and setting
   `data-theme` on `<html>` — inline in `<head>` before any painted content, on every page including
   generated blog pages.

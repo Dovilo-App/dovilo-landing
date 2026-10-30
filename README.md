@@ -105,14 +105,14 @@ npm run build:icons     # tools/build-icons.mjs, through sharp
 | `favicon.ico` | tight glyph | 16, 32, 48 | the fallback `rel="icon"` |
 | `favicon.svg` | tight glyph, the source with only its viewBox changed | any | `rel="icon"` in browsers that read SVG |
 | `apple-touch-icon.png` | square, opaque | 180 | `rel="apple-touch-icon"`, the iOS home screen |
-| `notify-icon.webp` | tight glyph, transparent | 96 | the nav logo, shown at 32 (3x) on both themes |
-| `notify-icon.png` | square, opaque | 512 | the `Organization` and `publisher` logo in the JSON-LD |
+| `dovilo-logo.webp` | tight glyph, transparent | 96 | the nav logo, shown at 32 (3x) on both themes |
+| `dovilo-icon.png` | square, opaque | 512 | the app icon as the `Organization` and `publisher` logo in the JSON-LD |
 
 The sources keep the app icon's safe area, where the glyph covers about two thirds of its square.
 The "tight glyph" crops that square to the glyph's ink plus a 1/16 margin on each side, so it fills
 88% of a favicon or the nav logo's box. The square keeps its safe area, because iOS and search
-results show it as a tile. The names `notify-icon.*` and `favicon.ico` predate the brick D and stay,
-so no URL changes. Change a source, re-run the command and commit what it writes.
+results show it as a tile. The logo and the icon have different names because they are different
+images, not one image in two formats. Change a source, re-run the command and commit what it writes.
 
 ## The blog
 
