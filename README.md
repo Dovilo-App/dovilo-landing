@@ -26,7 +26,8 @@ The app itself is closed source; this repository is the public website only.
 
 ## Stack
 
-Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) — each page
+Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) and the
+[icons](#icons), whose output is committed like the blog's — each page
 is a single `index.html` with its structured data in `application/ld+json` blocks, except
 [`404.html`](404.html) at the root, which has no structured data. Every page links
 the one design-system stylesheet, [`styles/system.css`](styles/system.css), and carries no CSS of

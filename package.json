@@ -10,7 +10,7 @@
     "serve": "python -m http.server 8000"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.9.0"
   },
   "dependencies": {
     "marked": "^18.0.12"

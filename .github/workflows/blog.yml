@@ -40,7 +40,9 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # The blog build needs only `dependencies`; sharp, a devDependency for
+      # tools/build-icons.mjs, stays off the publish path.
+      - run: npm ci --omit=dev
 
       - name: Build /blog from Sanity and publish it
         # Only needed if the dataset is private; harmless when the secret is unset.

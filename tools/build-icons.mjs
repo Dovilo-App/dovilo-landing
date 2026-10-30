@@ -17,6 +17,9 @@
  *   notify-icon.webp       64, transparent, from the glyph: the nav logo, shown at 32
  *   notify-icon.png        512, opaque, from the square: the JSON-LD logo
  *
+ * Nothing is written until every file has rendered, so a failing source leaves
+ * the committed set as it was rather than half old and half new.
+ *
  *   npm run build:icons
  */
 
@@ -27,21 +30,24 @@ import sharp from 'sharp';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BRAND = path.join(ROOT, 'docs', 'brand');
-const GLYPH = path.join(BRAND, 'dovilo-icon-glyph.svg');
-const SQUARE = path.join(BRAND, 'dovilo-icon-1024.svg');
 
 const PNG = { compressionLevel: 9, adaptiveFiltering: true };
 
 const rel = (p) => path.relative(ROOT, p).replaceAll('\\', '/');
 const log = (...a) => console.log(...a);
 
-/* Draws the SVG straight at `size` px. librsvg renders at the density that maps
-   the SVG's width onto `size`, so the edges are antialiased at the target size
-   instead of resampled from a larger raster. */
-async function render(file, size) {
+async function source(name) {
+  const file = path.join(BRAND, name);
   const svg = await readFile(file);
   const { width, height } = await sharp(svg).metadata();
   if (width !== height) throw new Error(`${rel(file)} is ${width}x${height}; the sources are square`);
+  return { file, svg, width };
+}
+
+/* Draws the SVG straight at `size` px. librsvg renders at the density that maps
+   the SVG's width onto `size`, so the edges are antialiased at the target size
+   instead of resampled from a larger raster. */
+async function render({ file, svg, width }, size) {
   const { data, info } = await sharp(svg, { density: (72 * size) / width })
     .ensureAlpha()
     .raw()
@@ -82,19 +88,24 @@ function ico(entries) {
   return Buffer.concat([head, ...entries.map((e) => e.png)]);
 }
 
-async function write(name, buf) {
-  await writeFile(path.join(ROOT, name), buf);
-  log(`  ${name.padEnd(22)} ${buf.length.toLocaleString('en-US')} bytes`);
-}
-
-log(`Icons from ${rel(BRAND)}/`);
+const glyph = await source('dovilo-icon-glyph.svg');
+const square = await source('dovilo-icon-1024.svg');
 
 const favicon = [];
 for (const size of [16, 32, 48]) {
-  favicon.push({ size, png: await (await render(GLYPH, size)).png(PNG).toBuffer() });
+  favicon.push({ size, png: await (await render(glyph, size)).png(PNG).toBuffer() });
 }
-await write('favicon.ico', ico(favicon));
-await write('favicon.svg', await readFile(GLYPH));
-await write('apple-touch-icon.png', await (await opaque(await render(SQUARE, 180), 'apple-touch-icon.png')).png(PNG).toBuffer());
-await write('notify-icon.webp', await (await render(GLYPH, 64)).webp({ lossless: true, effort: 6 }).toBuffer());
-await write('notify-icon.png', await (await opaque(await render(SQUARE, 512), 'notify-icon.png')).png(PNG).toBuffer());
+
+const files = {
+  'favicon.ico': ico(favicon),
+  'favicon.svg': glyph.svg,
+  'apple-touch-icon.png': await (await opaque(await render(square, 180), 'apple-touch-icon.png')).png(PNG).toBuffer(),
+  'notify-icon.webp': await (await render(glyph, 64)).webp({ lossless: true, effort: 6 }).toBuffer(),
+  'notify-icon.png': await (await opaque(await render(square, 512), 'notify-icon.png')).png(PNG).toBuffer(),
+};
+
+log(`Icons from ${rel(BRAND)}/`);
+for (const [name, buf] of Object.entries(files)) {
+  await writeFile(path.join(ROOT, name), buf);
+  log(`  ${name.padEnd(22)} ${buf.length.toLocaleString('en-US')} bytes`);
+}
