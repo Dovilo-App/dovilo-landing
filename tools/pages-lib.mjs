@@ -13,6 +13,9 @@
      {{#if a.b}}…{{/if}}  kept when the value is non-empty (a non-empty array)
      {{#each a.b}}…{{/each}}
                           once per item; {{this.x}} reads the item
+     {{! … }}             a note for the tools, dropped with its line break
+                          (the first line of each page names its share card
+                          for tools/build-og.mjs)
 
    A missing path is an error, never an empty string: a strings file that lacks
    a key fails the build instead of shipping a hole. Strings are HTML as it
@@ -91,7 +94,8 @@ function blocks(tpl, data) {
 }
 
 export function render(tpl, data) {
-  let out = tpl.replace(/\r\n/g, '\n');
+  /* {{! … }} is a note for the tools (the share card a page uses), never output. */
+  let out = tpl.replace(/\r\n/g, '\n').replace(/\{\{![\s\S]*?\}\}\n?/g, '');
   for (let i = 0; i < 5 && /\{\{>/.test(out); i++) out = out.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, n) => partial(n));
   out = blocks(out, data);
   /* Strings may carry {{href.*}}: a second pass resolves what the first inserted. */
