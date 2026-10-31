@@ -1,7 +1,8 @@
 # dovilo.app — working rules
 
-Hand-written static HTML for [dovilo.app](https://dovilo.app). No framework, no build step outside
-`/blog` and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
+Static HTML for [dovilo.app](https://dovilo.app). No framework. Most pages are hand-written; the
+build steps are `/blog`, the five pages built from `src/` (`npm run build:pages`, §1.3), their
+share cards (`npm run build:og`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
 works — this file is about the rules that are easy to break and expensive to re-derive.
 
@@ -88,15 +89,18 @@ Rules:
   `.copy-btn.copied`, `.code`, `a.mail` with `data-u`/`data-d`, and `source.src-dark` (the dark
   capture of a figure, swapped with the theme; design-language §5). The theme stays in
   `localStorage['dovilo-theme']`, the key the old pages used, so a visitor's earlier choice still
-  holds. `tools/template.mjs` carries a copy of the site script, nav and footer: change them on the
-  hand-written pages and there in the same commit, then rebuild the blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
+  holds. The site script, nav and footer live in `src/partials/`, which the five built pages and
+  the blog's `tools/template.mjs` render (§1.3); the other hand-written pages carry copies: change
+  the partial and every copy in the same commit, then run `npm run build:pages` and rebuild the
+  blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
   script keys on `#card-ios|android|windows|mac` and adds `.highlighted`. It reads `?source=`
   against a fixed map of the five values product brief §12 reserves (`mcp_401`, `mcp_browser`,
   `mcp_pro_required`, `desktop_update`, `mcp_new_user`) and, for one of them, inserts a
   `div.note` before `.download-boxes` (design-language §5, Note); any other value, or none, shows
-  nothing. The five lines are final copy from their task and live in that map, never in the
-  page's text, `llms.txt` or `llms-full.txt`; the canonical stays `/downloads/`. The Note samples
+  nothing. The five lines are final copy from their task; they live in `src/strings/en.json`
+  (`pages.downloads.notes`), which the build writes into that map, never in the page's text,
+  `llms.txt` or `llms-full.txt`; the canonical stays `/downloads/`. The Note samples
   in `/styleguide/` and design-language §5 repeat the `mcp_browser` line: change them with it. The
   page script also makes one request, GitHub's `releases/latest` for the desktop releases repo
   (the release the installer links download), and writes the tag without its `v` into
@@ -120,7 +124,8 @@ Rules:
   Selahaddin approved the exceptions on 29 Oct 2026. Like every page it keeps the boot script, the
   site script, the nav and the footer, with no page script, and every path in it starts at the site
   root, since it renders at any depth. It is the one hand-written page that is not an
-  `index.html`: a nav, footer or site script change that globs `*/index.html` misses it.
+  `index.html`: a nav, footer or site script change that globs `*/index.html` misses it, and one
+  that only edits `src/partials/` misses it too.
 
 The redesign moved one page per task: `/ai`, `/`, a new `/pricing`, `/downloads`, `/faq`,
 `/docs/*`, `/changelog`, then the legal pages and the blog template together. With no page left on
@@ -137,6 +142,33 @@ words, same order, same headings and ids, the same elements around each sentence
 text diff of each page's `<main>` before and after (the `textContent` with whitespace collapsed,
 and the rendered `innerText`); both must be empty, or the report says exactly why not. A fault in
 legal text (a typo, an em dash, Title Case headings) goes in the report and stays on the page.
+
+### 1.3 The five built pages
+
+`/`, `/ai`, `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
+(`tools/build-pages.mjs`) from `src/` since A130 (31 Oct 2026), so the site can ship them in five
+languages. Their `index.html` files are build output: **never edit them in place**; the next build
+overwrites them. `npm run build:pages -- --check` fails when they are out of step with `src/`.
+
+- `src/pages/<page>.html` is the page's markup, figures and JSON-LD skeleton. Its first line names
+  the page's share card for `npm run build:og` (`{{! card: … }}`, dropped from the output).
+- `src/strings/<lang>.json` holds every string a person or a crawler reads on those pages: meta,
+  headings, body copy, alt text, captions, FAQ questions and answers, the five `?source=` lines and
+  the month names of `/downloads`, and each page's `updated`, which the build writes as its sitemap
+  `lastmod` and JSON-LD `dateModified`. A string is HTML as it appears in the page, inline links,
+  `<code>` and `<strong>` included. JSON-LD reads the same keys with the tags stripped, so a FAQPage
+  answer cannot drift from the visible one, and `/` and `/pricing/` read the same
+  `common.offers`, so their offers stay word for word.
+- `src/partials/` holds the nav (with the language menu), the footer and the site script (§1.1).
+- English is written to the paths the site has always had. A language gets its copies under
+  `/tr/`, `/es/`, `/fr/` or `/de/` when `src/strings/<lang>.json` exists, and only then does the
+  build write hreflang, `og:locale:alternate`, the language menu, the footer's language links and
+  the localised sitemap entries with their alternates. Today only `en.json` exists, so no page
+  shows any of it; the homepage keeps the `en` and `x-default` hreflang it always had.
+- The build fails on a missing key, on a translation whose markup (tags, attributes, `{{href.*}}`)
+  differs from English, and on an em dash.
+- The other pages (`/docs/*`, `/changelog/`, the legal pages, `/blog/`, `/404.html`) stay
+  hand-written or generated as before, and English only.
 
 ---
 
@@ -199,6 +231,8 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   neither date: the nav's link to `/pricing/` (PR #11) and the footer's to `/docs/` (29 Oct 2026)
   went in on every page without one, since lastmod tells crawlers the content moved.
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
+  On the five built pages both come from `updated` in `src/strings/<lang>.json`: move that one date
+  and run `npm run build:pages`.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
   0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`,
@@ -209,8 +243,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   included.
 - **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
   page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md`, the copy decks in
-  `docs/copy/` and the icon sources in `docs/brand/`; a new internal Markdown file goes on that list
-  in the same commit.
+  `docs/copy/` and the icon sources in `docs/brand/`, and `src/`, the page templates and strings,
+  so Pages never serves a template; a new internal Markdown file goes on that list in the same
+  commit.
 
 ### GEO — writing for answer engines
 
@@ -251,8 +286,8 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
     render delay for a flash of unstyled content and a CLS spike.
   - **Never inline the design system as "critical CSS".** Every page, the blog's included, shares
     one cached copy of `system.css`. Inlining it re-sends that CSS with every page view, duplicates
-    the single source of truth §1 exists to protect, and needs a build step this repo does not have
-    outside `/blog`.
+    the single source of truth §1 exists to protect, and needs a build step the hand-written pages
+    do not have.
   The measurements behind that decision, taken on `base.css` in `39565c3`, so nobody re-derives
   them: the stylesheet is same-origin, carries no `@import`, and sits around byte ~1075 of the
   document, so the preload scanner fetches it in parallel over the connection that just delivered
@@ -270,7 +305,12 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
   and no `loading` attribute; everything below the fold gets `loading="lazy"`. Images whose CSS width
   varies get `srcset` + `sizes` matching the CSS. (`bdb41bd`, `a96eccd`)
 - **Share cards stay PNG/JPG and must be a real 1200×630 file.** Never point `og:image` at a WebP,
-  and never declare `og:image:width`/`height` the file does not have.
+  and never declare `og:image:width`/`height` the file does not have. The cards of the five built
+  pages and `/docs/` (`og-home.jpg`, `og-ai.jpg`, `og-pricing.jpg`, `og-downloads.jpg`,
+  `og-docs.jpg`, and `og-<page>-<lang>.jpg` per language) are written by `npm run build:og`
+  (`tools/build-og.mjs`) from the `<h1>` in the strings, in Inter from `/fonts/`, with the hero
+  capture the template names; never edit them by hand. Run it when an `<h1>` or a named capture
+  changes. `/faq`'s English card stays `og-card.jpg`.
 - Keep the PNG sources next to every WebP screenshot and regenerate variants with the ffmpeg
   recipe in `README.md`. The icons are the exception (next rule).
 - **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`,
@@ -314,7 +354,9 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 
 - [ ] Title / og:title / twitter:title / JSON-LD name still identical?
 - [ ] Did visible text change? Then the JSON-LD mirroring it changed too.
-- [ ] `sitemap.xml` lastmod bumped, and JSON-LD `dateModified` with it?
+- [ ] `sitemap.xml` lastmod bumped, and JSON-LD `dateModified` with it? (On a built page: `updated`.)
+- [ ] One of the five built pages? Edited in `src/`, `npm run build:pages` run (and
+      `npm run build:og` if its `<h1>` changed), the output committed with the source.
 - [ ] Facts changed? `llms.txt` and `llms-full.txt` updated in the same commit.
 - [ ] New indexable page? Linked from the shared nav or footer, and in `sitemap.xml`.
 - [ ] Every new `<img>`: alt, width, height, WebP, lazy unless above the fold.
@@ -331,12 +373,16 @@ Carried here so they are not rediscovered from scratch:
   slash-less URL, which GitHub Pages 301-redirects to the directory form. Canonical should name the
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
-- `hreflang` is declared only on the homepage.
+- `hreflang` is declared only on the homepage (`en` and `x-default`). The page build writes it
+  for every built page once it has a second language; until the TR strings land it stays English
+  only.
+- `/faq` carries no `og:locale`; its template gets one with its second language.
 - Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4) and
   `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
   questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
   does Focus work?" is the exception), so a wording change there has to be made in four places plus
-  `llms-full.txt`. `/pricing/`'s four are copied word for word from `/faq`, which made it the one
+  `llms-full.txt`. On the built pages each place is a key in `src/strings/en.json`
+  (`pages.home.faq`, `pages.faq.faq`, `pages.pricing.faq`); its JSON-LD follows by itself. `/pricing/`'s four are copied word for word from `/faq`, which made it the one
   exception to the rule below, approved in its task: "Is Dovilo free?", "How many AI tasks does Pro
   include?", "Do I need the Focus Ambience Pack?" and "How do I cancel my subscription?". All four
   are on `/` too, so a wording change to any of them is made on `/faq`, `/pricing/` and `/` (HTML
@@ -349,9 +395,10 @@ Carried here so they are not rediscovered from scratch:
   way. One of them, "Can I get my data out?", covers the ground of `/faq`'s "Can I export my
   data?" (added 29 Oct 2026): both say not yet, on the roadmap, no date; keep them in agreement.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
-- `/` has `og-home.jpg` and `/ai` has `og-ai.jpg`. `/pricing/` has `og-pricing.jpg`,
-  `/downloads/` has `og-downloads.jpg` and `/docs/` has `og-docs.jpg`: the page background and the
-  `<h1>` in Inter 700, with no capture. `/docs/mcp/`, `/faq` and `/blog/` keep `og-card.jpg` (the
+- `/` has `og-home.jpg` and `/ai` has `og-ai.jpg`, the `<h1>` beside or over the hero capture.
+  `/pricing/` has `og-pricing.jpg`, `/downloads/` has `og-downloads.jpg` and `/docs/` has
+  `og-docs.jpg`: the page background and the `<h1>` in Inter 700, with no capture. All five are
+  written by `npm run build:og`. `/docs/mcp/`, `/faq` and `/blog/` keep `og-card.jpg` (the
   blog's through `SITE.defaultOgImage`, and a post's when it has no cover), and `/docs/webhooks`,
   `/changelog/` and the legal pages have none: their move to `system.css` was a style move.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise

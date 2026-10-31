@@ -168,8 +168,9 @@ the `<h1>`, one paragraph and a link list (section 5).
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
 menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed"), the email
-links and the dark captures of figures (section 5, Figure). Copy it from `styleguide/index.html`
-verbatim. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
+links and the dark captures of figures (section 5, Figure). Its source is
+`src/partials/site-script.html`, which the five built pages and the blog render; every other page
+carries a verbatim copy. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
 (with `aria-controls`), `.nav-links.open`, `.copy-btn`, `.copy-btn.copied`, `.code`, `a.mail` with
 `data-u`/`data-d`, and `source.src-dark`. A copy button's label is plain
 text. The theme choice is stored in `localStorage['dovilo-theme']`, the same key the old pages use,
