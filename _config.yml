@@ -4,10 +4,13 @@
 # every Markdown file into a public page (/CLAUDE.html, /docs/design-language.html).
 # A new internal Markdown file goes on this list in the same commit. docs/brand
 # holds the icon sources that tools/build-icons.mjs rasterises; the site serves
-# the generated files, never the sources.
+# the generated files, never the sources. src holds the templates and strings
+# tools/build-pages.mjs renders into /, /ai, /pricing/, /downloads/ and /faq;
+# the site serves the built pages, never the templates.
 exclude:
   - CLAUDE.md
   - README.md
   - docs/design-language.md
   - docs/copy
   - docs/brand
+  - src

@@ -1,0 +1,562 @@
+{{! card: layout=text }}
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{t.meta.title}}</title>
+  <meta name="description" content="{{t.meta.description}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{page.canonical}}">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">{{page.hreflang}}
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:title" content="{{t.meta.title}}">
+  <meta property="og:description" content="{{t.meta.ogDescription}}">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Dovilo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="{{t.meta.title}}">
+  <meta name="twitter:description" content="{{t.meta.ogDescription}}">
+  <meta name="twitter:image" content="{{page.ogImage}}">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "{{t.meta.title|json}}",
+  "url": "{{page.canonical}}",
+  "inLanguage": "{{lang.code}}",
+  "dateModified": "{{t.updated}}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dovilo.app/dovilo-icon.png"
+    }
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{t.faq.what.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.what.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.free.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.free.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.platforms.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.platforms.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.languages.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.languages.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.todo.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.todo.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.focusSessions.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.focusSessions.a1|json}} {{t.faq.focusSessions.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.ambience.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.ambience.a1|json}} {{t.faq.ambience.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.build.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.build.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.rearrange.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.rearrange.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.pro.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.pro.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.options.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.options.a1|json}} {{t.faq.options.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.aiTasks.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.aiTasks.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.ambiencePack.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.ambiencePack.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.cancel.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.cancel.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.plan.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.plan.a1|json}} {{t.faq.plan.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.mcp.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.mcp.a1|json}} {{t.faq.mcp.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.desktop.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.desktop.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.connect.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.connect.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.clients.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.clients.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.authorize.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.authorize.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.notified.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.notified.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.webhooks.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.webhooks.a1|json}} {{t.faq.webhooks.a2|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.example.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.example.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.offline.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.offline.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.sync.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.sync.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.deleteAccount.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.deleteAccount.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.ads.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.ads.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.export.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.export.a|json}}"
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "{{page.homeUrl}}" },
+    { "@type": "ListItem", "position": 2, "name": "{{t.meta.crumb|json}}", "item": "{{page.canonical}}" }
+  ]
+}
+  </script>
+</head>
+<body>
+  {{> nav}}
+
+  <main id="main">
+
+    <section class="section">
+      <div class="container flow">
+        <h1>{{t.hero.h1}}</h1>
+        <p>{{t.hero.intro}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="general">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.general}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.what.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.what.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.free.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.free.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.platforms.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.platforms.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.languages.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.languages.a}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tasks-focus">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.tasksFocus}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.todo.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.todo.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.focusSessions.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.focusSessions.a1}}</p>
+              <p>{{t.faq.focusSessions.a2}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.ambience.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.ambience.a1}}</p>
+              <p>{{t.faq.ambience.a2}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="city-builder">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.city}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.build.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.build.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.rearrange.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.rearrange.a}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pro-pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.pro}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.pro.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.pro.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.options.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.options.a1}}</p>
+              <p>{{t.faq.options.a2}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.aiTasks.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.aiTasks.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.ambiencePack.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.ambiencePack.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.cancel.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.cancel.a}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-agents-mcp">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.agents}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.plan.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.plan.a1}}</p>
+              <p>{{t.faq.plan.a2}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.mcp.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.mcp.a1}}</p>
+              <p>{{t.faq.mcp.a2}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.desktop.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.desktop.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.connect.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.connect.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.clients.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.clients.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.authorize.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.authorize.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.notified.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.notified.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.webhooks.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.webhooks.a1}}</p>
+              <p>{{t.faq.webhooks.a2}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.example.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.example.a}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="data-privacy">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.groups.data}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.offline.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.offline.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.sync.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.sync.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.deleteAccount.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.deleteAccount.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.ads.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.ads.a}}</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.export.q}}</h3></summary>
+            <div class="faq-answer">
+              <p>{{t.faq.export.a}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="section closing" id="contact">
+      <div class="container">
+        <p>{{t.closing}}</p>
+      </div>
+    </div>
+
+  </main>
+
+  {{> footer}}
+
+  {{> site-script}}
+</body>
+</html>

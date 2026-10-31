@@ -168,8 +168,9 @@ the `<h1>`, one paragraph and a link list (section 5).
 
 One inline script at the end of `<body>`, identical on every page: the theme toggle, the mobile
 menu, the copy buttons (clipboard API, a textarea fallback, a visible "Copy failed"), the email
-links and the dark captures of figures (section 5, Figure). Copy it from `styleguide/index.html`
-verbatim. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
+links and the dark captures of figures (section 5, Figure). Its source is
+`src/partials/site-script.html`, which the five built pages and the blog render; every other page
+carries a verbatim copy. It keys on these names, which are therefore a contract: `.theme-toggle`, `.nav-menu`
 (with `aria-controls`), `.nav-links.open`, `.copy-btn`, `.copy-btn.copied`, `.code`, `a.mail` with
 `data-u`/`data-d`, and `source.src-dark`. A copy button's label is plain
 text. The theme choice is stored in `localStorage['dovilo-theme']`, the same key the old pages use,
@@ -399,7 +400,8 @@ copy in the examples is real and may be reused where it fits.
 
 ### Nav
 
-Logo, at most five links, the theme toggle, and a menu button that only shows below 768px. Sticky,
+Logo, at most five links, the language menu on a page that has more than one language, the theme
+toggle, and a menu button that only shows below 768px. Sticky,
 solid `--bg`, a 1px rule underneath. No blur, no store badges, no live dots. Mark the current page
 with `aria-current="page"`.
 
@@ -430,6 +432,40 @@ with `aria-current="page"`.
 
 The SVG paths are in `/styleguide/index.html`. The Pricing link points at `/pricing/`; the old pages'
 nav points there too.
+
+
+### Language menu
+
+A native `<details class="lang-menu">` in `.nav-actions`, before the theme toggle. Its summary is
+an `.icon-btn` with a globe, an inline SVG drawn like the moon and the sun, and the accessible
+name "Language" from the strings. Open, the list drops under the button, right-aligned: `--surface`
+inside a 1px `--border`, radius 8, no shadow, no script. It links the same page in each language
+the page has, the current one first, marked with `aria-current="page"` and set in `--text`. Each
+link carries `lang` and `hreflang` and names the language in that language. The footer's Dovilo
+column repeats the same links after Licenses.
+
+It exists only where there is somewhere to go: `tools/build-pages.mjs` renders it on the five built
+pages (/, /ai, /pricing/, /downloads/, /faq) once a page has a second strings file, and never on a
+page with one language. Today every page has only English, so no page shows it; the samples are in
+`/styleguide/`. The hand-written pages and the blog stay English and carry no menu.
+
+```html
+<details class="lang-menu">
+  <summary class="icon-btn" aria-label="Language">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z"/></svg>
+  </summary>
+  <ul class="lang-menu-list">
+    <li><a href="/pricing/" lang="en" hreflang="en" aria-current="page">English</a></li>
+    <li><a href="/tr/pricing/" lang="tr" hreflang="tr">Türkçe</a></li>
+    <li><a href="/es/pricing/" lang="es" hreflang="es">Español</a></li>
+    <li><a href="/fr/pricing/" lang="fr" hreflang="fr">Français</a></li>
+    <li><a href="/de/pricing/" lang="de" hreflang="de">Deutsch</a></li>
+  </ul>
+</details>
+```
+
+An open menu closes from its own button, or by following a link: without a script there is no
+outside click and no Escape, and the menu takes none.
 
 ### Hero
 
@@ -1092,8 +1128,10 @@ writes the same closing under every post.
 ### Footer
 
 Four columns of text links, then the copyright and the support address. No icons, no newsletter
-box. The full markup is in `styleguide/index.html`. The address is split in the markup, as on the
-old pages, and the site script assembles the `mailto:`, so scrapers find no parseable address.
+box. On a page with more than one language the Dovilo column ends with the language links
+(Language menu, above). The full markup is in `styleguide/index.html`. The address is split in the
+markup, as on the old pages, and the site script assembles the `mailto:`, so scrapers find no
+parseable address.
 
 ```html
 <footer class="footer">

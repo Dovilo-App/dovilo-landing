@@ -26,8 +26,9 @@ The app itself is closed source; this repository is the public website only.
 
 ## Stack
 
-Hand-written static HTML. No framework, and no build step outside [`/blog`](#the-blog) and the
-[icons](#icons), whose output is committed like the blog's — each page
+Static HTML, no framework. Most pages are hand-written; the build steps are [`/blog`](#the-blog),
+the [five pages built from `src/`](#the-built-pages), their [share cards](#share-cards) and the
+[icons](#icons), and all of their output is committed — each page
 is a single `index.html` with its structured data in `application/ld+json` blocks, except
 [`404.html`](404.html) at the root, which has no structured data. Every page links
 the one design-system stylesheet, [`styles/system.css`](styles/system.css), and carries no CSS of
@@ -114,6 +115,52 @@ The "tight glyph" crops that square to the glyph's ink plus a 1/16 margin on eac
 results show it as a tile. The logo and the icon have different names because they are different
 images, not one image in two formats. Change a source, re-run the command and commit what it writes.
 
+## The built pages
+
+`/`, `/ai`, `/pricing/`, `/downloads/` and `/faq` are built from `src/`, so they can ship in
+English, Turkish, Spanish, French and German from one template each. Their `index.html` files are
+output: edit `src/`, never the page.
+
+```
+src/pages/<page>.html       markup, figures and JSON-LD skeleton of home, ai, pricing, downloads, faq
+src/strings/<lang>.json     every string a person or a crawler reads on them, per page, plus the
+                            shared ones (nav, footer, store badges, the offers / and /pricing/ share)
+src/partials/               nav (with the language menu), footer, site script; the blog uses them too
+tools/pages-lib.mjs         the renderer, the language list and the page list
+tools/build-pages.mjs       renders every page in every language that has a strings file
+```
+
+`npm run build:pages` writes English to the paths the site has always had (`index.html`,
+`ai/index.html`, …) and any other language with a strings file under its prefix
+(`tr/index.html`, `tr/ai/index.html`, …). It also writes each page's `lastmod` into
+[`sitemap.xml`](sitemap.xml) from the page's `updated` string, and, for a page in more than one
+language, the localised sitemap entries, hreflang, `og:locale:alternate` and the language menu.
+Only `en.json` exists today, so none of that shows yet. `npm run build:pages -- --check` writes
+nothing and fails if any page is out of step with `src/`.
+
+Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<strong>`); a
+translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
+strings with the tags stripped, so the FAQPage answers are the visible ones. Templates use
+`{{t.key}}` for the page's strings, `{{c.key}}` for the shared ones, `|json` and `|js` for
+JSON-LD and the page scripts, `{{> partial}}`, `{{#if}}` and `{{#each}}`; the syntax is described
+at the top of `tools/pages-lib.mjs`.
+
+### Share cards
+
+`npm run build:og` writes the 1200x630 share cards of the built pages and `/docs/`:
+`og-home.jpg`, `og-ai.jpg`, `og-pricing.jpg`, `og-downloads.jpg`, `og-docs.jpg`, and
+`og-<page>-<lang>.jpg` for every other language. Each is the page's `<h1>` in Inter 700 on the
+light background, with the hero capture its template names in its first line
+(`{{! card: layout=… captures=… }}`): `text` (the h1 alone), `split` (the h1 beside two phone
+screens) or `top` (the h1 over the desktop screen). Long text wraps, then drops one size step, then
+is clipped to whole lines with a warning. The font is the site's own: `tools/woff2.mjs` decodes
+`fonts/*.woff2` to TrueType in the temp folder for sharp. `/faq` keeps `og-card.jpg` in English.
+`npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
+depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
+without a change, so regenerate and look at them rather than trusting the check across machines.
+Run `build:og` before `build:pages` when a language is added: a page will not point `og:image` at a
+card that does not exist.
+
 ## The blog
 
 Posts live in [Sanity](https://sanity.io) (project `3unyshld`, dataset `production`) and are
@@ -123,7 +170,7 @@ JSON-LD and share card. That is the entire reason for the build step.
 
 ```
 tools/config.mjs       project, origin, blog paths and page size
-tools/template.mjs     the page shell: system.css, and copies of the hand-written pages' head, nav, footer and site script
+tools/template.mjs     the page shell: system.css, a copy of the hand-written pages' head, and the nav, footer and site script from src/partials/
 tools/build-blog.mjs   fetch → render → write
 studio/                Sanity Studio: the schema, and the editor at dovilo.sanity.studio
 ```

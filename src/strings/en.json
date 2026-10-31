@@ -1,0 +1,758 @@
+{
+  "_readme": [
+    "Every string a person or a crawler reads on /, /ai, /pricing/, /downloads/ and /faq. tools/build-pages.mjs renders src/pages/<page>.html with it.",
+    "Strings are HTML as it appears in the page: & is &amp;, and inline markup (<a>, <code>, <strong>, <span>) stays inside the string. A translation keeps every tag and attribute and {{href.*}} exactly; the build fails if the markup differs from English.",
+    "JSON-LD reads the same strings with the tags stripped, so the FAQPage answers are the visible answers. jsonld.* keys are JSON-LD only and plain text.",
+    "common: the nav, footer and site script (also read by the blog), store badges, the offers the homepage and /pricing/ share word for word, and lines several pages repeat.",
+    "pages.<page>.updated is the page sitemap lastmod and its JSON-LD dateModified: change the page, move the date.",
+    "lang: ogLocale is the og:locale value, captures the folder of the localised screenshots. Sentence case, no em dash."
+  ],
+  "lang": {
+    "ogLocale": "en_US",
+    "captures": "/screenshots"
+  },
+  "common": {
+    "nav": {
+      "skip": "Skip to content",
+      "label": "Main",
+      "ai": "AI",
+      "pricing": "Pricing",
+      "downloads": "Downloads",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "language": "Language",
+      "theme": "Switch theme",
+      "menu": "Menu"
+    },
+    "footer": {
+      "label": "Footer",
+      "product": "Product",
+      "developers": "For developers",
+      "downloads": "Downloads",
+      "pricing": "Pricing",
+      "changelog": "Changelog",
+      "docs": "Docs",
+      "docsHub": "Docs",
+      "mcp": "MCP reference",
+      "webhooks": "Webhooks",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "licenses": "Licenses",
+      "follow": "Follow",
+      "copyright": "&copy; 2026 Dovilo. All rights reserved."
+    },
+    "script": {
+      "toLight": "Switch to light theme",
+      "toDark": "Switch to dark theme",
+      "copied": "Copied",
+      "copyFailed": "Copy failed"
+    },
+    "offers": {
+      "free": {
+        "name": "Free",
+        "description": "$0. Full to-do management; Unlimited tasks & categories; Due dates, stars & priorities; Unlimited focus sessions; Basic city with starter buildings; Basic statistics; Dark & light themes; Offline-first, always works; No ads, ever"
+      },
+      "month": {
+        "name": "Pro: $2.49 a month",
+        "description": "7-day trial in the app. Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
+      },
+      "year": {
+        "name": "Pro: $19.99 a year",
+        "description": "7-day trial in the app. Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
+      },
+      "once": {
+        "name": "Pro: $49.99 once",
+        "description": "Everything in Free, plus: Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo; AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you; Dovilo Desktop for Windows and Mac; Cloud sync across your devices; Focus Ambience Pack: 5 scenes and 16 sound layers; Full City Package: every building and upgrade; Advanced statistics; +6 build permits a day; Snooze a reminder for 30 minutes right from the notification. Sending a plan is free; approving needs Pro."
+      },
+      "ambience": {
+        "name": "Focus Ambience Pack",
+        "description": "One-time purchase. Focus Ambience Pack, $4.99: 5 scenes, 16 sound layers. Both packs are included with Pro."
+      },
+      "city": {
+        "name": "Full City Package",
+        "description": "One-time purchase. Full City Package, $4.99: every building, decoration and upgrade. Both packs are included with Pro."
+      }
+    },
+    "badge": {
+      "appleSmall": "Download on the",
+      "apple": "App Store",
+      "googleSmall": "Get it on",
+      "google": "Google Play"
+    },
+    "inShort": "In short",
+    "whatItCosts": "What it costs",
+    "seePricing": "See pricing",
+    "straightAnswers": "Straight answers",
+    "closing": {
+      "title": "One engineer, in Istanbul.",
+      "p": "No company, no funding. <a href=\"/changelog/\">A public release history you can check.</a>"
+    },
+    "desktopNeedsPro": "Dovilo Desktop for Windows and Mac needs Pro",
+    "getDovilo": "Get Dovilo",
+    "readMcpDocs": "Read the MCP docs",
+    "copy": "Copy"
+  },
+  "pages": {
+    "home": {
+      "updated": "2026-10-28",
+      "meta": {
+        "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
+        "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
+        "ogAlt": "Dovilo: the to-do list that builds you a city, beside a plan of six tasks from Claude and the list it was approved into"
+      },
+      "jsonld": {
+        "website": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder.",
+        "features": {
+          "todo": "To-do list with unlimited tasks, free",
+          "focus": "Focus sessions, free and unlimited: a single session, a Pomodoro cycle or a timer on one task",
+          "ambience": "Focus Ambience Pack: 5 scenes and 16 sound layers, 3 at a time ($4.99 once, included with Pro)",
+          "city": "Isometric city builder: tasks and focus sessions pay bricks that buy houses, offices, parks and roads, and nothing decays",
+          "cityPackage": "Full City Package for large builds ($4.99 once, included with Pro)",
+          "planning": "Plan with ChatGPT, Claude, Gemini or Grok: the assistant proposes, you approve every plan (Pro)",
+          "agents": "AI Agents: Claude Code and Cursor get their own task list over remote MCP, 9 tools, no create, no delete, 15 AI tasks a month (Pro)",
+          "desktop": "Desktop app for Windows and Mac (Pro)",
+          "sync": "Cloud sync across devices (Pro)",
+          "stats": "Advanced statistics (Pro)",
+          "offline": "Offline-first",
+          "languages": "Available in 5 languages",
+          "themes": "Dark and light themes",
+          "ads": "No ads in free or paid tiers"
+        }
+      },
+      "hero": {
+        "h1": "Dovilo: the <span class=\"nowrap\">to-do</span> list that builds you a city.",
+        "sub": "Plan it yourself or with ChatGPT and Claude, focus with full-screen ambience, and watch finished work become a city.",
+        "agentsLink": "Building with Claude Code or Cursor?",
+        "inboxAlt": "Dovilo AI inbox: a plan of six tasks from Claude with an Approve button",
+        "listAlt": "Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week",
+        "caption": "Six tasks proposed by Claude, approved into a list."
+      },
+      "about": {
+        "p": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT or Claude can plan your day into it; you approve every plan. Pro is $2.49 a month."
+      },
+      "steps": {
+        "title": "How it works",
+        "plan": {
+          "label": "Plan",
+          "detail": "Write tasks, or let ChatGPT or Claude propose them."
+        },
+        "approve": {
+          "label": "Approve",
+          "detail": "Nothing lands in your list until you tap yes."
+        },
+        "focus": {
+          "label": "Focus",
+          "detail": "A session, a Pomodoro cycle, or a timer on one task."
+        },
+        "build": {
+          "label": "Build",
+          "detail": "Bricks from finished work buy a city that stays."
+        }
+      },
+      "focus": {
+        "title": "Focus that fills the whole screen",
+        "p": "A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.",
+        "rainAlt": "Dovilo focus session in the Rainy City scene with 22 minutes left",
+        "rainCaption": "Rainy City, 22 minutes left.",
+        "mixerAlt": "Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on",
+        "mixerCaption": "Rain and fireplace."
+      },
+      "city": {
+        "title": "A city that stays",
+        "p": "Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.",
+        "alt": "Dovilo isometric city at level 26 with a stadium, a hospital and a city hall"
+      },
+      "agents": {
+        "title": "Building with Claude Code or Cursor?",
+        "p": "Your agent gets its own task list: 9 tools, no create, no delete, your list invisible.",
+        "link": "Read about AI Agents"
+      },
+      "pricing": {
+        "free": {
+          "label": "Free",
+          "text": "The whole personal app: unlimited tasks and focus sessions, the city, no ads."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "$2.49 a month, $19.99 a year or $49.99 once, 7-day trial. AI planning, AI Agents, Desktop, cloud sync, both packs, advanced statistics."
+        }
+      },
+      "shipped": {
+        "title": "Recently shipped",
+        "mobile": {
+          "date": "27 Oct 2026",
+          "text": "Mobile 2.0.0: plan with ChatGPT, Claude, Gemini or Grok; AI Agents."
+        },
+        "desktop": {
+          "date": "27 Oct 2026",
+          "text": "Desktop 2.0.2: task details open over the list."
+        },
+        "link": "All release notes"
+      },
+      "faq": {
+        "what": {
+          "q": "What is Dovilo?",
+          "a": "Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then build houses, offices, parks, and more in your own virtual city."
+        },
+        "free": {
+          "q": "Is Dovilo free?",
+          "a": "Yes. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions, basic city building, dark &amp; light themes, and zero ads. Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics, from $2.49 a month, and it <strong>starts with a 7-day free trial</strong>, so you can try everything before paying. Cancel before the week is up and nothing is charged."
+        },
+        "plan": {
+          "q": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
+          "a": "Yes. Add Dovilo to the assistant as a custom connector with the URL <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
+        },
+        "focus": {
+          "q": "How does Focus work?",
+          "a": "Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog."
+        },
+        "ambience": {
+          "q": "Do I need the Focus Ambience Pack?",
+          "a": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available and is simply silent. The Focus Ambience Pack adds the 5 atmospheric scenes and 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and it is already included with Pro."
+        },
+        "offline": {
+          "q": "Does Dovilo work offline?",
+          "a": "Yes. Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. Cloud sync is an optional Pro feature for keeping data across multiple devices."
+        },
+        "ads": {
+          "q": "Does Dovilo have ads?",
+          "a": "No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do."
+        },
+        "desktop": {
+          "q": "Does my coding agent need Dovilo Desktop running?",
+          "a": "No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at <code>https://dovilo.app/mcp/agents</code> with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the <a href=\"{{href.ai}}\">developer page</a>."
+        },
+        "aiTasks": {
+          "q": "How many AI tasks does Pro include?",
+          "a": "15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+        },
+        "cancel": {
+          "q": "How do I cancel my subscription?",
+          "a": "Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period."
+        }
+      },
+      "blogLink": "Written while building Dovilo: the blog"
+    },
+    "ai": {
+      "updated": "2026-10-28",
+      "meta": {
+        "title": "MCP task list your coding agent works out of - Dovilo",
+        "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",
+        "ogAlt": "Dovilo: the task list your coding agent works out of, over Dovilo Desktop's AI Tasks of a project",
+        "crumb": "AI"
+      },
+      "jsonld": {
+        "about": {
+          "mcp": "Model Context Protocol",
+          "agents": "AI agents",
+          "tasks": "Task management",
+          "devtools": "Developer tools"
+        }
+      },
+      "hero": {
+        "h1": "Dovilo: the task list your coding agent works out of.",
+        "sub": "Claude Code, Cursor and any MCP client connect from any machine and see only their own AI tasks.",
+        "desktopAlt": "Dovilo Desktop: AI Tasks of a project, grouped by what needs attention",
+        "phoneAlt": "Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled",
+        "caption": "AI Tasks of one project, grouped by what needs you."
+      },
+      "about": {
+        "p": "Dovilo is a to-do app with a separate task list for AI coding agents. Agents connect to dovilo.app/mcp/agents over MCP: 9 tools, no create, no delete, and your personal list is never visible. ChatGPT or Claude can plan the work; every instruction waits for your approval. Pro, $2.49 a month, 15 AI tasks a month."
+      },
+      "steps": {
+        "title": "How it works",
+        "write": {
+          "label": "Write the task",
+          "detail": "Or let ChatGPT or Claude propose it.",
+          "alt": "Dovilo: new AI task form with title and description"
+        },
+        "approve": {
+          "label": "Approve it on your phone",
+          "detail": "Nothing reaches an agent before you say yes.",
+          "alt": "Dovilo AI inbox: an AI task proposed by Claude with an approve button"
+        },
+        "works": {
+          "label": "Your agent works it",
+          "detail": "Steps and notes land on the task as it runs.",
+          "alt": "Dovilo AI task detail while the agent runs: steps and agent notes"
+        },
+        "asks": {
+          "label": "It asks, you answer",
+          "detail": "It stops at a decision; you reply from your phone or chat.",
+          "alt": "Dovilo AI task waiting for an answer, with the agent's question and a reply box"
+        }
+      },
+      "planning": {
+        "title": "Plain MCP, no lock-in",
+        "chat": "<strong>ChatGPT, Claude, Gemini and Grok</strong> plan the work and send it to you for approval.",
+        "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf and Claude Desktop</strong> work the tasks.",
+        "any": "<strong>LangGraph, CI jobs and any MCP client</strong> connect with the same URL and key."
+      },
+      "servers": {
+        "title": "Two servers",
+        "agents": {
+          "title": "Agents MCP",
+          "for": "For coding agents",
+          "key": "One key per agent, shown once"
+        },
+        "personal": {
+          "title": "Personal MCP",
+          "for": "For ChatGPT, Claude, Gemini and Grok",
+          "signin": "Sign in with your Dovilo account"
+        },
+        "link": "All tools in the MCP docs"
+      },
+      "connect": {
+        "title": "Setup is a URL and a key",
+        "p": "Dovilo Desktop writes the config for 7 clients. Then write a project brief and an AI task."
+      },
+      "trust": {
+        "title": "What the AI can and cannot do",
+        "own": "Its own tasks, nothing else.",
+        "approve": "The AI proposes. You approve.",
+        "chat": "Your coding work stays out of your chat app unless you turn it on.",
+        "delete": "No delete tool. Not now, not later.",
+        "revoke": "Revoke any connection from your phone, instantly."
+      },
+      "tools": {
+        "summary": "9 tools: 3 read, 6 write. No create, no delete",
+        "head": {
+          "tool": "Tool",
+          "access": "Access",
+          "does": "Does"
+        },
+        "access": {
+          "read": "read",
+          "write": "write"
+        },
+        "rows": {
+          "list": "AI tasks in the scoped projects, with status",
+          "get": "One task in full: description, steps, notes, telemetry, the user's latest reply",
+          "context": "The project brief and context the task carries",
+          "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; cancel with a reason (stored as error + cancelledAt, shown as Cancelled)",
+          "step": "Mark a plan step started or finished",
+          "add": "Append a step the agent discovered",
+          "skip": "Skip an unnecessary step",
+          "note": "What it did, decided, could not do",
+          "telemetry": "Model, tokens, cost, duration"
+        }
+      },
+      "webhooks": {
+        "title": "Webhooks and the demo",
+        "signed": {
+          "title": "Signed webhooks",
+          "p": "Delivered by the server, retried up to 5 times."
+        },
+        "demo": {
+          "title": "Open-source demo",
+          "p": "A LangGraph agent runs the whole loop. Open source."
+        }
+      },
+      "pricing": {
+        "pro": {
+          "label": "Pro",
+          "text": "$2.49 a month, $19.99 a year or $49.99 once; 7-day trial in the app."
+        },
+        "tasks": {
+          "label": "AI tasks",
+          "text": "15 AI tasks a month, top-ups from $0.99."
+        },
+        "plans": {
+          "label": "Plans",
+          "text": "Sending a plan is free, approving needs Pro."
+        },
+        "scheduling": "Scheduling, repeat and the quota"
+      },
+      "faq": {
+        "desktop": {
+          "q": "Does my agent need Dovilo Desktop running?",
+          "a": "No. Agents connect to dovilo.app/mcp/agents directly. Desktop is the Windows and Mac client for AI tasks, keys, briefs and webhooks."
+        },
+        "sees": {
+          "q": "What does the agent see?",
+          "a": "The AI tasks of the projects it is assigned to, each project's brief, and your replies. Your personal to-do list is not on the tool surface at all."
+        },
+        "delete": {
+          "q": "Can an agent delete a task?",
+          "a": "No. There is no delete tool on either server. An agent can cancel a task with a reason, and the task stays visible."
+        },
+        "ci": {
+          "q": "Can I run it in CI or on a server?",
+          "a": "Yes. The same URL and key work from any machine. One key per agent, revocable from your phone."
+        },
+        "upgrade": {
+          "q": "I used Desktop 1.8. What changed?",
+          "a": "1.8's local server is gone. Create an agent in the app, copy its key, and point your client at the remote URL. <a href=\"/docs/mcp/#upgrading\">Steps in the MCP docs.</a>"
+        }
+      }
+    },
+    "pricing": {
+      "updated": "2026-10-28",
+      "meta": {
+        "title": "Pricing: free to use, $2.49 a month for Pro - Dovilo",
+        "description": "Dovilo pricing: free to use, $2.49 a month for Pro. The personal app is free and unlimited. Pro adds the AI layer, Desktop, sync and both packs.",
+        "ogAlt": "Dovilo pricing: free to use, $2.49 a month for Pro.",
+        "crumb": "Pricing"
+      },
+      "offers": {
+        "topups": {
+          "name": "AI task top-ups",
+          "description": "One-time purchase. AI task top-ups from $0.99: +10, +30 or +75 AI tasks, never expire. Pro only."
+        }
+      },
+      "hero": {
+        "h1": "Dovilo pricing: free to use, $2.49 a month for Pro.",
+        "sub": "The personal app is free and unlimited. Pro adds the AI layer, Desktop, sync and both packs."
+      },
+      "about": {
+        "p": "Dovilo is free on iOS and Android: unlimited tasks, lists and focus sessions, no ads, offline-first. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial started in the app."
+      },
+      "plans": {
+        "free": {
+          "title": "Free",
+          "price": "$0",
+          "lines": {
+            "todo": "Full to-do management",
+            "categories": "Unlimited tasks &amp; categories",
+            "dates": "Due dates, stars &amp; priorities",
+            "focus": "Unlimited focus sessions",
+            "city": "Basic city with starter buildings",
+            "stats": "Basic statistics",
+            "themes": "Dark &amp; light themes",
+            "offline": "Offline-first, always works",
+            "ads": "No ads, ever"
+          }
+        },
+        "pro": {
+          "title": "Pro",
+          "prices": {
+            "month": "$2.49 a month",
+            "year": "$19.99 a year",
+            "once": "$49.99 once",
+            "trial": "7-day trial in the app"
+          },
+          "lead": "Everything in Free, plus",
+          "lines": {
+            "planning": "Plan your day with ChatGPT, Claude, Gemini or Grok, then approve the plan in Dovilo.",
+            "agents": "AI Agents like Claude Code and Cursor work through 15 AI tasks a month for you.",
+            "desktop": "Dovilo Desktop for Windows and Mac",
+            "sync": "Cloud sync across your devices",
+            "ambience": "Focus Ambience Pack: 5 scenes and 16 sound layers",
+            "city": "Full City Package: every building and upgrade",
+            "stats": "Advanced statistics",
+            "permits": "+6 build permits a day",
+            "snooze": "Snooze a reminder for 30 minutes right from the notification"
+          }
+        },
+        "note": "Sending a plan is free; approving needs Pro."
+      },
+      "packs": {
+        "title": "One-time purchases",
+        "ambience": "Focus Ambience Pack, $4.99: 5 scenes, 16 sound layers.",
+        "city": "Full City Package, $4.99: every building, decoration and upgrade.",
+        "topups": "AI task top-ups from $0.99: +10, +30 or +75 AI tasks, never expire. Pro only.",
+        "note": "Both packs are included with Pro."
+      },
+      "manage": {
+        "title": "Managing your subscription",
+        "p": "Subscriptions are managed in the App Store or Google Play; Pro stays on until the end of the billing period. Desktop needs Pro, started in the mobile app; there is no desktop-only trial."
+      },
+      "faq": {
+        "free": {
+          "q": "Is Dovilo free?",
+          "a": "Yes. Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics."
+        },
+        "aiTasks": {
+          "q": "How many AI tasks does Pro include?",
+          "a": "15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+        },
+        "ambience": {
+          "q": "Do I need the Focus Ambience Pack?",
+          "a": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available and is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it."
+        },
+        "cancel": {
+          "q": "How do I cancel my subscription?",
+          "a": "Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period."
+        }
+      }
+    },
+    "downloads": {
+      "updated": "2026-10-28",
+      "meta": {
+        "title": "Download for iPhone, Android, Windows and Mac - Dovilo",
+        "description": "Download Dovilo for iPhone, Android, Windows and Mac. Free on phones. Desktop needs Pro, started in the mobile app.",
+        "ogAlt": "Download Dovilo for iPhone, Android, Windows and Mac.",
+        "crumb": "Downloads"
+      },
+      "hero": {
+        "h1": "Download Dovilo for iPhone, Android, Windows and Mac.",
+        "sub": "Free on phones. Desktop needs Pro, started in the mobile app."
+      },
+      "boxes": {
+        "mobile": {
+          "title": "Phones",
+          "p": "Free, with a 7-day Pro trial in the app."
+        },
+        "desktop": {
+          "title": "Desktop",
+          "badgeSmall": "Dovilo for",
+          "windows": "Windows",
+          "mac": "Mac",
+          "latest": "Latest: <span id=\"desktop-ver\">2.0.2</span>, <time id=\"desktop-date\" datetime=\"2026-10-27\">27 Oct 2026</time>. <a href=\"{{href.pricing}}#pro\">Needs Pro</a>: sign in with the account you subscribed with.",
+          "upgrade": "Coming from Desktop 1.8? <a href=\"/docs/mcp/#upgrading\">Agents now connect to dovilo.app/mcp/agents with a key.</a>"
+        }
+      },
+      "what": {
+        "summary": "What a gamified to-do list does once it is installed",
+        "p1": "Dovilo attaches the game to finishing the work, not to planning it. Every task you complete and every focus session you run pays out in <strong>bricks</strong>, and bricks are the only currency in the Market, where you buy the houses, offices, parks and roads you then place yourself on an isometric grid. The city is the record of what you actually got through, which is what makes it worth opening on a day the list is not.",
+        "p2": "Four things live in the one app. <strong>Tasks</strong> carry due dates, repeats, reminders, stars, flags and your own lists, behind a single view picker holding My Day, Important, Planned, Flagged and every custom list with a live count. <strong>Focus</strong> runs in three shapes: one session of any length from 1 to 180 minutes, a Pomodoro cycle of 25 minutes with a 5 minute break and a longer break every 4 rounds, or a session bound to one task. The timer keeps counting while the app is backgrounded or the phone is locked. <strong>Ambience</strong> fills the screen for the length of a session: six scenes, and up to three sound layers blended at once out of sixteen. It is ambience rather than music, so there is no melody or beat to follow. <strong>AI tasks</strong> are a separate list you keep for coding agents, which work through it over <a href=\"{{href.ai}}\">remote MCP</a> from any machine.",
+        "p3": "All of it is offline-first: tasks, focus history and the city sit on the device, and no internet connection is needed to use the app. Cloud sync is optional and comes with Pro. There are no ads on any tier, the app ships in English, Turkish, Spanish, French and German, and both the dark and the light theme are free."
+      },
+      "which": {
+        "summary": "Which download you need",
+        "p1": "The mobile apps are the free ones, and free here is the whole product rather than a trial: a download from the App Store or Google Play gives you full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, city building, both themes and no ads. The desktop apps are the Pro half. They carry two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your agents, with focus sessions and the city staying on mobile. Desktop is also where you set up the signed <a href=\"/docs/webhooks\">webhooks</a>, so it needs an active subscription, which you start in the mobile app. Coding agents do not need it: they connect to Dovilo directly, with a key you can create on the phone or on the desktop.",
+        "table": {
+          "caption": "Dovilo downloads by platform, with what each one costs and how its updates arrive",
+          "head": {
+            "platform": "Platform",
+            "source": "Where it comes from",
+            "cost": "Cost",
+            "updates": "Updates"
+          },
+          "ios": {
+            "platform": "iPhone, iPad",
+            "source": "App Store",
+            "updates": "Through the App Store"
+          },
+          "free": "Free",
+          "android": {
+            "platform": "Android",
+            "source": "Google Play",
+            "updates": "Through Google Play"
+          },
+          "windows": {
+            "platform": "Windows",
+            "source": "Dovilo-Setup.exe, from the public releases repository"
+          },
+          "needsPro": "Needs Pro",
+          "selfUpdate": "The app updates itself",
+          "mac": {
+            "platform": "macOS",
+            "source": "Dovilo.dmg, from the public releases repository"
+          }
+        },
+        "p2": "Mobile and desktop run on separate version lines, so their numbers are not meant to line up. The current mobile release is <strong>2.0.0</strong>, on iOS and Android, and the current desktop release is <strong>2.0.2</strong>, from 27 October 2026. The <a href=\"/changelog/\">release notes page</a> lists the desktop builds and adds a newer one from the releases repository when you open it, so it is never a version behind, and every earlier desktop build stays tagged there. This page is only for the first install: nothing here has to be fetched twice."
+      },
+      "pro": {
+        "summary": "What is free, and what Pro adds",
+        "p1": "<strong>Pro</strong> is $2.49 a month, $19.99 a year or $49.99 once, and it begins with a 7-day free trial you start in the iOS or Android app. It adds planning with ChatGPT, Claude, Gemini or Grok, approved in Dovilo; AI Agents like Claude Code and Cursor working through 15 AI tasks a month over remote MCP; the Windows and Mac desktop app, where webhooks are set up; cloud sync across devices; both one-time packs, the Focus Ambience Pack and the Full City Package; advanced statistics; +6 build permits a day; and a 30-minute snooze from the reminder notification. The same subscription is what unlocks Desktop, so the desktop app is never a separate purchase.",
+        "p2": "Two one-time packs sit outside the subscription: the Focus Ambience Pack at $4.99, which adds the five atmospheric scenes and the sixteen sound layers, and the Full City Package at $4.99, which adds every building, decoration and upgrade. Neither is a subscription, and Pro already includes both. AI task packs start at $0.99 for 10, 30 or 75 extra agent tasks, and they never expire. Prices are the USD store baseline; each store applies its own regional pricing."
+      },
+      "faq": {
+        "summary": "Download questions",
+        "free": {
+          "q": "Which Dovilo downloads are free?",
+          "a": "The iPhone, iPad and Android apps are free and ad-free. The free tier covers full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, basic city building and both the dark and the light theme. The Windows and Mac desktop apps are the two downloads that need an active Pro subscription."
+        },
+        "install": {
+          "q": "How do I install Dovilo Desktop on Windows or Mac?",
+          "a": "Subscribe to Pro in the iOS or Android app first: the desktop app needs an active subscription, and the same subscription unlocks it, so there is no separate desktop purchase. Then download Dovilo-Setup.exe or Dovilo.dmg from the desktop section of this page. Both come from Dovilo's public releases repository, and the app updates itself from there afterwards."
+        },
+        "trial": {
+          "q": "Can I try Pro before paying for it?",
+          "a": "Yes. Pro starts with a 7-day free trial, begun from the iOS or Android app. After that it is $2.49 a month, $19.99 a year or $49.99 once. Prices are the USD store baseline, and each store applies its own regional pricing."
+        },
+        "updates": {
+          "q": "Do I have to download Dovilo again when it updates?",
+          "a": "No. On iPhone, iPad and Android, updates arrive through the App Store and Google Play like any other app: automatically if automatic updates are on, otherwise from the Updates list in the store. Dovilo Desktop updates itself and picks up each new build on its own. This page is only for the first install."
+        },
+        "agent": {
+          "q": "Which download do I need to connect an AI coding agent?",
+          "a": "None beyond the phone app. Since Dovilo 2.0, a coding agent such as Claude Code, Cursor, Windsurf, Codex CLI or Gemini CLI connects to Dovilo's server at <code>https://dovilo.app/mcp/agents</code> with a key you create in the iOS or Android app, or in Dovilo Desktop, so the agent can run on any machine and Desktop does not need to be running. Agents reach AI tasks only, the jobs you write for them in the AI Tasks tab, never your personal to-do list, and they cannot create or delete tasks. You need Pro and Dovilo 2.0 or later."
+        }
+      },
+      "notes": {
+        "mcp_401": {
+          "lead": "Your AI app couldn't sign in to Dovilo.",
+          "text": "Install the app, sign in with the same Google or Apple account, then connect again. For a coding agent, create or regenerate its key in AI Tasks."
+        },
+        "mcp_browser": {
+          "lead": "This address is an endpoint for AI apps, not a web page.",
+          "text": "Add it as a connector in ChatGPT, Claude, Gemini or Grok. Coding agents use dovilo.app/mcp/agents with an agent key from the app.",
+          "link": "Read the MCP docs"
+        },
+        "mcp_pro_required": {
+          "lead": "That needs Dovilo Pro.",
+          "text": "Start the 7-day free trial in the iOS or Android app: $2.49 a month, $19.99 a year or $49.99 once. Cancel before day 7 and nothing is charged.",
+          "link": "See what Pro includes"
+        },
+        "desktop_update": {
+          "lead": "This version of Dovilo Desktop can't connect any more.",
+          "text": "Download the latest release below and install it; your data stays in your account."
+        },
+        "mcp_new_user": {
+          "lead": "Your plan is waiting in Dovilo.",
+          "text": "Install the app and sign in with the same Google or Apple account you used in your AI app. The plan is in your inbox; adding it to your list is part of Dovilo Pro, with a 7-day free trial."
+        }
+      },
+      "months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    "faq": {
+      "updated": "2026-10-29",
+      "meta": {
+        "title": "FAQ: straight answers on the app, Pro and AI - Dovilo",
+        "description": "Frequently asked questions about Dovilo: gamified to-do list, focus timer, and city builder.",
+        "ogDescription": "How tasks, focus sessions, ambience, the city, Pro and the MCP integration work in Dovilo.",
+        "crumb": "FAQ"
+      },
+      "hero": {
+        "h1": "Dovilo FAQ: straight answers on the app, Pro and AI.",
+        "intro": "Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 28 questions in six groups, from what is free to what an AI agent can see. Anything missing: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+      },
+      "groups": {
+        "general": "General",
+        "tasksFocus": "Tasks &amp; focus",
+        "city": "City builder",
+        "pro": "Pro &amp; pricing",
+        "agents": "AI Agents &amp; MCP",
+        "data": "Data &amp; privacy"
+      },
+      "faq": {
+        "what": {
+          "q": "What is Dovilo?",
+          "a": "Dovilo is a gamified productivity app that combines a to-do list, focus sessions with full-screen ambience, and an isometric city builder. Complete your tasks and focus sessions to earn bricks, then use those bricks to build houses, offices, parks, and more in your own virtual city."
+        },
+        "free": {
+          "q": "Is Dovilo free?",
+          "a": "Yes. Dovilo is free to download and use. The free tier includes full to-do management, unlimited tasks and categories, unlimited focus sessions (single and Pomodoro), basic city building, dark &amp; light themes, and zero ads. Dovilo Pro adds planning with ChatGPT, Claude, Gemini or Grok, 15 AI tasks a month for coding agents, the desktop app for Windows and Mac, cloud sync, the Focus Ambience Pack, all buildings and advanced statistics."
+        },
+        "platforms": {
+          "q": "What platforms is Dovilo available on?",
+          "a": "Dovilo is available on iOS (iPhone &amp; iPad) via the App Store, on Android via Google Play, and as a desktop app for Windows and Mac. The desktop app requires an active Pro subscription. It carries two task surfaces, full to-do management for your own list and AI task management for your agents, plus agent keys and each project's webhook settings. Coding agents connect to Dovilo directly, so Desktop does not need to be running for them to work. Focus sessions and the city are mobile features."
+        },
+        "languages": {
+          "q": "What languages are supported?",
+          "a": "Dovilo is available in 5 languages: English, Turkish (Türkçe), Spanish (Español), French (Français), and German (Deutsch). The language is detected automatically from your device settings, and you can change it manually in the app."
+        },
+        "todo": {
+          "q": "How does the to-do list work?",
+          "a": "You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder."
+        },
+        "focusSessions": {
+          "q": "How do focus sessions work?",
+          "a1": "There are three ways to focus: a single session of any duration, a Pomodoro cycle (25 minutes of focus, a 5 minute break, and a longer break every 4 rounds, breaks starting on their own), or a session bound to one specific task. A breathing exercise and countdown ease you in, and when the session completes you earn bricks based on its duration.",
+          "a2": "The timer keeps running in the background: switch apps or lock your phone and the time is still counted correctly, with a notification the moment it is done. Do Not Disturb can silence other apps for the length of the session. Only completed Pomodoro rounds count toward the daily round counter: single sessions and ones you end early do not."
+        },
+        "ambience": {
+          "q": "What is Ambience?",
+          "a1": "Ambience sets the mood of a focus session. A scene fills the whole screen and brings its own sound: Rainy City (rain and fireplace), Midnight (city hum over brown noise), Dusk (birds and breeze), Snow (winter wind and pink noise) or Fog (fog horn and white noise). The Default scene is always available and is silent.",
+          "a2": "Under the Sound tab you can blend up to three layers at once and set the level of each: rain, fireplace, forest, waves, café, library, train, thunder, brown, pink or white noise. The mix can follow the session rhythm, opening softly in the first 5 minutes and brightening in the last 2, and the scene can switch to Dusk on its own when your break starts. It is ambience, not music: no melody, no beat."
+        },
+        "build": {
+          "q": "How do I build my city?",
+          "a": "Earn bricks by completing tasks and focus sessions. Visit the Market tab to browse and purchase buildings, decorations, and roads. Then place them on your isometric grid in the Dovilo tab. Your city grows as your productivity grows!"
+        },
+        "rearrange": {
+          "q": "Can I rearrange buildings?",
+          "a": "You can demolish a building by tapping on it and selecting the demolish option. This refunds a portion of the bricks, and you can then place a new building wherever you like."
+        },
+        "pro": {
+          "q": "What does Dovilo Pro include?",
+          "a": "Pro includes everything in the free tier, plus: planning with ChatGPT, Claude, Gemini or Grok, where the assistant proposes and you approve in Dovilo; AI Agents like Claude Code and Cursor working through 15 AI tasks a month; Dovilo Desktop for Windows and Mac; cloud sync across devices; the Focus Ambience Pack (5 scenes, 16 sound layers: 13 recordings and 3 generated noises); the Full City Package (every building, decoration and upgrade); advanced statistics; +6 build permits a day; and a 30-minute snooze from the reminder notification. Both one-time content packs are included with Pro, not sold again. Unlimited tasks and categories, reminders and a zero-ad experience are free-tier features, not Pro ones, and there are no custom themes."
+        },
+        "options": {
+          "q": "What are the pricing options?",
+          "a1": "Dovilo Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial in the app. All plans include the same Pro features.",
+          "a2": "There are also one-time purchases that are not subscriptions: the Focus Ambience Pack ($4.99: 5 scenes and 16 sound layers), the Full City Package ($4.99: every building, decoration and upgrade), and AI task packs from $0.99. Both packs are already included with Pro."
+        },
+        "aiTasks": {
+          "q": "How many AI tasks does Pro include?",
+          "a": "15 AI tasks a month. A task counts when it opens to your agent, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+        },
+        "ambiencePack": {
+          "q": "Do I need the Focus Ambience Pack?",
+          "a": "No. Focus sessions and Pomodoro cycles are free and unlimited, and the Default scene is always available and is simply silent. The pack adds the 5 atmospheric scenes and the 16 sound layers you can blend three at a time. It is a one-time $4.99 purchase, and Pro subscribers already have it."
+        },
+        "cancel": {
+          "q": "How do I cancel my subscription?",
+          "a": "Subscriptions are managed through the Apple App Store or Google Play Store. To cancel, go to your device's subscription settings. You'll retain Pro access until the end of your current billing period."
+        },
+        "plan": {
+          "q": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
+          "a1": "Yes. Add Dovilo to the assistant as a custom connector with the URL <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it.",
+          "a2": "For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
+        },
+        "mcp": {
+          "q": "What is Dovilo's MCP integration?",
+          "a1": "Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task.",
+          "a2": "<strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the <a href=\"{{href.ai}}\">developer page</a>, and every tool with its inputs is in the <a href=\"/docs/mcp/\">MCP reference</a>."
+        },
+        "desktop": {
+          "q": "Does my coding agent need Dovilo Desktop running?",
+          "a": "No. Since Dovilo 2.0, coding agents such as Claude Code and Cursor connect to Dovilo's remote MCP server at <code>https://dovilo.app/mcp/agents</code> with a key you create in the app, from your laptop, a server or a CI runner. Desktop does not need to be open; it is the desktop client for your lists and AI tasks. The agent sees only the AI tasks of the projects you assign to it, and it cannot create or delete tasks. Agents are part of Pro. Coming from Desktop 1.8? Its built-in MCP server stops working with 2.0, so reconnect your agent with the new URL and a new key. Setup is on the <a href=\"{{href.ai}}\">developer page</a>."
+        },
+        "connect": {
+          "q": "How do I connect Claude Code, Cursor, or another AI agent?",
+          "a": "Create the agent in the app first. In the mobile app, open <strong>AI Agents</strong> and tap <strong>New agent</strong>; in Dovilo Desktop, use <strong>Connect a new AI</strong>. Give it a name, pick the projects it may work on and create its key, which is shown once. Then add the server URL <code>https://dovilo.app/mcp/agents</code> to your client, with the key as a bearer token in the <code>Authorization</code> header. The connect flow has presets for Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf and Claude Desktop, shows where each config goes and fills in your key."
+        },
+        "clients": {
+          "q": "Which AI clients does Dovilo support?",
+          "a": "The connect flow has presets for <strong>Claude Code</strong>, <strong>Cursor</strong> (app and CLI), <strong>Codex CLI</strong>, <strong>Gemini CLI</strong>, <strong>Windsurf</strong> and <strong>Claude Desktop</strong>. Anything else that speaks MCP over HTTP, LangGraph or a CI job included, connects with the same URL and key, so Dovilo doesn't lock you to a specific vendor. For planning rather than coding, ChatGPT, Claude, Gemini and Grok connect to Personal MCP."
+        },
+        "authorize": {
+          "q": "Can agents create or modify tasks I didn't authorize?",
+          "a": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
+        },
+        "notified": {
+          "q": "Do I get notified when an agent works on my task?",
+          "a": "Yes. You can choose between two notification modes: <strong>every step</strong> (each progress update the agent pushes) or <strong>start / finish / error only</strong> (quieter, summary-style). The <strong>AI Tasks</strong> tab is in the mobile app as well, so you can write an AI task from your phone and follow the same run there: step trail, agent notes and telemetry (tokens, cost, duration) all land on the task, wherever the agent runs. When an agent stops with a question, you answer it from the task."
+        },
+        "webhooks": {
+          "q": "Can Dovilo send task events to Slack, Linear, or my own service?",
+          "a1": "Yes. Dovilo sends <strong>HMAC-signed HTTPS webhooks</strong> when an AI task is created or changes status (<code>task.created</code> and <code>task.status_changed</code>), so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Public HTTPS receivers are delivered by Dovilo's server, even when Desktop is closed; localhost receivers are delivered by Desktop while it is open, and the app labels them Local. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Set it up in Dovilo Desktop, in the project's <strong>List settings</strong>: paste your URL, pick the events, enable it and press Save, then generate the signing secret.",
+          "a2": "Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href=\"/docs/webhooks\">webhooks reference</a>."
+        },
+        "example": {
+          "q": "Is there an example webhook receiver I can copy from?",
+          "a": "Yes. <a href=\"https://github.com/Dovilo-App/dovilo-langgraph-demo\" target=\"_blank\" rel=\"noopener\">dovilo-langgraph-demo</a> is an open-source <strong>LangGraph</strong> receiver that verifies the Dovilo signature, fans events out, and drives an agent through MCP end-to-end."
+        },
+        "offline": {
+          "q": "Does Dovilo work offline?",
+          "a": "Yes. Dovilo is offline-first. All your tasks, focus sessions, and city progress are stored locally on your device. You don't need an internet connection to use the app. Cloud sync is an optional Pro feature."
+        },
+        "sync": {
+          "q": "How does cloud sync work?",
+          "a": "With Pro, you can sign in with Google or Apple and sync your data across multiple devices via Firebase. Your data is encrypted in transit and at rest. You can trigger a manual sync from Settings at any time."
+        },
+        "deleteAccount": {
+          "q": "Can I delete my account and data?",
+          "a": "Yes. Go to Settings &gt; Delete Account to permanently remove your account and all cloud-synced data. Local data is removed when you uninstall the app. Cloud data is fully deleted within 30 days of account deletion."
+        },
+        "ads": {
+          "q": "Does Dovilo have ads?",
+          "a": "No. Dovilo is completely ad-free, both in the free tier and in Pro. We believe ads break focus, which is the opposite of what a productivity app should do."
+        },
+        "export": {
+          "q": "Can I export my data?",
+          "a": "Not yet. There is no data export today; it is on the roadmap and this page will say so when it ships. Your tasks, focus sessions and city live on your device, and cloud sync is an optional Pro feature."
+        }
+      },
+      "closing": "Still have questions? <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>"
+    }
+  }
+}

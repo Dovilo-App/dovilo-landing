@@ -1,0 +1,47 @@
+<footer class="footer">
+    <div class="container">
+      <nav class="footer-cols" aria-label="{{c.footer.label}}">
+        <div>
+          <p class="footer-title">{{c.footer.product}}</p>
+          <ul>
+            <li><a href="{{href.ai}}">{{c.footer.developers}}</a></li>
+            <li><a href="{{href.downloads}}">{{c.footer.downloads}}</a></li>
+            <li><a href="{{href.pricing}}">{{c.footer.pricing}}</a></li>
+            <li><a href="/changelog/">{{c.footer.changelog}}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">{{c.footer.docs}}</p>
+          <ul>
+            <li><a href="/docs/">{{c.footer.docsHub}}</a></li>
+            <li><a href="/docs/mcp/">{{c.footer.mcp}}</a></li>
+            <li><a href="/docs/webhooks">{{c.footer.webhooks}}</a></li>
+            <li><a href="{{href.faq}}">{{c.footer.faq}}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Dovilo</p>
+          <ul>
+            <li><a href="/blog/">{{c.footer.blog}}</a></li>
+            <li><a href="/privacy">{{c.footer.privacy}}</a></li>
+            <li><a href="/terms">{{c.footer.terms}}</a></li>
+            <li><a href="/licenses">{{c.footer.licenses}}</a></li>
+{{#each alternates}}            <li><a href="{{this.href}}" lang="{{this.code}}" hreflang="{{this.code}}"{{this.current}}>{{this.name}}</a></li>
+{{/each}}          </ul>
+        </div>
+        <div>
+          <p class="footer-title">{{c.footer.follow}}</p>
+          <ul>
+            <li><a href="https://x.com/doviloapp" rel="noopener">X</a></li>
+            <li><a href="https://instagram.com/doviloapp" rel="noopener">Instagram</a></li>
+            <li><a href="https://linkedin.com/company/doviloapp" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Dovilo-App" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="footer-meta">
+        <p>{{c.footer.copyright}}</p>
+        <p><a class="mail" href="{{href.faq}}#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+      </div>
+    </div>
+  </footer>

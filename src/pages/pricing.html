@@ -1,0 +1,321 @@
+{{! card: layout=text }}
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{t.meta.title}}</title>
+  <meta name="description" content="{{t.meta.description}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{page.canonical}}">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">{{page.hreflang}}
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:title" content="{{t.meta.title}}">
+  <meta property="og:description" content="{{t.meta.description}}">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{t.meta.ogAlt}}">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="{{lang.ogLocale}}">{{page.ogLocaleAlternates}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="{{t.meta.title}}">
+  <meta name="twitter:description" content="{{t.meta.description}}">
+  <meta name="twitter:image" content="{{page.ogImage}}">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{t.meta.title|json}}",
+  "description": "{{t.about.p|json}}",
+  "url": "{{page.canonical}}",
+  "image": "{{page.ogImage}}",
+  "inLanguage": "{{lang.code}}",
+  "dateModified": "{{t.updated}}",
+  "about": { "@id": "https://dovilo.app/#app" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dovilo",
+    "url": "https://dovilo.app/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://dovilo.app/#app",
+  "name": "Dovilo",
+  "url": "https://dovilo.app",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": ["iOS", "Android", "Windows", "macOS"],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.free.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "{{c.offers.free.description|json}}"
+    },
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.month.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#pro",
+      "price": "2.49",
+      "priceCurrency": "USD",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2.49", "priceCurrency": "USD", "billingDuration": "P1M" },
+      "description": "{{c.offers.month.description|json}}"
+    },
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.year.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#pro",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19.99", "priceCurrency": "USD", "billingDuration": "P1Y" },
+      "description": "{{c.offers.year.description|json}}"
+    },
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.once.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#pro",
+      "price": "49.99",
+      "priceCurrency": "USD",
+      "description": "{{c.offers.once.description|json}}"
+    },
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.ambience.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#packs",
+      "price": "4.99",
+      "priceCurrency": "USD",
+      "description": "{{c.offers.ambience.description|json}}"
+    },
+    {
+      "@type": "Offer",
+      "name": "{{c.offers.city.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#packs",
+      "price": "4.99",
+      "priceCurrency": "USD",
+      "description": "{{c.offers.city.description|json}}"
+    },
+    {
+      "@type": "AggregateOffer",
+      "name": "{{t.offers.topups.name|json}}",
+      "url": "https://dovilo.app{{href.pricing}}#packs",
+      "lowPrice": "0.99",
+      "priceCurrency": "USD",
+      "offerCount": 3,
+      "description": "{{t.offers.topups.description|json}}"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "{{page.homeUrl}}" },
+    { "@type": "ListItem", "position": 2, "name": "{{t.meta.crumb|json}}", "item": "{{page.canonical}}" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{t.faq.free.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.free.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.aiTasks.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.aiTasks.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.ambience.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.ambience.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.cancel.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.cancel.a|json}}"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  {{> nav}}
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container">
+        <h1>{{t.hero.h1}}</h1>
+        <p class="hero-sub">{{t.hero.sub}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>{{c.inShort}}</h2>
+        <p>{{t.about.p}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="plans">
+          <div class="plan" id="free">
+            <h2>{{t.plans.free.title}}</h2>
+            <ul class="plan-prices"><li>{{t.plans.free.price}}</li></ul>
+            <ul class="price-lines">
+              <li>{{t.plans.free.lines.todo}}</li>
+              <li>{{t.plans.free.lines.categories}}</li>
+              <li>{{t.plans.free.lines.dates}}</li>
+              <li>{{t.plans.free.lines.focus}}</li>
+              <li>{{t.plans.free.lines.city}}</li>
+              <li>{{t.plans.free.lines.stats}}</li>
+              <li>{{t.plans.free.lines.themes}}</li>
+              <li>{{t.plans.free.lines.offline}}</li>
+              <li>{{t.plans.free.lines.ads}}</li>
+            </ul>
+          </div>
+          <div class="plan" id="pro">
+            <h2>{{t.plans.pro.title}}</h2>
+            <ul class="plan-prices">
+              <li>{{t.plans.pro.prices.month}}</li>
+              <li>{{t.plans.pro.prices.year}}</li>
+              <li>{{t.plans.pro.prices.once}}</li>
+              <li>{{t.plans.pro.prices.trial}}</li>
+            </ul>
+            <p class="plan-lead">{{t.plans.pro.lead}}</p>
+            <ul class="price-lines">
+              <li>{{t.plans.pro.lines.planning}}</li>
+              <li>{{t.plans.pro.lines.agents}}</li>
+              <li>{{t.plans.pro.lines.desktop}}</li>
+              <li>{{t.plans.pro.lines.sync}}</li>
+              <li>{{t.plans.pro.lines.ambience}}</li>
+              <li>{{t.plans.pro.lines.city}}</li>
+              <li>{{t.plans.pro.lines.stats}}</li>
+              <li>{{t.plans.pro.lines.permits}}</li>
+              <li>{{t.plans.pro.lines.snooze}}</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">{{t.plans.note}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="packs">
+      <div class="container">
+        <h2>{{t.packs.title}}</h2>
+        <ul class="price-lines">
+          <li>{{t.packs.ambience}}</li>
+          <li>{{t.packs.city}}</li>
+          <li>{{t.packs.topups}}</li>
+        </ul>
+        <p class="note">{{t.packs.note}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>{{t.manage.title}}</h2>
+        <p>{{t.manage.p}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{c.straightAnswers}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.free.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.free.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.aiTasks.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.aiTasks.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.ambience.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.ambience.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.cancel.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.cancel.a}}</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="section closing">
+      <div class="container">
+        <div class="store-badges">
+          <a class="store-badge" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_pricing&amp;mt=8">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span><small>{{c.badge.appleSmall}}</small><strong>{{c.badge.apple}}</strong></span>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=pricing">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+            <span><small>{{c.badge.googleSmall}}</small><strong>{{c.badge.google}}</strong></span>
+          </a>
+        </div>
+        <a class="link" href="{{href.downloads}}">{{c.desktopNeedsPro}} <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+
+  </main>
+
+  {{> footer}}
+
+  {{> site-script}}
+</body>
+</html>
