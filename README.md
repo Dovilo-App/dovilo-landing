@@ -155,7 +155,11 @@ light background, with the hero capture its template names in its first line
 screens) or `top` (the h1 over the desktop screen). Long text wraps, then drops one size step, then
 is clipped to whole lines with a warning. The font is the site's own: `tools/woff2.mjs` decodes
 `fonts/*.woff2` to TrueType in the temp folder for sharp. `/faq` keeps `og-card.jpg` in English.
-`npm run build:og -- --check` writes nothing and fails if a card is out of date.
+`npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
+depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
+without a change, so regenerate and look at them rather than trusting the check across machines.
+Run `build:og` before `build:pages` when a language is added: a page will not point `og:image` at a
+card that does not exist.
 
 ## The blog
 

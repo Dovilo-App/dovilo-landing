@@ -29,7 +29,7 @@ import { fileURLToPath } from 'node:url';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const SRC = path.join(ROOT, 'src');
 
-const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rarr: '→', larr: '←', copy: '©', mdash: '—', ndash: '–', hellip: '…' };
+export const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rarr: '→', larr: '←', copy: '©', mdash: '—', ndash: '–', hellip: '…' };
 
 /* Visible text of an HTML fragment: what a reader sees, and what JSON-LD says. */
 export function plain(html) {
@@ -40,6 +40,9 @@ export function plain(html) {
       return ENTITIES[e.toLowerCase()] ?? m;
     });
 }
+
+/* The named entities plain() reads back; tools/build-pages.mjs rejects any other. */
+export const KNOWN_ENTITIES = new Set(Object.keys(ENTITIES));
 
 export const jsonText = (html) => JSON.stringify(plain(html)).slice(1, -1);
 

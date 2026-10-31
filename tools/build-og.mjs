@@ -53,17 +53,21 @@ const FRAMES = {
 
 /* ─── Fonts ─── */
 
-const fontDir = mkdtempSync(path.join(tmpdir(), 'dovilo-og-'));
-const fontFile = (name) => {
-  const out = path.join(fontDir, `${name}.ttf`);
-  writeFileSync(out, woff2ToTtf(readFileSync(path.join(ROOT, 'fonts', `${name}.woff2`))));
-  return out;
-};
-const LATIN = fontFile('inter-latin');
-const LATIN_EXT = fontFile('inter-latin-ext');
-/* fontconfig keeps every file it is handed, so registering latin-ext once
-   lets Pango fall back to it for ğ, ş, İ, œ and the rest. */
-await sharp({ text: { text: 'ğ', font: 'Inter Bold 10', fontfile: LATIN_EXT, rgba: true } }).png().toBuffer();
+let fontDir = null;
+let LATIN = null;
+async function loadFonts() {
+  fontDir = mkdtempSync(path.join(tmpdir(), 'dovilo-og-'));
+  const fontFile = (name) => {
+    const out = path.join(fontDir, `${name}.ttf`);
+    writeFileSync(out, woff2ToTtf(readFileSync(path.join(ROOT, 'fonts', `${name}.woff2`))));
+    return out;
+  };
+  LATIN = fontFile('inter-latin');
+  /* fontconfig keeps every file it is handed, so registering latin-ext once
+     lets Pango fall back to it for ğ, ş, İ, œ and the rest. That is libvips'
+     behaviour, not a promise: look at a new language's cards once. */
+  await sharp({ text: { text: 'ğ', font: 'Inter Bold 10', fontfile: fontFile('inter-latin-ext'), rgba: true } }).png().toBuffer();
+}
 
 const pango = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -112,9 +116,11 @@ async function frame(file, f) {
   const inner = f.width - 2;
   const fullH = Math.round((meta.height * inner) / meta.width) + 2;
   const visible = Math.min(fullH, H - f.top);
-  const shot = await sharp(file).resize({ width: inner }).extract({ left: 0, top: 0, width: inner, height: visible - 1 }).png().toBuffer();
+  /* Inside the 1px border: the whole capture, or the part above the card's edge. */
+  const shotH = Math.min(fullH - 2, visible - 1);
+  const shot = await sharp(file).resize({ width: inner }).extract({ left: 0, top: 0, width: inner, height: shotH }).png().toBuffer();
   const r = 8;
-  const mask = Buffer.from(`<svg width="${inner}" height="${visible - 1}"><rect x="0" y="0" width="${inner}" height="${fullH}" rx="${r - 1}" fill="#fff"/></svg>`);
+  const mask = Buffer.from(`<svg width="${inner}" height="${shotH}"><rect x="0" y="0" width="${inner}" height="${fullH}" rx="${r - 1}" fill="#fff"/></svg>`);
   const clipped = await sharp(shot).ensureAlpha().composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
   const box = Buffer.from(`<svg width="${f.width}" height="${visible}"><rect x="0.5" y="0.5" width="${f.width - 1}" height="${fullH - 1}" rx="${r}" fill="${SURFACE}" stroke="${BORDER}"/></svg>`);
   const data = await sharp(box).composite([{ input: clipped, left: 1, top: 1 }]).png().toBuffer();
@@ -151,8 +157,8 @@ for (const page of PAGES) {
   const opts = Object.fromEntries([...m[1].matchAll(/(\w+)=(\S+)/g)].map((x) => [x[1], x[2]]));
   for (const lang of langs) {
     const s = loadStrings(lang.code);
-    if (!s.pages[page.id]) continue;
     if (lang.code === 'en' && page.enCard) continue;
+    if (opts.captures && !s.lang?.captures) throw new Error(`src/strings/${lang.code}.json has no lang.captures`);
     jobs.push({
       out: `${cardName(page, lang)}.jpg`,
       h1: plain(s.pages[page.id].hero.h1),
@@ -169,6 +175,7 @@ jobs.push({ out: 'og-docs.jpg', h1: plain(docsH1[1]), layout: 'text', captures: 
 
 const changed = [];
 try {
+  await loadFonts();
   for (const job of jobs) {
     const buf = await card(job);
     const file = path.join(ROOT, job.out);
@@ -177,7 +184,7 @@ try {
     if (!CHECK) writeFileSync(file, buf);
   }
 } finally {
-  rmSync(fontDir, { recursive: true, force: true });
+  if (fontDir) rmSync(fontDir, { recursive: true, force: true });
 }
 
 if (CHECK && changed.length) {

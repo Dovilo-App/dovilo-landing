@@ -25,9 +25,10 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { readdirSync } from 'node:fs';
 import {
   ROOT, SRC, PAGES, LANGUAGES, render, plain, loadStrings, stringsLanguages,
-  pagePath, pageOut, cardName, shellData,
+  pagePath, pageOut, cardName, shellData, KNOWN_ENTITIES,
 } from './pages-lib.mjs';
 
 const ORIGIN = 'https://dovilo.app';
@@ -59,12 +60,19 @@ function compare(en, other, where, code) {
 }
 for (const l of langs) if (l.code !== 'en') compare({ common: strings.en.common, pages: strings.en.pages }, strings[l.code], '', l.code);
 
-/* Nothing a person reads carries an em dash (CLAUDE.md §1.1). */
+/* Nothing a person reads carries an em dash (CLAUDE.md §1.1). Outside its
+   tags a string carries no straight double quote, which would end the
+   attribute it lands in (alt, content), and no named entity the build cannot
+   read back for JSON-LD: write the character itself, or a typographic quote. */
 (function walk(o, where) {
   for (const [k, v] of Object.entries(o)) {
     const w = where ? `${where}.${k}` : k;
-    if (typeof v === 'string') { if (/—|&mdash;/.test(v)) problems.push(`em dash in ${w}`); }
-    else if (v && typeof v === 'object') walk(v, w);
+    if (typeof v === 'string') {
+      const text = v.replace(/<[^>]*>|{{[^}]*}}/g, '');
+      if (/—|&mdash;/.test(v)) problems.push(`em dash in ${w}`);
+      if (text.includes('"')) problems.push(`straight double quote in ${w}: write &quot; or “ ”`);
+      for (const [, e] of text.matchAll(/&([a-z][a-z0-9]*);/gi)) if (!KNOWN_ENTITIES.has(e.toLowerCase())) problems.push(`entity &${e}; in ${w}: write the character itself`);
+    } else if (v && typeof v === 'object') walk(v, w);
   }
 })(strings, '');
 
@@ -75,7 +83,10 @@ if (problems.length) {
 
 /* ─── Pages ─── */
 
-const languagesOf = (page) => langs.filter((l) => strings[l.code].pages?.[page.id]);
+/* A language ships all five pages or none: compare() requires every English
+   key, so every page has the same set, and the nav never links a page that
+   was not built. */
+const languagesOf = () => langs;
 const abs = (p) => ORIGIN + p;
 
 function pageData(page, lang) {
@@ -110,11 +121,28 @@ function pageData(page, lang) {
     page: {
       canonical: abs(pagePath(page, lang)),
       homeUrl: abs(pagePath(PAGES[0], lang)),
-      ogImage: `${ORIGIN}/${cardName(page, lang)}.jpg`,
+      ogImage: `${ORIGIN}/${card(page, lang)}`,
       hreflang,
       ogLocaleAlternates,
     },
   };
+}
+
+/* og:image declares 1200x630, so the file has to be there: npm run build:og
+   writes a new language's cards. */
+function card(page, lang) {
+  const file = `${cardName(page, lang)}.jpg`;
+  if (!existsSync(path.join(ROOT, file))) throw new Error(`${lang.code}/${page.id}: ${file} does not exist; run npm run build:og first`);
+  return file;
+}
+
+/* A language whose strings file is gone must not leave its pages behind. */
+for (const l of LANGUAGES.slice(1)) {
+  if (langs.includes(l)) continue;
+  const dir = path.join(OUT, l.code);
+  if (existsSync(path.join(dir, 'index.html')) || (existsSync(dir) && readdirSync(dir).length)) {
+    throw new Error(`${l.code}/ is on disk but src/strings/${l.code}.json is not: remove ${l.code}/ or restore its strings`);
+  }
 }
 
 const written = [];
@@ -130,7 +158,6 @@ function emit(rel, content) {
 }
 
 for (const page of PAGES) {
-  if (!languagesOf(page).length) throw new Error(`no strings for ${page.id} in any language`);
   const tpl = readFileSync(path.join(SRC, 'pages', `${page.id}.html`), 'utf8');
   for (const lang of languagesOf(page)) {
     let html;
@@ -152,6 +179,14 @@ const anyMany = PAGES.some((p) => languagesOf(p).length > 1);
 if (anyMany && !sitemap.includes('xmlns:xhtml=')) {
   sitemap = sitemap.replace('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"');
 }
+/* Entries of languages without strings go, with every alternate; the loop
+   below writes the alternates back for the languages that remain. */
+for (const l of LANGUAGES.slice(1)) {
+  if (langs.includes(l)) continue;
+  const prefix = `${ORIGIN}/${l.code}/`.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+  sitemap = sitemap.replace(new RegExp(`  <url>\\n    <loc>${prefix}[^<]*</loc>\\n[\\s\\S]*?  </url>\\n`, 'g'), '');
+}
+if (langs.length === 1) sitemap = sitemap.replace(/    <xhtml:link [^\n]*\n/g, '').replace('\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"', '');
 const entryRe = (url) => new RegExp(`  <url>\\n    <loc>${url.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}</loc>\\n[\\s\\S]*?  </url>\\n`);
 for (const page of PAGES) {
   const set = languagesOf(page);
@@ -180,8 +215,7 @@ for (const page of PAGES) {
       .replace(/    <xhtml:link [^\n]*\n/g, '');
     if (links) entry = entry.replace(/(    <priority>[^\n]*\n)/, `$1${links}`);
     sitemap = sitemap.slice(0, m.index) + entry + sitemap.slice(m.index + m[0].length);
-    if (lang.code === 'en') after = m.index + entry.length;
-    else after = m.index + entry.length;
+    after = m.index + entry.length;
   }
 }
 emit('sitemap.xml', sitemap);
