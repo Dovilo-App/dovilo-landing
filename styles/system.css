@@ -328,6 +328,30 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
   .nav-links a{padding-block:var(--space-1);font-size:var(--text-body)}
 }
 
+/* Language menu: a native <details> in the nav actions, before the theme
+   toggle, on a page that exists in more than one language. The summary is an
+   .icon-btn with a globe; open, the list drops under it, right-aligned, on
+   --surface inside a 1px rule. No script, no shadow. The current language is
+   first, marked with aria-current and set in --text. */
+.lang-menu{position:relative}
+.lang-menu > summary{list-style:none}
+.lang-menu > summary::-webkit-details-marker{display:none}
+.lang-menu[open] > summary{color:var(--text);border-color:var(--text-muted)}
+.lang-menu-list{
+  position:absolute;top:calc(100% + var(--space-1));right:0;z-index:1;
+  min-width:max-content;
+  padding:var(--space-1) 0;list-style:none;
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.lang-menu-list a{
+  display:block;padding:var(--space-1) var(--space-2);
+  font-size:var(--text-small);font-weight:500;
+  color:var(--text-muted);text-decoration:none;
+}
+.lang-menu-list a:hover{color:var(--text)}
+.lang-menu-list a[aria-current="page"]{color:var(--text);font-weight:600}
+
 /* Buttons */
 .actions{display:flex;flex-wrap:wrap;gap:var(--space-2)}
 .btn{
