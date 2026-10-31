@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Build tooling for the Dovilo blog and the site icons. The rest of dovilo.app is hand-written static HTML with no build step.",
+  "description": "Build tooling for dovilo.app: the five localised pages from src/, the blog, the share cards and the site icons. Every other page is hand-written static HTML.",
   "scripts": {
+    "build:pages": "node tools/build-pages.mjs",
     "build:blog": "node tools/build-blog.mjs",
+    "build:og": "node tools/build-og.mjs",
     "build:icons": "node tools/build-icons.mjs",
     "serve": "python -m http.server 8000"
   },

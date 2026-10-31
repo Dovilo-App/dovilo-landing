@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{t.meta.title}}</title>
+  <meta name="description" content="{{t.meta.description}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{page.canonical}}">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">{{page.hreflang}}
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:title" content="{{t.meta.title}}">
+  <meta property="og:description" content="{{t.meta.description}}">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{t.meta.ogAlt}}">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="{{lang.ogLocale}}">{{page.ogLocaleAlternates}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="{{t.meta.title}}">
+  <meta name="twitter:description" content="{{t.meta.description}}">
+  <meta name="twitter:image" content="{{page.ogImage}}">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{t.meta.title|json}}",
+  "description": "{{t.meta.description|json}}",
+  "url": "{{page.canonical}}",
+  "image": "{{page.ogImage}}",
+  "inLanguage": "{{lang.code}}",
+  "dateModified": "{{t.updated}}",
+  "about": { "@id": "https://dovilo.app/#app" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dovilo",
+    "url": "https://dovilo.app/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "{{page.homeUrl}}" },
+    { "@type": "ListItem", "position": 2, "name": "{{t.meta.crumb|json}}", "item": "{{page.canonical}}" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{t.faq.free.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.free.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.install.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.install.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.trial.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.trial.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.updates.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.updates.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.agent.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.agent.a|json}}"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  {{> nav}}
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container">
+        <h1>{{t.hero.h1}}</h1>
+        <p class="hero-sub">{{t.hero.sub}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="download-boxes">
+          <div class="download-box" id="mobile">
+            <h2 id="group-mobile">{{t.boxes.mobile.title}}</h2>
+            <div class="store-badges">
+              <a class="store-badge" id="card-ios" href="https://apps.apple.com/app/dovilo/id6761195015?ct=website_download&amp;mt=8">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>{{c.badge.appleSmall}}</small><strong>{{c.badge.apple}}</strong></span>
+              </a>
+              <a class="store-badge" id="card-android" href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=website&amp;utm_medium=download">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zm4.89-2.29l1.81 1.028a.998.998 0 0 1 0 1.73L19.4 14.2l-2.83-2.2 2.82-2.283zM8.78 2.045l8.27 4.698-2.55 2.55-5.72-7.248z"/></svg>
+                <span><small>{{c.badge.googleSmall}}</small><strong>{{c.badge.google}}</strong></span>
+              </a>
+            </div>
+            <p>{{t.boxes.mobile.p}}</p>
+          </div>
+          <div class="download-box" id="desktop">
+            <h2 id="group-desktop">{{t.boxes.desktop.title}}</h2>
+            <div class="store-badges">
+              <a class="store-badge" id="card-windows" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=download">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                <span><small>{{t.boxes.desktop.badgeSmall}}</small><strong>{{t.boxes.desktop.windows}}</strong></span>
+              </a>
+              <a class="store-badge" id="card-mac" href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=download">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>{{t.boxes.desktop.badgeSmall}}</small><strong>{{t.boxes.desktop.mac}}</strong></span>
+              </a>
+            </div>
+            <p>{{t.boxes.desktop.latest}}</p>
+            <p>{{t.boxes.desktop.upgrade}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="container">
+        <details class="collapsible" id="what-it-is">
+          <summary>{{t.what.summary}}</summary>
+          <div class="collapsible-body flow">
+            <p>{{t.what.p1}}</p>
+            <p>{{t.what.p2}}</p>
+            <p>{{t.what.p3}}</p>
+          </div>
+        </details>
+        <details class="collapsible" id="which-download">
+          <summary>{{t.which.summary}}</summary>
+          <div class="collapsible-body flow">
+            <p>{{t.which.p1}}</p>
+            <div class="table-wrap">
+              <table class="table">
+                <caption class="sr-only">{{t.which.table.caption}}</caption>
+                <thead>
+                  <tr><th scope="col">{{t.which.table.head.platform}}</th><th scope="col">{{t.which.table.head.source}}</th><th scope="col">{{t.which.table.head.cost}}</th><th scope="col">{{t.which.table.head.updates}}</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">{{t.which.table.ios.platform}}</th><td>{{t.which.table.ios.source}}</td><td>{{t.which.table.free}}</td><td>{{t.which.table.ios.updates}}</td></tr>
+                  <tr><th scope="row">{{t.which.table.android.platform}}</th><td>{{t.which.table.android.source}}</td><td>{{t.which.table.free}}</td><td>{{t.which.table.android.updates}}</td></tr>
+                  <tr><th scope="row">{{t.which.table.windows.platform}}</th><td>{{t.which.table.windows.source}}</td><td>{{t.which.table.needsPro}}</td><td>{{t.which.table.selfUpdate}}</td></tr>
+                  <tr><th scope="row">{{t.which.table.mac.platform}}</th><td>{{t.which.table.mac.source}}</td><td>{{t.which.table.needsPro}}</td><td>{{t.which.table.selfUpdate}}</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>{{t.which.p2}}</p>
+          </div>
+        </details>
+        <details class="collapsible" id="free-and-pro">
+          <summary>{{t.pro.summary}}</summary>
+          <div class="collapsible-body flow">
+            <p>{{t.pro.p1}}</p>
+            <p>{{t.pro.p2}}</p>
+          </div>
+        </details>
+        <details class="collapsible" id="download-faq">
+          <summary>{{t.faq.summary}}</summary>
+          <div class="collapsible-body flow">
+            <h3>{{t.faq.free.q}}</h3>
+            <p>{{t.faq.free.a}}</p>
+            <h3>{{t.faq.install.q}}</h3>
+            <p>{{t.faq.install.a}}</p>
+            <h3>{{t.faq.trial.q}}</h3>
+            <p>{{t.faq.trial.a}}</p>
+            <h3>{{t.faq.updates.q}}</h3>
+            <p>{{t.faq.updates.a}}</p>
+            <h3>{{t.faq.agent.q}}</h3>
+            <p>{{t.faq.agent.a}}</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </main>
+
+  {{> footer}}
+
+  {{> site-script}}
+  <script>
+    /* Page script: marks the download for this device (#card-ios, -android,
+       -windows, -mac), opens the collapsible an old anchor points at
+       (#what-it-is, #which-download, #free-and-pro, #download-faq were open
+       sections before), brings the desktop box's Latest line up to the
+       newest release and, for one of five ?source= values, puts a note
+       above the download boxes. It only adds a class, sets open, swaps that
+       line's version and date and inserts the note; the ring and the note
+       are components in system.css. */
+    (function(){
+      /* The five values Dovilo's servers and apps put in links here (product
+         brief §12). Their lines live only in this map, never in the page
+         text, so they stay out of the index and out of llms.txt. Any other
+         value, or none, shows nothing. */
+      var NOTES = {
+        mcp_401: {
+          lead: {{t.notes.mcp_401.lead|js}},
+          text: {{t.notes.mcp_401.text|js}}
+        },
+        mcp_browser: {
+          lead: {{t.notes.mcp_browser.lead|js}},
+          text: {{t.notes.mcp_browser.text|js}},
+          link: [{{t.notes.mcp_browser.link|js}}, '/docs/mcp/']
+        },
+        mcp_pro_required: {
+          lead: {{t.notes.mcp_pro_required.lead|js}},
+          text: {{t.notes.mcp_pro_required.text|js}},
+          link: [{{t.notes.mcp_pro_required.link|js}}, {{href.pricing|js}}]
+        },
+        desktop_update: {
+          lead: {{t.notes.desktop_update.lead|js}},
+          text: {{t.notes.desktop_update.text|js}}
+        },
+        mcp_new_user: {
+          lead: {{t.notes.mcp_new_user.lead|js}},
+          text: {{t.notes.mcp_new_user.text|js}}
+        }
+      };
+      var boxes = document.querySelector('.download-boxes');
+      if (!boxes || !window.URLSearchParams) return;
+      var source = new URLSearchParams(location.search).get('source');
+      /* Own keys only, so ?source=constructor finds nothing. */
+      if (!source || !Object.prototype.hasOwnProperty.call(NOTES, source)) return;
+      var n = NOTES[source];
+
+      var note = document.createElement('div');
+      note.className = 'note';
+      var p = document.createElement('p');
+      var lead = document.createElement('strong');
+      lead.textContent = n.lead;
+      p.appendChild(lead);
+      p.appendChild(document.createTextNode(' ' + n.text));
+      note.appendChild(p);
+      if (n.link) {
+        var a = document.createElement('a');
+        var arrow = document.createElement('span');
+        a.className = 'link';
+        a.href = n.link[1];
+        a.textContent = n.link[0] + ' ';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '→';
+        a.appendChild(arrow);
+        note.appendChild(a);
+      }
+      boxes.parentNode.insertBefore(note, boxes);
+    })();
+    (function(){
+      function openTarget(){
+        var id = location.hash.slice(1), el = null;
+        try { el = id && document.getElementById(decodeURIComponent(id)); } catch (e) {}
+        if (el && el.tagName === 'DETAILS') el.open = true;
+      }
+      openTarget();
+      window.addEventListener('hashchange', openTarget);
+    })();
+    (function(){
+      var ua = navigator.userAgent || '';
+      var platform = navigator.platform || '';
+      var os = null;
+      if (/iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        os = 'ios';
+      } else if (/Android/.test(ua)) {
+        os = 'android';
+      } else if (/Win/.test(platform)) {
+        os = 'windows';
+      } else if (/Mac/.test(platform)) {
+        os = 'mac';
+      }
+      var card = os && document.getElementById('card-' + os);
+      if (card) card.classList.add('highlighted');
+    })();
+    /* The Latest line follows GitHub's latest release, the same one the
+       installers' releases/latest links download, so it reads what the
+       buttons fetch. One unauthenticated request, rate-limited per IP: on any
+       failure or an answer that is not a version and a date, the line written
+       above stays. */
+    (function(){
+      var ver = document.getElementById('desktop-ver');
+      var date = document.getElementById('desktop-date');
+      if (!ver || !date || !window.fetch) return;
+      /* Spelled out: Intl's en-GB short September is "Sept", not "Sep". */
+      var MONTHS = {{t.months|js}};
+
+      fetch('https://api.github.com/repos/Dovilo-App/dovilo-desktop-releases/releases/latest', {
+        headers: { Accept: 'application/vnd.github+json' }
+      })
+        .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function(rel){
+          var v = String(rel && rel.tag_name || '').replace(/^v/, '');
+          var when = rel && typeof rel.published_at === 'string' ? new Date(rel.published_at) : null;
+          if (!/^\d+(\.\d+)*$/.test(v) || !when || isNaN(when.getTime())) return;
+          ver.textContent = v;
+          date.setAttribute('datetime', when.toISOString().slice(0, 10));
+          date.textContent = when.getUTCDate() + ' ' + MONTHS[when.getUTCMonth()] + ' ' + when.getUTCFullYear();
+        })
+        .catch(function(){ /* keep the line written above */ });
+    })();
+  </script>
+</body>
+</html>

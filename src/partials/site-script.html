@@ -1,0 +1,98 @@
+<script>
+    /* Site script: theme toggle, mobile menu, copy buttons, email links and
+       the dark captures of figures. The same on every page. */
+    (function(){
+      var root = document.documentElement;
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      var BG = { light: '#F7F8F8', dark: '#161B1D' };
+
+      function theme(){
+        var t = root.getAttribute('data-theme');
+        return t === 'light' || t === 'dark' ? t : (dark.matches ? 'dark' : 'light');
+      }
+      function paint(){
+        var t = theme();
+        document.querySelectorAll('.theme-toggle').forEach(function(b){
+          b.setAttribute('aria-label', t === 'dark' ? {{c.script.toLight|js}} : {{c.script.toDark|js}});
+        });
+        if (root.hasAttribute('data-theme')) {
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
+        }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme, or the OS when there is none, so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : h === 'light' ? 'not all' : '(prefers-color-scheme: dark)';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
+      }
+      document.querySelectorAll('.theme-toggle').forEach(function(b){
+        b.addEventListener('click', function(){
+          var next = theme() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+          paint();
+        });
+      });
+      if (dark.addEventListener) dark.addEventListener('change', paint);
+      paint();
+
+      document.querySelectorAll('.nav-menu').forEach(function(b){
+        var menu = document.getElementById(b.getAttribute('aria-controls'));
+        if (!menu) return;
+        function set(open){
+          menu.classList.toggle('open', open);
+          b.setAttribute('aria-expanded', String(open));
+        }
+        b.addEventListener('click', function(){ set(!menu.classList.contains('open')); });
+        menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); b.focus(); }
+        });
+      });
+
+      /* Copy: the clipboard API where the page is a secure context, a hidden
+         textarea everywhere else, and a visible "Copy failed" if both refuse. */
+      document.querySelectorAll('.copy-btn').forEach(function(b){
+        var label = b.textContent, timer;
+        function show(ok){
+          b.classList.toggle('copied', ok);
+          b.textContent = ok ? {{c.script.copied|js}} : {{c.script.copyFailed|js}};
+          clearTimeout(timer);
+          timer = setTimeout(function(){ b.classList.remove('copied'); b.textContent = label; }, 1500);
+        }
+        function fallback(text){
+          var ta = document.createElement('textarea'), ok = false;
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '-1000px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          show(ok);
+        }
+        b.addEventListener('click', function(){
+          var block = b.closest('.code'), pre = block && block.querySelector('pre');
+          if (!pre) return;
+          var text = pre.innerText;
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ fallback(text); });
+          } else {
+            fallback(text);
+          }
+        });
+      });
+
+      /* Addresses are split in the markup so scrapers do not find a parseable
+         address; the real mailto is assembled here, in the browser. */
+      var at = String.fromCharCode(64);
+      document.querySelectorAll('a.mail').forEach(function(a){
+        var addr = a.getAttribute('data-u') + at + a.getAttribute('data-d');
+        a.setAttribute('href', 'mailto:' + addr);
+        a.textContent = addr;
+      });
+    })();
+  </script>
