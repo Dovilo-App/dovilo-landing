@@ -233,20 +233,20 @@ stacked below.
 ```html
 <div class="split">
   <div class="section-head">…</div>
-  <figure class="figure figure-phone">…</figure>
+  <figure class="figure figure-phone figure-stage">…</figure>
 </div>
 ```
 
 **Figure row:** when the claim needs two phone screens, each with its own caption, the proof side
-of a split holds a `figure-row`: the two figures side by side at any width, at most 480px together,
-so each screen stays at most 228px wide.
+of a split holds a `figure-row`: the two figures side by side at any width, each on its own stage
+(Figure, below), so each screen stays at most 228px wide.
 
 ```html
 <div class="split">
   <div class="section-head">…</div>
   <div class="figure-row">
-    <figure class="figure">…</figure>
-    <figure class="figure">…</figure>
+    <figure class="figure figure-stage">…</figure>
+    <figure class="figure figure-stage">…</figure>
   </div>
 </div>
 ```
@@ -513,9 +513,9 @@ no box, and the classes stay on the `<img>`s.
          src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
   </picture>
   <picture>
-    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="840">
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="767">
     <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-         src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+         src="…" width="386" height="767" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
   </picture>
   <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
 </figure>
@@ -523,8 +523,8 @@ no box, and the classes stay on the `<img>`s.
 
 **Hero with a phone pair:** when the hero's proof is a flow on the phone rather than a desktop
 screen (the home page), the figure is a phone pair: two phone screens of one flow side by side, the
-second 64px lower (48px below 600px), at most 480px wide together, under one caption. They never
-overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
+second 64px lower (48px below 600px), at most 480px wide together, on one stage (Figure, below)
+and under one caption. They never overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
 text (`h1`, sub, store badges and at most one `.link`) and the phone pair sit side by side, the
 phones at the right edge; below 960px the phones follow the text. Both images are above the fold:
 the first is the LCP image (`fetchpriority="high"`), neither is lazy.
@@ -538,10 +538,10 @@ the first is the LCP image (`fetchpriority="high"`), neither is lazy.
       <div class="store-badges">…</div>
       <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <figure class="figure figure-phones">
-      <img srcset="… 386w, … 772w" sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-           src="…" width="386" height="840" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
-      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="840" alt="…">
+    <figure class="figure figure-phones figure-stage">
+      <img srcset="… 386w, … 772w" sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
+           src="…" width="386" height="767" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="767" alt="…">
       <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
     </figure>
   </div>
@@ -605,7 +605,7 @@ repeats one shown elsewhere on the page. From 960px the screens line up along th
     <span class="step-label">Approve it on your phone</span>
     <span class="step-detail">Nothing reaches an agent before you say yes.</span>
     <img class="step-shot" srcset="… 386w, … 772w" sizes="(min-width:960px) 246px, 288px"
-         src="…" width="386" height="840" loading="lazy"
+         src="…" width="386" height="767" loading="lazy"
          alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
   </li>
   …
@@ -835,7 +835,7 @@ screen. Never a mock-up, a render or an illustration. Phone captures take `figur
 caps them at 288px wide.
 
 ```html
-<figure class="figure figure-phone">
+<figure class="figure figure-phone figure-stage">
   <img src="/screenshots/mobile-tasks.webp" width="386" height="840" loading="lazy"
        alt="Dovilo My Day list with tasks grouped under Today and No date">
   <figcaption>My Day, grouped under Today and No date.</figcaption>
@@ -845,24 +845,44 @@ caps them at 288px wide.
 One figure per claim, and **the same image never appears twice on a page**. Images follow the
 WebP, `width`/`height`, `srcset`/`sizes` and lazy-loading rules in `CLAUDE.md`.
 
+**Crop:** phone captures are cropped below the status bar and above the home indicator at the WebP
+step; the PNG source stays full frame. On a full-frame 1206x2622 capture the crop keeps rows 186
+to 2582 (186 off the top, the status bar's 62pt; 39 off the bottom, the home indicator's top edge),
+1206x2397, so the phone box is **386x767**. The bottom keeps to the indicator rather than the
+whole 34pt safe area: the Approve and Reject sheet on the AI inbox reaches row 2567. A capture
+cropped at the source keeps its own box (the ambience mixer, 1206x1290: **386x413**). Desktop
+captures are not cropped and keep their transparent corners (WebP with alpha): the figure's
+`--surface` backing fills them in each theme. Both desktop themes are 2844x1846, so the box is
+2000x1298 at every width.
+
+**Stage:** the backing behind screenshots. The capture sits on a `--surface` panel with a 1px
+`--border`, radius 8 and padding `--space-3` (`--space-2` below 600px); the capture inside keeps
+its own 1px border and radius 8. No shadow, no gradient, no device outline, and the same in both
+themes. Add `figure-stage` to a `figure-phone`, to each figure in a `figure-row` (each on its own
+panel) and to a `figure-phones` (both phones on one panel, the second phone's 64px/48px step down
+inside it). Never on `figure-pair` or `step-shot`. The panel is drawn by the figure itself, so the
+markup needs no wrapper and the caption sits under the panel. The stage widens `figure-phone` and
+the two-figure row by the padding and border, so the screens keep their width where the column
+allows; each `sizes` gives the screen's own width, padding taken off.
+
 **Dark capture:** a phone or desktop screen that the app draws differently in its dark theme
 carries both captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
 capture, its alt text, `loading`, `fetchpriority` and `width`/`height`; a `<source class="src-dark">`
 before it in a `<picture>` holds the dark capture, with the same `sizes` and the same
 `width`/`height`, so swapping never moves the layout. The dark file has the light file's name plus
 `-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`, `desktop-ai-dark-2000.webp`),
-and the same crop. A dark capture taken in a slightly larger window (the desktop set: 2874x1866
-against 2844x1846) is scaled to the light file's size before encoding, never cropped: every width
-variant then has its light twin's exact `width`/`height`, so the box never moves, though the
-content inside may sit a pixel or two off its light twin.
+and the same crop. A dark capture taken in a slightly larger window than its light twin is scaled
+to the light file's size before encoding, never cropped: every width variant then has its light
+twin's exact `width`/`height`, so the box never moves (the 2.1 sets are the same size in both
+themes, so nothing is scaled).
 
 ```html
 <picture>
   <source class="src-dark" media="(prefers-color-scheme: dark)"
           srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
-          sizes="…" width="386" height="840">
+          sizes="…" width="386" height="767">
   <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
-       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="767" loading="lazy"
        alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
 </picture>
 ```
@@ -878,7 +898,7 @@ the OS theme first (both phones on `/`, the desktop and the phone on `/ai`), and
 site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
 script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
 (`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
-`figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
+`figure-row`, `figure-stage` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
 a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
 looks the same in both themes (the city) keeps one source. Share cards stay light.
 
