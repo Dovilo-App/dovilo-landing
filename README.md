@@ -47,45 +47,43 @@ time; the stylesheets before it, `styles/base.css` and `styles/home.css`, are go
 
 ### Screenshots
 
-Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The screenshots on `/` and `/ai`
-carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
-`-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
-smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
-variant for 2x screens. A phone screen that the app draws differently in its dark theme also has a dark
-twin with the same crop, named with `-dark` before any width suffix (`mobile-ai-inbox-dark.webp`,
-`mobile-ai-inbox-dark-772.webp`); the page pairs the two in a `<picture>` and shows the one that
-matches its theme (see the Figure section of the design doc). The sources of both sets are in
-`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`. Desktop captures work the same
-way (`desktop-ai-dark-2000.webp`), with their sources in `screenshots/new/desktop/light/` and
-`screenshots/new/desktop/dark/`. The dark desktop set was captured at 2874x1866 against the light
-set's 2844x1846, so it is scaled to the light file's size first, never cropped, and every width
-variant then has its light twin's exact `width`/`height`.
-To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
-with ffmpeg:
+Pages reference `.webp`. The captures on `/` and `/ai` (the 2.1 set, A131) are written by
+`npm run build:captures` ([`tools/build-captures.mjs`](tools/build-captures.mjs)) from the PNG
+sources in `screenshots/new/`, which stay full frame for the stores:
+
+- `screenshots/new/mobile/{light,dark}/<lang>-NN.png`, 1206x2622 (09, the ambience mixer, is
+  cropped at the source to 1206x1290), and `city.png` in both themes: the city has no text, so one
+  capture serves every language.
+- `screenshots/new/desktop/<lang>/{light,dark}/desktop-NN-<name>.png`, 2844x1846 in both themes,
+  with transparent corners.
+
+The script maps each site name to its screen (`mobile-ai-inbox` 01, `mobile-ai` 02,
+`mobile-ai-done` 05, `mobile-list-birthday` 07, `mobile-focus-rain` 08, `mobile-ambience-mixer` 09,
+`mobile-ai-new-task` 11, `mobile-ai-proposal` 12, `mobile-ai-running` 13, `desktop-ai` desktop-01,
+`mobile-city-26` the city) and writes English to `screenshots/` and every other language with a
+strings file to `screenshots/<lang>/` under the same names; the city is written once, to
+`screenshots/`, and every language links it there. Phone captures are cropped below the status bar
+and above the home indicator (rows 186 to 2582, box 386x767; the mixer keeps its 386x413) and
+written at 386w and 772w; the city at 386w, 576w and 772w; desktop at 700w to 2000w with its alpha.
+WebP q88 (the city q80). A dark twin is named with `-dark` before any width suffix
+(`mobile-ai-inbox-dark-772.webp`), and the page pairs the two in a `<picture>` (the Figure
+section of the design doc). Keep each `sizes` equal to the width the CSS renders.
 
 ```bash
-# Quality 80 for the busy city render, 88 elsewhere.
+npm run build:captures                              # every capture, every language
+npm run build:captures -- --lang en --screen 11     # one source after a re-take (en-11, both themes)
+npm run build:captures -- --tinify                  # then compress with the Tinify API
+```
 
-# A phone capture at full size (1206px PNG): the 386w and 772w pair the
-# redesigned pages use. A dark twin takes the same commands with -dark before
-# the width suffix (mobile-x-dark.webp, mobile-x-dark-772.webp).
+`--tinify` reads `TINIFY_API_KEY` from the environment or the gitignored `.env`, keeps each result
+only when it is smaller, and prints the bytes before and after; the free tier is 500 compressions a
+month and a full run of English and Turkish is 91. Older captures not in the 2.1 set (the
+`styleguide/` samples `mobile-tasks.webp` and `mobile-focus.webp`, among others) keep their PNG
+next to the WebP and the ffmpeg recipe:
+
+```bash
 ffmpeg -i screenshots/mobile-x.png -vf scale=386:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
 ffmpeg -i screenshots/mobile-x.png -vf scale=772:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-772.webp
-
-# A desktop capture: scale the source to the light file's size (desktop-ai.png
-# is 2764x1794, the others 2844x1846), then the four widths at the light
-# variants' exact heights. Shown for the dark twin of desktop-ai. The dark
-# captures have no alpha: the corners outside the rounded window are pure black,
-# which occurs nowhere else in them, so colorkey makes exactly those transparent,
-# as the light captures are.
-ffmpeg -i screenshots/new/desktop/dark/desktop-01-ai-tasks.png -vf "format=rgba,colorkey=0x000000:0.0001:0,scale=2764:1794:flags=lanczos,format=rgba" -pred mixed -compression_level 9 screenshots/desktop-ai-dark.png
-for wh in 700x454 1000x650 1400x908 2000x1298; do ffmpeg -i screenshots/desktop-ai-dark.png -vf scale=${wh%x*}:${wh#*x}:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/desktop-ai-dark-${wh%x*}.webp; done
-
-# An older 386px PNG: encode it at its own size, plus the 1x variant for the
-# old pages' phone slots (~193 CSS px wide)
-ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
-ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-193.webp
 ```
 
 Share cards (`og:image`, `twitter:image`) stay on PNG/JPG — social crawlers are unreliable with WebP.
