@@ -71,10 +71,33 @@ async function loadFonts() {
 
 const pango = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-/* Renders the text at one size and returns its image and height. Pango's own
-   line pitch for Inter is about 1.27 em; `spacing` moves it to `lh`. */
+/* Pango's own line pitch for Inter at one size, measured: two lines of H with
+   no spacing, top of ink to top of ink. It depends on the fontconfig and Pango
+   the sharp build carries (1.27 em on one machine, 1.01 em on another), so a
+   constant would set the cards' line height differently per machine. */
+const pitchCache = new Map();
+async function naturalPitch(size) {
+  if (pitchCache.has(size)) return pitchCache.get(size);
+  const { data, info } = await sharp({
+    text: { text: 'H\nH', font: `Inter Bold ${size}`, fontfile: LATIN, dpi: 72, rgba: true },
+  }).raw().toBuffer({ resolveWithObject: true });
+  const tops = [];
+  let prev = false;
+  for (let y = 0; y < info.height; y++) {
+    let ink = false;
+    for (let x = 0; x < info.width && !ink; x++) ink = data[(y * info.width + x) * 4 + 3] > 128;
+    if (ink && !prev) tops.push(y);
+    prev = ink;
+  }
+  if (tops.length !== 2) throw new Error(`cannot measure Inter's line pitch at ${size}px`);
+  pitchCache.set(size, tops[1] - tops[0]);
+  return tops[1] - tops[0];
+}
+
+/* Renders the text at one size and returns its image and height; `spacing`
+   moves Pango's measured pitch to `lh`. */
 async function setText(text, size, layout, wrap = 'word') {
-  const spacing = Math.round(size * layout.lh - size * 1.27);
+  const spacing = Math.round(size * layout.lh - await naturalPitch(size));
   const img = sharp({
     text: {
       text: `<span foreground="${TEXT}">${pango(text)}</span>`,

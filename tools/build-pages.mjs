@@ -203,9 +203,10 @@ for (const page of PAGES) {
     if (!/^\d{4}-\d\d-\d\d$/.test(updated || '')) throw new Error(`${lang.code}/${page.id}: "updated" is not a date`);
     let m = entryRe(url).exec(sitemap);
     if (!m) {
-      /* A new language copy: the English entry's frequency and priority. */
+      /* A new language copy: the English entry's frequency, the page's
+         localised priority. */
       const freq = /<changefreq>(\w+)<\/changefreq>/.exec(enEntry[0])[1];
-      const prio = /<priority>([\d.]+)<\/priority>/.exec(enEntry[0])[1];
+      const prio = page.langPriority;
       const block = `  <url>\n    <loc>${url}</loc>\n    <lastmod>${updated}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${prio}</priority>\n  </url>\n`;
       sitemap = sitemap.slice(0, after) + block + sitemap.slice(after);
       m = entryRe(url).exec(sitemap);

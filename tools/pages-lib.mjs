@@ -112,24 +112,31 @@ export function render(tpl, data) {
 /* Every language the site will ship, in the menu's order. A language is built
    only when src/strings/<code>.json exists; English is at the root. */
 export const LANGUAGES = [
-  { code: 'en', name: 'English', prefix: '' },
-  { code: 'tr', name: 'Türkçe', prefix: '/tr' },
-  { code: 'es', name: 'Español', prefix: '/es' },
-  { code: 'fr', name: 'Français', prefix: '/fr' },
-  { code: 'de', name: 'Deutsch', prefix: '/de' },
+  { code: 'en', name: 'English', prefix: '', date: '{d} {m} {y}' },
+  { code: 'tr', name: 'Türkçe', prefix: '/tr', date: '{d} {m} {y}' },
+  { code: 'es', name: 'Español', prefix: '/es', date: '{d} {m} {y}' },
+  { code: 'fr', name: 'Français', prefix: '/fr', date: '{d} {m} {y}' },
+  { code: 'de', name: 'Deutsch', prefix: '/de', date: '{d} {m} {y}' },
 ];
+/* `date` is the order /downloads' page script writes the Latest line's date
+   in, from {d} (day), {m} (the month name from pages.downloads.months) and {y}
+   (year): the format key of A130 3.10. A format, not a translation, so it
+   lives here and not in the strings; set it with the language's strings,
+   keeping the static date in its boxes.desktop.latest the same shape. */
 
 /* `path` is the English URL as it is linked today. Four keep the forms the
    site has always used (CLAUDE.md §4: /ai and /faq stay slash-less); the
    localised copies are directories under the language prefix. */
+/* `langPriority` is the sitemap priority of the page's localised copies, a
+   step under English (A130 3.7). */
 export const PAGES = [
-  { id: 'home', path: '/', out: 'index.html', card: 'og-home' },
-  { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai' },
-  { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing' },
-  { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads' },
+  { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
+  { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
+  { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
+  { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
   /* The FAQ has shared og-card.jpg since before the build; its English head
      keeps it. Its localised copies get a card of their own. */
-  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', enCard: 'og-card' },
+  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', enCard: 'og-card', langPriority: '0.7' },
 ];
 
 export function pagePath(page, lang) {
@@ -168,9 +175,20 @@ export function loadStrings(code) {
    to mark (`ai`, `pricing`, `downloads`, `faq`, `blog`) or nothing. */
 export function shellData({ strings, lang, current = null, alternates = [] }) {
   const mark = (id) => (id === current ? ' aria-current="page"' : '');
+  const en = lang.code === 'en';
   return {
     c: strings.common,
-    lang: { ...strings.lang, code: lang.code },
+    /* en / other: {{#if}} flags for what only English carries (the full
+       SoftwareApplication, the Organization; A130 3.6) and what only the
+       localised copies do. The link parameters of A130 3.10: App Store
+       ct=<campaign>_<lang>, installers source=<placement>_<lang>, Google Play
+       hl=<lang>&utm_content=<lang>. English keeps its links as they were. */
+    lang: {
+      ...strings.lang, code: lang.code, date: lang.date,
+      en: en ? 'en' : '', other: en ? '' : lang.code,
+      suffix: en ? '' : `_${lang.code}`,
+      play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
+    },
     href: hrefs(lang),
     current: Object.fromEntries(['ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
     alternates,

@@ -78,7 +78,7 @@
   }
 }
   </script>
-  <script type="application/ld+json">
+{{#if lang.en}}  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -91,7 +91,7 @@
   "softwareHelp": { "@type": "CreativeWork", "url": "https://dovilo.app/docs/mcp/" }
 }
   </script>
-  <script type="application/ld+json">
+{{/if}}{{#if lang.en}}  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -111,7 +111,7 @@
   }
 }
   </script>
-  <script type="application/ld+json">
+{{/if}}  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -194,10 +194,10 @@
           </picture>
           <picture>
             <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-dark.webp 386w, {{lang.captures}}/mobile-ai-dark-772.webp 772w"
-                   sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="840">
+                   sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="767">
             <img class="pair-phone" srcset="{{lang.captures}}/mobile-ai.webp 386w, {{lang.captures}}/mobile-ai-772.webp 772w"
                  sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-                 src="{{lang.captures}}/mobile-ai.webp" width="386" height="840"
+                 src="{{lang.captures}}/mobile-ai.webp" width="386" height="767"
                  alt="{{t.hero.phoneAlt}}">
           </picture>
           <figcaption>{{t.hero.caption}}</figcaption>
@@ -224,9 +224,9 @@
             <span class="step-detail">{{t.steps.write.detail}}</span>
             <picture>
               <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-new-task-dark.webp 386w, {{lang.captures}}/mobile-ai-new-task-dark-772.webp 772w"
-                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-new-task.webp 386w, {{lang.captures}}/mobile-ai-new-task-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                   src="{{lang.captures}}/mobile-ai-new-task.webp" width="386" height="840" loading="lazy"
+                   src="{{lang.captures}}/mobile-ai-new-task.webp" width="386" height="767" loading="lazy"
                    alt="{{t.steps.write.alt}}">
             </picture>
           </li>
@@ -236,9 +236,9 @@
             <span class="step-detail">{{t.steps.approve.detail}}</span>
             <picture>
               <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-proposal-dark.webp 386w, {{lang.captures}}/mobile-ai-proposal-dark-772.webp 772w"
-                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-proposal.webp 386w, {{lang.captures}}/mobile-ai-proposal-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                   src="{{lang.captures}}/mobile-ai-proposal.webp" width="386" height="840" loading="lazy"
+                   src="{{lang.captures}}/mobile-ai-proposal.webp" width="386" height="767" loading="lazy"
                    alt="{{t.steps.approve.alt}}">
             </picture>
           </li>
@@ -248,9 +248,9 @@
             <span class="step-detail">{{t.steps.works.detail}}</span>
             <picture>
               <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-running-dark.webp 386w, {{lang.captures}}/mobile-ai-running-dark-772.webp 772w"
-                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-running.webp 386w, {{lang.captures}}/mobile-ai-running-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                   src="{{lang.captures}}/mobile-ai-running.webp" width="386" height="840" loading="lazy"
+                   src="{{lang.captures}}/mobile-ai-running.webp" width="386" height="767" loading="lazy"
                    alt="{{t.steps.works.alt}}">
             </picture>
           </li>
@@ -260,9 +260,9 @@
             <span class="step-detail">{{t.steps.asks.detail}}</span>
             <picture>
               <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-done-dark.webp 386w, {{lang.captures}}/mobile-ai-done-dark-772.webp 772w"
-                     sizes="(min-width:960px) 246px, 288px" width="386" height="840">
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-done.webp 386w, {{lang.captures}}/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
-                   src="{{lang.captures}}/mobile-ai-done.webp" width="386" height="840" loading="lazy"
+                   src="{{lang.captures}}/mobile-ai-done.webp" width="386" height="767" loading="lazy"
                    alt="{{t.steps.asks.alt}}">
             </picture>
           </li>

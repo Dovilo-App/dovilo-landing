@@ -86,6 +86,13 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - [Google Play](https://play.google.com/store/apps/details?id=com.dovilo.app) — Android.
 - Desktop for Windows and macOS, included with Pro. It is not only an agent console: it carries two task surfaces on a full-size screen — full to-do management for your own list, and AI task management for your agents. Focus sessions and the city are mobile only. Coding agents do not need it running.
 
+## Languages
+
+The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages are in English and Turkish; every other page (docs, changelog, blog, legal) is in English. Prices on every language page are in US dollars.
+
+- English: [Home](https://dovilo.app/), [AI agents](https://dovilo.app/ai), [Pricing](https://dovilo.app/pricing/), [Downloads](https://dovilo.app/downloads/), [FAQ](https://dovilo.app/faq)
+- Turkish (Türkçe), labelled as the Turkish nav: [Dovilo](https://dovilo.app/tr/), [AI](https://dovilo.app/tr/ai/), [Fiyat](https://dovilo.app/tr/pricing/), [İndir](https://dovilo.app/tr/downloads/), [SSS](https://dovilo.app/tr/faq/)
+
 ## Optional
 
 - [LangGraph webhook demo](https://github.com/Dovilo-App/dovilo-langgraph-demo): open-source end-to-end receiver that verifies signatures and drives an agent through MCP.

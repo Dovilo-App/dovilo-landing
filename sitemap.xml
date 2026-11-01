@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://dovilo.app/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
     <image:image>
       <image:loc>https://dovilo.app/screenshots/mobile-ai-inbox-772.webp</image:loc>
       <image:title>Dovilo AI inbox: a plan of six tasks from Claude with an Approve button</image:title>
@@ -28,12 +32,33 @@
       <image:title>Dovilo isometric city at level 26 with a stadium, a hospital and a city hall</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://dovilo.app/tr/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
+  </url>
 
   <url>
     <loc>https://dovilo.app/ai</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/ai"/>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/ai/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/ai"/>
   </url>
 
   <url>
@@ -41,6 +66,18 @@
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/pricing/"/>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/pricing/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/pricing/"/>
   </url>
 
   <url>
@@ -55,6 +92,18 @@
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/faq"/>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/faq/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/faq"/>
   </url>
 
   <url>
@@ -83,6 +132,18 @@
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/downloads/"/>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/downloads/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/downloads/"/>
   </url>
 
   <url>

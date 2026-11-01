@@ -1,8 +1,9 @@
 # dovilo.app — working rules
 
 Static HTML for [dovilo.app](https://dovilo.app). No framework. Most pages are hand-written; the
-build steps are `/blog`, the five pages built from `src/` (`npm run build:pages`, §1.3), their
-share cards (`npm run build:og`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
+build steps are `/blog`, the five pages built from `src/` in English and Turkish
+(`npm run build:pages`, §1.3), their share cards (`npm run build:og`), the captures
+(`npm run build:captures`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
 works — this file is about the rules that are easy to break and expensive to re-derive.
 
@@ -62,7 +63,8 @@ Rules:
   `/pricing` at most 320, body copy (paragraphs, list lines and notes) under 250 (headings,
   prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
   answers and store badges count toward neither);
-  `/downloads` at most 150; `/docs/` at most 150; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
+  `/downloads` at most 150; `/docs/` at most 150; a language copy of a built page (`/tr/…`) the
+English budget times 1.3, which is room for the language and never a reason to drop a fact; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
   `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/`, the posts and `/404.html` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
   depth; the fact is never deleted.
@@ -95,17 +97,18 @@ Rules:
   blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
   contents) go in a page script after the site script; the doc's §3 says how. `/downloads`' page
   script keys on `#card-ios|android|windows|mac` and adds `.highlighted`. It reads `?source=`
-  against a fixed map of the five values product brief §12 reserves (`mcp_401`, `mcp_browser`,
+  against a fixed map of the five values product brief §12 reserves, on `/tr/downloads/` too (`mcp_401`, `mcp_browser`,
   `mcp_pro_required`, `desktop_update`, `mcp_new_user`) and, for one of them, inserts a
   `div.note` before `.download-boxes` (design-language §5, Note); any other value, or none, shows
-  nothing. The five lines are final copy from their task; they live in `src/strings/en.json`
+  nothing. The five lines are final copy from their task; they live in `src/strings/<lang>.json`
   (`pages.downloads.notes`), which the build writes into that map, never in the page's text,
   `llms.txt` or `llms-full.txt`; the canonical stays `/downloads/`. The Note samples
   in `/styleguide/` and design-language §5 repeat the `mcp_browser` line: change them with it. The
   page script also makes one request, GitHub's `releases/latest` for the desktop releases repo
   (the release the installer links download), and writes the tag without its `v` into
-  `#desktop-ver` and the publish date, as "27 Oct 2026" in UTC, into `time#desktop-date` and its
-  `datetime`, in the desktop box's Latest line. On any failure the static line stays. The page source, `llms.txt` and `llms-full.txt`
+  `#desktop-ver` and the publish date, as "27 Oct 2026" in UTC (the month names from the strings, the
+  order from the language's `date` format in `LANGUAGES`, `tools/pages-lib.mjs`), into
+  `time#desktop-date` and its `datetime`, in the desktop box's Latest line. On any failure the static line stays. The page source, `llms.txt` and `llms-full.txt`
   carry only that static text, so it is still updated by hand at a release; Googlebot runs the
   script and may index the fetched version instead. The page
   script of `/docs/mcp/` and `/docs/webhooks` opens `.toc details` from 960px and sets `.active` on
@@ -147,7 +150,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 
 `/`, `/ai`, `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
 (`tools/build-pages.mjs`) from `src/` since A130 (31 Oct 2026), so the site can ship them in five
-languages. Their `index.html` files are build output: **never edit them in place**; the next build
+languages. English and Turkish ship today (A130 part 2, 1 Nov 2026). Their `index.html` files are build output: **never edit them in place**; the next build
 overwrites them. `npm run build:pages -- --check` fails when they are out of step with `src/`.
 
 - `src/pages/<page>.html` is the page's markup, figures and JSON-LD skeleton. Its first line names
@@ -163,12 +166,27 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - English is written to the paths the site has always had. A language gets its copies under
   `/tr/`, `/es/`, `/fr/` or `/de/` when `src/strings/<lang>.json` exists, and only then does the
   build write hreflang, `og:locale:alternate`, the language menu, the footer's language links and
-  the localised sitemap entries with their alternates. Today only `en.json` exists, so no page
-  shows any of it; the homepage keeps the `en` and `x-default` hreflang it always had.
+  the localised sitemap entries with their alternates. `en.json` and `tr.json` exist, so all ten
+  pages carry hreflang for `en`, `tr` and `x-default` (English), the menu and the footer links.
+  A language copy is `/<lang>/` or `/<lang>/<page>/`, slash form only (`/tr/faq/`), with its own
+  canonical; its links to the other four pages stay in its language and every other link goes to
+  the English page.
+- **Translations are never written or changed here.** A strings file other than English comes from
+  a task or from Selahaddin, and is committed as placed. A string that fails a check or does not
+  fit is reported with its key, not fixed.
+- Links on a language copy carry the language (A130 3.10): App Store `ct=<campaign>_<lang>`,
+  Google Play `&hl=<lang>&utm_content=<lang>`, the installers `?source=<placement>_<lang>`. The
+  templates write them through `{{lang.suffix}}` and `{{lang.play}}`; English keeps its links.
+- JSON-LD on a language copy (A130 3.6): its page-level type with `inLanguage`, its
+  `BreadcrumbList` (Dovilo is `/<lang>/`) and its `FAQPage` from its own strings; the app is
+  referenced by `"@id": "https://dovilo.app/#app"` only. The full `SoftwareApplication`
+  (`offers`, `featureList`, `releaseNotes`), the `Organization` and the `WebSite` stay on the
+  English pages (`{{#if lang.en}}` in the templates).
 - The build fails on a missing key, on a translation whose markup (tags, attributes, `{{href.*}}`)
   differs from English, and on an em dash.
 - The other pages (`/docs/*`, `/changelog/`, the legal pages, `/blog/`, `/404.html`) stay
-  hand-written or generated as before, and English only.
+  hand-written or generated as before, and English only: they carry no hreflang and no language
+  menu.
 
 ---
 
@@ -235,7 +253,10 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   and run `npm run build:pages`.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
-  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A `noindex` page (`/licenses`, `/styleguide/`,
+  0.7, `/changelog/` 0.6, `/privacy` and `/terms` 0.3. A language copy of a built page sits a step
+  under English, and the page build writes its entry: `/<lang>/` and `/<lang>/ai/` 0.8,
+  `/<lang>/pricing/` and `/<lang>/faq/` 0.7, `/<lang>/downloads/` 0.6 (`langPriority` in
+  `tools/pages-lib.mjs`). A `noindex` page (`/licenses`, `/styleguide/`,
   `/404.html`) stays out.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
@@ -308,11 +329,16 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   and never declare `og:image:width`/`height` the file does not have. The cards of the five built
   pages and `/docs/` (`og-home.jpg`, `og-ai.jpg`, `og-pricing.jpg`, `og-downloads.jpg`,
   `og-docs.jpg`, and `og-<page>-<lang>.jpg` per language) are written by `npm run build:og`
-  (`tools/build-og.mjs`) from the `<h1>` in the strings, in Inter from `/fonts/`, with the hero
-  capture the template names; never edit them by hand. Run it when an `<h1>` or a named capture
-  changes. `/faq`'s English card stays `og-card.jpg`.
-- Keep the PNG sources next to every WebP screenshot and regenerate variants with the ffmpeg
-  recipe in `README.md`. The icons are the exception (next rule).
+  (`tools/build-og.mjs`) from the `<h1>` in the strings, in Inter from `/fonts/` (latin-ext as the
+  fallback for ş, ğ, İ and the rest), with the cropped hero capture the template names; never edit
+  them by hand. Run it when an `<h1>` or a named capture changes. `/faq`'s English card stays `og-card.jpg`.
+- **The 2.1 captures come from `npm run build:captures`** (`tools/build-captures.mjs`, A131) and
+  are never encoded by hand: the PNG sources stay full frame in `screenshots/new/`, the script
+  crops the phones (rows 186 to 2582, box 386x767; the mixer 386x413), writes English to
+  `screenshots/` and a language to `screenshots/<lang>/`, and with `--tinify` compresses them
+  (`TINIFY_API_KEY` in `.env`, never in a note or a commit). `--lang en --screen 11` rebuilds one
+  source after a re-take. The city is one file for every language. Older captures keep their PNG
+  next to the WebP and the ffmpeg recipe in `README.md`. The icons are the exception (next rule).
 - **Icons come from `docs/brand/` only.** `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`,
   `dovilo-logo.webp` (the nav logo) and `dovilo-icon.png` (the app icon square, the JSON-LD logo)
   are written by `npm run build:icons` from the brick D SVGs (A126), by scale and crop alone; never
@@ -373,10 +399,9 @@ Carried here so they are not rediscovered from scratch:
   slash-less URL, which GitHub Pages 301-redirects to the directory form. Canonical should name the
   URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
   together.
-- `hreflang` is declared only on the homepage (`en` and `x-default`). The page build writes it
-  for every built page once it has a second language; until the TR strings land it stays English
-  only.
-- `/faq` carries no `og:locale`; its template gets one with its second language.
+- The ten built pages declare hreflang for the languages that are built (`en`, `tr`, `x-default`),
+  not the six of A130 3.1: `es`, `fr` and `de` appear by themselves when their strings land, and
+  until then would point at addresses that do not exist.
 - Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4) and
   `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
   questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
@@ -398,7 +423,8 @@ Carried here so they are not rediscovered from scratch:
 - `/` has `og-home.jpg` and `/ai` has `og-ai.jpg`, the `<h1>` beside or over the hero capture.
   `/pricing/` has `og-pricing.jpg`, `/downloads/` has `og-downloads.jpg` and `/docs/` has
   `og-docs.jpg`: the page background and the `<h1>` in Inter 700, with no capture. All five are
-  written by `npm run build:og`. `/docs/mcp/`, `/faq` and `/blog/` keep `og-card.jpg` (the
+  written by `npm run build:og`, and so are the Turkish cards (`og-<page>-tr.jpg`, `/tr/faq/`'s
+  `og-faq-tr.jpg` included). `/docs/mcp/`, the English `/faq` and `/blog/` keep `og-card.jpg` (the
   blog's through `SITE.defaultOgImage`, and a post's when it has no cover), and `/docs/webhooks`,
   `/changelog/` and the legal pages have none: their move to `system.css` was a style move.
 - `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise

@@ -96,7 +96,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-10-28",
+      "updated": "2026-11-01",
       "meta": {
         "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
         "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
@@ -236,7 +236,7 @@
       "blogLink": "Written while building Dovilo: the blog"
     },
     "ai": {
-      "updated": "2026-10-28",
+      "updated": "2026-11-01",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",

@@ -133,8 +133,13 @@ tools/build-pages.mjs       renders every page in every language that has a stri
 (`tr/index.html`, `tr/ai/index.html`, …). It also writes each page's `lastmod` into
 [`sitemap.xml`](sitemap.xml) from the page's `updated` string, and, for a page in more than one
 language, the localised sitemap entries, hreflang, `og:locale:alternate` and the language menu.
-Only `en.json` exists today, so none of that shows yet. `npm run build:pages -- --check` writes
-nothing and fails if any page is out of step with `src/`.
+`en.json` and `tr.json` exist, so the ten pages carry hreflang (`en`, `tr`, `x-default`) and the
+language menu, and `sitemap.xml` lists `/tr/…` a priority step under English. A language copy's
+store and installer links carry the language (`ct=…_tr`, `hl=tr&utm_content=tr`,
+`source=…_tr`), and its JSON-LD leaves the full `SoftwareApplication`, the `Organization` and the
+`WebSite` to English (CLAUDE.md §1.3). A strings file other than English is committed as placed:
+the build reports a key that fails its checks, nobody rewrites the translation.
+`npm run build:pages -- --check` writes nothing and fails if any page is out of step with `src/`.
 
 Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<strong>`); a
 translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
@@ -152,7 +157,10 @@ light background, with the hero capture its template names in its first line
 (`{{! card: layout=… captures=… }}`): `text` (the h1 alone), `split` (the h1 beside two phone
 screens) or `top` (the h1 over the desktop screen). Long text wraps, then drops one size step, then
 is clipped to whole lines with a warning. The font is the site's own: `tools/woff2.mjs` decodes
-`fonts/*.woff2` to TrueType in the temp folder for sharp. `/faq` keeps `og-card.jpg` in English.
+`fonts/*.woff2` to TrueType in the temp folder for sharp, with latin-ext as the fallback for
+Turkish (and later French and German) letters. The line height is set from Pango's measured line
+pitch for Inter, which differs between machines (1.27 em on one, 1.01 em on another), so the cards
+keep a 1.2 line height wherever they are built. `/faq` keeps `og-card.jpg` in English.
 `npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
 depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
 without a change, so regenerate and look at them rather than trusting the check across machines.
