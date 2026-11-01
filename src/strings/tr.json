@@ -1,0 +1,756 @@
+{
+  "_readme": [
+    "Turkish strings for /tr/, /tr/ai/, /tr/pricing/, /tr/downloads/ and /tr/faq/. Same keys, tags, attributes and {{href.*}} as en.json; the build fails if the markup differs.",
+    "Written by Claude from en.json (l10n-build, 7b57b34) on 1 Nov 2026 for decision A130. Product terms follow the app's own tr strings (Mobile export, 1 Nov 2026): AI, ajan, AI görevi, AI Görevleri, Görevlerim, Günüm, odak seansı, atmosfer, Odak Atmosfer Paketi, Tam Şehir Paketi, tuğla, inşaat izni, Önce bana sor, AI gelen kutusu, Bağlı AI uygulamaları.",
+    "Prices stay in USD with the English figures ($2.49), as the stores set regional prices. Sentence case, no em dash, 'sen' form.",
+    "Dates in the hand-written strings use the Turkish month abbreviations in `months`."
+  ],
+  "lang": {
+    "ogLocale": "tr_TR",
+    "captures": "/screenshots/tr"
+  },
+  "common": {
+    "nav": {
+      "skip": "İçeriğe geç",
+      "label": "Ana menü",
+      "ai": "AI",
+      "pricing": "Fiyat",
+      "downloads": "İndir",
+      "faq": "SSS",
+      "blog": "Blog",
+      "language": "Dil",
+      "theme": "Temayı değiştir",
+      "menu": "Menü"
+    },
+    "footer": {
+      "label": "Alt bilgi",
+      "product": "Ürün",
+      "developers": "Geliştiriciler için",
+      "downloads": "İndir",
+      "pricing": "Fiyat",
+      "changelog": "Sürüm notları",
+      "docs": "Dokümanlar",
+      "docsHub": "Dokümanlar",
+      "mcp": "MCP referansı",
+      "webhooks": "Webhook'lar",
+      "faq": "SSS",
+      "blog": "Blog",
+      "privacy": "Gizlilik",
+      "terms": "Koşullar",
+      "licenses": "Lisanslar",
+      "follow": "Takip et",
+      "copyright": "&copy; 2026 Dovilo. Tüm hakları saklıdır."
+    },
+    "script": {
+      "toLight": "Açık temaya geç",
+      "toDark": "Koyu temaya geç",
+      "copied": "Kopyalandı",
+      "copyFailed": "Kopyalanamadı"
+    },
+    "offers": {
+      "free": {
+        "name": "Ücretsiz",
+        "description": "$0. Tam yapılacaklar yönetimi; Sınırsız görev ve kategori; Son tarihler, yıldızlar ve öncelikler; Sınırsız odak seansı; Başlangıç binalarıyla temel şehir; Temel istatistikler; Koyu ve açık tema; Önce çevrimdışı, her zaman çalışır; Reklam yok, hiçbir zaman"
+      },
+      "month": {
+        "name": "Pro: ayda $2.49",
+        "description": "Uygulamada 7 günlük deneme. Ücretsiz'deki her şey ve: Gününü ChatGPT, Claude, Gemini veya Grok ile planla, ardından planı Dovilo'da onayla; Claude Code ve Cursor gibi AI ajanları senin için ayda 15 AI görevi üzerinde çalışır; Windows ve Mac için Dovilo Desktop; Cihazların arasında bulut senkronizasyonu; Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı; Tam Şehir Paketi: tüm binalar ve yükseltmeler; Gelişmiş istatistikler; Günde +6 inşaat izni; Hatırlatmayı doğrudan bildirimden 30 dakika ertele. Plan göndermek ücretsiz; onaylamak Pro ister."
+      },
+      "year": {
+        "name": "Pro: yılda $19.99",
+        "description": "Uygulamada 7 günlük deneme. Ücretsiz'deki her şey ve: Gününü ChatGPT, Claude, Gemini veya Grok ile planla, ardından planı Dovilo'da onayla; Claude Code ve Cursor gibi AI ajanları senin için ayda 15 AI görevi üzerinde çalışır; Windows ve Mac için Dovilo Desktop; Cihazların arasında bulut senkronizasyonu; Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı; Tam Şehir Paketi: tüm binalar ve yükseltmeler; Gelişmiş istatistikler; Günde +6 inşaat izni; Hatırlatmayı doğrudan bildirimden 30 dakika ertele. Plan göndermek ücretsiz; onaylamak Pro ister."
+      },
+      "once": {
+        "name": "Pro: tek seferlik $49.99",
+        "description": "Ücretsiz'deki her şey ve: Gününü ChatGPT, Claude, Gemini veya Grok ile planla, ardından planı Dovilo'da onayla; Claude Code ve Cursor gibi AI ajanları senin için ayda 15 AI görevi üzerinde çalışır; Windows ve Mac için Dovilo Desktop; Cihazların arasında bulut senkronizasyonu; Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı; Tam Şehir Paketi: tüm binalar ve yükseltmeler; Gelişmiş istatistikler; Günde +6 inşaat izni; Hatırlatmayı doğrudan bildirimden 30 dakika ertele. Plan göndermek ücretsiz; onaylamak Pro ister."
+      },
+      "ambience": {
+        "name": "Odak Atmosfer Paketi",
+        "description": "Tek seferlik satın alma. Odak Atmosfer Paketi, $4.99: 5 sahne, 16 ses katmanı. İki paket de Pro'ya dahildir."
+      },
+      "city": {
+        "name": "Tam Şehir Paketi",
+        "description": "Tek seferlik satın alma. Tam Şehir Paketi, $4.99: tüm binalar, dekorasyonlar ve yükseltmeler. İki paket de Pro'ya dahildir."
+      }
+    },
+    "badge": {
+      "appleSmall": "İndir:",
+      "apple": "App Store",
+      "googleSmall": "Edinin:",
+      "google": "Google Play"
+    },
+    "inShort": "Kısaca",
+    "whatItCosts": "Fiyatı",
+    "seePricing": "Fiyatları gör",
+    "straightAnswers": "Net cevaplar",
+    "closing": {
+      "title": "Tek mühendis, İstanbul'da.",
+      "p": "Şirket yok, yatırım yok. <a href=\"/changelog/\">Kontrol edebileceğin herkese açık bir sürüm geçmişi var.</a>"
+    },
+    "desktopNeedsPro": "Windows ve Mac için Dovilo Desktop Pro ister",
+    "getDovilo": "Dovilo'yu indir",
+    "readMcpDocs": "MCP dokümanlarını oku",
+    "copy": "Kopyala"
+  },
+  "pages": {
+    "home": {
+      "updated": "2026-11-01",
+      "meta": {
+        "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
+        "description": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunu. Sınırsız görev ve odak seansı, reklam yok.",
+        "ogAlt": "Dovilo: sana bir şehir kuran yapılacaklar listesi; yanında Claude'dan gelen altı görevlik plan ve onaylandığı liste"
+      },
+      "jsonld": {
+        "website": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunu.",
+        "features": {
+          "todo": "Sınırsız görevli yapılacaklar listesi, ücretsiz",
+          "focus": "Odak seansları, ücretsiz ve sınırsız: tek seans, Pomodoro döngüsü ya da tek göreve bağlı zamanlayıcı",
+          "ambience": "Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı, aynı anda 3 (tek seferlik $4.99, Pro'ya dahil)",
+          "city": "İzometrik şehir kurma: görevler ve odak seansları tuğla kazandırır, tuğlalar ev, ofis, park ve yol alır; hiçbir şey eksilmez",
+          "cityPackage": "Büyük yapılar için Tam Şehir Paketi (tek seferlik $4.99, Pro'ya dahil)",
+          "planning": "ChatGPT, Claude, Gemini veya Grok ile planla: asistan önerir, her planı sen onaylarsın (Pro)",
+          "agents": "AI ajanları: Claude Code ve Cursor remote MCP üzerinden kendi görev listesini alır, 9 araç, oluşturma yok, silme yok, ayda 15 AI görevi (Pro)",
+          "desktop": "Windows ve Mac için masaüstü uygulaması (Pro)",
+          "sync": "Cihazlar arasında bulut senkronizasyonu (Pro)",
+          "stats": "Gelişmiş istatistikler (Pro)",
+          "offline": "Önce çevrimdışı",
+          "languages": "5 dilde",
+          "themes": "Koyu ve açık tema",
+          "ads": "Ücretsiz ve ücretli katmanda reklam yok"
+        }
+      },
+      "hero": {
+        "h1": "Dovilo: sana bir şehir kuran <span class=\"nowrap\">yapılacaklar</span> listesi.",
+        "sub": "Kendin ya da ChatGPT ve Claude ile planla, tam ekran atmosferle odaklan ve biten işin bir şehre dönüşmesini izle.",
+        "agentsLink": "Claude Code ya da Cursor ile mi geliştiriyorsun?",
+        "inboxAlt": "Dovilo AI gelen kutusu: Claude'dan gelen altı görevlik plan ve Onayla butonu",
+        "listAlt": "Dovilo'da Taşınma listesi: onaylanan altı görev Bugün, Yarın ve Bu hafta altında",
+        "caption": "Claude'un önerdiği altı görev, onaylanıp listeye girdi."
+      },
+      "about": {
+        "p": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunuyla. Sınırsız görev ve odak seansı, reklam yok, önce çevrimdışı, 5 dil. Biten iş tuğla kazandırır, tuğlalar bina alır ve hiçbir şey eksilmez. ChatGPT ya da Claude gününü buraya planlayabilir; her planı sen onaylarsın. Pro ayda $2.49."
+      },
+      "steps": {
+        "title": "Nasıl çalışır",
+        "plan": {
+          "label": "Planla",
+          "detail": "Görevleri yaz ya da ChatGPT veya Claude önersin."
+        },
+        "approve": {
+          "label": "Onayla",
+          "detail": "Sen evet demeden hiçbir şey listene girmez."
+        },
+        "focus": {
+          "label": "Odaklan",
+          "detail": "Tek seans, Pomodoro döngüsü ya da tek göreve zamanlayıcı."
+        },
+        "build": {
+          "label": "Kur",
+          "detail": "Biten işten gelen tuğlalar kalıcı bir şehir alır."
+        }
+      },
+      "focus": {
+        "title": "Tüm ekranı dolduran odak",
+        "p": "Tek seans, Pomodoro döngüsü ya da tek göreve bağlı zamanlayıcı; ücretsiz ve sınırsız. Odak Atmosfer Paketi 5 sahne ve 16 ses katmanı ekler, aynı anda 3: tek seferlik $4.99, Pro'ya dahil.",
+        "rainAlt": "Dovilo'da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı",
+        "rainCaption": "Yağmurlu şehir, 22 dakika kaldı.",
+        "mixerAlt": "Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık",
+        "mixerCaption": "Yağmur ve şömine."
+      },
+      "city": {
+        "title": "Kalıcı bir şehir",
+        "p": "Görevler ve odak seansları tuğla kazandırır. Tuğlalarla ev, ofis, park ve yol al, istediğin yere koy. Hiçbir şey eksilmez, sakin geçen bir hafta için seni cezalandıran bir seri yok. Büyük yapılar Tam Şehir Paketi ile gelir: tek seferlik $4.99, Pro'ya dahil.",
+        "alt": "Dovilo'da 26. seviye izometrik şehir: stadyum, hastane ve belediye binası"
+      },
+      "agents": {
+        "title": "Claude Code ya da Cursor ile mi geliştiriyorsun?",
+        "p": "Ajanın kendi görev listesini alır: 9 araç, oluşturma yok, silme yok, senin listen görünmez.",
+        "link": "AI ajanlarını oku"
+      },
+      "pricing": {
+        "free": {
+          "label": "Ücretsiz",
+          "text": "Kişisel uygulamanın tamamı: sınırsız görev ve odak seansı, şehir, reklam yok."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Ayda $2.49, yılda $19.99 ya da tek seferlik $49.99, 7 günlük deneme. AI ile planlama, AI ajanları, Desktop, bulut senkronizasyonu, iki paket, gelişmiş istatistikler."
+        }
+      },
+      "shipped": {
+        "title": "Yeni çıkanlar",
+        "mobile": {
+          "date": "27 Eki 2026",
+          "text": "Mobil 2.0.0: ChatGPT, Claude, Gemini veya Grok ile planlama; AI ajanları."
+        },
+        "desktop": {
+          "date": "27 Eki 2026",
+          "text": "Desktop 2.0.2: görev ayrıntıları listenin üstünde açılır."
+        },
+        "link": "Tüm sürüm notları"
+      },
+      "faq": {
+        "what": {
+          "q": "Dovilo nedir?",
+          "a": "Dovilo, yapılacaklar listesini, tam ekran atmosferli odak seanslarını ve izometrik bir şehir kurma oyununu birleştiren oyunlaştırılmış bir üretkenlik uygulamasıdır. Görevlerini ve odak seanslarını tamamlayıp tuğla kazanırsın, sonra kendi sanal şehrinde ev, ofis, park ve daha fazlasını kurarsın."
+        },
+        "free": {
+          "q": "Dovilo ücretsiz mi?",
+          "a": "Evet. Ücretsiz katman tam yapılacaklar yönetimini, sınırsız görev ve kategoriyi, sınırsız odak seansını, temel şehir kurmayı, koyu ve açık temayı içerir; reklam yoktur. Pro, ChatGPT, Claude, Gemini veya Grok ile planlamayı, kodlama ajanları için ayda 15 AI görevini, Windows ve Mac masaüstü uygulamasını, bulut senkronizasyonunu, Odak Atmosfer Paketi'ni, tüm binaları ve gelişmiş istatistikleri ekler; ayda $2.49'dan başlar ve <strong>7 günlük ücretsiz denemeyle</strong> açılır, yani ödemeden önce her şeyi deneyebilirsin. Hafta dolmadan iptal edersen hiçbir ücret alınmaz."
+        },
+        "plan": {
+          "q": "ChatGPT, Claude, Gemini veya Grok ile planlayabilir miyim?",
+          "a": "Evet. Dovilo'yu asistana özel bağlayıcı olarak <code>https://dovilo.app/mcp</code> adresiyle ekle ve Dovilo hesabınla giriş yap. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer. Her bağlantı için asistanın neyi okuyabileceğini, hangi listeleri ve projeleri göreceğini sen seçersin; yaptığı değişiklikler her zaman onayını bekler, ayarın adı <strong>Önce bana sor</strong>. Silme aracı yoktur ve bir bağlantıyı telefonundan istediğin an kesebilirsin. Plan göndermek Ücretsiz'de çalışır; onaylamak ve geri kalan her şey Pro ister."
+        },
+        "focus": {
+          "q": "Odak nasıl çalışır?",
+          "a": "Odak baştan yazıldı. Tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola) ya da tek bir göreve bağlı bir seans çalıştırabilirsin. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar, Rahatsız etme seans boyunca diğer uygulamaları susturur ve her sahne kendi atmosferini getirir: Yağmurlu şehir, Gece yarısı, Gün batımı, Kar ya da Sis."
+        },
+        "ambience": {
+          "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
+          "a": "Hayır. Odak seansları ve Pomodoro döngüleri ücretsiz ve sınırsızdır; Varsayılan sahne her zaman açıktır ve sessizdir. Odak Atmosfer Paketi 5 atmosferik sahneyi ve aynı anda üçünü karıştırabileceğin 16 ses katmanını ekler. Tek seferlik $4.99'lık bir satın almadır ve Pro'ya zaten dahildir."
+        },
+        "offline": {
+          "q": "Dovilo çevrimdışı çalışır mı?",
+          "a": "Evet. Dovilo önce çevrimdışı çalışır. Bütün görevlerin, odak seansların ve şehir ilerlemen cihazında saklanır. Bulut senkronizasyonu, verini birden çok cihazda tutmak için isteğe bağlı bir Pro özelliğidir."
+        },
+        "ads": {
+          "q": "Dovilo'da reklam var mı?",
+          "a": "Hayır. Dovilo hem ücretsiz katmanda hem Pro'da tamamen reklamsızdır. Reklamın odağı böldüğüne inanıyoruz; bu, bir üretkenlik uygulamasının yapması gerekenin tam tersi."
+        },
+        "desktop": {
+          "q": "Kodlama ajanımın çalışması için Dovilo Desktop açık olmalı mı?",
+          "a": "Hayır. Dovilo 2.0'dan beri Claude Code ve Cursor gibi kodlama ajanları, uygulamada oluşturduğun bir anahtarla Dovilo'nun remote MCP sunucusuna (<code>https://dovilo.app/mcp/agents</code>) dizüstünden, bir sunucudan ya da bir CI koşucusundan bağlanır. Desktop'un açık olması gerekmez; o, listelerin ve AI görevlerin için masaüstü istemcisidir. Ajan yalnızca ona atadığın projelerin AI görevlerini görür; görev oluşturamaz ve silemez. Ajanlar Pro'nun parçasıdır. Desktop 1.8'den mi geliyorsun? Onun içindeki MCP sunucusu 2.0 ile çalışmayı bırakır; ajanını yeni URL ve yeni bir anahtarla yeniden bağla. Kurulum <a href=\"{{href.ai}}\">geliştirici sayfasında</a>."
+        },
+        "aiTasks": {
+          "q": "Pro kaç AI görevi içerir?",
+          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil ajana açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+        },
+        "cancel": {
+          "q": "Aboneliğimi nasıl iptal ederim?",
+          "a": "Abonelikler Apple App Store ya da Google Play Store üzerinden yönetilir. İptal için cihazının abonelik ayarlarına git. Mevcut fatura döneminin sonuna kadar Pro erişimin sürer."
+        }
+      },
+      "blogLink": "Dovilo'yu yaparken yazılanlar: blog"
+    },
+    "ai": {
+      "updated": "2026-11-01",
+      "meta": {
+        "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
+        "description": "Claude Code, Cursor ve her MCP istemcisi herhangi bir makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma yok, silme yok.",
+        "ogAlt": "Dovilo: kodlama ajanının çalıştığı görev listesi; altında Dovilo Desktop'ta bir projenin AI Görevleri",
+        "crumb": "AI"
+      },
+      "jsonld": {
+        "about": {
+          "mcp": "Model Context Protocol",
+          "agents": "AI ajanları",
+          "tasks": "Görev yönetimi",
+          "devtools": "Geliştirici araçları"
+        }
+      },
+      "hero": {
+        "h1": "Dovilo: kodlama ajanının çalıştığı görev listesi.",
+        "sub": "Claude Code, Cursor ve her MCP istemcisi herhangi bir makineden bağlanır ve yalnızca kendi AI görevlerini görür.",
+        "desktopAlt": "Dovilo Desktop: bir projenin AI Görevleri, ilgi gerektirene göre gruplanmış",
+        "phoneAlt": "Telefonda Dovilo AI Görevleri: aynı proje, seni bekleyen, çalışan, sırada ve zamanlanmış görevlerle",
+        "caption": "Bir projenin AI Görevleri, seni bekleyene göre gruplanmış."
+      },
+      "about": {
+        "p": "Dovilo, AI kodlama ajanları için ayrı bir görev listesi olan bir yapılacaklar uygulamasıdır. Ajanlar dovilo.app/mcp/agents adresine MCP ile bağlanır: 9 araç, oluşturma yok, silme yok; kişisel listen hiçbir zaman görünmez. ChatGPT ya da Claude işi planlayabilir; her talimat senin onayını bekler. Pro, ayda $2.49, ayda 15 AI görevi."
+      },
+      "steps": {
+        "title": "Nasıl çalışır",
+        "write": {
+          "label": "Görevi yaz",
+          "detail": "Ya da ChatGPT veya Claude önersin.",
+          "alt": "Dovilo: başlık ve açıklamayla yeni AI görevi formu"
+        },
+        "approve": {
+          "label": "Telefonunda onayla",
+          "detail": "Sen evet demeden ajana hiçbir şey ulaşmaz.",
+          "alt": "Dovilo AI gelen kutusu: Claude'un önerdiği bir AI görevi ve onay butonu"
+        },
+        "works": {
+          "label": "Ajanın üzerinde çalışır",
+          "detail": "Adımlar ve notlar çalışırken göreve düşer.",
+          "alt": "Ajan çalışırken Dovilo AI görevi ayrıntısı: adımlar ve ajan notları"
+        },
+        "asks": {
+          "label": "Sorar, sen cevaplarsın",
+          "detail": "Bir kararda durur; telefonundan ya da sohbetten cevaplarsın.",
+          "alt": "Cevap bekleyen Dovilo AI görevi: ajanın sorusu ve cevap kutusu"
+        }
+      },
+      "planning": {
+        "title": "Düz MCP, bağımlılık yok",
+        "chat": "<strong>ChatGPT, Claude, Gemini ve Grok</strong> işi planlar ve onayına gönderir.",
+        "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf ve Claude Desktop</strong> görevleri çalıştırır.",
+        "any": "<strong>LangGraph, CI işleri ve her MCP istemcisi</strong> aynı URL ve anahtarla bağlanır."
+      },
+      "servers": {
+        "title": "İki sunucu",
+        "agents": {
+          "title": "Agents MCP",
+          "for": "Kodlama ajanları için",
+          "key": "Ajan başına bir anahtar, bir kez gösterilir"
+        },
+        "personal": {
+          "title": "Personal MCP",
+          "for": "ChatGPT, Claude, Gemini ve Grok için",
+          "signin": "Dovilo hesabınla giriş yap"
+        },
+        "link": "Bütün araçlar MCP dokümanlarında"
+      },
+      "connect": {
+        "title": "Kurulum bir URL ve bir anahtar",
+        "p": "Dovilo Desktop 7 istemcinin yapılandırmasını yazar. Sonra bir proje açıklaması ve bir AI görevi yaz."
+      },
+      "trust": {
+        "title": "AI neyi yapabilir, neyi yapamaz",
+        "own": "Kendi görevleri, başka hiçbir şey.",
+        "approve": "AI önerir. Sen onaylarsın.",
+        "chat": "Kodlama işin, sen açmadıkça sohbet uygulamanın dışında kalır.",
+        "delete": "Silme aracı yok. Ne şimdi ne sonra.",
+        "revoke": "Her bağlantıyı telefonundan anında kes."
+      },
+      "tools": {
+        "summary": "9 araç: 3 okuma, 6 yazma. Oluşturma yok, silme yok",
+        "head": {
+          "tool": "Araç",
+          "access": "Erişim",
+          "does": "Ne yapar"
+        },
+        "access": {
+          "read": "okuma",
+          "write": "yazma"
+        },
+        "rows": {
+          "list": "Kapsamdaki projelerin AI görevleri, durumlarıyla",
+          "get": "Bir görevin tamamı: açıklama, adımlar, notlar, telemetri, kullanıcının son cevabı",
+          "context": "Proje açıklaması ve görevin taşıdığı bağlam",
+          "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; gerekçeyle iptal (error + cancelledAt olarak saklanır, İptal edildi olarak görünür)",
+          "step": "Bir plan adımını başladı ya da bitti diye işaretle",
+          "add": "Ajanın fark ettiği bir adımı ekle",
+          "skip": "Gereksiz bir adımı atla",
+          "note": "Ne yaptı, neye karar verdi, neyi yapamadı",
+          "telemetry": "Model, token, maliyet, süre"
+        }
+      },
+      "webhooks": {
+        "title": "Webhook'lar ve demo",
+        "signed": {
+          "title": "İmzalı webhook'lar",
+          "p": "Sunucu teslim eder, 5 kez yeniden dener."
+        },
+        "demo": {
+          "title": "Açık kaynak demo",
+          "p": "Bir LangGraph ajanı döngünün tamamını çalıştırır. Açık kaynak."
+        }
+      },
+      "pricing": {
+        "pro": {
+          "label": "Pro",
+          "text": "Ayda $2.49, yılda $19.99 ya da tek seferlik $49.99; uygulamada 7 günlük deneme."
+        },
+        "tasks": {
+          "label": "AI görevleri",
+          "text": "Ayda 15 AI görevi, ek paketler $0.99'dan."
+        },
+        "plans": {
+          "label": "Planlar",
+          "text": "Plan göndermek ücretsiz, onaylamak Pro ister."
+        },
+        "scheduling": "Zamanlama, tekrar ve kota"
+      },
+      "faq": {
+        "desktop": {
+          "q": "Ajanımın çalışması için Dovilo Desktop açık olmalı mı?",
+          "a": "Hayır. Ajanlar doğrudan dovilo.app/mcp/agents adresine bağlanır. Desktop; AI görevleri, anahtarlar, proje açıklamaları ve webhook'lar için Windows ve Mac istemcisidir."
+        },
+        "sees": {
+          "q": "Ajan neyi görür?",
+          "a": "Atandığı projelerin AI görevlerini, her projenin açıklamasını ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur."
+        },
+        "delete": {
+          "q": "Ajan bir görevi silebilir mi?",
+          "a": "Hayır. İki sunucuda da silme aracı yoktur. Ajan bir görevi gerekçeyle iptal edebilir; görev görünür kalır."
+        },
+        "ci": {
+          "q": "CI'da ya da bir sunucuda çalıştırabilir miyim?",
+          "a": "Evet. Aynı URL ve anahtar her makineden çalışır. Ajan başına bir anahtar; telefonundan iptal edilebilir."
+        },
+        "upgrade": {
+          "q": "Desktop 1.8 kullanıyordum. Ne değişti?",
+          "a": "1.8'in yerel sunucusu kalktı. Uygulamada bir ajan oluştur, anahtarını kopyala ve istemcini remote URL'ye yönlendir. <a href=\"/docs/mcp/#upgrading\">Adımlar MCP dokümanlarında.</a>"
+        }
+      }
+    },
+    "pricing": {
+      "updated": "2026-11-01",
+      "meta": {
+        "title": "Fiyat: kullanımı ücretsiz, Pro ayda $2.49 - Dovilo",
+        "description": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49. Kişisel uygulama ücretsiz ve sınırsız. Pro AI katmanını, Desktop'u, senkronizasyonu ve iki paketi ekler.",
+        "ogAlt": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49.",
+        "crumb": "Fiyat"
+      },
+      "offers": {
+        "topups": {
+          "name": "AI görevi ek paketleri",
+          "description": "Tek seferlik satın alma. AI görevi ek paketleri $0.99'dan: +10, +30 ya da +75 AI görevi, hiç bitmez. Yalnızca Pro."
+        }
+      },
+      "hero": {
+        "h1": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49.",
+        "sub": "Kişisel uygulama ücretsiz ve sınırsız. Pro AI katmanını, Desktop'u, senkronizasyonu ve iki paketi ekler."
+      },
+      "about": {
+        "p": "Dovilo iOS ve Android'de ücretsiz: sınırsız görev, liste ve odak seansı, reklam yok, önce çevrimdışı. Pro ayda $2.49, yılda $19.99 ya da tek seferlik $49.99; uygulamada başlayan 7 günlük denemeyle."
+      },
+      "plans": {
+        "free": {
+          "title": "Ücretsiz",
+          "price": "$0",
+          "lines": {
+            "todo": "Tam yapılacaklar yönetimi",
+            "categories": "Sınırsız görev ve kategori",
+            "dates": "Son tarihler, yıldızlar ve öncelikler",
+            "focus": "Sınırsız odak seansı",
+            "city": "Başlangıç binalarıyla temel şehir",
+            "stats": "Temel istatistikler",
+            "themes": "Koyu ve açık tema",
+            "offline": "Önce çevrimdışı, her zaman çalışır",
+            "ads": "Reklam yok, hiçbir zaman"
+          }
+        },
+        "pro": {
+          "title": "Pro",
+          "prices": {
+            "month": "Ayda $2.49",
+            "year": "Yılda $19.99",
+            "once": "Tek seferlik $49.99",
+            "trial": "Uygulamada 7 günlük deneme"
+          },
+          "lead": "Ücretsiz'deki her şey ve",
+          "lines": {
+            "planning": "Gününü ChatGPT, Claude, Gemini veya Grok ile planla, ardından planı Dovilo'da onayla.",
+            "agents": "Claude Code ve Cursor gibi AI ajanları senin için ayda 15 AI görevi üzerinde çalışır.",
+            "desktop": "Windows ve Mac için Dovilo Desktop",
+            "sync": "Cihazların arasında bulut senkronizasyonu",
+            "ambience": "Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı",
+            "city": "Tam Şehir Paketi: tüm binalar ve yükseltmeler",
+            "stats": "Gelişmiş istatistikler",
+            "permits": "Günde +6 inşaat izni",
+            "snooze": "Hatırlatmayı doğrudan bildirimden 30 dakika ertele"
+          }
+        },
+        "note": "Plan göndermek ücretsiz; onaylamak Pro ister."
+      },
+      "packs": {
+        "title": "Tek seferlik satın almalar",
+        "ambience": "Odak Atmosfer Paketi, $4.99: 5 sahne, 16 ses katmanı.",
+        "city": "Tam Şehir Paketi, $4.99: tüm binalar, dekorasyonlar ve yükseltmeler.",
+        "topups": "AI görevi ek paketleri $0.99'dan: +10, +30 ya da +75 AI görevi, hiç bitmez. Yalnızca Pro.",
+        "note": "İki paket de Pro'ya dahildir."
+      },
+      "manage": {
+        "title": "Aboneliğini yönetme",
+        "p": "Abonelikler App Store ya da Google Play'de yönetilir; Pro fatura döneminin sonuna kadar açık kalır. Desktop, mobil uygulamada başlatılan Pro ister; yalnızca masaüstü için deneme yoktur. Mağazalar fiyatı kendi bölgesel para biriminde gösterir; buradaki rakamlar ABD doları tabanıdır."
+      },
+      "faq": {
+        "free": {
+          "q": "Dovilo ücretsiz mi?",
+          "a": "Evet. Dovilo'yu indirmek ve kullanmak ücretsizdir. Ücretsiz katman tam yapılacaklar yönetimini, sınırsız görev ve kategoriyi, sınırsız odak seansını (tek seans ve Pomodoro), temel şehir kurmayı, koyu ve açık temayı içerir; reklam yoktur. Dovilo Pro, ChatGPT, Claude, Gemini veya Grok ile planlamayı, kodlama ajanları için ayda 15 AI görevini, Windows ve Mac masaüstü uygulamasını, bulut senkronizasyonunu, Odak Atmosfer Paketi'ni, tüm binaları ve gelişmiş istatistikleri ekler."
+        },
+        "aiTasks": {
+          "q": "Pro kaç AI görevi içerir?",
+          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil ajana açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+        },
+        "ambience": {
+          "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
+          "a": "Hayır. Odak seansları ve Pomodoro döngüleri ücretsiz ve sınırsızdır; Varsayılan sahne her zaman açıktır ve sessizdir. Paket 5 atmosferik sahneyi ve aynı anda üçünü karıştırabileceğin 16 ses katmanını ekler. Tek seferlik $4.99'lık bir satın almadır ve Pro aboneleri ona zaten sahiptir."
+        },
+        "cancel": {
+          "q": "Aboneliğimi nasıl iptal ederim?",
+          "a": "Abonelikler Apple App Store ya da Google Play Store üzerinden yönetilir. İptal için cihazının abonelik ayarlarına git. Mevcut fatura döneminin sonuna kadar Pro erişimin sürer."
+        }
+      }
+    },
+    "downloads": {
+      "updated": "2026-11-01",
+      "meta": {
+        "title": "iPhone, Android, Windows ve Mac için indir - Dovilo",
+        "description": "Dovilo'yu iPhone, Android, Windows ve Mac için indir. Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister.",
+        "ogAlt": "Dovilo'yu iPhone, Android, Windows ve Mac için indir.",
+        "crumb": "İndir"
+      },
+      "hero": {
+        "h1": "Dovilo'yu iPhone, Android, Windows ve Mac için indir.",
+        "sub": "Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister."
+      },
+      "boxes": {
+        "mobile": {
+          "title": "Telefonlar",
+          "p": "Ücretsiz; uygulamada 7 günlük Pro denemesiyle."
+        },
+        "desktop": {
+          "title": "Masaüstü",
+          "badgeSmall": "Dovilo",
+          "windows": "Windows",
+          "mac": "Mac",
+          "latest": "Son sürüm: <span id=\"desktop-ver\">2.0.2</span>, <time id=\"desktop-date\" datetime=\"2026-10-27\">27 Eki 2026</time>. <a href=\"{{href.pricing}}#pro\">Pro ister</a>: abone olduğun hesapla giriş yap.",
+          "upgrade": "Desktop 1.8'den mi geliyorsun? <a href=\"/docs/mcp/#upgrading\">Ajanlar artık dovilo.app/mcp/agents adresine bir anahtarla bağlanır.</a>"
+        }
+      },
+      "what": {
+        "summary": "Oyunlaştırılmış bir yapılacaklar listesi kurulunca ne yapar",
+        "p1": "Dovilo oyunu planlamaya değil, işi bitirmeye bağlar. Tamamladığın her görev ve çalıştırdığın her odak seansı <strong>tuğla</strong> öder; tuğla da Market'teki tek para birimidir: ev, ofis, park ve yolları oradan alır, izometrik ızgaraya kendin yerleştirirsin. Şehir, gerçekten bitirdiklerinin kaydıdır; listenin açılmadığı bir günde bile açmaya değer olmasının sebebi bu.",
+        "p2": "Tek uygulamada dört şey var. <strong>Görevler</strong> son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerini taşır; Günüm, Önemli, Planlanan, İşaretlenenler ve her özel listeyi canlı sayılarıyla tutan tek bir görünüm seçicinin arkasında. <strong>Odak</strong> üç biçimde çalışır: 1 ile 180 dakika arası tek seans, 25 dakikalık odak ve 5 dakikalık mola ile her 4 turda bir uzun molası olan Pomodoro döngüsü ya da tek göreve bağlı seans. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar. <strong>Atmosfer</strong> seans boyunca ekranı doldurur: altı sahne ve on altı katmandan aynı anda karıştırılan en çok üç ses. Müzik değil atmosferdir; takip edilecek melodi ya da ritim yoktur. <strong>AI görevleri</strong> kodlama ajanları için tuttuğun ayrı bir listedir; ajanlar onu <a href=\"{{href.ai}}\">remote MCP</a> ile herhangi bir makineden çalışır.",
+        "p3": "Hepsi önce çevrimdışıdır: görevler, odak geçmişi ve şehir cihazda durur, uygulamayı kullanmak için internet gerekmez. Bulut senkronizasyonu isteğe bağlıdır ve Pro ile gelir. Hiçbir katmanda reklam yoktur; uygulama İngilizce, Türkçe, İspanyolca, Fransızca ve Almanca gelir, koyu ve açık temanın ikisi de ücretsizdir."
+      },
+      "which": {
+        "summary": "Hangi indirmeye ihtiyacın var",
+        "p1": "Mobil uygulamalar ücretsiz olanlardır ve buradaki ücretsiz bir deneme değil, ürünün tamamıdır: App Store ya da Google Play'den indirince tam yapılacaklar yönetimi, sınırsız tek seans ve Pomodoro odak seansı, sessiz Varsayılan atmosfer sahnesi, şehir kurma, iki tema ve reklamsızlık gelir. Masaüstü uygulamaları Pro yarısıdır. Tam boy ekranda iki görev yüzeyi taşırlar: kendi listen için tam yapılacaklar yönetimi ve ajanların için AI görevi yönetimi; odak seansları ve şehir mobilde kalır. İmzalı <a href=\"/docs/webhooks\">webhook'ları</a> da Desktop'ta kurarsın, bu yüzden etkin bir abonelik ister; aboneliği mobil uygulamada başlatırsın. Kodlama ajanlarının ona ihtiyacı yoktur: telefondan ya da masaüstünden oluşturabileceğin bir anahtarla doğrudan Dovilo'ya bağlanırlar.",
+        "table": {
+          "caption": "Platforma göre Dovilo indirmeleri: her birinin fiyatı ve güncellemelerin nasıl geldiği",
+          "head": {
+            "platform": "Platform",
+            "source": "Nereden gelir",
+            "cost": "Fiyat",
+            "updates": "Güncellemeler"
+          },
+          "ios": {
+            "platform": "iPhone, iPad",
+            "source": "App Store",
+            "updates": "App Store üzerinden"
+          },
+          "free": "Ücretsiz",
+          "android": {
+            "platform": "Android",
+            "source": "Google Play",
+            "updates": "Google Play üzerinden"
+          },
+          "windows": {
+            "platform": "Windows",
+            "source": "Dovilo-Setup.exe, herkese açık sürüm deposundan"
+          },
+          "needsPro": "Pro ister",
+          "selfUpdate": "Uygulama kendini günceller",
+          "mac": {
+            "platform": "macOS",
+            "source": "Dovilo.dmg, herkese açık sürüm deposundan"
+          }
+        },
+        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.0.0</strong>, güncel masaüstü sürümü 27 Ekim 2026 tarihli <strong>2.0.2</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
+      },
+      "pro": {
+        "summary": "Ne ücretsiz, Pro ne ekler",
+        "p1": "<strong>Pro</strong> ayda $2.49, yılda $19.99 ya da tek seferlik $49.99'dur ve iOS ya da Android uygulamasında başlattığın 7 günlük ücretsiz denemeyle açılır. Şunları ekler: ChatGPT, Claude, Gemini veya Grok ile planlama, Dovilo'da onaylanır; Claude Code ve Cursor gibi AI ajanlarının remote MCP üzerinden ayda 15 AI görevi çalıştırması; webhook'ların kurulduğu Windows ve Mac masaüstü uygulaması; cihazlar arası bulut senkronizasyonu; iki tek seferlik paket, Odak Atmosfer Paketi ve Tam Şehir Paketi; gelişmiş istatistikler; günde +6 inşaat izni; hatırlatma bildiriminden 30 dakikalık erteleme. Desktop'u açan da aynı aboneliktir; masaüstü uygulaması hiçbir zaman ayrı bir satın alma değildir.",
+        "p2": "Aboneliğin dışında iki tek seferlik paket var: beş atmosferik sahneyi ve on altı ses katmanını ekleyen $4.99'lık Odak Atmosfer Paketi ve her binayı, dekorasyonu ve yükseltmeyi ekleyen $4.99'lık Tam Şehir Paketi. İkisi de abonelik değildir ve Pro ikisini de zaten içerir. AI görevi paketleri 10, 30 ya da 75 ek ajan görevi için $0.99'dan başlar ve hiç bitmez. Fiyatlar ABD doları mağaza tabanıdır; her mağaza kendi bölgesel fiyatını uygular."
+      },
+      "faq": {
+        "summary": "İndirme soruları",
+        "free": {
+          "q": "Hangi Dovilo indirmeleri ücretsiz?",
+          "a": "iPhone, iPad ve Android uygulamaları ücretsiz ve reklamsızdır. Ücretsiz katman tam yapılacaklar yönetimini, sınırsız tek seans ve Pomodoro odak seansını, sessiz Varsayılan atmosfer sahnesini, temel şehir kurmayı ve koyu ile açık temayı kapsar. Windows ve Mac masaüstü uygulamaları, etkin bir Pro aboneliği isteyen iki indirmedir."
+        },
+        "install": {
+          "q": "Dovilo Desktop'u Windows ya da Mac'e nasıl kurarım?",
+          "a": "Önce iOS ya da Android uygulamasında Pro'ya abone ol: masaüstü uygulaması etkin bir abonelik ister ve onu açan da aynı aboneliktir; ayrı bir masaüstü satın alması yoktur. Sonra bu sayfanın masaüstü bölümünden Dovilo-Setup.exe ya da Dovilo.dmg dosyasını indir. İkisi de Dovilo'nun herkese açık sürüm deposundan gelir ve uygulama sonrasında kendini oradan günceller."
+        },
+        "trial": {
+          "q": "Ödemeden önce Pro'yu deneyebilir miyim?",
+          "a": "Evet. Pro, iOS ya da Android uygulamasından başlatılan 7 günlük ücretsiz denemeyle açılır. Sonrası ayda $2.49, yılda $19.99 ya da tek seferlik $49.99. Fiyatlar ABD doları mağaza tabanıdır; her mağaza kendi bölgesel fiyatını uygular."
+        },
+        "updates": {
+          "q": "Dovilo güncellenince yeniden indirmem gerekir mi?",
+          "a": "Hayır. iPhone, iPad ve Android'de güncellemeler her uygulama gibi App Store ve Google Play üzerinden gelir: otomatik güncelleme açıksa kendiliğinden, değilse mağazanın Güncellemeler listesinden. Dovilo Desktop kendini günceller ve her yeni derlemeyi kendi başına alır. Bu sayfa yalnızca ilk kurulum içindir."
+        },
+        "agent": {
+          "q": "Bir AI kodlama ajanı bağlamak için hangi indirmeye ihtiyacım var?",
+          "a": "Telefon uygulamasından başka hiçbirine. Dovilo 2.0'dan beri Claude Code, Cursor, Windsurf, Codex CLI ya da Gemini CLI gibi bir kodlama ajanı, iOS ya da Android uygulamasında ya da Dovilo Desktop'ta oluşturduğun bir anahtarla Dovilo'nun sunucusuna (<code>https://dovilo.app/mcp/agents</code>) bağlanır; yani ajan herhangi bir makinede çalışabilir ve Desktop'un açık olması gerekmez. Ajanlar yalnızca AI görevlerine, yani AI Görevleri sekmesinde onlar için yazdığın işlere ulaşır, kişisel yapılacaklar listene asla; görev oluşturamaz ve silemezler. Pro ve Dovilo 2.0 ya da üstü gerekir."
+        }
+      },
+      "notes": {
+        "mcp_401": {
+          "lead": "AI uygulaman Dovilo'ya giriş yapamadı.",
+          "text": "Uygulamayı kur, aynı Google ya da Apple hesabıyla giriş yap, sonra yeniden bağlan. Kodlama ajanı için anahtarını AI Görevleri'nde oluştur ya da yenile."
+        },
+        "mcp_browser": {
+          "lead": "Bu adres AI uygulamaları için bir uç nokta, bir web sayfası değil.",
+          "text": "ChatGPT, Claude, Gemini ya da Grok'a bağlayıcı olarak ekle. Kodlama ajanları dovilo.app/mcp/agents adresini uygulamadan alınan bir ajan anahtarıyla kullanır.",
+          "link": "MCP dokümanlarını oku"
+        },
+        "mcp_pro_required": {
+          "lead": "Bunun için Dovilo Pro gerekiyor.",
+          "text": "7 günlük ücretsiz denemeyi iOS ya da Android uygulamasında başlat: ayda $2.49, yılda $19.99 ya da tek seferlik $49.99. 7. günden önce iptal edersen hiçbir ücret alınmaz.",
+          "link": "Pro'nun içeriğini gör"
+        },
+        "desktop_update": {
+          "lead": "Dovilo Desktop'un bu sürümü artık bağlanamıyor.",
+          "text": "Aşağıdan son sürümü indirip kur; verin hesabında kalır."
+        },
+        "mcp_new_user": {
+          "lead": "Planın Dovilo'da seni bekliyor.",
+          "text": "Uygulamayı kur ve AI uygulamanda kullandığın Google ya da Apple hesabıyla giriş yap. Plan gelen kutunda; listene eklemek 7 günlük ücretsiz denemesiyle Dovilo Pro'nun parçası."
+        }
+      },
+      "months": [
+        "Oca",
+        "Şub",
+        "Mar",
+        "Nis",
+        "May",
+        "Haz",
+        "Tem",
+        "Ağu",
+        "Eyl",
+        "Eki",
+        "Kas",
+        "Ara"
+      ]
+    },
+    "faq": {
+      "updated": "2026-11-01",
+      "meta": {
+        "title": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
+        "description": "Dovilo hakkında sık sorulan sorular: oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma.",
+        "ogDescription": "Dovilo'da görevler, odak seansları, atmosfer, şehir, Pro ve MCP entegrasyonu nasıl çalışır.",
+        "crumb": "SSS"
+      },
+      "hero": {
+        "h1": "Dovilo SSS: uygulama, Pro ve AI üzerine net cevaplar.",
+        "intro": "Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 28 soru: neyin ücretsiz olduğundan bir AI ajanının neyi görebildiğine. Eksik bir şey varsa: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+      },
+      "groups": {
+        "general": "Genel",
+        "tasksFocus": "Görevler ve odak",
+        "city": "Şehir kurma",
+        "pro": "Pro ve fiyat",
+        "agents": "AI ajanları ve MCP",
+        "data": "Veri ve gizlilik"
+      },
+      "faq": {
+        "what": {
+          "q": "Dovilo nedir?",
+          "a": "Dovilo, yapılacaklar listesini, tam ekran atmosferli odak seanslarını ve izometrik bir şehir kurma oyununu birleştiren oyunlaştırılmış bir üretkenlik uygulamasıdır. Görevlerini ve odak seanslarını tamamlayıp tuğla kazanırsın, sonra o tuğlalarla kendi sanal şehrinde ev, ofis, park ve daha fazlasını kurarsın."
+        },
+        "free": {
+          "q": "Dovilo ücretsiz mi?",
+          "a": "Evet. Dovilo'yu indirmek ve kullanmak ücretsizdir. Ücretsiz katman tam yapılacaklar yönetimini, sınırsız görev ve kategoriyi, sınırsız odak seansını (tek seans ve Pomodoro), temel şehir kurmayı, koyu ve açık temayı içerir; reklam yoktur. Dovilo Pro, ChatGPT, Claude, Gemini veya Grok ile planlamayı, kodlama ajanları için ayda 15 AI görevini, Windows ve Mac masaüstü uygulamasını, bulut senkronizasyonunu, Odak Atmosfer Paketi'ni, tüm binaları ve gelişmiş istatistikleri ekler."
+        },
+        "platforms": {
+          "q": "Dovilo hangi platformlarda var?",
+          "a": "Dovilo iOS'ta (iPhone ve iPad) App Store'dan, Android'de Google Play'den ve Windows ile Mac için masaüstü uygulaması olarak kullanılabilir. Masaüstü uygulaması etkin bir Pro aboneliği ister. İki görev yüzeyi taşır: kendi listen için tam yapılacaklar yönetimi ve ajanların için AI görevi yönetimi; ayrıca ajan anahtarları ve her projenin webhook ayarları. Kodlama ajanları doğrudan Dovilo'ya bağlanır, yani çalışmaları için Desktop'un açık olması gerekmez. Odak seansları ve şehir mobil özelliklerdir."
+        },
+        "languages": {
+          "q": "Hangi diller destekleniyor?",
+          "a": "Dovilo 5 dilde: İngilizce (English), Türkçe, İspanyolca (Español), Fransızca (Français) ve Almanca (Deutsch). Dil cihaz ayarlarından otomatik algılanır; uygulamada elle değiştirebilirsin."
+        },
+        "todo": {
+          "q": "Yapılacaklar listesi nasıl çalışır?",
+          "a": "Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır."
+        },
+        "focusSessions": {
+          "q": "Odak seansları nasıl çalışır?",
+          "a1": "Odaklanmanın üç yolu var: istediğin sürede tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola ve her 4 turda bir uzun mola; molalar kendiliğinden başlar) ya da tek bir göreve bağlı bir seans. Bir nefes egzersizi ve geri sayım seni hazırlar; seans tamamlandığında süresine göre tuğla kazanırsın.",
+          "a2": "Zamanlayıcı arka planda çalışmaya devam eder: uygulama değiştir ya da telefonu kilitle, süre yine doğru sayılır ve bittiği anda bildirim gelir. Rahatsız etme, seans boyunca diğer uygulamaları susturabilir. Günlük tur sayacına yalnızca tamamlanan Pomodoro turları girer: tek seanslar ve erken bitirdiklerin girmez."
+        },
+        "ambience": {
+          "q": "Atmosfer nedir?",
+          "a1": "Atmosfer odak seansının havasını kurar. Bir sahne tüm ekranı doldurur ve kendi sesini getirir: Yağmurlu şehir (yağmur ve şömine), Gece yarısı (kahverengi gürültü üstünde şehir uğultusu), Gün batımı (kuş ve rüzgâr), Kar (kış rüzgârı ve pembe gürültü) ya da Sis (sis düdüğü ve beyaz gürültü). Varsayılan sahne her zaman açıktır ve sessizdir.",
+          "a2": "Ses sekmesinde aynı anda en çok üç katmanı karıştırıp her birinin seviyesini ayarlayabilirsin: yağmur, şömine, orman, dalga, kafe, kütüphane, tren, fırtına, kahverengi, pembe ya da beyaz gürültü. Karışım seansın ritmine uyabilir: ilk 5 dakikada yumuşak açılır, son 2 dakikada parlar; mola başladığında sahne kendiliğinden Gün batımı'na geçebilir. Müzik değil atmosferdir: melodi yok, ritim yok."
+        },
+        "build": {
+          "q": "Şehrimi nasıl kurarım?",
+          "a": "Görevleri ve odak seanslarını tamamlayarak tuğla kazan. Market sekmesinde binalara, dekorasyonlara ve yollara göz at, satın al. Sonra Şehir sekmesinde izometrik ızgarana yerleştir. Üretkenliğin arttıkça şehrin büyür."
+        },
+        "rearrange": {
+          "q": "Binaları yeniden düzenleyebilir miyim?",
+          "a": "Bir binaya dokunup yık seçeneğini seçerek yıkabilirsin. Bu, tuğlaların bir kısmını geri verir; sonra istediğin yere yeni bir bina koyabilirsin."
+        },
+        "pro": {
+          "q": "Dovilo Pro neleri içerir?",
+          "a": "Pro, ücretsiz katmandaki her şeyi ve şunları içerir: ChatGPT, Claude, Gemini veya Grok ile planlama; asistan önerir, sen Dovilo'da onaylarsın; Claude Code ve Cursor gibi AI ajanlarının ayda 15 AI görevi çalıştırması; Windows ve Mac için Dovilo Desktop; cihazlar arası bulut senkronizasyonu; Odak Atmosfer Paketi (5 sahne, 16 ses katmanı: 13 kayıt ve 3 üretilmiş gürültü); Tam Şehir Paketi (tüm binalar, dekorasyonlar ve yükseltmeler); gelişmiş istatistikler; günde +6 inşaat izni; hatırlatma bildiriminden 30 dakikalık erteleme. İki tek seferlik içerik paketi de Pro'ya dahildir, yeniden satılmaz. Sınırsız görev ve kategori, hatırlatmalar ve reklamsız deneyim ücretsiz katman özellikleridir, Pro özelliği değil; özel tema yoktur."
+        },
+        "options": {
+          "q": "Fiyat seçenekleri neler?",
+          "a1": "Dovilo Pro ayda $2.49, yılda $19.99 ya da tek seferlik $49.99; uygulamada 7 günlük deneme. Bütün planlar aynı Pro özelliklerini içerir.",
+          "a2": "Abonelik olmayan tek seferlik satın almalar da var: Odak Atmosfer Paketi ($4.99: 5 sahne ve 16 ses katmanı), Tam Şehir Paketi ($4.99: tüm binalar, dekorasyonlar ve yükseltmeler) ve $0.99'dan başlayan AI görevi paketleri. İki paket de Pro'ya zaten dahildir."
+        },
+        "aiTasks": {
+          "q": "Pro kaç AI görevi içerir?",
+          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil ajana açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+        },
+        "ambiencePack": {
+          "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
+          "a": "Hayır. Odak seansları ve Pomodoro döngüleri ücretsiz ve sınırsızdır; Varsayılan sahne her zaman açıktır ve sessizdir. Paket 5 atmosferik sahneyi ve aynı anda üçünü karıştırabileceğin 16 ses katmanını ekler. Tek seferlik $4.99'lık bir satın almadır ve Pro aboneleri ona zaten sahiptir."
+        },
+        "cancel": {
+          "q": "Aboneliğimi nasıl iptal ederim?",
+          "a": "Abonelikler Apple App Store ya da Google Play Store üzerinden yönetilir. İptal için cihazının abonelik ayarlarına git. Mevcut fatura döneminin sonuna kadar Pro erişimin sürer."
+        },
+        "plan": {
+          "q": "ChatGPT, Claude, Gemini veya Grok ile planlayabilir miyim?",
+          "a1": "Evet. Dovilo'yu asistana özel bağlayıcı olarak <code>https://dovilo.app/mcp</code> adresiyle ekle ve Dovilo hesabınla giriş yap. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer.",
+          "a2": "Her bağlantı için asistanın neyi okuyabileceğini, hangi listeleri ve projeleri göreceğini sen seçersin; yaptığı değişiklikler her zaman onayını bekler, ayarın adı <strong>Önce bana sor</strong>. Silme aracı yoktur ve bir bağlantıyı telefonundan istediğin an kesebilirsin. Plan göndermek Ücretsiz'de çalışır; onaylamak ve geri kalan her şey Pro ister."
+        },
+        "mcp": {
+          "q": "Dovilo'nun MCP entegrasyonu nedir?",
+          "a1": "Dovilo iki remote <strong>Model Context Protocol</strong> sunucusu çalıştırır. <strong>Agents MCP</strong>, <code>https://dovilo.app/mcp/agents</code> adresinde, <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI</strong> gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> ve <code>append_telemetry</code>. Bu araçlar <strong>yalnızca AI görevlerine</strong>, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez.",
+          "a2": "<strong>Personal MCP</strong>, <code>https://dovilo.app/mcp</code> adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan ve görev önerirler. Kurulum ve güven sınırları <a href=\"{{href.ai}}\">geliştirici sayfasında</a>, her aracın girdileriyle tam listesi <a href=\"/docs/mcp/\">MCP referansında</a>."
+        },
+        "desktop": {
+          "q": "Kodlama ajanımın çalışması için Dovilo Desktop açık olmalı mı?",
+          "a": "Hayır. Dovilo 2.0'dan beri Claude Code ve Cursor gibi kodlama ajanları, uygulamada oluşturduğun bir anahtarla Dovilo'nun remote MCP sunucusuna (<code>https://dovilo.app/mcp/agents</code>) dizüstünden, bir sunucudan ya da bir CI koşucusundan bağlanır. Desktop'un açık olması gerekmez; o, listelerin ve AI görevlerin için masaüstü istemcisidir. Ajan yalnızca ona atadığın projelerin AI görevlerini görür; görev oluşturamaz ve silemez. Ajanlar Pro'nun parçasıdır. Desktop 1.8'den mi geliyorsun? Onun içindeki MCP sunucusu 2.0 ile çalışmayı bırakır; ajanını yeni URL ve yeni bir anahtarla yeniden bağla. Kurulum <a href=\"{{href.ai}}\">geliştirici sayfasında</a>."
+        },
+        "connect": {
+          "q": "Claude Code, Cursor ya da başka bir AI ajanını nasıl bağlarım?",
+          "a": "Önce uygulamada ajanı oluştur. Mobil uygulamada <strong>AI Ajanları</strong>'nı aç ve <strong>Yeni ajan</strong>'a dokun; Dovilo Desktop'ta <strong>AI ekle</strong>'yi kullan. Bir ad ver, çalışabileceği projeleri seç ve bir kez gösterilen anahtarını oluştur. Sonra sunucu URL'sini (<code>https://dovilo.app/mcp/agents</code>) istemcine ekle; anahtar <code>Authorization</code> başlığında bearer token olarak gider. Bağlantı akışında Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf ve Claude Desktop için hazır ayarlar var; her yapılandırmanın nereye gideceğini gösterir ve anahtarını doldurur."
+        },
+        "clients": {
+          "q": "Dovilo hangi AI istemcilerini destekliyor?",
+          "a": "Bağlantı akışında <strong>Claude Code</strong>, <strong>Cursor</strong> (uygulama ve CLI), <strong>Codex CLI</strong>, <strong>Gemini CLI</strong>, <strong>Windsurf</strong> ve <strong>Claude Desktop</strong> için hazır ayarlar var. HTTP üzerinden MCP konuşan her şey, LangGraph ya da bir CI işi dahil, aynı URL ve anahtarla bağlanır; Dovilo seni bir sağlayıcıya bağlamaz. Kodlama değil planlama için ChatGPT, Claude, Gemini ve Grok Personal MCP'ye bağlanır."
+        },
+        "authorize": {
+          "q": "Ajanlar izin vermediğim görevler oluşturabilir ya da değiştirebilir mi?",
+          "a": "Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler."
+        },
+        "notified": {
+          "q": "Bir ajan görevim üzerinde çalışınca bildirim alır mıyım?",
+          "a": "Evet. İki bildirim modu arasında seçim yapabilirsin: <strong>her adım</strong> (ajanın gönderdiği her ilerleme) ya da <strong>yalnızca başlangıç / bitiş / hata</strong> (daha sessiz, özet tarzı). <strong>AI Görevleri</strong> sekmesi mobil uygulamada da var; yani telefonundan bir AI görevi yazabilir ve aynı çalışmayı orada izleyebilirsin: adım izi, ajan notları ve telemetri (token, maliyet, süre), ajan nerede çalışırsa çalışsın göreve düşer. Bir ajan bir soruyla durduğunda ona görevden cevap verirsin."
+        },
+        "webhooks": {
+          "q": "Dovilo görev olaylarını Slack'e, Linear'a ya da kendi servisime gönderebilir mi?",
+          "a1": "Evet. Dovilo, bir AI görevi oluşturulduğunda ya da durumu değiştiğinde <strong>HMAC imzalı HTTPS webhook'ları</strong> gönderir (<code>task.created</code> ve <code>task.status_changed</code>); böylece Dovilo'yu Slack, Linear, n8n, LangGraph ya da kendi alıcına bağlayabilirsin. Herkese açık HTTPS alıcılarına teslimatı Dovilo'nun sunucusu yapar, Desktop kapalıyken bile; localhost alıcılarına Desktop açıkken Desktop teslim eder ve uygulama onları Yerel diye etiketler. Her teslimat doğrulama için Stripe tarzı bir <code>X-Dovilo-Signature</code> başlığı, yineleme güvenliği için benzersiz bir <code>X-Dovilo-Delivery</code> kimliği, görev başına FIFO sıralama ve geçici hatalarda 5 yeniden deneme taşır. Dovilo Desktop'ta projenin <strong>Liste ayarları</strong>'ndan kur: URL'ni yapıştır, olayları seç, etkinleştirip Kaydet'e bas, sonra imza gizli anahtarını oluştur.",
+          "a2": "Tam yük şeması, imza doğrulama örnekleri (Node, Python, Go) ve yeniden deneme kuralı <a href=\"/docs/webhooks\">webhook referansında</a>."
+        },
+        "example": {
+          "q": "Kopyalayabileceğim örnek bir webhook alıcısı var mı?",
+          "a": "Evet. <a href=\"https://github.com/Dovilo-App/dovilo-langgraph-demo\" target=\"_blank\" rel=\"noopener\">dovilo-langgraph-demo</a>, Dovilo imzasını doğrulayan, olayları dağıtan ve bir ajanı MCP üzerinden uçtan uca süren açık kaynak bir <strong>LangGraph</strong> alıcısıdır."
+        },
+        "offline": {
+          "q": "Dovilo çevrimdışı çalışır mı?",
+          "a": "Evet. Dovilo önce çevrimdışı çalışır. Bütün görevlerin, odak seansların ve şehir ilerlemen cihazında saklanır. Uygulamayı kullanmak için internet bağlantısı gerekmez. Bulut senkronizasyonu isteğe bağlı bir Pro özelliğidir."
+        },
+        "sync": {
+          "q": "Bulut senkronizasyonu nasıl çalışır?",
+          "a": "Pro ile Google ya da Apple hesabınla giriş yapıp verini Firebase üzerinden birden çok cihazda eşitleyebilirsin. Verin aktarımda ve depoda şifrelidir. Ayarlar'dan istediğin an elle eşitleme başlatabilirsin."
+        },
+        "deleteAccount": {
+          "q": "Hesabımı ve verimi silebilir miyim?",
+          "a": "Evet. Hesabını ve buluta eşitlenmiş bütün verini kalıcı olarak kaldırmak için Ayarlar &gt; Hesabı sil'e git. Yerel veri uygulamayı kaldırdığında silinir. Bulut verisi hesap silindikten sonra 30 gün içinde tamamen silinir."
+        },
+        "ads": {
+          "q": "Dovilo'da reklam var mı?",
+          "a": "Hayır. Dovilo hem ücretsiz katmanda hem Pro'da tamamen reklamsızdır. Reklamın odağı böldüğüne inanıyoruz; bu, bir üretkenlik uygulamasının yapması gerekenin tam tersi."
+        },
+        "export": {
+          "q": "Verimi dışa aktarabilir miyim?",
+          "a": "Henüz değil. Bugün veri dışa aktarma yok; yol haritasında ve çıktığında bu sayfa bunu söyleyecek. Görevlerin, odak seansların ve şehrin cihazında durur; bulut senkronizasyonu isteğe bağlı bir Pro özelliğidir."
+        }
+      },
+      "closing": "Başka sorun mu var? <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>"
+    }
+  }
+}
