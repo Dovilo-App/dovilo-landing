@@ -38,6 +38,9 @@ const SRC = path.join(ROOT, 'screenshots/new');
 export const PHONE_FRAME = { width: 1206, height: 2622 };
 export const PHONE_CROP = { top: 186, bottom: 39 };
 
+// 09 (the ambience mixer) is cropped at the source to this frame; any other
+// size is an error, so a re-take at the wrong size never ships stretched.
+export const MIXER_FRAME = { width: 1206, height: 1290 };
 const PHONE_WIDTHS = [[386, ''], [772, '-772']];
 // The site name, the 2.1 screen number and the themes it ships in.
 const PHONES = [
@@ -61,8 +64,13 @@ const onlyLang = opt('lang');
 const onlyScreen = opt('screen');
 const tinify = args.includes('--tinify');
 
-const langs = fs.readdirSync(path.join(ROOT, 'src/strings'))
-  .filter((f) => /^[a-z]{2}\.json$/.test(f)).map((f) => f.slice(0, 2))
+for (const name of ['lang', 'screen']) {
+  if (args.includes(`--${name}`) && (!opt(name) || opt(name).startsWith('--'))) throw new Error(`--${name} needs a value`);
+}
+const withStrings = fs.readdirSync(path.join(ROOT, 'src/strings'))
+  .filter((f) => /^[a-z]{2}\.json$/.test(f)).map((f) => f.slice(0, 2));
+if (onlyLang && !withStrings.includes(onlyLang)) throw new Error(`--lang ${onlyLang}: src/strings/${onlyLang}.json does not exist, so the site has no ${onlyLang} pages to write captures for`);
+const langs = withStrings
   .filter((l) => !onlyLang || l === onlyLang)
   .sort((a, b) => (a === 'en' ? -1 : b === 'en' ? 1 : a.localeCompare(b)));
 const outDir = (lang) => path.join(ROOT, 'screenshots', lang === 'en' ? '' : lang);
@@ -106,7 +114,11 @@ for (const lang of langs) {
     for (const theme of ['light', 'dark']) {
       const src = exists(path.join(SRC, 'mobile', theme, `${lang}-${nn}.png`));
       const meta = await sharp(src).metadata();
-      const full = meta.height === PHONE_FRAME.height;
+      const full = meta.width === PHONE_FRAME.width && meta.height === PHONE_FRAME.height;
+      const mixer = nn === '09' && meta.width === MIXER_FRAME.width && meta.height === MIXER_FRAME.height;
+      if (!full && !mixer) {
+        throw new Error(`${rel(src)} is ${meta.width}x${meta.height}: a phone source is ${PHONE_FRAME.width}x${PHONE_FRAME.height}${nn === '09' ? ` or, cropped at the source, ${MIXER_FRAME.width}x${MIXER_FRAME.height}` : ''}`);
+      }
       await phone(src, path.join(outDir(lang), `${name}${theme === 'dark' ? '-dark' : ''}`),
         { crop: full, widths: PHONE_WIDTHS, quality: 88 });
     }
@@ -146,21 +158,33 @@ async function shrink(file, auth) {
   return { buf: Buffer.from(await out.arrayBuffer()), count: res.headers.get('compression-count') };
 }
 
+/* Each file on its own: a failure (the monthly limit, a network error, an
+   answer of the wrong size) keeps that file's sharp output, the run goes on,
+   and the table still says what was compressed. The exit code is 1 if any
+   file failed. */
 let count = null;
+let failures = 0;
 if (tinify) {
   const key = tinifyKey();
   if (!key) { console.error('TINIFY_API_KEY is not set (environment or .env): nothing compressed.'); process.exit(2); }
   const auth = 'Basic ' + Buffer.from(`api:${key}`).toString('base64');
   for (const w of written) {
-    const { buf, count: c } = await shrink(w.file, auth);
-    count = c;
-    const m = await sharp(buf).metadata();
-    if (m.format !== 'webp' || m.width !== w.width || m.height !== w.height) {
-      throw new Error(`Tinify returned ${m.format} ${m.width}x${m.height} for ${rel(w.file)}`);
+    try {
+      const { buf, count: c } = await shrink(w.file, auth);
+      count = c;
+      const m = await sharp(buf).metadata();
+      if (m.format !== 'webp' || m.width !== w.width || m.height !== w.height) {
+        throw new Error(`Tinify returned ${m.format} ${m.width}x${m.height} for ${rel(w.file)}`);
+      }
+      w.after = buf.length < w.bytes ? buf.length : w.bytes;
+      w.kept = buf.length < w.bytes ? 'tinify' : 'sharp';
+      if (w.kept === 'tinify') fs.writeFileSync(w.file, buf);
+    } catch (e) {
+      failures++;
+      w.after = w.bytes;
+      w.kept = 'failed';
+      console.error(`  ✗ ${e.message}`);
     }
-    w.after = buf.length < w.bytes ? buf.length : w.bytes;
-    w.kept = buf.length < w.bytes ? 'tinify' : 'sharp';
-    if (w.kept === 'tinify') fs.writeFileSync(w.file, buf);
   }
 }
 
@@ -169,7 +193,8 @@ let before = 0, after = 0;
 console.log(pad('file', 48), pad('box', 11), pad('sharp', 9), tinify ? 'tinify' : '');
 for (const w of written) {
   before += w.bytes; after += w.after ?? w.bytes;
-  console.log(pad(rel(w.file), 48), pad(`${w.width}x${w.height}`, 11), pad(w.bytes, 9), tinify ? `${w.after}${w.kept === 'sharp' ? ' (sharp kept)' : ''}` : '');
+  console.log(pad(rel(w.file), 48), pad(`${w.width}x${w.height}`, 11), pad(w.bytes, 9), tinify ? `${w.after}${w.kept === 'sharp' ? ' (sharp kept)' : w.kept === 'failed' ? ' (not compressed)' : ''}` : '');
 }
 console.log(`${written.length} files, ${before} bytes${tinify ? ` -> ${after} bytes (${((1 - after / before) * 100).toFixed(1)}% smaller)` : ''}`);
 if (count) console.log(`Tinify compressions this month: ${count}`);
+if (failures) { console.error(`${failures} file(s) not compressed: run with --tinify again for them.`); process.exit(1); }

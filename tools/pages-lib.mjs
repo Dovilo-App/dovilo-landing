@@ -178,14 +178,13 @@ export function shellData({ strings, lang, current = null, alternates = [] }) {
   const en = lang.code === 'en';
   return {
     c: strings.common,
-    /* en / other: {{#if}} flags for what only English carries (the full
-       SoftwareApplication, the Organization; A130 3.6) and what only the
-       localised copies do. The link parameters of A130 3.10: App Store
+    /* en: the {{#if}} flag for what only English carries (the full
+       SoftwareApplication, the Organization, the WebSite; A130 3.6). The link parameters of A130 3.10: App Store
        ct=<campaign>_<lang>, installers source=<placement>_<lang>, Google Play
        hl=<lang>&utm_content=<lang>. English keeps its links as they were. */
     lang: {
       ...strings.lang, code: lang.code, date: lang.date,
-      en: en ? 'en' : '', other: en ? '' : lang.code,
+      en: en ? 'en' : '',
       suffix: en ? '' : `_${lang.code}`,
       play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
     },

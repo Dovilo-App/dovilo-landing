@@ -81,6 +81,16 @@ if (problems.length) {
   process.exit(1);
 }
 
+/* A meta description runs to 150 characters at most (CLAUDE.md §2). A
+   translation is never rewritten here, so a long one is reported by its key
+   and the build goes on; the fix goes to the strings file's source. */
+for (const l of langs) {
+  for (const [id, page] of Object.entries(strings[l.code].pages)) {
+    const d = plain(page.meta?.description ?? '');
+    if (d.length > 150) console.warn(`  ! ${l.code}: pages.${id}.meta.description is ${d.length} characters (150 at most)`);
+  }
+}
+
 /* ─── Pages ─── */
 
 /* A language ships all five pages or none: compare() requires every English
@@ -207,6 +217,7 @@ for (const page of PAGES) {
          localised priority. */
       const freq = /<changefreq>(\w+)<\/changefreq>/.exec(enEntry[0])[1];
       const prio = page.langPriority;
+      if (!/^[01]\.\d$/.test(prio || '')) throw new Error(`${page.id}: PAGES entry has no langPriority for its language copies`);
       const block = `  <url>\n    <loc>${url}</loc>\n    <lastmod>${updated}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${prio}</priority>\n  </url>\n`;
       sitemap = sitemap.slice(0, after) + block + sitemap.slice(after);
       m = entryRe(url).exec(sitemap);
