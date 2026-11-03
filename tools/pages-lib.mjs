@@ -154,10 +154,29 @@ export function cardName(page, lang) {
   return `${page.card}-${lang.code}`;
 }
 
-/* Hrefs of the five pages in one language: templates and strings link through
-   these, so a Turkish page links Turkish pages. */
+/* The blog index of a language (A130 part 2b): /blog/, /tr/blog/. The posts
+   stay English at /blog/<slug>/; only the index has a copy per language. */
+export function blogPath(lang) {
+  return lang.code === 'en' ? '/blog/' : `${lang.prefix}/blog/`;
+}
+
+/* Hrefs of the five pages and the blog index in one language: templates and
+   strings link through these, so a Turkish page links Turkish pages. */
 export function hrefs(lang) {
-  return Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)]));
+  return { ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
+}
+
+/* The Language menu and the footer's language links: the current language
+   first and marked, then the others, only when there is somewhere else to go.
+   `set` is the languages the page exists in, `pathOf` the page's address in
+   one of them. build-pages and build-blog both call this, so the five pages
+   and the blog index cannot map the menu differently. */
+export function menuAlternates(set, lang, pathOf) {
+  if (set.length < 2) return [];
+  return [lang, ...set.filter((l) => l !== lang)].map((l) => ({
+    code: l.code, name: l.name, href: pathOf(l),
+    current: l === lang ? ' aria-current="page"' : '',
+  }));
 }
 
 export function stringsLanguages() {

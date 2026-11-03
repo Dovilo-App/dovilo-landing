@@ -141,7 +141,7 @@ store and installer links carry the language (`ct=…_tr`, `hl=tr&utm_content=tr
 the build reports a key that fails its checks, nobody rewrites the translation.
 `npm run build:pages -- --check` writes nothing and fails if any page is out of step with `src/`.
 
-It also writes the language lists of [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt), the text between `<!-- LANGS:START -->` and `<!-- LANGS:END -->`, from the languages that have a strings file. A language's hreflang alternates, menu entry and sitemap links appear the same way: only when `src/strings/<lang>.json` exists.
+It also writes the language lists of [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt), the text between `<!-- LANGS:START -->` and `<!-- LANGS:END -->`, from the languages that have a strings file. A language's hreflang alternates, menu entry and sitemap links appear the same way: only when `src/strings/<lang>.json` exists. The nav, footer and home page link the language's blog index (`/tr/blog/`), which `npm run build:blog` writes (see [The blog](#the-blog)); run it after this build when a language lands.
 
 Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<strong>`); a
 translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
@@ -184,7 +184,10 @@ studio/                Sanity Studio: the schema, and the editor at dovilo.sanit
 ```
 
 `npm run build:blog` writes `blog/index.html`, `blog/<slug>/index.html`, `blog/feed.xml` and
-`blog/media/`, then rewrites the block between `<!-- BLOG:START -->` and `<!-- BLOG:END -->` in
+`blog/media/`, and a copy of the index per language with a strings file (`tr/blog/index.html`: that
+language's nav, footer, Language menu, heading, intro and RSS label from `pages.blog` in
+`src/strings/<lang>.json`, one note saying the posts are in English, and the same English post list;
+the posts themselves stay English with no menu), then rewrites the block between `<!-- BLOG:START -->` and `<!-- BLOG:END -->` in
 [`sitemap.xml`](sitemap.xml), [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt). The
 homepage links the blog in one line and is not touched. Everything it writes is committed. Unpublish a post in Sanity and
 the next build deletes its directory.

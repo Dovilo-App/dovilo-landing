@@ -753,6 +753,20 @@
         }
       },
       "closing": "Still have questions? <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>"
+    },
+    "blog": {
+      "updated": "2026-10-29",
+      "meta": {
+        "title": "Blog - Dovilo",
+        "crumb": "Blog"
+      },
+      "h1": "Dovilo blog",
+      "intro": "Notes written while building Dovilo, a free to-do list with a focus timer and a city builder, by one engineer in Istanbul.",
+      "count": "{{n}} posts so far on focus, gamification and task management for coding agents.",
+      "count_one": "{{n}} post so far on focus, gamification and task management for coding agents.",
+      "english": "Posts are in English.",
+      "rss": "RSS feed",
+      "empty": "No posts yet. The first one is being written; in the meantime, the <a href=\"/changelog/\">release notes</a> carry what changed in the app."
     }
   }
 }

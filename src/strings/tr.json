@@ -751,6 +751,19 @@
         }
       },
       "closing": "Başka sorun mu var? <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>"
+    },
+    "blog": {
+      "updated": "2026-11-03",
+      "meta": {
+        "title": "Blog - Dovilo",
+        "crumb": "Blog"
+      },
+      "h1": "Dovilo blog",
+      "intro": "Dovilo'yu yaparken yazılan notlar: odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi, İstanbul'dan tek bir mühendis.",
+      "count": "Şimdiye kadar {{n}} yazı: odak, oyunlaştırma ve kodlama ajanları için görev yönetimi üzerine.",
+      "english": "Yazılar İngilizce.",
+      "rss": "RSS akışı",
+      "empty": "Henüz yazı yok. İlki yazılıyor; bu arada neyin değiştiğini <a href=\"/changelog/\">sürüm notları</a> anlatıyor."
     }
   }
 }

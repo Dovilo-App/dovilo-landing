@@ -12,6 +12,8 @@
  *
  * Writes:
  *   blog/index.html            the post list
+ *   <lang>/blog/index.html     the same list in that language's chrome and
+ *                              intro, one per language with a strings file
  *   blog/<slug>/index.html     one page per post
  *   blog/feed.xml              RSS 2.0, full text
  *   blog/media/*               post images, pulled off the Sanity CDN
@@ -30,11 +32,20 @@ import { fileURLToPath } from 'node:url';
 import { Marked } from 'marked';
 import { SITE, SANITY, BLOG } from './config.mjs';
 import { page, esc } from './template.mjs';
+import { LANGUAGES, stringsLanguages, loadStrings, plain, blogPath, menuAlternates } from './pages-lib.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, BLOG.dir);
 const MEDIA = path.join(OUT, 'media');
 const BLOG_URL = SITE.origin + BLOG.base;
+
+/* The blog index's words, per language: src/strings/<lang>.json, pages.blog.
+   English is the root; the posts are English whatever the language. */
+const LANGS = stringsLanguages();
+const STRINGS = Object.fromEntries(LANGS.map((l) => [l.code, loadStrings(l.code)]));
+const EN = LANGUAGES[0];
+const INTRO = plain(STRINGS.en.pages.blog.intro);
+const abs = (p) => SITE.origin + p;
 
 const exists = (p) => access(p).then(() => true, () => false);
 const log = (...a) => console.log(...a);
@@ -396,15 +407,35 @@ function postEntry(p) {
           </li>`;
 }
 
-function indexPage(posts) {
-  /* The count is the build's, never a literal: it is right after every publish. */
+/* When a language's index last changed: the later of its own words'
+   `updated` and its newest post. The sitemap entry and a language copy's
+   dateModified both read it. */
+function indexLastmod(posts, lang) {
+  const newest = posts.length ? isoDay(posts[0].dateModified) : isoDay(new Date().toISOString());
+  const own = STRINGS[lang.code].pages.blog.updated;
+  return own > newest ? own : newest;
+}
+
+function indexPage(posts, lang) {
+  const t = STRINGS[lang.code].pages.blog;
+  const isEn = lang.code === 'en';
+  const url = abs(blogPath(lang));
+  const many = LANGS.length > 1;
+  const description = plain(t.intro);
+  if (description.length > 150) console.warn(`  ! ${lang.code}: pages.blog.intro is ${description.length} characters (150 at most)`);
+
+  /* The count is the build's, never a literal: it is right after every publish.
+     English has a singular form, a language with one form leaves count_one out. */
   const n = posts.length;
-  const count = n ? ` ${n} post${n === 1 ? '' : 's'} ${BLOG.topics}` : '';
+  const sentence = n === 1 && t.count_one ? t.count_one : t.count;
+  const count = n ? ` ${sentence.replace('{{n}}', n)}` : '';
+  /* A language copy lists the English posts: the list says so in its own
+     language (the note), and marks itself English for screen readers. */
   const body = `    <section class="section">
       <div class="container flow">
-        <h1>${BLOG.title}</h1>
-        <p>${esc(BLOG.intro)}${esc(count)}</p>
-        <a class="link" href="${BLOG.base}feed.xml">RSS feed <span aria-hidden="true">&rarr;</span></a>
+        <h1>${t.h1}</h1>
+        <p>${t.intro}${count}</p>
+        <a class="link" href="${BLOG.base}feed.xml">${t.rss} <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -412,33 +443,29 @@ function indexPage(posts) {
       <div class="container">
 ${
   posts.length
-    ? `        <ol class="posts" role="list">\n${posts.map(postEntry).join('\n')}\n        </ol>`
-    : `        <p class="note">No posts yet. The first one is being written; in the meantime, the
-          <a href="/changelog/">release notes</a> carry what changed in the app.</p>`
+    ? `${isEn ? '' : `        <p class="note">${t.english}</p>\n`}        <ol class="posts" role="list"${isEn ? '' : ' lang="en"'}>\n${posts.map(postEntry).join('\n')}\n        </ol>`
+    : `        <p class="note">${t.empty}</p>`
 }
       </div>
     </div>`;
 
-  return page({
-    title: `Blog - ${SITE.name}`,
-    description: BLOG.intro,
-    canonical: BLOG_URL,
-    body,
-    jsonLd: [
-      {
+  const publisher = {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.origin,
+    logo: { '@type': 'ImageObject', url: SITE.origin + SITE.logo },
+  };
+  const homeUrl = abs(isEn ? '/' : `${lang.prefix}/`);
+  const jsonLd = isEn
+    ? {
         '@context': 'https://schema.org',
         '@type': 'Blog',
         '@id': `${BLOG_URL}#blog`,
         name: `${SITE.name} blog`,
-        description: BLOG.intro,
+        description: INTRO,
         url: BLOG_URL,
         inLanguage: 'en',
-        publisher: {
-          '@type': 'Organization',
-          name: SITE.name,
-          url: SITE.origin,
-          logo: { '@type': 'ImageObject', url: SITE.origin + SITE.logo },
-        },
+        publisher,
         blogPost: posts.map((p) => ({
           '@type': 'BlogPosting',
           headline: p.title,
@@ -447,13 +474,46 @@ ${
           dateModified: p.dateModified,
           description: p.description,
         })),
-      },
+      }
+    : {
+        /* The Blog node stays on /blog/: the posts are English and live
+           there, so a language copy is a page about them, not a second blog. */
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: plain(t.meta.title),
+        description,
+        url,
+        inLanguage: lang.code,
+        dateModified: indexLastmod(posts, lang),
+        isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.origin + '/' },
+      };
+
+  const hreflang = many
+    ? [...LANGS.map((l) => [l.code, abs(blogPath(l))]), ['x-default', abs(blogPath(EN))]]
+        .map(([h, u]) => `\n  <link rel="alternate" hreflang="${h}" href="${u}">`).join('')
+    : '';
+  const ogLocale =
+    `\n  <meta property="og:locale" content="${STRINGS[lang.code].lang.ogLocale}">` +
+    (many ? LANGS.filter((l) => l !== lang).map((l) => `\n  <meta property="og:locale:alternate" content="${STRINGS[l.code].lang.ogLocale}">`).join('') : '');
+
+  return page({
+    title: plain(t.meta.title),
+    description,
+    canonical: url,
+    body,
+    lang,
+    current: 'blog',
+    alternates: menuAlternates(LANGS, lang, blogPath),
+    hreflang,
+    ogLocale,
+    jsonLd: [
+      jsonLd,
       {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Dovilo', item: SITE.origin + '/' },
-          { '@type': 'ListItem', position: 2, name: 'Blog', item: BLOG_URL },
+          { '@type': 'ListItem', position: 1, name: 'Dovilo', item: homeUrl },
+          { '@type': 'ListItem', position: 2, name: plain(t.meta.crumb), item: url },
         ],
       },
     ],
@@ -574,7 +634,7 @@ ${(p.tags ?? []).map((t) => `    <category>${esc(t)}</category>\n`).join('')}   
   <title>${SITE.name} blog</title>
   <link>${BLOG_URL}</link>
   <atom:link href="${BLOG_URL}feed.xml" rel="self" type="application/rss+xml"/>
-  <description>${esc(BLOG.intro)}</description>
+  <description>${esc(INTRO)}</description>
   <language>en</language>
 ${posts.length ? `  <lastBuildDate>${rfc822(posts[0].publishedAt)}</lastBuildDate>\n` : ''}${items}
 </channel>
@@ -606,16 +666,29 @@ async function patch(file, block) {
 }
 
 function sitemapBlock(posts) {
-  const entry = (loc, lastmod, changefreq, priority) =>
-    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  /* The index and its language copies list each other (hreflang) once there is
+     more than one language, as the five pages do. */
+  const alternates = LANGS.length > 1
+    ? [...LANGS.map((l) => [l.code, abs(blogPath(l))]), ['x-default', abs(blogPath(EN))]]
+        .map(([h, u]) => `\n    <xhtml:link rel="alternate" hreflang="${h}" href="${u}"/>`).join('')
+    : '';
+  const entry = (loc, lastmod, changefreq, priority, extra = '') =>
+    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>${extra}\n  </url>`;
 
-  /* The index moves when a post does, or when its own copy changes (BLOG.indexUpdated). */
-  const newest = posts.length ? isoDay(posts[0].dateModified) : isoDay(new Date().toISOString());
-  const lastmod = BLOG.indexUpdated > newest ? BLOG.indexUpdated : newest;
+  /* An index moves when a post does, or when its own copy changes (pages.blog.updated). */
   return [
-    entry(BLOG_URL, lastmod, 'weekly', '0.8'),
+    ...LANGS.map((l) => entry(abs(blogPath(l)), indexLastmod(posts, l), 'weekly', l === EN ? '0.8' : BLOG.langPriority, alternates)),
     ...posts.map((p) => entry(`${BLOG_URL}${p.slug}/`, isoDay(p.dateModified), 'monthly', '0.7')),
   ].join('\n\n');
+}
+
+/* xhtml:link needs its namespace on <urlset>; tools/build-pages.mjs declares it
+   when a page has a second language, and this covers the order the two ran in. */
+async function declareXhtml(file) {
+  const full = path.join(ROOT, file);
+  const src = await readFile(full, 'utf8');
+  if (!src.includes('<xhtml:link') || src.includes('xmlns:xhtml=')) return;
+  await writeFile(full, src.replace('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"'));
 }
 
 function llmsBlock(posts) {
@@ -710,13 +783,24 @@ async function main() {
     log(`  + blog/${p.slug}/ (${p.wordCount} words)`);
   }
 
-  await writeFile(path.join(OUT, 'index.html'), indexPage(posts));
+  await writeFile(path.join(OUT, 'index.html'), indexPage(posts, EN));
   await writeFile(path.join(OUT, 'feed.xml'), feed(posts));
   log('  + blog/index.html, blog/feed.xml');
+
+  /* A language copy of the index, for every language that has strings. The
+     posts stay English at /blog/<slug>/; build-pages refuses a language
+     directory whose strings are gone, so nothing is left behind here. */
+  for (const l of LANGS.filter((x) => x !== EN)) {
+    const dir = path.join(ROOT, l.code, 'blog');
+    await mkdir(dir, { recursive: true });
+    await writeFile(path.join(dir, 'index.html'), indexPage(posts, l));
+    log(`  + ${l.code}/blog/index.html`);
+  }
 
   await prune(new Set(posts.map((p) => p.slug)));
 
   await patch('sitemap.xml', sitemapBlock(posts));
+  await declareXhtml('sitemap.xml');
   await patch('llms.txt', llmsBlock(posts));
   await patch('llms-full.txt', llmsBlock(posts));
 

@@ -21,18 +21,17 @@ export const SANITY = {
 export const BLOG = {
   dir: 'blog',
   base: '/blog/',
-  /* The blog index's <h1>: it names Dovilo, as every page's does (design-language §7). */
-  title: 'Dovilo blog',
-  /* The blog index's first paragraph is `intro`, then the post count the build
-     counts, then `topics`. `intro` alone is also the index's meta description,
-     its Blog JSON-LD description and the feed's, so it stays a sentence of 150
-     characters at most. No em dash in either: a person reads them. */
-  intro: 'Notes written while building Dovilo, a free to-do list with a focus timer and a city builder, by one engineer in Istanbul.',
-  topics: 'so far on focus, gamification and task management for coding agents.',
-  /* The day the index's own copy last changed (its h1, the intro). Its sitemap
-     lastmod is the later of this and the newest post's, so bump it with any
-     change to the index's words (CLAUDE.md: a retitle counts). */
-  indexUpdated: '2026-10-29',
+  /* The index's words (h1, intro, the count sentence, the RSS label, the
+     "no posts" note, the English note of a language copy) live in
+     src/strings/<lang>.json under pages.blog, with the day they last changed
+     (`updated`). The index's sitemap lastmod is the later of that day and the
+     newest post's, so bump `updated` with any change to the index's words
+     (CLAUDE.md: a retitle counts). The intro is also the meta description and
+     the Blog JSON-LD and feed description, so it stays a sentence of 150
+     characters at most, with no em dash. */
+  /* Sitemap priority of a language's blog index, a step under English's 0.8
+     (A130 3.7, as langPriority in tools/pages-lib.mjs). */
+  langPriority: '0.6',
   /* Newest-first entries per blog index page. One page until there is more than this. */
   perPage: 24,
 };

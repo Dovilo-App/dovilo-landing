@@ -12,6 +12,9 @@
    under its prefix (tr/index.html, tr/ai/index.html, …). The FAQPage JSON-LD
    and the HTML read the same key, so the two cannot drift.
 
+   The nav, the footer and the home page's blog link point at the language's
+   blog index (/tr/blog/), which tools/build-blog.mjs writes.
+
    The build also keeps sitemap.xml in step: each page's <lastmod> is the
    `updated` of its strings, and a page in more than one language gets its
    localised <url> entries and xhtml:link alternates. Pages with one language
@@ -31,7 +34,7 @@ import path from 'node:path';
 import { readdirSync } from 'node:fs';
 import {
   ROOT, SRC, PAGES, LANGUAGES, render, plain, loadStrings, stringsLanguages,
-  pagePath, pageOut, cardName, shellData, KNOWN_ENTITIES,
+  pagePath, pageOut, cardName, shellData, menuAlternates, blogPath, KNOWN_ENTITIES,
 } from './pages-lib.mjs';
 
 const ORIGIN = 'https://dovilo.app';
@@ -59,7 +62,12 @@ function compare(en, other, where, code) {
     a.forEach((x, i) => { if (skeleton(x) !== skeleton(b[i])) problems.push(`${code}: ${where} changes the markup of the English string`); });
     return;
   }
-  for (const k of Object.keys(en)) compare(en[k], other?.[k], where ? `${where}.${k}` : k, code);
+  for (const k of Object.keys(en)) {
+    /* A plural form (pages.blog.count_one) is English's: a language with one
+       form for every count omits it. */
+    if (k.endsWith('_one') && other?.[k] === undefined) continue;
+    compare(en[k], other?.[k], where ? `${where}.${k}` : k, code);
+  }
 }
 for (const l of langs) if (l.code !== 'en') compare({ common: strings.en.common, pages: strings.en.pages }, strings[l.code], '', l.code);
 
@@ -94,6 +102,14 @@ for (const l of langs) {
   }
 }
 
+/* The nav and the footer of a language link its blog index (/tr/blog/), which
+   tools/build-blog.mjs writes. Say so when it is not there yet. */
+for (const l of langs.slice(1)) {
+  if (OUT === ROOT && !existsSync(path.join(ROOT, blogPath(l), 'index.html'))) {
+    console.warn(`  ! ${l.code}: ${blogPath(l)} is not built yet; run npm run build:blog`);
+  }
+}
+
 /* ─── Pages ─── */
 
 /* A language ships all five pages or none: compare() requires every English
@@ -121,12 +137,7 @@ function pageData(page, lang) {
     : '';
   /* The language menu and the footer links: the current language first and
      marked, only when there is somewhere else to go. */
-  const alternates = many
-    ? [lang, ...set.filter((l) => l !== lang)].map((l) => ({
-        code: l.code, name: l.name, href: pagePath(page, l),
-        current: l === lang ? ' aria-current="page"' : '',
-      }))
-    : [];
+  const alternates = menuAlternates(set, lang, (l) => pagePath(page, l));
 
   return {
     ...shellData({ strings: s, lang, current: page.id === 'home' ? null : page.id, alternates }),
@@ -248,12 +259,12 @@ const siteLangs = list(langs.map((l) => l.english));
 const nav = (l) => strings[l.code].common.nav;
 const link = (label, p) => `[${label}](${abs(p)})`;
 const llmsLanguages = [
-  `The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages are in ${siteLangs}; every other page (docs, changelog, blog, legal) is in English. Prices on every language page are in US dollars.`,
+  `The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages and the blog index are in ${siteLangs}; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.`,
   '',
-  `- English: ${[['Home', 'home'], ['AI agents', 'ai'], ['Pricing', 'pricing'], ['Downloads', 'downloads'], ['FAQ', 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).join(', ')}`,
-  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).join(', ')}`),
+  `- English: ${[['Home', 'home'], ['AI agents', 'ai'], ['Pricing', 'pricing'], ['Downloads', 'downloads'], ['FAQ', 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).concat(link('Blog', blogPath(langs[0]))).join(', ')}`,
+  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).concat(link(nav(l).blog, blogPath(l))).join(', ')}`),
 ].join('\n');
-const llmsFull = `**The site is in ${siteLangs}** (the home page, /ai, /pricing/, /downloads/ and /faq; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
+const llmsFull = `**The site is in ${siteLangs}** (the home page, /ai, /pricing/, /downloads/ and /faq, plus the blog index; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
 function langRegion(file, body) {
   const text = readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n');
   const re = /<!-- LANGS:START -->[\s\S]*?<!-- LANGS:END -->/;

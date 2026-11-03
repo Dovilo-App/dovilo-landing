@@ -1,7 +1,7 @@
 # dovilo.app — working rules
 
 Static HTML for [dovilo.app](https://dovilo.app). No framework. Most pages are hand-written; the
-build steps are `/blog`, the five pages built from `src/` in English and Turkish
+build steps are `/blog` (the index's language copies, `/tr/blog/`, included), the five pages built from `src/` in English and Turkish
 (`npm run build:pages`, §1.3), their share cards (`npm run build:og`), the captures
 (`npm run build:captures`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
@@ -190,7 +190,17 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   from the languages that have strings: do not edit them by hand, and keep the markers.
 - The build fails on a missing key, on a translation whose markup (tags, attributes, `{{href.*}}`)
   differs from English, and on an em dash.
-- The other pages (`/docs/*`, `/changelog/`, the legal pages, `/blog/`, `/404.html`) stay
+- **The blog index has a copy per language** (A130 part 2b): `/tr/blog/` now, the others as their
+  strings land. `npm run build:blog` writes it, not `build:pages`: the index's words are
+  `pages.blog` in `src/strings/<lang>.json` (`h1`, `intro`, `count` with `{{n}}` and the English
+  `count_one`, `english`, `rss`, `empty`, `meta.title`, `meta.crumb`, `updated`), and the post list
+  is the same English list on every copy, with one `p.note` above it saying so and `lang="en"` on
+  the `<ol>`. The posts stay English at `/blog/<slug>/`, with no Language menu and no hreflang. The
+  nav's, the footer's and the home page's Blog links read `{{href.blog}}`, so a language page links
+  its own index; run `build:blog` after `build:pages` when a language lands (the pages build warns
+  when `<lang>/blog/` is missing). Its JSON-LD is `WebPage` and `BreadcrumbList`; the `Blog` node
+  stays on `/blog/` only. Priority 0.6 in the sitemap (`BLOG.langPriority`).
+- The other pages (`/docs/*`, `/changelog/`, the legal pages, the blog posts, `/404.html`) stay
   hand-written or generated as before, and English only: they carry no hreflang and no language
   menu.
 
@@ -371,10 +381,11 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - `blog/index.html` and every `blog/<slug>/index.html` are build output. Edit `tools/template.mjs`
   (the shell) or the page bodies in `tools/build-blog.mjs`, and re-run the build; editing the HTML
   is silently reverted on the next publish.
-- The `/blog/` index's sitemap `lastmod` is the later of its newest post's date and
-  `BLOG.indexUpdated` in `tools/config.mjs`. Change the index's own words (its `<h1>`, `BLOG.intro`,
-  `BLOG.topics`) and bump that date in the same commit. The post count in its first paragraph comes
-  from the build; never write it as a literal.
+- An index's sitemap `lastmod` (and a language copy's JSON-LD `dateModified`) is the later of its
+  newest post's date and `pages.blog.updated` in that language's strings file. Change the index's
+  own words (`h1`, `intro`, `count`, `rss`, `english`, `empty`) and bump that date in the same
+  commit. The post count in its first paragraph comes from the build; never write it as a literal.
+  `tools/config.mjs` no longer holds the index's copy.
 - The blog workflow publishes from `main`. A template change merged from another branch reaches
   `blog/` only through a build: run `npm run build:blog` on the branch and commit its output, and
   expect `blog/` to conflict with any publish the workflow made on `main` in between. Resolve by

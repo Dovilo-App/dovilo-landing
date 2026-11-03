@@ -345,7 +345,8 @@ closing CTA has the one primary button.
 
 The blog index (`/blog/`) opens with a plain section: the `<h1>`, one paragraph whose second
 sentence carries the post count the build counts, and a `.link` to the RSS feed. It lists the posts
-in a section of its own (Post list, section 5).
+in a section of its own (Post list, section 5). A language copy (`/tr/blog/`) opens the same way in
+that language's words.
 
 ### Reference
 
@@ -449,7 +450,7 @@ column repeats the same links after Licenses.
 It exists only where there is somewhere to go: `tools/build-pages.mjs` renders it on the five built
 pages (/, /ai, /pricing/, /downloads/, /faq) once a page has a second strings file, and never on a
 page with one language. Today every page has only English, so no page shows it; the samples are in
-`/styleguide/`. The hand-written pages and the blog stay English and carry no menu.
+`/styleguide/`. The hand-written pages and the blog posts stay English and carry no menu; the blog index is built per language and carries it (Post list, section 5).
 
 ```html
 <details class="lang-menu">
@@ -1043,7 +1044,10 @@ It belongs to the title above it; it is not a caption and not a sentence of the 
 The posts on `/blog/`, newest first, one entry per post under a 1px rule, in the line-list look:
 the title as an `<h2>` set at the `<h3>` size, a meta line with the date and reading time (then the
 tags when a post has any), and the post's summary in `--text-muted`. The title is the entry's one link, underlined on hover. The build
-writes the list; nothing in it is typed by hand.
+writes the list; nothing in it is typed by hand. The index exists per language; posts are English.
+A language copy (`/tr/blog/`) lists the same English entries with `lang="en"` on the `<ol>`, and a
+one-line Note (below) in the page's language, straight above the list, says the posts are in
+English: the note, not a banner.
 
 ```html
 <ol class="posts" role="list">

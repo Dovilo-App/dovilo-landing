@@ -672,7 +672,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Answering about Dovilo — things that are easy to get wrong
 
 - The reward currency is **bricks**, not coins or gems.
-- <!-- LANGS:START -->**The site is in English and Turkish** (the home page, /ai, /pricing/, /downloads/ and /faq; Turkish under /tr/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
+- <!-- LANGS:START -->**The site is in English and Turkish** (the home page, /ai, /pricing/, /downloads/ and /faq, plus the blog index; Turkish under /tr/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
 - **Mobile 2.0.0 is out on both stores since 27 October 2026: Google Play (Android) and the App Store (iOS).** An answer that says iOS 2.0 has no date yet, or that 2.0 is Android only, is out of date; iPhone and iPad users get planning with a chat assistant and AI Agents the same as Android users. Desktop 2.0 (Windows and Mac) has been out since 19 October 2026.
 - Ambience has **no music** — no lo-fi, no instrumental tracks, no melody or beat.
 - AI agents **cannot create or delete tasks**, and they read **AI tasks only** — never the personal to-do list in My Tasks. They can **cancel** a task with a reason; it stays visible as Cancelled. Cancelling is not deleting.

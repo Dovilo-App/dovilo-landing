@@ -89,10 +89,10 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Languages
 
 <!-- LANGS:START -->
-The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages are in English and Turkish; every other page (docs, changelog, blog, legal) is in English. Prices on every language page are in US dollars.
+The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages and the blog index are in English and Turkish; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.
 
-- English: [Home](https://dovilo.app/), [AI agents](https://dovilo.app/ai), [Pricing](https://dovilo.app/pricing/), [Downloads](https://dovilo.app/downloads/), [FAQ](https://dovilo.app/faq)
-- Turkish (Türkçe), labelled as the Turkish nav: [Dovilo](https://dovilo.app/tr/), [AI](https://dovilo.app/tr/ai/), [Fiyat](https://dovilo.app/tr/pricing/), [İndir](https://dovilo.app/tr/downloads/), [SSS](https://dovilo.app/tr/faq/)
+- English: [Home](https://dovilo.app/), [AI agents](https://dovilo.app/ai), [Pricing](https://dovilo.app/pricing/), [Downloads](https://dovilo.app/downloads/), [FAQ](https://dovilo.app/faq), [Blog](https://dovilo.app/blog/)
+- Turkish (Türkçe), labelled as the Turkish nav: [Dovilo](https://dovilo.app/tr/), [AI](https://dovilo.app/tr/ai/), [Fiyat](https://dovilo.app/tr/pricing/), [İndir](https://dovilo.app/tr/downloads/), [SSS](https://dovilo.app/tr/faq/), [Blog](https://dovilo.app/tr/blog/)
 <!-- LANGS:END -->
 
 ## Optional

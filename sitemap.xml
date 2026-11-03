@@ -166,6 +166,19 @@
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/blog/"/>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/tr/blog/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/blog/"/>
   </url>
 
   <url>

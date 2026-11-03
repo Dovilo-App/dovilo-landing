@@ -36,32 +36,42 @@ const THEME_BOOT = `<meta name="color-scheme" content="light dark">
 
 /* The nav, the footer and the site script are the partials in src/partials/,
    the same files tools/build-pages.mjs renders into the five localised pages:
-   one copy for the whole site. The blog is English, so it reads the English
-   strings and has no language menu. Only the blog index is the page the Blog
+   one copy for the whole site. A post is English with no language menu; the
+   blog index has a copy per language (A130 part 2b) and renders them in that
+   language's strings, with the menu. Only the blog index is the page the Blog
    entry points at; a post is not in the nav, so it marks nothing. The footer
    links are how link equity reaches the pages that are not in the nav: do not
    trim the list (in src/partials/footer.html). */
-const EN = loadStrings('en');
-const shell = (current) => shellData({ strings: EN, lang: LANGUAGES[0], current });
-const NAV = (current) => render('{{> nav}}', shell(current));
-const FOOTER = render('{{> footer}}', shell(null));
-const SITE_SCRIPT = render('{{> site-script}}', shell(null));
+const EN_LANG = LANGUAGES[0];
+const stringsOf = new Map();
+const shell = (lang, current, alternates) => {
+  if (!stringsOf.has(lang.code)) stringsOf.set(lang.code, loadStrings(lang.code));
+  return shellData({ strings: stringsOf.get(lang.code), lang, current, alternates });
+};
 
 /**
  * Renders one full page. `jsonLd` is an array of objects, each written into its
  * own application/ld+json block the way the hand-written pages do it. `body` is
  * the page's sections, written straight into <main>.
+ *
+ * `lang` is the language entry of pages-lib (English unless the blog index of
+ * another language); `current` names the nav entry to mark ('blog' on the
+ * index); `alternates` is the Language menu (menuAlternates in pages-lib);
+ * `hreflang` and `ogLocale` are ready-made tags for the index pages, empty on
+ * a post.
  */
-export function page({ title, description, canonical, ogType = 'website', ogImage, ogImageAlt, head = '', jsonLd = [], body }) {
+export function page({
+  title, description, canonical, ogType = 'website', ogImage, ogImageAlt, head = '', jsonLd = [], body,
+  lang = EN_LANG, current = null, alternates = [], hreflang = '', ogLocale = '',
+}) {
   const abs = (u) => (String(u || '').startsWith('http') ? u : SITE.origin + (u || SITE.defaultOgImage));
   const img = abs(ogImage);
-  const current = canonical === SITE.origin + BLOG.base ? 'blog' : null;
   const ld = jsonLd
     .map((o) => `  <script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n  </script>`)
     .join('\n');
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${lang.code}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +80,7 @@ export function page({ title, description, canonical, ogType = 'website', ogImag
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="${esc(canonical)}">
   <link rel="alternate" type="application/rss+xml" title="Dovilo blog" href="${SITE.origin}${BLOG.base}feed.xml">
-  <link rel="alternate" type="text/markdown" href="${SITE.origin}/llms.txt" title="llms.txt: structured summary for language models">
+  <link rel="alternate" type="text/markdown" href="${SITE.origin}/llms.txt" title="llms.txt: structured summary for language models">${hreflang}
 
   ${STYLES}
 
@@ -80,7 +90,7 @@ export function page({ title, description, canonical, ogType = 'website', ogImag
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${esc(img)}">
-${ogImageAlt ? `  <meta property="og:image:alt" content="${esc(ogImageAlt)}">\n` : ''}  <meta property="og:site_name" content="Dovilo">
+${ogImageAlt ? `  <meta property="og:image:alt" content="${esc(ogImageAlt)}">\n` : ''}  <meta property="og:site_name" content="Dovilo">${ogLocale}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${SITE.twitter}">
   <meta name="twitter:title" content="${esc(title)}">
@@ -94,7 +104,7 @@ ${head}
 
 ${ld ? ld + '\n' : ''}</head>
 <body>
-  ${NAV(current)}
+  ${render('{{> nav}}', shell(lang, current, alternates))}
 
   <main id="main">
 
@@ -102,9 +112,9 @@ ${body}
 
   </main>
 
-  ${FOOTER}
+  ${render('{{> footer}}', shell(lang, null, alternates))}
 
-  ${SITE_SCRIPT}
+  ${render('{{> site-script}}', shell(lang, null, alternates))}
 </body>
 </html>
 `;
