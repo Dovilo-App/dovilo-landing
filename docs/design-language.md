@@ -43,22 +43,23 @@ Five neutrals per theme and one accent. There are no alphas: every colour on a p
 
 | Token | Light | Dark | Used for |
 | --- | --- | --- | --- |
-| `--bg` | `#F7F8F8` | `#161B1D` | Page background |
-| `--surface` | `#FFFFFF` | `#1E2427` | Code blocks, collapsibles, notes, the backing behind screenshots |
-| `--border` | `#D5DADC` | `#2F373A` | Every rule, divider and outline, always 1px |
-| `--text-muted` | `#5B656A` | `#9AA3A7` | Support text, captions, dates, the second half of a line list |
-| `--text` | `#161B1D` | `#E8EAEB` | Headings, body text, links |
+| `--bg` | `#FAF8F4` | `#171717` | Page background |
+| `--surface` | `#FFFFFF` | `#1F1E1D` | Code blocks, collapsibles, notes, the backing behind screenshots |
+| `--border` | `#DED9D1` | `#2E2D2B` | Every rule, divider and outline, always 1px |
+| `--text-muted` | `#6F6B66` | `#9A958E` | Support text, captions, dates, the second half of a line list |
+| `--text` | `#1C1B19` | `#ECEAE6` | Headings, body text, links |
 | `--accent` | `#D4880A` | `#D4880A` | Primary button fill and the 01-04 numerals, nothing else |
-| `--on-accent` | `#161B1D` | `#161B1D` | Text on the accent |
+| `--on-accent` | `#1C1B19` | `#1C1B19` | Text on the accent |
 
-Contrast (WCAG 2.x): `--text` on `--bg` is 16.3:1 light and 14.4:1 dark; `--text-muted` on `--bg` is
-5.6:1 and 6.8:1; `--on-accent` on `--accent` is 6.1:1. The accent itself reads at only 2.7:1 on the
+Contrast (WCAG 2.x): `--text` on `--bg` is 16.2:1 light and 14.9:1 dark; `--text-muted` on `--bg` is
+5.0:1 and 6.0:1 (5.3:1 and 5.6:1 on `--surface`); `--border` on `--surface` is 1.40:1 in light;
+`--on-accent` on `--accent` is 6.0:1. The accent itself reads at only 2.7:1 on the
 light background, so **the accent is never a text colour**. It is always a fill with `--on-accent`
 text on it. That is why links are `--text` with an underline, not amber, and why the numerals are
 amber chips rather than amber digits. Hover adds no colour either: a primary button's outline turns
 `--text`, a secondary one's `--text-muted`.
 
-`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#161B1D` is the app's dark background and the site's `theme-color`.
+`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#171717` is the app's dark background and the site's dark `theme-color`; `#FAF8F4` is the light one. Only the ground is warm: text and lines stay neutral and the accent is unchanged. The app, Desktop and the site share these values (A135).
 
 ### Type
 
@@ -129,8 +130,8 @@ On the five built pages the head also carries `hreflang` alternates, and the set
   <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
 
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
   <script>
     /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
     (function(){

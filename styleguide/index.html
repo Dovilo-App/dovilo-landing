@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="/styles/system.css">
 
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
   <script>
     /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
     (function(){
@@ -167,13 +167,13 @@
           <table class="table">
             <thead><tr><th scope="col">Colour</th><th scope="col">Light</th><th scope="col">Dark</th><th scope="col">Use</th></tr></thead>
             <tbody>
-              <tr><td><code>--bg</code></td><td><span class="sg-swatch" style="background:#F7F8F8"></span><code>#F7F8F8</code></td><td><span class="sg-swatch" style="background:#161B1D"></span><code>#161B1D</code></td><td>Page background</td></tr>
-              <tr><td><code>--surface</code></td><td><span class="sg-swatch" style="background:#FFFFFF"></span><code>#FFFFFF</code></td><td><span class="sg-swatch" style="background:#1E2427"></span><code>#1E2427</code></td><td>Code blocks, collapsibles, notes, figure backing</td></tr>
-              <tr><td><code>--border</code></td><td><span class="sg-swatch" style="background:#D5DADC"></span><code>#D5DADC</code></td><td><span class="sg-swatch" style="background:#2F373A"></span><code>#2F373A</code></td><td>Every rule and outline, 1px</td></tr>
-              <tr><td><code>--text-muted</code></td><td><span class="sg-swatch" style="background:#5B656A"></span><code>#5B656A</code></td><td><span class="sg-swatch" style="background:#9AA3A7"></span><code>#9AA3A7</code></td><td>Support text, captions, meta. 5.6:1 light, 6.8:1 dark</td></tr>
-              <tr><td><code>--text</code></td><td><span class="sg-swatch" style="background:#161B1D"></span><code>#161B1D</code></td><td><span class="sg-swatch" style="background:#E8EAEB"></span><code>#E8EAEB</code></td><td>Headings and body. 16.3:1 light, 14.4:1 dark</td></tr>
+              <tr><td><code>--bg</code></td><td><span class="sg-swatch" style="background:#FAF8F4"></span><code>#FAF8F4</code></td><td><span class="sg-swatch" style="background:#171717"></span><code>#171717</code></td><td>Page background</td></tr>
+              <tr><td><code>--surface</code></td><td><span class="sg-swatch" style="background:#FFFFFF"></span><code>#FFFFFF</code></td><td><span class="sg-swatch" style="background:#1F1E1D"></span><code>#1F1E1D</code></td><td>Code blocks, collapsibles, notes, figure backing</td></tr>
+              <tr><td><code>--border</code></td><td><span class="sg-swatch" style="background:#DED9D1"></span><code>#DED9D1</code></td><td><span class="sg-swatch" style="background:#2E2D2B"></span><code>#2E2D2B</code></td><td>Every rule and outline, 1px</td></tr>
+              <tr><td><code>--text-muted</code></td><td><span class="sg-swatch" style="background:#6F6B66"></span><code>#6F6B66</code></td><td><span class="sg-swatch" style="background:#9A958E"></span><code>#9A958E</code></td><td>Support text, captions, meta. 5.0:1 light, 6.0:1 dark</td></tr>
+              <tr><td><code>--text</code></td><td><span class="sg-swatch" style="background:#1C1B19"></span><code>#1C1B19</code></td><td><span class="sg-swatch" style="background:#ECEAE6"></span><code>#ECEAE6</code></td><td>Headings and body. 16.2:1 light, 14.9:1 dark</td></tr>
               <tr><td><code>--accent</code></td><td><span class="sg-swatch" style="background:#D4880A"></span><code>#D4880A</code></td><td><span class="sg-swatch" style="background:#D4880A"></span><code>#D4880A</code></td><td>Primary button fill and the 01-04 numerals, nothing else</td></tr>
-              <tr><td><code>--on-accent</code></td><td><span class="sg-swatch" style="background:#161B1D"></span><code>#161B1D</code></td><td><span class="sg-swatch" style="background:#161B1D"></span><code>#161B1D</code></td><td>Text on the accent. 6.1:1</td></tr>
+              <tr><td><code>--on-accent</code></td><td><span class="sg-swatch" style="background:#1C1B19"></span><code>#1C1B19</code></td><td><span class="sg-swatch" style="background:#1C1B19"></span><code>#1C1B19</code></td><td>Text on the accent. 6.0:1</td></tr>
             </tbody>
           </table>
         </div>
@@ -2443,7 +2443,7 @@ CRITICAL RULES:
     (function(){
       var root = document.documentElement;
       var dark = window.matchMedia('(prefers-color-scheme: dark)');
-      var BG = { light: '#F7F8F8', dark: '#161B1D' };
+      var BG = { light: '#FAF8F4', dark: '#171717' };
 
       function theme(){
         var t = root.getAttribute('data-theme');

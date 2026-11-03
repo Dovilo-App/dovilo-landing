@@ -43,33 +43,33 @@
    these seven; there are no alphas to invent. */
 :root,[data-theme="light"]{
   color-scheme:light;
-  --bg:#F7F8F8;
+  --bg:#FAF8F4;
   --surface:#FFFFFF;
-  --border:#D5DADC;
-  --text-muted:#5B656A;
-  --text:#161B1D;
+  --border:#DED9D1;
+  --text-muted:#6F6B66;
+  --text:#1C1B19;
   --toggle-sun:block;
   --toggle-moon:none;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#161B1D;
-    --surface:#1E2427;
-    --border:#2F373A;
-    --text-muted:#9AA3A7;
-    --text:#E8EAEB;
+    --bg:#171717;
+    --surface:#1F1E1D;
+    --border:#2E2D2B;
+    --text-muted:#9A958E;
+    --text:#ECEAE6;
     --toggle-sun:none;
     --toggle-moon:block;
   }
 }
 :root[data-theme="dark"],[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#161B1D;
-  --surface:#1E2427;
-  --border:#2F373A;
-  --text-muted:#9AA3A7;
-  --text:#E8EAEB;
+  --bg:#171717;
+  --surface:#1F1E1D;
+  --border:#2E2D2B;
+  --text-muted:#9A958E;
+  --text:#ECEAE6;
   --toggle-sun:none;
   --toggle-moon:block;
 }
@@ -79,7 +79,7 @@
      the 01-04 numerals and is never used as text colour: on the light
      background it reads at 2.7:1, so it always carries --on-accent text. */
   --accent:#D4880A;
-  --on-accent:#161B1D;
+  --on-accent:#1C1B19;
 
   /* Type */
   --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;

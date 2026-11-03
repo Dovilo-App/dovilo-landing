@@ -34,7 +34,7 @@ import { woff2ToTtf } from './woff2.mjs';
 
 const CHECK = process.argv.includes('--check');
 const W = 1200, H = 630;
-const BG = '#F7F8F8', TEXT = '#161B1D', SURFACE = '#FFFFFF', BORDER = '#D5DADC'; /* system.css, light */
+const BG = '#FAF8F4', TEXT = '#1C1B19', SURFACE = '#FFFFFF', BORDER = '#DED9D1'; /* system.css, light */
 const MARGIN = 64;
 
 /* size: the h1 in px, then the one step down. lh: line height. measure: the
