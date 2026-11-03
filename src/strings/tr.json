@@ -94,10 +94,10 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-01",
+      "updated": "2026-11-03",
       "meta": {
         "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
-        "description": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunu. Sınırsız görev ve odak seansı, reklam yok.",
+        "description": "Dovilo, iOS ve Android için ücretsiz yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma. Sınırsız görev ve seans, reklam yok.",
         "ogAlt": "Dovilo: sana bir şehir kuran yapılacaklar listesi; yanında Claude'dan gelen altı görevlik plan ve onaylandığı liste"
       },
       "jsonld": {
@@ -234,10 +234,10 @@
       "blogLink": "Dovilo'yu yaparken yazılanlar: blog"
     },
     "ai": {
-      "updated": "2026-11-01",
+      "updated": "2026-11-03",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
-        "description": "Claude Code, Cursor ve her MCP istemcisi herhangi bir makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma yok, silme yok.",
+        "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
         "ogAlt": "Dovilo: kodlama ajanının çalıştığı görev listesi; altında Dovilo Desktop'ta bir projenin AI Görevleri",
         "crumb": "AI"
       },
@@ -387,10 +387,10 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-01",
+      "updated": "2026-11-03",
       "meta": {
         "title": "Fiyat: kullanımı ücretsiz, Pro ayda $2.49 - Dovilo",
-        "description": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49. Kişisel uygulama ücretsiz ve sınırsız. Pro AI katmanını, Desktop'u, senkronizasyonu ve iki paketi ekler.",
+        "description": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49. Kişisel uygulama ücretsiz ve sınırsız; Pro AI katmanı, Desktop, senkronizasyon ve iki paket ekler.",
         "ogAlt": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49.",
         "crumb": "Fiyat"
       },

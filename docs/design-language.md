@@ -109,6 +109,8 @@ is instant. `prefers-reduced-motion: reduce` drops even the hover transitions.
 
 Every redesigned page has this head, in this order, and this body frame.
 
+On the five built pages the head also carries `hreflang` alternates, and the set grows with the languages: a language's alternates (and its `og:locale:alternate`, menu entry and sitemap `xhtml:link`) are written only when its `src/strings/<lang>.json` exists, so `es`, `fr` and `de` appear as they land and a page never links to a page that does not exist.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

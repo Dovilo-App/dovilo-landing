@@ -141,6 +141,8 @@ store and installer links carry the language (`ct=…_tr`, `hl=tr&utm_content=tr
 the build reports a key that fails its checks, nobody rewrites the translation.
 `npm run build:pages -- --check` writes nothing and fails if any page is out of step with `src/`.
 
+It also writes the language lists of [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt), the text between `<!-- LANGS:START -->` and `<!-- LANGS:END -->`, from the languages that have a strings file. A language's hreflang alternates, menu entry and sitemap links appear the same way: only when `src/strings/<lang>.json` exists.
+
 Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<strong>`); a
 translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
 strings with the tags stripped, so the FAQPage answers are the visible ones. Templates use

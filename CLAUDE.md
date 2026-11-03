@@ -182,6 +182,12 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   referenced by `"@id": "https://dovilo.app/#app"` only. The full `SoftwareApplication`
   (`offers`, `featureList`, `releaseNotes`), the `Organization` and the `WebSite` stay on the
   English pages (`{{#if lang.en}}` in the templates).
+- **The hreflang set grows with the languages.** A language's alternates (hreflang, `og:locale:alternate`,
+  menu entry, footer link, sitemap `xhtml:link`) are written only when its `src/strings/<lang>.json`
+  exists, so `es`, `fr` and `de` appear as they land, never a link to a page that does not exist.
+- **The language lists in `llms.txt` ("Languages") and `llms-full.txt` (first "easy to get wrong"
+  line) sit between `<!-- LANGS:START -->` and `<!-- LANGS:END -->`**, written by `npm run build:pages`
+  from the languages that have strings: do not edit them by hand, and keep the markers.
 - The build fails on a missing key, on a translation whose markup (tags, attributes, `{{href.*}}`)
   differs from English, and on an em dash.
 - The other pages (`/docs/*`, `/changelog/`, the legal pages, `/blog/`, `/404.html`) stay

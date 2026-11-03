@@ -17,6 +17,9 @@
    localised <url> entries and xhtml:link alternates. Pages with one language
    (all of them today) change nothing there but the date.
 
+   It also writes the language lists of llms.txt and llms-full.txt (the
+   LANGS regions), from the languages that have strings.
+
    Never edit the generated pages in place: the next build overwrites them.
 
    Usage: npm run build:pages [-- --check] [-- --out <dir>]
@@ -231,6 +234,34 @@ for (const page of PAGES) {
   }
 }
 emit('sitemap.xml', sitemap);
+
+/* ─── llms.txt and llms-full.txt: the languages that exist ─── */
+
+/* Two regions between <!-- LANGS:START --> and <!-- LANGS:END --> are written
+   from the languages that have strings, so the lists update themselves when
+   a language lands: the "Languages" section of llms.txt and the first
+   "easy to get wrong" sentence of llms-full.txt. The rest of both files is
+   hand-written (and the blog's region is build-blog's). */
+const list = (a) => (a.length < 2 ? a.join('') : `${a.slice(0, -1).join(', ')} and ${a[a.length - 1]}`);
+const others = langs.slice(1);
+const siteLangs = list(langs.map((l) => l.english));
+const nav = (l) => strings[l.code].common.nav;
+const link = (label, p) => `[${label}](${abs(p)})`;
+const llmsLanguages = [
+  `The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages are in ${siteLangs}; every other page (docs, changelog, blog, legal) is in English. Prices on every language page are in US dollars.`,
+  '',
+  `- English: ${[['Home', 'home'], ['AI agents', 'ai'], ['Pricing', 'pricing'], ['Downloads', 'downloads'], ['FAQ', 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).join(', ')}`,
+  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).join(', ')}`),
+].join('\n');
+const llmsFull = `**The site is in ${siteLangs}** (the home page, /ai, /pricing/, /downloads/ and /faq; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
+function langRegion(file, body) {
+  const text = readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n');
+  const re = /<!-- LANGS:START -->[\s\S]*?<!-- LANGS:END -->/;
+  if (!re.test(text)) throw new Error(`${file} has no LANGS region`);
+  emit(file, text.replace(re, () => `<!-- LANGS:START -->${body}<!-- LANGS:END -->`));
+}
+langRegion('llms.txt', `\n${llmsLanguages}\n`);
+langRegion('llms-full.txt', llmsFull);
 
 /* ─── Report ─── */
 

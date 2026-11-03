@@ -112,11 +112,11 @@ export function render(tpl, data) {
 /* Every language the site will ship, in the menu's order. A language is built
    only when src/strings/<code>.json exists; English is at the root. */
 export const LANGUAGES = [
-  { code: 'en', name: 'English', prefix: '', date: '{d} {m} {y}' },
-  { code: 'tr', name: 'Türkçe', prefix: '/tr', date: '{d} {m} {y}' },
-  { code: 'es', name: 'Español', prefix: '/es', date: '{d} {m} {y}' },
-  { code: 'fr', name: 'Français', prefix: '/fr', date: '{d} {m} {y}' },
-  { code: 'de', name: 'Deutsch', prefix: '/de', date: '{d} {m} {y}' },
+  { code: 'en', english: 'English', name: 'English', prefix: '', date: '{d} {m} {y}' },
+  { code: 'tr', english: 'Turkish', name: 'Türkçe', prefix: '/tr', date: '{d} {m} {y}' },
+  { code: 'es', english: 'Spanish', name: 'Español', prefix: '/es', date: '{d} {m} {y}' },
+  { code: 'fr', english: 'French', name: 'Français', prefix: '/fr', date: '{d} {m} {y}' },
+  { code: 'de', english: 'German', name: 'Deutsch', prefix: '/de', date: '{d} {m} {y}' },
 ];
 /* `date` is the order /downloads' page script writes the Latest line's date
    in, from {d} (day), {m} (the month name from pages.downloads.months) and {y}
