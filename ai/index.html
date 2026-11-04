@@ -59,7 +59,7 @@
   "url": "https://dovilo.app/ai",
   "image": "https://dovilo.app/og-ai.jpg",
   "inLanguage": "en",
-  "dateModified": "2026-11-01",
+  "dateModified": "2026-11-05",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -306,6 +306,15 @@
       </div>
     </section>
 
+    <section class="section" id="built-with-dovilo">
+      <div class="container">
+        <div class="section-head">
+          <h2>How Dovilo itself is built</h2>
+          <p>Dovilo is built this way. It has five projects, Backend, Mobile, Desktop, Edge and Landing, and one Claude Code agent for each. I plan a change in Claude, which proposes AI tasks under the right project. I approve them on my phone; the agent at the desk works them, writes its steps and notes on the task, and stops to ask when a decision is mine. This page went through the Landing project the same way.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="planning">
       <div class="container">
         <div class="section-head">
@@ -343,6 +352,46 @@
           </div>
         </div>
         <a class="link" href="/docs/mcp/">All tools in the MCP docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="connect-your-ai">
+      <div class="container flow">
+        <h2>Connect your AI app</h2>
+        <p>ChatGPT, Claude, Gemini and Grok connect to Dovilo's Personal MCP at <code>https://dovilo.app/mcp</code>. Sign in to Dovilo first; when your AI app asks you to sign in, use the same Google or Apple account. In the app, Settings &gt; AI &gt; Connected AI apps walks you through the same steps.</p>
+        <h3>ChatGPT</h3>
+        <ol>
+          <li>Open chatgpt.com/plugins.</li>
+          <li>Choose &quot;+&quot;, then &quot;Add custom MCP server&quot;.</li>
+          <li>Name it Dovilo and paste the address.</li>
+          <li>Sign in with your Dovilo account and approve the consent screen.</li>
+        </ol>
+        <p class="note">On the web. Whether you can add a custom MCP server depends on your ChatGPT plan.</p>
+        <h3>Claude</h3>
+        <ol>
+          <li>Open Customize &gt; Connectors.</li>
+          <li>Choose &quot;Add custom connector&quot;.</li>
+          <li>Name it Dovilo and paste the address.</li>
+          <li>Choose &quot;Connect&quot;, sign in with your Dovilo account and approve the consent screen.</li>
+        </ol>
+        <p class="note">On claude.ai or Claude Desktop; it then works in the mobile app too. The free plan allows one custom connector.</p>
+        <h3>Gemini</h3>
+        <ol>
+          <li>Open gemini.google.com &gt; Settings &gt; Connected Apps.</li>
+          <li>Choose &quot;Add a custom app&quot;.</li>
+          <li>Paste the address, then choose &quot;Next&quot;.</li>
+          <li>Sign in with your Dovilo account and approve the consent screen.</li>
+        </ol>
+        <p class="note">On the Gemini web app. Google offers this for personal accounts in the US, age 18 or over, with &quot;Keep Activity&quot; on.</p>
+        <h3>Grok</h3>
+        <ol>
+          <li>Open grok.com/connectors.</li>
+          <li>Choose &quot;New Connector&quot;, then &quot;Custom&quot;.</li>
+          <li>Paste the address.</li>
+          <li>Sign in with your Dovilo account and approve the consent screen.</li>
+        </ol>
+        <p>Then ask it for a plan in a new chat, for example: &quot;Plan my tomorrow in Dovilo with 3 small tasks.&quot; The plan appears in your AI inbox; review it and approve it. Connecting and sending plans is free; adding a plan to your lists needs Pro.</p>
+        <p class="note">Menu names are each app's own English labels, taken from its help page on 20 October 2026: <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Claude</a>, <a href="https://support.google.com/gemini/answer/17209137" target="_blank" rel="noopener">Gemini</a>, <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>. If a menu has moved, the help page has the current one.</p>
       </div>
     </section>
 
