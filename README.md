@@ -47,45 +47,43 @@ time; the stylesheets before it, `styles/base.css` and `styles/home.css`, are go
 
 ### Screenshots
 
-Pages reference `.webp`; the `.png` files next to them are the lossless sources, kept so the
-variants can be regenerated. The screenshots on `/` and `/ai`
-carry `srcset`/`sizes`, whose candidate widths are named in the filename (`-193`, `-700`,
-`-772` … ); keep each `sizes` equal to the width the CSS actually renders, or a 1x screen picks a
-smaller file and stretches it. A phone shot drawn wider than 193px (288px on `/ai`) adds a `-772`
-variant for 2x screens. A phone screen that the app draws differently in its dark theme also has a dark
-twin with the same crop, named with `-dark` before any width suffix (`mobile-ai-inbox-dark.webp`,
-`mobile-ai-inbox-dark-772.webp`); the page pairs the two in a `<picture>` and shows the one that
-matches its theme (see the Figure section of the design doc). The sources of both sets are in
-`screenshots/new/mobile/light/` and `screenshots/new/mobile/dark/`. Desktop captures work the same
-way (`desktop-ai-dark-2000.webp`), with their sources in `screenshots/new/desktop/light/` and
-`screenshots/new/desktop/dark/`. The dark desktop set was captured at 2874x1866 against the light
-set's 2844x1846, so it is scaled to the light file's size first, never cropped, and every width
-variant then has its light twin's exact `width`/`height`.
-To add or replace a screenshot, drop the PNG in [`screenshots/`](screenshots/) and re-encode it
-with ffmpeg:
+Pages reference `.webp`. The captures on `/` and `/ai` (the 2.1 set, A131) are written by
+`npm run build:captures` ([`tools/build-captures.mjs`](tools/build-captures.mjs)) from the PNG
+sources in `screenshots/new/`, which stay full frame for the stores:
+
+- `screenshots/new/mobile/{light,dark}/<lang>-NN.png`, 1206x2622 (09, the ambience mixer, is
+  cropped at the source to 1206x1290), and `city.png` in both themes: the city has no text, so one
+  capture serves every language.
+- `screenshots/new/desktop/<lang>/{light,dark}/desktop-NN-<name>.png`, 2844x1846 in both themes,
+  with transparent corners.
+
+The script maps each site name to its screen (`mobile-ai-inbox` 01, `mobile-ai` 02,
+`mobile-ai-done` 05, `mobile-list-birthday` 07, `mobile-focus-rain` 08, `mobile-ambience-mixer` 09,
+`mobile-ai-new-task` 11, `mobile-ai-proposal` 12, `mobile-ai-running` 13, `desktop-ai` desktop-01,
+`mobile-city-26` the city) and writes English to `screenshots/` and every other language with a
+strings file to `screenshots/<lang>/` under the same names; the city is written once, to
+`screenshots/`, and every language links it there. Phone captures are cropped below the status bar
+and above the home indicator (rows 186 to 2582, box 386x767; the mixer keeps its 386x413) and
+written at 386w and 772w; the city at 386w, 576w and 772w; desktop at 700w to 2000w with its alpha.
+WebP q88 (the city q80). A dark twin is named with `-dark` before any width suffix
+(`mobile-ai-inbox-dark-772.webp`), and the page pairs the two in a `<picture>` (the Figure
+section of the design doc). Keep each `sizes` equal to the width the CSS renders.
 
 ```bash
-# Quality 80 for the busy city render, 88 elsewhere.
+npm run build:captures                              # every capture, every language
+npm run build:captures -- --lang en --screen 11     # one source after a re-take (en-11, both themes)
+npm run build:captures -- --tinify                  # then compress with the Tinify API
+```
 
-# A phone capture at full size (1206px PNG): the 386w and 772w pair the
-# redesigned pages use. A dark twin takes the same commands with -dark before
-# the width suffix (mobile-x-dark.webp, mobile-x-dark-772.webp).
+`--tinify` reads `TINIFY_API_KEY` from the environment or the gitignored `.env`, keeps each result
+only when it is smaller, and prints the bytes before and after; the free tier is 500 compressions a
+month and a full run of English and Turkish is 91. Older captures not in the 2.1 set (the
+`styleguide/` samples `mobile-tasks.webp` and `mobile-focus.webp`, among others) keep their PNG
+next to the WebP and the ffmpeg recipe:
+
+```bash
 ffmpeg -i screenshots/mobile-x.png -vf scale=386:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
 ffmpeg -i screenshots/mobile-x.png -vf scale=772:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-772.webp
-
-# A desktop capture: scale the source to the light file's size (desktop-ai.png
-# is 2764x1794, the others 2844x1846), then the four widths at the light
-# variants' exact heights. Shown for the dark twin of desktop-ai. The dark
-# captures have no alpha: the corners outside the rounded window are pure black,
-# which occurs nowhere else in them, so colorkey makes exactly those transparent,
-# as the light captures are.
-ffmpeg -i screenshots/new/desktop/dark/desktop-01-ai-tasks.png -vf "format=rgba,colorkey=0x000000:0.0001:0,scale=2764:1794:flags=lanczos,format=rgba" -pred mixed -compression_level 9 screenshots/desktop-ai-dark.png
-for wh in 700x454 1000x650 1400x908 2000x1298; do ffmpeg -i screenshots/desktop-ai-dark.png -vf scale=${wh%x*}:${wh#*x}:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/desktop-ai-dark-${wh%x*}.webp; done
-
-# An older 386px PNG: encode it at its own size, plus the 1x variant for the
-# old pages' phone slots (~193 CSS px wide)
-ffmpeg -i screenshots/mobile-x.png -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x.webp
-ffmpeg -i screenshots/mobile-x.png -vf scale=193:-2:flags=lanczos -c:v libwebp -quality 88 -compression_level 6 screenshots/mobile-x-193.webp
 ```
 
 Share cards (`og:image`, `twitter:image`) stay on PNG/JPG — social crawlers are unreliable with WebP.
@@ -135,8 +133,15 @@ tools/build-pages.mjs       renders every page in every language that has a stri
 (`tr/index.html`, `tr/ai/index.html`, …). It also writes each page's `lastmod` into
 [`sitemap.xml`](sitemap.xml) from the page's `updated` string, and, for a page in more than one
 language, the localised sitemap entries, hreflang, `og:locale:alternate` and the language menu.
-Only `en.json` exists today, so none of that shows yet. `npm run build:pages -- --check` writes
-nothing and fails if any page is out of step with `src/`.
+`en.json` and `tr.json` exist, so the ten pages carry hreflang (`en`, `tr`, `x-default`) and the
+language menu, and `sitemap.xml` lists `/tr/…` a priority step under English. A language copy's
+store and installer links carry the language (`ct=…_tr`, `hl=tr&utm_content=tr`,
+`source=…_tr`), and its JSON-LD leaves the full `SoftwareApplication`, the `Organization` and the
+`WebSite` to English (CLAUDE.md §1.3). A strings file other than English is committed as placed:
+the build reports a key that fails its checks, nobody rewrites the translation.
+`npm run build:pages -- --check` writes nothing and fails if any page is out of step with `src/`.
+
+It also writes the language lists of [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt), the text between `<!-- LANGS:START -->` and `<!-- LANGS:END -->`, from the languages that have a strings file. A language's hreflang alternates, menu entry and sitemap links appear the same way: only when `src/strings/<lang>.json` exists. The nav, footer and home page link the language's blog index (`/tr/blog/`), which `npm run build:blog` writes (see [The blog](#the-blog)); run it after this build when a language lands.
 
 Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<strong>`); a
 translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
@@ -154,7 +159,10 @@ light background, with the hero capture its template names in its first line
 (`{{! card: layout=… captures=… }}`): `text` (the h1 alone), `split` (the h1 beside two phone
 screens) or `top` (the h1 over the desktop screen). Long text wraps, then drops one size step, then
 is clipped to whole lines with a warning. The font is the site's own: `tools/woff2.mjs` decodes
-`fonts/*.woff2` to TrueType in the temp folder for sharp. `/faq` keeps `og-card.jpg` in English.
+`fonts/*.woff2` to TrueType in the temp folder for sharp, with latin-ext as the fallback for
+Turkish (and later French and German) letters. The line height is set from Pango's measured line
+pitch for Inter, which differs between machines (1.27 em on one, 1.01 em on another), so the cards
+keep a 1.2 line height wherever they are built. `/faq` keeps `og-card.jpg` in English.
 `npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
 depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
 without a change, so regenerate and look at them rather than trusting the check across machines.
@@ -176,7 +184,10 @@ studio/                Sanity Studio: the schema, and the editor at dovilo.sanit
 ```
 
 `npm run build:blog` writes `blog/index.html`, `blog/<slug>/index.html`, `blog/feed.xml` and
-`blog/media/`, then rewrites the block between `<!-- BLOG:START -->` and `<!-- BLOG:END -->` in
+`blog/media/`, and a copy of the index per language with a strings file (`tr/blog/index.html`: that
+language's nav, footer, Language menu, heading, intro and RSS label from `pages.blog` in
+`src/strings/<lang>.json`, one note saying the posts are in English, and the same English post list;
+the posts themselves stay English with no menu), then rewrites the block between `<!-- BLOG:START -->` and `<!-- BLOG:END -->` in
 [`sitemap.xml`](sitemap.xml), [`llms.txt`](llms.txt) and [`llms-full.txt`](llms-full.txt). The
 homepage links the blog in one line and is not touched. Everything it writes is committed. Unpublish a post in Sanity and
 the next build deletes its directory.

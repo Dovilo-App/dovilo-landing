@@ -112,24 +112,31 @@ export function render(tpl, data) {
 /* Every language the site will ship, in the menu's order. A language is built
    only when src/strings/<code>.json exists; English is at the root. */
 export const LANGUAGES = [
-  { code: 'en', name: 'English', prefix: '' },
-  { code: 'tr', name: 'Türkçe', prefix: '/tr' },
-  { code: 'es', name: 'Español', prefix: '/es' },
-  { code: 'fr', name: 'Français', prefix: '/fr' },
-  { code: 'de', name: 'Deutsch', prefix: '/de' },
+  { code: 'en', english: 'English', name: 'English', prefix: '', date: '{d} {m} {y}' },
+  { code: 'tr', english: 'Turkish', name: 'Türkçe', prefix: '/tr', date: '{d} {m} {y}' },
+  { code: 'es', english: 'Spanish', name: 'Español', prefix: '/es', date: '{d} {m} {y}' },
+  { code: 'fr', english: 'French', name: 'Français', prefix: '/fr', date: '{d} {m} {y}' },
+  { code: 'de', english: 'German', name: 'Deutsch', prefix: '/de', date: '{d} {m} {y}' },
 ];
+/* `date` is the order /downloads' page script writes the Latest line's date
+   in, from {d} (day), {m} (the month name from pages.downloads.months) and {y}
+   (year): the format key of A130 3.10. A format, not a translation, so it
+   lives here and not in the strings; set it with the language's strings,
+   keeping the static date in its boxes.desktop.latest the same shape. */
 
 /* `path` is the English URL as it is linked today. Four keep the forms the
    site has always used (CLAUDE.md §4: /ai and /faq stay slash-less); the
    localised copies are directories under the language prefix. */
+/* `langPriority` is the sitemap priority of the page's localised copies, a
+   step under English (A130 3.7). */
 export const PAGES = [
-  { id: 'home', path: '/', out: 'index.html', card: 'og-home' },
-  { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai' },
-  { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing' },
-  { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads' },
+  { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
+  { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
+  { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
+  { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
   /* The FAQ has shared og-card.jpg since before the build; its English head
      keeps it. Its localised copies get a card of their own. */
-  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', enCard: 'og-card' },
+  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', enCard: 'og-card', langPriority: '0.7' },
 ];
 
 export function pagePath(page, lang) {
@@ -147,10 +154,29 @@ export function cardName(page, lang) {
   return `${page.card}-${lang.code}`;
 }
 
-/* Hrefs of the five pages in one language: templates and strings link through
-   these, so a Turkish page links Turkish pages. */
+/* The blog index of a language (A130 part 2b): /blog/, /tr/blog/. The posts
+   stay English at /blog/<slug>/; only the index has a copy per language. */
+export function blogPath(lang) {
+  return lang.code === 'en' ? '/blog/' : `${lang.prefix}/blog/`;
+}
+
+/* Hrefs of the five pages and the blog index in one language: templates and
+   strings link through these, so a Turkish page links Turkish pages. */
 export function hrefs(lang) {
-  return Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)]));
+  return { ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
+}
+
+/* The Language menu and the footer's language links: the current language
+   first and marked, then the others, only when there is somewhere else to go.
+   `set` is the languages the page exists in, `pathOf` the page's address in
+   one of them. build-pages and build-blog both call this, so the five pages
+   and the blog index cannot map the menu differently. */
+export function menuAlternates(set, lang, pathOf) {
+  if (set.length < 2) return [];
+  return [lang, ...set.filter((l) => l !== lang)].map((l) => ({
+    code: l.code, name: l.name, href: pathOf(l),
+    current: l === lang ? ' aria-current="page"' : '',
+  }));
 }
 
 export function stringsLanguages() {
@@ -168,9 +194,19 @@ export function loadStrings(code) {
    to mark (`ai`, `pricing`, `downloads`, `faq`, `blog`) or nothing. */
 export function shellData({ strings, lang, current = null, alternates = [] }) {
   const mark = (id) => (id === current ? ' aria-current="page"' : '');
+  const en = lang.code === 'en';
   return {
     c: strings.common,
-    lang: { ...strings.lang, code: lang.code },
+    /* en: the {{#if}} flag for what only English carries (the full
+       SoftwareApplication, the Organization, the WebSite; A130 3.6). The link parameters of A130 3.10: App Store
+       ct=<campaign>_<lang>, installers source=<placement>_<lang>, Google Play
+       hl=<lang>&utm_content=<lang>. English keeps its links as they were. */
+    lang: {
+      ...strings.lang, code: lang.code, date: lang.date,
+      en: en ? 'en' : '',
+      suffix: en ? '' : `_${lang.code}`,
+      play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
+    },
     href: hrefs(lang),
     current: Object.fromEntries(['ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
     alternates,

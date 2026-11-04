@@ -43,22 +43,23 @@ Five neutrals per theme and one accent. There are no alphas: every colour on a p
 
 | Token | Light | Dark | Used for |
 | --- | --- | --- | --- |
-| `--bg` | `#F7F8F8` | `#161B1D` | Page background |
-| `--surface` | `#FFFFFF` | `#1E2427` | Code blocks, collapsibles, notes, the backing behind screenshots |
-| `--border` | `#D5DADC` | `#2F373A` | Every rule, divider and outline, always 1px |
-| `--text-muted` | `#5B656A` | `#9AA3A7` | Support text, captions, dates, the second half of a line list |
-| `--text` | `#161B1D` | `#E8EAEB` | Headings, body text, links |
+| `--bg` | `#FAF8F4` | `#171717` | Page background |
+| `--surface` | `#FFFFFF` | `#1F1E1D` | Code blocks, collapsibles, notes, the backing behind screenshots |
+| `--border` | `#DED9D1` | `#2E2D2B` | Every rule, divider and outline, always 1px |
+| `--text-muted` | `#6F6B66` | `#9A958E` | Support text, captions, dates, the second half of a line list |
+| `--text` | `#1C1B19` | `#ECEAE6` | Headings, body text, links |
 | `--accent` | `#D4880A` | `#D4880A` | Primary button fill and the 01-04 numerals, nothing else |
-| `--on-accent` | `#161B1D` | `#161B1D` | Text on the accent |
+| `--on-accent` | `#1C1B19` | `#1C1B19` | Text on the accent |
 
-Contrast (WCAG 2.x): `--text` on `--bg` is 16.3:1 light and 14.4:1 dark; `--text-muted` on `--bg` is
-5.6:1 and 6.8:1; `--on-accent` on `--accent` is 6.1:1. The accent itself reads at only 2.7:1 on the
+Contrast (WCAG 2.x): `--text` on `--bg` is 16.2:1 light and 14.9:1 dark; `--text-muted` on `--bg` is
+5.0:1 and 6.0:1 (5.3:1 and 5.6:1 on `--surface`); `--border` on `--surface` is 1.40:1 in light;
+`--on-accent` on `--accent` is 6.0:1. The accent itself reads at only 2.7:1 on the
 light background, so **the accent is never a text colour**. It is always a fill with `--on-accent`
 text on it. That is why links are `--text` with an underline, not amber, and why the numerals are
 amber chips rather than amber digits. Hover adds no colour either: a primary button's outline turns
 `--text`, a secondary one's `--text-muted`.
 
-`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#161B1D` is the app's dark background and the site's `theme-color`.
+`#D4880A` is the amber the site has used from the start, mirroring the app's tokens. `#171717` is the app's dark background and the site's dark `theme-color`; `#FAF8F4` is the light one. Only the ground is warm: text and lines stay neutral and the accent is unchanged. The app, Desktop and the site share these values (A135).
 
 ### Type
 
@@ -109,6 +110,8 @@ is instant. `prefers-reduced-motion: reduce` drops even the hover transitions.
 
 Every redesigned page has this head, in this order, and this body frame.
 
+On the five built pages the head also carries `hreflang` alternates, and the set grows with the languages: a language's alternates (and its `og:locale:alternate`, menu entry and sitemap `xhtml:link`) are written only when its `src/strings/<lang>.json` exists, so `es`, `fr` and `de` appear as they land and a page never links to a page that does not exist.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -127,8 +130,8 @@ Every redesigned page has this head, in this order, and this body frame.
   <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
 
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161B1D" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
   <script>
     /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
     (function(){
@@ -233,20 +236,20 @@ stacked below.
 ```html
 <div class="split">
   <div class="section-head">…</div>
-  <figure class="figure figure-phone">…</figure>
+  <figure class="figure figure-phone figure-stage">…</figure>
 </div>
 ```
 
 **Figure row:** when the claim needs two phone screens, each with its own caption, the proof side
-of a split holds a `figure-row`: the two figures side by side at any width, at most 480px together,
-so each screen stays at most 228px wide.
+of a split holds a `figure-row`: the two figures side by side at any width, each on its own stage
+(Figure, below), so each screen stays at most 228px wide.
 
 ```html
 <div class="split">
   <div class="section-head">…</div>
   <div class="figure-row">
-    <figure class="figure">…</figure>
-    <figure class="figure">…</figure>
+    <figure class="figure figure-stage">…</figure>
+    <figure class="figure figure-stage">…</figure>
   </div>
 </div>
 ```
@@ -343,7 +346,8 @@ closing CTA has the one primary button.
 
 The blog index (`/blog/`) opens with a plain section: the `<h1>`, one paragraph whose second
 sentence carries the post count the build counts, and a `.link` to the RSS feed. It lists the posts
-in a section of its own (Post list, section 5).
+in a section of its own (Post list, section 5). A language copy (`/tr/blog/`) opens the same way in
+that language's words.
 
 ### Reference
 
@@ -447,7 +451,7 @@ column repeats the same links after Licenses.
 It exists only where there is somewhere to go: `tools/build-pages.mjs` renders it on the five built
 pages (/, /ai, /pricing/, /downloads/, /faq) once a page has a second strings file, and never on a
 page with one language. Today every page has only English, so no page shows it; the samples are in
-`/styleguide/`. The hand-written pages and the blog stay English and carry no menu.
+`/styleguide/`. The hand-written pages and the blog posts stay English and carry no menu; the blog index is built per language and carries it (Post list, section 5).
 
 ```html
 <details class="lang-menu">
@@ -513,9 +517,9 @@ no box, and the classes stay on the `<img>`s.
          src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
   </picture>
   <picture>
-    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="840">
+    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="767">
     <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
-         src="…" width="386" height="840" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
+         src="…" width="386" height="767" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
   </picture>
   <figcaption>AI Tasks of one project, grouped by what needs you.</figcaption>
 </figure>
@@ -523,8 +527,8 @@ no box, and the classes stay on the `<img>`s.
 
 **Hero with a phone pair:** when the hero's proof is a flow on the phone rather than a desktop
 screen (the home page), the figure is a phone pair: two phone screens of one flow side by side, the
-second 64px lower (48px below 600px), at most 480px wide together, under one caption. They never
-overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
+second 64px lower (48px below 600px), at most 480px wide together, on one stage (Figure, below)
+and under one caption. They never overlap, so there is no ring. The hero then takes `hero-split` on its container: from 960px the
 text (`h1`, sub, store badges and at most one `.link`) and the phone pair sit side by side, the
 phones at the right edge; below 960px the phones follow the text. Both images are above the fold:
 the first is the LCP image (`fetchpriority="high"`), neither is lazy.
@@ -538,10 +542,10 @@ the first is the LCP image (`fetchpriority="high"`), neither is lazy.
       <div class="store-badges">…</div>
       <a class="link" href="/ai/">Building with Claude Code or Cursor? <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <figure class="figure figure-phones">
-      <img srcset="… 386w, … 772w" sizes="(min-width:1072px) 228px, (min-width:960px) calc(25vw - 40px), (min-width:512px) 228px, calc(50vw - 24px)"
-           src="…" width="386" height="840" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
-      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="840" alt="…">
+    <figure class="figure figure-phones figure-stage">
+      <img srcset="… 386w, … 772w" sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
+           src="…" width="386" height="767" fetchpriority="high" alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
+      <img srcset="… 386w, … 772w" sizes="…the same…" src="…" width="386" height="767" alt="…">
       <figcaption>Six tasks proposed by Claude, approved into a list.</figcaption>
     </figure>
   </div>
@@ -605,7 +609,7 @@ repeats one shown elsewhere on the page. From 960px the screens line up along th
     <span class="step-label">Approve it on your phone</span>
     <span class="step-detail">Nothing reaches an agent before you say yes.</span>
     <img class="step-shot" srcset="… 386w, … 772w" sizes="(min-width:960px) 246px, 288px"
-         src="…" width="386" height="840" loading="lazy"
+         src="…" width="386" height="767" loading="lazy"
          alt="Dovilo AI inbox: a six-task plan from Claude with Approve and Reject buttons">
   </li>
   …
@@ -835,7 +839,7 @@ screen. Never a mock-up, a render or an illustration. Phone captures take `figur
 caps them at 288px wide.
 
 ```html
-<figure class="figure figure-phone">
+<figure class="figure figure-phone figure-stage">
   <img src="/screenshots/mobile-tasks.webp" width="386" height="840" loading="lazy"
        alt="Dovilo My Day list with tasks grouped under Today and No date">
   <figcaption>My Day, grouped under Today and No date.</figcaption>
@@ -845,24 +849,44 @@ caps them at 288px wide.
 One figure per claim, and **the same image never appears twice on a page**. Images follow the
 WebP, `width`/`height`, `srcset`/`sizes` and lazy-loading rules in `CLAUDE.md`.
 
+**Crop:** phone captures are cropped below the status bar and above the home indicator at the WebP
+step; the PNG source stays full frame. On a full-frame 1206x2622 capture the crop keeps rows 186
+to 2582 (186 off the top, the status bar's 62pt; 39 off the bottom, the home indicator's top edge),
+1206x2397, so the phone box is **386x767**. The bottom keeps to the indicator rather than the
+whole 34pt safe area: the Approve and Reject sheet on the AI inbox reaches row 2567. A capture
+cropped at the source keeps its own box (the ambience mixer, 1206x1290: **386x413**). Desktop
+captures are not cropped and keep their transparent corners (WebP with alpha): the figure's
+`--surface` backing fills them in each theme. Both desktop themes are 2844x1846, so the box is
+2000x1298 at every width.
+
+**Stage:** the backing behind screenshots. The capture sits on a `--surface` panel with a 1px
+`--border`, radius 8 and padding `--space-3` (`--space-2` below 600px); the capture inside keeps
+its own 1px border and radius 8. No shadow, no gradient, no device outline, and the same in both
+themes. Add `figure-stage` to a `figure-phone`, to each figure in a `figure-row` (each on its own
+panel) and to a `figure-phones` (both phones on one panel, the second phone's 64px/48px step down
+inside it). Never on `figure-pair` or `step-shot`. The panel is drawn by the figure itself, so the
+markup needs no wrapper and the caption sits under the panel. The stage widens `figure-phone` and
+the two-figure row by the padding and border, so the screens keep their width where the column
+allows; each `sizes` gives the screen's own width, padding taken off.
+
 **Dark capture:** a phone or desktop screen that the app draws differently in its dark theme
 carries both captures, and the page shows the one that matches its own theme. The `<img>` keeps the light
 capture, its alt text, `loading`, `fetchpriority` and `width`/`height`; a `<source class="src-dark">`
 before it in a `<picture>` holds the dark capture, with the same `sizes` and the same
 `width`/`height`, so swapping never moves the layout. The dark file has the light file's name plus
 `-dark`, before any width suffix (`mobile-ai-inbox-dark-772.webp`, `desktop-ai-dark-2000.webp`),
-and the same crop. A dark capture taken in a slightly larger window (the desktop set: 2874x1866
-against 2844x1846) is scaled to the light file's size before encoding, never cropped: every width
-variant then has its light twin's exact `width`/`height`, so the box never moves, though the
-content inside may sit a pixel or two off its light twin.
+and the same crop. A dark capture taken in a slightly larger window than its light twin is scaled
+to the light file's size before encoding, never cropped: every width variant then has its light
+twin's exact `width`/`height`, so the box never moves (the 2.1 sets are the same size in both
+themes, so nothing is scaled).
 
 ```html
 <picture>
   <source class="src-dark" media="(prefers-color-scheme: dark)"
           srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
-          sizes="…" width="386" height="840">
+          sizes="…" width="386" height="767">
   <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
-       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="840" loading="lazy"
+       sizes="…" src="/screenshots/mobile-ai-inbox.webp" width="386" height="767" loading="lazy"
        alt="Dovilo AI inbox: a plan of six tasks from Claude with an Approve button">
 </picture>
 ```
@@ -878,7 +902,7 @@ the OS theme first (both phones on `/`, the desktop and the phone on `/ai`), and
 site script runs, so the LCP image arrives later for that visitor. A parse-time fix in the boot
 script was tried and does not help: the scanner fetches before it. `<picture>` adds no box
 (`display:contents`) and its `<source>` is `display:none`, so the `figure-pair`, `figure-phones`,
-`figure-row` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
+`figure-row`, `figure-stage` and `step-shot` layouts are unchanged. A `<picture>` sits only inside a `<figure>` or
 a step, never directly in `.flow` or a section container, where the spacing rules would miss it. A screen that
 looks the same in both themes (the city) keeps one source. Share cards stay light.
 
@@ -1021,7 +1045,10 @@ It belongs to the title above it; it is not a caption and not a sentence of the 
 The posts on `/blog/`, newest first, one entry per post under a 1px rule, in the line-list look:
 the title as an `<h2>` set at the `<h3>` size, a meta line with the date and reading time (then the
 tags when a post has any), and the post's summary in `--text-muted`. The title is the entry's one link, underlined on hover. The build
-writes the list; nothing in it is typed by hand.
+writes the list; nothing in it is typed by hand. The index exists per language; posts are English.
+A language copy (`/tr/blog/`) lists the same English entries with `lang="en"` on the `<ol>`, and a
+one-line Note (below) in the page's language, straight above the list, says the posts are in
+English: the note, not a banner.
 
 ```html
 <ol class="posts" role="list">

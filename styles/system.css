@@ -43,33 +43,33 @@
    these seven; there are no alphas to invent. */
 :root,[data-theme="light"]{
   color-scheme:light;
-  --bg:#F7F8F8;
+  --bg:#FAF8F4;
   --surface:#FFFFFF;
-  --border:#D5DADC;
-  --text-muted:#5B656A;
-  --text:#161B1D;
+  --border:#DED9D1;
+  --text-muted:#6F6B66;
+  --text:#1C1B19;
   --toggle-sun:block;
   --toggle-moon:none;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#161B1D;
-    --surface:#1E2427;
-    --border:#2F373A;
-    --text-muted:#9AA3A7;
-    --text:#E8EAEB;
+    --bg:#171717;
+    --surface:#1F1E1D;
+    --border:#2E2D2B;
+    --text-muted:#9A958E;
+    --text:#ECEAE6;
     --toggle-sun:none;
     --toggle-moon:block;
   }
 }
 :root[data-theme="dark"],[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#161B1D;
-  --surface:#1E2427;
-  --border:#2F373A;
-  --text-muted:#9AA3A7;
-  --text:#E8EAEB;
+  --bg:#171717;
+  --surface:#1F1E1D;
+  --border:#2E2D2B;
+  --text-muted:#9A958E;
+  --text:#ECEAE6;
   --toggle-sun:none;
   --toggle-moon:block;
 }
@@ -79,7 +79,7 @@
      the 01-04 numerals and is never used as text colour: on the light
      background it reads at 2.7:1, so it always carries --on-accent text. */
   --accent:#D4880A;
-  --on-accent:#161B1D;
+  --on-accent:#1C1B19;
 
   /* Type */
   --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
@@ -610,6 +610,54 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
   max-width:480px;
 }
 @media (min-width:600px){.figure-row{gap:var(--space-3)}}
+
+/* Stage: the captures sit on a --surface panel with the figure's own border
+   and radius, padded --space-3 (--space-2 below 600px); each capture keeps
+   its 1px border inside it. No shadow, no gradient, no device outline. The
+   panel is the figure's ::before in its first grid row, so the markup needs no
+   wrapper and the caption stays under the panel. A figure-phone or a figure
+   in a figure-row holds one capture; a figure-phones holds both phones on one
+   panel, the second keeping its step down inside it. Never on figure-pair or
+   step-shot. The max-widths add the padding and the border to the screens'
+   widths, so the screens keep their size where the column allows. */
+.figure-stage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
+.figure-stage::before{
+  content:"";grid-column:1 / -1;grid-row:1;align-self:stretch;
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.figure-stage > img,.figure-stage > picture > img{
+  grid-row:1;grid-column:1;
+  width:calc(100% - 2 * var(--space-2) - 2px);
+  margin:calc(var(--space-2) + 1px);
+}
+.figure-stage figcaption{grid-row:2}
+.figure-phone.figure-stage{max-width:calc(288px + 2 * var(--space-3) + 2px)}
+.figure-row:has(> .figure-stage){max-width:calc(480px + 4 * var(--space-3) + 4px)}
+.figure-phones.figure-stage{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:calc(480px + 2 * var(--space-3) + 2px);
+}
+.figure-phones.figure-stage > img:nth-child(1),
+.figure-phones.figure-stage > picture:nth-child(1) > img{grid-column:1;margin-right:0;width:calc(100% - var(--space-2) - 1px)}
+.figure-phones.figure-stage > img:nth-child(2),
+.figure-phones.figure-stage > picture:nth-child(2) > img{
+  grid-column:2;margin-left:0;width:calc(100% - var(--space-2) - 1px);
+  margin-top:calc(var(--space-5) + var(--space-2) + 1px);
+}
+@media (min-width:600px){
+  .figure-stage > img,.figure-stage > picture > img{
+    width:calc(100% - 2 * var(--space-3) - 2px);
+    margin:calc(var(--space-3) + 1px);
+  }
+  .figure-phones.figure-stage > img:nth-child(1),
+  .figure-phones.figure-stage > picture:nth-child(1) > img{width:calc(100% - var(--space-3) - 1px)}
+  .figure-phones.figure-stage > img:nth-child(2),
+  .figure-phones.figure-stage > picture:nth-child(2) > img{
+    width:calc(100% - var(--space-3) - 1px);
+    margin-top:calc(var(--space-6) + var(--space-3) + 1px);
+  }
+}
 
 /* Code block. Themed like the page; no highlighting library. */
 .code{

@@ -63,6 +63,8 @@ jobs:
             npm run build:blog
 
             git add blog index.html sitemap.xml llms.txt llms-full.txt
+            # The blog index has a copy per language (tr/blog/, …).
+            for d in tr es fr de; do if [ -d "$d/blog" ]; then git add "$d/blog"; fi; done
             if git diff --staged --quiet; then
               echo "Nothing changed — the site is already current."
               exit 0
