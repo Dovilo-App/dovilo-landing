@@ -693,7 +693,8 @@ and a platform without a date is not mentioned.
 
 ```html
 <ul class="shipped">
-  <li><time datetime="2026-10-27">27 Oct 2026</time><a href="/changelog/#desktop-2-0-2">Desktop 2.0.2: task details open over the list</a></li>
+  <li><time datetime="2026-11-05">5 Nov 2026</time><a href="/changelog/#mobile-2-2-0">Mobile 2.2.0: plan with your AI in three steps; AI Tasks for coding assistants; a warmer look</a></li>
+  <li><time datetime="2026-11-04">4 Nov 2026</time><a href="/changelog/#desktop-2-2-0">Desktop 2.2.0: the same look as the phone and the site; signed Windows builds</a></li>
   …
 </ul>
 <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
@@ -1257,13 +1258,15 @@ hero sub and every section sentence count; code inside a code block does not. A 
 
 | Page | Visible words | Also allowed |
 | --- | --- | --- |
-| `/` | 450 at most, body copy under 350; headings, step labels, captions, links and FAQ questions count, store badges do not | Collapsibles and the FAQ accordion |
-| `/ai` | 440 at most (its section headings count) | One code block, plus collapsibles |
+| `/` | 550 at most, body copy under 370; headings, step labels, captions, links and FAQ questions count, store badges do not | Collapsibles and the FAQ accordion |
+| `/ai` | 670 at most (its section headings count) | One code block, plus collapsibles |
 | `/pricing` | 320 at most, body copy (paragraphs, list lines and notes) under 250; headings, prices, labels, links and FAQ questions count toward the 320 but are not body copy, store badges count toward neither | Collapsibles and the FAQ accordion |
 | `/downloads` | 150 at most | Collapsibles |
 | `/docs/` | 150 at most | Link cards and a link list |
 | `/faq`, `/docs/mcp/`, `/docs/webhooks`, `/changelog`, `/privacy`, `/terms` | No budget | They carry the depth |
 | `/licenses`, `/blog/` and every post | No budget | Generated or legal text, not written to a budget |
+
+2.2 raised `/` from 450 (body copy 350) and `/ai` from 440 to the measured counts above: the planning section on `/` and the connect steps on `/ai` (each app in its own closed collapsible, so only its name counts).
 
 A budget is a ceiling, not a target. A page over its budget moves text into a collapsible or onto
 the page that carries the depth; it does not drop facts.

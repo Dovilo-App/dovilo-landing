@@ -326,37 +326,53 @@
       <div class="container flow">
         <h2>AI uygulamanı bağla</h2>
         <p>ChatGPT, Claude, Gemini ve Grok, Dovilo'nun <code>https://dovilo.app/mcp</code> adresindeki Personal MCP'sine bağlanır. Önce Dovilo'ya giriş yap; AI uygulaman senden giriş yapmanı istediğinde aynı Google veya Apple hesabını kullan. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni aynı adımlardan geçirir.</p>
-        <h3>ChatGPT</h3>
-        <ol>
-          <li>chatgpt.com/plugins sayfasını aç.</li>
-          <li>&quot;+&quot; ve ardından &quot;Add custom MCP server&quot; seçeneğini seç.</li>
-          <li>Adını Dovilo koy ve adresi yapıştır.</li>
-          <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
-        </ol>
-        <p class="note">Web'de. Özel MCP sunucusu ekleyip ekleyemeyeceğin ChatGPT planına bağlı.</p>
-        <h3>Claude</h3>
-        <ol>
-          <li>Customize &gt; Connectors sayfasını aç.</li>
-          <li>&quot;Add custom connector&quot; seçeneğini seç.</li>
-          <li>Adını Dovilo koy ve adresi yapıştır.</li>
-          <li>&quot;Connect&quot; seçeneğini seç, Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
-        </ol>
-        <p class="note">claude.ai veya Claude Desktop üzerinde; sonra mobil uygulamada da çalışır. Ücretsiz plan tek bir özel bağlayıcıya izin verir.</p>
-        <h3>Gemini</h3>
-        <ol>
-          <li>gemini.google.com &gt; Settings &gt; Connected Apps sayfasını aç.</li>
-          <li>&quot;Add a custom app&quot; seçeneğini seç.</li>
-          <li>Adresi yapıştır ve &quot;Next&quot; seçeneğini seç.</li>
-          <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
-        </ol>
-        <p class="note">Gemini web uygulamasında. Google bunu ABD'deki, 18 yaş ve üstü, &quot;Keep Activity&quot; açık kişisel hesaplara sunuyor.</p>
-        <h3>Grok</h3>
-        <ol>
-          <li>grok.com/connectors sayfasını aç.</li>
-          <li>&quot;New Connector&quot; ve ardından &quot;Custom&quot; seçeneğini seç.</li>
-          <li>Adresi yapıştır.</li>
-          <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
-        </ol>
+        <details class="collapsible">
+          <summary>ChatGPT</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>chatgpt.com/plugins sayfasını aç.</li>
+              <li>&quot;+&quot; ve ardından &quot;Add custom MCP server&quot; seçeneğini seç.</li>
+              <li>Adını Dovilo koy ve adresi yapıştır.</li>
+              <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
+            </ol>
+            <p class="note">Web'de. Özel MCP sunucusu ekleyip ekleyemeyeceğin ChatGPT planına bağlı.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Claude</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>Customize &gt; Connectors sayfasını aç.</li>
+              <li>&quot;Add custom connector&quot; seçeneğini seç.</li>
+              <li>Adını Dovilo koy ve adresi yapıştır.</li>
+              <li>&quot;Connect&quot; seçeneğini seç, Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
+            </ol>
+            <p class="note">claude.ai veya Claude Desktop üzerinde; sonra mobil uygulamada da çalışır. Ücretsiz plan tek bir özel bağlayıcıya izin verir.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Gemini</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>gemini.google.com &gt; Settings &gt; Connected Apps sayfasını aç.</li>
+              <li>&quot;Add a custom app&quot; seçeneğini seç.</li>
+              <li>Adresi yapıştır ve &quot;Next&quot; seçeneğini seç.</li>
+              <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
+            </ol>
+            <p class="note">Gemini web uygulamasında. Google bunu ABD'deki, 18 yaş ve üstü, &quot;Keep Activity&quot; açık kişisel hesaplara sunuyor.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Grok</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>grok.com/connectors sayfasını aç.</li>
+              <li>&quot;New Connector&quot; ve ardından &quot;Custom&quot; seçeneğini seç.</li>
+              <li>Adresi yapıştır.</li>
+              <li>Dovilo hesabınla giriş yap ve izin ekranını onayla.</li>
+            </ol>
+          </div>
+        </details>
         <p>Sonra yeni bir sohbette ondan bir plan iste, örneğin: &quot;Dovilo'da yarınımı 3 küçük görevle planla.&quot; Plan AI gelen kutuna düşer; incele ve onayla. Bağlamak ve plan göndermek ücretsiz; planı listelerine eklemek Pro ister.</p>
         <p class="note">Menü adları her uygulamanın kendi İngilizce etiketleri; 20 Ekim 2026'da yardım sayfalarından alındı: <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Claude</a>, <a href="https://support.google.com/gemini/answer/17209137" target="_blank" rel="noopener">Gemini</a>, <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>. Bir menü yer değiştirdiyse güncel hali yardım sayfasında.</p>
       </div>

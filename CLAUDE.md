@@ -57,9 +57,11 @@ Rules:
   accent is a fill (primary buttons, the 01-04 numerals) and never a text colour: on the light
   background it reads at 2.7:1.
 - **Word budgets**, counted as visible words outside the nav, the footer and the body of every
-  `<details>`: `/` at most 450, body copy under 350 (headings, labels, captions, links and the FAQ
-  questions in their `<summary>` count; FAQ answers, store badges and alt text do not); `/ai` at most 440 (its section headings
-  count) plus one code block;
+  `<details>`: `/` at most 550, body copy under 370 (headings, labels, captions, links and the FAQ
+  questions in their `<summary>` count; FAQ answers, store badges and alt text do not); `/ai` at most 670 (its section headings
+  count) plus one code block (both raised for 2.2 on 5 Nov 2026, from 450/350 and 440: the planning
+  section on `/`, the connect steps on `/ai`, measured at 549, 360 and 667 words; each connect app
+  is a closed `<details>`, so only its name counts);
   `/pricing` at most 320, body copy (paragraphs, list lines and notes) under 250 (headings,
   prices, labels, links and the FAQ questions count toward the 320 but are not body copy; FAQ
   answers and store badges count toward neither);
