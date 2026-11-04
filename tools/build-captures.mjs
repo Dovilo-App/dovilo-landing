@@ -131,11 +131,14 @@ for (const lang of langs) {
     }
   }
 }
-// The city has no text: one capture, light only on the page, for every language.
+// The city has no text: one capture per theme, shared by every language.
 if (!onlyScreen || onlyScreen === 'city') {
   if (!onlyLang || onlyLang === 'en') {
-    await phone(exists(path.join(SRC, 'mobile/light/city.png')), path.join(outDir('en'), CITY.name),
-      { crop: true, widths: CITY.widths, quality: CITY.quality });
+    for (const theme of ['light', 'dark']) {
+      await phone(exists(path.join(SRC, `mobile/${theme}/city.png`)),
+        path.join(outDir('en'), `${CITY.name}${theme === 'dark' ? '-dark' : ''}`),
+        { crop: true, widths: CITY.widths, quality: CITY.quality });
+    }
   }
 }
 
