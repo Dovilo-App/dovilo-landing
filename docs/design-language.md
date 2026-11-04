@@ -256,7 +256,7 @@ of a split holds a `figure-row`: the two figures side by side at any width, each
 
 ### Flow
 
-Running text on the pages that carry depth (`/faq`, `/docs/*`, `/changelog`, `/privacy`, `/terms`,
+Running text on the pages that carry depth (`/faq`, `/ai`, `/docs/*`, `/changelog`, `/privacy`, `/terms`,
 `/licenses` and blog posts). Spaces paragraphs, lists and sub-headings on the grid. Plain `<h2>`,
 `<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>`, `<hr>`, `<blockquote>` and `<code>` inside it need no
 classes. An `<hr>` is a 1px rule 48px clear of both sides, the heading after it included; an `<h4>`

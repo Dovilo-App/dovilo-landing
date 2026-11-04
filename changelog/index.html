@@ -48,7 +48,7 @@
   "description": "What changed in Dovilo, per platform: mobile and desktop releases with what each one shipped, plus what is on the roadmap.",
   "url": "https://dovilo.app/changelog/",
   "inLanguage": "en",
-  "dateModified": "2026-10-29",
+  "dateModified": "2026-11-05",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -104,60 +104,74 @@
   "name": "Dovilo Release Notes",
   "description": "Changelog of updates across Dovilo mobile (iOS & Android) and desktop (Windows & Mac) platforms.",
   "url": "https://dovilo.app/changelog/",
-  "numberOfItems": 8,
+  "numberOfItems": 10,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
+      "name": "Dovilo for iOS & Android 2.2.0",
+      "url": "https://dovilo.app/changelog/#mobile-2-2-0",
+      "description": "Released 5 November 2026. Plan with your AI: connect ChatGPT, Claude, Gemini or Grok in three short steps from Settings > AI > Connected AI apps. AI Tasks: a separate task list for coding assistants like Claude Code and Cursor, turned on or off in Settings > Modules, with scheduling and repeat. A warmer look in light and dark, and Settings as a short list with a page for each section."
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dovilo Desktop for Windows & Mac 2.2.0",
+      "url": "https://dovilo.app/changelog/#desktop-2-2-0",
+      "description": "Released 4 November 2026. A new look that matches the mobile app and dovilo.app, with a warmer palette and the new app icon. Windows builds are now code-signed."
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Dovilo for iOS & Android 2.0.0",
       "url": "https://dovilo.app/changelog/#mobile-2-0-0",
       "description": "Released 27 October 2026 on Google Play (Android) and the App Store (iOS). Plan with your AI: ChatGPT, Claude, Gemini or Grok propose plans that go into your lists once you approve them. AI Agents: Claude Code, Cursor and any MCP client connect to https://dovilo.app/mcp/agents with a key created in the app and work through AI tasks, 15 a month on Pro, which can be scheduled and repeated. Connected AI apps, a new Pro list and fixes."
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 4,
       "name": "Dovilo for iOS & Android 1.2.0",
       "url": "https://dovilo.app/changelog/#mobile-1-2-0",
       "description": "Released 9 September 2026. Game layer completely redesigned: every asset redrawn, with animations, so the isometric city reads as a place rather than a progress bar."
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 5,
       "name": "Dovilo for iOS & Android 1.1.0",
       "url": "https://dovilo.app/changelog/#mobile-1-1-0",
       "description": "Released 3 September 2026. Brand new Focus page: single sessions, a Pomodoro cycle of 25 minutes with a 5 minute break and a longer break every 4 rounds, or a session bound to one task, with a background timer, Do Not Disturb and full-screen ambience scenes. UI and UX improvements throughout the app."
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 6,
       "name": "Dovilo for iOS & Android 1.0.0",
       "url": "https://dovilo.app/changelog/#mobile-1-0-0",
       "description": "Released 16 May 2026. Initial release on the App Store and Google Play: the to-do list, the focus timer and the city they feed, offline-first and free to start."
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 7,
       "name": "Dovilo Desktop for Windows & Mac 2.0.2",
       "url": "https://dovilo.app/changelog/#desktop-2-0-2",
       "description": "Released 27 October 2026. Task details open over the list, long text gets a large view, the agent's latest note sits above the reply box, and AI Agents are named as in the mobile app. Nothing changes in the MCP contract, agent keys or webhooks."
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 8,
       "name": "Dovilo Desktop for Windows & Mac 2.0.1",
       "url": "https://dovilo.app/changelog/#desktop-2-0-1",
       "description": "Released 20 October 2026. Creating, regenerating and revoking an agent key works again, and so do webhook signing secrets and test pings. Connected AIs is now Agents, and Delete agent stops the key right away. Lists and projects are deleted from their List settings only."
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 9,
       "name": "Dovilo Desktop for Windows & Mac 2.0.0",
       "url": "https://dovilo.app/changelog/#desktop-2-0-0",
       "description": "Released 19 October 2026. AIs connect to Dovilo's remote MCP server with their own key, so Desktop no longer has to run on the same machine; the MCP server built into 1.8 is off. AI tasks can be scheduled and repeat, one List settings window per list or project, public webhook URLs delivered by Dovilo's server, and a new design aligned with the mobile app."
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 10,
       "name": "Dovilo Desktop for Windows & Mac 1.8.0",
       "url": "https://dovilo.app/changelog/#desktop-1-8-0",
       "description": "Released 17 May 2026. Initial stable release of Dovilo Desktop."
@@ -209,8 +223,19 @@
           <h2 id="mobile">Mobile: iOS &amp; Android</h2>
         </div>
         <div class="releases">
+          <div class="rel" id="mobile-2-2-0">
+            <div class="rel-head"><h3 class="rel-ver">2.2.0</h3><time class="rel-date" datetime="2026-11-05">5 November 2026</time><span class="rel-latest">Latest</span></div>
+            <ul class="rel-notes">
+              <li>Plan with your AI: connect ChatGPT, Claude, Gemini or Grok in three short steps from Settings &gt; AI &gt; Connected AI apps. Ask it to plan your day, an event or a project; the plan arrives in your AI inbox to review, edit and approve. You choose which lists each AI can see, and nothing changes without your approval.</li>
+              <li>AI Tasks: a separate task list for coding assistants like Claude Code and Cursor, turned on or off in Settings &gt; Modules. Give each assistant its own key and pick its projects; it never sees your personal tasks, and Dovilo Desktop doesn't have to be open. Schedule AI tasks or repeat them daily, weekly or monthly, and answer an assistant's question from your phone, or let your chat AI draft the answer for you to approve.</li>
+              <li>Also new: a warmer look in light and dark, and Settings as a short list with a page for each section.</li>
+              <li>Approving AI plans and AI Tasks are part of Dovilo Pro.</li>
+              <li>Bug fixes and optimizations.</li>
+            </ul>
+            <p class="rel-text">2.2 splits the AI layer in two. Planning with AI is for everyone and on from the start; AI Tasks, the list a coding assistant works from, is its own switch and stays off on new installs until you turn it on. 2.1.0 went to beta testers only, so its changes ship here.</p>
+          </div>
           <div class="rel" id="mobile-2-0-0">
-            <div class="rel-head"><h3 class="rel-ver">2.0.0</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+            <div class="rel-head"><h3 class="rel-ver">2.0.0</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time></div>
             <ul class="rel-notes">
               <li>Plan with your AI: connect ChatGPT, Claude, Gemini or Grok to Dovilo. Plans land in the AI inbox and go into your lists with one tap once you approve them. Sending a plan is free; approving needs Pro.</li>
               <li>AI Agents: connect Claude Code, Cursor or any MCP client to <code>https://dovilo.app/mcp/agents</code> with a key you create in the app. Agents work through AI tasks (15 a month on Pro, top-ups from $0.99), which can be scheduled and repeated, and ask you from the task when they need a decision.</li>
@@ -255,8 +280,17 @@
         <div class="releases" id="releases">
           <!-- The release feed at the bottom of the page adds an entry here only
                for a build newer than the first one below. -->
+          <div class="rel" id="desktop-2-2-0">
+            <div class="rel-head"><h3 class="rel-ver">2.2.0</h3><time class="rel-date" datetime="2026-11-04">4 November 2026</time><span class="rel-latest">Latest</span></div>
+            <ul class="rel-notes">
+              <li>A new look that matches the mobile app and dovilo.app: new type, a warmer palette in light and dark, and the new app icon.</li>
+              <li>Windows builds are now code-signed, so Windows shows the publisher's name when you install or update.</li>
+              <li>Bug fixes and optimizations.</li>
+            </ul>
+            <p class="rel-text">Nothing changes in the MCP contract, agent keys or webhooks, and existing installs update on their own. 2.1.0 was skipped so desktop and mobile carry the same number for this release; the two version lines still move separately.</p>
+          </div>
           <div class="rel" id="desktop-2-0-2">
-            <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time><span class="rel-latest">Latest</span></div>
+            <div class="rel-head"><h3 class="rel-ver">2.0.2</h3><time class="rel-date" datetime="2026-10-27">27 October 2026</time></div>
             <ul class="rel-notes">
               <li>Task details open over the list instead of squeezing it, for My Tasks and for AI tasks. The list stays clickable: pick another task and the panel switches; click outside or press Escape to close.</li>
               <li>A large view for long text. Notes, AI task descriptions, context, notes from AI and project briefs open in a wide, scrollable view, and editable fields stay editable there.</li>
