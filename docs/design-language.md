@@ -129,11 +129,10 @@ On the five built pages the head also carries `hreflang` alternates, and the set
 
   <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
 
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
   <script>
-    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    /* Runs before paint: an explicit choice wins, otherwise light. */
     (function(){
       try{
         var t = localStorage.getItem('dovilo-theme');
@@ -512,12 +511,12 @@ no box, and the classes stay on the `<img>`s.
 ```html
 <figure class="figure figure-pair">
   <picture>
-    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark-700.webp 700w, …" sizes="…the same…" width="2000" height="1298">
+    <source class="src-dark" media="not all" srcset="…-dark-700.webp 700w, …" sizes="…the same…" width="2000" height="1298">
     <img class="pair-desktop" srcset="…" sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
          src="…" width="2000" height="1298" fetchpriority="high" alt="Dovilo Desktop: AI Tasks of a project, grouped by what needs attention">
   </picture>
   <picture>
-    <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="767">
+    <source class="src-dark" media="not all" srcset="…-dark.webp 386w, …-dark-772.webp 772w" sizes="…the same…" width="386" height="767">
     <img class="pair-phone" srcset="… 386w, … 772w" sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
          src="…" width="386" height="767" alt="Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled">
   </picture>
@@ -883,7 +882,7 @@ themes, so nothing is scaled).
 
 ```html
 <picture>
-  <source class="src-dark" media="(prefers-color-scheme: dark)"
+  <source class="src-dark" media="not all"
           srcset="/screenshots/mobile-ai-inbox-dark.webp 386w, /screenshots/mobile-ai-inbox-dark-772.webp 772w"
           sizes="…" width="386" height="767">
   <img srcset="/screenshots/mobile-ai-inbox.webp 386w, /screenshots/mobile-ai-inbox-772.webp 772w"
@@ -1305,10 +1304,12 @@ Visible text shrinks; indexable text does not.
 
 ## 8. Theming
 
-- Light tokens sit on `:root`. Dark tokens apply under `@media (prefers-color-scheme: dark)` guarded
-  by `:root:not([data-theme="light"])`, and again under `:root[data-theme="dark"]`.
-- An explicit choice is stored in `localStorage['dovilo-theme']` and applied by the inline boot
-  script in `<head>`, before first paint, so there is no flash. It beats the OS preference.
+- Light is the default theme, whatever the OS prefers (decided 5 Nov 2026). Light tokens sit on
+  `:root`; dark tokens apply only under `:root[data-theme="dark"]`, never under a media query.
+- A visitor's explicit choice is stored in `localStorage['dovilo-theme']` and applied by the inline
+  boot script in `<head>`, before first paint, so there is no flash. Dark exists only as that choice.
+  Dark capture sources (`source.src-dark`) ship with `media="not all"` and the site script turns
+  them on with the dark theme.
 - `<body>` has an explicit `--bg` background and `--text` colour; `color-scheme` follows the theme
   so form controls and scrollbars match.
 - The toggle in the nav shows the current theme, as on the old pages (a moon in dark, a sun in

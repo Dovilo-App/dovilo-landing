@@ -31,11 +31,10 @@
   <meta name="twitter:description" content="{{t.meta.description}}">
   <meta name="twitter:image" content="{{page.ogImage}}">
 
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
   <script>
-    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    /* Runs before paint: an explicit choice wins, otherwise light. */
     (function(){
       try{
         var t = localStorage.getItem('dovilo-theme');
@@ -317,7 +316,7 @@
         </div>
         <figure class="figure figure-phones figure-stage">
           <picture>
-            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-inbox-dark.webp 386w, {{lang.captures}}/mobile-ai-inbox-dark-772.webp 772w"
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-inbox-dark.webp 386w, {{lang.captures}}/mobile-ai-inbox-dark-772.webp 772w"
                    sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)" width="386" height="767">
             <img srcset="{{lang.captures}}/mobile-ai-inbox.webp 386w, {{lang.captures}}/mobile-ai-inbox-772.webp 772w"
                  sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
@@ -325,7 +324,7 @@
                  alt="{{t.hero.inboxAlt}}">
           </picture>
           <picture>
-            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-list-birthday-dark.webp 386w, {{lang.captures}}/mobile-list-birthday-dark-772.webp 772w"
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-list-birthday-dark.webp 386w, {{lang.captures}}/mobile-list-birthday-dark-772.webp 772w"
                    sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)" width="386" height="767">
             <img srcset="{{lang.captures}}/mobile-list-birthday.webp 386w, {{lang.captures}}/mobile-list-birthday-772.webp 772w"
                  sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
@@ -395,7 +394,7 @@
           <div class="figure-row">
             <figure class="figure figure-stage">
               <picture>
-                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-focus-rain-dark.webp 386w, {{lang.captures}}/mobile-focus-rain-dark-772.webp 772w"
+                <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-focus-rain-dark.webp 386w, {{lang.captures}}/mobile-focus-rain-dark-772.webp 772w"
                        sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="767">
                 <img srcset="{{lang.captures}}/mobile-focus-rain.webp 386w, {{lang.captures}}/mobile-focus-rain-772.webp 772w"
                      sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
@@ -406,7 +405,7 @@
             </figure>
             <figure class="figure figure-stage">
               <picture>
-                <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ambience-mixer-dark.webp 386w, {{lang.captures}}/mobile-ambience-mixer-dark-772.webp 772w"
+                <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ambience-mixer-dark.webp 386w, {{lang.captures}}/mobile-ambience-mixer-dark-772.webp 772w"
                        sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="413">
                 <img srcset="{{lang.captures}}/mobile-ambience-mixer.webp 386w, {{lang.captures}}/mobile-ambience-mixer-772.webp 772w"
                      sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
@@ -429,7 +428,7 @@
           </div>
           <figure class="figure figure-phone figure-stage">
             <picture>
-              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="/screenshots/mobile-city-26-dark.webp 386w, /screenshots/mobile-city-26-dark-576.webp 576w, /screenshots/mobile-city-26-dark-772.webp 772w" sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+              <source class="src-dark" media="not all" srcset="/screenshots/mobile-city-26-dark.webp 386w, /screenshots/mobile-city-26-dark-576.webp 576w, /screenshots/mobile-city-26-dark-772.webp 772w" sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
               <img srcset="/screenshots/mobile-city-26.webp 386w, /screenshots/mobile-city-26-576.webp 576w, /screenshots/mobile-city-26-772.webp 772w" sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
                    src="/screenshots/mobile-city-26.webp" width="386" height="767" loading="lazy"
                    alt="{{t.city.alt}}">

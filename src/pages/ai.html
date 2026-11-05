@@ -31,11 +31,10 @@
   <meta name="twitter:description" content="{{t.meta.description}}">
   <meta name="twitter:image" content="{{page.ogImage}}">
 
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
   <script>
-    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    /* Runs before paint: an explicit choice wins, otherwise light. */
     (function(){
       try{
         var t = localStorage.getItem('dovilo-theme');
@@ -185,7 +184,7 @@
         </div>
         <figure class="figure figure-pair">
           <picture>
-            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/desktop-ai-dark-700.webp 700w, {{lang.captures}}/desktop-ai-dark-1000.webp 1000w, {{lang.captures}}/desktop-ai-dark-1400.webp 1400w, {{lang.captures}}/desktop-ai-dark-2000.webp 2000w"
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/desktop-ai-dark-700.webp 700w, {{lang.captures}}/desktop-ai-dark-1000.webp 1000w, {{lang.captures}}/desktop-ai-dark-1400.webp 1400w, {{lang.captures}}/desktop-ai-dark-2000.webp 2000w"
                    sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px" width="2000" height="1298">
             <img class="pair-desktop" srcset="{{lang.captures}}/desktop-ai-700.webp 700w, {{lang.captures}}/desktop-ai-1000.webp 1000w, {{lang.captures}}/desktop-ai-1400.webp 1400w, {{lang.captures}}/desktop-ai-2000.webp 2000w"
                  sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
@@ -193,7 +192,7 @@
                  alt="{{t.hero.desktopAlt}}">
           </picture>
           <picture>
-            <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-dark.webp 386w, {{lang.captures}}/mobile-ai-dark-772.webp 772w"
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-dark.webp 386w, {{lang.captures}}/mobile-ai-dark-772.webp 772w"
                    sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="767">
             <img class="pair-phone" srcset="{{lang.captures}}/mobile-ai.webp 386w, {{lang.captures}}/mobile-ai-772.webp 772w"
                  sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
@@ -223,7 +222,7 @@
             <span class="step-label">{{t.steps.write.label}}</span>
             <span class="step-detail">{{t.steps.write.detail}}</span>
             <picture>
-              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-new-task-dark.webp 386w, {{lang.captures}}/mobile-ai-new-task-dark-772.webp 772w"
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-new-task-dark.webp 386w, {{lang.captures}}/mobile-ai-new-task-dark-772.webp 772w"
                      sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-new-task.webp 386w, {{lang.captures}}/mobile-ai-new-task-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
                    src="{{lang.captures}}/mobile-ai-new-task.webp" width="386" height="767" loading="lazy"
@@ -235,7 +234,7 @@
             <span class="step-label">{{t.steps.approve.label}}</span>
             <span class="step-detail">{{t.steps.approve.detail}}</span>
             <picture>
-              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-proposal-dark.webp 386w, {{lang.captures}}/mobile-ai-proposal-dark-772.webp 772w"
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-proposal-dark.webp 386w, {{lang.captures}}/mobile-ai-proposal-dark-772.webp 772w"
                      sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-proposal.webp 386w, {{lang.captures}}/mobile-ai-proposal-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
                    src="{{lang.captures}}/mobile-ai-proposal.webp" width="386" height="767" loading="lazy"
@@ -247,7 +246,7 @@
             <span class="step-label">{{t.steps.works.label}}</span>
             <span class="step-detail">{{t.steps.works.detail}}</span>
             <picture>
-              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-running-dark.webp 386w, {{lang.captures}}/mobile-ai-running-dark-772.webp 772w"
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-running-dark.webp 386w, {{lang.captures}}/mobile-ai-running-dark-772.webp 772w"
                      sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-running.webp 386w, {{lang.captures}}/mobile-ai-running-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
                    src="{{lang.captures}}/mobile-ai-running.webp" width="386" height="767" loading="lazy"
@@ -259,7 +258,7 @@
             <span class="step-label">{{t.steps.asks.label}}</span>
             <span class="step-detail">{{t.steps.asks.detail}}</span>
             <picture>
-              <source class="src-dark" media="(prefers-color-scheme: dark)" srcset="{{lang.captures}}/mobile-ai-done-dark.webp 386w, {{lang.captures}}/mobile-ai-done-dark-772.webp 772w"
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-done-dark.webp 386w, {{lang.captures}}/mobile-ai-done-dark-772.webp 772w"
                      sizes="(min-width:960px) 246px, 288px" width="386" height="767">
               <img class="step-shot" srcset="{{lang.captures}}/mobile-ai-done.webp 386w, {{lang.captures}}/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
                    src="{{lang.captures}}/mobile-ai-done.webp" width="386" height="767" loading="lazy"

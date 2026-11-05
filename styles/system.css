@@ -16,9 +16,9 @@
      7. Utilities
      8. Motion
 
-   Themes: light tokens sit on :root, dark ones under prefers-color-scheme and
-   again under [data-theme="dark"]. An explicit data-theme on <html>, set by the
-   inline boot script before first paint, always beats the OS preference. The
+   Themes: light tokens sit on :root, dark ones under [data-theme="dark"]. Light is
+   the default whatever the OS prefers; the dark theme is a visitor's explicit
+   choice (the toggle), which the inline boot script applies before first paint. The
    same selectors work on any element, which is how /styleguide/ renders each
    component in both themes on one page.
    ───────────────────────────────────────────────────────────────────────────── */
@@ -50,18 +50,6 @@
   --text:#1C1B19;
   --toggle-sun:block;
   --toggle-moon:none;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:#171717;
-    --surface:#1F1E1D;
-    --border:#2E2D2B;
-    --text-muted:#9A958E;
-    --text:#ECEAE6;
-    --toggle-sun:none;
-    --toggle-moon:block;
-  }
 }
 :root[data-theme="dark"],[data-theme="dark"]{
   color-scheme:dark;
