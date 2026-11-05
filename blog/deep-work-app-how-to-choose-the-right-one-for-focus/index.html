@@ -31,11 +31,10 @@
   <meta property="article:modified_time" content="2026-09-21T20:07:03Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
   <script>
-    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    /* Runs before paint: an explicit choice wins, otherwise light. */
     (function(){
       try{
         var t = localStorage.getItem('dovilo-theme');
@@ -367,12 +366,11 @@ Often, yes. A free tier is enough to find out whether a tool fits. The features 
        the dark captures of figures. The same on every page. */
     (function(){
       var root = document.documentElement;
-      var dark = window.matchMedia('(prefers-color-scheme: dark)');
       var BG = { light: '#FAF8F4', dark: '#171717' };
 
       function theme(){
         var t = root.getAttribute('data-theme');
-        return t === 'light' || t === 'dark' ? t : (dark.matches ? 'dark' : 'light');
+        return t === 'dark' ? 'dark' : 'light';
       }
       function paint(){
         var t = theme();
@@ -383,11 +381,11 @@ Often, yes. A free tier is enough to find out whether a tool fits. The features 
           document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
         }
         /* Dark captures: each source.src-dark follows the nearest explicit
-           data-theme, or the OS when there is none, so a toggle swaps the
+           data-theme (light when there is none), so a toggle swaps the
            image without a reload and only the shown capture is fetched. */
         document.querySelectorAll('source.src-dark').forEach(function(s){
           var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
-          var m = h === 'dark' ? 'all' : h === 'light' ? 'not all' : '(prefers-color-scheme: dark)';
+          var m = h === 'dark' ? 'all' : 'not all';
           if (s.getAttribute('media') !== m) s.setAttribute('media', m);
         });
       }
@@ -399,7 +397,6 @@ Often, yes. A free tier is enough to find out whether a tool fits. The features 
           paint();
         });
       });
-      if (dark.addEventListener) dark.addEventListener('change', paint);
       paint();
 
       document.querySelectorAll('.nav-menu').forEach(function(b){

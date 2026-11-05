@@ -21,11 +21,10 @@ const STYLES = `<!-- Render-blocking by design: this file is the whole design sy
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/system.css">`;
 
-const THEME_BOOT = `<meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+const THEME_BOOT = `<meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
   <script>
-    /* Runs before paint: an explicit choice wins, otherwise the OS decides. */
+    /* Runs before paint: an explicit choice wins, otherwise light. */
     (function(){
       try{
         var t = localStorage.getItem('dovilo-theme');
