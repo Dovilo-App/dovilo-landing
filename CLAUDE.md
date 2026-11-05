@@ -1,7 +1,7 @@
 # dovilo.app — working rules
 
 Static HTML for [dovilo.app](https://dovilo.app). No framework. Most pages are hand-written; the
-build steps are `/blog` (the index's language copies, `/tr/blog/`, included), the five pages built from `src/` in English and Turkish
+build steps are `/blog` (the index's language copies, `/tr/blog/`, included), the five pages built from `src/` in five languages
 (`npm run build:pages`, §1.3), their share cards (`npm run build:og`), the captures
 (`npm run build:captures`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
@@ -152,7 +152,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 
 `/`, `/ai`, `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
 (`tools/build-pages.mjs`) from `src/` since A130 (31 Oct 2026), so the site can ship them in five
-languages. English and Turkish ship today (A130 part 2, 1 Nov 2026). Their `index.html` files are build output: **never edit them in place**; the next build
+languages. English, Turkish, Spanish, French and German ship (A130 part 2, 1 Nov 2026; es, fr and de on 5 Nov 2026). Their `index.html` files are build output: **never edit them in place**; the next build
 overwrites them. `npm run build:pages -- --check` fails when they are out of step with `src/`.
 
 - `src/pages/<page>.html` is the page's markup, figures and JSON-LD skeleton. Its first line names

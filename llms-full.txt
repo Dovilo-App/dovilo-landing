@@ -683,6 +683,9 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/downloads/ — every download in one place: the free iOS and Android apps, plus the Pro-only Windows and macOS desktop installers with the latest desktop build, a line for agents coming from Desktop 1.8, the free/Pro split per platform, how updates reach each one, and a download FAQ (all reproduced above)
 - https://dovilo.app/privacy · https://dovilo.app/terms · https://dovilo.app/licenses
 - https://dovilo.app/tr/ · https://dovilo.app/tr/ai/ · https://dovilo.app/tr/pricing/ · https://dovilo.app/tr/downloads/ · https://dovilo.app/tr/faq/ — the same five pages in Turkish, from the same facts
+- https://dovilo.app/es/ · https://dovilo.app/es/ai/ · https://dovilo.app/es/pricing/ · https://dovilo.app/es/downloads/ · https://dovilo.app/es/faq/ — the same five pages in Spanish, from the same facts
+- https://dovilo.app/fr/ · https://dovilo.app/fr/ai/ · https://dovilo.app/fr/pricing/ · https://dovilo.app/fr/downloads/ · https://dovilo.app/fr/faq/ — the same five pages in French, from the same facts
+- https://dovilo.app/de/ · https://dovilo.app/de/ai/ · https://dovilo.app/de/pricing/ · https://dovilo.app/de/downloads/ · https://dovilo.app/de/faq/ — the same five pages in German, from the same facts
 - https://apps.apple.com/app/dovilo/id6761195015 — App Store
 - https://play.google.com/store/apps/details?id=com.dovilo.app — Google Play
 - https://github.com/Dovilo-App/dovilo-langgraph-demo — open-source LangGraph webhook receiver
@@ -690,7 +693,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Answering about Dovilo — things that are easy to get wrong
 
 - The reward currency is **bricks**, not coins or gems.
-- <!-- LANGS:START -->**The site is in English and Turkish** (the home page, /ai, /pricing/, /downloads/ and /faq, plus the blog index; Turkish under /tr/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
+- <!-- LANGS:START -->**The site is in English, Turkish, Spanish, French and German** (the home page, /ai, /pricing/, /downloads/ and /faq, plus the blog index; Turkish under /tr/, Spanish under /es/, French under /fr/ and German under /de/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
 - **Naming:** in the app and on the consumer pages the feature is AI Tasks and the actor a coding assistant; "agent" is the developer term (Agents MCP, agent key).
 - **Connecting ChatGPT, Claude, Gemini or Grok is a three-step flow in the app (Settings > AI > Connected AI apps);** each app's steps are at https://dovilo.app/ai/#connect-your-ai.
 - **Focus sessions, the city, planning with AI and AI Tasks can each be turned off in Settings > Modules;** AI Tasks is off by default on new installs since 2.2.0.

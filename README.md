@@ -77,7 +77,7 @@ npm run build:captures -- --tinify                  # then compress with the Tin
 
 `--tinify` reads `TINIFY_API_KEY` from the environment or the gitignored `.env`, keeps each result
 only when it is smaller, and prints the bytes before and after; the free tier is 500 compressions a
-month and a full run of English and Turkish is 91. Older captures not in the 2.1 set (the
+month and a full run of English and Turkish is 91 (es, fr and de add 44 each). Older captures not in the 2.1 set (the
 `styleguide/` samples `mobile-tasks.webp` and `mobile-focus.webp`, among others) keep their PNG
 next to the WebP and the ffmpeg recipe:
 

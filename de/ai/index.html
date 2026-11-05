@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo</title>
+  <meta name="description" content="Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, kein Erstellen, kein Löschen.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://dovilo.app/de/ai/">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">
+  <link rel="alternate" hreflang="en" href="https://dovilo.app/ai">
+  <link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/ai/">
+  <link rel="alternate" hreflang="es" href="https://dovilo.app/es/ai/">
+  <link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/ai/">
+  <link rel="alternate" hreflang="de" href="https://dovilo.app/de/ai/">
+  <link rel="alternate" hreflang="x-default" href="https://dovilo.app/ai">
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dovilo.app/de/ai/">
+  <meta property="og:title" content="MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo">
+  <meta property="og:description" content="Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, kein Erstellen, kein Löschen.">
+  <meta property="og:image" content="https://dovilo.app/og-ai-de.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dovilo: die Aufgabenliste, aus der dein Coding-Agent arbeitet, über den KI-Aufgaben eines Projekts in Dovilo Desktop">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo">
+  <meta name="twitter:description" content="Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, kein Erstellen, kein Löschen.">
+  <meta name="twitter:image" content="https://dovilo.app/og-ai-de.jpg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise light. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo",
+  "description": "Dovilo ist eine To-do-App mit einer eigenen Aufgabenliste für KI-Coding-Agenten. Agenten verbinden sich per MCP mit dovilo.app/mcp/agents: 9 Tools, kein Erstellen, kein Löschen, und deine persönliche Liste ist nie sichtbar. ChatGPT oder Claude können die Arbeit planen; jede Anweisung wartet auf deine Freigabe. Pro, $2.49 im Monat, 15 KI-Aufgaben im Monat.",
+  "url": "https://dovilo.app/de/ai/",
+  "image": "https://dovilo.app/og-ai-de.jpg",
+  "inLanguage": "de",
+  "dateModified": "2026-11-05",
+  "proficiencyLevel": "Expert",
+  "about": [
+    { "@id": "https://dovilo.app/#app" },
+    "Model Context Protocol",
+    "KI-Agenten",
+    "Aufgabenverwaltung",
+    "Entwicklertools"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app",
+    "logo": { "@type": "ImageObject", "url": "https://dovilo.app/dovilo-icon.png" }
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Dovilo",
+    "url": "https://dovilo.app"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "https://dovilo.app/de/" },
+    { "@type": "ListItem", "position": 2, "name": "KI", "item": "https://dovilo.app/de/ai/" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Muss Dovilo Desktop laufen, damit mein Agent arbeitet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Agenten verbinden sich direkt mit dovilo.app/mcp/agents. Desktop ist der Windows- und Mac-Client für KI-Aufgaben, Schlüssel, Briefings und Webhooks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was sieht der Agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die KI-Aufgaben der Projekte, denen er zugewiesen ist, das Briefing jedes Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ein Agent eine Aufgabe löschen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Auf keinem der beiden Server gibt es ein Lösch-Tool. Ein Agent kann eine Aufgabe mit Begründung abbrechen, und die Aufgabe bleibt sichtbar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Läuft es auch in CI oder auf einem Server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Dieselbe URL und derselbe Schlüssel funktionieren auf jedem Rechner. Ein Schlüssel pro Agent, am Smartphone widerrufbar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ich nutzte Desktop 1.8. Was ist anders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der lokale Server von 1.8 ist weg. Erstelle in der App einen Agenten, kopiere seinen Schlüssel und stell deinen Client auf die Remote-URL um. Schritte in der MCP-Doku."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="/de/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
+      <nav aria-label="Hauptmenü">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/de/ai/" aria-current="page">KI</a></li>
+          <li><a href="/de/pricing/">Preise</a></li>
+          <li><a href="/de/downloads/">Downloads</a></li>
+          <li><a href="/de/faq/">FAQ</a></li>
+          <li><a href="/de/blog/">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <details class="lang-menu">
+          <summary class="icon-btn" aria-label="Sprache">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z"/></svg>
+          </summary>
+          <ul class="lang-menu-list">
+            <li><a href="/de/ai/" lang="de" hreflang="de" aria-current="page">Deutsch</a></li>
+            <li><a href="/ai" lang="en" hreflang="en">English</a></li>
+            <li><a href="/tr/ai/" lang="tr" hreflang="tr">Türkçe</a></li>
+            <li><a href="/es/ai/" lang="es" hreflang="es">Español</a></li>
+            <li><a href="/fr/ai/" lang="fr" hreflang="fr">Français</a></li>
+          </ul>
+        </details>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Design wechseln">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="icon-btn nav-menu" type="button" aria-label="Menü" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container">
+        <h1>Dovilo: die Aufgabenliste, aus der dein Coding-Agent arbeitet.</h1>
+        <p class="hero-sub">Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner und sehen nur ihre eigenen KI-Aufgaben.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/de/downloads/?source=ai_hero">Dovilo holen</a>
+          <a class="btn btn-secondary" href="/docs/mcp/">MCP-Doku lesen</a>
+        </div>
+        <figure class="figure figure-pair">
+          <picture>
+            <source class="src-dark" media="not all" srcset="/screenshots/de/desktop-ai-dark-700.webp 700w, /screenshots/de/desktop-ai-dark-1000.webp 1000w, /screenshots/de/desktop-ai-dark-1400.webp 1400w, /screenshots/de/desktop-ai-dark-2000.webp 2000w"
+                   sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px" width="2000" height="1298">
+            <img class="pair-desktop" srcset="/screenshots/de/desktop-ai-700.webp 700w, /screenshots/de/desktop-ai-1000.webp 1000w, /screenshots/de/desktop-ai-1400.webp 1400w, /screenshots/de/desktop-ai-2000.webp 2000w"
+                 sizes="(max-width:767px) calc(100vw - 32px), (max-width:1128px) calc(86vw - 41px), 929px"
+                 src="/screenshots/de/desktop-ai-1000.webp" width="2000" height="1298" fetchpriority="high"
+                 alt="Dovilo Desktop: KI-Aufgaben eines Projekts, gruppiert danach, was Aufmerksamkeit braucht">
+          </picture>
+          <picture>
+            <source class="src-dark" media="not all" srcset="/screenshots/de/mobile-ai-dark.webp 386w, /screenshots/de/mobile-ai-dark-772.webp 772w"
+                   sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px" width="386" height="767">
+            <img class="pair-phone" srcset="/screenshots/de/mobile-ai.webp 386w, /screenshots/de/mobile-ai-772.webp 772w"
+                 sizes="(max-width:767px) calc(36vw - 12px), (max-width:1128px) calc(24vw - 12px), 259px"
+                 src="/screenshots/de/mobile-ai.webp" width="386" height="767"
+                 alt="Dovilo KI-Aufgaben auf dem Smartphone: dasselbe Projekt mit Aufgaben, die auf dich warten, laufen, anstehen oder geplant sind">
+          </picture>
+          <figcaption>KI-Aufgaben eines Projekts, gruppiert danach, was dich braucht.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Kurz gesagt</h2>
+        <p>Dovilo ist eine To-do-App mit einer eigenen Aufgabenliste für KI-Coding-Agenten. Agenten verbinden sich per MCP mit dovilo.app/mcp/agents: 9 Tools, kein Erstellen, kein Löschen, und deine persönliche Liste ist nie sichtbar. ChatGPT oder Claude können die Arbeit planen; jede Anweisung wartet auf deine Freigabe. Pro, $2.49 im Monat, 15 KI-Aufgaben im Monat.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>So funktioniert es</h2>
+        </div>
+        <ol class="steps steps-shots" role="list">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <span class="step-label">Schreib die Aufgabe</span>
+            <span class="step-detail">Oder lass ChatGPT oder Claude sie vorschlagen.</span>
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/de/mobile-ai-new-task-dark.webp 386w, /screenshots/de/mobile-ai-new-task-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
+              <img class="step-shot" srcset="/screenshots/de/mobile-ai-new-task.webp 386w, /screenshots/de/mobile-ai-new-task-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/de/mobile-ai-new-task.webp" width="386" height="767" loading="lazy"
+                   alt="Dovilo: Formular für eine neue KI-Aufgabe mit Titel und Beschreibung">
+            </picture>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <span class="step-label">Gib sie am Smartphone frei</span>
+            <span class="step-detail">Nichts erreicht einen Agenten, bevor du Ja sagst.</span>
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/de/mobile-ai-proposal-dark.webp 386w, /screenshots/de/mobile-ai-proposal-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
+              <img class="step-shot" srcset="/screenshots/de/mobile-ai-proposal.webp 386w, /screenshots/de/mobile-ai-proposal-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/de/mobile-ai-proposal.webp" width="386" height="767" loading="lazy"
+                   alt="Dovilo KI-Eingang: eine von Claude vorgeschlagene KI-Aufgabe mit Annehmen-Button">
+            </picture>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <span class="step-label">Dein Agent arbeitet sie ab</span>
+            <span class="step-detail">Schritte und Notizen landen live in der Aufgabe.</span>
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/de/mobile-ai-running-dark.webp 386w, /screenshots/de/mobile-ai-running-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
+              <img class="step-shot" srcset="/screenshots/de/mobile-ai-running.webp 386w, /screenshots/de/mobile-ai-running-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/de/mobile-ai-running.webp" width="386" height="767" loading="lazy"
+                   alt="Dovilo KI-Aufgabe im Detail, während der Agent läuft: Schritte und Agentennotizen">
+            </picture>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <span class="step-label">Er fragt, du antwortest</span>
+            <span class="step-detail">Er hält bei einer Entscheidung an; du antwortest vom Smartphone oder im Chat.</span>
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/de/mobile-ai-done-dark.webp 386w, /screenshots/de/mobile-ai-done-dark-772.webp 772w"
+                     sizes="(min-width:960px) 246px, 288px" width="386" height="767">
+              <img class="step-shot" srcset="/screenshots/de/mobile-ai-done.webp 386w, /screenshots/de/mobile-ai-done-772.webp 772w" sizes="(min-width:960px) 246px, 288px"
+                   src="/screenshots/de/mobile-ai-done.webp" width="386" height="767" loading="lazy"
+                   alt="Dovilo KI-Aufgabe wartet auf eine Antwort, mit der Frage des Agenten und einem Antwortfeld">
+            </picture>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="built-with-dovilo">
+      <div class="container">
+        <div class="section-head">
+          <h2>Wie Dovilo selbst gebaut wird</h2>
+          <p>Dovilo wird genau so gebaut. Es hat fünf Projekte, Backend, Mobile, Desktop, Edge und Landing, und für jedes einen Agenten in Claude Code. Ich plane eine Änderung in Claude, und Claude schlägt KI-Aufgaben im passenden Projekt vor. Ich gebe sie auf meinem Smartphone frei; der Agent am Schreibtisch arbeitet sie ab, schreibt seine Schritte und Notizen in die Aufgabe und hält an, um zu fragen, wenn eine Entscheidung bei mir liegt. Diese Seite ist auf demselben Weg durch das Projekt Landing gegangen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planning">
+      <div class="container">
+        <div class="section-head">
+          <h2>Reines MCP, kein Lock-in</h2>
+        </div>
+        <ul class="integrations">
+          <li><strong>ChatGPT, Claude, Gemini und Grok</strong> planen die Arbeit und schicken sie dir zur Freigabe.</li>
+          <li><strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf und Claude Desktop</strong> arbeiten die Aufgaben ab.</li>
+          <li><strong>LangGraph, CI-Jobs und jeder MCP-Client</strong> verbinden sich mit derselben URL und demselben Schlüssel.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="servers">
+      <div class="container">
+        <div class="section-head">
+          <h2>Zwei Server</h2>
+        </div>
+        <div class="facts-boxes">
+          <div class="facts-box">
+            <h3>Agents MCP</h3>
+            <ul class="facts">
+              <li><code>https://dovilo.app/mcp/agents</code></li>
+              <li>Für Coding-Agenten</li>
+              <li>Ein Schlüssel pro Agent, einmal angezeigt</li>
+            </ul>
+          </div>
+          <div class="facts-box">
+            <h3>Personal MCP</h3>
+            <ul class="facts">
+              <li><code>https://dovilo.app/mcp</code></li>
+              <li>Für ChatGPT, Claude, Gemini und Grok</li>
+              <li>Anmeldung mit deinem Dovilo-Konto</li>
+            </ul>
+          </div>
+        </div>
+        <a class="link" href="/docs/mcp/">Alle Tools in der MCP-Doku <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="connect-your-ai">
+      <div class="container flow">
+        <h2>Verbinde deine KI-App</h2>
+        <p>ChatGPT, Claude, Gemini und Grok verbinden sich mit Dovilos Personal MCP unter <code>https://dovilo.app/mcp</code>. Melde dich zuerst bei Dovilo an; wenn deine KI-App dich zur Anmeldung auffordert, nutze dasselbe Google- oder Apple-Konto. In der App führt dich Einstellungen &gt; KI &gt; Verbundene KI-Apps durch dieselben Schritte.</p>
+        <details class="collapsible">
+          <summary>ChatGPT</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>Öffne chatgpt.com/plugins.</li>
+              <li>Wähle „+“ und dann „Add custom MCP server“.</li>
+              <li>Nenne ihn Dovilo und füge die Adresse ein.</li>
+              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
+            </ol>
+            <p class="note">Im Web. Ob du einen eigenen MCP-Server hinzufügen kannst, hängt von deinem ChatGPT-Plan ab.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Claude</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>Öffne Customize &gt; Connectors.</li>
+              <li>Wähle „Add custom connector“.</li>
+              <li>Nenne ihn Dovilo und füge die Adresse ein.</li>
+              <li>Wähle „Connect“, melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
+            </ol>
+            <p class="note">Auf claude.ai oder in Claude Desktop; danach funktioniert es auch in der mobilen App. Der kostenlose Plan erlaubt einen eigenen Connector.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Gemini</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>Öffne gemini.google.com &gt; Settings &gt; Connected Apps.</li>
+              <li>Wähle „Add a custom app“.</li>
+              <li>Füge die Adresse ein und wähle dann „Next“.</li>
+              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
+            </ol>
+            <p class="note">In der Gemini-Web-App. Google bietet das für private Konten in den USA ab 18 Jahren mit aktiviertem „Keep Activity“ an.</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>Grok</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>Öffne grok.com/connectors.</li>
+              <li>Wähle „New Connector“ und dann „Custom“.</li>
+              <li>Füge die Adresse ein.</li>
+              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
+            </ol>
+          </div>
+        </details>
+        <p>Bitte sie dann in einem neuen Chat um einen Plan, zum Beispiel: „Plane meinen morgigen Tag in Dovilo mit 3 kleinen Aufgaben.“ Der Plan erscheint in deinem KI-Eingang; prüfe ihn und nimm ihn an. Verbinden und Pläne senden ist kostenlos; einen Plan zu deinen Listen hinzuzufügen braucht Pro.</p>
+        <p class="note">Die Menünamen sind die englischen Bezeichnungen der jeweiligen App, entnommen ihrer Hilfeseite am 20. Oktober 2026: <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Claude</a>, <a href="https://support.google.com/gemini/answer/17209137" target="_blank" rel="noopener">Gemini</a>, <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>. Ist ein Menü umgezogen, steht das aktuelle auf der Hilfeseite.</p>
+      </div>
+    </section>
+
+    <section class="section" id="connect">
+      <div class="container">
+        <div class="section-head">
+          <h2>Einrichtung: URL und Schlüssel</h2>
+        </div>
+        <div class="code">
+          <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Kopieren</button></div>
+          <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
+        </div>
+        <p>Dovilo Desktop schreibt die Konfiguration für 7 Clients. Dann schreib ein Projekt-Briefing und eine KI-Aufgabe.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Was die KI kann und was nicht</h2>
+        </div>
+        <ul class="trust">
+          <li>Ihre eigenen Aufgaben, sonst nichts.</li>
+          <li>Die KI schlägt vor. Du gibst frei.</li>
+          <li>Deine Coding-Arbeit bleibt aus deiner Chat-App heraus, außer du schaltest es ein.</li>
+          <li>Kein Lösch-Tool. Nicht jetzt, nicht später.</li>
+          <li>Trenne jede Verbindung sofort vom Smartphone aus.</li>
+        </ul>
+        <details class="collapsible" id="tools">
+          <summary>9 Tools: 3 lesend, 6 schreibend. Kein Erstellen, kein Löschen</summary>
+          <div class="collapsible-body">
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">Tool</th><th scope="col">Zugriff</th><th scope="col">Funktion</th></tr></thead>
+                <tbody>
+                  <tr><td><code>list_tasks</code></td><td>lesen</td><td>KI-Aufgaben in den zugewiesenen Projekten, mit Status</td></tr>
+                  <tr><td><code>get_task</code></td><td>lesen</td><td>Eine Aufgabe komplett: Beschreibung, Schritte, Notizen, Telemetrie, die letzte Antwort des Nutzers</td></tr>
+                  <tr><td><code>read_context</code></td><td>lesen</td><td>Projekt-Briefing und Kontext, den die Aufgabe mitbringt</td></tr>
+                  <tr><td><code>update_status</code></td><td>schreiben</td><td><code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; Abbruch mit Grund (gespeichert als error + cancelledAt, angezeigt als Abgebrochen)</td></tr>
+                  <tr><td><code>update_step</code></td><td>schreiben</td><td>Planschritt als begonnen oder erledigt markieren</td></tr>
+                  <tr><td><code>add_step</code></td><td>schreiben</td><td>Vom Agenten entdeckten Schritt anhängen</td></tr>
+                  <tr><td><code>skip_step</code></td><td>schreiben</td><td>Unnötigen Schritt überspringen</td></tr>
+                  <tr><td><code>append_note</code></td><td>schreiben</td><td>Was er tat, entschied, nicht schaffte</td></tr>
+                  <tr><td><code>append_telemetry</code></td><td>schreiben</td><td>Modell, Tokens, Kosten, Dauer</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="webhooks">
+      <div class="container">
+        <div class="section-head">
+          <h2>Webhooks und die Demo</h2>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <h3><a href="/docs/webhooks">Signierte Webhooks</a></h3>
+            <p>Vom Server zugestellt, bis zu 5 Wiederholungen.</p>
+          </div>
+          <div class="feature">
+            <h3><a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" rel="noopener">Open-Source-Demo</a></h3>
+            <p>Ein LangGraph-Agent durchläuft den ganzen Kreislauf. Open Source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Was es kostet</h2>
+        </div>
+        <ul class="pricing-summary">
+          <li><strong>Pro</strong><span>$2.49 im Monat, $19.99 im Jahr oder $49.99 einmalig; 7 Tage Testphase in der App.</span></li>
+          <li><strong>KI-Aufgaben</strong><span>15 KI-Aufgaben im Monat, Extras ab $0.99.</span></li>
+          <li><strong>Pläne</strong><span>Einen Plan senden ist kostenlos, annehmen braucht Pro.</span></li>
+        </ul>
+        <a class="link" href="/de/pricing/">Preise ansehen <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" id="scheduling" href="/docs/mcp/#scheduling">Zeitplanung, Wiederholung, Kontingent <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Klare Antworten</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>Muss Dovilo Desktop laufen, damit mein Agent arbeitet?</h3></summary>
+            <div class="faq-answer"><p>Nein. Agenten verbinden sich direkt mit dovilo.app/mcp/agents. Desktop ist der Windows- und Mac-Client für KI-Aufgaben, Schlüssel, Briefings und Webhooks.</p></div>
+          </details>
+          <details>
+            <summary><h3>Was sieht der Agent?</h3></summary>
+            <div class="faq-answer"><p>Die KI-Aufgaben der Projekte, denen er zugewiesen ist, das Briefing jedes Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden.</p></div>
+          </details>
+          <details>
+            <summary><h3>Kann ein Agent eine Aufgabe löschen?</h3></summary>
+            <div class="faq-answer"><p>Nein. Auf keinem der beiden Server gibt es ein Lösch-Tool. Ein Agent kann eine Aufgabe mit Begründung abbrechen, und die Aufgabe bleibt sichtbar.</p></div>
+          </details>
+          <details>
+            <summary><h3>Läuft es auch in CI oder auf einem Server?</h3></summary>
+            <div class="faq-answer"><p>Ja. Dieselbe URL und derselbe Schlüssel funktionieren auf jedem Rechner. Ein Schlüssel pro Agent, am Smartphone widerrufbar.</p></div>
+          </details>
+          <details id="upgrade">
+            <summary><h3>Ich nutzte Desktop 1.8. Was ist anders?</h3></summary>
+            <div class="faq-answer"><p>Der lokale Server von 1.8 ist weg. Erstelle in der App einen Agenten, kopiere seinen Schlüssel und stell deinen Client auf die Remote-URL um. <a href="/docs/mcp/#upgrading">Schritte in der MCP-Doku.</a></p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="container">
+        <h2>Ein Entwickler, in Istanbul.</h2>
+        <p>Keine Firma, keine Investoren. <a href="/changelog/">Eine öffentliche Release-Historie zum Nachprüfen.</a></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/de/downloads/?source=ai_footer">Dovilo holen</a>
+          <a class="btn btn-secondary" href="/docs/mcp/">MCP-Doku lesen</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-cols" aria-label="Fußzeile">
+        <div>
+          <p class="footer-title">Produkt</p>
+          <ul>
+            <li><a href="/de/ai/">Für Entwickler</a></li>
+            <li><a href="/de/downloads/">Downloads</a></li>
+            <li><a href="/de/pricing/">Preise</a></li>
+            <li><a href="/changelog/">Versionshinweise</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Doku</p>
+          <ul>
+            <li><a href="/docs/">Doku</a></li>
+            <li><a href="/docs/mcp/">MCP-Referenz</a></li>
+            <li><a href="/docs/webhooks">Webhooks</a></li>
+            <li><a href="/de/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Dovilo</p>
+          <ul>
+            <li><a href="/de/blog/">Blog</a></li>
+            <li><a href="/privacy">Datenschutz</a></li>
+            <li><a href="/terms">Nutzungsbedingungen</a></li>
+            <li><a href="/licenses">Lizenzen</a></li>
+            <li><a href="/de/ai/" lang="de" hreflang="de" aria-current="page">Deutsch</a></li>
+            <li><a href="/ai" lang="en" hreflang="en">English</a></li>
+            <li><a href="/tr/ai/" lang="tr" hreflang="tr">Türkçe</a></li>
+            <li><a href="/es/ai/" lang="es" hreflang="es">Español</a></li>
+            <li><a href="/fr/ai/" lang="fr" hreflang="fr">Français</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Folgen</p>
+          <ul>
+            <li><a href="https://x.com/doviloapp" rel="noopener">X</a></li>
+            <li><a href="https://instagram.com/doviloapp" rel="noopener">Instagram</a></li>
+            <li><a href="https://linkedin.com/company/doviloapp" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Dovilo-App" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="footer-meta">
+        <p>&copy; 2026 Dovilo. Alle Rechte vorbehalten.</p>
+        <p><a class="mail" href="/de/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Site script: theme toggle, mobile menu, copy buttons, email links and
+       the dark captures of figures. The same on every page. */
+    (function(){
+      var root = document.documentElement;
+      var BG = { light: '#FAF8F4', dark: '#171717' };
+
+      function theme(){
+        var t = root.getAttribute('data-theme');
+        return t === 'dark' ? 'dark' : 'light';
+      }
+      function paint(){
+        var t = theme();
+        document.querySelectorAll('.theme-toggle').forEach(function(b){
+          b.setAttribute('aria-label', t === 'dark' ? 'Zum hellen Design wechseln' : 'Zum dunklen Design wechseln');
+        });
+        if (root.hasAttribute('data-theme')) {
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
+        }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme (light when there is none), so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : 'not all';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
+      }
+      document.querySelectorAll('.theme-toggle').forEach(function(b){
+        b.addEventListener('click', function(){
+          var next = theme() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+          paint();
+        });
+      });
+      paint();
+
+      document.querySelectorAll('.nav-menu').forEach(function(b){
+        var menu = document.getElementById(b.getAttribute('aria-controls'));
+        if (!menu) return;
+        function set(open){
+          menu.classList.toggle('open', open);
+          b.setAttribute('aria-expanded', String(open));
+        }
+        b.addEventListener('click', function(){ set(!menu.classList.contains('open')); });
+        menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); b.focus(); }
+        });
+      });
+
+      /* Copy: the clipboard API where the page is a secure context, a hidden
+         textarea everywhere else, and a visible "Copy failed" if both refuse. */
+      document.querySelectorAll('.copy-btn').forEach(function(b){
+        var label = b.textContent, timer;
+        function show(ok){
+          b.classList.toggle('copied', ok);
+          b.textContent = ok ? 'Kopiert' : 'Kopieren fehlgeschlagen';
+          clearTimeout(timer);
+          timer = setTimeout(function(){ b.classList.remove('copied'); b.textContent = label; }, 1500);
+        }
+        function fallback(text){
+          var ta = document.createElement('textarea'), ok = false;
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '-1000px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          show(ok);
+        }
+        b.addEventListener('click', function(){
+          var block = b.closest('.code'), pre = block && block.querySelector('pre');
+          if (!pre) return;
+          var text = pre.innerText;
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ fallback(text); });
+          } else {
+            fallback(text);
+          }
+        });
+      });
+
+      /* Addresses are split in the markup so scrapers do not find a parseable
+         address; the real mailto is assembled here, in the browser. */
+      var at = String.fromCharCode(64);
+      document.querySelectorAll('a.mail').forEach(function(a){
+        var addr = a.getAttribute('data-u') + at + a.getAttribute('data-d');
+        a.setAttribute('href', 'mailto:' + addr);
+        a.textContent = addr;
+      });
+    })();
+  </script>
+</body>
+</html>

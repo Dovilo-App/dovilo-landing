@@ -89,10 +89,13 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Languages
 
 <!-- LANGS:START -->
-The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages and the blog index are in English and Turkish; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.
+The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages and the blog index are in English, Turkish, Spanish, French and German; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.
 
 - English: [Home](https://dovilo.app/), [AI agents](https://dovilo.app/ai), [Pricing](https://dovilo.app/pricing/), [Downloads](https://dovilo.app/downloads/), [FAQ](https://dovilo.app/faq), [Blog](https://dovilo.app/blog/)
 - Turkish (Türkçe), labelled as the Turkish nav: [Dovilo](https://dovilo.app/tr/), [AI](https://dovilo.app/tr/ai/), [Fiyat](https://dovilo.app/tr/pricing/), [İndir](https://dovilo.app/tr/downloads/), [SSS](https://dovilo.app/tr/faq/), [Blog](https://dovilo.app/tr/blog/)
+- Spanish (Español), labelled as the Spanish nav: [Dovilo](https://dovilo.app/es/), [IA](https://dovilo.app/es/ai/), [Precios](https://dovilo.app/es/pricing/), [Descargas](https://dovilo.app/es/downloads/), [FAQ](https://dovilo.app/es/faq/), [Blog](https://dovilo.app/es/blog/)
+- French (Français), labelled as the French nav: [Dovilo](https://dovilo.app/fr/), [IA](https://dovilo.app/fr/ai/), [Tarifs](https://dovilo.app/fr/pricing/), [Téléchargements](https://dovilo.app/fr/downloads/), [FAQ](https://dovilo.app/fr/faq/), [Blog](https://dovilo.app/fr/blog/)
+- German (Deutsch), labelled as the German nav: [Dovilo](https://dovilo.app/de/), [KI](https://dovilo.app/de/ai/), [Preise](https://dovilo.app/de/pricing/), [Downloads](https://dovilo.app/de/downloads/), [FAQ](https://dovilo.app/de/faq/), [Blog](https://dovilo.app/de/blog/)
 <!-- LANGS:END -->
 
 ## Optional
