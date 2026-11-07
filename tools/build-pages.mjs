@@ -1,4 +1,4 @@
-/* Builds the five localised pages: /, /ai, /pricing/, /downloads/ and /faq.
+/* Builds the five localised pages: /, /ai/, /pricing/, /downloads/ and /faq/.
 
    Sources (src/):
      pages/<id>.html     the page's markup, figures and JSON-LD skeleton

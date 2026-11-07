@@ -260,7 +260,8 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - **Every page URL ends with a slash** (A137, decision of 5 Nov 2026): `/ai/`, `/faq/`, `/privacy/`,
   `/terms/`, `/licenses/`, `/docs/webhooks/` like the rest. Canonical, `og:url`, hreflang (`en` and
   `x-default` included), the sitemap, JSON-LD and every internal link name the slashed form, so none
-  points at a GitHub Pages 301. Fragments follow the slash (`/ai/#connect-your-ai`). The edge Worker's
+  points at a GitHub Pages 301. Fragments follow the slash (`/ai/#connect-your-ai`). Post bodies from Sanity and
+  `blog/feed.xml` still carry bare links (`dovilo.app/ai`): fixed at the source, not here. The edge Worker's
   paths (`/mcp*`, `/oauth/*`, `/.well-known/*`, `/__/auth/*`) are not pages and are left alone. The
   English paths of the built pages are `PAGES[].path` in `tools/pages-lib.mjs`.
 - `robots.txt` allows every major search and AI crawler — Googlebot, Bingbot, DuckDuckBot, Applebot,
