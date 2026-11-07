@@ -154,15 +154,22 @@ at the top of `tools/pages-lib.mjs`.
 
 `npm run build:og` writes the 1200x630 share cards of the built pages and `/docs/`:
 `og-home.jpg`, `og-ai.jpg`, `og-pricing.jpg`, `og-downloads.jpg`, `og-docs.jpg`, and
-`og-<page>-<lang>.jpg` for every other language. Each is the page's `<h1>` in Inter 700 on the
+`og-<page>-<lang>.jpg` for every other language, `og-faq.jpg` for the English FAQ, and the generic
+`og-card.jpg` (blog indexes, `/docs/mcp/`). Each is the page's `<h1>` in Inter 700 on the
 light background, with the hero capture its template names in its first line
 (`{{! card: layout=… captures=… }}`): `text` (the h1 alone), `split` (the h1 beside two phone
-screens) or `top` (the h1 over the desktop screen). Long text wraps, then drops one size step, then
-is clipped to whole lines with a warning. The font is the site's own: `tools/woff2.mjs` decodes
-`fonts/*.woff2` to TrueType in the temp folder for sharp, with latin-ext as the fallback for
-Turkish (and later French and German) letters. The line height is set from Pango's measured line
-pitch for Inter, which differs between machines (1.27 em on one, 1.01 em on another), so the cards
-keep a 1.2 line height wherever they are built. `/faq` keeps `og-card.jpg` in English.
+screens), `top` (the h1 over the desktop screen) or `phone` (the h1 beside one phone, used by
+`og-card.jpg`, whose headline is fixed in `build-og.mjs`). Long text wraps, then drops one size
+step, then is clipped to whole lines with a warning. The font is the site's own, and it is drawn,
+not looked up: `tools/og-type.mjs` reads `fonts/*.woff2` through `tools/woff2.mjs` and fontkit,
+instances Inter at wght 700, shapes the text with Inter's kerning and the site's -0.025em h1
+tracking, and draws the outlines as SVG paths for sharp. No system font, Pango or fontconfig is
+involved, so the cards are Inter on a Mac and on a Linux runner alike; latin-ext is the fallback
+for Turkish, French and German letters, and a character neither file has stops the build. The
+line height is a plain 1.15 (1.2 for the text layout) of the size, with the font's ascent and
+descent centred in the line box as CSS does. `assertInter()` runs before every build and fails it
+if the font is not Inter 700 (a pinned advance width for a test string) or the drawing does not
+match the metrics. If the font files or the tracking change on purpose, re-measure that width.
 `npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
 depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
 without a change, so regenerate and look at them rather than trusting the check across machines.

@@ -349,7 +349,13 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   `og-docs.jpg`, and `og-<page>-<lang>.jpg` per language) are written by `npm run build:og`
   (`tools/build-og.mjs`) from the `<h1>` in the strings, in Inter from `/fonts/` (latin-ext as the
   fallback for ş, ğ, İ and the rest), with the cropped hero capture the template names; never edit
-  them by hand. Run it when an `<h1>` or a named capture changes. `/faq`'s English card stays `og-card.jpg`.
+  them by hand. Run it when an `<h1>` or a named capture changes. The headline is drawn from
+  Inter's outlines by `tools/og-type.mjs` (fontkit, wght 700, the h1's -0.025em tracking), never
+  set through a system font lookup: Pango and fontconfig once resolved "Inter Bold" to a
+  Helvetica-like fallback on some machines (7 Nov 2026), and `assertInter()` now fails the build if
+  the type is not Inter. `/faq`'s English card is `og-faq.jpg`, like its languages'. `og-card.jpg`
+  is the generic card (the blog indexes, `/docs/mcp/`, old shares): same file name, built by
+  `build-og` with a fixed headline in the `phone` layout and the city capture.
 - **The 2.1 captures come from `npm run build:captures`** (`tools/build-captures.mjs`, A131) and
   are never encoded by hand: the PNG sources stay full frame in `screenshots/new/`, the script
   crops the phones (rows 186 to 2582, box 386x767; the mixer 386x413), writes English to
@@ -443,12 +449,15 @@ Carried here so they are not rediscovered from scratch:
   `/pricing/` has `og-pricing.jpg`, `/downloads/` has `og-downloads.jpg` and `/docs/` has
   `og-docs.jpg`: the page background and the `<h1>` in Inter 700, with no capture. All five are
   written by `npm run build:og`, and so are the Turkish cards (`og-<page>-tr.jpg`, `/tr/faq/`'s
-  `og-faq-tr.jpg` included). `/docs/mcp/`, the English `/faq` and `/blog/` keep `og-card.jpg` (the
-  blog's through `SITE.defaultOgImage`, and a post's when it has no cover), and `/docs/webhooks`,
-  `/changelog/` and the legal pages have none: their move to `system.css` was a style move.
-- `og-card.jpg` is a crop of the original `hero.jpg` artwork, which is still on the old turquoise
-  palette rather than the amber accent. The shape is now correct for a share card; the colours are
-  not the brand's.
+  `og-faq-tr.jpg` included). The English `/faq` has `og-faq.jpg`. `/docs/mcp/` and `/blog/` keep
+  `og-card.jpg` (the blog's through `SITE.defaultOgImage`, and a post's when it has no cover), and
+  `/docs/webhooks`, `/changelog/` and the legal pages have none: their move to `system.css` was a
+  style move.
+- No page carries an `og:image:alt` on `/faq` in any language: the FAQ has no `ogAlt` string, and a
+  translation is not ours to write. Add the key to all five `src/strings/*.json` and a line to
+  `src/pages/faq.html` together when the strings are given.
+- `hero.jpg`, the 2.0 dark 3D illustration, is referenced by no page, template or tool since
+  `og-card.jpg` moved to the light palette (7 Nov 2026). It stays as a file.
 - `/licenses` is 154 words, under the 300-word floor; it is `noindex`, and its text changes only
   word for word (§1.2).
 - `/changelog/` and `/downloads/` call `api.github.com` on page view (§1.1), which hands the
