@@ -7,6 +7,13 @@
 # the generated files, never the sources. src holds the templates and strings
 # tools/build-pages.mjs renders into /, /ai/, /pricing/, /downloads/ and /faq/;
 # the site serves the built pages, never the templates.
+#
+# The images below are referenced by no page, and they kept the deploy artifact
+# at 81 MB when the site uses 14. screenshots/new holds the full-frame sources
+# tools/build-captures.mjs crops; the rest are captures the redesign retired,
+# kept in the repository, not served. Jekyll also excludes any path that starts
+# with an entry, so list a file with its extension: "screenshots/mobile-city"
+# would take mobile-city-26-772.webp, which the home page uses, with it.
 exclude:
   - CLAUDE.md
   - README.md
@@ -15,3 +22,92 @@ exclude:
   - docs/copy
   - docs/brand
   - src
+  - screenshots/new
+  - hero.jpg
+  - screenshots/desktop-1000.webp
+  - screenshots/desktop-1400.webp
+  - screenshots/desktop-2000.webp
+  - screenshots/desktop-700.webp
+  - screenshots/desktop-ai-brief-1000.webp
+  - screenshots/desktop-ai-brief-1400.webp
+  - screenshots/desktop-ai-brief-2000.webp
+  - screenshots/desktop-ai-brief-700.webp
+  - screenshots/desktop-ai-brief-dark-1000.webp
+  - screenshots/desktop-ai-brief-dark-1400.webp
+  - screenshots/desktop-ai-brief-dark-2000.webp
+  - screenshots/desktop-ai-brief-dark-700.webp
+  - screenshots/desktop-ai-brief-dark.png
+  - screenshots/desktop-ai-brief.png
+  - screenshots/desktop-ai-connect-1000.webp
+  - screenshots/desktop-ai-connect-1400.webp
+  - screenshots/desktop-ai-connect-2000.webp
+  - screenshots/desktop-ai-connect-700.webp
+  - screenshots/desktop-ai-connect-dark-1000.webp
+  - screenshots/desktop-ai-connect-dark-1400.webp
+  - screenshots/desktop-ai-connect-dark-2000.webp
+  - screenshots/desktop-ai-connect-dark-700.webp
+  - screenshots/desktop-ai-connect-dark.png
+  - screenshots/desktop-ai-connect.png
+  - screenshots/desktop-ai-key-1000.webp
+  - screenshots/desktop-ai-key-1400.webp
+  - screenshots/desktop-ai-key-2000.webp
+  - screenshots/desktop-ai-key-700.webp
+  - screenshots/desktop-ai-key-dark-1000.webp
+  - screenshots/desktop-ai-key-dark-1400.webp
+  - screenshots/desktop-ai-key-dark-2000.webp
+  - screenshots/desktop-ai-key-dark-700.webp
+  - screenshots/desktop-ai-key-dark.png
+  - screenshots/desktop-ai-key.png
+  - screenshots/desktop-ai-reply-1000.webp
+  - screenshots/desktop-ai-reply-1400.webp
+  - screenshots/desktop-ai-reply-2000.webp
+  - screenshots/desktop-ai-reply-700.webp
+  - screenshots/desktop-ai-reply-dark-1000.webp
+  - screenshots/desktop-ai-reply-dark-1400.webp
+  - screenshots/desktop-ai-reply-dark-2000.webp
+  - screenshots/desktop-ai-reply-dark-700.webp
+  - screenshots/desktop-ai-reply-dark.png
+  - screenshots/desktop-ai-reply.png
+  - screenshots/desktop-ai.webp
+  - screenshots/desktop-my-tasks-1000.webp
+  - screenshots/desktop-my-tasks-1400.webp
+  - screenshots/desktop-my-tasks-2000.webp
+  - screenshots/desktop-my-tasks-700.webp
+  - screenshots/desktop-my-tasks-dark-1000.webp
+  - screenshots/desktop-my-tasks-dark-1400.webp
+  - screenshots/desktop-my-tasks-dark-2000.webp
+  - screenshots/desktop-my-tasks-dark-700.webp
+  - screenshots/desktop-my-tasks-dark.png
+  - screenshots/desktop-my-tasks.png
+  - screenshots/desktop.png
+  - screenshots/desktop.webp
+  - screenshots/mobile-ai-193.webp
+  - screenshots/mobile-ai-agent.png
+  - screenshots/mobile-ai-connection.png
+  - screenshots/mobile-ambience-scenes-193.webp
+  - screenshots/mobile-ambience-scenes.png
+  - screenshots/mobile-ambience-scenes.webp
+  - screenshots/mobile-ambience-sound-193.webp
+  - screenshots/mobile-ambience-sound.png
+  - screenshots/mobile-ambience-sound.webp
+  - screenshots/mobile-city-193.webp
+  - screenshots/mobile-city.png
+  - screenshots/mobile-city.webp
+  - screenshots/mobile-focus-193.webp
+  - screenshots/mobile-focus-midnight.png
+  - screenshots/mobile-focus-midnight.webp
+  - screenshots/mobile-focus.png
+  - screenshots/mobile-market.png
+  - screenshots/mobile-market.webp
+  - screenshots/mobile-planned.png
+  - screenshots/mobile-planned.webp
+  - screenshots/mobile-stats-193.webp
+  - screenshots/mobile-stats.png
+  - screenshots/mobile-stats.webp
+  - screenshots/mobile-task-detail.png
+  - screenshots/mobile-task-detail.webp
+  - screenshots/mobile-tasks-193.webp
+  - screenshots/mobile-tasks.png
+  - screenshots/mobile-views.png
+  - screenshots/mobile-views.webp
+  - ss.jpg

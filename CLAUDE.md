@@ -292,6 +292,14 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   `docs/copy/` and the icon sources in `docs/brand/`, and `src/`, the page templates and strings,
   so Pages never serves a template; a new internal Markdown file goes on that list in the same
   commit.
+- **Images no page references are not deployed.** `_config.yml` also excludes `screenshots/new/`
+  (the full-frame sources) and every retired capture, which took the Pages artifact from 81 MB to
+  14 MB (7 Nov 2026). They stay in the repository: exclude, do not delete. When a capture falls out
+  of use, add it to the list, and name a file with its extension, since Jekyll excludes any path
+  that starts with an entry: `screenshots/mobile-city` would also take
+  `screenshots/mobile-city-26-772.webp`, which `/` uses. When a page starts using a listed image,
+  take it off the list in the same commit, or it 404s in production while it works in a local
+  preview.
 
 ### GEO — writing for answer engines
 
@@ -464,7 +472,8 @@ Carried here so they are not rediscovered from scratch:
   with no alt; all 21 have covers today (7 Nov 2026). `/docs/mcp/` keeps `twitter:card` `summary`
   and no `twitter:image`.
 - `hero.jpg`, the 2.0 dark 3D illustration, is referenced by no page, template or tool since
-  `og-card.jpg` moved to the light palette (7 Nov 2026). It stays as a file.
+  `og-card.jpg` moved to the light palette (7 Nov 2026). It stays as a file in the repository and
+  is not deployed (§2, Crawlability).
 - `/licenses` is 154 words, under the 300-word floor; it is `noindex`, and its text changes only
   word for word (§1.2).
 - `/changelog/` and `/downloads/` call `api.github.com` on page view (§1.1), which hands the
