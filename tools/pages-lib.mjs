@@ -124,17 +124,16 @@ export const LANGUAGES = [
    lives here and not in the strings; set it with the language's strings,
    keeping the static date in its boxes.desktop.latest the same shape. */
 
-/* `path` is the English URL as it is linked today. Four keep the forms the
-   site has always used (CLAUDE.md §4: /ai and /faq stay slash-less); the
-   localised copies are directories under the language prefix. */
+/* `path` is the English URL as it is linked: every page ends with a slash
+   (A137); the localised copies are directories under the language prefix. */
 /* `langPriority` is the sitemap priority of the page's localised copies, a
    step under English (A130 3.7). */
 export const PAGES = [
   { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
-  { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
+  { id: 'ai', path: '/ai/', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
   { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
   { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
-  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', langPriority: '0.7' },
+  { id: 'faq', path: '/faq/', out: 'faq/index.html', card: 'og-faq', langPriority: '0.7' },
 ];
 
 export function pagePath(page, lang) {

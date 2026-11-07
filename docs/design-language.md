@@ -414,10 +414,10 @@ with `aria-current="page"`.
     <a class="nav-logo" href="/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
     <nav aria-label="Main">
       <ul class="nav-links" id="nav-links">
-        <li><a href="/ai">AI</a></li>
+        <li><a href="/ai/">AI</a></li>
         <li><a href="/pricing/">Pricing</a></li>
         <li><a href="/downloads/">Downloads</a></li>
-        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/faq/">FAQ</a></li>
         <li><a href="/blog/">Blog</a></li>
       </ul>
     </nav>
@@ -721,7 +721,7 @@ each label the page's name.
 ```html
 <ul class="link-list">
   <li><a href="/docs/mcp/#connecting">Connect Claude Code, Cursor or any MCP client <span aria-hidden="true">&rarr;</span></a></li>
-  <li><a href="/docs/webhooks#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
+  <li><a href="/docs/webhooks/#signature-verification">Verify a webhook signature <span aria-hidden="true">&rarr;</span></a></li>
 </ul>
 ```
 
@@ -824,7 +824,7 @@ name); where they sit inside a section, as in the opening of the two references,
     <h2 class="card-title">MCP reference <span aria-hidden="true">&rarr;</span></h2>
     <p>Endpoints, tools, statuses, scheduling, connecting a client, upgrading from Desktop 1.8.</p>
   </a>
-  <a class="card" href="/docs/webhooks">
+  <a class="card" href="/docs/webhooks/">
     <span class="card-kind">Reference</span>
     <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
     <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
@@ -1095,7 +1095,7 @@ The last section of a marketing page: an `<h2>`, one sentence, two buttons. Cent
     <p>Dovilo is free on iOS and Android. Pro starts with a 7-day free trial.</p>
     <div class="actions">
       <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
-      <a class="btn btn-secondary" href="/faq">Read the FAQ</a>
+      <a class="btn btn-secondary" href="/faq/">Read the FAQ</a>
     </div>
   </div>
 </section>
@@ -1133,8 +1133,8 @@ rather than a `<section>`.
 ```html
 <div class="section closing">
   <div class="container">
-    <p>Questions: <a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
-    <a class="link" href="/ai">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
+    <p>Questions: <a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+    <a class="link" href="/ai/">Read about AI Agents <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div>
 ```
@@ -1166,13 +1166,13 @@ parseable address.
     <nav class="footer-cols" aria-label="Footer">
       <div>
         <p class="footer-title">Product</p>
-        <ul><li><a href="/ai">For developers</a></li> …</ul>
+        <ul><li><a href="/ai/">For developers</a></li> …</ul>
       </div>
       … Docs, Dovilo, Follow …
     </nav>
     <div class="footer-meta">
       <p>&copy; 2026 Dovilo. All rights reserved.</p>
-      <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+      <p><a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
     </div>
   </div>
 </footer>
@@ -1187,7 +1187,7 @@ label is a verb phrase in sentence case ("Download Dovilo"), never "Click here" 
 ```html
 <div class="actions">
   <a class="btn btn-primary" href="/downloads/">Download Dovilo</a>
-  <a class="btn btn-secondary" href="/ai">For developers</a>
+  <a class="btn btn-secondary" href="/ai/">For developers</a>
 </div>
 ```
 
@@ -1288,8 +1288,8 @@ Visible text shrinks; indexable text does not.
   Crawlable HTML, hidden only by default, excluded from the budget.
 - **One `<h1>` per page, an `<h2>` per section**, `<h3>` below that. FAQ `<h3>`s are questions.
 - **Keep every existing URL and anchor `id`.** A removed anchor either moves to an element that
-  still exists on the page (same `id`) or gets a redirect. `/faq` keeps answering at both `/faq`
-  and `/faq/`.
+  still exists on the page (same `id`) or gets a redirect. Every page is referred to by its
+  slashed URL (`/faq/`); GitHub Pages still answers the bare form with a 301.
 - **Structured data stays and stays true**: the shared `SoftwareApplication` node
   (`https://dovilo.app/#app`), `Organization`, `BreadcrumbList`, and `FAQPage` only where the
   questions and answers are in the page's HTML. Change the page, change the JSON-LD, its

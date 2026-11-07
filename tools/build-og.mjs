@@ -4,7 +4,7 @@
    capture where the page's template names one. Four layouts, the first three
    the ones the hand-made cards had:
 
-     text   the h1 alone, left, vertically centred          (/pricing/, /downloads/, /faq, /docs/)
+     text   the h1 alone, left, vertically centred          (/pricing/, /downloads/, /faq/, /docs/)
      split  the h1 left, two phone captures to the right    (/)
      top    the h1 on top, the desktop capture under it     (/ai)
      phone  the h1 left, one phone capture to the right     (og-card.jpg)

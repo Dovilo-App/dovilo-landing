@@ -8,12 +8,12 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://dovilo.app/tr/faq/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">
-  <link rel="alternate" hreflang="en" href="https://dovilo.app/faq">
+  <link rel="alternate" hreflang="en" href="https://dovilo.app/faq/">
   <link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/faq/">
   <link rel="alternate" hreflang="es" href="https://dovilo.app/es/faq/">
   <link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/faq/">
   <link rel="alternate" hreflang="de" href="https://dovilo.app/de/faq/">
-  <link rel="alternate" hreflang="x-default" href="https://dovilo.app/faq">
+  <link rel="alternate" hreflang="x-default" href="https://dovilo.app/faq/">
 
   <!-- Render-blocking by design: this file is the whole design system. -->
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,7 +61,7 @@
   "name": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
   "url": "https://dovilo.app/tr/faq/",
   "inLanguage": "tr",
-  "dateModified": "2026-11-05",
+  "dateModified": "2026-11-07",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -332,7 +332,7 @@
           </summary>
           <ul class="lang-menu-list">
             <li><a href="/tr/faq/" lang="tr" hreflang="tr" aria-current="page">Türkçe</a></li>
-            <li><a href="/faq" lang="en" hreflang="en">English</a></li>
+            <li><a href="/faq/" lang="en" hreflang="en">English</a></li>
             <li><a href="/es/faq/" lang="es" hreflang="es">Español</a></li>
             <li><a href="/fr/faq/" lang="fr" hreflang="fr">Français</a></li>
             <li><a href="/de/faq/" lang="de" hreflang="de">Deutsch</a></li>
@@ -539,7 +539,7 @@
             <summary><h3>Dovilo görev olaylarını Slack'e, Linear'a ya da kendi servisime gönderebilir mi?</h3></summary>
             <div class="faq-answer">
               <p>Evet. Dovilo, bir AI görevi oluşturulduğunda ya da durumu değiştiğinde <strong>HMAC imzalı HTTPS webhook'ları</strong> gönderir (<code>task.created</code> ve <code>task.status_changed</code>); böylece Dovilo'yu Slack, Linear, n8n, LangGraph ya da kendi alıcına bağlayabilirsin. Herkese açık HTTPS alıcılarına teslimatı Dovilo'nun sunucusu yapar, Desktop kapalıyken bile; localhost alıcılarına Desktop açıkken Desktop teslim eder ve uygulama onları Yerel diye etiketler. Her teslimat doğrulama için Stripe tarzı bir <code>X-Dovilo-Signature</code> başlığı, yineleme güvenliği için benzersiz bir <code>X-Dovilo-Delivery</code> kimliği, görev başına FIFO sıralama ve geçici hatalarda 5 yeniden deneme taşır. Dovilo Desktop'ta projenin <strong>Liste ayarları</strong>'ndan kur: URL'ni yapıştır, olayları seç, etkinleştirip Kaydet'e bas, sonra imza gizli anahtarını oluştur.</p>
-              <p>Tam yük şeması, imza doğrulama örnekleri (Node, Python, Go) ve yeniden deneme kuralı <a href="/docs/webhooks">webhook referansında</a>.</p>
+              <p>Tam yük şeması, imza doğrulama örnekleri (Node, Python, Go) ve yeniden deneme kuralı <a href="/docs/webhooks/">webhook referansında</a>.</p>
             </div>
           </details>
           <details>
@@ -617,7 +617,7 @@
           <ul>
             <li><a href="/docs/">Dokümanlar</a></li>
             <li><a href="/docs/mcp/">MCP referansı</a></li>
-            <li><a href="/docs/webhooks">Webhook'lar</a></li>
+            <li><a href="/docs/webhooks/">Webhook'lar</a></li>
             <li><a href="/tr/faq/">SSS</a></li>
           </ul>
         </div>
@@ -625,11 +625,11 @@
           <p class="footer-title">Dovilo</p>
           <ul>
             <li><a href="/tr/blog/">Blog</a></li>
-            <li><a href="/privacy">Gizlilik</a></li>
-            <li><a href="/terms">Koşullar</a></li>
-            <li><a href="/licenses">Lisanslar</a></li>
+            <li><a href="/privacy/">Gizlilik</a></li>
+            <li><a href="/terms/">Koşullar</a></li>
+            <li><a href="/licenses/">Lisanslar</a></li>
             <li><a href="/tr/faq/" lang="tr" hreflang="tr" aria-current="page">Türkçe</a></li>
-            <li><a href="/faq" lang="en" hreflang="en">English</a></li>
+            <li><a href="/faq/" lang="en" hreflang="en">English</a></li>
             <li><a href="/es/faq/" lang="es" hreflang="es">Español</a></li>
             <li><a href="/fr/faq/" lang="fr" hreflang="fr">Français</a></li>
             <li><a href="/de/faq/" lang="de" hreflang="de">Deutsch</a></li>

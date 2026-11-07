@@ -257,6 +257,13 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 
 ### Crawlability and freshness
 
+- **Every page URL ends with a slash** (A137, decision of 5 Nov 2026): `/ai/`, `/faq/`, `/privacy/`,
+  `/terms/`, `/licenses/`, `/docs/webhooks/` like the rest. Canonical, `og:url`, hreflang (`en` and
+  `x-default` included), the sitemap, JSON-LD and every internal link name the slashed form, so none
+  points at a GitHub Pages 301. Fragments follow the slash (`/ai/#connect-your-ai`). Post bodies from Sanity and
+  `blog/feed.xml` still carry bare links (`dovilo.app/ai`): fixed at the source, not here. The edge Worker's
+  paths (`/mcp*`, `/oauth/*`, `/.well-known/*`, `/__/auth/*`) are not pages and are left alone. The
+  English paths of the built pages are `PAGES[].path` in `tools/pages-lib.mjs`.
 - `robots.txt` allows every major search and AI crawler — Googlebot, Bingbot, DuckDuckBot, Applebot,
   ClaudeBot, Claude-Web, Claude-User, Claude-SearchBot, anthropic-ai, GPTBot, OAI-SearchBot,
   ChatGPT-User, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended,
@@ -420,10 +427,6 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 
 Carried here so they are not rediscovered from scratch:
 
-- Six canonicals (`/ai`, `/faq`, `/privacy`, `/terms`, `/licenses`, `/docs/webhooks`) name the
-  slash-less URL, which GitHub Pages 301-redirects to the directory form. Canonical should name the
-  URL that returns 200; fixing it means changing internal links, `sitemap.xml` and `llms.txt`
-  together.
 - The ten built pages declare hreflang for the languages that are built (`en`, `tr`, `x-default`),
   not the six of A130 3.1: `es`, `fr` and `de` appear by themselves when their strings land, and
   until then would point at addresses that do not exist.

@@ -242,7 +242,7 @@
       "blogLink": "Escrito durante la construcción de Dovilo: el blog"
     },
     "ai": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Lista de tareas MCP para tu agente de programación - Dovilo",
         "description": "Claude Code, Cursor y todo cliente MCP se conectan a Dovilo desde cualquier máquina y solo ven sus tareas de IA: 9 herramientas, sin crear ni eliminar.",
@@ -561,7 +561,7 @@
       },
       "which": {
         "summary": "Qué descarga necesitas",
-        "p1": "Las apps móviles son las gratuitas, y aquí gratis significa el producto completo, no una prueba: una descarga del App Store o de Google Play te da gestión completa de tareas, sesiones de enfoque únicas y Pomodoro ilimitadas, la escena de atmósfera silenciosa Predeterminado, la construcción de la ciudad, los dos temas y ningún anuncio. Las apps de escritorio son la mitad Pro. Ofrecen dos espacios de tareas en una pantalla grande, gestión completa de tareas para tu propia lista y gestión de tareas de IA para tus asistentes de programación, mientras que las sesiones de enfoque y la ciudad se quedan en el móvil. En Desktop también configuras los <a href=\"/docs/webhooks\">webhooks</a> firmados, así que requiere una suscripción activa, que inicias en la app móvil. Los asistentes de programación no lo necesitan: se conectan directamente a Dovilo con una clave que puedes crear en el móvil o en el escritorio.",
+        "p1": "Las apps móviles son las gratuitas, y aquí gratis significa el producto completo, no una prueba: una descarga del App Store o de Google Play te da gestión completa de tareas, sesiones de enfoque únicas y Pomodoro ilimitadas, la escena de atmósfera silenciosa Predeterminado, la construcción de la ciudad, los dos temas y ningún anuncio. Las apps de escritorio son la mitad Pro. Ofrecen dos espacios de tareas en una pantalla grande, gestión completa de tareas para tu propia lista y gestión de tareas de IA para tus asistentes de programación, mientras que las sesiones de enfoque y la ciudad se quedan en el móvil. En Desktop también configuras los <a href=\"/docs/webhooks/\">webhooks</a> firmados, así que requiere una suscripción activa, que inicias en la app móvil. Los asistentes de programación no lo necesitan: se conectan directamente a Dovilo con una clave que puedes crear en el móvil o en el escritorio.",
         "table": {
           "caption": "Descargas de Dovilo por plataforma, con lo que cuesta cada una y cómo llegan sus actualizaciones",
           "head": {
@@ -662,7 +662,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "FAQ: respuestas directas sobre la app, Pro y la IA - Dovilo",
         "description": "Preguntas frecuentes sobre Dovilo: lista de tareas gamificada, temporizador de enfoque y constructor de ciudades.",
@@ -774,7 +774,7 @@
         "webhooks": {
           "q": "¿Puede Dovilo enviar eventos de tareas a Slack, Linear o mi propio servicio?",
           "a1": "Sí. Dovilo envía <strong>webhooks HTTPS firmados con HMAC</strong> cuando se crea una tarea de IA o cambia su estado (<code>task.created</code> y <code>task.status_changed</code>), así que puedes conectar Dovilo con Slack, Linear, n8n, LangGraph o cualquier receptor propio. Las entregas a receptores HTTPS públicos las hace el servidor de Dovilo, incluso con Desktop cerrado; las entregas a receptores en localhost las hace Desktop mientras está abierto, y la app los etiqueta como Local. Cada entrega incluye una cabecera <code>X-Dovilo-Signature</code> al estilo de Stripe para la verificación, un id <code>X-Dovilo-Delivery</code> único para la idempotencia, orden FIFO por tarea y hasta 5 reintentos ante fallos transitorios. Configúralo en Dovilo Desktop, en los <strong>Ajustes de la lista</strong> del proyecto: pega tu URL, elige los eventos, actívalo y pulsa Guardar, y luego genera el secreto de firma.",
-          "a2": "El esquema completo del payload, ejemplos de verificación de firma (Node, Python, Go) y la política de reintentos están en la <a href=\"/docs/webhooks\">referencia de webhooks</a>."
+          "a2": "El esquema completo del payload, ejemplos de verificación de firma (Node, Python, Go) y la política de reintentos están en la <a href=\"/docs/webhooks/\">referencia de webhooks</a>."
         },
         "example": {
           "q": "¿Hay un receptor de webhooks de ejemplo que pueda copiar?",

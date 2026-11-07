@@ -5,7 +5,7 @@
 # A new internal Markdown file goes on this list in the same commit. docs/brand
 # holds the icon sources that tools/build-icons.mjs rasterises; the site serves
 # the generated files, never the sources. src holds the templates and strings
-# tools/build-pages.mjs renders into /, /ai, /pricing/, /downloads/ and /faq;
+# tools/build-pages.mjs renders into /, /ai/, /pricing/, /downloads/ and /faq/;
 # the site serves the built pages, never the templates.
 exclude:
   - CLAUDE.md
