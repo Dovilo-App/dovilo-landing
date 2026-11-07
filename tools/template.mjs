@@ -60,7 +60,7 @@ const shell = (lang, current, alternates) => {
  * a post.
  */
 export function page({
-  title, description, canonical, ogType = 'website', ogImage, ogImageAlt, head = '', jsonLd = [], body,
+  title, description, canonical, ogType = 'website', ogImage, ogImageAlt, twitterImageAlt, head = '', jsonLd = [], body,
   lang = EN_LANG, current = null, alternates = [], hreflang = '', ogLocale = '',
 }) {
   const abs = (u) => (String(u || '').startsWith('http') ? u : SITE.origin + (u || SITE.defaultOgImage));
@@ -95,7 +95,7 @@ ${ogImageAlt ? `  <meta property="og:image:alt" content="${esc(ogImageAlt)}">\n`
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${esc(img)}">
-${head}
+${twitterImageAlt ? `  <meta name="twitter:image:alt" content="${esc(twitterImageAlt)}">\n` : ''}${head}
   ${THEME_BOOT}
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">

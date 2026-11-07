@@ -456,9 +456,13 @@ Carried here so they are not rediscovered from scratch:
   `og-card.jpg` (the blog's through `SITE.defaultOgImage`, and a post's when it has no cover), and
   `/docs/webhooks`, `/changelog/` and the legal pages have none: their move to `system.css` was a
   style move.
-- No page carries an `og:image:alt` on `/faq` in any language: the FAQ has no `ogAlt` string, and a
-  translation is not ours to write. Add the key to all five `src/strings/*.json` and a line to
-  `src/pages/faq.html` together when the strings are given.
+- `twitter:image:alt` is on `/faq` (five languages), `/docs/mcp/` and the five blog indexes only;
+  the other pages with an `og:image` carry `og:image:alt` alone. `/faq`'s alt is its `<h1>`, the
+  string its card is drawn from, so it has no `ogAlt` key. `og-card.jpg`'s alt is
+  `SITE.defaultOgImageAlt` (`tools/config.mjs`) with a copy in `docs/mcp/index.html`: change both
+  with the headline in `tools/build-og.mjs`. A post with no cover would fall back to `og-card.jpg`
+  with no alt; all 21 have covers today (7 Nov 2026). `/docs/mcp/` keeps `twitter:card` `summary`
+  and no `twitter:image`.
 - `hero.jpg`, the 2.0 dark 3D illustration, is referenced by no page, template or tool since
   `og-card.jpg` moved to the light palette (7 Nov 2026). It stays as a file.
 - `/licenses` is 154 words, under the 300-word floor; it is `noindex`, and its text changes only

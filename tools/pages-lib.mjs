@@ -9,7 +9,8 @@
                           string (tags stripped, entities decoded): JSON-LD
      {{a.b|js}}           plain text as a quoted JavaScript literal; an array
                           becomes ['x', 'y']
-     {{> name}}           src/partials/name.html, rendered with the same data
+     {{a.b|attr}}         plain text, safe inside a double-quoted attribute
+     {{> name}}          src/partials/name.html, rendered with the same data
      {{#if a.b}}…{{/if}}  kept when the value is non-empty (a non-empty array)
      {{#each a.b}}…{{/each}}
                           once per item; {{this.x}} reads the item
@@ -77,6 +78,8 @@ function vars(tpl, data) {
     if (filter === 'json') return jsonText(v);
     if (filter === 'js') return Array.isArray(v) ? `[${v.map((x) => jsLiteral(plain(x))).join(', ')}]` : jsLiteral(plain(v));
     if (filter === 'text') return plain(v);
+    /* plain() decodes entities: back to safe for a double-quoted attribute. */
+    if (filter === 'attr') return plain(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
     if (filter) throw new Error(`unknown filter "${filter}" on "${key}"`);
     if (typeof v !== 'string' && typeof v !== 'number') throw new Error(`"${key}" is not a string`);
     return String(v);

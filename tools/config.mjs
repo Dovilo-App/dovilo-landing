@@ -8,6 +8,8 @@ export const SITE = {
   twitter: '@doviloapp',
   logo: '/dovilo-icon.png',
   defaultOgImage: '/og-card.jpg',
+  /* English on every blog index, because the card's text is English. */
+  defaultOgImageAlt: 'Dovilo: turn your to-do list into a city you build, beside an isometric city at level 26',
   author: { name: 'Selahaddin Akgün', url: 'https://sakgun.com' },
 };
 
