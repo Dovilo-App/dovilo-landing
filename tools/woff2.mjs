@@ -1,11 +1,12 @@
 /* WOFF2 to TrueType, for tools/build-og.mjs.
 
    The share cards are set in the Inter the site serves from /fonts/, and
-   sharp's text renderer (Pango, FreeType) does not read WOFF2. Node has
-   Brotli built in, so this decodes the files here instead of keeping a second
-   copy of the font: the decompressed tables, with the glyf and loca tables
-   rebuilt from their WOFF2 transform (W3C WOFF2 §5.1). hmtx with a transform
-   and font collections are not supported; Inter uses neither. */
+   fontkit (tools/og-type.mjs) cannot instance a variable font from the WOFF2
+   container itself. Node has Brotli built in, so this decodes the files here
+   to TrueType instead of keeping a second copy of the font: the decompressed
+   tables, with the glyf and loca tables rebuilt from their WOFF2 transform
+   (W3C WOFF2 §5.1). hmtx with a transform and font collections are not
+   supported; Inter uses neither. */
 
 import { brotliDecompressSync } from 'node:zlib';
 

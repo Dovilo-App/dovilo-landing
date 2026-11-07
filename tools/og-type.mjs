@@ -64,8 +64,15 @@ function runsOf(text) {
   return runs;
 }
 
-/* A line, shaped: glyphs with their x origin in px, and the line's advance. */
+/* A line, shaped: glyphs with their x origin in px, and the line's advance.
+   wrap, blockSize and renderLines ask for the same lines again and again. */
+const shaped = new Map();
 function shape(text, size) {
+  const key = `${size}|${text}`;
+  if (!shaped.has(key)) shaped.set(key, shapeLine(text, size));
+  return shaped.get(key);
+}
+function shapeLine(text, size) {
   const glyphs = [];
   let x = 0;
   for (const { f, text: str } of runsOf(text)) {
@@ -99,7 +106,8 @@ export function wrap(text, size, measure, mode = 'word') {
   for (const word of text.split(/ +/).filter(Boolean)) {
     if (mode === 'word-char' && lineWidth(word, size) > measure) {
       if (line) { lines.push(line); line = ''; }
-      for (const ch of word) {
+      /* Graphemes, so a base letter and its combining mark stay together. */
+      for (const { segment: ch } of new Intl.Segmenter().segment(word)) {
         if (line && lineWidth(line + ch, size) > measure) { lines.push(line); line = ''; }
         line += ch;
       }
@@ -121,23 +129,28 @@ const pathOf = (glyph) => {
 };
 
 /* The lines as a transparent PNG, `width` px wide. Each line sits in a box of
-   size x lh with the font's ascent and descent centred in it, as CSS does. */
+   size x lh with the font's ascent and descent centred in it, as CSS does.
+   That box is tighter than the glyphs when lh is under 1.21 (the dot of İ and
+   the cedilla of ş reach its edges), so the image carries `pad` px of room
+   above and below the block; `height` is the block's own, and the caller
+   places the image at top - pad. */
 export async function renderLines(lines, size, lh, width, fill) {
   const { base } = fonts[0];
   const asc = (base.ascent * size) / base.unitsPerEm, desc = (-base.descent * size) / base.unitsPerEm;
   const pitch = size * lh;
   const height = Math.round(lines.length * pitch);
+  const pad = Math.ceil(size * 0.3);
   let body = '';
   lines.forEach((line, i) => {
-    const baseline = i * pitch + (pitch - (asc + desc)) / 2 + asc;
+    const baseline = pad + i * pitch + (pitch - (asc + desc)) / 2 + asc;
     for (const { glyph, s, x, y } of shape(line, size).glyphs) {
       const d = pathOf(glyph);
       if (d) body += `<path transform="translate(${x.toFixed(2)} ${(baseline + y).toFixed(2)}) scale(${s.toFixed(6)} ${(-s).toFixed(6)})" d="${d}"/>`;
     }
   });
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.ceil(width)}" height="${height}" fill="${fill}">${body}</svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.ceil(width)}" height="${height + 2 * pad}" fill="${fill}">${body}</svg>`;
   const { data, info } = await sharp(Buffer.from(svg), { density: 72 }).png().toBuffer({ resolveWithObject: true });
-  return { data, width: info.width, height: info.height };
+  return { data, width: info.width, height, pad };
 }
 
 /* The guard. Two checks, so a fallback font and a broken drawing both fail:

@@ -63,7 +63,7 @@ async function setText(text, size, layout, mode = 'word', maxLines = Infinity) {
   const lines = wrap(text, size, layout.measure, mode).slice(0, maxLines);
   const { width, height } = blockSize(lines, size, layout.lh);
   const img = await renderLines(lines, size, layout.lh, layout.measure, TEXT);
-  return { data: img.data, width, height, size, lines };
+  return { data: img.data, width, height, pad: img.pad, size, lines };
 }
 
 async function fitText(text, layout, where) {
@@ -106,7 +106,7 @@ async function card({ h1, layout: name, captures = [], capturesDir, where }) {
   if (captures.length !== frames.length) throw new Error(`${where}: layout ${name} takes ${frames.length} capture(s), the template names ${captures.length}`);
   const t = await fitText(h1, layout, where);
   const top = layout.align === 'top' ? layout.box[0] : Math.round(layout.box[0] + (layout.box[1] - layout.box[0] - t.height) / 2);
-  const layers = [{ input: t.data, left: MARGIN + 2, top }];
+  const layers = [{ input: t.data, left: MARGIN + 2, top: top - t.pad }];
   for (let i = 0; i < frames.length; i++) {
     const file = path.join(ROOT, capturesDir.replace(/^\//, ''), captures[i]);
     if (!existsSync(file)) throw new Error(`${where}: capture ${path.relative(ROOT, file)} is missing`);
