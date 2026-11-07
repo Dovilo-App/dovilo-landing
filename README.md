@@ -49,7 +49,8 @@ time; the stylesheets before it, `styles/base.css` and `styles/home.css`, are go
 
 Pages reference `.webp`. The captures on `/` and `/ai` (the 2.1 set, A131) are written by
 `npm run build:captures` ([`tools/build-captures.mjs`](tools/build-captures.mjs)) from the PNG
-sources in `screenshots/new/`, which stay full frame for the stores:
+sources in `screenshots/new/`, which stay full frame for the stores and are not deployed
+(`_config.yml`):
 
 - `screenshots/new/mobile/{light,dark}/<lang>-NN.png`, 1206x2622 (09, the ambience mixer, is
   cropped at the source to 1206x1290), and `city.png` in both themes: the city has no text, so one
