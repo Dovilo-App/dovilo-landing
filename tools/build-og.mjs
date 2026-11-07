@@ -145,9 +145,11 @@ if (!docsH1) throw new Error('docs/index.html has no <h1>');
 jobs.push({ out: 'og-docs.jpg', h1: plain(docsH1[1]), layout: 'text', captures: [], capturesDir: '', where: 'en/docs' });
 /* The generic card: the blog indexes, /docs/mcp/ and every share of the old
    name point at it. Its headline is the only card text that is not a page's
-   <h1>; it is the home page's story in the brief's words. */
+   <h1>; it is the home page's story in the brief's words. Its alt text is
+   SITE.defaultOgImageAlt (tools/config.mjs) with a copy in docs/mcp/index.html:
+   change the three together. */
 jobs.push({
-  out: 'og-card.jpg', h1: 'Turn your to-do list into a city you build.', layout: 'phone',
+  out: 'og-card.jpg', h1: 'Dovilo: turn your to-do list into a city you build.', layout: 'phone',
   captures: ['mobile-city-26-772.webp'], capturesDir: '/screenshots', where: 'en/generic',
 });
 
