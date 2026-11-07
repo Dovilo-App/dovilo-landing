@@ -240,7 +240,7 @@
       "blogLink": "Dovilo'yu yaparken yazılanlar: blog"
     },
     "ai": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
         "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
@@ -526,7 +526,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "iPhone, Android, Windows ve Mac için indir - Dovilo",
         "description": "Dovilo'yu iPhone, Android, Windows ve Mac için indir. Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister.",
@@ -559,7 +559,7 @@
       },
       "which": {
         "summary": "Hangi indirmeye ihtiyacın var",
-        "p1": "Mobil uygulamalar ücretsiz olanlardır ve buradaki ücretsiz bir deneme değil, ürünün tamamıdır: App Store ya da Google Play'den indirince tam yapılacaklar yönetimi, sınırsız tek seans ve Pomodoro odak seansı, sessiz Varsayılan atmosfer sahnesi, şehir kurma, iki tema ve reklamsızlık gelir. Masaüstü uygulamaları Pro yarısıdır. Tam boy ekranda iki görev yüzeyi taşırlar: kendi listen için tam yapılacaklar yönetimi ve kodlama asistanların için AI görevi yönetimi; odak seansları ve şehir mobilde kalır. İmzalı <a href=\"/docs/webhooks\">webhook'ları</a> da Desktop'ta kurarsın, bu yüzden etkin bir abonelik ister; aboneliği mobil uygulamada başlatırsın. Kodlama asistanlarının ona ihtiyacı yoktur: telefondan ya da masaüstünden oluşturabileceğin bir anahtarla doğrudan Dovilo'ya bağlanırlar.",
+        "p1": "Mobil uygulamalar ücretsiz olanlardır ve buradaki ücretsiz bir deneme değil, ürünün tamamıdır: App Store ya da Google Play'den indirince tam yapılacaklar yönetimi, sınırsız tek seans ve Pomodoro odak seansı, sessiz Varsayılan atmosfer sahnesi, şehir kurma, iki tema ve reklamsızlık gelir. Masaüstü uygulamaları Pro yarısıdır. Tam boy ekranda iki görev yüzeyi taşırlar: kendi listen için tam yapılacaklar yönetimi ve kodlama asistanların için AI görevi yönetimi; odak seansları ve şehir mobilde kalır. İmzalı <a href=\"/docs/webhooks/\">webhook'ları</a> da Desktop'ta kurarsın, bu yüzden etkin bir abonelik ister; aboneliği mobil uygulamada başlatırsın. Kodlama asistanlarının ona ihtiyacı yoktur: telefondan ya da masaüstünden oluşturabileceğin bir anahtarla doğrudan Dovilo'ya bağlanırlar.",
         "table": {
           "caption": "Platforma göre Dovilo indirmeleri: her birinin fiyatı ve güncellemelerin nasıl geldiği",
           "head": {
@@ -660,7 +660,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
         "description": "Dovilo hakkında sık sorulan sorular: oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma.",
@@ -772,7 +772,7 @@
         "webhooks": {
           "q": "Dovilo görev olaylarını Slack'e, Linear'a ya da kendi servisime gönderebilir mi?",
           "a1": "Evet. Dovilo, bir AI görevi oluşturulduğunda ya da durumu değiştiğinde <strong>HMAC imzalı HTTPS webhook'ları</strong> gönderir (<code>task.created</code> ve <code>task.status_changed</code>); böylece Dovilo'yu Slack, Linear, n8n, LangGraph ya da kendi alıcına bağlayabilirsin. Herkese açık HTTPS alıcılarına teslimatı Dovilo'nun sunucusu yapar, Desktop kapalıyken bile; localhost alıcılarına Desktop açıkken Desktop teslim eder ve uygulama onları Yerel diye etiketler. Her teslimat doğrulama için Stripe tarzı bir <code>X-Dovilo-Signature</code> başlığı, yineleme güvenliği için benzersiz bir <code>X-Dovilo-Delivery</code> kimliği, görev başına FIFO sıralama ve geçici hatalarda 5 yeniden deneme taşır. Dovilo Desktop'ta projenin <strong>Liste ayarları</strong>'ndan kur: URL'ni yapıştır, olayları seç, etkinleştirip Kaydet'e bas, sonra imza gizli anahtarını oluştur.",
-          "a2": "Tam yük şeması, imza doğrulama örnekleri (Node, Python, Go) ve yeniden deneme kuralı <a href=\"/docs/webhooks\">webhook referansında</a>."
+          "a2": "Tam yük şeması, imza doğrulama örnekleri (Node, Python, Go) ve yeniden deneme kuralı <a href=\"/docs/webhooks/\">webhook referansında</a>."
         },
         "example": {
           "q": "Kopyalayabileceğim örnek bir webhook alıcısı var mı?",

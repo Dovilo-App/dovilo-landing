@@ -242,7 +242,7 @@
       "blogLink": "Écrit en construisant Dovilo : le blog"
     },
     "ai": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Liste de tâches MCP où travaille votre agent de code - Dovilo",
         "description": "Claude Code, Cursor et tout client MCP se connectent à Dovilo depuis toute machine et ne voient que leurs tâches IA : 9 outils, ni création ni suppression.",
@@ -528,7 +528,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Télécharger pour iPhone, Android, Windows et Mac - Dovilo",
         "description": "Téléchargez Dovilo pour iPhone, Android, Windows et Mac. Gratuit sur téléphone. Desktop nécessite Pro, souscrit dans l'app mobile.",
@@ -561,7 +561,7 @@
       },
       "which": {
         "summary": "Quel téléchargement il vous faut",
-        "p1": "Les apps mobiles sont les apps gratuites, et ici gratuit veut dire le produit entier, pas un essai : un téléchargement depuis l'App Store ou Google Play vous donne la gestion complète des tâches, des sessions de concentration uniques et Pomodoro illimitées, la scène d'atmosphère silencieuse Par défaut, la construction de ville, les deux thèmes et aucune publicité. Les apps de bureau sont la moitié Pro. Elles offrent deux espaces de tâches sur grand écran, la gestion complète des tâches pour votre propre liste et la gestion des tâches IA pour vos assistants de code, tandis que les sessions de concentration et la ville restent sur mobile. C'est aussi dans Desktop que vous configurez les <a href=\"/docs/webhooks\">webhooks</a> signés ; il faut donc un abonnement actif, que vous souscrivez dans l'app mobile. Les assistants de code n'en ont pas besoin : ils se connectent directement à Dovilo, avec une clé que vous pouvez créer sur le téléphone ou sur l'ordinateur.",
+        "p1": "Les apps mobiles sont les apps gratuites, et ici gratuit veut dire le produit entier, pas un essai : un téléchargement depuis l'App Store ou Google Play vous donne la gestion complète des tâches, des sessions de concentration uniques et Pomodoro illimitées, la scène d'atmosphère silencieuse Par défaut, la construction de ville, les deux thèmes et aucune publicité. Les apps de bureau sont la moitié Pro. Elles offrent deux espaces de tâches sur grand écran, la gestion complète des tâches pour votre propre liste et la gestion des tâches IA pour vos assistants de code, tandis que les sessions de concentration et la ville restent sur mobile. C'est aussi dans Desktop que vous configurez les <a href=\"/docs/webhooks/\">webhooks</a> signés ; il faut donc un abonnement actif, que vous souscrivez dans l'app mobile. Les assistants de code n'en ont pas besoin : ils se connectent directement à Dovilo, avec une clé que vous pouvez créer sur le téléphone ou sur l'ordinateur.",
         "table": {
           "caption": "Téléchargements de Dovilo par plateforme, avec le coût de chacun et la façon dont arrivent ses mises à jour",
           "head": {
@@ -662,7 +662,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "FAQ : réponses directes sur l'app, Pro et l'IA - Dovilo",
         "description": "Questions fréquentes sur Dovilo : liste de tâches gamifiée, minuteur de concentration et jeu de construction de ville.",
@@ -774,7 +774,7 @@
         "webhooks": {
           "q": "Dovilo peut-il envoyer les événements de tâches vers Slack, Linear ou mon propre service ?",
           "a1": "Oui. Dovilo envoie des <strong>webhooks HTTPS signés HMAC</strong> quand une tâche IA est créée ou change de statut (<code>task.created</code> et <code>task.status_changed</code>), pour relier Dovilo à Slack, Linear, n8n, LangGraph ou n'importe quel récepteur sur mesure. Les récepteurs HTTPS publics sont livrés par le serveur de Dovilo, même quand Desktop est fermé ; les récepteurs localhost sont livrés par Desktop tant qu'il est ouvert, et l'app les marque Local. Chaque livraison inclut un en-tête <code>X-Dovilo-Signature</code> de style Stripe pour la vérification, un identifiant unique <code>X-Dovilo-Delivery</code> pour l'idempotence, un ordre FIFO par tâche et jusqu'à 5 nouvelles tentatives en cas d'échec temporaire. Configurez-le dans Dovilo Desktop, dans les <strong>Paramètres de la liste</strong> du projet : collez votre URL, choisissez les événements, activez-le et appuyez sur Enregistrer, puis générez le secret de signature.",
-          "a2": "Le schéma complet du payload, des exemples de vérification de signature (Node, Python, Go) et la politique de nouvelles tentatives sont dans la <a href=\"/docs/webhooks\">référence des webhooks</a>."
+          "a2": "Le schéma complet du payload, des exemples de vérification de signature (Node, Python, Go) et la politique de nouvelles tentatives sont dans la <a href=\"/docs/webhooks/\">référence des webhooks</a>."
         },
         "example": {
           "q": "Existe-t-il un exemple de récepteur de webhooks à copier ?",

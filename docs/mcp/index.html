@@ -98,10 +98,10 @@
       <a class="nav-logo" href="/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Main">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/ai">AI</a></li>
+          <li><a href="/ai/">AI</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/downloads/">Downloads</a></li>
-          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/faq/">FAQ</a></li>
           <li><a href="/blog/">Blog</a></li>
         </ul>
       </nav>
@@ -123,14 +123,14 @@
       <div class="container flow">
         <h1>Dovilo MCP reference</h1>
         <p>Dovilo runs two Model Context Protocol servers. <strong>Agents MCP</strong> is for coding agents and automation that work the AI tasks you write for them. <strong>Personal MCP</strong> is for chat assistants that propose plans and tasks for you to approve. Both need Dovilo 2.0 or later.</p>
-        <p>This page is the contract for both: endpoints, sign-in, connecting a client, every tool (with inputs for the agent tools), the status values, scheduling, cancelling, the approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the plan, and the questions developers ask. The short version is the <a href="/ai">developer page</a>.</p>
+        <p>This page is the contract for both: endpoints, sign-in, connecting a client, every tool (with inputs for the agent tools), the status values, scheduling, cancelling, the approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the plan, and the questions developers ask. The short version is the <a href="/ai/">developer page</a>.</p>
         <div class="cards">
           <a class="card" href="#connecting">
             <span class="card-kind">Setup</span>
             <span class="card-title">Connect a coding agent <span aria-hidden="true">&rarr;</span></span>
             <p>Create a key, add the server to Claude Code, Cursor or any MCP client, write a task.</p>
           </a>
-          <a class="card" href="/docs/webhooks">
+          <a class="card" href="/docs/webhooks/">
             <span class="card-kind">Reference</span>
             <span class="card-title">Webhooks <span aria-hidden="true">&rarr;</span></span>
             <p>Signed task events, delivered by Dovilo's server or by Desktop for local receivers.</p>
@@ -306,7 +306,7 @@ update_status    → done</code></pre>
           </ol>
 
           <h2 id="statuses">Status values <a class="h-anchor" href="#statuses" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>An AI task moves through these values. The same values appear in <a href="/docs/webhooks#task-lifecycle-reference">webhook payloads</a>.</p>
+          <p>An AI task moves through these values. The same values appear in <a href="/docs/webhooks/#task-lifecycle-reference">webhook payloads</a>.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
             <tbody>
@@ -418,7 +418,7 @@ update_status    → done</code></pre>
           </ol>
 
           <h2 id="webhooks-or-polling">Webhooks or polling <a class="h-anchor" href="#webhooks-or-polling" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>To react when a task moves without keeping an agent running, subscribe the project to <a href="/docs/webhooks">signed webhooks</a>: Dovilo's server delivers them to public HTTPS receivers, and Dovilo Desktop to local addresses (<code>localhost</code>, private network ranges, <code>.local</code>). Without a receiver, poll <code>list_tasks</code> with <code>updated_after</code> set to the largest <code>updatedAt</code> from the previous response. Use the server's value, not your own clock.</p>
+          <p>To react when a task moves without keeping an agent running, subscribe the project to <a href="/docs/webhooks/">signed webhooks</a>: Dovilo's server delivers them to public HTTPS receivers, and Dovilo Desktop to local addresses (<code>localhost</code>, private network ranges, <code>.local</code>). Without a receiver, poll <code>list_tasks</code> with <code>updated_after</code> set to the largest <code>updatedAt</code> from the previous response. Use the server's value, not your own clock.</p>
 
           <h2 id="upgrading">Upgrading from Desktop 1.8 <a class="h-anchor" href="#upgrading" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Desktop 1.8.0 ran the MCP server inside the app, and the client started it as a child process on the same machine. Dovilo 2.0 replaces it with Agents MCP at <code>https://dovilo.app/mcp/agents</code>; the tool names and their contract are the same. To move an agent over:</p>
@@ -439,13 +439,13 @@ update_status    → done</code></pre>
           </ul>
 
           <h2 id="questions">Questions developers ask <a class="h-anchor" href="#questions" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>The <a href="/ai">developer page</a> answers five questions in a line each. These are the ones that need more room.</p>
+          <p>The <a href="/ai/">developer page</a> answers five questions in a line each. These are the ones that need more room.</p>
 
           <h3>How hard is this to set up?</h3>
           <p>Two steps. Create an agent in the app (<strong>AI Agents</strong>, then <strong>New agent</strong>; in Desktop, <strong>Connect a new AI</strong>), pick its projects and copy its key. Then add <code>https://dovilo.app/mcp/agents</code> to your client with the key as a bearer token: one command for Claude Code, a short config entry for the other clients, and the app shows the right one for each. The client is the only thing the agent's machine needs, except Claude Desktop, whose preset runs through <code>mcp-remote</code> and needs Node.js.</p>
 
           <h3>Does any of this go through your servers?</h3>
-          <p>Yes, since Dovilo 2.0. Agents and assistants connect to dovilo.app, which runs on Cloudflare and Google Cloud. We store only a hash of each agent key, and we process IP addresses and request details to protect the service and apply rate limits: rate-limit records are kept for up to 2 days, audit logs for up to 90 days. Anything your agent sends to its own model provider is governed by that provider's policy, not ours. The <a href="/privacy">privacy policy</a> has the detail.</p>
+          <p>Yes, since Dovilo 2.0. Agents and assistants connect to dovilo.app, which runs on Cloudflare and Google Cloud. We store only a hash of each agent key, and we process IP addresses and request details to protect the service and apply rate limits: rate-limit records are kept for up to 2 days, audit logs for up to 90 days. Anything your agent sends to its own model provider is governed by that provider's policy, not ours. The <a href="/privacy/">privacy policy</a> has the detail.</p>
 
           <h3>What stops it touching the wrong project?</h3>
           <p>Its key. Each agent has its own key, tied to the projects you picked for that agent, and the check runs on every call. The project's brief defines what the agent is told about the work.</p>
@@ -481,7 +481,7 @@ update_status    → done</code></pre>
         <div>
           <p class="footer-title">Product</p>
           <ul>
-            <li><a href="/ai">For developers</a></li>
+            <li><a href="/ai/">For developers</a></li>
             <li><a href="/downloads/">Downloads</a></li>
             <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/changelog/">Changelog</a></li>
@@ -492,17 +492,17 @@ update_status    → done</code></pre>
           <ul>
             <li><a href="/docs/">Docs</a></li>
             <li><a href="/docs/mcp/">MCP reference</a></li>
-            <li><a href="/docs/webhooks">Webhooks</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/docs/webhooks/">Webhooks</a></li>
+            <li><a href="/faq/">FAQ</a></li>
           </ul>
         </div>
         <div>
           <p class="footer-title">Dovilo</p>
           <ul>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/licenses">Licenses</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/licenses/">Licenses</a></li>
           </ul>
         </div>
         <div>
@@ -517,7 +517,7 @@ update_status    → done</code></pre>
       </nav>
       <div class="footer-meta">
         <p>&copy; 2026 Dovilo. All rights reserved.</p>
-        <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+        <p><a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
       </div>
     </div>
   </footer>

@@ -242,7 +242,7 @@
       "blogLink": "Geschrieben beim Bauen von Dovilo: der Blog"
     },
     "ai": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo",
         "description": "Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, kein Erstellen, kein Löschen.",
@@ -528,7 +528,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Download für iPhone, Android, Windows und Mac - Dovilo",
         "description": "Lade Dovilo für iPhone, Android, Windows und Mac herunter. Kostenlos auf dem Smartphone. Desktop braucht Pro, gestartet in der mobilen App.",
@@ -561,7 +561,7 @@
       },
       "which": {
         "summary": "Welchen Download du brauchst",
-        "p1": "Die mobilen Apps sind die kostenlosen, und kostenlos heißt hier das ganze Produkt, keine Testversion: Ein Download aus dem App Store oder von Google Play gibt dir volle To-do-Verwaltung, unbegrenzte Einzel- und Pomodoro-Fokus-Sitzungen, die stille Atmosphären-Szene Standard, Städtebau, beide Designs und keine Werbung. Die Desktop-Apps sind die Pro-Hälfte. Sie bieten zwei Aufgabenbereiche auf einem großen Bildschirm, volle To-do-Verwaltung für deine eigene Liste und KI-Aufgabenverwaltung für deine Coding-Assistenten, während Fokus-Sitzungen und die Stadt auf dem Smartphone bleiben. In der Desktop-App richtest du auch die signierten <a href=\"/docs/webhooks\">Webhooks</a> ein, daher braucht sie ein aktives Abo, das du in der mobilen App startest. Coding-Assistenten brauchen sie nicht: Sie verbinden sich direkt mit Dovilo, mit einem Schlüssel, den du auf dem Smartphone oder am Desktop erstellen kannst.",
+        "p1": "Die mobilen Apps sind die kostenlosen, und kostenlos heißt hier das ganze Produkt, keine Testversion: Ein Download aus dem App Store oder von Google Play gibt dir volle To-do-Verwaltung, unbegrenzte Einzel- und Pomodoro-Fokus-Sitzungen, die stille Atmosphären-Szene Standard, Städtebau, beide Designs und keine Werbung. Die Desktop-Apps sind die Pro-Hälfte. Sie bieten zwei Aufgabenbereiche auf einem großen Bildschirm, volle To-do-Verwaltung für deine eigene Liste und KI-Aufgabenverwaltung für deine Coding-Assistenten, während Fokus-Sitzungen und die Stadt auf dem Smartphone bleiben. In der Desktop-App richtest du auch die signierten <a href=\"/docs/webhooks/\">Webhooks</a> ein, daher braucht sie ein aktives Abo, das du in der mobilen App startest. Coding-Assistenten brauchen sie nicht: Sie verbinden sich direkt mit Dovilo, mit einem Schlüssel, den du auf dem Smartphone oder am Desktop erstellen kannst.",
         "table": {
           "caption": "Dovilo-Downloads nach Plattform, mit Kosten und dem Weg, auf dem Updates kommen",
           "head": {
@@ -662,7 +662,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "FAQ: klare Antworten zu App, Pro und KI - Dovilo",
         "description": "Häufige Fragen zu Dovilo: gamifizierte To-do-Liste, Fokus-Timer und Städtebauspiel.",
@@ -774,7 +774,7 @@
         "webhooks": {
           "q": "Kann Dovilo Aufgaben-Events an Slack, Linear oder meinen eigenen Dienst senden?",
           "a1": "Ja. Dovilo sendet <strong>HMAC-signierte HTTPS-Webhooks</strong>, wenn eine KI-Aufgabe erstellt wird oder ihren Status ändert (<code>task.created</code> und <code>task.status_changed</code>), sodass du Dovilo mit Slack, Linear, n8n, LangGraph oder jedem eigenen Empfänger verbinden kannst. Öffentliche HTTPS-Empfänger beliefert Dovilos Server, auch wenn Desktop geschlossen ist; localhost-Empfänger beliefert Desktop, solange es offen ist, und die App kennzeichnet sie als Lokal. Jede Zustellung enthält einen <code>X-Dovilo-Signature</code>-Header im Stripe-Stil zur Verifizierung, eine eindeutige <code>X-Dovilo-Delivery</code>-ID für Idempotenz, FIFO-Reihenfolge pro Aufgabe und bis zu 5 Wiederholungen bei vorübergehenden Fehlern. Richte es in Dovilo Desktop in den <strong>Listeneinstellungen</strong> des Projekts ein: URL einfügen, Events wählen, aktivieren und auf Speichern drücken, dann das Signatur-Secret erzeugen.",
-          "a2": "Das vollständige Payload-Schema, Beispiele zur Signaturprüfung (Node, Python, Go) und die Retry-Regeln stehen in der <a href=\"/docs/webhooks\">Webhook-Referenz</a>."
+          "a2": "Das vollständige Payload-Schema, Beispiele zur Signaturprüfung (Node, Python, Go) und die Retry-Regeln stehen in der <a href=\"/docs/webhooks/\">Webhook-Referenz</a>."
         },
         "example": {
           "q": "Gibt es einen Beispiel-Webhook-Empfänger, den ich übernehmen kann?",

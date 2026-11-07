@@ -6,7 +6,7 @@
   <title>Webhooks Developer Reference - Dovilo</title>
   <meta name="description" content="HMAC-signed task events you can subscribe to. Payload schema, signature verification, retry policy.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <link rel="canonical" href="https://dovilo.app/docs/webhooks">
+  <link rel="canonical" href="https://dovilo.app/docs/webhooks/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">
 
   <!-- Render-blocking by design: this file is the whole design system. -->
@@ -15,7 +15,7 @@
 
   <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://dovilo.app/docs/webhooks">
+  <meta property="og:url" content="https://dovilo.app/docs/webhooks/">
   <meta property="og:title" content="Webhooks Developer Reference - Dovilo">
   <meta property="og:description" content="HMAC-signed task events you can subscribe to. Payload schema, signature verification, retry policy.">
   <meta property="og:site_name" content="Dovilo">
@@ -44,9 +44,9 @@
   "@type": "TechArticle",
   "headline": "Webhooks Developer Reference - Dovilo",
   "description": "HMAC-signed AI task events from Dovilo, delivered by Dovilo's server to public HTTPS receivers and by Dovilo Desktop to local ones: delivery modes, event types, status values including scheduled, payload schema, signature verification, responses, retry policy, ordering and idempotency.",
-  "url": "https://dovilo.app/docs/webhooks",
+  "url": "https://dovilo.app/docs/webhooks/",
   "inLanguage": "en",
-  "dateModified": "2026-10-29",
+  "dateModified": "2026-11-07",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -82,7 +82,7 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "https://dovilo.app/" },
     { "@type": "ListItem", "position": 2, "name": "Docs", "item": "https://dovilo.app/docs/" },
-    { "@type": "ListItem", "position": 3, "name": "Webhooks reference", "item": "https://dovilo.app/docs/webhooks" }
+    { "@type": "ListItem", "position": 3, "name": "Webhooks reference", "item": "https://dovilo.app/docs/webhooks/" }
   ]
 }
   </script>
@@ -95,10 +95,10 @@
       <a class="nav-logo" href="/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Main">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/ai">AI</a></li>
+          <li><a href="/ai/">AI</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/downloads/">Downloads</a></li>
-          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/faq/">FAQ</a></li>
           <li><a href="/blog/">Blog</a></li>
         </ul>
       </nav>
@@ -318,7 +318,7 @@ GUARDRAILS
 - Don't invent Dovilo features. If I ask for something this prompt
   doesn't cover (inbound API, unsubscribe webhook, batch deliveries,
   task.deleted events), say "not currently supported by Dovilo
-  webhooks — check https://dovilo.app/docs/webhooks" rather than
+  webhooks — check https://dovilo.app/docs/webhooks/" rather than
   guessing or stubbing.
 - The webhook payload is intentionally slim. If I need the full task
   (description, agent notes, full telemetry, steps), tell me to
@@ -764,7 +764,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
         <div>
           <p class="footer-title">Product</p>
           <ul>
-            <li><a href="/ai">For developers</a></li>
+            <li><a href="/ai/">For developers</a></li>
             <li><a href="/downloads/">Downloads</a></li>
             <li><a href="/pricing/">Pricing</a></li>
             <li><a href="/changelog/">Changelog</a></li>
@@ -775,17 +775,17 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
           <ul>
             <li><a href="/docs/">Docs</a></li>
             <li><a href="/docs/mcp/">MCP reference</a></li>
-            <li><a href="/docs/webhooks">Webhooks</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/docs/webhooks/">Webhooks</a></li>
+            <li><a href="/faq/">FAQ</a></li>
           </ul>
         </div>
         <div>
           <p class="footer-title">Dovilo</p>
           <ul>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/licenses">Licenses</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/licenses/">Licenses</a></li>
           </ul>
         </div>
         <div>
@@ -800,7 +800,7 @@ func abs(x int64) int64 { if x &lt; 0 { return -x }; return x }</code></pre>
       </nav>
       <div class="footer-meta">
         <p>&copy; 2026 Dovilo. All rights reserved.</p>
-        <p><a class="mail" href="/faq#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+        <p><a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
       </div>
     </div>
   </footer>

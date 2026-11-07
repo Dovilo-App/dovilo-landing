@@ -242,7 +242,7 @@
       "blogLink": "Written while building Dovilo: the blog"
     },
     "ai": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",
@@ -528,7 +528,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "Download for iPhone, Android, Windows and Mac - Dovilo",
         "description": "Download Dovilo for iPhone, Android, Windows and Mac. Free on phones. Desktop needs Pro, started in the mobile app.",
@@ -561,7 +561,7 @@
       },
       "which": {
         "summary": "Which download you need",
-        "p1": "The mobile apps are the free ones, and free here is the whole product rather than a trial: a download from the App Store or Google Play gives you full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, city building, both themes and no ads. The desktop apps are the Pro half. They carry two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where you set up the signed <a href=\"/docs/webhooks\">webhooks</a>, so it needs an active subscription, which you start in the mobile app. Coding assistants do not need it: they connect to Dovilo directly, with a key you can create on the phone or on the desktop.",
+        "p1": "The mobile apps are the free ones, and free here is the whole product rather than a trial: a download from the App Store or Google Play gives you full to-do management, unlimited single and Pomodoro focus sessions, the silent Default ambience scene, city building, both themes and no ads. The desktop apps are the Pro half. They carry two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where you set up the signed <a href=\"/docs/webhooks/\">webhooks</a>, so it needs an active subscription, which you start in the mobile app. Coding assistants do not need it: they connect to Dovilo directly, with a key you can create on the phone or on the desktop.",
         "table": {
           "caption": "Dovilo downloads by platform, with what each one costs and how its updates arrive",
           "head": {
@@ -662,7 +662,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-07",
       "meta": {
         "title": "FAQ: straight answers on the app, Pro and AI - Dovilo",
         "description": "Frequently asked questions about Dovilo: gamified to-do list, focus timer, and city builder.",
@@ -774,7 +774,7 @@
         "webhooks": {
           "q": "Can Dovilo send task events to Slack, Linear, or my own service?",
           "a1": "Yes. Dovilo sends <strong>HMAC-signed HTTPS webhooks</strong> when an AI task is created or changes status (<code>task.created</code> and <code>task.status_changed</code>), so you can bridge Dovilo into Slack, Linear, n8n, LangGraph, or any custom receiver. Public HTTPS receivers are delivered by Dovilo's server, even when Desktop is closed; localhost receivers are delivered by Desktop while it is open, and the app labels them Local. Each delivery includes a Stripe-style <code>X-Dovilo-Signature</code> header for verification, a unique <code>X-Dovilo-Delivery</code> id for idempotency, FIFO ordering per task, and up to 5 retries on transient failures. Set it up in Dovilo Desktop, in the project's <strong>List settings</strong>: paste your URL, pick the events, enable it and press Save, then generate the signing secret.",
-          "a2": "Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href=\"/docs/webhooks\">webhooks reference</a>."
+          "a2": "Full payload schema, signature verification examples (Node, Python, Go), and the retry policy live in the <a href=\"/docs/webhooks/\">webhooks reference</a>."
         },
         "example": {
           "q": "Is there an example webhook receiver I can copy from?",
