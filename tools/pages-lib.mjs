@@ -134,9 +134,7 @@ export const PAGES = [
   { id: 'ai', path: '/ai', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
   { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
   { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
-  /* The FAQ has shared og-card.jpg since before the build; its English head
-     keeps it. Its localised copies get a card of their own. */
-  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', enCard: 'og-card', langPriority: '0.7' },
+  { id: 'faq', path: '/faq', out: 'faq/index.html', card: 'og-faq', langPriority: '0.7' },
 ];
 
 export function pagePath(page, lang) {
@@ -150,7 +148,7 @@ export function pageOut(page, lang) {
 }
 
 export function cardName(page, lang) {
-  if (lang.code === 'en') return page.enCard || page.card;
+  if (lang.code === 'en') return page.card;
   return `${page.card}-${lang.code}`;
 }
 
