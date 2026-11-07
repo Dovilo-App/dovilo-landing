@@ -500,6 +500,8 @@ ${
     title: plain(t.meta.title),
     description,
     canonical: url,
+    ogImageAlt: SITE.defaultOgImageAlt,
+    twitterImageAlt: SITE.defaultOgImageAlt,
     body,
     lang,
     current: 'blog',

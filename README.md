@@ -147,7 +147,7 @@ Strings are HTML as it appears in the page (`&amp;`, inline `<a>`, `<code>`, `<s
 translation keeps every tag, attribute and `{{href.*}}`, or the build stops. JSON-LD reads the same
 strings with the tags stripped, so the FAQPage answers are the visible ones. Templates use
 `{{t.key}}` for the page's strings, `{{c.key}}` for the shared ones, `|json` and `|js` for
-JSON-LD and the page scripts, `{{> partial}}`, `{{#if}}` and `{{#each}}`; the syntax is described
+JSON-LD and the page scripts, `|attr` for a plain-text attribute, `{{> partial}}`, `{{#if}}` and `{{#each}}`; the syntax is described
 at the top of `tools/pages-lib.mjs`.
 
 ### Share cards
