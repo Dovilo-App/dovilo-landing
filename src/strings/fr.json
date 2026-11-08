@@ -96,10 +96,10 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "To-do list gamifiée, minuteur Pomodoro et city builder - Dovilo",
-        "description": "Dovilo, liste de tâches gratuite pour iOS et Android avec minuteur Pomodoro et ville isométrique à bâtir. Tâches et sessions illimitées, sans publicité.",
+        "description": "Dovilo, liste de tâches gratuite pour iOS et Android avec minuteur Pomodoro et ville isométrique. Tâches et sessions illimitées, sans publicité.",
         "ogAlt": "Dovilo : la liste de tâches qui vous bâtit une ville, à côté d'un plan de six tâches de Claude et de la liste où il a été approuvé"
       },
       "jsonld": {
@@ -168,7 +168,7 @@
       "city": {
         "title": "Une ville qui reste",
         "p": "Les tâches et les sessions de concentration rapportent des briques. Dépensez-les en maisons, bureaux, parcs et routes, placés où vous voulez. Rien ne se dégrade, aucune série ne punit une semaine calme. Les grandes constructions viennent avec le Pack Ville Complète, $4.99 en paiement unique, inclus dans Pro.",
-        "alt": "Ville isométrique Dovilo au niveau 26 avec un stade, un hôpital et un hôtel de ville"
+        "alt": "Ville isométrique Dovilo avec un stade, un hôpital et un hôtel de ville"
       },
       "agents": {
         "title": "Vous développez avec Claude Code ou Cursor ?",
@@ -212,7 +212,7 @@
         },
         "focus": {
           "q": "Comment fonctionne Focus ?",
-          "a": "Focus a été reconstruit. Vous pouvez lancer une session unique, un cycle Pomodoro (25 minutes de concentration, 5 minutes de pause, une pause plus longue tous les 4 tours) ou une session liée à une tâche précise. Le minuteur continue de tourner quand l'app est en arrière-plan ou que votre téléphone est verrouillé, Ne pas déranger fait taire les autres apps pendant la session, et chaque scène apporte sa propre atmosphère : Ville sous la pluie, Minuit, Crépuscule, Neige ou Brouillard."
+          "a": "Vous pouvez lancer une session unique, un cycle Pomodoro (25 minutes de concentration, 5 minutes de pause, une pause plus longue tous les 4 tours) ou une session liée à une tâche précise. Le minuteur continue de tourner quand l'app est en arrière-plan ou que votre téléphone est verrouillé, Ne pas déranger fait taire les autres apps pendant la session, et chaque scène apporte sa propre atmosphère : Ville sous la pluie, Minuit, Crépuscule, Neige ou Brouillard."
         },
         "ambience": {
           "q": "Ai-je besoin du Pack Atmosphère de concentration ?",
@@ -242,10 +242,10 @@
       "blogLink": "Écrit en construisant Dovilo : le blog"
     },
     "ai": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Liste de tâches MCP où travaille votre agent de code - Dovilo",
-        "description": "Claude Code, Cursor et tout client MCP se connectent à Dovilo depuis toute machine et ne voient que leurs tâches IA : 9 outils, ni création ni suppression.",
+        "description": "Claude Code, Cursor et tout client MCP se connectent à Dovilo de partout et ne voient que leurs tâches IA : 9 outils, ni création ni suppression.",
         "ogAlt": "Dovilo : la liste de tâches où travaille votre agent de code, sur les Tâches IA d'un projet dans Dovilo Desktop",
         "crumb": "IA"
       },
@@ -438,10 +438,10 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Tarifs : utilisation gratuite, Pro à $2.49 par mois - Dovilo",
-        "description": "Tarifs Dovilo : gratuit, Pro à $2.49 par mois. L'app personnelle est gratuite et illimitée. Pro ajoute la couche IA, Desktop, la synchro et les deux packs.",
+        "description": "Tarifs Dovilo : l'app personnelle est gratuite et illimitée, Pro coûte $2.49 par mois et ajoute la couche IA, Desktop, la synchro et les deux packs.",
         "ogAlt": "Tarifs de Dovilo : utilisation gratuite, Pro à $2.49 par mois.",
         "crumb": "Tarifs"
       },
