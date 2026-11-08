@@ -96,10 +96,10 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Gamifizierte To-do-Liste, Fokus-Timer und Städtebau - Dovilo",
-        "description": "Dovilo: kostenlose To-do-Liste für iOS und Android mit Pomodoro-Timer und isometrischem Städtebau. Unbegrenzte Aufgaben und Fokus-Sitzungen, keine Werbung.",
+        "description": "Dovilo: kostenlose To-do-Liste für iOS und Android mit Pomodoro-Timer und isometrischer Stadt. Unbegrenzte Aufgaben und Sitzungen, keine Werbung.",
         "ogAlt": "Dovilo: die To-do-Liste, die dir eine Stadt baut, neben einem Plan mit sechs Aufgaben von Claude und der Liste, in die er angenommen wurde"
       },
       "jsonld": {
@@ -168,7 +168,7 @@
       "city": {
         "title": "Eine Stadt, die bleibt",
         "p": "Aufgaben und Fokus-Sitzungen bringen Steine. Gib sie für Häuser, Büros, Parks und Straßen aus und platziere sie, wo du willst. Nichts verfällt, keine Serie bestraft eine ruhige Woche. Große Bauten gibt es mit dem Vollständigen Stadtpaket, $4.99 einmalig, in Pro enthalten.",
-        "alt": "Isometrische Dovilo-Stadt auf Level 26 mit Stadion, Krankenhaus und Rathaus"
+        "alt": "Isometrische Dovilo-Stadt mit Stadion, Krankenhaus und Rathaus"
       },
       "agents": {
         "title": "Du entwickelst mit Claude Code oder Cursor?",
@@ -212,7 +212,7 @@
         },
         "focus": {
           "q": "Wie funktioniert Fokus?",
-          "a": "Fokus wurde neu gebaut. Du kannst eine Einzelsitzung starten, einen Pomodoro-Zyklus (25 Minuten Fokus, 5 Minuten Pause, alle 4 Runden eine längere Pause) oder eine Sitzung, die an eine bestimmte Aufgabe gebunden ist. Der Timer zählt weiter, wenn die App im Hintergrund oder dein Smartphone gesperrt ist, „Nicht stören“ schaltet andere Apps während der Sitzung stumm, und jede Szene bringt ihre eigene Atmosphäre mit: Regenstadt, Mitternacht, Abenddämmerung, Schnee oder Nebel."
+          "a": "Du kannst eine Einzelsitzung starten, einen Pomodoro-Zyklus (25 Minuten Fokus, 5 Minuten Pause, alle 4 Runden eine längere Pause) oder eine Sitzung, die an eine bestimmte Aufgabe gebunden ist. Der Timer zählt weiter, wenn die App im Hintergrund oder dein Smartphone gesperrt ist, „Nicht stören“ schaltet andere Apps während der Sitzung stumm, und jede Szene bringt ihre eigene Atmosphäre mit: Regenstadt, Mitternacht, Abenddämmerung, Schnee oder Nebel."
         },
         "ambience": {
           "q": "Brauche ich das Fokus-Atmosphären-Paket?",
@@ -242,10 +242,10 @@
       "blogLink": "Geschrieben beim Bauen von Dovilo: der Blog"
     },
     "ai": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-08",
       "meta": {
         "title": "MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo",
-        "description": "Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, kein Erstellen, kein Löschen.",
+        "description": "Claude Code, Cursor und jeder MCP-Client verbinden sich von überall mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, ohne Erstellen und Löschen.",
         "ogAlt": "Dovilo: die Aufgabenliste, aus der dein Coding-Agent arbeitet, über den KI-Aufgaben eines Projekts in Dovilo Desktop",
         "crumb": "KI"
       },
@@ -438,10 +438,10 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Preise: kostenlos nutzbar, Pro für $2.49 im Monat - Dovilo",
-        "description": "Dovilo Preise: kostenlos nutzbar, Pro für $2.49 im Monat. Die persönliche App ist gratis und unbegrenzt. Pro bringt KI-Ebene, Desktop, Sync, beide Pakete.",
+        "description": "Dovilo Preise: Die persönliche App ist gratis und unbegrenzt. Pro kostet $2.49 im Monat und bringt KI-Ebene, Desktop, Sync und beide Pakete.",
         "ogAlt": "Dovilo Preise: kostenlos nutzbar, Pro für $2.49 im Monat.",
         "crumb": "Preise"
       },

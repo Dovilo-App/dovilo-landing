@@ -96,10 +96,10 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Lista de tareas gamificada, temporizador y ciudad - Dovilo",
-        "description": "Dovilo: lista de tareas gratis para iOS y Android con temporizador Pomodoro y constructor de ciudades isométrico. Tareas y sesiones ilimitadas, sin anuncios.",
+        "description": "Dovilo: lista de tareas gratis para iOS y Android con temporizador Pomodoro y una ciudad isométrica. Tareas y sesiones ilimitadas, sin anuncios.",
         "ogAlt": "Dovilo: la lista de tareas que te construye una ciudad, junto a un plan de seis tareas de Claude y la lista en la que se aprobó"
       },
       "jsonld": {
@@ -168,7 +168,7 @@
       "city": {
         "title": "Una ciudad que permanece",
         "p": "Las tareas y las sesiones de enfoque dan ladrillos. Gástalos en casas, oficinas, parques y carreteras, colocados donde quieras. Nada se deteriora, ninguna racha castiga una semana tranquila. Las construcciones grandes llegan con el Paquete Ciudad Completa, $4.99 en un solo pago, incluido en Pro.",
-        "alt": "Ciudad isométrica de Dovilo en el nivel 26 con un estadio, un hospital y un ayuntamiento"
+        "alt": "Ciudad isométrica de Dovilo con un estadio, un hospital y un ayuntamiento"
       },
       "agents": {
         "title": "¿Programas con Claude Code o Cursor?",
@@ -212,7 +212,7 @@
         },
         "focus": {
           "q": "¿Cómo funciona el enfoque?",
-          "a": "Enfoque se ha reconstruido. Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla."
+          "a": "Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla."
         },
         "ambience": {
           "q": "¿Necesito el Paquete Atmósfera de Enfoque?",
@@ -242,10 +242,10 @@
       "blogLink": "Escrito durante la construcción de Dovilo: el blog"
     },
     "ai": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Lista de tareas MCP para tu agente de programación - Dovilo",
-        "description": "Claude Code, Cursor y todo cliente MCP se conectan a Dovilo desde cualquier máquina y solo ven sus tareas de IA: 9 herramientas, sin crear ni eliminar.",
+        "description": "Claude Code, Cursor y todo cliente MCP se conectan a Dovilo desde cualquier equipo y solo ven sus tareas de IA: 9 herramientas, sin crear ni borrar.",
         "ogAlt": "Dovilo: la lista de tareas desde la que trabaja tu agente de programación, sobre las Tareas de IA de un proyecto en Dovilo Desktop",
         "crumb": "IA"
       },
@@ -438,10 +438,10 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Precios: uso gratuito, Pro a $2.49 al mes - Dovilo",
-        "description": "Precios de Dovilo: uso gratuito, Pro a $2.49 al mes. La app personal, gratis e ilimitada. Pro añade la capa de IA, Desktop, sincronización y ambos paquetes.",
+        "description": "Precios de Dovilo: gratis para uso personal, Pro a $2.49 al mes. Pro añade la capa de IA, Desktop, sincronización y los dos paquetes.",
         "ogAlt": "Precios de Dovilo: uso gratuito, Pro a $2.49 al mes.",
         "crumb": "Precios"
       },

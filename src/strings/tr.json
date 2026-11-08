@@ -94,7 +94,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
         "description": "Dovilo, iOS ve Android için ücretsiz yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma. Sınırsız görev ve seans, reklam yok.",
@@ -166,7 +166,7 @@
       "city": {
         "title": "Kalıcı bir şehir",
         "p": "Görevler ve odak seansları tuğla kazandırır. Tuğlalarla ev, ofis, park ve yol al, istediğin yere koy. Hiçbir şey eksilmez, sakin geçen bir hafta için seni cezalandıran bir seri yok. Büyük yapılar Tam Şehir Paketi ile gelir: tek seferlik $4.99, Pro'ya dahil.",
-        "alt": "Dovilo'da 26. seviye izometrik şehir: stadyum, hastane ve belediye binası"
+        "alt": "Dovilo'da izometrik şehir: stadyum, hastane ve belediye binası"
       },
       "agents": {
         "title": "Claude Code ya da Cursor ile mi geliştiriyorsun?",
@@ -210,7 +210,7 @@
         },
         "focus": {
           "q": "Odak nasıl çalışır?",
-          "a": "Odak baştan yazıldı. Tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola) ya da tek bir göreve bağlı bir seans çalıştırabilirsin. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar, Rahatsız etme seans boyunca diğer uygulamaları susturur ve her sahne kendi atmosferini getirir: Yağmurlu şehir, Gece yarısı, Gün batımı, Kar ya da Sis."
+          "a": "Tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola) ya da tek bir göreve bağlı bir seans çalıştırabilirsin. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar, Rahatsız etme seans boyunca diğer uygulamaları susturur ve her sahne kendi atmosferini getirir: Yağmurlu şehir, Gece yarısı, Gün batımı, Kar ya da Sis."
         },
         "ambience": {
           "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
