@@ -96,7 +96,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-08",
       "meta": {
         "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
         "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
@@ -168,7 +168,7 @@
       "city": {
         "title": "A city that stays",
         "p": "Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.",
-        "alt": "Dovilo isometric city at level 26 with a stadium, a hospital and a city hall"
+        "alt": "Dovilo isometric city with a stadium, a hospital and a city hall"
       },
       "agents": {
         "title": "Building with Claude Code or Cursor?",
@@ -212,7 +212,7 @@
         },
         "focus": {
           "q": "How does Focus work?",
-          "a": "Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog."
+          "a": "You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog."
         },
         "ambience": {
           "q": "Do I need the Focus Ambience Pack?",

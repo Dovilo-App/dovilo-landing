@@ -38,7 +38,7 @@ The rest of the page, block by block:
 - **Recently shipped**, the newest release of each line: Mobile 2.2.0, 5 Nov 2026 (plan with your AI in three steps; AI Tasks for coding assistants; a warmer look), and Desktop 2.2.0, 4 Nov 2026 (the same look as the phone and the site; signed Windows builds). Every release: https://dovilo.app/changelog/
 - **One engineer, in Istanbul.** No company, no funding, and a public release history you can check.
 
-The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left, and the ambience mixer with Rain and Fireplace layered and Follow the session rhythm on; and a city at level 26 with a stadium, a hospital and a city hall.
+The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left, and the ambience mixer with Rain and Fireplace layered and Follow the session rhythm on; and a city with a stadium, a hospital and a city hall.
 
 Who builds it, in more detail than the homepage gives: Dovilo is built by Selahaddin Akgün (https://sakgun.com), with 14 years of production software, most recently as a lead engineer and before that leading Android engineering at stc pay. It is a solo project: one person writes the mobile app, the desktop client and the website.
 
@@ -46,7 +46,7 @@ The homepage answers ten questions. Nine of them are also on the FAQ page and ar
 
 **How does Focus work?**
 
-Focus was rebuilt. You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog.
+You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog.
 
 ## Tasks
 
