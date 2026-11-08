@@ -1224,7 +1224,7 @@ hover. It is never amber. A link that stands on its own line is a `.link`: bold,
 block of its own, 16px below whatever precedes it.
 
 ```html
-<p>Agents connect to <code>https://dovilo.app/mcp/agents</code>, and the <a href="/docs/mcp/">MCP reference</a> lists all 22 tools.</p>
+<p>Agents connect to <code>https://dovilo.app/mcp/agents</code>, and the <a href="/docs/mcp/">MCP reference</a> lists all 25 tools.</p>
 <a class="link" href="/changelog/">All release notes <span aria-hidden="true">&rarr;</span></a>
 ```
 

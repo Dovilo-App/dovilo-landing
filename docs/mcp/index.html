@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MCP Developer Reference - Dovilo</title>
-  <meta name="description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 13 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
+  <meta name="description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 16 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://dovilo.app/docs/mcp/">
   <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">
@@ -17,7 +17,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dovilo.app/docs/mcp/">
   <meta property="og:title" content="MCP Developer Reference - Dovilo">
-  <meta property="og:description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 13 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
+  <meta property="og:description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 16 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
   <meta property="og:image" content="https://dovilo.app/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
   <meta property="og:site_name" content="Dovilo">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="MCP Developer Reference - Dovilo">
-  <meta name="twitter:description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 13 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
+  <meta name="twitter:description" content="Both Dovilo MCP servers in one reference: 9 agent tools, 16 assistant tools, auth, statuses, scheduling, cancel and approval rules.">
   <meta name="twitter:image:alt" content="Dovilo: turn your to-do list into a city you build, beside an isometric city at level 26">
 
   <meta name="color-scheme" content="light">
@@ -48,10 +48,10 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "MCP Developer Reference - Dovilo",
-  "description": "Reference for Dovilo's two remote Model Context Protocol servers. Agents MCP (https://dovilo.app/mcp/agents, bearer API key per agent) exposes nine tools over the AI tasks of the agent's projects, with no create or delete tool. Personal MCP (https://dovilo.app/mcp, OAuth with the Dovilo account) exposes thirteen tools that let ChatGPT, Claude, Gemini and Grok propose plans, tasks and AI-task changes for the user to approve. Covers authentication, error responses, connecting a client (Claude Code, Cursor and other MCP clients), status values including scheduled, repeat, cancelling, approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the Pro plan and trial, and the questions developers ask.",
+  "description": "Reference for Dovilo's two remote Model Context Protocol servers. Agents MCP (https://dovilo.app/mcp/agents, bearer API key per agent) exposes nine tools over the AI tasks of the agent's projects, with no create or delete tool. Personal MCP (https://dovilo.app/mcp, OAuth with the Dovilo account) exposes sixteen tools that let ChatGPT, Claude, Gemini and Grok propose plans, tasks and AI-task changes for the user to approve. Covers authentication, error responses, connecting a client (Claude Code, Cursor and other MCP clients), status values including scheduled, repeat, cancelling, approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the Pro plan and trial, and the questions developers ask.",
   "url": "https://dovilo.app/docs/mcp/",
   "inLanguage": "en",
-  "dateModified": "2026-10-29",
+  "dateModified": "2026-11-08",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -170,6 +170,7 @@
                 <li><a href="#scheduling">Scheduling and repeat</a></li>
                 <li><a href="#cancelling">Cancelling</a></li>
                 <li><a href="#personal-tools">Personal MCP tools</a></li>
+                <li><a href="#project-documents">Project documents</a></li>
                 <li>
                   <a href="#approval">Approval rules</a>
                   <ol><li><a href="#connection-controls">Connection controls</a></li></ol>
@@ -199,7 +200,7 @@
               <tr><th scope="row">Who connects</th><td>Coding agents and automation: Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf, Claude Desktop, LangGraph, CI</td><td>Chat assistants: ChatGPT, Claude, Gemini, Grok</td></tr>
               <tr><th scope="row">Sign-in</th><td>One API key per agent, created in the app and shown once</td><td>OAuth: your Dovilo account, Google or Apple, and a consent screen</td></tr>
               <tr><th scope="row">What it reaches</th><td>The AI tasks of the projects the agent is assigned to</td><td>The lists and projects you make visible to it; AI tasks only if you turn that on</td></tr>
-              <tr><th scope="row">Tools</th><td>9: read AI tasks and report progress on them</td><td>13: propose plans, tasks and changes for you to approve</td></tr>
+              <tr><th scope="row">Tools</th><td>9: read AI tasks and report progress on them</td><td>16: propose plans, tasks and changes for you to approve</td></tr>
               <tr><th scope="row">Plan</th><td>Pro</td><td>Sending a plan works on Free; approving and everything else needs Pro</td></tr>
             </tbody>
           </table></div>
@@ -287,7 +288,7 @@ update_status    → done</code></pre>
             <tbody>
               <tr><td><code>list_tasks</code></td><td>read</td><td><code>status?</code> <code>updated_after?</code></td><td>AI tasks in the agent's projects. Finished tasks are left out unless <code>status</code> asks for one. <code>updated_after</code> takes the server's <code>updatedAt</code> (Unix ms) from an earlier response and returns only tasks changed since. Scheduled tasks are never returned.</td></tr>
               <tr><td><code>get_task</code></td><td>read</td><td><code>id</code></td><td>One task in full: status, steps, notes, telemetry, and <code>approvalFeedback</code>, the user's latest reply or plan guidance.</td></tr>
-              <tr><td><code>read_context</code></td><td>read</td><td><code>id</code></td><td>The task's context text and note attachments, the project's name and brief, any <code>approvalFeedback</code>, and up to 20 related tasks in the same project.</td></tr>
+              <tr><td><code>read_context</code></td><td>read</td><td><code>id</code> <code>documentId?</code></td><td>The task's context text and note attachments, the project's name and brief, the parent brief, the project's documents index, one document's text by <code>documentId</code>, any <code>approvalFeedback</code>, and up to 20 related tasks in the same project.</td></tr>
               <tr><td><code>update_status</code></td><td>write</td><td><code>id</code> <code>status</code> <code>note?</code> <code>reason?</code> <code>error?</code></td><td>Claims a task with <code>running</code>, then moves it to <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code> or <code>error</code>. <code>cancelled</code> needs a <code>reason</code>: see <a href="#cancelling">Cancelling</a>.</td></tr>
               <tr><td><code>update_step</code></td><td>write</td><td><code>id</code> <code>stepId</code> <code>status</code> <code>note?</code></td><td>Sets a step to <code>pending</code>, <code>running</code>, <code>done</code>, <code>error</code> or <code>skipped</code>. When every step has finished, the task finishes with it.</td></tr>
               <tr><td><code>add_step</code></td><td>write</td><td><code>id</code> <code>title</code> <code>skippable</code> <code>afterOrder?</code></td><td>Adds a step. <code>skippable</code> says whether the task can go on if the step fails; <code>afterOrder</code> places it after an existing step.</td></tr>
@@ -296,6 +297,8 @@ update_status    → done</code></pre>
               <tr><td><code>append_telemetry</code></td><td>write</td><td><code>id</code> <code>model?</code> <code>tokens_in?</code> <code>tokens_out?</code> <code>cost_estimate?</code> <code>duration_ms?</code> <code>extra?</code></td><td>Records model, tokens, cost and duration. The phone shows it on the task.</td></tr>
             </tbody>
           </table></div>
+
+          <p>A project can sit under a parent project, one level deep. An agent assigned to a sub-project also reads its parent's brief and documents: <code>read_context</code> returns <code>parentBrief</code> next to <code>brief</code>, and the project's own brief wins where they differ. Agents are not assigned to sub-projects through the parent. A parent hidden from AI Tasks shares nothing.</p>
 
           <h3 id="claiming">Claiming a task <a class="h-anchor" href="#claiming" aria-hidden="true" tabindex="-1"></a></h3>
           <p>Two agents can see the same queued task, so the first write is a claim, and the claim is atomic.</p>
@@ -346,7 +349,8 @@ update_status    → done</code></pre>
           </ul>
 
           <h2 id="personal-tools">Personal MCP tools <a class="h-anchor" href="#personal-tools" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Thirteen tools for chat assistants. Read tools return only what the user made visible to that connection. Write tools propose: each one creates a proposal that waits in the Dovilo app, and the tool answers with its id and the status <code>pending</code>.</p>
+          <p>Sixteen tools for chat assistants. Read tools return only what the user made visible to that connection. Write tools propose: each one creates a proposal that waits in the Dovilo app, and the tool answers with its id and the status <code>pending</code>.</p>
+          <p>Every Dovilo tool result includes <code>now</code> (the user's current date, weekday, time and time zone), and Dovilo refuses a due date before today or a reminder or schedule that has already passed, so assistants should plan from now, not from the conversation.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Tool</th><th>Access</th><th>What it does</th><th>Approval</th></tr></thead>
             <tbody>
@@ -360,13 +364,19 @@ update_status    → done</code></pre>
             </tbody>
             <tbody>
               <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
-              <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects. Their briefs only with AI task access.</td><td></td></tr>
+              <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects, with <code>parentId</code> for a sub-project. Their briefs only with AI task access.</td><td></td></tr>
               <tr><td><code>create_agent_task</code></td><td>write</td><td>Proposes an AI task under a project, optionally with a start time and a repeat. An agent sees it only after approval.</td><td>Always</td></tr>
               <tr><td><code>list_agent_tasks</code></td><td>read</td><td>AI tasks of the visible projects, with status and the agent's latest note. Needs AI task access.</td><td></td></tr>
               <tr><td><code>get_agent_task</code></td><td>read</td><td>One AI task: description, context, steps, agent notes and the user's latest reply. Needs AI task access.</td><td></td></tr>
               <tr><td><code>reply_agent_task</code></td><td>write</td><td>Proposes an answer to a task that is awaiting the user. Needs AI task access.</td><td>Always</td></tr>
               <tr><td><code>update_agent_task</code></td><td>write</td><td>Proposes edits to a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
               <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
+            </tbody>
+            <tbody>
+              <tr><th colspan="4" scope="rowgroup">Project documents</th></tr>
+              <tr><td><code>get_project_document</code></td><td>read</td><td>Reads a project's Markdown documents. Needs AI task access.</td><td></td></tr>
+              <tr><td><code>create_project_document</code></td><td>write</td><td>Proposes a new Markdown document in a project. Needs AI task access.</td><td>Always</td></tr>
+              <tr><td><code>update_project_document</code></td><td>write</td><td>Proposes an edit to a project document. Needs AI task access.</td><td>Always</td></tr>
             </tbody>
           </table></div>
           <ul>
@@ -376,6 +386,9 @@ update_status    → done</code></pre>
             <li>Telemetry and attachments of AI tasks are never returned to an assistant.</li>
             <li>Sending a plan works on Free; approving it, and everything else, needs Pro.</li>
           </ul>
+
+          <h2 id="project-documents">Project documents <a class="h-anchor" href="#project-documents" aria-hidden="true" tabindex="-1"></a></h2>
+          <p>Your AI projects can hold Markdown documents, such as specs, analyses and notes. Connected chat apps (ChatGPT, Claude and others) can read them and propose new documents or edits with <code>get_project_document</code>, <code>create_project_document</code> and <code>update_project_document</code>. These tools need AI task access for the connection. Every proposal waits in the Dovilo app until you approve it; Dovilo then applies it and keeps the last 5 earlier versions. Coding agents read a project's documents through <code>read_context</code>. Limits, in bytes of UTF-8 text: 60,000 per proposal, 200,000 per document, 50 documents and 2,000,000 bytes per project, and 200 documents and 10,000,000 bytes per account (earlier versions included). Up to 10 proposals can wait at once, and 20 can arrive a day. Documents are Markdown text only: no embedded files and no attachments. You can delete a document in the Dovilo app, and deleting a project deletes its documents. No MCP server has a delete tool. Sending a proposal is free; approving it needs Pro.</p>
 
           <h2 id="approval">Approval rules <a class="h-anchor" href="#approval" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The AI proposes. You approve. What a chat assistant writes waits in the AI inbox on the user's phone, which gets a notification, until the user approves it there.</p>
