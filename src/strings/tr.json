@@ -485,7 +485,7 @@
         "delete": "<strong>Silme aracı yok.</strong> Ne şimdi ne sonra.",
         "coding": "<strong>Kod işlerin dışarıda kalır.</strong> O uygulama için AI görevleri erişimini açmadıkça.",
         "disconnect": "<strong>Bağlantıyı telefonundan kes.</strong> Her uygulama, her zaman.",
-        "alt": "Dovilo'da Claude için Bağlı AI uygulamaları: okuma izni, AI görevleri ve Önce bana sor; görünür listeler tek tek seçilmiş"
+        "alt": "Dovilo'da Claude için Bağlı AI uygulamaları: okuma izni, AI görevleri ve Önce bana sor, görebileceği listelerle"
       },
       "prompts": {
         "title": "Denenecek planlar",
