@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/fr/ai/",
   "image": "https://dovilo.app/og-ai-fr.jpg",
   "inLanguage": "fr",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -153,10 +153,10 @@
       <a class="nav-logo" href="/fr/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Navigation principale">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/fr/">Tasks</a></li>
+          <li><a href="/fr/">Tâches</a></li>
           <li><a href="/fr/focus/">Focus</a></li>
-          <li><a href="/fr/plan/">Plan with AI</a></li>
-          <li><a href="/fr/ai/" aria-current="page">IA</a></li>
+          <li><a href="/fr/plan/">Planifier avec l'IA</a></li>
+          <li><a href="/fr/ai/" aria-current="page">Tâches IA</a></li>
           <li><a href="/fr/pricing/">Tarifs</a></li>
           <li><a href="/fr/downloads/">Téléchargements</a></li>
           <li><a href="/fr/faq/">FAQ</a></li>
@@ -213,7 +213,7 @@
                  src="/screenshots/fr/mobile-ai.webp" width="386" height="767"
                  alt="Tâches IA de Dovilo sur le téléphone : le même projet avec des tâches en attente de vous, en cours, en file et planifiées">
           </picture>
-          <figcaption>Les Tâches IA d'un projet, groupées selon ce qui a besoin de vous.</figcaption>
+          <figcaption>La même file sur l'ordinateur et le téléphone ; votre propre liste reste à part.</figcaption>
         </figure>
       </div>
     </section>
@@ -228,7 +228,7 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Comment ça marche</h2>
+          <h2>Comment se déroule une tâche IA</h2>
         </div>
         <ol class="steps steps-shots" role="list">
           <li class="step">
@@ -286,7 +286,7 @@
     <section class="section" id="built-with-dovilo">
       <div class="container">
         <div class="section-head">
-          <h2>Comment Dovilo lui-même est construit</h2>
+          <h2>Cas d'usage : Dovilo est construit avec les Tâches IA</h2>
           <p>Dovilo est construit ainsi. Il a cinq projets, Backend, Mobile, Desktop, Edge et Landing, et un agent Claude Code pour chacun. Je planifie un changement dans Claude, qui propose des tâches IA sous le bon projet. Je les approuve sur mon téléphone ; l'agent sur le poste de travail les traite, écrit ses étapes et ses notes sur la tâche, et s'arrête pour demander quand une décision me revient. Cette page est passée par le projet Landing de la même façon.</p>
         </div>
       </div>
@@ -295,7 +295,7 @@
     <section class="section" id="planning">
       <div class="container">
         <div class="section-head">
-          <h2>MCP standard, sans dépendance</h2>
+          <h2>Fonctionne avec tout client de code MCP</h2>
         </div>
         <ul class="integrations">
           <li><strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf et Claude Desktop</strong> traitent les tâches.</li>
@@ -307,28 +307,28 @@
     <section class="section" id="connect">
       <div class="container">
         <div class="section-head">
-          <h2>Configurer : une URL et une clé</h2>
+          <h2>Connecter un agent de code : une URL et une clé</h2>
         </div>
         <div class="code">
           <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Copier</button></div>
           <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
         </div>
-        <p>Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.</p>
-        <a class="link" href="/docs/mcp/">Both servers and every tool: the MCP reference <span aria-hidden="true">&rarr;</span></a>
+        <p>Créez un agent dans l'app, copiez sa clé une fois et pointez votre client vers <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop écrit la configuration pour 7 clients.</p>
+        <a class="link" href="/docs/mcp/">Les deux serveurs et chaque outil : la référence MCP <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Ce que l'IA peut faire ou non</h2>
+          <h2>Ce que votre agent de code peut faire, et ne peut pas faire</h2>
         </div>
         <ul class="trust">
           <li>Ses propres tâches, rien d'autre.</li>
-          <li>L'IA propose. Vous approuvez.</li>
-          <li>It cannot create or delete tasks. Cancelling leaves the task visible.</li>
+          <li>Une personne écrit ou approuve chaque tâche qu'il reçoit.</li>
+          <li>Il ne peut ni créer ni supprimer de tâches. Annuler laisse la tâche visible.</li>
           <li>Votre travail de code reste hors de votre app de chat, sauf si vous l'activez.</li>
-          <li>Révoquez toute connexion depuis votre téléphone, instantanément.</li>
+          <li>Révoquez n'importe quelle clé d'agent depuis votre téléphone, instantanément.</li>
         </ul>
         <details class="collapsible" id="tools">
           <summary>9 outils : 3 en lecture, 6 en écriture. Ni création, ni suppression</summary>
@@ -357,17 +357,17 @@
     <section class="section" id="connect-your-ai">
       <div class="container">
         <div class="section-head">
-          <h2>Plan in ChatGPT or Claude, hand it to your agent</h2>
-          <p>With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.</p>
+          <h2>Planifiez dans ChatGPT ou Claude, confiez-le à votre agent</h2>
+          <p>Avec l'accès aux tâches IA activé pour une connexion, ChatGPT ou Claude peut proposer des tâches IA dans vos projets, suivre leurs étapes et rédiger votre réponse quand un agent pose une question. Chaque proposition et chaque réponse attend votre accord sur le téléphone.</p>
         </div>
-        <a class="link" href="/fr/plan/#connect-your-ai">Connect your AI app <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" href="/fr/plan/#connect-your-ai">Connectez votre app IA <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section" id="webhooks">
       <div class="container">
         <div class="section-head">
-          <h2>Webhooks et démo</h2>
+          <h2>Webhooks et une démo open source</h2>
         </div>
         <div class="features">
           <div class="feature">
@@ -447,8 +447,8 @@
           <p class="footer-title">Produit</p>
           <ul>
             <li><a href="/fr/focus/">Focus</a></li>
-            <li><a href="/fr/plan/">Plan with AI</a></li>
-            <li><a href="/fr/ai/">AI Tasks</a></li>
+            <li><a href="/fr/plan/">Planifier avec l'IA</a></li>
+            <li><a href="/fr/ai/">Tâches IA</a></li>
             <li><a href="/fr/pricing/">Tarifs</a></li>
             <li><a href="/fr/downloads/">Téléchargements</a></li>
             <li><a href="/changelog/">Notes de version</a></li>
