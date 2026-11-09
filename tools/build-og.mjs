@@ -26,7 +26,11 @@
    blog indexes, /docs/mcp/ and old shares): a fixed headline, below, and the
    city capture.
 
-   Usage: npm run build:og [-- --check] */
+   A card whose pixels already match the fresh render (within a tolerance, so a
+   Tinify-compressed file passes) is left alone; see "Same card?" below. A card
+   that really changed is written and listed as needing Tinify.
+
+   Usage: npm run build:og [-- --check] [-- --verbose] */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -35,6 +39,7 @@ import { ROOT, SRC, PAGES, plain, loadStrings, stringsLanguages, cardName } from
 import { loadInter, assertInter, wrap, blockSize, renderLines } from './og-type.mjs';
 
 const CHECK = process.argv.includes('--check');
+const VERBOSE = process.argv.includes('--verbose');
 const W = 1200, H = 630;
 const BG = '#FAF8F4', TEXT = '#1C1B19', SURFACE = '#FFFFFF', BORDER = '#DED9D1'; /* system.css, light */
 const MARGIN = 64;
@@ -153,19 +158,89 @@ jobs.push({
   captures: ['mobile-city-26-772.webp'], capturesDir: '/screenshots', where: 'en/generic',
 });
 
-const changed = [];
+/* ─── Same card? ─── */
+
+/* A card on disk may have been through Tinify (by hand, the cards are not
+   part of build:captures --tinify): the same picture in other bytes. So "up
+   to date" means the same pixels within a tolerance, not the same bytes, and
+   build:og leaves such a card alone. `--verbose` prints every comparison.
+
+   A card is the same when it has the same size and format and
+     - the mean absolute difference over all channels is at most MEAN_TOL, and
+     - at most BIG_TOL of the samples differ by more than BIG_DELTA, and
+     - no TILE x TILE block has a mean difference above TILE_TOL.
+   The mean alone is diluted: a card is mostly flat background, so a changed
+   headline moves it less than Tinify's recompression does. The other two
+   look for a local change: recompression spreads a small error everywhere, a
+   different headline or capture moves a few places a lot. Each card is
+   compared with the fresh render, never with an earlier file, so small
+   differences cannot add up over rebuilds. Measured on 10 Nov 2026:
+                              mean         big               worst tile
+     Tinify, the ten L6 cards 1.86 to 2.41 0.0000 to 0.0009% 10.2 to 12.2
+     i changed to í           2.32         0.0087%           23.7
+     a full stop dropped      1.88         0.0140%           49.9
+     one character changed    0.29 to 1.92 0.0344 to 0.7340% 80.4 to 107.3
+     a capture swapped        5.86         1.6448%           91.2
+   Each limit sits above Tinify's worst and under the smallest edit tried
+   (TILE_TOL 1.5x and 1.3x, BIG_TOL 5x and 1.7x). Re-measure (--verbose)
+   before moving any, and when a new Tinify batch lands. */
+const MEAN_TOL = 3.0;
+const TILE = 16, TILE_TOL = 18;
+const BIG_DELTA = 64, BIG_TOL = 0.00005;   /* 0.005% of samples */
+
+async function decode(buf) {
+  const { data, info } = await sharp(buf).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  return { data, width: info.width, height: info.height };
+}
+
+/* null when the two files differ in format or size, or the one on disk cannot
+   be decoded (then it is rewritten); else { mean, big, tile }. */
+async function compare(existing, fresh) {
+  let a, b;
+  try { [a, b] = await Promise.all([sharp(existing).metadata(), sharp(fresh).metadata()]); } catch { return null; }
+  if (a.format !== b.format || a.width !== b.width || a.height !== b.height || a.channels !== b.channels) return null;
+  let x, y;
+  try { [x, y] = await Promise.all([decode(existing), decode(fresh)]); } catch { return null; }
+  let sum = 0, big = 0;
+  const tiles = new Float64Array(Math.ceil(x.width / TILE) * Math.ceil(x.height / TILE));
+  const perRow = Math.ceil(x.width / TILE), ch = x.data.length / (x.width * x.height);
+  for (let i = 0; i < x.data.length; i++) {
+    const d = Math.abs(x.data[i] - y.data[i]);
+    sum += d;
+    if (d > BIG_DELTA) big++;
+    const p = (i / ch) | 0;
+    tiles[Math.floor(p / x.width / TILE) * perRow + Math.floor((p % x.width) / TILE)] += d;
+  }
+  /* mean difference of the worst TILE x TILE block */
+  const tile = Math.max(...tiles) / (TILE * TILE * ch);
+  return { mean: sum / x.data.length, big: big / x.data.length, tile };
+}
+
+const changed = [];   /* cards whose pixels moved: written, or would be */
+const kept = [];      /* cards whose bytes differ but whose pixels match: left alone */
 loadInter(ROOT);
 await assertInter();
 for (const job of jobs) {
   const buf = await card(job);
   const file = path.join(ROOT, job.out);
-  if (existsSync(file) && readFileSync(file).equals(buf)) continue;
+  const existing = existsSync(file) ? readFileSync(file) : null;
+  if (existing && existing.equals(buf)) continue;
+  const d = existing ? await compare(existing, buf) : null;
+  const same = d && d.mean <= MEAN_TOL && d.big <= BIG_TOL && d.tile <= TILE_TOL;
+  if (VERBOSE) console.log(`${job.out.padEnd(22)} ${d ? `mean ${d.mean.toFixed(3)}  big ${(d.big * 100).toFixed(4)}%  tile ${d.tile.toFixed(1)}` : 'no comparable file'}  ${same ? 'same' : 'differs'}`);
+  if (same) { kept.push(job.out); continue; }
   changed.push(job.out);
   if (!CHECK) writeFileSync(file, buf);
 }
 
+const note = kept.length ? ` ${kept.length} card(s) match within tolerance and keep their bytes.` : '';
 if (CHECK && changed.length) {
   console.error(`Out of date: ${changed.join(', ')}. Run npm run build:og.`);
   process.exit(1);
 }
-console.log(changed.length ? `${CHECK ? 'Would write' : 'Wrote'} ${changed.join(', ')}.` : `Up to date: ${jobs.length} card(s).`);
+if (changed.length) {
+  console.log(`${CHECK ? 'Would write' : 'Wrote'} ${changed.join(', ')}.${note}`);
+  if (!CHECK) console.log(`Needs Tinify: ${changed.join(', ')}.`);
+} else {
+  console.log(`Up to date: ${jobs.length} card(s).${note}`);
+}
