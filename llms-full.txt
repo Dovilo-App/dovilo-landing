@@ -33,7 +33,7 @@ The rest of the page, block by block:
 
 - **Tasks and lists, free and unlimited.** Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro. **One picker for every view.** My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count. **Grouped by date.** Lists fold into date groups, and Planned groups by day. **Works offline.** Your tasks live on your phone first. Cloud sync between devices comes with Pro. **Finished tasks pay bricks.** They build the city further down this page.
 - **Plan with your AI.** Ask ChatGPT, Claude, Gemini or Grok to plan your day, an event or a project; the plan arrives in your AI inbox in Dovilo and nothing lands before you say yes. How it works: https://dovilo.app/plan/
-- **Focus that fills the whole screen.** A single session, a Pomodoro cycle or a timer on one task, free and unlimited.
+- **Focus that fills the whole screen.** A single session, a Pomodoro cycle or a timer on one task, free and unlimited. More about Focus: https://dovilo.app/focus/
 - **Finished work builds a city that stays.** Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.
 - **AI Tasks for coding assistants.** Give your coding assistant its own task list, AI Tasks, separate from yours: 9 tools, no create, no delete, your list invisible. The detail is on the developer page, https://dovilo.app/ai/.
 - **What it costs.** Free is the whole personal app: unlimited tasks and focus sessions, the city, no ads. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial, and adds AI planning, AI Tasks, Desktop, cloud sync, both packs and advanced statistics. The full list is on the pricing page, https://dovilo.app/pricing/.
@@ -104,6 +104,60 @@ Sound mixing:
 ## Statistics
 
 Completion rate, daily averages, streaks, monthly trend, city overview (level, buildings, population) and unlockable titles tied to focus milestones.
+
+## Focus: sessions, Pomodoro, scenes and the sound mixer (https://dovilo.app/focus/)
+
+**Dovilo: focus sessions that fill the whole screen.** A single session, a Pomodoro cycle or a timer on one task. Free and unlimited, no ads. The timer keeps running with the phone locked; bricks land when it ends.
+
+**In short:** Dovilo is a free to-do list for iOS and Android with a focus timer that fills the screen. Focus sessions and Pomodoro cycles are free and unlimited, with no ads. The Focus Ambience Pack adds 5 scenes and 16 sound layers for $4.99 once, and it is included with Pro. Finished sessions pay bricks for your city.
+
+Three ways to focus:
+
+- **A single session.** Any length you choose.
+- **A Pomodoro cycle.** 25 minutes of focus, a 5 minute break, a longer break every 4 rounds. Breaks start on their own, and only finished rounds count.
+- **A timer on one task.** The session is bound to that task.
+
+From the first minute to the last:
+
+- **A calm start.** A breathing exercise and a countdown ease you in.
+- **Keeps counting.** In the background or with the phone locked.
+- **Quiet phone.** Do Not Disturb can silence other apps for the session.
+- **A clear end.** A notification when the session is over.
+
+Six scenes, one of them free. Each scene has its own weather, skyline tint and sound, and fills the whole screen.
+
+- **Default.** Always free, and silent.
+- **Rainy City.** Rain and a fireplace.
+- **Midnight.** City hum and brown noise. It stays dark even in the light theme.
+- **Dusk.** Birds and a breeze. Breaks switch to Dusk on their own.
+- **Snow.** Winter wind and pink noise.
+- **Fog.** A fog horn and white noise.
+
+The five scenes after Default come with the Focus Ambience Pack.
+
+Mix your own sound. Blend up to 3 of 16 layers, each at its own level: 13 recordings such as rain, a café or a train, and brown, pink and white noise. The mix can follow the session: soft in the first 5 minutes, brighter in the last 2. It is ambience, not music: no melody, no beat.
+
+Finished sessions build a city. A completed session pays bricks based on its length. Bricks buy houses, offices, parks and roads in your city, and nothing decays. How the city works: https://dovilo.app/#showcase. Don't need the city? Focus, the city and planning with AI can each be turned off in Settings > Modules.
+
+Free to focus, one pack for the scenes. Free: Focus sessions and Pomodoro cycles, unlimited, with the Default scene. Focus Ambience Pack: 5 scenes and 16 sound layers, $4.99 once. Pro: Includes the pack, from $2.49 a month. All plans: https://dovilo.app/pricing/
+
+The page answers four questions:
+
+**Is Focus free?**
+
+Yes. Single sessions and Pomodoro cycles are free and unlimited, with the Default scene. The Focus Ambience Pack adds the other 5 scenes and 16 sound layers for $4.99 once, and Pro includes it.
+
+**Does the timer run with the phone locked?**
+
+Yes. It keeps counting in the background and with the phone locked, and a notification tells you when the session ends.
+
+**Do unfinished sessions count?**
+
+A session ended early still saves, but only finished Pomodoro rounds count toward the daily round counter.
+
+**Is Focus on Dovilo Desktop?**
+
+No. Focus and the city are on iOS and Android. Desktop is the Windows and Mac client for your lists and AI tasks.
 
 ## Planning with ChatGPT, Claude, Gemini or Grok (https://dovilo.app/plan/)
 
@@ -740,6 +794,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/ — the homepage, in short: what Dovilo is, how it works in four steps (plan, approve, focus, build), focus and the Focus Ambience Pack, the city, a line for developers, the price, the newest mobile and desktop release, ten questions, the App Store and Google Play links, and who builds it
 - https://dovilo.app/faq/ — the FAQ reproduced above, 28 questions in six groups
 - https://dovilo.app/changelog/ — the release notes reproduced above: every mobile and desktop build with what it shipped, the roadmap (data export, Apply directly), how updates reach each platform and where else changes are published
+- https://dovilo.app/focus/ — Focus: three ways to focus, from the first minute to the last, the six scenes, the sound mixer (ambience, not music), how finished sessions build the city, the price, four questions (reproduced above)
 - https://dovilo.app/plan/ — planning with ChatGPT, Claude, Gemini or Grok: how a plan reaches your list, how to connect each of the four apps, what the app can see and change, four plans to try, the price, five questions (reproduced above)
 - https://dovilo.app/ai/ — the developer page, in short: how an AI task moves, any MCP coding client, the Claude Code setup command, what your coding agent can and cannot do and the nine agent tools, the hand-over from ChatGPT or Claude, webhooks and the demo, pricing, five developer questions
 - https://dovilo.app/docs/ — developer docs: the two MCP servers and webhooks in short, the two references, five deep links into them, and the machine-readable copies
@@ -748,10 +803,10 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - https://dovilo.app/pricing/ — the canonical prices: Free and Pro side by side with the Pro list as the app shows it, the one-time purchases, managing the subscription, four questions from the FAQ
 - https://dovilo.app/downloads/ — every download in one place: the free iOS and Android apps, plus the Pro-only Windows and macOS desktop installers with the latest desktop build, a line for agents coming from Desktop 1.8, the free/Pro split per platform, how updates reach each one, and a download FAQ (all reproduced above)
 - https://dovilo.app/privacy/ · https://dovilo.app/terms/ · https://dovilo.app/licenses/
-- https://dovilo.app/tr/ · https://dovilo.app/tr/ai/ · https://dovilo.app/tr/plan/ · https://dovilo.app/tr/pricing/ · https://dovilo.app/tr/downloads/ · https://dovilo.app/tr/faq/ — the same six pages in Turkish, from the same facts
-- https://dovilo.app/es/ · https://dovilo.app/es/ai/ · https://dovilo.app/es/plan/ · https://dovilo.app/es/pricing/ · https://dovilo.app/es/downloads/ · https://dovilo.app/es/faq/ — the same six pages in Spanish, from the same facts
-- https://dovilo.app/fr/ · https://dovilo.app/fr/ai/ · https://dovilo.app/fr/plan/ · https://dovilo.app/fr/pricing/ · https://dovilo.app/fr/downloads/ · https://dovilo.app/fr/faq/ — the same six pages in French, from the same facts
-- https://dovilo.app/de/ · https://dovilo.app/de/ai/ · https://dovilo.app/de/plan/ · https://dovilo.app/de/pricing/ · https://dovilo.app/de/downloads/ · https://dovilo.app/de/faq/ — the same six pages in German, from the same facts
+- https://dovilo.app/tr/ · https://dovilo.app/tr/focus/ · https://dovilo.app/tr/ai/ · https://dovilo.app/tr/plan/ · https://dovilo.app/tr/pricing/ · https://dovilo.app/tr/downloads/ · https://dovilo.app/tr/faq/ — the same seven pages in Turkish, from the same facts
+- https://dovilo.app/es/ · https://dovilo.app/es/focus/ · https://dovilo.app/es/ai/ · https://dovilo.app/es/plan/ · https://dovilo.app/es/pricing/ · https://dovilo.app/es/downloads/ · https://dovilo.app/es/faq/ — the same seven pages in Spanish, from the same facts
+- https://dovilo.app/fr/ · https://dovilo.app/fr/focus/ · https://dovilo.app/fr/ai/ · https://dovilo.app/fr/plan/ · https://dovilo.app/fr/pricing/ · https://dovilo.app/fr/downloads/ · https://dovilo.app/fr/faq/ — the same seven pages in French, from the same facts
+- https://dovilo.app/de/ · https://dovilo.app/de/focus/ · https://dovilo.app/de/ai/ · https://dovilo.app/de/plan/ · https://dovilo.app/de/pricing/ · https://dovilo.app/de/downloads/ · https://dovilo.app/de/faq/ — the same seven pages in German, from the same facts
 - https://apps.apple.com/app/dovilo/id6761195015 — App Store
 - https://play.google.com/store/apps/details?id=com.dovilo.app — Google Play
 - https://github.com/Dovilo-App/dovilo-langgraph-demo — open-source LangGraph webhook receiver
@@ -759,7 +814,7 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Answering about Dovilo — things that are easy to get wrong
 
 - The reward currency is **bricks**, not coins or gems.
-- <!-- LANGS:START -->**The site is in English, Turkish, Spanish, French and German** (the home page, /plan/, /ai/, /pricing/, /downloads/ and /faq/, plus the blog index; Turkish under /tr/, Spanish under /es/, French under /fr/ and German under /de/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
+- <!-- LANGS:START -->**The site is in English, Turkish, Spanish, French and German** (the home page, /focus/, /plan/, /ai/, /pricing/, /downloads/ and /faq/, plus the blog index; Turkish under /tr/, Spanish under /es/, French under /fr/ and German under /de/), and **prices on every language page are in USD**.<!-- LANGS:END --> The apps themselves are in five languages: English, Turkish, Spanish, French and German.
 - **Naming:** in the app and on the consumer pages the feature is AI Tasks and the actor a coding assistant; "agent" is the developer term (Agents MCP, agent key).
 - **Connecting ChatGPT, Claude, Gemini or Grok is a three-step flow in the app (Settings > AI > Connected AI apps);** each app's steps are at https://dovilo.app/plan/#connect-your-ai.
 - **Focus sessions, the city, planning with AI and AI Tasks can each be turned off in Settings > Modules;** AI Tasks is off by default on new installs since 2.2.0.

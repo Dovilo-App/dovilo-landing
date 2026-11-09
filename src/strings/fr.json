@@ -175,8 +175,7 @@
         "p": "Une session unique, un cycle Pomodoro ou un minuteur sur une tâche, gratuits et illimités. Le Pack Atmosphère de concentration ajoute 5 scènes et 16 couches sonores, 3 à la fois : $4.99 en paiement unique, inclus dans Pro.",
         "link": "More about Focus",
         "rainAlt": "Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes",
-        "rainCaption": "Ville sous la pluie, 22 minutes restantes.",
-        "mixerAlt": "Mixeur sonore d'atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé"
+        "rainCaption": "Ville sous la pluie, 22 minutes restantes."
       },
       "city": {
         "title": "Une ville qui reste",
@@ -253,6 +252,94 @@
         }
       },
       "blogLink": "Écrit en construisant Dovilo : le blog"
+    },
+    "focus": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Pomodoro focus timer with full-screen ambience - Dovilo",
+        "description": "A free focus timer for iOS and Android: single sessions, Pomodoro cycles or a timer on one task, with full-screen scenes. Unlimited, no ads.",
+        "ogAlt": "Dovilo: focus sessions that fill the whole screen, beside a focus session in the Rainy City scene",
+        "crumb": "Focus"
+      },
+      "hero": {
+        "h1": "Dovilo: focus sessions that fill the whole screen.",
+        "sub": "A single session, a Pomodoro cycle or a timer on one task. Free and unlimited, no ads.",
+        "alt": "Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes",
+        "caption": "The timer keeps running with the phone locked; bricks land when it ends."
+      },
+      "about": {
+        "p": "Dovilo is a free to-do list for iOS and Android with a focus timer that fills the screen. Focus sessions and Pomodoro cycles are free and unlimited, with no ads. The Focus Ambience Pack adds 5 scenes and 16 sound layers for $4.99 once, and it is included with Pro. Finished sessions pay bricks for your city."
+      },
+      "modes": {
+        "title": "Three ways to focus",
+        "single": "<strong>A single session.</strong> Any length you choose.",
+        "pomodoro": "<strong>A Pomodoro cycle.</strong> 25 minutes of focus, a 5 minute break, a longer break every 4 rounds. Breaks start on their own, and only finished rounds count.",
+        "task": "<strong>A timer on one task.</strong> The session is bound to that task."
+      },
+      "session": {
+        "title": "From the first minute to the last",
+        "start": "<strong>A calm start.</strong> A breathing exercise and a countdown ease you in.",
+        "counting": "<strong>Keeps counting.</strong> In the background or with the phone locked.",
+        "quiet": "<strong>Quiet phone.</strong> Do Not Disturb can silence other apps for the session.",
+        "end": "<strong>A clear end.</strong> A notification when the session is over."
+      },
+      "scenes": {
+        "title": "Six scenes, one of them free",
+        "p": "Each scene has its own weather, skyline tint and sound, and fills the whole screen.",
+        "default": "<strong>Default.</strong> Always free, and silent.",
+        "rainy": "<strong>Rainy City.</strong> Rain and a fireplace.",
+        "midnight": "<strong>Midnight.</strong> City hum and brown noise. It stays dark even in the light theme.",
+        "dusk": "<strong>Dusk.</strong> Birds and a breeze. Breaks switch to Dusk on their own.",
+        "snow": "<strong>Snow.</strong> Winter wind and pink noise.",
+        "fog": "<strong>Fog.</strong> A fog horn and white noise.",
+        "note": "The five scenes after Default come with the Focus Ambience Pack."
+      },
+      "sound": {
+        "title": "Mix your own sound",
+        "p": "Blend up to 3 of 16 layers, each at its own level: 13 recordings such as rain, a café or a train, and brown, pink and white noise. The mix can follow the session: soft in the first 5 minutes, brighter in the last 2.",
+        "alt": "Mixeur sonore d'atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé",
+        "caption": "It is ambience, not music: no melody, no beat."
+      },
+      "bricks": {
+        "title": "Finished sessions build a city",
+        "p": "A completed session pays bricks based on its length. Bricks buy houses, offices, parks and roads in your city, and nothing decays.",
+        "link": "How the city works",
+        "modules": "Don't need the city? Focus, the city and planning with AI can each be turned off in Settings &gt; Modules."
+      },
+      "pricing": {
+        "title": "Free to focus, one pack for the scenes",
+        "free": {
+          "label": "Free",
+          "text": "Focus sessions and Pomodoro cycles, unlimited, with the Default scene."
+        },
+        "pack": {
+          "label": "Focus Ambience Pack",
+          "text": "5 scenes and 16 sound layers, $4.99 once."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Includes the pack, from $2.49 a month."
+        },
+        "link": "All plans"
+      },
+      "faq": {
+        "free": {
+          "q": "Is Focus free?",
+          "a": "Yes. Single sessions and Pomodoro cycles are free and unlimited, with the Default scene. The Focus Ambience Pack adds the other 5 scenes and 16 sound layers for $4.99 once, and Pro includes it."
+        },
+        "locked": {
+          "q": "Does the timer run with the phone locked?",
+          "a": "Yes. It keeps counting in the background and with the phone locked, and a notification tells you when the session ends."
+        },
+        "unfinished": {
+          "q": "Do unfinished sessions count?",
+          "a": "A session ended early still saves, but only finished Pomodoro rounds count toward the daily round counter."
+        },
+        "desktop": {
+          "q": "Is Focus on Dovilo Desktop?",
+          "a": "No. Focus and the city are on iOS and Android. Desktop is the Windows and Mac client for your lists and AI tasks."
+        }
+      }
     },
     "ai": {
       "updated": "2026-11-09",

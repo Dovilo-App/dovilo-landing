@@ -1,0 +1,289 @@
+{{! card: layout=phone captures=mobile-focus-rain-772.webp }}
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{t.meta.title}}</title>
+  <meta name="description" content="{{t.meta.description}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{page.canonical}}">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">{{page.hreflang}}
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:title" content="{{t.meta.title}}">
+  <meta property="og:description" content="{{t.meta.description}}">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{t.meta.ogAlt}}">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="{{lang.ogLocale}}">{{page.ogLocaleAlternates}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="{{t.meta.title}}">
+  <meta name="twitter:description" content="{{t.meta.description}}">
+  <meta name="twitter:image" content="{{page.ogImage}}">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise light. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{t.meta.title|json}}",
+  "description": "{{t.meta.description|json}}",
+  "url": "{{page.canonical}}",
+  "image": "{{page.ogImage}}",
+  "inLanguage": "{{lang.code}}",
+  "dateModified": "{{t.updated}}",
+  "about": { "@id": "https://dovilo.app/#app" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dovilo",
+    "url": "https://dovilo.app/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "{{page.homeUrl}}" },
+    { "@type": "ListItem", "position": 2, "name": "{{t.meta.crumb|json}}", "item": "{{page.canonical}}" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{t.faq.free.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.free.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.locked.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.locked.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.unfinished.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.unfinished.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.desktop.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.desktop.a|json}}"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  {{> nav}}
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container hero-split">
+        <div>
+          <h1>{{t.hero.h1}}</h1>
+          <p class="hero-sub">{{t.hero.sub}}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="{{href.downloads}}?source=focus_hero">{{c.getDovilo}}</a>
+            <a class="btn btn-secondary" href="{{href.pricing}}">{{c.seePricing}}</a>
+          </div>
+        </div>
+        <figure class="figure figure-phone figure-stage">
+          <picture>
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-focus-rain-dark.webp 386w, {{lang.captures}}/mobile-focus-rain-dark-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+            <img srcset="{{lang.captures}}/mobile-focus-rain.webp 386w, {{lang.captures}}/mobile-focus-rain-772.webp 772w"
+                 sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                 src="{{lang.captures}}/mobile-focus-rain.webp" width="386" height="767" fetchpriority="high"
+                 alt="{{t.hero.alt}}">
+          </picture>
+          <figcaption>{{t.hero.caption}}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2>{{c.inShort}}</h2>
+        <p>{{t.about.p}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="modes">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.modes.title}}</h2>
+        </div>
+        <ul class="integrations">
+          <li>{{t.modes.single}}</li>
+          <li>{{t.modes.pomodoro}}</li>
+          <li>{{t.modes.task}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="session">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.session.title}}</h2>
+        </div>
+        <ul class="integrations">
+          <li>{{t.session.start}}</li>
+          <li>{{t.session.counting}}</li>
+          <li>{{t.session.quiet}}</li>
+          <li>{{t.session.end}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="scenes">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.scenes.title}}</h2>
+          <p>{{t.scenes.p}}</p>
+        </div>
+        <ul class="integrations">
+          <li>{{t.scenes.default}}</li>
+          <li>{{t.scenes.rainy}}</li>
+          <li>{{t.scenes.midnight}}</li>
+          <li>{{t.scenes.dusk}}</li>
+          <li>{{t.scenes.snow}}</li>
+          <li>{{t.scenes.fog}}</li>
+        </ul>
+        <p class="note">{{t.scenes.note}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="sound">
+      <div class="container">
+        <div class="split">
+          <div class="section-head">
+            <h2>{{t.sound.title}}</h2>
+            <p>{{t.sound.p}}</p>
+          </div>
+          <figure class="figure figure-phone figure-stage">
+            <picture>
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ambience-mixer-dark.webp 386w, {{lang.captures}}/mobile-ambience-mixer-dark-772.webp 772w"
+                     sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="413">
+              <img srcset="{{lang.captures}}/mobile-ambience-mixer.webp 386w, {{lang.captures}}/mobile-ambience-mixer-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                   src="{{lang.captures}}/mobile-ambience-mixer.webp" width="386" height="413" loading="lazy"
+                   alt="{{t.sound.alt}}">
+            </picture>
+            <figcaption>{{t.sound.caption}}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bricks">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.bricks.title}}</h2>
+          <p>{{t.bricks.p}}</p>
+        </div>
+        <a class="link" href="{{href.home}}#showcase">{{t.bricks.link}} <span aria-hidden="true">&rarr;</span></a>
+        <p class="note">{{t.bricks.modules}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.pricing.title}}</h2>
+        </div>
+        <ul class="pricing-summary">
+          <li><strong>{{t.pricing.free.label}}</strong><span>{{t.pricing.free.text}}</span></li>
+          <li><strong>{{t.pricing.pack.label}}</strong><span>{{t.pricing.pack.text}}</span></li>
+          <li><strong>{{t.pricing.pro.label}}</strong><span>{{t.pricing.pro.text}}</span></li>
+        </ul>
+        <a class="link" href="{{href.pricing}}">{{t.pricing.link}} <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{c.straightAnswers}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.free.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.free.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.locked.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.locked.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.unfinished.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.unfinished.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.desktop.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.desktop.a}}</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="container">
+        <h2>{{c.closing.title}}</h2>
+        <p>{{c.closing.p}}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="{{href.downloads}}?source=focus_footer">{{c.getDovilo}}</a>
+          <a class="btn btn-secondary" href="{{href.pricing}}">{{c.seePricing}}</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  {{> footer}}
+
+  {{> site-script}}
+</body>
+</html>

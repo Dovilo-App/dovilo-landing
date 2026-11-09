@@ -133,6 +133,7 @@ export const LANGUAGES = [
    step under English (A130 3.7). */
 export const PAGES = [
   { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
+  { id: 'focus', path: '/focus/', out: 'focus/index.html', card: 'og-focus', langPriority: '0.8' },
   { id: 'ai', path: '/ai/', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
   { id: 'plan', path: '/plan/', out: 'plan/index.html', card: 'og-plan', langPriority: '0.8' },
   { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },

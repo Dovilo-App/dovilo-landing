@@ -173,8 +173,7 @@
         "p": "Tek seans, Pomodoro döngüsü ya da tek bir göreve bağlı zamanlayıcı; ücretsiz ve sınırsız.",
         "link": "Odak hakkında daha fazlası",
         "rainAlt": "Dovilo'da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı",
-        "rainCaption": "Her sahne kendi havası, silüeti ve sesiyle gelir.",
-        "mixerAlt": "Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık"
+        "rainCaption": "Her sahne kendi havası, silüeti ve sesiyle gelir."
       },
       "city": {
         "title": "Bitirdiğin iş kalıcı bir şehir kurar",
@@ -251,6 +250,94 @@
         }
       },
       "blogLink": "Dovilo'yu yaparken yazılanlar: blog"
+    },
+    "focus": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Tam ekran atmosferli Pomodoro odak zamanlayıcısı - Dovilo",
+        "description": "iOS ve Android için ücretsiz odak zamanlayıcısı: tek seans, Pomodoro ya da tek göreve bağlı zamanlayıcı, tam ekran sahnelerle. Reklamsız.",
+        "ogAlt": "Dovilo: tüm ekranı dolduran odak seansları; yanında Yağmurlu şehir sahnesinde bir odak seansı",
+        "crumb": "Odak"
+      },
+      "hero": {
+        "h1": "Dovilo: tüm ekranı dolduran odak seansları.",
+        "sub": "Tek seans, Pomodoro döngüsü ya da tek bir göreve bağlı zamanlayıcı. Ücretsiz, sınırsız ve reklamsız.",
+        "alt": "Dovilo'da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı",
+        "caption": "Telefon kilitliyken de zamanlayıcı işler; bitince tuğlalar düşer."
+      },
+      "about": {
+        "p": "Dovilo, iOS ve Android için ekranı dolduran bir odak zamanlayıcısı da olan ücretsiz bir yapılacaklar listesi. Odak seansları ve Pomodoro döngüleri ücretsiz ve sınırsız, reklam yok. Odak Atmosfer Paketi bir kerelik $4.99'a 5 sahne ve 16 ses katmanı ekler ve Pro'ya dahildir. Biten seanslar şehrin için tuğla kazandırır."
+      },
+      "modes": {
+        "title": "Odaklanmanın üç yolu",
+        "single": "<strong>Tek seans.</strong> İstediğin uzunlukta.",
+        "pomodoro": "<strong>Pomodoro döngüsü.</strong> 25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola. Molalar kendiliğinden başlar ve yalnızca biten turlar sayılır.",
+        "task": "<strong>Tek bir göreve bağlı zamanlayıcı.</strong> Seans o göreve bağlanır."
+      },
+      "session": {
+        "title": "İlk dakikadan sonuncusuna",
+        "start": "<strong>Sakin bir başlangıç.</strong> Bir nefes egzersizi ve geri sayım seni hazırlar.",
+        "counting": "<strong>Saymaya devam eder.</strong> Arka planda ya da telefon kilitliyken.",
+        "quiet": "<strong>Sessiz telefon.</strong> Rahatsız etme, seans boyunca diğer uygulamaları susturabilir.",
+        "end": "<strong>Net bir bitiş.</strong> Seans bitince bir bildirim gelir."
+      },
+      "scenes": {
+        "title": "Altı sahne, biri ücretsiz",
+        "p": "Her sahnenin kendi havası, silüet tonu ve sesi var; tüm ekranı doldurur.",
+        "default": "<strong>Varsayılan.</strong> Her zaman ücretsiz ve sessiz.",
+        "rainy": "<strong>Yağmurlu şehir.</strong> Yağmur ve şömine.",
+        "midnight": "<strong>Gece yarısı.</strong> Şehir uğultusu ve kahverengi gürültü. Açık temada bile karanlık kalır.",
+        "dusk": "<strong>Gün batımı.</strong> Kuşlar ve rüzgâr. Molalar kendiliğinden Gün batımına geçer.",
+        "snow": "<strong>Kar.</strong> Kış rüzgârı ve pembe gürültü.",
+        "fog": "<strong>Sis.</strong> Sis düdüğü ve beyaz gürültü.",
+        "note": "Varsayılan dışındaki beş sahne Odak Atmosfer Paketi ile gelir."
+      },
+      "sound": {
+        "title": "Kendi sesini karıştır",
+        "p": "16 katmandan 3'ünü, her birini kendi seviyesinde karıştır: yağmur, kafe ya da tren gibi 13 kayıt ve kahverengi, pembe ve beyaz gürültü. Karışım seansı takip edebilir: ilk 5 dakikada yumuşak, son 2 dakikada daha parlak.",
+        "alt": "Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık",
+        "caption": "Bu bir atmosfer, müzik değil: melodi yok, ritim yok."
+      },
+      "bricks": {
+        "title": "Biten seanslar bir şehir kurar",
+        "p": "Tamamlanan bir seans uzunluğuna göre tuğla kazandırır. Tuğlalarla şehrine ev, ofis, park ve yol alırsın; hiçbir şey geri gitmez.",
+        "link": "Şehir nasıl çalışır",
+        "modules": "Şehre ihtiyacın yok mu? Odak, şehir ve AI ile planlama Ayarlar &gt; Modüller bölümünden ayrı ayrı kapatılabilir."
+      },
+      "pricing": {
+        "title": "Odaklanmak ücretsiz, sahneler için tek paket",
+        "free": {
+          "label": "Ücretsiz",
+          "text": "Odak seansları ve Pomodoro döngüleri, sınırsız, Varsayılan sahneyle."
+        },
+        "pack": {
+          "label": "Odak Atmosfer Paketi",
+          "text": "5 sahne ve 16 ses katmanı, bir kerelik $4.99."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Paket dahil, ayda $2.49'dan başlayan fiyatlarla."
+        },
+        "link": "Tüm planlar"
+      },
+      "faq": {
+        "free": {
+          "q": "Odak ücretsiz mi?",
+          "a": "Evet. Tek seanslar ve Pomodoro döngüleri ücretsiz ve sınırsız, Varsayılan sahneyle. Odak Atmosfer Paketi diğer 5 sahneyi ve 16 ses katmanını bir kerelik $4.99'a ekler; Pro'ya dahildir."
+        },
+        "locked": {
+          "q": "Zamanlayıcı telefon kilitliyken çalışır mı?",
+          "a": "Evet. Arka planda ve telefon kilitliyken saymaya devam eder; seans bitince bir bildirim gelir."
+        },
+        "unfinished": {
+          "q": "Yarım kalan seanslar sayılır mı?",
+          "a": "Erken bitirilen seans yine kaydedilir, ama günlük tur sayacına yalnızca tamamlanan Pomodoro turları sayılır."
+        },
+        "desktop": {
+          "q": "Odak Dovilo Desktop'ta var mı?",
+          "a": "Hayır. Odak ve şehir iOS ve Android'de. Desktop, listelerin ve AI görevlerin için Windows ve Mac istemcisi."
+        }
+      }
     },
     "ai": {
       "updated": "2026-11-09",
