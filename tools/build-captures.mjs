@@ -46,6 +46,7 @@ const PHONE_WIDTHS = [[386, ''], [772, '-772']];
 const PHONES = [
   ['mobile-ai-inbox', '01'],
   ['mobile-ai', '02'],
+  ['mobile-connected-apps', '04'],
   ['mobile-ai-done', '05'],
   ['mobile-list-birthday', '07'],
   ['mobile-focus-rain', '08'],

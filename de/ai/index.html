@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/de/ai/",
   "image": "https://dovilo.app/og-ai-de.jpg",
   "inLanguage": "de",
-  "dateModified": "2026-11-08",
+  "dateModified": "2026-11-09",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -153,11 +153,13 @@
       <a class="nav-logo" href="/de/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Hauptmenü">
         <ul class="nav-links" id="nav-links">
+          <li><a href="/de/">Tasks</a></li>
+          <li><a href="/de/focus/">Focus</a></li>
+          <li><a href="/de/plan/">Plan with AI</a></li>
           <li><a href="/de/ai/" aria-current="page">KI</a></li>
           <li><a href="/de/pricing/">Preise</a></li>
           <li><a href="/de/downloads/">Downloads</a></li>
           <li><a href="/de/faq/">FAQ</a></li>
-          <li><a href="/de/blog/">Blog</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
@@ -296,93 +298,9 @@
           <h2>Reines MCP, kein Lock-in</h2>
         </div>
         <ul class="integrations">
-          <li><strong>ChatGPT, Claude, Gemini und Grok</strong> planen die Arbeit und schicken sie dir zur Freigabe.</li>
           <li><strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf und Claude Desktop</strong> arbeiten die Aufgaben ab.</li>
           <li><strong>LangGraph, CI-Jobs und jeder MCP-Client</strong> verbinden sich mit derselben URL und demselben Schlüssel.</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section" id="servers">
-      <div class="container">
-        <div class="section-head">
-          <h2>Zwei Server</h2>
-        </div>
-        <div class="facts-boxes">
-          <div class="facts-box">
-            <h3>Agents MCP</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp/agents</code></li>
-              <li>Für Coding-Agenten</li>
-              <li>Ein Schlüssel pro Agent, einmal angezeigt</li>
-            </ul>
-          </div>
-          <div class="facts-box">
-            <h3>Personal MCP</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp</code></li>
-              <li>Für ChatGPT, Claude, Gemini und Grok</li>
-              <li>Anmeldung mit deinem Dovilo-Konto</li>
-            </ul>
-          </div>
-        </div>
-        <a class="link" href="/docs/mcp/">Alle Tools in der MCP-Doku <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
-
-    <section class="section" id="connect-your-ai">
-      <div class="container flow">
-        <h2>Verbinde deine KI-App</h2>
-        <p>ChatGPT, Claude, Gemini und Grok verbinden sich mit Dovilos Personal MCP unter <code>https://dovilo.app/mcp</code>. Melde dich zuerst bei Dovilo an; wenn deine KI-App dich zur Anmeldung auffordert, nutze dasselbe Google- oder Apple-Konto. In der App führt dich Einstellungen &gt; KI &gt; Verbundene KI-Apps durch dieselben Schritte.</p>
-        <details class="collapsible">
-          <summary>ChatGPT</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Öffne chatgpt.com/plugins.</li>
-              <li>Wähle „+“ und dann „Add custom MCP server“.</li>
-              <li>Nenne ihn Dovilo und füge die Adresse ein.</li>
-              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
-            </ol>
-            <p class="note">Im Web. Ob du einen eigenen MCP-Server hinzufügen kannst, hängt von deinem ChatGPT-Plan ab.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Claude</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Öffne Customize &gt; Connectors.</li>
-              <li>Wähle „Add custom connector“.</li>
-              <li>Nenne ihn Dovilo und füge die Adresse ein.</li>
-              <li>Wähle „Connect“, melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
-            </ol>
-            <p class="note">Auf claude.ai oder in Claude Desktop; danach funktioniert es auch in der mobilen App. Der kostenlose Plan erlaubt einen eigenen Connector.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Gemini</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Öffne gemini.google.com &gt; Settings &gt; Connected Apps.</li>
-              <li>Wähle „Add a custom app“.</li>
-              <li>Füge die Adresse ein und wähle dann „Next“.</li>
-              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
-            </ol>
-            <p class="note">In der Gemini-Web-App. Google bietet das für private Konten in den USA ab 18 Jahren mit aktiviertem „Keep Activity“ an.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Grok</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Öffne grok.com/connectors.</li>
-              <li>Wähle „New Connector“ und dann „Custom“.</li>
-              <li>Füge die Adresse ein.</li>
-              <li>Melde dich mit deinem Dovilo-Konto an und bestätige den Zustimmungsbildschirm.</li>
-            </ol>
-          </div>
-        </details>
-        <p>Bitte sie dann in einem neuen Chat um einen Plan, zum Beispiel: „Plane meinen morgigen Tag in Dovilo mit 3 kleinen Aufgaben.“ Der Plan erscheint in deinem KI-Eingang; prüfe ihn und nimm ihn an. Verbinden und Pläne senden ist kostenlos; einen Plan zu deinen Listen hinzuzufügen braucht Pro.</p>
-        <p class="note">Die Menünamen sind die englischen Bezeichnungen der jeweiligen App, entnommen ihrer Hilfeseite am 20. Oktober 2026: <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Claude</a>, <a href="https://support.google.com/gemini/answer/17209137" target="_blank" rel="noopener">Gemini</a>, <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>. Ist ein Menü umgezogen, steht das aktuelle auf der Hilfeseite.</p>
       </div>
     </section>
 
@@ -395,7 +313,8 @@
           <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Kopieren</button></div>
           <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
         </div>
-        <p>Dovilo Desktop schreibt die Konfiguration für 7 Clients. Dann schreib ein Projekt-Briefing und eine KI-Aufgabe.</p>
+        <p>Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.</p>
+        <a class="link" href="/docs/mcp/">Both servers and every tool: the MCP reference <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -407,8 +326,8 @@
         <ul class="trust">
           <li>Ihre eigenen Aufgaben, sonst nichts.</li>
           <li>Die KI schlägt vor. Du gibst frei.</li>
+          <li>It cannot create or delete tasks. Cancelling leaves the task visible.</li>
           <li>Deine Coding-Arbeit bleibt aus deiner Chat-App heraus, außer du schaltest es ein.</li>
-          <li>Kein Lösch-Tool. Nicht jetzt, nicht später.</li>
           <li>Trenne jede Verbindung sofort vom Smartphone aus.</li>
         </ul>
         <details class="collapsible" id="tools">
@@ -432,6 +351,16 @@
             </div>
           </div>
         </details>
+      </div>
+    </section>
+
+    <section class="section" id="connect-your-ai">
+      <div class="container">
+        <div class="section-head">
+          <h2>Plan in ChatGPT or Claude, hand it to your agent</h2>
+          <p>With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.</p>
+        </div>
+        <a class="link" href="/de/plan/#connect-your-ai">Connect your AI app <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -517,10 +446,13 @@
         <div>
           <p class="footer-title">Produkt</p>
           <ul>
-            <li><a href="/de/ai/">Für Entwickler</a></li>
-            <li><a href="/de/downloads/">Downloads</a></li>
+            <li><a href="/de/focus/">Focus</a></li>
+            <li><a href="/de/plan/">Plan with AI</a></li>
+            <li><a href="/de/ai/">AI Tasks</a></li>
             <li><a href="/de/pricing/">Preise</a></li>
+            <li><a href="/de/downloads/">Downloads</a></li>
             <li><a href="/changelog/">Versionshinweise</a></li>
+            <li><a href="/de/blog/">Blog</a></li>
           </ul>
         </div>
         <div>
@@ -535,7 +467,6 @@
         <div>
           <p class="footer-title">Dovilo</p>
           <ul>
-            <li><a href="/de/blog/">Blog</a></li>
             <li><a href="/privacy/">Datenschutz</a></li>
             <li><a href="/terms/">Nutzungsbedingungen</a></li>
             <li><a href="/licenses/">Lizenzen</a></li>

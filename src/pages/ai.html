@@ -284,93 +284,9 @@
           <h2>{{t.planning.title}}</h2>
         </div>
         <ul class="integrations">
-          <li>{{t.planning.chat}}</li>
           <li>{{t.planning.coding}}</li>
           <li>{{t.planning.any}}</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section" id="servers">
-      <div class="container">
-        <div class="section-head">
-          <h2>{{t.servers.title}}</h2>
-        </div>
-        <div class="facts-boxes">
-          <div class="facts-box">
-            <h3>{{t.servers.agents.title}}</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp/agents</code></li>
-              <li>{{t.servers.agents.for}}</li>
-              <li>{{t.servers.agents.key}}</li>
-            </ul>
-          </div>
-          <div class="facts-box">
-            <h3>{{t.servers.personal.title}}</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp</code></li>
-              <li>{{t.servers.personal.for}}</li>
-              <li>{{t.servers.personal.signin}}</li>
-            </ul>
-          </div>
-        </div>
-        <a class="link" href="/docs/mcp/">{{t.servers.link}} <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
-
-    <section class="section" id="connect-your-ai">
-      <div class="container flow">
-        <h2>{{t.connectAi.title}}</h2>
-        <p>{{t.connectAi.p}}</p>
-        <details class="collapsible">
-          <summary>{{t.connectAi.apps.chatgpt.name}}</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>{{t.connectAi.apps.chatgpt.s1}}</li>
-              <li>{{t.connectAi.apps.chatgpt.s2}}</li>
-              <li>{{t.connectAi.apps.chatgpt.s3}}</li>
-              <li>{{t.connectAi.apps.chatgpt.s4}}</li>
-            </ol>
-            <p class="note">{{t.connectAi.apps.chatgpt.note}}</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>{{t.connectAi.apps.claude.name}}</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>{{t.connectAi.apps.claude.s1}}</li>
-              <li>{{t.connectAi.apps.claude.s2}}</li>
-              <li>{{t.connectAi.apps.claude.s3}}</li>
-              <li>{{t.connectAi.apps.claude.s4}}</li>
-            </ol>
-            <p class="note">{{t.connectAi.apps.claude.note}}</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>{{t.connectAi.apps.gemini.name}}</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>{{t.connectAi.apps.gemini.s1}}</li>
-              <li>{{t.connectAi.apps.gemini.s2}}</li>
-              <li>{{t.connectAi.apps.gemini.s3}}</li>
-              <li>{{t.connectAi.apps.gemini.s4}}</li>
-            </ol>
-            <p class="note">{{t.connectAi.apps.gemini.note}}</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>{{t.connectAi.apps.grok.name}}</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>{{t.connectAi.apps.grok.s1}}</li>
-              <li>{{t.connectAi.apps.grok.s2}}</li>
-              <li>{{t.connectAi.apps.grok.s3}}</li>
-              <li>{{t.connectAi.apps.grok.s4}}</li>
-            </ol>
-          </div>
-        </details>
-        <p>{{t.connectAi.try}}</p>
-        <p class="note">{{t.connectAi.source}}</p>
       </div>
     </section>
 
@@ -384,6 +300,7 @@
           <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
         </div>
         <p>{{t.connect.p}}</p>
+        <a class="link" href="/docs/mcp/">{{t.connect.link}} <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -395,8 +312,8 @@
         <ul class="trust">
           <li>{{t.trust.own}}</li>
           <li>{{t.trust.approve}}</li>
+          <li>{{t.trust.create}}</li>
           <li>{{t.trust.chat}}</li>
-          <li>{{t.trust.delete}}</li>
           <li>{{t.trust.revoke}}</li>
         </ul>
         <details class="collapsible" id="tools">
@@ -420,6 +337,16 @@
             </div>
           </div>
         </details>
+      </div>
+    </section>
+
+    <section class="section" id="connect-your-ai">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.bridge.title}}</h2>
+          <p>{{t.bridge.p}}</p>
+        </div>
+        <a class="link" href="{{href.plan}}#connect-your-ai">{{t.bridge.link}} <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 

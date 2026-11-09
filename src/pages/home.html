@@ -373,6 +373,20 @@
       </div>
     </section>
 
+    <section class="section" id="tasks">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.tasks.title}}</h2>
+          <p>{{t.tasks.p}}</p>
+        </div>
+        <ul class="integrations">
+          <li>{{t.tasks.views}}</li>
+          <li>{{t.tasks.groups}}</li>
+          <li>{{t.tasks.offline}}</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="plan-with-ai">
       <div class="container">
         <div class="section-head">
@@ -380,41 +394,31 @@
           <p>{{t.plan.p}}</p>
         </div>
         <p class="note">{{t.plan.pro}}</p>
-        <a class="link" href="{{href.ai}}#connect-your-ai">{{t.plan.link}} <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" href="{{href.plan}}">{{t.plan.link}} <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section" id="focus">
       <div class="container">
         <div class="split">
-          <div class="section-head">
-            <h2>{{t.focus.title}}</h2>
-            <p>{{t.focus.p}}</p>
+          <div>
+            <div class="section-head">
+              <h2>{{t.focus.title}}</h2>
+              <p>{{t.focus.p}}</p>
+            </div>
+            <a class="link" href="{{href.focus}}">{{t.focus.link}} <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="figure-row">
-            <figure class="figure figure-stage">
-              <picture>
-                <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-focus-rain-dark.webp 386w, {{lang.captures}}/mobile-focus-rain-dark-772.webp 772w"
-                       sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="767">
-                <img srcset="{{lang.captures}}/mobile-focus-rain.webp 386w, {{lang.captures}}/mobile-focus-rain-772.webp 772w"
-                     sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
-                     src="{{lang.captures}}/mobile-focus-rain.webp" width="386" height="767" loading="lazy"
-                     alt="{{t.focus.rainAlt}}">
-              </picture>
-              <figcaption>{{t.focus.rainCaption}}</figcaption>
-            </figure>
-            <figure class="figure figure-stage">
-              <picture>
-                <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ambience-mixer-dark.webp 386w, {{lang.captures}}/mobile-ambience-mixer-dark-772.webp 772w"
-                       sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="413">
-                <img srcset="{{lang.captures}}/mobile-ambience-mixer.webp 386w, {{lang.captures}}/mobile-ambience-mixer-772.webp 772w"
-                     sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
-                     src="{{lang.captures}}/mobile-ambience-mixer.webp" width="386" height="413" loading="lazy"
-                     alt="{{t.focus.mixerAlt}}">
-              </picture>
-              <figcaption>{{t.focus.mixerCaption}}</figcaption>
-            </figure>
-          </div>
+          <figure class="figure figure-phone figure-stage">
+            <picture>
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-focus-rain-dark.webp 386w, {{lang.captures}}/mobile-focus-rain-dark-772.webp 772w"
+                     sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+              <img srcset="{{lang.captures}}/mobile-focus-rain.webp 386w, {{lang.captures}}/mobile-focus-rain-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                   src="{{lang.captures}}/mobile-focus-rain.webp" width="386" height="767" loading="lazy"
+                   alt="{{t.focus.rainAlt}}">
+            </picture>
+            <figcaption>{{t.focus.rainCaption}}</figcaption>
+          </figure>
         </div>
       </div>
     </section>

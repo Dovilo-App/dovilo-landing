@@ -1,0 +1,383 @@
+{{! card: layout=phone captures=mobile-ai-inbox-772.webp }}
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{t.meta.title}}</title>
+  <meta name="description" content="{{t.meta.description}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{page.canonical}}">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">{{page.hreflang}}
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:title" content="{{t.meta.title}}">
+  <meta property="og:description" content="{{t.meta.description}}">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{t.meta.ogAlt}}">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="{{lang.ogLocale}}">{{page.ogLocaleAlternates}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="{{t.meta.title}}">
+  <meta name="twitter:description" content="{{t.meta.description}}">
+  <meta name="twitter:image" content="{{page.ogImage}}">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise light. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{t.meta.title|json}}",
+  "description": "{{t.meta.description|json}}",
+  "url": "{{page.canonical}}",
+  "image": "{{page.ogImage}}",
+  "inLanguage": "{{lang.code}}",
+  "dateModified": "{{t.updated}}",
+  "about": { "@id": "https://dovilo.app/#app" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dovilo",
+    "url": "https://dovilo.app/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "{{page.homeUrl}}" },
+    { "@type": "ListItem", "position": 2, "name": "{{t.meta.crumb|json}}", "item": "{{page.canonical}}" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{t.faq.apps.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.apps.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.sees.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.sees.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.free.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.free.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.directory.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.directory.a|json}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{t.faq.offline.q|json}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{t.faq.offline.a|json}}"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  {{> nav}}
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container hero-split">
+        <div>
+          <h1>{{t.hero.h1}}</h1>
+          <p class="hero-sub">{{t.hero.sub}}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="{{href.downloads}}?source=plan_hero">{{c.getDovilo}}</a>
+            <a class="btn btn-secondary" href="#connect-your-ai">{{t.connectAi.title}}</a>
+          </div>
+        </div>
+        <figure class="figure figure-phones figure-stage">
+          <picture>
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-ai-inbox-dark.webp 386w, {{lang.captures}}/mobile-ai-inbox-dark-772.webp 772w"
+                   sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)" width="386" height="767">
+            <img srcset="{{lang.captures}}/mobile-ai-inbox.webp 386w, {{lang.captures}}/mobile-ai-inbox-772.webp 772w"
+                 sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
+                 src="{{lang.captures}}/mobile-ai-inbox.webp" width="386" height="767" fetchpriority="high"
+                 alt="{{t.hero.inboxAlt}}">
+          </picture>
+          <picture>
+            <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-list-birthday-dark.webp 386w, {{lang.captures}}/mobile-list-birthday-dark-772.webp 772w"
+                   sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)" width="386" height="767">
+            <img srcset="{{lang.captures}}/mobile-list-birthday.webp 386w, {{lang.captures}}/mobile-list-birthday-772.webp 772w"
+                 sizes="(min-width:1128px) 217px, (min-width:960px) calc(25vw - 65px), (min-width:600px) 228px, (min-width:562px) 240px, calc(50vw - 41px)"
+                 src="{{lang.captures}}/mobile-list-birthday.webp" width="386" height="767"
+                 alt="{{t.hero.listAlt}}">
+          </picture>
+          <figcaption>{{t.hero.caption}}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2>{{c.inShort}}</h2>
+        <p>{{t.about.p}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.steps.title}}</h2>
+        </div>
+        <ol class="steps" role="list">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <span class="step-label">{{t.steps.ask.label}}</span>
+            <span class="step-detail">{{t.steps.ask.detail}}</span>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <span class="step-label">{{t.steps.arrives.label}}</span>
+            <span class="step-detail">{{t.steps.arrives.detail}}</span>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <span class="step-label">{{t.steps.change.label}}</span>
+            <span class="step-detail">{{t.steps.change.detail}}</span>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <span class="step-label">{{t.steps.approve.label}}</span>
+            <span class="step-detail">{{t.steps.approve.detail}}</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="connect-your-ai">
+      <div class="container flow">
+        <h2>{{t.connectAi.title}}</h2>
+        <p>{{t.connectAi.p}}</p>
+        <details class="collapsible">
+          <summary>{{t.connectAi.apps.chatgpt.name}}</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>{{t.connectAi.apps.chatgpt.s1}}</li>
+              <li>{{t.connectAi.apps.chatgpt.s2}}</li>
+              <li>{{t.connectAi.apps.chatgpt.s3}}</li>
+              <li>{{t.connectAi.apps.chatgpt.s4}}</li>
+            </ol>
+            <p class="note">{{t.connectAi.apps.chatgpt.note}}</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>{{t.connectAi.apps.claude.name}}</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>{{t.connectAi.apps.claude.s1}}</li>
+              <li>{{t.connectAi.apps.claude.s2}}</li>
+              <li>{{t.connectAi.apps.claude.s3}}</li>
+              <li>{{t.connectAi.apps.claude.s4}}</li>
+            </ol>
+            <p class="note">{{t.connectAi.apps.claude.note}}</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>{{t.connectAi.apps.gemini.name}}</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>{{t.connectAi.apps.gemini.s1}}</li>
+              <li>{{t.connectAi.apps.gemini.s2}}</li>
+              <li>{{t.connectAi.apps.gemini.s3}}</li>
+              <li>{{t.connectAi.apps.gemini.s4}}</li>
+            </ol>
+            <p class="note">{{t.connectAi.apps.gemini.note}}</p>
+          </div>
+        </details>
+        <details class="collapsible">
+          <summary>{{t.connectAi.apps.grok.name}}</summary>
+          <div class="collapsible-body flow">
+            <ol>
+              <li>{{t.connectAi.apps.grok.s1}}</li>
+              <li>{{t.connectAi.apps.grok.s2}}</li>
+              <li>{{t.connectAi.apps.grok.s3}}</li>
+              <li>{{t.connectAi.apps.grok.s4}}</li>
+            </ol>
+          </div>
+        </details>
+        <p>{{t.connectAi.try}}</p>
+        <p class="note">{{t.connectAi.source}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="control">
+      <div class="container">
+        <div class="split">
+          <div>
+            <div class="section-head">
+              <h2>{{t.control.title}}</h2>
+              <p>{{t.control.p}}</p>
+            </div>
+            <ul class="integrations">
+              <li>{{t.control.lists}}</li>
+              <li>{{t.control.read}}</li>
+              <li>{{t.control.ask}}</li>
+              <li>{{t.control.delete}}</li>
+              <li>{{t.control.coding}}</li>
+              <li>{{t.control.disconnect}}</li>
+            </ul>
+          </div>
+          <figure class="figure figure-phone figure-stage">
+            <picture>
+              <source class="src-dark" media="not all" srcset="{{lang.captures}}/mobile-connected-apps-dark.webp 386w, {{lang.captures}}/mobile-connected-apps-dark-772.webp 772w"
+                     sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+              <img srcset="{{lang.captures}}/mobile-connected-apps.webp 386w, {{lang.captures}}/mobile-connected-apps-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                   src="{{lang.captures}}/mobile-connected-apps.webp" width="386" height="767" loading="lazy"
+                   alt="{{t.control.alt}}">
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.prompts.title}}</h2>
+          <p>{{t.prompts.p}}</p>
+        </div>
+        <div class="code">
+          <div class="code-head"><span>{{t.prompts.title}}</span><button class="copy-btn" type="button">{{c.copy}}</button></div>
+          <pre><code>{{t.prompts.one}}</code></pre>
+        </div>
+        <div class="code">
+          <div class="code-head"><span>{{t.prompts.title}}</span><button class="copy-btn" type="button">{{c.copy}}</button></div>
+          <pre><code>{{t.prompts.two}}</code></pre>
+        </div>
+        <div class="code">
+          <div class="code-head"><span>{{t.prompts.title}}</span><button class="copy-btn" type="button">{{c.copy}}</button></div>
+          <pre><code>{{t.prompts.three}}</code></pre>
+        </div>
+        <div class="code">
+          <div class="code-head"><span>{{t.prompts.title}}</span><button class="copy-btn" type="button">{{c.copy}}</button></div>
+          <pre><code>{{t.prompts.four}}</code></pre>
+        </div>
+        <p class="note">{{t.prompts.note}}</p>
+      </div>
+    </section>
+
+    <section class="section" id="coding">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.coding.title}}</h2>
+          <p>{{t.coding.p}}</p>
+        </div>
+        <a class="link" href="{{href.ai}}">{{t.coding.link}} <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{t.pricing.title}}</h2>
+        </div>
+        <ul class="pricing-summary">
+          <li><strong>{{t.pricing.free.label}}</strong><span>{{t.pricing.free.text}}</span></li>
+          <li><strong>{{t.pricing.pro.label}}</strong><span>{{t.pricing.pro.text}}</span></li>
+        </ul>
+        <a class="link" href="{{href.pricing}}">{{t.pricing.link}} <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{c.straightAnswers}}</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>{{t.faq.apps.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.apps.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.sees.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.sees.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.free.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.free.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.directory.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.directory.a}}</p></div>
+          </details>
+          <details>
+            <summary><h3>{{t.faq.offline.q}}</h3></summary>
+            <div class="faq-answer"><p>{{t.faq.offline.a}}</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="container">
+        <h2>{{c.closing.title}}</h2>
+        <p>{{c.closing.p}}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="{{href.downloads}}?source=plan_footer">{{c.getDovilo}}</a>
+          <a class="btn btn-secondary" href="{{href.pricing}}">{{c.seePricing}}</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  {{> footer}}
+
+  {{> site-script}}
+</body>
+</html>

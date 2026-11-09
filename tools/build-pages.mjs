@@ -1,4 +1,4 @@
-/* Builds the five localised pages: /, /ai/, /pricing/, /downloads/ and /faq/.
+/* Builds the localised pages: /, /ai/, /plan/, /pricing/, /downloads/ and /faq/.
 
    Sources (src/):
      pages/<id>.html     the page's markup, figures and JSON-LD skeleton
@@ -140,7 +140,7 @@ function pageData(page, lang) {
   const alternates = menuAlternates(set, lang, (l) => pagePath(page, l));
 
   return {
-    ...shellData({ strings: s, lang, current: page.id === 'home' ? null : page.id, alternates }),
+    ...shellData({ strings: s, lang, current: page.id, alternates }),
     t: s.pages[page.id],
     page: {
       canonical: abs(pagePath(page, lang)),
@@ -259,12 +259,12 @@ const siteLangs = list(langs.map((l) => l.english));
 const nav = (l) => strings[l.code].common.nav;
 const link = (label, p) => `[${label}](${abs(p)})`;
 const llmsLanguages = [
-  `The apps are in English, Turkish, Spanish, French and German. On the site, the five main pages and the blog index are in ${siteLangs}; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.`,
+  `The apps are in English, Turkish, Spanish, French and German. On the site, the six main pages and the blog index are in ${siteLangs}; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.`,
   '',
-  `- English: ${[['Home', 'home'], ['AI agents', 'ai'], ['Pricing', 'pricing'], ['Downloads', 'downloads'], ['FAQ', 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).concat(link('Blog', blogPath(langs[0]))).join(', ')}`,
-  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).concat(link(nav(l).blog, blogPath(l))).join(', ')}`),
+  `- English: ${[['Home', 'home'], ['Plan with AI', 'plan'], ['AI Tasks', 'ai'], ['Pricing', 'pricing'], ['Downloads', 'downloads'], ['FAQ', 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).concat(link('Blog', blogPath(langs[0]))).join(', ')}`,
+  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).plan, 'plan'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).concat(link(nav(l).blog, blogPath(l))).join(', ')}`),
 ].join('\n');
-const llmsFull = `**The site is in ${siteLangs}** (the home page, /ai/, /pricing/, /downloads/ and /faq/, plus the blog index; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
+const llmsFull = `**The site is in ${siteLangs}** (the home page, /plan/, /ai/, /pricing/, /downloads/ and /faq/, plus the blog index; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
 function langRegion(file, body) {
   const text = readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n');
   const re = /<!-- LANGS:START -->[\s\S]*?<!-- LANGS:END -->/;
