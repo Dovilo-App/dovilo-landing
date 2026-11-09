@@ -298,10 +298,12 @@ h2:hover > .h-anchor,h3:hover > .h-anchor{opacity:1}
 .theme-toggle .icon-sun{display:var(--toggle-sun)}
 .theme-toggle .icon-moon{display:var(--toggle-moon)}
 
-/* The nav folds below 800px, not 768px: seven links need 784px to sit on one
-   line in English (measured in Chrome, 768 to 1280, five languages). */
+/* The nav folds below 900px: the French labels need about 880px to sit on one
+   line (a link wrapped to two lines up to 860px; Spanish to 840px, German to
+   820px; English and Turkish fit at 800px). Measured in Chrome at 800 to 1000px,
+   five languages, 10 Nov 2026. */
 .nav-menu{display:none}
-@media (max-width:799px){
+@media (max-width:899px){
   .nav-menu{display:inline-flex}
   /* Closed, the menu leaves layout entirely, so nothing parked off-screen can
      widen the page on a phone. Open, it drops below the bar, in the page's
