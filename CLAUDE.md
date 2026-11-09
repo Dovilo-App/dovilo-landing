@@ -7,6 +7,8 @@ build steps are `/blog` (the index's language copies, `/tr/blog/`, included), th
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
 works — this file is about the rules that are easy to break and expensive to re-derive.
 
+Decisions, contract and guides are Dovilo project documents; read them with read_context. The repo keeps no decision documents.
+
 Two things here have already cost real time and must not be undone by a later change:
 
 1. **The SEO / GEO work.** Every rule below came out of a specific commit that fixed a specific
@@ -288,8 +290,8 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
 - **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
-  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md`, the copy decks in
-  `docs/copy/` and the icon sources in `docs/brand/`, and `src/`, the page templates and strings,
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md`, the icon sources
+  in `docs/brand/`, and `src/`, the page templates and strings,
   so Pages never serves a template; a new internal Markdown file goes on that list in the same
   commit.
 - **Images no page references are not deployed.** `_config.yml` also excludes `screenshots/new/`
