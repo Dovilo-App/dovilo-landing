@@ -171,9 +171,14 @@ line height is a plain 1.15 (1.2 for the text layout) of the size, with the font
 descent centred in the line box as CSS does. `assertInter()` runs before every build and fails it
 if the font is not Inter 700 (a pinned advance width for a test string) or the drawing does not
 match the metrics. If the font files or the tracking change on purpose, re-measure that width.
-`npm run build:og -- --check` writes nothing and fails if a card is out of date. It compares JPEG bytes, which
-depend on the sharp and libvips build: on another OS or after a sharp upgrade every card may differ
-without a change, so regenerate and look at them rather than trusting the check across machines.
+`npm run build:og -- --check` writes nothing and fails if a card is out of date. It decodes the card on disk and
+the fresh render and compares pixels (same size and format, mean difference at most 3.0 of 255, and at most
+0.005% of samples moved by more than 64), so a card compressed with Tinify passes and a changed headline or
+capture fails. `build:og` without `--check` leaves such a card alone and writes only a card that really
+changed, then lists it as needing Tinify; `--verbose` prints every comparison. The thresholds and the
+measurements behind them are in the comment above `MEAN_TOL` in `tools/build-og.mjs`. A different sharp or
+libvips build changes the bytes; the tolerance was measured on one machine only, so if the check fails on
+another, run it with `--verbose` before regenerating.
 Run `build:og` before `build:pages` when a language is added: a page will not point `og:image` at a
 card that does not exist.
 

@@ -26,7 +26,11 @@
    blog indexes, /docs/mcp/ and old shares): a fixed headline, below, and the
    city capture.
 
-   Usage: npm run build:og [-- --check] */
+   A card whose pixels already match the fresh render (within a tolerance, so a
+   Tinify-compressed file passes) is left alone; see "Same card?" below. A card
+   that really changed is written and listed as needing Tinify.
+
+   Usage: npm run build:og [-- --check] [-- --verbose] */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -35,6 +39,7 @@ import { ROOT, SRC, PAGES, plain, loadStrings, stringsLanguages, cardName } from
 import { loadInter, assertInter, wrap, blockSize, renderLines } from './og-type.mjs';
 
 const CHECK = process.argv.includes('--check');
+const VERBOSE = process.argv.includes('--verbose');
 const W = 1200, H = 630;
 const BG = '#FAF8F4', TEXT = '#1C1B19', SURFACE = '#FFFFFF', BORDER = '#DED9D1'; /* system.css, light */
 const MARGIN = 64;
@@ -153,19 +158,74 @@ jobs.push({
   captures: ['mobile-city-26-772.webp'], capturesDir: '/screenshots', where: 'en/generic',
 });
 
-const changed = [];
+/* ─── Same card? ─── */
+
+/* A card on disk may have been through Tinify (by hand, the cards are not
+   part of build:captures --tinify): the same picture in other bytes. So "up
+   to date" means the same pixels within a tolerance, not the same bytes, and
+   build:og leaves such a card alone. `--verbose` prints every comparison.
+
+   A card is the same when it has the same size and format and
+     - the mean absolute difference over all channels is at most MEAN_TOL, and
+     - at most BIG_TOL of the samples differ by more than BIG_DELTA.
+   The mean alone is diluted: a card is mostly flat background, so a changed
+   headline moves it less than Tinify's recompression does. The second test
+   counts the samples that moved a lot, which recompression does not do and a
+   different headline or capture does. Measured on 10 Nov 2026:
+     Tinify, the ten L6 cards    mean 1.86 to 2.41     big 0.0000% to 0.0009%
+     one character changed       mean 0.29 to 1.92     big 0.0344% to 0.7340%
+     a full stop dropped         mean 1.88             big 0.0140%
+     a capture swapped           mean 5.86             big 1.6448%
+   MEAN_TOL sits above Tinify's worst and under the swapped capture; BIG_TOL
+   is 5x above Tinify's worst and 2.8x under the smallest edit tried. Re-measure
+   (--verbose) before moving either, and when a new Tinify batch lands. */
+const MEAN_TOL = 3.0;
+const BIG_DELTA = 64, BIG_TOL = 0.00005;   /* 0.005% of samples */
+
+async function decode(buf) {
+  const { data, info } = await sharp(buf).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  return { data, width: info.width, height: info.height };
+}
+
+/* null when the two files differ in format or size, else { mean, big }. */
+async function compare(existing, fresh) {
+  const [a, b] = await Promise.all([sharp(existing).metadata(), sharp(fresh).metadata()]);
+  if (a.format !== b.format || a.width !== b.width || a.height !== b.height || a.channels !== b.channels) return null;
+  const [x, y] = await Promise.all([decode(existing), decode(fresh)]);
+  let sum = 0, big = 0;
+  for (let i = 0; i < x.data.length; i++) {
+    const d = Math.abs(x.data[i] - y.data[i]);
+    sum += d;
+    if (d > BIG_DELTA) big++;
+  }
+  return { mean: sum / x.data.length, big: big / x.data.length };
+}
+
+const changed = [];   /* cards whose pixels moved: written, or would be */
+const kept = [];      /* cards whose bytes differ but whose pixels match: left alone */
 loadInter(ROOT);
 await assertInter();
 for (const job of jobs) {
   const buf = await card(job);
   const file = path.join(ROOT, job.out);
-  if (existsSync(file) && readFileSync(file).equals(buf)) continue;
+  const existing = existsSync(file) ? readFileSync(file) : null;
+  if (existing && existing.equals(buf)) continue;
+  const d = existing ? await compare(existing, buf) : null;
+  const same = d && d.mean <= MEAN_TOL && d.big <= BIG_TOL;
+  if (VERBOSE) console.log(`${job.out.padEnd(22)} ${d ? `mean ${d.mean.toFixed(3)}  big ${(d.big * 100).toFixed(4)}%` : 'no comparable file'}  ${same ? 'same' : 'differs'}`);
+  if (same) { kept.push(job.out); continue; }
   changed.push(job.out);
   if (!CHECK) writeFileSync(file, buf);
 }
 
+const note = kept.length ? ` ${kept.length} card(s) match within tolerance and keep their bytes.` : '';
 if (CHECK && changed.length) {
   console.error(`Out of date: ${changed.join(', ')}. Run npm run build:og.`);
   process.exit(1);
 }
-console.log(changed.length ? `${CHECK ? 'Would write' : 'Wrote'} ${changed.join(', ')}.` : `Up to date: ${jobs.length} card(s).`);
+if (changed.length) {
+  console.log(`${CHECK ? 'Would write' : 'Wrote'} ${changed.join(', ')}.${note}`);
+  if (!CHECK) console.log(`Needs Tinify: ${changed.join(', ')}.`);
+} else {
+  console.log(`Up to date: ${jobs.length} card(s).${note}`);
+}
