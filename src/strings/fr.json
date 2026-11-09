@@ -257,15 +257,15 @@
       "updated": "2026-11-10",
       "meta": {
         "title": "Minuteur Pomodoro avec ambiance plein écran - Dovilo",
-        "description": "Un minuteur de concentration gratuit pour iOS et Android : session unique, Pomodoro ou minuteur sur une tâche, avec des scènes plein écran.",
-        "ogAlt": "Dovilo : des sessions de concentration qui remplissent l'écran, à côté d'une session dans la scène Ville sous la pluie",
+        "description": "Un minuteur de concentration gratuit pour iOS et Android : session unique, Pomodoro ou minuteur sur une tâche, avec des scènes plein écran.",
+        "ogAlt": "Dovilo : des sessions de concentration qui remplissent l'écran, à côté d'une session dans la scène Ville sous la pluie",
         "crumb": "Focus"
       },
       "hero": {
-        "h1": "Dovilo : des sessions de concentration qui remplissent l'écran.",
+        "h1": "Dovilo : des sessions de concentration qui remplissent l'écran.",
         "sub": "Une session unique, un cycle Pomodoro ou un minuteur sur une tâche. Gratuit, illimité et sans publicité.",
         "alt": "Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes",
-        "caption": "Le minuteur continue téléphone verrouillé ; les briques arrivent à la fin."
+        "caption": "Le minuteur continue téléphone verrouillé ; les briques arrivent à la fin."
       },
       "about": {
         "p": "Dovilo est une liste de tâches gratuite pour iOS et Android, avec un minuteur de concentration qui remplit l'écran. Les sessions de concentration et les cycles Pomodoro sont gratuits et illimités, sans publicité. Le Pack Atmosphère de concentration ajoute 5 scènes et 16 couches sonores pour $4.99 une fois, et il est inclus dans Pro. Les sessions terminées rapportent des briques pour votre ville."
@@ -296,15 +296,15 @@
       },
       "sound": {
         "title": "Mixez votre propre son",
-        "p": "Mélangez jusqu'à 3 des 16 couches, chacune à son niveau : 13 enregistrements comme la pluie, un café ou un train, et des bruits brun, rose et blanc. Le mélange peut suivre la session : doux pendant les 5 premières minutes, plus clair pendant les 2 dernières.",
+        "p": "Mélangez jusqu'à 3 des 16 couches, chacune à son niveau : 13 enregistrements comme la pluie, un café ou un train, et des bruits brun, rose et blanc. Le mélange peut suivre la session : doux pendant les 5 premières minutes, plus clair pendant les 2 dernières.",
         "alt": "Mixeur sonore d'atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé",
-        "caption": "C'est une ambiance, pas de la musique : ni mélodie, ni rythme."
+        "caption": "C'est une ambiance, pas de la musique : ni mélodie, ni rythme."
       },
       "bricks": {
         "title": "Les sessions terminées bâtissent une ville",
         "p": "Une session terminée rapporte des briques selon sa durée. Les briques achètent des maisons, des bureaux, des parcs et des routes pour votre ville, et rien ne se dégrade.",
         "link": "Comment fonctionne la ville",
-        "modules": "Pas besoin de la ville ? Focus, la ville et la planification avec l'IA se désactivent chacun dans Paramètres &gt; Modules."
+        "modules": "Pas besoin de la ville ? Focus, la ville et la planification avec l'IA se désactivent chacun dans Paramètres &gt; Modules."
       },
       "pricing": {
         "title": "Se concentrer est gratuit, un pack pour les scènes",
@@ -324,19 +324,19 @@
       },
       "faq": {
         "free": {
-          "q": "Focus est-il gratuit ?",
+          "q": "Focus est-il gratuit ?",
           "a": "Oui. Les sessions uniques et les cycles Pomodoro sont gratuits et illimités, avec la scène Par défaut. Le Pack Atmosphère de concentration ajoute les 5 autres scènes et 16 couches sonores pour $4.99 une fois, et Pro l'inclut."
         },
         "locked": {
-          "q": "Le minuteur tourne-t-il téléphone verrouillé ?",
+          "q": "Le minuteur tourne-t-il téléphone verrouillé ?",
           "a": "Oui. Il continue en arrière-plan et téléphone verrouillé, et une notification vous prévient quand la session se termine."
         },
         "unfinished": {
-          "q": "Les sessions inachevées comptent-elles ?",
+          "q": "Les sessions inachevées comptent-elles ?",
           "a": "Une session arrêtée plus tôt est quand même enregistrée, mais seuls les tours Pomodoro terminés comptent dans le compteur quotidien de tours."
         },
         "desktop": {
-          "q": "Focus est-il sur Dovilo Desktop ?",
+          "q": "Focus est-il sur Dovilo Desktop ?",
           "a": "Non. Focus et la ville sont sur iOS et Android. Desktop est le client Windows et Mac pour vos listes et vos tâches IA."
         }
       }
@@ -362,7 +362,7 @@
         "sub": "Claude Code, Cursor et tout client MCP se connectent depuis n'importe quelle machine et ne voient que leurs propres tâches IA.",
         "desktopAlt": "Dovilo Desktop : les Tâches IA d'un projet, groupées selon ce qui demande votre attention",
         "phoneAlt": "Tâches IA de Dovilo sur le téléphone : le même projet avec des tâches en attente de vous, en cours, en file et planifiées",
-        "caption": "La même file sur l'ordinateur et le téléphone ; votre propre liste reste à part."
+        "caption": "La même file sur l'ordinateur et le téléphone ; votre propre liste reste à part."
       },
       "about": {
         "p": "Dovilo est une app de tâches avec une liste séparée pour les agents de code IA. Les agents se connectent à dovilo.app/mcp/agents via MCP : 9 outils, pas de création, pas de suppression, et votre liste personnelle n'est jamais visible. ChatGPT ou Claude peuvent planifier le travail ; chaque instruction attend votre approbation. Pro, $2.49 par mois, 15 tâches IA par mois."
@@ -391,7 +391,7 @@
         }
       },
       "built": {
-        "title": "Cas d'usage : Dovilo est construit avec les Tâches IA",
+        "title": "Cas d'usage : Dovilo est construit avec les Tâches IA",
         "p": "Dovilo est construit ainsi. Il a cinq projets, Backend, Mobile, Desktop, Edge et Landing, et un agent Claude Code pour chacun. Je planifie un changement dans Claude, qui propose des tâches IA sous le bon projet. Je les approuve sur mon téléphone ; l'agent sur le poste de travail les traite, écrit ses étapes et ses notes sur la tâche, et s'arrête pour demander quand une décision me revient. Cette page est passée par le projet Landing de la même façon."
       },
       "planning": {
@@ -400,9 +400,9 @@
         "any": "<strong>LangGraph, les jobs CI et tout client MCP</strong> se connectent avec la même URL et la même clé."
       },
       "connect": {
-        "title": "Connecter un agent de code : une URL et une clé",
+        "title": "Connecter un agent de code : une URL et une clé",
         "p": "Créez un agent dans l'app, copiez sa clé une fois et pointez votre client vers <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop écrit la configuration pour 7 clients.",
-        "link": "Les deux serveurs et chaque outil : la référence MCP"
+        "link": "Les deux serveurs et chaque outil : la référence MCP"
       },
       "bridge": {
         "title": "Planifiez dans ChatGPT ou Claude, confiez-le à votre agent",
@@ -494,24 +494,24 @@
       "meta": {
         "title": "Planifiez votre journée avec ChatGPT ou Claude - Dovilo",
         "description": "Demandez un plan à ChatGPT, Claude, Gemini ou Grok. Il arrive dans la boîte de Dovilo, et rien n'entre dans vos listes sans votre accord.",
-        "ogAlt": "Dovilo : planifiez avec ChatGPT ou Claude, approuvez d'un geste, à côté d'un plan de six tâches de Claude",
+        "ogAlt": "Dovilo : planifiez avec ChatGPT ou Claude, approuvez d'un geste, à côté d'un plan de six tâches de Claude",
         "crumb": "Planifier avec l'IA"
       },
       "hero": {
-        "h1": "Dovilo : planifiez avec ChatGPT ou Claude, approuvez d'un geste.",
+        "h1": "Dovilo : planifiez avec ChatGPT ou Claude, approuvez d'un geste.",
         "sub": "Demandez un plan à votre IA. Il arrive dans la boîte de Dovilo, et rien n'entre dans vos listes avant votre oui.",
         "inboxAlt": "Boîte IA de Dovilo : un plan de six tâches de Claude avec un bouton Approuver",
         "listAlt": "Liste Dovilo Déménagement avec les six tâches approuvées sous Aujourd'hui, Demain et Cette semaine",
-        "caption": "Modifiez d'abord n'importe quelle tâche ; les tâches approuvées gardent leurs dates et leur liste."
+        "caption": "Modifiez d'abord n'importe quelle tâche ; les tâches approuvées gardent leurs dates et leur liste."
       },
       "about": {
-        "p": "Dovilo est une liste de tâches gratuite pour iOS et Android. Connectez ChatGPT, Claude, Gemini ou Grok et demandez un plan pour votre journée, un événement ou un projet ; il arrive dans la boîte IA de Dovilo, vous modifiez ce que vous voulez et l'ajoutez à vos listes d'un geste. Vous choisissez les listes que chaque app peut voir. Connecter et envoyer des plans est gratuit ; ajouter un plan à vos listes fait partie de Pro, $2.49 par mois."
+        "p": "Dovilo est une liste de tâches gratuite pour iOS et Android. Connectez ChatGPT, Claude, Gemini ou Grok et demandez un plan pour votre journée, un événement ou un projet ; il arrive dans la boîte IA de Dovilo, vous modifiez ce que vous voulez et l'ajoutez à vos listes d'un geste. Vous choisissez les listes que chaque app peut voir. Connecter et envoyer des plans est gratuit ; ajouter un plan à vos listes fait partie de Pro, $2.49 par mois."
       },
       "steps": {
         "title": "Comment un plan arrive dans votre liste",
         "ask": {
           "label": "Demandez",
-          "detail": "« Planifie ma semaine », « Découpe ce déménagement en tâches » : dans votre app IA, avec vos mots."
+          "detail": "« Planifie ma semaine », « Découpe ce déménagement en tâches » : dans votre app IA, avec vos mots."
         },
         "arrives": {
           "label": "Il arrive",
@@ -574,19 +574,19 @@
         "delete": "<strong>Aucun outil de suppression.</strong> Ni maintenant, ni plus tard.",
         "coding": "<strong>Votre travail de code reste à part.</strong> Sauf si vous activez l'accès aux tâches IA pour cette app.",
         "disconnect": "<strong>Déconnectez depuis votre téléphone.</strong> N'importe quelle app, à tout moment.",
-        "alt": "Apps IA connectées de Dovilo pour Claude : accès en lecture, tâches IA et Me demander d'abord, avec les listes qu'il peut voir"
+        "alt": "Apps IA connectées de Dovilo pour Claude : accès en lecture, tâches IA et Me demander d'abord, avec les listes qu'il peut voir"
       },
       "prompts": {
         "title": "Des plans à essayer",
         "p": "Collez-en un dans une nouvelle conversation après la connexion.",
         "one": "Planifie ma journée de demain dans Dovilo avec 3 petites tâches.",
-        "two": "Organise l'anniversaire de Léa samedi dans Dovilo : les invitations, le gâteau et la salle, dans une nouvelle liste.",
+        "two": "Organise l'anniversaire de Léa samedi dans Dovilo : les invitations, le gâteau et la salle, dans une nouvelle liste.",
         "three": "Découpe mon déménagement de décembre en tâches hebdomadaires dans Dovilo, à partir de lundi prochain.",
         "four": "Regarde mes tâches Planifié dans Dovilo et répartis cette semaine pour qu'aucun jour n'en ait plus de cinq.",
         "note": "La dernière demande l'accès en lecture pour cette app."
       },
       "coding": {
-        "title": "Vous planifiez un projet de code ?",
+        "title": "Vous planifiez un projet de code ?",
         "p": "ChatGPT ou Claude peut aussi proposer des tâches IA pour votre assistant de code, comme Claude Code ou Cursor, et rédiger votre réponse quand il pose une question. Chacune attend votre accord.",
         "link": "Tâches IA pour les assistants de code"
       },
@@ -598,30 +598,30 @@
         },
         "pro": {
           "label": "Pro",
-          "text": "Ajoutez des plans à vos listes : $2.49 par mois, $19.99 par an ou $49.99 une fois, 7 jours d'essai dans l'app."
+          "text": "Ajoutez des plans à vos listes : $2.49 par mois, $19.99 par an ou $49.99 une fois, 7 jours d'essai dans l'app."
         },
         "link": "Toutes les formules"
       },
       "faq": {
         "apps": {
-          "q": "Quelles apps IA fonctionnent avec Dovilo ?",
-          "a": "ChatGPT, Claude, Gemini et Grok. Chacune demande une formule ou un compte qui autorise un connecteur personnalisé : pour ChatGPT, cela dépend de votre formule, la formule gratuite de Claude autorise un connecteur personnalisé, et Gemini le propose aux comptes personnels aux États-Unis, à partir de 18 ans. Les étapes sont dans <a href=\"#connect-your-ai\">Connectez votre app IA</a>."
+          "q": "Quelles apps IA fonctionnent avec Dovilo ?",
+          "a": "ChatGPT, Claude, Gemini et Grok. Chacune demande une formule ou un compte qui autorise un connecteur personnalisé : pour ChatGPT, cela dépend de votre formule, la formule gratuite de Claude autorise un connecteur personnalisé, et Gemini le propose aux comptes personnels aux États-Unis, à partir de 18 ans. Les étapes sont dans <a href=\"#connect-your-ai\">Connectez votre app IA</a>."
         },
         "sees": {
-          "q": "Peut-il voir toutes mes tâches ?",
+          "q": "Peut-il voir toutes mes tâches ?",
           "a": "Non. Il ne voit que les listes que vous choisissez pour cette app, et seulement si l'accès en lecture est activé. Vous pouvez changer les deux depuis votre téléphone à tout moment."
         },
         "free": {
-          "q": "La planification fonctionne-t-elle en version gratuite ?",
+          "q": "La planification fonctionne-t-elle en version gratuite ?",
           "a": "Connecter et envoyer des plans est gratuit. Ajouter un plan à vos listes fait partie de Pro, avec 7 jours d'essai dans l'app."
         },
         "directory": {
-          "q": "Dovilo est-il dans l'annuaire d'apps de ChatGPT ou de Claude ?",
+          "q": "Dovilo est-il dans l'annuaire d'apps de ChatGPT ou de Claude ?",
           "a": "Pas encore. Vous l'ajoutez par son adresse, <code>https://dovilo.app/mcp</code>, en quelques étapes."
         },
         "offline": {
-          "q": "Ça fonctionne hors ligne ?",
-          "a": "Vos listes, oui. Les plans ont besoin d'une connexion : ils vont de votre app IA au serveur de Dovilo, puis à votre téléphone."
+          "q": "Ça fonctionne hors ligne ?",
+          "a": "Vos listes, oui. Les plans ont besoin d'une connexion : ils vont de votre app IA au serveur de Dovilo, puis à votre téléphone."
         }
       }
     },

@@ -1,7 +1,7 @@
 # dovilo.app — working rules
 
 Static HTML for [dovilo.app](https://dovilo.app). No framework. Most pages are hand-written; the
-build steps are `/blog` (the index's language copies, `/tr/blog/`, included), the five pages built from `src/` in five languages
+build steps are `/blog` (the index's language copies, `/tr/blog/`, included), the seven pages built from `src/` in five languages
 (`npm run build:pages`, §1.3), their share cards (`npm run build:og`), the captures
 (`npm run build:captures`) and the icons (`npm run build:icons`, §2 Performance). GitHub Pages serves `main` at the
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
@@ -71,7 +71,9 @@ Rules:
 English budget times 1.3, which is room for the language and never a reason to drop a fact; `/faq`, `/docs/mcp/`, `/docs/webhooks`,
   `/changelog`, `/privacy`, `/terms`, `/licenses`, `/blog/`, the posts and `/404.html` have none. A
   budget is a ceiling. Text over it moves into a collapsible or onto the page that carries the
-  depth; the fact is never deleted.
+  depth; the fact is never deleted. **The Landing document "Landing design language" (§6, Word
+  budgets) holds the current budgets**, which the numbers above trail (it has `/` at 620 since 2.3 and
+  sets `/plan/` and `/focus/` when wave 1 ships): where they differ, the document wins.
 - **The GEO layer stays whole while visible text shrinks.** The `<h1>` names Dovilo; the first
   paragraph (the hero sub, or the "In short" paragraph straight after a one-line sub, as on `/ai`,
   `/` and `/pricing`) is two or three declarative sentences with a number and counts toward the budget; depth
@@ -95,7 +97,7 @@ English budget times 1.3, which is room for the language and never a reason to d
   `.copy-btn.copied`, `.code`, `a.mail` with `data-u`/`data-d`, and `source.src-dark` (the dark
   capture of a figure, swapped with the theme; design-language §5). The theme stays in
   `localStorage['dovilo-theme']`, the key the old pages used, so a visitor's earlier choice still
-  holds. The site script, nav and footer live in `src/partials/`, which the five built pages and
+  holds. The site script, nav and footer live in `src/partials/`, which the seven built pages and
   the blog's `tools/template.mjs` render (§1.3); the other hand-written pages carry copies: change
   the partial and every copy in the same commit, then run `npm run build:pages` and rebuild the
   blog. A page's own behaviours (the changelog fetch, platform detection, the docs' table of
@@ -150,9 +152,9 @@ text diff of each page's `<main>` before and after (the `textContent` with white
 and the rendered `innerText`); both must be empty, or the report says exactly why not. A fault in
 legal text (a typo, an em dash, Title Case headings) goes in the report and stays on the page.
 
-### 1.3 The five built pages
+### 1.3 The seven built pages
 
-`/`, `/ai`, `/plan/` (A138, 9 Nov 2026), `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
+`/`, `/focus/`, `/plan/` (both A138, 9 Nov 2026), `/ai/`, `/pricing/`, `/downloads/` and `/faq/` are built by `npm run build:pages`
 (`tools/build-pages.mjs`) from `src/` since A130 (31 Oct 2026), so the site can ship them in five
 languages. English, Turkish, Spanish, French and German ship (A130 part 2, 1 Nov 2026; es, fr and de on 5 Nov 2026). Their `index.html` files are build output: **never edit them in place**; the next build
 overwrites them. `npm run build:pages -- --check` fails when they are out of step with `src/`.
@@ -170,10 +172,10 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - English is written to the paths the site has always had. A language gets its copies under
   `/tr/`, `/es/`, `/fr/` or `/de/` when `src/strings/<lang>.json` exists, and only then does the
   build write hreflang, `og:locale:alternate`, the language menu, the footer's language links and
-  the localised sitemap entries with their alternates. `en.json` and `tr.json` exist, so all ten
-  pages carry hreflang for `en`, `tr` and `x-default` (English), the menu and the footer links.
+  the localised sitemap entries with their alternates. All five languages have strings, so all
+  seven pages carry hreflang for `en`, `tr`, `es`, `fr`, `de` and `x-default` (English), the menu and the footer links.
   A language copy is `/<lang>/` or `/<lang>/<page>/`, slash form only (`/tr/faq/`), with its own
-  canonical; its links to the other four pages stay in its language and every other link goes to
+  canonical; its links to the other six built pages stay in its language and every other link goes to
   the English page.
 - **Translations are never written or changed here.** A strings file other than English comes from
   a task or from Selahaddin, and is committed as placed. A string that fails a check or does not
@@ -276,7 +278,7 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   neither date: the nav's link to `/pricing/` (PR #11) and the footer's to `/docs/` (29 Oct 2026)
   went in on every page without one, since lastmod tells crawlers the content moved.
 - Keep a page's JSON-LD `dateModified` in step with its sitemap `lastmod`. Touch the page, move both.
-  On the five built pages both come from `updated` in `src/strings/<lang>.json`: move that one date
+  On the seven built pages both come from `updated` in `src/strings/<lang>.json`: move that one date
   and run `npm run build:pages`.
 - New indexable page → add it to `sitemap.xml` in the same commit, with a priority on the existing
   scale: `/` 1.0, `/ai` 0.9, `/pricing/`, `/faq`, `/docs/`, `/docs/mcp/` and `/docs/webhooks` 0.8, `/blog/` 0.8, posts 0.7, `/downloads/`
@@ -284,7 +286,8 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   under English, and the page build writes its entry: `/<lang>/` and `/<lang>/ai/` 0.8,
   `/<lang>/pricing/` and `/<lang>/faq/` 0.7, `/<lang>/downloads/` 0.6 (`langPriority` in
   `tools/pages-lib.mjs`). A `noindex` page (`/licenses`, `/styleguide/`,
-  `/404.html`) stays out.
+  `/404.html`) stays out. The scale above is a copy: the sitemap priorities live in the Landing document
+  "Landing design language", and `langPriority` in `tools/pages-lib.mjs` carries those of the language copies.
 - Every indexable page carries, near the top of `<head>`: title, description, robots,
   `<link rel="canonical">` with the absolute URL, and
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
@@ -361,9 +364,9 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   and no `loading` attribute; everything below the fold gets `loading="lazy"`. Images whose CSS width
   varies get `srcset` + `sizes` matching the CSS. (`bdb41bd`, `a96eccd`)
 - **Share cards stay PNG/JPG and must be a real 1200×630 file.** Never point `og:image` at a WebP,
-  and never declare `og:image:width`/`height` the file does not have. The cards of the five built
-  pages and `/docs/` (`og-home.jpg`, `og-ai.jpg`, `og-pricing.jpg`, `og-downloads.jpg`,
-  `og-docs.jpg`, and `og-<page>-<lang>.jpg` per language) are written by `npm run build:og`
+  and never declare `og:image:width`/`height` the file does not have. The cards of the seven built
+  pages and `/docs/` (`og-home.jpg`, `og-focus.jpg`, `og-plan.jpg`, `og-ai.jpg`, `og-pricing.jpg`,
+  `og-downloads.jpg`, `og-docs.jpg`, and `og-<page>-<lang>.jpg` per language) are written by `npm run build:og`
   (`tools/build-og.mjs`) from the `<h1>` in the strings, in Inter from `/fonts/` (latin-ext as the
   fallback for ş, ğ, İ and the rest), with the cropped hero capture the template names; never edit
   them by hand. Run it when an `<h1>` or a named capture changes. The headline is drawn from
@@ -423,7 +426,7 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - [ ] Title / og:title / twitter:title / JSON-LD name still identical?
 - [ ] Did visible text change? Then the JSON-LD mirroring it changed too.
 - [ ] `sitemap.xml` lastmod bumped, and JSON-LD `dateModified` with it? (On a built page: `updated`.)
-- [ ] One of the five built pages? Edited in `src/`, `npm run build:pages` run (and
+- [ ] One of the seven built pages? Edited in `src/`, `npm run build:pages` run (and
       `npm run build:og` if its `<h1>` changed), the output committed with the source.
 - [ ] Facts changed? `llms.txt` and `llms-full.txt` updated in the same commit.
 - [ ] New indexable page? Linked from the shared nav or footer, and in `sitemap.xml`.
@@ -437,9 +440,6 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 
 Carried here so they are not rediscovered from scratch:
 
-- The ten built pages declare hreflang for the languages that are built (`en`, `tr`, `x-default`),
-  not the six of A130 3.1: `es`, `fr` and `de` appear by themselves when their strings land, and
-  until then would point at addresses that do not exist.
 - Seven `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/plan/` (5), `/focus/` (4),
   `/pricing/` (4) and `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
   questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
@@ -458,7 +458,8 @@ Carried here so they are not rediscovered from scratch:
   way. One of them, "Can I get my data out?", covers the ground of `/faq`'s "Can I export my
   data?" (added 29 Oct 2026): both say not yet, on the roadmap, no date; keep them in agreement.
 - `/changelog/`, `/docs/webhooks`, `/privacy`, `/terms` and `/licenses` ship no `og:image`.
-- `/` has `og-home.jpg` and `/ai` has `og-ai.jpg`, the `<h1>` beside or over the hero capture.
+- `/` has `og-home.jpg` and `/ai` has `og-ai.jpg`, the `<h1>` beside or over the hero capture; `/focus/` has
+  `og-focus.jpg` and `/plan/` has `og-plan.jpg`, the `<h1>` beside the phone capture the template names.
   `/pricing/` has `og-pricing.jpg`, `/downloads/` has `og-downloads.jpg` and `/docs/` has
   `og-docs.jpg`: the page background and the `<h1>` in Inter 700, with no capture. All five are
   written by `npm run build:og`, and so are the Turkish cards (`og-<page>-tr.jpg`, `/tr/faq/`'s

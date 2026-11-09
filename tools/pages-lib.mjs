@@ -164,11 +164,8 @@ export function blogPath(lang) {
 
 /* Hrefs of the five pages and the blog index in one language: templates and
    strings link through these, so a Turkish page links Turkish pages. */
-/* /focus/ is linked (nav, footer, the home page) before its page is built;
-   it joins PAGES with its template, and the entry here then agrees with it. */
-const FOCUS = { id: 'focus', path: '/focus/' };
 export function hrefs(lang) {
-  return { focus: pagePath(FOCUS, lang), ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
+  return { ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
 }
 
 /* The Language menu and the footer's language links: the current language
@@ -213,7 +210,7 @@ export function shellData({ strings, lang, current = null, alternates = [] }) {
       play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
     },
     href: hrefs(lang),
-    current: Object.fromEntries(['home', 'focus', 'plan', 'ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
+    current: Object.fromEntries(['home', 'focus', 'plan', 'ai', 'pricing', 'downloads', 'faq'].map((id) => [id, mark(id)])),
     alternates,
   };
 }
