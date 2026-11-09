@@ -134,6 +134,7 @@ export const LANGUAGES = [
 export const PAGES = [
   { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
   { id: 'ai', path: '/ai/', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
+  { id: 'plan', path: '/plan/', out: 'plan/index.html', card: 'og-plan', langPriority: '0.8' },
   { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
   { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
   { id: 'faq', path: '/faq/', out: 'faq/index.html', card: 'og-faq', langPriority: '0.7' },
@@ -162,8 +163,11 @@ export function blogPath(lang) {
 
 /* Hrefs of the five pages and the blog index in one language: templates and
    strings link through these, so a Turkish page links Turkish pages. */
+/* /focus/ is linked (nav, footer, the home page) before its page is built;
+   it joins PAGES with its template, and the entry here then agrees with it. */
+const FOCUS = { id: 'focus', path: '/focus/' };
 export function hrefs(lang) {
-  return { ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
+  return { focus: pagePath(FOCUS, lang), ...Object.fromEntries(PAGES.map((p) => [p.id, pagePath(p, lang)])), blog: blogPath(lang) };
 }
 
 /* The Language menu and the footer's language links: the current language
@@ -191,7 +195,7 @@ export function loadStrings(code) {
 
 /* What the nav, footer and site script read: the common strings, the current
    page marks, the hrefs and the language menu. `current` names the nav entry
-   to mark (`ai`, `pricing`, `downloads`, `faq`, `blog`) or nothing. */
+   to mark (`home`, `focus`, `plan`, `ai`, `pricing`, `downloads`, `faq`) or nothing. */
 export function shellData({ strings, lang, current = null, alternates = [] }) {
   const mark = (id) => (id === current ? ' aria-current="page"' : '');
   const en = lang.code === 'en';
@@ -208,7 +212,7 @@ export function shellData({ strings, lang, current = null, alternates = [] }) {
       play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
     },
     href: hrefs(lang),
-    current: Object.fromEntries(['ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
+    current: Object.fromEntries(['home', 'focus', 'plan', 'ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
     alternates,
   };
 }

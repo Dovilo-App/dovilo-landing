@@ -15,6 +15,9 @@
     "nav": {
       "skip": "Aller au contenu",
       "label": "Navigation principale",
+      "tasks": "Tasks",
+      "focus": "Focus",
+      "plan": "Plan with AI",
       "ai": "IA",
       "pricing": "Tarifs",
       "downloads": "Téléchargements",
@@ -27,7 +30,9 @@
     "footer": {
       "label": "Pied de page",
       "product": "Produit",
-      "developers": "Pour les développeurs",
+      "focus": "Focus",
+      "plan": "Plan with AI",
+      "ai": "AI Tasks",
       "downloads": "Téléchargements",
       "pricing": "Tarifs",
       "changelog": "Notes de version",
@@ -96,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-09",
       "meta": {
         "title": "To-do list gamifiée, minuteur Pomodoro et city builder - Dovilo",
         "description": "Dovilo, liste de tâches gratuite pour iOS et Android avec minuteur Pomodoro et ville isométrique. Tâches et sessions illimitées, sans publicité.",
@@ -151,6 +156,14 @@
           "detail": "Les briques du travail fini achètent une ville qui reste."
         }
       },
+      "tasks": {
+        "title": "Tasks and lists, free and unlimited",
+        "p": "Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro.",
+        "views": "<strong>One picker for every view.</strong> My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count.",
+        "groups": "<strong>Grouped by date.</strong> Lists fold into date groups, and Planned groups by day.",
+        "offline": "<strong>Works offline.</strong> Your tasks live on your phone first. Cloud sync between devices comes with Pro.",
+        "bricks": "<strong>Finished tasks pay bricks.</strong> They build the city further down this page."
+      },
       "plan": {
         "title": "Planifiez avec votre IA",
         "p": "Demandez à ChatGPT, Claude, Gemini ou Grok de planifier votre journée, un événement ou un projet. Le plan arrive dans votre boîte IA dans Dovilo : modifiez ce que vous voulez et ajoutez-le à vos listes d'un seul appui. Rien n'arrive avant votre oui, et vous choisissez les listes que chaque IA peut voir. La connexion prend trois courtes étapes dans l'app.",
@@ -160,10 +173,10 @@
       "focus": {
         "title": "Une concentration qui remplit tout l'écran",
         "p": "Une session unique, un cycle Pomodoro ou un minuteur sur une tâche, gratuits et illimités. Le Pack Atmosphère de concentration ajoute 5 scènes et 16 couches sonores, 3 à la fois : $4.99 en paiement unique, inclus dans Pro.",
+        "link": "More about Focus",
         "rainAlt": "Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes",
         "rainCaption": "Ville sous la pluie, 22 minutes restantes.",
-        "mixerAlt": "Mixeur sonore d'atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé",
-        "mixerCaption": "Pluie et cheminée."
+        "mixerAlt": "Mixeur sonore d'atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé"
       },
       "city": {
         "title": "Une ville qui reste",
@@ -208,11 +221,11 @@
         },
         "plan": {
           "q": "Puis-je planifier avec ChatGPT, Claude, Gemini ou Grok ?",
-          "a": "Oui. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide en trois courtes étapes : choisissez votre app IA, ajoutez-y Dovilo avec l'adresse <code>https://dovilo.app/mcp</code> et connectez-vous avec votre compte Dovilo, puis essayez un premier plan. Les étapes pour chaque app sont dans <a href=\"{{href.ai}}#connect-your-ai\">Connectez votre app IA</a>. L'assistant propose un plan, le plan arrive dans la boîte IA de votre téléphone, et il entre dans vos listes d'un seul appui une fois que vous l'approuvez. Pour chaque connexion, vous choisissez ce que l'assistant peut lire et quels listes et projets il voit, et ses modifications attendent toujours votre approbation ; le réglage s'appelle <strong>Me demander d'abord</strong>. Il n'existe aucun outil de suppression, et vous pouvez révoquer une connexion depuis votre téléphone à tout moment. Envoyer un plan fonctionne en version gratuite ; l'approuver, comme tout le reste, nécessite Pro."
+          "a": "Oui. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide en trois courtes étapes : choisissez votre app IA, ajoutez-y Dovilo avec l'adresse <code>https://dovilo.app/mcp</code> et connectez-vous avec votre compte Dovilo, puis essayez un premier plan. Les étapes pour chaque app sont dans <a href=\"{{href.plan}}#connect-your-ai\">Connectez votre app IA</a>. L'assistant propose un plan, le plan arrive dans la boîte IA de votre téléphone, et il entre dans vos listes d'un seul appui une fois que vous l'approuvez. Pour chaque connexion, vous choisissez ce que l'assistant peut lire et quels listes et projets il voit, et ses modifications attendent toujours votre approbation ; le réglage s'appelle <strong>Me demander d'abord</strong>. Il n'existe aucun outil de suppression, et vous pouvez révoquer une connexion depuis votre téléphone à tout moment. Envoyer un plan fonctionne en version gratuite ; l'approuver, comme tout le reste, nécessite Pro."
         },
         "focus": {
           "q": "Comment fonctionne Focus ?",
-          "a": "Vous pouvez lancer une session unique, un cycle Pomodoro (25 minutes de concentration, 5 minutes de pause, une pause plus longue tous les 4 tours) ou une session liée à une tâche précise. Le minuteur continue de tourner quand l'app est en arrière-plan ou que votre téléphone est verrouillé, Ne pas déranger fait taire les autres apps pendant la session, et chaque scène apporte sa propre atmosphère : Ville sous la pluie, Minuit, Crépuscule, Neige ou Brouillard."
+          "a": "Vous pouvez lancer une session unique, un cycle Pomodoro (25 minutes de concentration, 5 minutes de pause, une pause plus longue tous les 4 tours) ou une session liée à une tâche précise. Le minuteur continue de tourner quand l'app est en arrière-plan ou que votre téléphone est verrouillé, Ne pas déranger fait taire les autres apps pendant la session, et chaque scène apporte sa propre atmosphère : Ville sous la pluie, Minuit, Crépuscule, Neige ou Brouillard. <a href=\"{{href.focus}}\">More about Focus</a>."
         },
         "ambience": {
           "q": "Ai-je besoin du Pack Atmosphère de concentration ?",
@@ -242,7 +255,7 @@
       "blogLink": "Écrit en construisant Dovilo : le blog"
     },
     "ai": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-09",
       "meta": {
         "title": "Liste de tâches MCP où travaille votre agent de code - Dovilo",
         "description": "Claude Code, Cursor et tout client MCP se connectent à Dovilo de partout et ne voient que leurs tâches IA : 9 outils, ni création ni suppression.",
@@ -296,73 +309,25 @@
       },
       "planning": {
         "title": "MCP standard, sans dépendance",
-        "chat": "<strong>ChatGPT, Claude, Gemini et Grok</strong> planifient le travail et vous l'envoient pour approbation.",
         "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf et Claude Desktop</strong> traitent les tâches.",
         "any": "<strong>LangGraph, les jobs CI et tout client MCP</strong> se connectent avec la même URL et la même clé."
       },
-      "servers": {
-        "title": "Deux serveurs",
-        "agents": {
-          "title": "Agents MCP",
-          "for": "Pour les agents de code",
-          "key": "Une clé par agent, affichée une seule fois"
-        },
-        "personal": {
-          "title": "Personal MCP",
-          "for": "Pour ChatGPT, Claude, Gemini et Grok",
-          "signin": "Connexion avec votre compte Dovilo"
-        },
-        "link": "Tous les outils dans la documentation MCP"
-      },
-      "connectAi": {
-        "title": "Connectez votre app IA",
-        "p": "ChatGPT, Claude, Gemini et Grok se connectent au Personal MCP de Dovilo, à l'adresse <code>https://dovilo.app/mcp</code>. Connectez-vous d'abord à Dovilo ; quand votre app IA vous demande de vous connecter, utilisez le même compte Google ou Apple. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide à travers les mêmes étapes.",
-        "apps": {
-          "chatgpt": {
-            "name": "ChatGPT",
-            "s1": "Ouvrez chatgpt.com/plugins.",
-            "s2": "Choisissez « + », puis « Add custom MCP server ».",
-            "s3": "Nommez-le Dovilo et collez l'adresse.",
-            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
-            "note": "Sur le web. La possibilité d'ajouter un serveur MCP personnalisé dépend de votre formule ChatGPT."
-          },
-          "claude": {
-            "name": "Claude",
-            "s1": "Ouvrez Customize &gt; Connectors.",
-            "s2": "Choisissez « Add custom connector ».",
-            "s3": "Nommez-le Dovilo et collez l'adresse.",
-            "s4": "Choisissez « Connect », connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
-            "note": "Sur claude.ai ou Claude Desktop ; il fonctionne ensuite aussi dans l'app mobile. La formule gratuite permet un connecteur personnalisé."
-          },
-          "gemini": {
-            "name": "Gemini",
-            "s1": "Ouvrez gemini.google.com &gt; Settings &gt; Connected Apps.",
-            "s2": "Choisissez « Add a custom app ».",
-            "s3": "Collez l'adresse, puis choisissez « Next ».",
-            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
-            "note": "Sur l'app web Gemini. Google le propose aux comptes personnels aux États-Unis, à partir de 18 ans, avec « Keep Activity » activé."
-          },
-          "grok": {
-            "name": "Grok",
-            "s1": "Ouvrez grok.com/connectors.",
-            "s2": "Choisissez « New Connector », puis « Custom ».",
-            "s3": "Collez l'adresse.",
-            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement."
-          }
-        },
-        "try": "Puis demandez-lui un plan dans une nouvelle conversation, par exemple : « Planifie ma journée de demain dans Dovilo avec 3 petites tâches. » Le plan apparaît dans votre boîte IA ; vérifiez-le et approuvez-le. Se connecter et envoyer des plans est gratuit ; ajouter un plan à vos listes nécessite Pro.",
-        "source": "Les noms de menu sont les libellés anglais de chaque app, relevés sur sa page d'aide le 20 octobre 2026 : <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. Si un menu a changé de place, la page d'aide donne l'actuel."
-      },
       "connect": {
         "title": "Configurer : une URL et une clé",
-        "p": "Dovilo Desktop écrit la configuration pour 7 clients. Rédigez ensuite un brief de projet et une tâche IA."
+        "p": "Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.",
+        "link": "Both servers and every tool: the MCP reference"
+      },
+      "bridge": {
+        "title": "Plan in ChatGPT or Claude, hand it to your agent",
+        "p": "With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.",
+        "link": "Connect your AI app"
       },
       "trust": {
         "title": "Ce que l'IA peut faire ou non",
         "own": "Ses propres tâches, rien d'autre.",
         "approve": "L'IA propose. Vous approuvez.",
+        "create": "It cannot create or delete tasks. Cancelling leaves the task visible.",
         "chat": "Votre travail de code reste hors de votre app de chat, sauf si vous l'activez.",
-        "delete": "Aucun outil de suppression. Ni maintenant, ni plus tard.",
         "revoke": "Révoquez toute connexion depuis votre téléphone, instantanément."
       },
       "tools": {
@@ -434,6 +399,142 @@
         "upgrade": {
           "q": "J'utilisais Desktop 1.8. Qu'est-ce qui a changé ?",
           "a": "Le serveur local de 1.8 n'existe plus. Créez un agent dans l'app, copiez sa clé et pointez votre client vers l'URL distante. <a href=\"/docs/mcp/#upgrading\">Les étapes sont dans la documentation MCP.</a>"
+        }
+      }
+    },
+    "plan": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Plan your day with ChatGPT or Claude - Dovilo",
+        "description": "Ask ChatGPT, Claude, Gemini or Grok for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you approve it.",
+        "ogAlt": "Dovilo: plan with ChatGPT or Claude, approve in one tap, beside a plan of six tasks from Claude",
+        "crumb": "Plan with AI"
+      },
+      "hero": {
+        "h1": "Dovilo: plan with ChatGPT or Claude, approve in one tap.",
+        "sub": "Ask your AI for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you say yes.",
+        "inboxAlt": "Boîte IA de Dovilo : un plan de six tâches de Claude avec un bouton Approuver",
+        "listAlt": "Liste Dovilo Déménagement avec les six tâches approuvées sous Aujourd'hui, Demain et Cette semaine",
+        "caption": "Change any task first; approved tasks keep their dates and list."
+      },
+      "about": {
+        "p": "Dovilo is a free to-do list for iOS and Android. Connect ChatGPT, Claude, Gemini or Grok and ask for a plan for your day, an event or a project; it arrives in Dovilo's AI inbox, you change what you like and add it to your lists with one tap. You choose which lists each app can see. Connecting and sending plans is free; adding a plan to your lists is part of Pro, $2.49 a month."
+      },
+      "steps": {
+        "title": "How a plan reaches your list",
+        "ask": {
+          "label": "Ask",
+          "detail": "&quot;Plan my week&quot;, &quot;Break this move into tasks&quot;: in your AI app, in your words."
+        },
+        "arrives": {
+          "label": "It arrives",
+          "detail": "The plan lands in your AI inbox in Dovilo, with a notification."
+        },
+        "change": {
+          "label": "Change it",
+          "detail": "Edit, drop or move any task before it joins a list."
+        },
+        "approve": {
+          "label": "Approve",
+          "detail": "One tap adds it to your lists. Nothing lands before that."
+        }
+      },
+      "connectAi": {
+        "title": "Connectez votre app IA",
+        "p": "ChatGPT, Claude, Gemini et Grok se connectent au Personal MCP de Dovilo, à l'adresse <code>https://dovilo.app/mcp</code>. Connectez-vous d'abord à Dovilo ; quand votre app IA vous demande de vous connecter, utilisez le même compte Google ou Apple. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide à travers les mêmes étapes.",
+        "apps": {
+          "chatgpt": {
+            "name": "ChatGPT",
+            "s1": "Ouvrez chatgpt.com/plugins.",
+            "s2": "Choisissez « + », puis « Add custom MCP server ».",
+            "s3": "Nommez-le Dovilo et collez l'adresse.",
+            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
+            "note": "Sur le web. La possibilité d'ajouter un serveur MCP personnalisé dépend de votre formule ChatGPT."
+          },
+          "claude": {
+            "name": "Claude",
+            "s1": "Ouvrez Customize &gt; Connectors.",
+            "s2": "Choisissez « Add custom connector ».",
+            "s3": "Nommez-le Dovilo et collez l'adresse.",
+            "s4": "Choisissez « Connect », connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
+            "note": "Sur claude.ai ou Claude Desktop ; il fonctionne ensuite aussi dans l'app mobile. La formule gratuite permet un connecteur personnalisé."
+          },
+          "gemini": {
+            "name": "Gemini",
+            "s1": "Ouvrez gemini.google.com &gt; Settings &gt; Connected Apps.",
+            "s2": "Choisissez « Add a custom app ».",
+            "s3": "Collez l'adresse, puis choisissez « Next ».",
+            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement.",
+            "note": "Sur l'app web Gemini. Google le propose aux comptes personnels aux États-Unis, à partir de 18 ans, avec « Keep Activity » activé."
+          },
+          "grok": {
+            "name": "Grok",
+            "s1": "Ouvrez grok.com/connectors.",
+            "s2": "Choisissez « New Connector », puis « Custom ».",
+            "s3": "Collez l'adresse.",
+            "s4": "Connectez-vous avec votre compte Dovilo et approuvez l'écran de consentement."
+          }
+        },
+        "try": "Puis demandez-lui un plan dans une nouvelle conversation, par exemple : « Planifie ma journée de demain dans Dovilo avec 3 petites tâches. » Le plan apparaît dans votre boîte IA ; vérifiez-le et approuvez-le. Se connecter et envoyer des plans est gratuit ; ajouter un plan à vos listes nécessite Pro.",
+        "source": "Les noms de menu sont les libellés anglais de chaque app, relevés sur sa page d'aide le 20 octobre 2026 : <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. Si un menu a changé de place, la page d'aide donne l'actuel."
+      },
+      "control": {
+        "title": "What ChatGPT or Claude can see and change",
+        "p": "You set this per app in Settings &gt; AI &gt; Connected AI apps, and change it any time.",
+        "lists": "<strong>Only the lists you pick.</strong> Hidden lists are invisible to it.",
+        "read": "<strong>Read access is yours to turn on or off.</strong> With it off, it can still send plans.",
+        "ask": "<strong>Every new task or edit waits for you.</strong> The setting is called Ask me first.",
+        "delete": "<strong>No delete tool.</strong> Not now, not later.",
+        "coding": "<strong>Your coding work stays out.</strong> Unless you turn on AI task access for that app.",
+        "disconnect": "<strong>Disconnect from your phone.</strong> Any app, any time.",
+        "alt": "Dovilo Connected AI apps for Claude: read access, AI tasks and Ask me first, with the lists it can see"
+      },
+      "prompts": {
+        "title": "Plans to try",
+        "p": "Paste one into a new chat after you connect.",
+        "one": "Plan my tomorrow in Dovilo with 3 small tasks.",
+        "two": "Plan Mia's birthday party for Saturday in Dovilo: invitations, the cake and the room, in a new list.",
+        "three": "Break my December move into weekly tasks in Dovilo, starting next Monday.",
+        "four": "Look at my Planned tasks in Dovilo and spread this week so no day has more than five.",
+        "note": "The last one needs read access for that app."
+      },
+      "coding": {
+        "title": "Planning a coding project?",
+        "p": "ChatGPT or Claude can also propose AI tasks for your coding assistant, such as Claude Code or Cursor, and draft your answer when it asks a question. Each one waits for your approval.",
+        "link": "AI Tasks for coding assistants"
+      },
+      "pricing": {
+        "title": "Free to send, Pro to add",
+        "free": {
+          "label": "Free",
+          "text": "Connect any of the four apps and send plans."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Add plans to your lists: $2.49 a month, $19.99 a year or $49.99 once, 7-day trial in the app."
+        },
+        "link": "All plans"
+      },
+      "faq": {
+        "apps": {
+          "q": "Which AI apps work with Dovilo?",
+          "a": "ChatGPT, Claude, Gemini and Grok. Each needs a plan or account that allows a custom connector: ChatGPT depends on your plan, Claude's free plan allows one custom connector, and Gemini offers it to personal accounts in the US aged 18 or over. The steps are under <a href=\"#connect-your-ai\">Connect your AI app</a>."
+        },
+        "sees": {
+          "q": "Can it see all my tasks?",
+          "a": "No. It sees only the lists you pick for that app, and only if read access is on. You can change both from your phone at any time."
+        },
+        "free": {
+          "q": "Does planning work on the free tier?",
+          "a": "Connecting and sending plans is free. Adding a plan to your lists is part of Pro, with a 7-day trial in the app."
+        },
+        "directory": {
+          "q": "Is Dovilo in the ChatGPT or Claude app directory?",
+          "a": "Not yet. You add it by its address, <code>https://dovilo.app/mcp</code>, in a few steps."
+        },
+        "offline": {
+          "q": "Does it work offline?",
+          "a": "Your lists do. Plans need a connection: they travel from your AI app to Dovilo's server and on to your phone."
         }
       }
     },
@@ -662,7 +763,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-09",
       "meta": {
         "title": "FAQ : réponses directes sur l'app, Pro et l'IA - Dovilo",
         "description": "Questions fréquentes sur Dovilo : liste de tâches gamifiée, minuteur de concentration et jeu de construction de ville.",
@@ -743,7 +844,7 @@
         },
         "plan": {
           "q": "Puis-je planifier avec ChatGPT, Claude, Gemini ou Grok ?",
-          "a1": "Oui. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide en trois courtes étapes : choisissez votre app IA, ajoutez-y Dovilo avec l'adresse <code>https://dovilo.app/mcp</code> et connectez-vous avec votre compte Dovilo, puis essayez un premier plan. Les étapes pour chaque app sont dans <a href=\"{{href.ai}}#connect-your-ai\">Connectez votre app IA</a>. L'assistant propose un plan, le plan arrive dans la boîte IA de votre téléphone, et il entre dans vos listes d'un seul appui une fois que vous l'approuvez.",
+          "a1": "Oui. Dans l'app, Paramètres &gt; IA &gt; Apps IA connectées vous guide en trois courtes étapes : choisissez votre app IA, ajoutez-y Dovilo avec l'adresse <code>https://dovilo.app/mcp</code> et connectez-vous avec votre compte Dovilo, puis essayez un premier plan. Les étapes pour chaque app sont dans <a href=\"{{href.plan}}#connect-your-ai\">Connectez votre app IA</a>. L'assistant propose un plan, le plan arrive dans la boîte IA de votre téléphone, et il entre dans vos listes d'un seul appui une fois que vous l'approuvez.",
           "a2": "Pour chaque connexion, vous choisissez ce que l'assistant peut lire et quels listes et projets il voit, et ses modifications attendent toujours votre approbation ; le réglage s'appelle <strong>Me demander d'abord</strong>. Il n'existe aucun outil de suppression, et vous pouvez révoquer une connexion depuis votre téléphone à tout moment. Envoyer un plan fonctionne en version gratuite ; l'approuver, comme tout le reste, nécessite Pro."
         },
         "mcp": {

@@ -152,7 +152,7 @@ legal text (a typo, an em dash, Title Case headings) goes in the report and stay
 
 ### 1.3 The five built pages
 
-`/`, `/ai`, `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
+`/`, `/ai`, `/plan/` (A138, 9 Nov 2026), `/pricing/`, `/downloads/` and `/faq` are built by `npm run build:pages`
 (`tools/build-pages.mjs`) from `src/` since A130 (31 Oct 2026), so the site can ship them in five
 languages. English, Turkish, Spanish, French and German ship (A130 part 2, 1 Nov 2026; es, fr and de on 5 Nov 2026). Their `index.html` files are build output: **never edit them in place**; the next build
 overwrites them. `npm run build:pages -- --check` fails when they are out of step with `src/`.
