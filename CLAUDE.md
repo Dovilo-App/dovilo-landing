@@ -7,13 +7,13 @@ build steps are `/blog` (the index's language copies, `/tr/blog/`, included), th
 apex domain; pushing publishes. See `README.md` for how the repo is laid out and how the blog build
 works — this file is about the rules that are easy to break and expensive to re-derive.
 
-Decisions, contract and guides are Dovilo project documents; read them with read_context. The repo keeps no decision documents.
+Decisions, contract and guides are Dovilo project documents; read them with read_context. The repo keeps no decision documents. Old paths in code comments and page sources mean these documents: `docs/design-language.md` = "Landing design language", `docs/dovilo-landing-l10n-analysis.md` = "Site l10n (A130, A131)".
 
 Two things here have already cost real time and must not be undone by a later change:
 
 1. **The SEO / GEO work.** Every rule below came out of a specific commit that fixed a specific
    audit finding. Re-read the commit if you need the reasoning: the messages carry it.
-2. **The design system.** [`docs/design-language.md`](docs/design-language.md) is the single design
+2. **The design system.** "Landing design language" (Dovilo project document) is the single design
    reference, and `styles/system.css` implements it. Every page is on it, the generated blog pages
    included; the old `styles/base.css` and `styles/home.css` were deleted once the last pages moved
    (29 Oct 2026). The site once had three unrelated type systems under one brand; a second
@@ -41,9 +41,9 @@ sentences: do not edit them here and do not quote them on the site. They are fix
 
 ### 1.1 The design language (every page)
 
-[`docs/design-language.md`](docs/design-language.md) is the one design reference: principles,
+"Landing design language" (Dovilo project document) is the one design reference: principles,
 tokens, components with their HTML, copy rules, word budgets, the GEO layer and theming. A page task
-that says "follow docs/design-language.md" needs nothing else about design. `styles/system.css`
+that says "follow the design language" (or the old "follow docs/design-language.md") needs nothing else about design. `styles/system.css`
 implements the doc and nothing else, and `/styleguide/` (source `styleguide/index.html`, named here
 without a link on purpose) renders every component in light and dark with real copy.
 
@@ -429,7 +429,7 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - [ ] New indexable page? Linked from the shared nav or footer, and in `sitemap.xml`.
 - [ ] Every new `<img>`: alt, width, height, WebP, lazy unless above the fold.
 - [ ] No new token, colour, font size or spacing outside `styles/system.css`.
-- [ ] Only components from `docs/design-language.md`, visible words within the page's budget, and
+- [ ] Only components from "Landing design language", visible words within the page's budget, and
       the doc's own checklist (its section 10) run.
 - [ ] Both themes checked — dark and light — and the page still reads at 320px wide.
 

@@ -40,7 +40,7 @@ nothing about a post is fetched in the browser either.
 Light and dark themes are CSS custom properties, with the choice stored in `localStorage` and
 applied before first paint so there is no flash.
 
-[`docs/design-language.md`](docs/design-language.md) is the design spec,
+The Dovilo project document "Landing design language" is the design spec,
 [`styles/system.css`](styles/system.css) implements it, and `/styleguide/` (not indexed, not
 linked) renders every component in both themes. The redesign moved every page onto it, one at a
 time; the stylesheets before it, `styles/base.css` and `styles/home.css`, are gone.
@@ -209,7 +209,7 @@ exporting to it drops tables and turns most inline links into plain text.
 - `## headings` get GitHub-style ids, so a list of `[Section](#section)` links at the top of the
   body renders as a table of contents whose anchors resolve.
 - Tables, lists, code fences, `---` rules and bold render as the design system's components (Post in
-  [`docs/design-language.md`](docs/design-language.md)): the build wraps a table in `.table-wrap`, a
+  "Landing design language"): the build wraps a table in `.table-wrap`, a
   code fence in a code block and an image that stands alone in a figure, and the post column is the
   measure.
 - A cover image goes in `mainImage`, with alt text. Images on the Sanity CDN are pulled into
