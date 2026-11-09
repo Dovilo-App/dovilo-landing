@@ -440,8 +440,8 @@ Carried here so they are not rediscovered from scratch:
 - The ten built pages declare hreflang for the languages that are built (`en`, `tr`, `x-default`),
   not the six of A130 3.1: `es`, `fr` and `de` appear by themselves when their strings land, and
   until then would point at addresses that do not exist.
-- Five `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/pricing/` (4) and
-  `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
+- Seven `FAQPage` blocks compete: `/` (10 questions), `/faq` (28), `/ai` (5), `/plan/` (5), `/focus/` (4),
+  `/pricing/` (4) and `/downloads/` (5). `/changelog/` dropped its three on 29 Oct 2026: they were not on the page as
   questions, and its `<h2>`s stay statements. Nine of the homepage's ten duplicate the FAQ page's ("How
   does Focus work?" is the exception), so a wording change there has to be made in four places plus
   `llms-full.txt`. On the built pages each place is a key in `src/strings/en.json`
@@ -452,8 +452,8 @@ Carried here so they are not rediscovered from scratch:
   and JSON-LD on each) plus `llms-full.txt`. Two more overlaps: `/ai`'s "Does my agent need Dovilo Desktop running?" covers
   the same ground as "Does my coding agent need Dovilo Desktop running?" on `/` and `/faq`, and its
   "Can an agent delete a task?" the ground of `/faq`'s "Can agents create or modify tasks I didn't
-  authorize?", so keep those answers in agreement. Otherwise `/ai` and `/downloads/` ask
-  questions that appear nowhere else, which is the condition for adding a sixth. The eight questions `/ai` dropped
+  authorize?", so keep those answers in agreement. Otherwise `/ai`, `/plan/`, `/focus/` and
+  `/downloads/` ask questions worded nowhere else (checked 10 Nov 2026), which is the condition for adding an eighth. The eight questions `/ai` dropped
   in its redesign live on `/docs/mcp/#questions` as plain `<h3>`s with no `FAQPage`; keep it that
   way. One of them, "Can I get my data out?", covers the ground of `/faq`'s "Can I export my
   data?" (added 29 Oct 2026): both say not yet, on the roadmap, no date; keep them in agreement.

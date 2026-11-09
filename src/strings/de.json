@@ -15,10 +15,10 @@
     "nav": {
       "skip": "Zum Inhalt springen",
       "label": "Hauptmenü",
-      "tasks": "Tasks",
-      "focus": "Focus",
-      "plan": "Plan with AI",
-      "ai": "KI",
+      "tasks": "Aufgaben",
+      "focus": "Fokus",
+      "plan": "Mit KI planen",
+      "ai": "KI-Aufgaben",
       "pricing": "Preise",
       "downloads": "Downloads",
       "faq": "FAQ",
@@ -30,9 +30,9 @@
     "footer": {
       "label": "Fußzeile",
       "product": "Produkt",
-      "focus": "Focus",
-      "plan": "Plan with AI",
-      "ai": "AI Tasks",
+      "focus": "Fokus",
+      "plan": "Mit KI planen",
+      "ai": "KI-Aufgaben",
       "downloads": "Downloads",
       "pricing": "Preise",
       "changelog": "Versionshinweise",
@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Gamifizierte To-do-Liste, Fokus-Timer und Städtebau - Dovilo",
         "description": "Dovilo: kostenlose To-do-Liste für iOS und Android mit Pomodoro-Timer und isometrischer Stadt. Unbegrenzte Aufgaben und Sitzungen, keine Werbung.",
@@ -132,13 +132,13 @@
         "agentsLink": "Du entwickelst mit Claude Code oder Cursor?",
         "inboxAlt": "Dovilo KI-Eingang: ein Plan mit sechs Aufgaben von Claude und einem Annehmen-Button",
         "listAlt": "Dovilo-Liste Lenas Geburtstag mit den sechs angenommenen Aufgaben unter Heute, Morgen und Diese Woche",
-        "caption": "Sechs Aufgaben, von Claude vorgeschlagen, in eine Liste angenommen."
+        "caption": "Ein Plan von Claude bringt seine eigene Liste und Termine mit."
       },
       "about": {
         "p": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Pomodoro-Fokus-Timer und isometrischem Städtebauspiel. Unbegrenzte Aufgaben und Fokus-Sitzungen, keine Werbung, offline-first, 5 Sprachen. Erledigte Arbeit bringt Steine, Steine kaufen Gebäude, und nichts verfällt. ChatGPT, Claude, Gemini oder Grok können deinen Tag darin planen; du gibst jeden Plan frei. Fokus, die Stadt und das Planen mit KI lassen sich einzeln ausschalten. Pro kostet $2.49 im Monat."
       },
       "steps": {
-        "title": "So funktioniert es",
+        "title": "Planen, annehmen, fokussieren, bauen",
         "plan": {
           "label": "Planen",
           "detail": "Schreib Aufgaben oder lass ChatGPT oder Claude sie vorschlagen."
@@ -157,35 +157,35 @@
         }
       },
       "tasks": {
-        "title": "Tasks and lists, free and unlimited",
-        "p": "Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro.",
-        "views": "<strong>One picker for every view.</strong> My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count.",
-        "groups": "<strong>Grouped by date.</strong> Lists fold into date groups, and Planned groups by day.",
-        "offline": "<strong>Works offline.</strong> Your tasks live on your phone first. Cloud sync between devices comes with Pro.",
-        "bricks": "<strong>Finished tasks pay bricks.</strong> They build the city further down this page."
+        "title": "Aufgaben und Listen, kostenlos und unbegrenzt",
+        "p": "Jede Aufgabe kann ein Fälligkeitsdatum, eine Erinnerung, eine Wiederholung, einen Stern, eine Markierung, eine Priorität und Notizen haben. Nichts davon braucht Pro.",
+        "views": "<strong>Eine Auswahl für jede Ansicht.</strong> Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeweils mit Live-Zähler.",
+        "groups": "<strong>Nach Datum gruppiert.</strong> Listen ordnen sich nach Datum, Geplant nach Tagen.",
+        "offline": "<strong>Funktioniert offline.</strong> Deine Aufgaben liegen zuerst auf deinem Handy. Cloud-Sync zwischen Geräten gibt es mit Pro.",
+        "bricks": "<strong>Erledigte Aufgaben bringen Steine.</strong> Damit baust du die Stadt weiter unten auf dieser Seite."
       },
       "plan": {
         "title": "Plane mit deiner KI",
         "p": "Bitte ChatGPT, Claude, Gemini oder Grok, deinen Tag, ein Event oder ein Projekt zu planen. Der Plan landet in deinem KI-Eingang in Dovilo: Ändere, was du willst, und füge ihn mit einem Tippen deinen Listen hinzu. Nichts landet dort, bevor du Ja sagst, und du wählst, welche Listen jede KI sehen darf. Verbinden geht in der App in drei kurzen Schritten.",
         "pro": "Verbinden und Pläne senden ist kostenlos; einen Plan zu deinen Listen hinzuzufügen gehört zu Pro.",
-        "link": "So verbindest du deine KI-App"
+        "link": "So funktioniert das Planen mit KI"
       },
       "focus": {
         "title": "Fokus, der den ganzen Bildschirm füllt",
-        "p": "Eine Einzelsitzung, ein Pomodoro-Zyklus oder ein Timer für eine Aufgabe, kostenlos und unbegrenzt. Das Fokus-Atmosphären-Paket bringt 5 Szenen und 16 Klangebenen, 3 gleichzeitig: $4.99 einmalig, in Pro enthalten.",
-        "link": "More about Focus",
+        "p": "Eine Einzelsitzung, ein Pomodoro-Zyklus oder ein Timer für eine Aufgabe, kostenlos und unbegrenzt.",
+        "link": "Mehr über Fokus",
         "rainAlt": "Dovilo Fokus-Sitzung in der Szene Regenstadt mit 22 verbleibenden Minuten",
-        "rainCaption": "Regenstadt, noch 22 Minuten."
+        "rainCaption": "Jede Szene bringt ihr eigenes Wetter, ihre Skyline und ihren Klang mit."
       },
       "city": {
-        "title": "Eine Stadt, die bleibt",
+        "title": "Erledigte Arbeit baut eine Stadt, die bleibt",
         "p": "Aufgaben und Fokus-Sitzungen bringen Steine. Gib sie für Häuser, Büros, Parks und Straßen aus und platziere sie, wo du willst. Nichts verfällt, keine Serie bestraft eine ruhige Woche. Große Bauten gibt es mit dem Vollständigen Stadtpaket, $4.99 einmalig, in Pro enthalten.",
         "alt": "Isometrische Dovilo-Stadt mit Stadion, Krankenhaus und Rathaus"
       },
       "agents": {
         "title": "Du entwickelst mit Claude Code oder Cursor?",
         "p": "Gib deinem Coding-Assistenten eine eigene Aufgabenliste, KI-Aufgaben, getrennt von deiner: 9 Tools, kein Erstellen, kein Löschen, deine Liste unsichtbar.",
-        "link": "Mehr über KI-Aufgaben"
+        "link": "KI-Aufgaben für Coding-Assistenten"
       },
       "pricing": {
         "free": {
@@ -224,7 +224,7 @@
         },
         "focus": {
           "q": "Wie funktioniert Fokus?",
-          "a": "Du kannst eine Einzelsitzung starten, einen Pomodoro-Zyklus (25 Minuten Fokus, 5 Minuten Pause, alle 4 Runden eine längere Pause) oder eine Sitzung, die an eine bestimmte Aufgabe gebunden ist. Der Timer zählt weiter, wenn die App im Hintergrund oder dein Smartphone gesperrt ist, „Nicht stören“ schaltet andere Apps während der Sitzung stumm, und jede Szene bringt ihre eigene Atmosphäre mit: Regenstadt, Mitternacht, Abenddämmerung, Schnee oder Nebel. <a href=\"{{href.focus}}\">More about Focus</a>."
+          "a": "Du kannst eine Einzelsitzung starten, einen Pomodoro-Zyklus (25 Minuten Fokus, 5 Minuten Pause, alle 4 Runden eine längere Pause) oder eine Sitzung, die an eine bestimmte Aufgabe gebunden ist. Der Timer zählt weiter, wenn die App im Hintergrund oder dein Smartphone gesperrt ist, „Nicht stören“ schaltet andere Apps während der Sitzung stumm, und jede Szene bringt ihre eigene Atmosphäre mit: Regenstadt, Mitternacht, Abenddämmerung, Schnee oder Nebel. <a href=\"{{href.focus}}\">Mehr über Fokus</a>."
         },
         "ambience": {
           "q": "Brauche ich das Fokus-Atmosphären-Paket?",
@@ -254,95 +254,95 @@
       "blogLink": "Geschrieben beim Bauen von Dovilo: der Blog"
     },
     "focus": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
-        "title": "Pomodoro focus timer with full-screen ambience - Dovilo",
-        "description": "A free focus timer for iOS and Android: single sessions, Pomodoro cycles or a timer on one task, with full-screen scenes. Unlimited, no ads.",
-        "ogAlt": "Dovilo: focus sessions that fill the whole screen, beside a focus session in the Rainy City scene",
-        "crumb": "Focus"
+        "title": "Pomodoro-Fokus-Timer mit Vollbild-Atmosphäre - Dovilo",
+        "description": "Ein kostenloser Fokus-Timer für iOS und Android: Einzelsitzung, Pomodoro oder Timer für eine Aufgabe, mit Vollbild-Szenen. Ohne Werbung.",
+        "ogAlt": "Dovilo: Fokus-Sitzungen, die den ganzen Bildschirm füllen, neben einer Fokus-Sitzung in der Szene Regenstadt",
+        "crumb": "Fokus"
       },
       "hero": {
-        "h1": "Dovilo: focus sessions that fill the whole screen.",
-        "sub": "A single session, a Pomodoro cycle or a timer on one task. Free and unlimited, no ads.",
+        "h1": "Dovilo: Fokus-Sitzungen, die den ganzen Bildschirm füllen.",
+        "sub": "Eine Einzelsitzung, ein Pomodoro-Zyklus oder ein Timer für eine Aufgabe. Kostenlos, unbegrenzt und ohne Werbung.",
         "alt": "Dovilo Fokus-Sitzung in der Szene Regenstadt mit 22 verbleibenden Minuten",
-        "caption": "The timer keeps running with the phone locked; bricks land when it ends."
+        "caption": "Der Timer läuft bei gesperrtem Handy weiter; die Steine kommen am Ende."
       },
       "about": {
-        "p": "Dovilo is a free to-do list for iOS and Android with a focus timer that fills the screen. Focus sessions and Pomodoro cycles are free and unlimited, with no ads. The Focus Ambience Pack adds 5 scenes and 16 sound layers for $4.99 once, and it is included with Pro. Finished sessions pay bricks for your city."
+        "p": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit einem Fokus-Timer, der den Bildschirm füllt. Fokus-Sitzungen und Pomodoro-Zyklen sind kostenlos und unbegrenzt, ohne Werbung. Das Fokus-Atmosphären-Paket bringt 5 Szenen und 16 Klangebenen für einmalig $4.99 und ist in Pro enthalten. Abgeschlossene Sitzungen bringen Steine für deine Stadt."
       },
       "modes": {
-        "title": "Three ways to focus",
-        "single": "<strong>A single session.</strong> Any length you choose.",
-        "pomodoro": "<strong>A Pomodoro cycle.</strong> 25 minutes of focus, a 5 minute break, a longer break every 4 rounds. Breaks start on their own, and only finished rounds count.",
-        "task": "<strong>A timer on one task.</strong> The session is bound to that task."
+        "title": "Drei Arten, dich zu fokussieren",
+        "single": "<strong>Eine Einzelsitzung.</strong> So lang, wie du willst.",
+        "pomodoro": "<strong>Ein Pomodoro-Zyklus.</strong> 25 Minuten Fokus, 5 Minuten Pause, alle 4 Runden eine längere Pause. Pausen starten von selbst, und nur abgeschlossene Runden zählen.",
+        "task": "<strong>Ein Timer für eine Aufgabe.</strong> Die Sitzung ist an diese Aufgabe gebunden."
       },
       "session": {
-        "title": "From the first minute to the last",
-        "start": "<strong>A calm start.</strong> A breathing exercise and a countdown ease you in.",
-        "counting": "<strong>Keeps counting.</strong> In the background or with the phone locked.",
-        "quiet": "<strong>Quiet phone.</strong> Do Not Disturb can silence other apps for the session.",
-        "end": "<strong>A clear end.</strong> A notification when the session is over."
+        "title": "Von der ersten bis zur letzten Minute",
+        "start": "<strong>Ein ruhiger Start.</strong> Eine Atemübung und ein Countdown stimmen dich ein.",
+        "counting": "<strong>Zählt weiter.</strong> Im Hintergrund oder bei gesperrtem Handy.",
+        "quiet": "<strong>Ruhiges Handy.</strong> Nicht stören kann andere Apps für die Dauer der Sitzung stummschalten.",
+        "end": "<strong>Ein klares Ende.</strong> Eine Benachrichtigung, wenn die Sitzung vorbei ist."
       },
       "scenes": {
-        "title": "Six scenes, one of them free",
-        "p": "Each scene has its own weather, skyline tint and sound, and fills the whole screen.",
-        "default": "<strong>Default.</strong> Always free, and silent.",
-        "rainy": "<strong>Rainy City.</strong> Rain and a fireplace.",
-        "midnight": "<strong>Midnight.</strong> City hum and brown noise. It stays dark even in the light theme.",
-        "dusk": "<strong>Dusk.</strong> Birds and a breeze. Breaks switch to Dusk on their own.",
-        "snow": "<strong>Snow.</strong> Winter wind and pink noise.",
-        "fog": "<strong>Fog.</strong> A fog horn and white noise.",
-        "note": "The five scenes after Default come with the Focus Ambience Pack."
+        "title": "Sechs Szenen, eine davon kostenlos",
+        "p": "Jede Szene hat ihr eigenes Wetter, ihren Skyline-Ton und ihren Klang und füllt den ganzen Bildschirm.",
+        "default": "<strong>Standard.</strong> Immer kostenlos und still.",
+        "rainy": "<strong>Regenstadt.</strong> Regen und ein Kamin.",
+        "midnight": "<strong>Mitternacht.</strong> Stadtrauschen und braunes Rauschen. Sie bleibt auch im hellen Design dunkel.",
+        "dusk": "<strong>Abenddämmerung.</strong> Vögel und eine Brise. Pausen wechseln von selbst zur Abenddämmerung.",
+        "snow": "<strong>Schnee.</strong> Winterwind und rosa Rauschen.",
+        "fog": "<strong>Nebel.</strong> Ein Nebelhorn und weißes Rauschen.",
+        "note": "Die fünf Szenen nach Standard kommen mit dem Fokus-Atmosphären-Paket."
       },
       "sound": {
-        "title": "Mix your own sound",
-        "p": "Blend up to 3 of 16 layers, each at its own level: 13 recordings such as rain, a café or a train, and brown, pink and white noise. The mix can follow the session: soft in the first 5 minutes, brighter in the last 2.",
+        "title": "Misch deinen eigenen Klang",
+        "p": "Kombiniere bis zu 3 von 16 Ebenen, jede in ihrer eigenen Lautstärke: 13 Aufnahmen wie Regen, ein Café oder ein Zug, dazu braunes, rosa und weißes Rauschen. Die Mischung kann der Sitzung folgen: sanft in den ersten 5 Minuten, heller in den letzten 2.",
         "alt": "Dovilo Atmosphären-Mixer mit den Ebenen Regen und Kamin, „Dem Rhythmus der Sitzung folgen“ ist an",
-        "caption": "It is ambience, not music: no melody, no beat."
+        "caption": "Das ist Atmosphäre, keine Musik: keine Melodie, kein Beat."
       },
       "bricks": {
-        "title": "Finished sessions build a city",
-        "p": "A completed session pays bricks based on its length. Bricks buy houses, offices, parks and roads in your city, and nothing decays.",
-        "link": "How the city works",
-        "modules": "Don't need the city? Focus, the city and planning with AI can each be turned off in Settings &gt; Modules."
+        "title": "Abgeschlossene Sitzungen bauen eine Stadt",
+        "p": "Eine abgeschlossene Sitzung bringt je nach Länge Steine. Mit Steinen kaufst du Häuser, Büros, Parks und Straßen für deine Stadt, und nichts verfällt.",
+        "link": "So funktioniert die Stadt",
+        "modules": "Brauchst du die Stadt nicht? Fokus, die Stadt und das Planen mit KI lassen sich unter Einstellungen &gt; Module einzeln ausschalten."
       },
       "pricing": {
-        "title": "Free to focus, one pack for the scenes",
+        "title": "Fokussieren kostenlos, ein Paket für die Szenen",
         "free": {
-          "label": "Free",
-          "text": "Focus sessions and Pomodoro cycles, unlimited, with the Default scene."
+          "label": "Kostenlos",
+          "text": "Fokus-Sitzungen und Pomodoro-Zyklen, unbegrenzt, mit der Szene Standard."
         },
         "pack": {
-          "label": "Focus Ambience Pack",
-          "text": "5 scenes and 16 sound layers, $4.99 once."
+          "label": "Fokus-Atmosphären-Paket",
+          "text": "5 Szenen und 16 Klangebenen, einmalig $4.99."
         },
         "pro": {
           "label": "Pro",
-          "text": "Includes the pack, from $2.49 a month."
+          "text": "Enthält das Paket, ab $2.49 im Monat."
         },
-        "link": "All plans"
+        "link": "Alle Preise"
       },
       "faq": {
         "free": {
-          "q": "Is Focus free?",
-          "a": "Yes. Single sessions and Pomodoro cycles are free and unlimited, with the Default scene. The Focus Ambience Pack adds the other 5 scenes and 16 sound layers for $4.99 once, and Pro includes it."
+          "q": "Ist Fokus kostenlos?",
+          "a": "Ja. Einzelsitzungen und Pomodoro-Zyklen sind kostenlos und unbegrenzt, mit der Szene Standard. Das Fokus-Atmosphären-Paket bringt die anderen 5 Szenen und 16 Klangebenen für einmalig $4.99, und Pro enthält es."
         },
         "locked": {
-          "q": "Does the timer run with the phone locked?",
-          "a": "Yes. It keeps counting in the background and with the phone locked, and a notification tells you when the session ends."
+          "q": "Läuft der Timer bei gesperrtem Handy?",
+          "a": "Ja. Er zählt im Hintergrund und bei gesperrtem Handy weiter, und eine Benachrichtigung sagt dir, wann die Sitzung endet."
         },
         "unfinished": {
-          "q": "Do unfinished sessions count?",
-          "a": "A session ended early still saves, but only finished Pomodoro rounds count toward the daily round counter."
+          "q": "Zählen nicht beendete Sitzungen?",
+          "a": "Eine vorzeitig beendete Sitzung wird trotzdem gespeichert, aber nur abgeschlossene Pomodoro-Runden zählen für den täglichen Rundenzähler."
         },
         "desktop": {
-          "q": "Is Focus on Dovilo Desktop?",
-          "a": "No. Focus and the city are on iOS and Android. Desktop is the Windows and Mac client for your lists and AI tasks."
+          "q": "Gibt es Fokus in Dovilo Desktop?",
+          "a": "Nein. Fokus und die Stadt gibt es auf iOS und Android. Desktop ist der Windows- und Mac-Client für deine Listen und KI-Aufgaben."
         }
       }
     },
     "ai": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo",
         "description": "Claude Code, Cursor und jeder MCP-Client verbinden sich von überall mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, ohne Erstellen und Löschen.",
@@ -362,13 +362,13 @@
         "sub": "Claude Code, Cursor und jeder MCP-Client verbinden sich von jedem Rechner und sehen nur ihre eigenen KI-Aufgaben.",
         "desktopAlt": "Dovilo Desktop: KI-Aufgaben eines Projekts, gruppiert danach, was Aufmerksamkeit braucht",
         "phoneAlt": "Dovilo KI-Aufgaben auf dem Smartphone: dasselbe Projekt mit Aufgaben, die auf dich warten, laufen, anstehen oder geplant sind",
-        "caption": "KI-Aufgaben eines Projekts, gruppiert danach, was dich braucht."
+        "caption": "Dieselbe Warteschlange am Schreibtisch und auf dem Handy; deine eigene Liste bleibt außen vor."
       },
       "about": {
         "p": "Dovilo ist eine To-do-App mit einer eigenen Aufgabenliste für KI-Coding-Agenten. Agenten verbinden sich per MCP mit dovilo.app/mcp/agents: 9 Tools, kein Erstellen, kein Löschen, und deine persönliche Liste ist nie sichtbar. ChatGPT oder Claude können die Arbeit planen; jede Anweisung wartet auf deine Freigabe. Pro, $2.49 im Monat, 15 KI-Aufgaben im Monat."
       },
       "steps": {
-        "title": "So funktioniert es",
+        "title": "So läuft eine KI-Aufgabe ab",
         "write": {
           "label": "Schreib die Aufgabe",
           "detail": "Oder lass ChatGPT oder Claude sie vorschlagen.",
@@ -391,31 +391,31 @@
         }
       },
       "built": {
-        "title": "Wie Dovilo selbst gebaut wird",
+        "title": "Anwendungsfall: Dovilo wird mit KI-Aufgaben gebaut",
         "p": "Dovilo wird genau so gebaut. Es hat fünf Projekte, Backend, Mobile, Desktop, Edge und Landing, und für jedes einen Agenten in Claude Code. Ich plane eine Änderung in Claude, und Claude schlägt KI-Aufgaben im passenden Projekt vor. Ich gebe sie auf meinem Smartphone frei; der Agent am Schreibtisch arbeitet sie ab, schreibt seine Schritte und Notizen in die Aufgabe und hält an, um zu fragen, wenn eine Entscheidung bei mir liegt. Diese Seite ist auf demselben Weg durch das Projekt Landing gegangen."
       },
       "planning": {
-        "title": "Reines MCP, kein Lock-in",
+        "title": "Funktioniert mit jedem MCP-Coding-Client",
         "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf und Claude Desktop</strong> arbeiten die Aufgaben ab.",
         "any": "<strong>LangGraph, CI-Jobs und jeder MCP-Client</strong> verbinden sich mit derselben URL und demselben Schlüssel."
       },
       "connect": {
-        "title": "Einrichtung: URL und Schlüssel",
-        "p": "Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.",
-        "link": "Both servers and every tool: the MCP reference"
+        "title": "Einen Coding-Agenten verbinden: eine URL und ein Schlüssel",
+        "p": "Lege in der App einen Agenten an, kopiere seinen Schlüssel einmal und richte deinen Client auf <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop schreibt die Konfiguration für 7 Clients.",
+        "link": "Beide Server und jedes Tool: die MCP-Referenz"
       },
       "bridge": {
-        "title": "Plan in ChatGPT or Claude, hand it to your agent",
-        "p": "With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.",
-        "link": "Connect your AI app"
+        "title": "In ChatGPT oder Claude planen, an deinen Agenten übergeben",
+        "p": "Ist der Zugriff auf KI-Aufgaben für eine Verbindung an, kann ChatGPT oder Claude KI-Aufgaben in deinen Projekten vorschlagen, ihre Schritte verfolgen und deine Antwort entwerfen, wenn ein Agent fragt. Jeder Vorschlag und jede Antwort wartet auf deine Freigabe auf dem Handy.",
+        "link": "Verbinde deine KI-App"
       },
       "trust": {
-        "title": "Was die KI kann und was nicht",
+        "title": "Was dein Coding-Agent kann und was nicht",
         "own": "Ihre eigenen Aufgaben, sonst nichts.",
-        "approve": "Die KI schlägt vor. Du gibst frei.",
-        "create": "It cannot create or delete tasks. Cancelling leaves the task visible.",
+        "approve": "Jede Aufgabe, die er bekommt, schreibt oder genehmigt ein Mensch.",
+        "create": "Er kann keine Aufgaben anlegen oder löschen. Abbrechen lässt die Aufgabe sichtbar.",
         "chat": "Deine Coding-Arbeit bleibt aus deiner Chat-App heraus, außer du schaltest es ein.",
-        "revoke": "Trenne jede Verbindung sofort vom Smartphone aus."
+        "revoke": "Widerrufe jeden Agent-Schlüssel sofort vom Handy aus."
       },
       "tools": {
         "summary": "9 Tools: 3 lesend, 6 schreibend. Kein Erstellen, kein Löschen",
@@ -441,7 +441,7 @@
         }
       },
       "webhooks": {
-        "title": "Webhooks und die Demo",
+        "title": "Webhooks und eine Open-Source-Demo",
         "signed": {
           "title": "Signierte Webhooks",
           "p": "Vom Server zugestellt, bis zu 5 Wiederholungen."
@@ -490,40 +490,40 @@
       }
     },
     "plan": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
-        "title": "Plan your day with ChatGPT or Claude - Dovilo",
-        "description": "Ask ChatGPT, Claude, Gemini or Grok for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you approve it.",
-        "ogAlt": "Dovilo: plan with ChatGPT or Claude, approve in one tap, beside a plan of six tasks from Claude",
-        "crumb": "Plan with AI"
+        "title": "Plane deinen Tag mit ChatGPT oder Claude - Dovilo",
+        "description": "Bitte ChatGPT, Claude, Gemini oder Grok um einen Plan. Er landet in Dovilos Eingang, und nichts kommt in deine Listen, bevor du zustimmst.",
+        "ogAlt": "Dovilo: mit ChatGPT oder Claude planen, mit einem Tipp annehmen, neben einem Plan mit sechs Aufgaben von Claude",
+        "crumb": "Mit KI planen"
       },
       "hero": {
-        "h1": "Dovilo: plan with ChatGPT or Claude, approve in one tap.",
-        "sub": "Ask your AI for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you say yes.",
+        "h1": "Dovilo: mit ChatGPT oder Claude planen, mit einem Tipp annehmen.",
+        "sub": "Bitte deine KI um einen Plan. Er landet in Dovilos Eingang, und nichts kommt in deine Listen, bevor du Ja sagst.",
         "inboxAlt": "Dovilo KI-Eingang: ein Plan mit sechs Aufgaben von Claude und einem Annehmen-Button",
         "listAlt": "Dovilo-Liste Lenas Geburtstag mit den sechs angenommenen Aufgaben unter Heute, Morgen und Diese Woche",
-        "caption": "Change any task first; approved tasks keep their dates and list."
+        "caption": "Ändere vorher jede Aufgabe; angenommene Aufgaben behalten ihre Termine und ihre Liste."
       },
       "about": {
-        "p": "Dovilo is a free to-do list for iOS and Android. Connect ChatGPT, Claude, Gemini or Grok and ask for a plan for your day, an event or a project; it arrives in Dovilo's AI inbox, you change what you like and add it to your lists with one tap. You choose which lists each app can see. Connecting and sending plans is free; adding a plan to your lists is part of Pro, $2.49 a month."
+        "p": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android. Verbinde ChatGPT, Claude, Gemini oder Grok und lass dir deinen Tag, ein Event oder ein Projekt planen; der Plan kommt in Dovilos KI-Eingang, du änderst, was du willst, und fügst ihn mit einem Tipp deinen Listen hinzu. Du legst fest, welche Listen jede App sieht. Verbinden und Pläne senden ist kostenlos; einen Plan in deine Listen zu übernehmen gehört zu Pro, $2.49 im Monat."
       },
       "steps": {
-        "title": "How a plan reaches your list",
+        "title": "So kommt ein Plan in deine Liste",
         "ask": {
-          "label": "Ask",
-          "detail": "&quot;Plan my week&quot;, &quot;Break this move into tasks&quot;: in your AI app, in your words."
+          "label": "Fragen",
+          "detail": "„Plane meine Woche“, „Teil diesen Umzug in Aufgaben“: in deiner KI-App, in deinen Worten."
         },
         "arrives": {
-          "label": "It arrives",
-          "detail": "The plan lands in your AI inbox in Dovilo, with a notification."
+          "label": "Er kommt an",
+          "detail": "Der Plan landet mit einer Benachrichtigung in deinem KI-Eingang in Dovilo."
         },
         "change": {
-          "label": "Change it",
-          "detail": "Edit, drop or move any task before it joins a list."
+          "label": "Ändern",
+          "detail": "Bearbeite, streiche oder verschiebe jede Aufgabe, bevor sie in eine Liste kommt."
         },
         "approve": {
-          "label": "Approve",
-          "detail": "One tap adds it to your lists. Nothing lands before that."
+          "label": "Annehmen",
+          "detail": "Ein Tipp fügt ihn deinen Listen hinzu. Vorher kommt nichts an."
         }
       },
       "connectAi": {
@@ -566,62 +566,62 @@
         "source": "Die Menünamen sind die englischen Bezeichnungen der jeweiligen App, entnommen ihrer Hilfeseite am 20. Oktober 2026: <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. Ist ein Menü umgezogen, steht das aktuelle auf der Hilfeseite."
       },
       "control": {
-        "title": "What ChatGPT or Claude can see and change",
-        "p": "You set this per app in Settings &gt; AI &gt; Connected AI apps, and change it any time.",
-        "lists": "<strong>Only the lists you pick.</strong> Hidden lists are invisible to it.",
-        "read": "<strong>Read access is yours to turn on or off.</strong> With it off, it can still send plans.",
-        "ask": "<strong>Every new task or edit waits for you.</strong> The setting is called Ask me first.",
-        "delete": "<strong>No delete tool.</strong> Not now, not later.",
-        "coding": "<strong>Your coding work stays out.</strong> Unless you turn on AI task access for that app.",
-        "disconnect": "<strong>Disconnect from your phone.</strong> Any app, any time.",
-        "alt": "Dovilo Connected AI apps for Claude: read access, AI tasks and Ask me first, with the lists it can see"
+        "title": "Was ChatGPT oder Claude sehen und ändern kann",
+        "p": "Das stellst du für jede App unter Einstellungen &gt; KI &gt; Verbundene KI-Apps ein und änderst es jederzeit.",
+        "lists": "<strong>Nur die Listen, die du auswählst.</strong> Ausgeblendete Listen sind für sie unsichtbar.",
+        "read": "<strong>Den Lesezugriff schaltest du ein oder aus.</strong> Ist er aus, kann sie trotzdem Pläne senden.",
+        "ask": "<strong>Jede neue Aufgabe und jede Änderung wartet auf dich.</strong> Die Einstellung heißt Zuerst fragen.",
+        "delete": "<strong>Kein Lösch-Tool.</strong> Nicht jetzt, nicht später.",
+        "coding": "<strong>Deine Coding-Arbeit bleibt außen vor.</strong> Außer du schaltest den Zugriff auf KI-Aufgaben für diese App ein.",
+        "disconnect": "<strong>Trennen vom Handy aus.</strong> Jede App, jederzeit.",
+        "alt": "Dovilo Verbundene KI-Apps für Claude: Lesezugriff, KI-Aufgaben und Zuerst fragen, mit den Listen, die Claude sehen kann"
       },
       "prompts": {
-        "title": "Plans to try",
-        "p": "Paste one into a new chat after you connect.",
-        "one": "Plan my tomorrow in Dovilo with 3 small tasks.",
-        "two": "Plan Mia's birthday party for Saturday in Dovilo: invitations, the cake and the room, in a new list.",
-        "three": "Break my December move into weekly tasks in Dovilo, starting next Monday.",
-        "four": "Look at my Planned tasks in Dovilo and spread this week so no day has more than five.",
-        "note": "The last one needs read access for that app."
+        "title": "Pläne zum Ausprobieren",
+        "p": "Füge nach dem Verbinden einen davon in einen neuen Chat ein.",
+        "one": "Plane meinen morgigen Tag in Dovilo mit 3 kleinen Aufgaben.",
+        "two": "Plane in Dovilo Mias Geburtstagsfeier am Samstag: Einladungen, den Kuchen und den Raum, in einer neuen Liste.",
+        "three": "Teile meinen Umzug im Dezember in Dovilo in wöchentliche Aufgaben auf, ab nächstem Montag.",
+        "four": "Sieh dir meine geplanten Aufgaben in Dovilo an und verteile diese Woche so, dass kein Tag mehr als fünf hat.",
+        "note": "Für den letzten braucht die App Lesezugriff."
       },
       "coding": {
-        "title": "Planning a coding project?",
-        "p": "ChatGPT or Claude can also propose AI tasks for your coding assistant, such as Claude Code or Cursor, and draft your answer when it asks a question. Each one waits for your approval.",
-        "link": "AI Tasks for coding assistants"
+        "title": "Du planst ein Coding-Projekt?",
+        "p": "ChatGPT oder Claude kann auch KI-Aufgaben für deinen Coding-Assistenten vorschlagen, etwa Claude Code oder Cursor, und deine Antwort entwerfen, wenn er eine Frage stellt. Jede wartet auf deine Freigabe.",
+        "link": "KI-Aufgaben für Coding-Assistenten"
       },
       "pricing": {
-        "title": "Free to send, Pro to add",
+        "title": "Senden kostenlos, übernehmen mit Pro",
         "free": {
-          "label": "Free",
-          "text": "Connect any of the four apps and send plans."
+          "label": "Kostenlos",
+          "text": "Verbinde eine der vier Apps und sende Pläne."
         },
         "pro": {
           "label": "Pro",
-          "text": "Add plans to your lists: $2.49 a month, $19.99 a year or $49.99 once, 7-day trial in the app."
+          "text": "Pläne in deine Listen übernehmen: $2.49 im Monat, $19.99 im Jahr oder $49.99 einmalig, 7 Tage kostenlos testen in der App."
         },
-        "link": "All plans"
+        "link": "Alle Preise"
       },
       "faq": {
         "apps": {
-          "q": "Which AI apps work with Dovilo?",
-          "a": "ChatGPT, Claude, Gemini and Grok. Each needs a plan or account that allows a custom connector: ChatGPT depends on your plan, Claude's free plan allows one custom connector, and Gemini offers it to personal accounts in the US aged 18 or over. The steps are under <a href=\"#connect-your-ai\">Connect your AI app</a>."
+          "q": "Welche KI-Apps funktionieren mit Dovilo?",
+          "a": "ChatGPT, Claude, Gemini und Grok. Jede braucht einen Tarif oder ein Konto, das einen benutzerdefinierten Connector erlaubt: Bei ChatGPT hängt es von deinem Tarif ab, der kostenlose Tarif von Claude erlaubt einen benutzerdefinierten Connector, und Gemini bietet ihn privaten Konten in den USA ab 18 Jahren an. Die Schritte stehen unter <a href=\"#connect-your-ai\">Verbinde deine KI-App</a>."
         },
         "sees": {
-          "q": "Can it see all my tasks?",
-          "a": "No. It sees only the lists you pick for that app, and only if read access is on. You can change both from your phone at any time."
+          "q": "Kann sie alle meine Aufgaben sehen?",
+          "a": "Nein. Sie sieht nur die Listen, die du für diese App auswählst, und nur, wenn der Lesezugriff an ist. Beides kannst du jederzeit vom Handy aus ändern."
         },
         "free": {
-          "q": "Does planning work on the free tier?",
-          "a": "Connecting and sending plans is free. Adding a plan to your lists is part of Pro, with a 7-day trial in the app."
+          "q": "Funktioniert das Planen in der kostenlosen Version?",
+          "a": "Verbinden und Pläne senden ist kostenlos. Einen Plan in deine Listen zu übernehmen gehört zu Pro, mit 7 Tagen kostenlosem Test in der App."
         },
         "directory": {
-          "q": "Is Dovilo in the ChatGPT or Claude app directory?",
-          "a": "Not yet. You add it by its address, <code>https://dovilo.app/mcp</code>, in a few steps."
+          "q": "Ist Dovilo im App-Verzeichnis von ChatGPT oder Claude?",
+          "a": "Noch nicht. Du fügst es in wenigen Schritten über seine Adresse hinzu, <code>https://dovilo.app/mcp</code>."
         },
         "offline": {
-          "q": "Does it work offline?",
-          "a": "Your lists do. Plans need a connection: they travel from your AI app to Dovilo's server and on to your phone."
+          "q": "Funktioniert es offline?",
+          "a": "Deine Listen schon. Pläne brauchen eine Verbindung: Sie gehen von deiner KI-App zu Dovilos Server und weiter auf dein Handy."
         }
       }
     },

@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/de/ai/",
   "image": "https://dovilo.app/og-ai-de.jpg",
   "inLanguage": "de",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -153,10 +153,10 @@
       <a class="nav-logo" href="/de/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Hauptmenü">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/de/">Tasks</a></li>
-          <li><a href="/de/focus/">Focus</a></li>
-          <li><a href="/de/plan/">Plan with AI</a></li>
-          <li><a href="/de/ai/" aria-current="page">KI</a></li>
+          <li><a href="/de/">Aufgaben</a></li>
+          <li><a href="/de/focus/">Fokus</a></li>
+          <li><a href="/de/plan/">Mit KI planen</a></li>
+          <li><a href="/de/ai/" aria-current="page">KI-Aufgaben</a></li>
           <li><a href="/de/pricing/">Preise</a></li>
           <li><a href="/de/downloads/">Downloads</a></li>
           <li><a href="/de/faq/">FAQ</a></li>
@@ -213,7 +213,7 @@
                  src="/screenshots/de/mobile-ai.webp" width="386" height="767"
                  alt="Dovilo KI-Aufgaben auf dem Smartphone: dasselbe Projekt mit Aufgaben, die auf dich warten, laufen, anstehen oder geplant sind">
           </picture>
-          <figcaption>KI-Aufgaben eines Projekts, gruppiert danach, was dich braucht.</figcaption>
+          <figcaption>Dieselbe Warteschlange am Schreibtisch und auf dem Handy; deine eigene Liste bleibt außen vor.</figcaption>
         </figure>
       </div>
     </section>
@@ -228,7 +228,7 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>So funktioniert es</h2>
+          <h2>So läuft eine KI-Aufgabe ab</h2>
         </div>
         <ol class="steps steps-shots" role="list">
           <li class="step">
@@ -286,7 +286,7 @@
     <section class="section" id="built-with-dovilo">
       <div class="container">
         <div class="section-head">
-          <h2>Wie Dovilo selbst gebaut wird</h2>
+          <h2>Anwendungsfall: Dovilo wird mit KI-Aufgaben gebaut</h2>
           <p>Dovilo wird genau so gebaut. Es hat fünf Projekte, Backend, Mobile, Desktop, Edge und Landing, und für jedes einen Agenten in Claude Code. Ich plane eine Änderung in Claude, und Claude schlägt KI-Aufgaben im passenden Projekt vor. Ich gebe sie auf meinem Smartphone frei; der Agent am Schreibtisch arbeitet sie ab, schreibt seine Schritte und Notizen in die Aufgabe und hält an, um zu fragen, wenn eine Entscheidung bei mir liegt. Diese Seite ist auf demselben Weg durch das Projekt Landing gegangen.</p>
         </div>
       </div>
@@ -295,7 +295,7 @@
     <section class="section" id="planning">
       <div class="container">
         <div class="section-head">
-          <h2>Reines MCP, kein Lock-in</h2>
+          <h2>Funktioniert mit jedem MCP-Coding-Client</h2>
         </div>
         <ul class="integrations">
           <li><strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf und Claude Desktop</strong> arbeiten die Aufgaben ab.</li>
@@ -307,28 +307,28 @@
     <section class="section" id="connect">
       <div class="container">
         <div class="section-head">
-          <h2>Einrichtung: URL und Schlüssel</h2>
+          <h2>Einen Coding-Agenten verbinden: eine URL und ein Schlüssel</h2>
         </div>
         <div class="code">
           <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Kopieren</button></div>
           <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
         </div>
-        <p>Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.</p>
-        <a class="link" href="/docs/mcp/">Both servers and every tool: the MCP reference <span aria-hidden="true">&rarr;</span></a>
+        <p>Lege in der App einen Agenten an, kopiere seinen Schlüssel einmal und richte deinen Client auf <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop schreibt die Konfiguration für 7 Clients.</p>
+        <a class="link" href="/docs/mcp/">Beide Server und jedes Tool: die MCP-Referenz <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Was die KI kann und was nicht</h2>
+          <h2>Was dein Coding-Agent kann und was nicht</h2>
         </div>
         <ul class="trust">
           <li>Ihre eigenen Aufgaben, sonst nichts.</li>
-          <li>Die KI schlägt vor. Du gibst frei.</li>
-          <li>It cannot create or delete tasks. Cancelling leaves the task visible.</li>
+          <li>Jede Aufgabe, die er bekommt, schreibt oder genehmigt ein Mensch.</li>
+          <li>Er kann keine Aufgaben anlegen oder löschen. Abbrechen lässt die Aufgabe sichtbar.</li>
           <li>Deine Coding-Arbeit bleibt aus deiner Chat-App heraus, außer du schaltest es ein.</li>
-          <li>Trenne jede Verbindung sofort vom Smartphone aus.</li>
+          <li>Widerrufe jeden Agent-Schlüssel sofort vom Handy aus.</li>
         </ul>
         <details class="collapsible" id="tools">
           <summary>9 Tools: 3 lesend, 6 schreibend. Kein Erstellen, kein Löschen</summary>
@@ -357,17 +357,17 @@
     <section class="section" id="connect-your-ai">
       <div class="container">
         <div class="section-head">
-          <h2>Plan in ChatGPT or Claude, hand it to your agent</h2>
-          <p>With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.</p>
+          <h2>In ChatGPT oder Claude planen, an deinen Agenten übergeben</h2>
+          <p>Ist der Zugriff auf KI-Aufgaben für eine Verbindung an, kann ChatGPT oder Claude KI-Aufgaben in deinen Projekten vorschlagen, ihre Schritte verfolgen und deine Antwort entwerfen, wenn ein Agent fragt. Jeder Vorschlag und jede Antwort wartet auf deine Freigabe auf dem Handy.</p>
         </div>
-        <a class="link" href="/de/plan/#connect-your-ai">Connect your AI app <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" href="/de/plan/#connect-your-ai">Verbinde deine KI-App <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section" id="webhooks">
       <div class="container">
         <div class="section-head">
-          <h2>Webhooks und die Demo</h2>
+          <h2>Webhooks und eine Open-Source-Demo</h2>
         </div>
         <div class="features">
           <div class="feature">
@@ -446,9 +446,9 @@
         <div>
           <p class="footer-title">Produkt</p>
           <ul>
-            <li><a href="/de/focus/">Focus</a></li>
-            <li><a href="/de/plan/">Plan with AI</a></li>
-            <li><a href="/de/ai/">AI Tasks</a></li>
+            <li><a href="/de/focus/">Fokus</a></li>
+            <li><a href="/de/plan/">Mit KI planen</a></li>
+            <li><a href="/de/ai/">KI-Aufgaben</a></li>
             <li><a href="/de/pricing/">Preise</a></li>
             <li><a href="/de/downloads/">Downloads</a></li>
             <li><a href="/changelog/">Versionshinweise</a></li>
