@@ -167,19 +167,25 @@ jobs.push({
 
    A card is the same when it has the same size and format and
      - the mean absolute difference over all channels is at most MEAN_TOL, and
-     - at most BIG_TOL of the samples differ by more than BIG_DELTA.
+     - at most BIG_TOL of the samples differ by more than BIG_DELTA, and
+     - no TILE x TILE block has a mean difference above TILE_TOL.
    The mean alone is diluted: a card is mostly flat background, so a changed
-   headline moves it less than Tinify's recompression does. The second test
-   counts the samples that moved a lot, which recompression does not do and a
-   different headline or capture does. Measured on 10 Nov 2026:
-     Tinify, the ten L6 cards    mean 1.86 to 2.41     big 0.0000% to 0.0009%
-     one character changed       mean 0.29 to 1.92     big 0.0344% to 0.7340%
-     a full stop dropped         mean 1.88             big 0.0140%
-     a capture swapped           mean 5.86             big 1.6448%
-   MEAN_TOL sits above Tinify's worst and under the swapped capture; BIG_TOL
-   is 5x above Tinify's worst and 2.8x under the smallest edit tried. Re-measure
-   (--verbose) before moving either, and when a new Tinify batch lands. */
+   headline moves it less than Tinify's recompression does. The other two
+   look for a local change: recompression spreads a small error everywhere, a
+   different headline or capture moves a few places a lot. Each card is
+   compared with the fresh render, never with an earlier file, so small
+   differences cannot add up over rebuilds. Measured on 10 Nov 2026:
+                              mean         big               worst tile
+     Tinify, the ten L6 cards 1.86 to 2.41 0.0000 to 0.0009% 10.2 to 12.2
+     i changed to í           2.32         0.0087%           23.7
+     a full stop dropped      1.88         0.0140%           49.9
+     one character changed    0.29 to 1.92 0.0344 to 0.7340% 80.4 to 107.3
+     a capture swapped        5.86         1.6448%           91.2
+   Each limit sits above Tinify's worst and under the smallest edit tried
+   (TILE_TOL 1.5x and 1.3x, BIG_TOL 5x and 1.7x). Re-measure (--verbose)
+   before moving any, and when a new Tinify batch lands. */
 const MEAN_TOL = 3.0;
+const TILE = 16, TILE_TOL = 18;
 const BIG_DELTA = 64, BIG_TOL = 0.00005;   /* 0.005% of samples */
 
 async function decode(buf) {
@@ -187,18 +193,27 @@ async function decode(buf) {
   return { data, width: info.width, height: info.height };
 }
 
-/* null when the two files differ in format or size, else { mean, big }. */
+/* null when the two files differ in format or size, or the one on disk cannot
+   be decoded (then it is rewritten); else { mean, big, tile }. */
 async function compare(existing, fresh) {
-  const [a, b] = await Promise.all([sharp(existing).metadata(), sharp(fresh).metadata()]);
+  let a, b;
+  try { [a, b] = await Promise.all([sharp(existing).metadata(), sharp(fresh).metadata()]); } catch { return null; }
   if (a.format !== b.format || a.width !== b.width || a.height !== b.height || a.channels !== b.channels) return null;
-  const [x, y] = await Promise.all([decode(existing), decode(fresh)]);
+  let x, y;
+  try { [x, y] = await Promise.all([decode(existing), decode(fresh)]); } catch { return null; }
   let sum = 0, big = 0;
+  const tiles = new Float64Array(Math.ceil(x.width / TILE) * Math.ceil(x.height / TILE));
+  const perRow = Math.ceil(x.width / TILE), ch = x.data.length / (x.width * x.height);
   for (let i = 0; i < x.data.length; i++) {
     const d = Math.abs(x.data[i] - y.data[i]);
     sum += d;
     if (d > BIG_DELTA) big++;
+    const p = (i / ch) | 0;
+    tiles[Math.floor(p / x.width / TILE) * perRow + Math.floor((p % x.width) / TILE)] += d;
   }
-  return { mean: sum / x.data.length, big: big / x.data.length };
+  /* mean difference of the worst TILE x TILE block */
+  const tile = Math.max(...tiles) / (TILE * TILE * ch);
+  return { mean: sum / x.data.length, big: big / x.data.length, tile };
 }
 
 const changed = [];   /* cards whose pixels moved: written, or would be */
@@ -211,8 +226,8 @@ for (const job of jobs) {
   const existing = existsSync(file) ? readFileSync(file) : null;
   if (existing && existing.equals(buf)) continue;
   const d = existing ? await compare(existing, buf) : null;
-  const same = d && d.mean <= MEAN_TOL && d.big <= BIG_TOL;
-  if (VERBOSE) console.log(`${job.out.padEnd(22)} ${d ? `mean ${d.mean.toFixed(3)}  big ${(d.big * 100).toFixed(4)}%` : 'no comparable file'}  ${same ? 'same' : 'differs'}`);
+  const same = d && d.mean <= MEAN_TOL && d.big <= BIG_TOL && d.tile <= TILE_TOL;
+  if (VERBOSE) console.log(`${job.out.padEnd(22)} ${d ? `mean ${d.mean.toFixed(3)}  big ${(d.big * 100).toFixed(4)}%  tile ${d.tile.toFixed(1)}` : 'no comparable file'}  ${same ? 'same' : 'differs'}`);
   if (same) { kept.push(job.out); continue; }
   changed.push(job.out);
   if (!CHECK) writeFileSync(file, buf);

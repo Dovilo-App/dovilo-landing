@@ -172,8 +172,8 @@ descent centred in the line box as CSS does. `assertInter()` runs before every b
 if the font is not Inter 700 (a pinned advance width for a test string) or the drawing does not
 match the metrics. If the font files or the tracking change on purpose, re-measure that width.
 `npm run build:og -- --check` writes nothing and fails if a card is out of date. It decodes the card on disk and
-the fresh render and compares pixels (same size and format, mean difference at most 3.0 of 255, and at most
-0.005% of samples moved by more than 64), so a card compressed with Tinify passes and a changed headline or
+the fresh render and compares pixels (same size and format, mean difference at most 3.0 of 255, at most
+0.005% of samples moved by more than 64, and no 16x16 block with a mean difference above 18), so a card compressed with Tinify passes and a changed headline or
 capture fails. `build:og` without `--check` leaves such a card alone and writes only a card that really
 changed, then lists it as needing Tinify; `--verbose` prints every comparison. The thresholds and the
 measurements behind them are in the comment above `MEAN_TOL` in `tools/build-og.mjs`. A different sharp or
