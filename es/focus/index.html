@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporizador Pomodoro con atmósfera a pantalla completa - Dovilo</title>
+  <meta name="description" content="Temporizador de enfoque gratis para iOS y Android: sesión única, Pomodoro o un temporizador en una tarea, con escenas a pantalla completa.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://dovilo.app/es/focus/">
+  <link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt" title="llms.txt: structured summary for language models">
+  <link rel="alternate" hreflang="en" href="https://dovilo.app/focus/">
+  <link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/">
+  <link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/">
+  <link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/">
+  <link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/">
+  <link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/">
+
+  <!-- Render-blocking by design: this file is the whole design system. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/system.css">
+
+  <!-- Open Graph and Twitter: four copies of the title, see CLAUDE.md -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dovilo.app/es/focus/">
+  <meta property="og:title" content="Temporizador Pomodoro con atmósfera a pantalla completa - Dovilo">
+  <meta property="og:description" content="Temporizador de enfoque gratis para iOS y Android: sesión única, Pomodoro o un temporizador en una tarea, con escenas a pantalla completa.">
+  <meta property="og:image" content="https://dovilo.app/og-focus-es.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dovilo: sesiones de enfoque que llenan toda la pantalla, junto a una sesión en la escena Ciudad lluviosa">
+  <meta property="og:site_name" content="Dovilo">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@doviloapp">
+  <meta name="twitter:title" content="Temporizador Pomodoro con atmósfera a pantalla completa - Dovilo">
+  <meta name="twitter:description" content="Temporizador de enfoque gratis para iOS y Android: sesión única, Pomodoro o un temporizador en una tarea, con escenas a pantalla completa.">
+  <meta name="twitter:image" content="https://dovilo.app/og-focus-es.jpg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F4">
+  <script>
+    /* Runs before paint: an explicit choice wins, otherwise light. */
+    (function(){
+      try{
+        var t = localStorage.getItem('dovilo-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Temporizador Pomodoro con atmósfera a pantalla completa - Dovilo",
+  "description": "Temporizador de enfoque gratis para iOS y Android: sesión única, Pomodoro o un temporizador en una tarea, con escenas a pantalla completa.",
+  "url": "https://dovilo.app/es/focus/",
+  "image": "https://dovilo.app/og-focus-es.jpg",
+  "inLanguage": "es",
+  "dateModified": "2026-11-10",
+  "about": { "@id": "https://dovilo.app/#app" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dovilo",
+    "url": "https://dovilo.app/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dovilo", "item": "https://dovilo.app/es/" },
+    { "@type": "ListItem", "position": 2, "name": "Enfoque", "item": "https://dovilo.app/es/focus/" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Enfoque es gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Las sesiones únicas y los ciclos Pomodoro son gratis e ilimitados, con la escena Predeterminado. El Paquete Atmósfera de Enfoque añade las otras 5 escenas y 16 capas de sonido por $4.99 una vez, y Pro lo incluye."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El temporizador funciona con el móvil bloqueado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Sigue contando en segundo plano y con el móvil bloqueado, y una notificación te avisa cuando termina la sesión."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuentan las sesiones sin terminar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una sesión terminada antes de tiempo se guarda igual, pero solo las rondas Pomodoro terminadas cuentan para el contador diario de rondas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Está Enfoque en Dovilo Desktop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Enfoque y la ciudad están en iOS y Android. Desktop es el cliente de Windows y Mac para tus listas y tareas de IA."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="/es/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
+      <nav aria-label="Principal">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/es/">Tareas</a></li>
+          <li><a href="/es/focus/" aria-current="page">Enfoque</a></li>
+          <li><a href="/es/plan/">Planifica con IA</a></li>
+          <li><a href="/es/ai/">Tareas de IA</a></li>
+          <li><a href="/es/pricing/">Precios</a></li>
+          <li><a href="/es/downloads/">Descargas</a></li>
+          <li><a href="/es/faq/">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <details class="lang-menu">
+          <summary class="icon-btn" aria-label="Idioma">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z"/></svg>
+          </summary>
+          <ul class="lang-menu-list">
+            <li><a href="/es/focus/" lang="es" hreflang="es" aria-current="page">Español</a></li>
+            <li><a href="/focus/" lang="en" hreflang="en">English</a></li>
+            <li><a href="/tr/focus/" lang="tr" hreflang="tr">Türkçe</a></li>
+            <li><a href="/fr/focus/" lang="fr" hreflang="fr">Français</a></li>
+            <li><a href="/de/focus/" lang="de" hreflang="de">Deutsch</a></li>
+          </ul>
+        </details>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Cambiar tema">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="icon-btn nav-menu" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container hero-split">
+        <div>
+          <h1>Dovilo: sesiones de enfoque que llenan toda la pantalla.</h1>
+          <p class="hero-sub">Una sesión única, un ciclo Pomodoro o un temporizador en una tarea. Gratis, ilimitado y sin anuncios.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/es/downloads/?source=focus_hero">Consigue Dovilo</a>
+            <a class="btn btn-secondary" href="/es/pricing/">Ver precios</a>
+          </div>
+        </div>
+        <figure class="figure figure-phone figure-stage">
+          <picture>
+            <source class="src-dark" media="not all" srcset="/screenshots/es/mobile-focus-rain-dark.webp 386w, /screenshots/es/mobile-focus-rain-dark-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+            <img srcset="/screenshots/es/mobile-focus-rain.webp 386w, /screenshots/es/mobile-focus-rain-772.webp 772w"
+                 sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                 src="/screenshots/es/mobile-focus-rain.webp" width="386" height="767" fetchpriority="high"
+                 alt="Sesión de enfoque de Dovilo en la escena Ciudad lluviosa con 22 minutos restantes">
+          </picture>
+          <figcaption>El temporizador sigue con el móvil bloqueado; los ladrillos llegan al terminar.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2>En resumen</h2>
+        <p>Dovilo es una lista de tareas gratis para iOS y Android con un temporizador de enfoque que llena la pantalla. Las sesiones de enfoque y los ciclos Pomodoro son gratis e ilimitados, sin anuncios. El Paquete Atmósfera de Enfoque añade 5 escenas y 16 capas de sonido por $4.99 una vez, y está incluido en Pro. Las sesiones terminadas dan ladrillos para tu ciudad.</p>
+      </div>
+    </section>
+
+    <section class="section" id="modes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tres formas de concentrarte</h2>
+        </div>
+        <ul class="integrations">
+          <li><strong>Una sesión única.</strong> De la duración que elijas.</li>
+          <li><strong>Un ciclo Pomodoro.</strong> 25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas. Los descansos empiezan solos y solo cuentan las rondas terminadas.</li>
+          <li><strong>Un temporizador en una tarea.</strong> La sesión queda vinculada a esa tarea.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="session">
+      <div class="container">
+        <div class="section-head">
+          <h2>Del primer minuto al último</h2>
+        </div>
+        <ul class="integrations">
+          <li><strong>Un comienzo tranquilo.</strong> Un ejercicio de respiración y una cuenta atrás te preparan.</li>
+          <li><strong>Sigue contando.</strong> En segundo plano o con el móvil bloqueado.</li>
+          <li><strong>Móvil en silencio.</strong> No molestar puede silenciar otras apps durante la sesión.</li>
+          <li><strong>Un final claro.</strong> Una notificación cuando termina la sesión.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="scenes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Seis escenas, una de ellas gratis</h2>
+          <p>Cada escena tiene su propio clima, tono de horizonte y sonido, y llena toda la pantalla.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Predeterminado.</strong> Siempre gratis y en silencio.</li>
+          <li><strong>Ciudad lluviosa.</strong> Lluvia y una chimenea.</li>
+          <li><strong>Medianoche.</strong> Rumor urbano y ruido marrón. Sigue oscura incluso con el tema claro.</li>
+          <li><strong>Atardecer.</strong> Pájaros y brisa. Los descansos pasan solos a Atardecer.</li>
+          <li><strong>Nieve.</strong> Viento invernal y ruido rosa.</li>
+          <li><strong>Niebla.</strong> Una sirena de niebla y ruido blanco.</li>
+        </ul>
+        <p class="note">Las cinco escenas después de Predeterminado vienen con el Paquete Atmósfera de Enfoque.</p>
+      </div>
+    </section>
+
+    <section class="section" id="sound">
+      <div class="container">
+        <div class="split">
+          <div class="section-head">
+            <h2>Mezcla tu propio sonido</h2>
+            <p>Combina hasta 3 de 16 capas, cada una a su nivel: 13 grabaciones como lluvia, una cafetería o un tren, y ruido marrón, rosa y blanco. La mezcla puede seguir la sesión: suave en los primeros 5 minutos, más brillante en los últimos 2.</p>
+          </div>
+          <figure class="figure figure-phone figure-stage">
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/es/mobile-ambience-mixer-dark.webp 386w, /screenshots/es/mobile-ambience-mixer-dark-772.webp 772w"
+                     sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="413">
+              <img srcset="/screenshots/es/mobile-ambience-mixer.webp 386w, /screenshots/es/mobile-ambience-mixer-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                   src="/screenshots/es/mobile-ambience-mixer.webp" width="386" height="413" loading="lazy"
+                   alt="Mezclador de sonido de la atmósfera de Dovilo con las capas Lluvia y Chimenea y Sigue el ritmo de la sesión activado">
+            </picture>
+            <figcaption>Es atmósfera, no música: sin melodía, sin ritmo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bricks">
+      <div class="container">
+        <div class="section-head">
+          <h2>Las sesiones terminadas construyen una ciudad</h2>
+          <p>Una sesión completada da ladrillos según su duración. Con los ladrillos compras casas, oficinas, parques y calles para tu ciudad, y nada se deteriora.</p>
+        </div>
+        <a class="link" href="/es/#showcase">Cómo funciona la ciudad <span aria-hidden="true">&rarr;</span></a>
+        <p class="note">¿No necesitas la ciudad? Enfoque, la ciudad y la planificación con IA se pueden desactivar por separado en Ajustes &gt; Módulos.</p>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Concentrarse es gratis, un paquete para las escenas</h2>
+        </div>
+        <ul class="pricing-summary">
+          <li><strong>Gratis</strong><span>Sesiones de enfoque y ciclos Pomodoro, ilimitados, con la escena Predeterminado.</span></li>
+          <li><strong>Paquete Atmósfera de Enfoque</strong><span>5 escenas y 16 capas de sonido, $4.99 una vez.</span></li>
+          <li><strong>Pro</strong><span>Incluye el paquete, desde $2.49 al mes.</span></li>
+        </ul>
+        <a class="link" href="/es/pricing/">Todos los planes <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Respuestas directas</h2>
+        </div>
+        <div class="faq-accordion">
+          <details>
+            <summary><h3>¿Enfoque es gratis?</h3></summary>
+            <div class="faq-answer"><p>Sí. Las sesiones únicas y los ciclos Pomodoro son gratis e ilimitados, con la escena Predeterminado. El Paquete Atmósfera de Enfoque añade las otras 5 escenas y 16 capas de sonido por $4.99 una vez, y Pro lo incluye.</p></div>
+          </details>
+          <details>
+            <summary><h3>¿El temporizador funciona con el móvil bloqueado?</h3></summary>
+            <div class="faq-answer"><p>Sí. Sigue contando en segundo plano y con el móvil bloqueado, y una notificación te avisa cuando termina la sesión.</p></div>
+          </details>
+          <details>
+            <summary><h3>¿Cuentan las sesiones sin terminar?</h3></summary>
+            <div class="faq-answer"><p>Una sesión terminada antes de tiempo se guarda igual, pero solo las rondas Pomodoro terminadas cuentan para el contador diario de rondas.</p></div>
+          </details>
+          <details>
+            <summary><h3>¿Está Enfoque en Dovilo Desktop?</h3></summary>
+            <div class="faq-answer"><p>No. Enfoque y la ciudad están en iOS y Android. Desktop es el cliente de Windows y Mac para tus listas y tareas de IA.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="container">
+        <h2>Un ingeniero, en Estambul.</h2>
+        <p>Sin empresa ni financiación. <a href="/changelog/">Un historial público de versiones que puedes comprobar.</a></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/es/downloads/?source=focus_footer">Consigue Dovilo</a>
+          <a class="btn btn-secondary" href="/es/pricing/">Ver precios</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-cols" aria-label="Pie de página">
+        <div>
+          <p class="footer-title">Producto</p>
+          <ul>
+            <li><a href="/es/focus/">Enfoque</a></li>
+            <li><a href="/es/plan/">Planifica con IA</a></li>
+            <li><a href="/es/ai/">Tareas de IA</a></li>
+            <li><a href="/es/pricing/">Precios</a></li>
+            <li><a href="/es/downloads/">Descargas</a></li>
+            <li><a href="/changelog/">Registro de cambios</a></li>
+            <li><a href="/es/blog/">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Documentación</p>
+          <ul>
+            <li><a href="/docs/">Documentación</a></li>
+            <li><a href="/docs/mcp/">Referencia MCP</a></li>
+            <li><a href="/docs/webhooks/">Webhooks</a></li>
+            <li><a href="/es/faq/">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Dovilo</p>
+          <ul>
+            <li><a href="/privacy/">Privacidad</a></li>
+            <li><a href="/terms/">Términos</a></li>
+            <li><a href="/licenses/">Licencias</a></li>
+            <li><a href="/es/focus/" lang="es" hreflang="es" aria-current="page">Español</a></li>
+            <li><a href="/focus/" lang="en" hreflang="en">English</a></li>
+            <li><a href="/tr/focus/" lang="tr" hreflang="tr">Türkçe</a></li>
+            <li><a href="/fr/focus/" lang="fr" hreflang="fr">Français</a></li>
+            <li><a href="/de/focus/" lang="de" hreflang="de">Deutsch</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Síguenos</p>
+          <ul>
+            <li><a href="https://x.com/doviloapp" rel="noopener">X</a></li>
+            <li><a href="https://instagram.com/doviloapp" rel="noopener">Instagram</a></li>
+            <li><a href="https://linkedin.com/company/doviloapp" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Dovilo-App" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="footer-meta">
+        <p>&copy; 2026 Dovilo. Todos los derechos reservados.</p>
+        <p><a class="mail" href="/es/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Site script: theme toggle, mobile menu, copy buttons, email links and
+       the dark captures of figures. The same on every page. */
+    (function(){
+      var root = document.documentElement;
+      var BG = { light: '#FAF8F4', dark: '#171717' };
+
+      function theme(){
+        var t = root.getAttribute('data-theme');
+        return t === 'dark' ? 'dark' : 'light';
+      }
+      function paint(){
+        var t = theme();
+        document.querySelectorAll('.theme-toggle').forEach(function(b){
+          b.setAttribute('aria-label', t === 'dark' ? 'Cambiar al tema claro' : 'Cambiar al tema oscuro');
+        });
+        if (root.hasAttribute('data-theme')) {
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', BG[t]); });
+        }
+        /* Dark captures: each source.src-dark follows the nearest explicit
+           data-theme (light when there is none), so a toggle swaps the
+           image without a reload and only the shown capture is fetched. */
+        document.querySelectorAll('source.src-dark').forEach(function(s){
+          var host = s.closest('[data-theme]'), h = host && host.getAttribute('data-theme');
+          var m = h === 'dark' ? 'all' : 'not all';
+          if (s.getAttribute('media') !== m) s.setAttribute('media', m);
+        });
+      }
+      document.querySelectorAll('.theme-toggle').forEach(function(b){
+        b.addEventListener('click', function(){
+          var next = theme() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('dovilo-theme', next); } catch (e) {}
+          paint();
+        });
+      });
+      paint();
+
+      document.querySelectorAll('.nav-menu').forEach(function(b){
+        var menu = document.getElementById(b.getAttribute('aria-controls'));
+        if (!menu) return;
+        function set(open){
+          menu.classList.toggle('open', open);
+          b.setAttribute('aria-expanded', String(open));
+        }
+        b.addEventListener('click', function(){ set(!menu.classList.contains('open')); });
+        menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); b.focus(); }
+        });
+      });
+
+      /* Copy: the clipboard API where the page is a secure context, a hidden
+         textarea everywhere else, and a visible "Copy failed" if both refuse. */
+      document.querySelectorAll('.copy-btn').forEach(function(b){
+        var label = b.textContent, timer;
+        function show(ok){
+          b.classList.toggle('copied', ok);
+          b.textContent = ok ? 'Copiado' : 'No se pudo copiar';
+          clearTimeout(timer);
+          timer = setTimeout(function(){ b.classList.remove('copied'); b.textContent = label; }, 1500);
+        }
+        function fallback(text){
+          var ta = document.createElement('textarea'), ok = false;
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '-1000px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          show(ok);
+        }
+        b.addEventListener('click', function(){
+          var block = b.closest('.code'), pre = block && block.querySelector('pre');
+          if (!pre) return;
+          var text = pre.innerText;
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ fallback(text); });
+          } else {
+            fallback(text);
+          }
+        });
+      });
+
+      /* Addresses are split in the markup so scrapers do not find a parseable
+         address; the real mailto is assembled here, in the browser. */
+      var at = String.fromCharCode(64);
+      document.querySelectorAll('a.mail').forEach(function(a){
+        var addr = a.getAttribute('data-u') + at + a.getAttribute('data-d');
+        a.setAttribute('href', 'mailto:' + addr);
+        a.textContent = addr;
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/es/ai/",
   "image": "https://dovilo.app/og-ai-es.jpg",
   "inLanguage": "es",
-  "dateModified": "2026-11-08",
+  "dateModified": "2026-11-10",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -153,11 +153,13 @@
       <a class="nav-logo" href="/es/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Principal">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/es/ai/" aria-current="page">IA</a></li>
+          <li><a href="/es/">Tareas</a></li>
+          <li><a href="/es/focus/">Enfoque</a></li>
+          <li><a href="/es/plan/">Planifica con IA</a></li>
+          <li><a href="/es/ai/" aria-current="page">Tareas de IA</a></li>
           <li><a href="/es/pricing/">Precios</a></li>
           <li><a href="/es/downloads/">Descargas</a></li>
           <li><a href="/es/faq/">FAQ</a></li>
-          <li><a href="/es/blog/">Blog</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
@@ -211,7 +213,7 @@
                  src="/screenshots/es/mobile-ai.webp" width="386" height="767"
                  alt="Tareas de IA de Dovilo en el móvil: el mismo proyecto con tareas que te necesitan, en curso, en cola y programadas">
           </picture>
-          <figcaption>Tareas de IA de un proyecto, agrupadas según lo que te necesita.</figcaption>
+          <figcaption>La misma cola en el escritorio y en el móvil; tu propia lista queda fuera.</figcaption>
         </figure>
       </div>
     </section>
@@ -226,7 +228,7 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Cómo funciona</h2>
+          <h2>Cómo se ejecuta una tarea de IA</h2>
         </div>
         <ol class="steps steps-shots" role="list">
           <li class="step">
@@ -284,7 +286,7 @@
     <section class="section" id="built-with-dovilo">
       <div class="container">
         <div class="section-head">
-          <h2>Cómo se construye el propio Dovilo</h2>
+          <h2>Caso de uso: Dovilo se construye con Tareas de IA</h2>
           <p>Dovilo se construye así. Tiene cinco proyectos, Backend, Mobile, Desktop, Edge y Landing, y un agente de Claude Code para cada uno. Planifico un cambio en Claude, que propone tareas de IA en el proyecto correcto. Las apruebo en mi móvil; el agente en el ordenador las ejecuta, escribe sus pasos y notas en la tarea y se detiene a preguntar cuando la decisión es mía. Esta página pasó por el proyecto Landing de la misma manera.</p>
         </div>
       </div>
@@ -293,123 +295,40 @@
     <section class="section" id="planning">
       <div class="container">
         <div class="section-head">
-          <h2>MCP estándar, sin ataduras</h2>
+          <h2>Funciona con cualquier cliente de programación MCP</h2>
         </div>
         <ul class="integrations">
-          <li><strong>ChatGPT, Claude, Gemini y Grok</strong> planifican el trabajo y te lo envían para que lo apruebes.</li>
           <li><strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf y Claude Desktop</strong> ejecutan las tareas.</li>
           <li><strong>LangGraph, los trabajos de CI y cualquier cliente MCP</strong> se conectan con la misma URL y clave.</li>
         </ul>
       </div>
     </section>
 
-    <section class="section" id="servers">
-      <div class="container">
-        <div class="section-head">
-          <h2>Dos servidores</h2>
-        </div>
-        <div class="facts-boxes">
-          <div class="facts-box">
-            <h3>Agents MCP</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp/agents</code></li>
-              <li>Para agentes de programación</li>
-              <li>Una clave por agente, mostrada una vez</li>
-            </ul>
-          </div>
-          <div class="facts-box">
-            <h3>Personal MCP</h3>
-            <ul class="facts">
-              <li><code>https://dovilo.app/mcp</code></li>
-              <li>Para ChatGPT, Claude, Gemini y Grok</li>
-              <li>Inicia sesión con tu cuenta de Dovilo</li>
-            </ul>
-          </div>
-        </div>
-        <a class="link" href="/docs/mcp/">Todas las herramientas en la documentación de MCP <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
-
-    <section class="section" id="connect-your-ai">
-      <div class="container flow">
-        <h2>Conecta tu app de IA</h2>
-        <p>ChatGPT, Claude, Gemini y Grok se conectan al Personal MCP de Dovilo en <code>https://dovilo.app/mcp</code>. Primero inicia sesión en Dovilo; cuando tu app de IA te pida iniciar sesión, usa la misma cuenta de Google o Apple. En la app, Ajustes &gt; IA &gt; Apps de IA conectadas te guía por los mismos pasos.</p>
-        <details class="collapsible">
-          <summary>ChatGPT</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Abre chatgpt.com/plugins.</li>
-              <li>Elige &quot;+&quot; y luego &quot;Add custom MCP server&quot;.</li>
-              <li>Ponle el nombre Dovilo y pega la dirección.</li>
-              <li>Inicia sesión con tu cuenta de Dovilo y aprueba la pantalla de consentimiento.</li>
-            </ol>
-            <p class="note">En la web. Poder añadir un servidor MCP personalizado depende de tu plan de ChatGPT.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Claude</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Abre Customize &gt; Connectors.</li>
-              <li>Elige &quot;Add custom connector&quot;.</li>
-              <li>Ponle el nombre Dovilo y pega la dirección.</li>
-              <li>Elige &quot;Connect&quot;, inicia sesión con tu cuenta de Dovilo y aprueba la pantalla de consentimiento.</li>
-            </ol>
-            <p class="note">En claude.ai o Claude Desktop; después también funciona en la app móvil. El plan gratuito permite un conector personalizado.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Gemini</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Abre gemini.google.com &gt; Settings &gt; Connected Apps.</li>
-              <li>Elige &quot;Add a custom app&quot;.</li>
-              <li>Pega la dirección y luego elige &quot;Next&quot;.</li>
-              <li>Inicia sesión con tu cuenta de Dovilo y aprueba la pantalla de consentimiento.</li>
-            </ol>
-            <p class="note">En la app web de Gemini. Google lo ofrece para cuentas personales en EE. UU., mayores de 18 años y con &quot;Keep Activity&quot; activado.</p>
-          </div>
-        </details>
-        <details class="collapsible">
-          <summary>Grok</summary>
-          <div class="collapsible-body flow">
-            <ol>
-              <li>Abre grok.com/connectors.</li>
-              <li>Elige &quot;New Connector&quot; y luego &quot;Custom&quot;.</li>
-              <li>Pega la dirección.</li>
-              <li>Inicia sesión con tu cuenta de Dovilo y aprueba la pantalla de consentimiento.</li>
-            </ol>
-          </div>
-        </details>
-        <p>Luego pídele un plan en un chat nuevo, por ejemplo: &quot;Planifica mi mañana en Dovilo con 3 tareas pequeñas.&quot; El plan aparece en tu Bandeja de IA; revísalo y apruébalo. Conectar y enviar planes es gratis; añadir un plan a tus listas requiere Pro.</p>
-        <p class="note">Los nombres de los menús son las etiquetas en inglés de cada app, tomadas de su página de ayuda el 20 de octubre de 2026: <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Claude</a>, <a href="https://support.google.com/gemini/answer/17209137" target="_blank" rel="noopener">Gemini</a>, <a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">Grok</a>. Si un menú ha cambiado de sitio, la página de ayuda tiene el actual.</p>
-      </div>
-    </section>
-
     <section class="section" id="connect">
       <div class="container">
         <div class="section-head">
-          <h2>Configurar: una URL y una clave</h2>
+          <h2>Conecta un agente de programación: una URL y una clave</h2>
         </div>
         <div class="code">
           <div class="code-head"><span>Claude Code</span><button class="copy-btn" type="button">Copiar</button></div>
           <pre><code>claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agents --header "Authorization: Bearer &lt;API_KEY&gt;"</code></pre>
         </div>
-        <p>Dovilo Desktop escribe la configuración para 7 clientes. Después, escribe un resumen del proyecto y una tarea de IA.</p>
+        <p>Crea un agente en la app, copia su clave una vez y apunta tu cliente a <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop escribe la configuración para 7 clientes.</p>
+        <a class="link" href="/docs/mcp/">Los dos servidores y cada herramienta: la referencia MCP <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Lo que la IA puede y no puede hacer</h2>
+          <h2>Lo que tu agente de programación puede y no puede hacer</h2>
         </div>
         <ul class="trust">
           <li>Sus propias tareas, nada más.</li>
-          <li>La IA propone. Tú apruebas.</li>
+          <li>Una persona escribe o aprueba cada tarea que recibe.</li>
+          <li>No puede crear ni eliminar tareas. Cancelar deja la tarea visible.</li>
           <li>Tu trabajo de programación queda fuera de tu app de chat salvo que lo actives.</li>
-          <li>Sin herramienta para eliminar. Ni ahora ni después.</li>
-          <li>Revoca cualquier conexión desde tu móvil, al instante.</li>
+          <li>Revoca cualquier clave de agente desde tu móvil, al instante.</li>
         </ul>
         <details class="collapsible" id="tools">
           <summary>9 herramientas: 3 de lectura, 6 de escritura. Sin crear, sin eliminar</summary>
@@ -435,10 +354,20 @@
       </div>
     </section>
 
+    <section class="section" id="connect-your-ai">
+      <div class="container">
+        <div class="section-head">
+          <h2>Planifica en ChatGPT o Claude, pásaselo a tu agente</h2>
+          <p>Con el acceso a tareas de IA activado para una conexión, ChatGPT o Claude pueden proponer tareas de IA en tus proyectos, seguir sus pasos y redactar tu respuesta cuando un agente pregunta. Cada propuesta y cada respuesta esperan tu aprobación en el móvil.</p>
+        </div>
+        <a class="link" href="/es/plan/#connect-your-ai">Conecta tu app de IA <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
     <section class="section" id="webhooks">
       <div class="container">
         <div class="section-head">
-          <h2>Webhooks y la demo</h2>
+          <h2>Webhooks y una demo de código abierto</h2>
         </div>
         <div class="features">
           <div class="feature">
@@ -517,10 +446,13 @@
         <div>
           <p class="footer-title">Producto</p>
           <ul>
-            <li><a href="/es/ai/">Para desarrolladores</a></li>
-            <li><a href="/es/downloads/">Descargas</a></li>
+            <li><a href="/es/focus/">Enfoque</a></li>
+            <li><a href="/es/plan/">Planifica con IA</a></li>
+            <li><a href="/es/ai/">Tareas de IA</a></li>
             <li><a href="/es/pricing/">Precios</a></li>
+            <li><a href="/es/downloads/">Descargas</a></li>
             <li><a href="/changelog/">Registro de cambios</a></li>
+            <li><a href="/es/blog/">Blog</a></li>
           </ul>
         </div>
         <div>
@@ -535,7 +467,6 @@
         <div>
           <p class="footer-title">Dovilo</p>
           <ul>
-            <li><a href="/es/blog/">Blog</a></li>
             <li><a href="/privacy/">Privacidad</a></li>
             <li><a href="/terms/">Términos</a></li>
             <li><a href="/licenses/">Licencias</a></li>

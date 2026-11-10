@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://dovilo.app/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -27,17 +27,13 @@
       <image:title>Dovilo focus session in the Rainy City scene with 22 minutes left</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://dovilo.app/screenshots/mobile-ambience-mixer-772.webp</image:loc>
-      <image:title>Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on</image:title>
-    </image:image>
-    <image:image>
       <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
       <image:title>Dovilo isometric city with a stadium, a hospital and a city hall</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://dovilo.app/tr/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -49,7 +45,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -61,7 +57,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -73,7 +69,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -86,7 +82,7 @@
 
   <url>
     <loc>https://dovilo.app/ai/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -98,7 +94,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/ai/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -110,7 +106,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/ai/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -122,7 +118,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/ai/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -134,7 +130,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/ai/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -145,6 +141,227 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/ai/"/>
   </url>
 
+  <url>
+    <loc>https://dovilo.app/focus/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo focus session in the Rainy City scene with 22 minutes left</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/focus/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo&apos;da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/es/focus/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Sesión de enfoque de Dovilo en la escena Ciudad lluviosa con 22 minutos restantes</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Mezclador de sonido de la atmósfera de Dovilo con las capas Lluvia y Chimenea y Sigue el ritmo de la sesión activado</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/fr/focus/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Mixeur sonore d&apos;atmosphère Dovilo avec les couches Pluie et Cheminée, et Suivre le rythme de la séance activé</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/de/focus/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/focus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/focus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/focus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/focus/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo Fokus-Sitzung in der Szene Regenstadt mit 22 verbleibenden Minuten</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-ambience-mixer-772.webp</image:loc>
+      <image:title>Dovilo Atmosphären-Mixer mit den Ebenen Regen und Kamin, „Dem Rhythmus der Sitzung folgen“ ist an</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://dovilo.app/plan/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/plan/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/plan/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/plan/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo AI inbox: a plan of six tasks from Claude with an Approve button</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo list Mia&apos;s birthday with the six approved tasks under Today, Tomorrow and This week</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-connected-apps-772.webp</image:loc>
+      <image:title>Dovilo Connected AI apps for Claude: read access, AI tasks and Ask me first, with the lists it can see</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/tr/plan/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/plan/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/plan/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/plan/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo AI gelen kutusu: Claude&apos;dan gelen altı görevlik plan ve Onayla butonu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo&apos;da Taşınma listesi: onaylanan altı görev Bugün, Yarın ve Bu hafta altında</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-connected-apps-772.webp</image:loc>
+      <image:title>Dovilo&apos;da Claude için Bağlı AI uygulamaları: okuma izni, AI görevleri ve Önce bana sor, görebileceği listelerle</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/es/plan/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/plan/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/plan/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/plan/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Bandeja de IA de Dovilo: un plan de seis tareas de Claude con un botón Aprobar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Lista Cumpleaños de Lucía en Dovilo con las seis tareas aprobadas en Hoy, Mañana y Esta semana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-connected-apps-772.webp</image:loc>
+      <image:title>Apps de IA conectadas de Dovilo para Claude: acceso de lectura, tareas de IA y Preguntarme antes, con las listas que puede ver</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/fr/plan/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/plan/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/plan/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/plan/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Boîte IA de Dovilo : un plan de six tâches de Claude avec un bouton Approuver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Liste Dovilo Déménagement avec les six tâches approuvées sous Aujourd&apos;hui, Demain et Cette semaine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-connected-apps-772.webp</image:loc>
+      <image:title>Apps IA connectées de Dovilo pour Claude : accès en lecture, tâches IA et Me demander d&apos;abord, avec les listes qu&apos;il peut voir</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dovilo.app/de/plan/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/plan/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dovilo.app/tr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dovilo.app/es/plan/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/plan/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/plan/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo KI-Eingang: ein Plan mit sechs Aufgaben von Claude und einem Annehmen-Button</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo-Liste Lenas Geburtstag mit den sechs angenommenen Aufgaben unter Heute, Morgen und Diese Woche</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-connected-apps-772.webp</image:loc>
+      <image:title>Dovilo Verbundene KI-Apps für Claude: Lesezugriff, KI-Aufgaben und Zuerst fragen, mit den Listen, die Claude sehen kann</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://dovilo.app/pricing/</loc>
     <lastmod>2026-11-05</lastmod>
@@ -215,7 +432,7 @@
 
   <url>
     <loc>https://dovilo.app/faq/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -227,7 +444,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/faq/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -239,7 +456,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/faq/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -251,7 +468,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/faq/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -263,7 +480,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/faq/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -399,7 +616,7 @@
 
   <url>
     <loc>https://dovilo.app/es/blog/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>

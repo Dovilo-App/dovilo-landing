@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/es/",
   "image": "https://dovilo.app/og-home-es.jpg",
   "inLanguage": "es",
-  "dateModified": "2026-11-08",
+  "dateModified": "2026-11-10",
   "about": { "@id": "https://dovilo.app/#app" },
   "isPartOf": {
     "@type": "WebSite",
@@ -107,7 +107,7 @@
       "name": "¿Cómo funciona el enfoque?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla."
+        "text": "Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla. Más sobre Enfoque."
       }
     },
     {
@@ -170,11 +170,13 @@
       <a class="nav-logo" href="/es/"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="Principal">
         <ul class="nav-links" id="nav-links">
-          <li><a href="/es/ai/">IA</a></li>
+          <li><a href="/es/" aria-current="page">Tareas</a></li>
+          <li><a href="/es/focus/">Enfoque</a></li>
+          <li><a href="/es/plan/">Planifica con IA</a></li>
+          <li><a href="/es/ai/">Tareas de IA</a></li>
           <li><a href="/es/pricing/">Precios</a></li>
           <li><a href="/es/downloads/">Descargas</a></li>
           <li><a href="/es/faq/">FAQ</a></li>
-          <li><a href="/es/blog/">Blog</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
@@ -237,7 +239,7 @@
                  src="/screenshots/es/mobile-list-birthday.webp" width="386" height="767"
                  alt="Lista Cumpleaños de Lucía en Dovilo con las seis tareas aprobadas en Hoy, Mañana y Esta semana">
           </picture>
-          <figcaption>Seis tareas propuestas por Claude, aprobadas en una lista.</figcaption>
+          <figcaption>Un plan de Claude llega con su propia lista y sus fechas.</figcaption>
         </figure>
       </div>
     </section>
@@ -252,7 +254,7 @@
     <section class="section" id="features">
       <div class="container">
         <div class="section-head">
-          <h2>Cómo funciona</h2>
+          <h2>Planifica, aprueba, concéntrate, construye</h2>
         </div>
         <ol class="steps" role="list">
           <li class="step">
@@ -279,6 +281,20 @@
       </div>
     </section>
 
+    <section class="section" id="tasks">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tareas y listas, gratis e ilimitadas</h2>
+          <p>Cada tarea puede llevar fecha límite, recordatorio, repetición, estrella, marca, prioridad y notas. Nada de eso necesita Pro.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Un selector para cada vista.</strong> Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada una de tus listas, cada una con su recuento en vivo.</li>
+          <li><strong>Agrupadas por fecha.</strong> Las listas se ordenan por fecha, y Planificado, por día.</li>
+          <li><strong>Funciona sin conexión.</strong> Tus tareas viven primero en tu móvil. La sincronización en la nube entre dispositivos llega con Pro.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="plan-with-ai">
       <div class="container">
         <div class="section-head">
@@ -286,41 +302,31 @@
           <p>Pide a ChatGPT, Claude, Gemini o Grok que planifique tu día, un evento o un proyecto. El plan llega a tu Bandeja de IA en Dovilo: cambia lo que quieras y añádelo a tus listas con un toque. Nada entra antes de que digas que sí, y tú eliges qué listas ve cada IA. Conectar tu IA lleva tres pasos cortos en la app.</p>
         </div>
         <p class="note">Conectar y enviar planes es gratis; añadir un plan a tus listas es parte de Pro.</p>
-        <a class="link" href="/es/ai/#connect-your-ai">Cómo conectar tu app de IA <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" href="/es/plan/">Cómo funciona planificar con IA <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <section class="section" id="focus">
       <div class="container">
         <div class="split">
-          <div class="section-head">
-            <h2>Un enfoque que llena toda la pantalla</h2>
-            <p>Una sesión única, un ciclo Pomodoro o un temporizador en una tarea, gratis e ilimitados. El Paquete Atmósfera de Enfoque añade 5 escenas y 16 capas de sonido, 3 a la vez: $4.99 en un solo pago, incluido en Pro.</p>
+          <div>
+            <div class="section-head">
+              <h2>Un enfoque que llena toda la pantalla</h2>
+              <p>Una sesión única, un ciclo Pomodoro o un temporizador en una tarea, gratis e ilimitado.</p>
+            </div>
+            <a class="link" href="/es/focus/">Más sobre Enfoque <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="figure-row">
-            <figure class="figure figure-stage">
-              <picture>
-                <source class="src-dark" media="not all" srcset="/screenshots/es/mobile-focus-rain-dark.webp 386w, /screenshots/es/mobile-focus-rain-dark-772.webp 772w"
-                       sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="767">
-                <img srcset="/screenshots/es/mobile-focus-rain.webp 386w, /screenshots/es/mobile-focus-rain-772.webp 772w"
-                     sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
-                     src="/screenshots/es/mobile-focus-rain.webp" width="386" height="767" loading="lazy"
-                     alt="Sesión de enfoque de Dovilo en la escena Ciudad lluviosa con 22 minutos restantes">
-              </picture>
-              <figcaption>Ciudad lluviosa, quedan 22 minutos.</figcaption>
-            </figure>
-            <figure class="figure figure-stage">
-              <picture>
-                <source class="src-dark" media="not all" srcset="/screenshots/es/mobile-ambience-mixer-dark.webp 386w, /screenshots/es/mobile-ambience-mixer-dark-772.webp 772w"
-                       sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)" width="386" height="413">
-                <img srcset="/screenshots/es/mobile-ambience-mixer.webp 386w, /screenshots/es/mobile-ambience-mixer-772.webp 772w"
-                     sizes="(min-width:1128px) 192px, (min-width:768px) calc(25vw - 90px), (min-width:612px) 228px, (min-width:600px) calc(50vw - 78px), calc(50vw - 58px)"
-                     src="/screenshots/es/mobile-ambience-mixer.webp" width="386" height="413" loading="lazy"
-                     alt="Mezclador de sonido de la atmósfera de Dovilo con las capas Lluvia y Chimenea y Sigue el ritmo de la sesión activado">
-              </picture>
-              <figcaption>Lluvia y chimenea.</figcaption>
-            </figure>
-          </div>
+          <figure class="figure figure-phone figure-stage">
+            <picture>
+              <source class="src-dark" media="not all" srcset="/screenshots/es/mobile-focus-rain-dark.webp 386w, /screenshots/es/mobile-focus-rain-dark-772.webp 772w"
+                     sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px" width="386" height="767">
+              <img srcset="/screenshots/es/mobile-focus-rain.webp 386w, /screenshots/es/mobile-focus-rain-772.webp 772w"
+                   sizes="(max-width:599px) min(304px, calc(100vw - 66px)), 288px"
+                   src="/screenshots/es/mobile-focus-rain.webp" width="386" height="767" loading="lazy"
+                   alt="Sesión de enfoque de Dovilo en la escena Ciudad lluviosa con 22 minutos restantes">
+            </picture>
+            <figcaption>Cada escena trae su propio clima, horizonte y sonido.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -329,7 +335,7 @@
       <div class="container">
         <div class="split">
           <div class="section-head">
-            <h2>Una ciudad que permanece</h2>
+            <h2>El trabajo terminado construye una ciudad que permanece</h2>
             <p>Las tareas y las sesiones de enfoque dan ladrillos. Gástalos en casas, oficinas, parques y carreteras, colocados donde quieras. Nada se deteriora, ninguna racha castiga una semana tranquila. Las construcciones grandes llegan con el Paquete Ciudad Completa, $4.99 en un solo pago, incluido en Pro.</p>
           </div>
           <figure class="figure figure-phone figure-stage">
@@ -350,7 +356,7 @@
           <h2>¿Programas con Claude Code o Cursor?</h2>
           <p>Dale a tu asistente de programación su propia lista de tareas, Tareas de IA, separada de la tuya: 9 herramientas, sin crear, sin eliminar, tu lista invisible.</p>
         </div>
-        <a class="link" href="/es/ai/">Descubre Tareas de IA <span aria-hidden="true">&rarr;</span></a>
+        <a class="link" href="/es/ai/">Tareas de IA para asistentes de programación <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
@@ -396,11 +402,11 @@
           </details>
           <details>
             <summary><h3>¿Puedo planificar con ChatGPT, Claude, Gemini o Grok?</h3></summary>
-            <div class="faq-answer"><p>Sí. En la app, Ajustes &gt; IA &gt; Apps de IA conectadas te guía en tres pasos cortos: elige tu app de IA, añade Dovilo con la dirección <code>https://dovilo.app/mcp</code> e inicia sesión con tu cuenta de Dovilo, y luego prueba un primer plan. Los pasos de cada app están en <a href="/es/ai/#connect-your-ai">Conecta tu app de IA</a>. El asistente propone un plan, el plan llega a la Bandeja de IA de tu móvil y entra en tus listas con un toque cuando lo apruebas. En cada conexión eliges qué puede leer el asistente y qué listas y proyectos ve, y sus cambios siempre esperan tu aprobación; el ajuste se llama <strong>Preguntarme antes</strong>. No hay ninguna herramienta para eliminar, y puedes revocar una conexión desde tu móvil en cualquier momento. Enviar un plan funciona en Gratis; aprobarlo, y todo lo demás, requiere Pro.</p></div>
+            <div class="faq-answer"><p>Sí. En la app, Ajustes &gt; IA &gt; Apps de IA conectadas te guía en tres pasos cortos: elige tu app de IA, añade Dovilo con la dirección <code>https://dovilo.app/mcp</code> e inicia sesión con tu cuenta de Dovilo, y luego prueba un primer plan. Los pasos de cada app están en <a href="/es/plan/#connect-your-ai">Conecta tu app de IA</a>. El asistente propone un plan, el plan llega a la Bandeja de IA de tu móvil y entra en tus listas con un toque cuando lo apruebas. En cada conexión eliges qué puede leer el asistente y qué listas y proyectos ve, y sus cambios siempre esperan tu aprobación; el ajuste se llama <strong>Preguntarme antes</strong>. No hay ninguna herramienta para eliminar, y puedes revocar una conexión desde tu móvil en cualquier momento. Enviar un plan funciona en Gratis; aprobarlo, y todo lo demás, requiere Pro.</p></div>
           </details>
           <details>
             <summary><h3>¿Cómo funciona el enfoque?</h3></summary>
-            <div class="faq-answer"><p>Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla.</p></div>
+            <div class="faq-answer"><p>Puedes hacer una sesión única, un ciclo Pomodoro (25 minutos de enfoque, un descanso de 5 minutos y un descanso más largo cada 4 rondas) o una sesión vinculada a una tarea concreta. El temporizador sigue contando con la app en segundo plano o el móvil bloqueado, No molestar silencia otras apps durante la sesión y cada escena trae su propia atmósfera: Ciudad lluviosa, Medianoche, Atardecer, Nieve o Niebla. <a href="/es/focus/">Más sobre Enfoque</a>.</p></div>
           </details>
           <details>
             <summary><h3>¿Necesito el Paquete Atmósfera de Enfoque?</h3></summary>
@@ -457,10 +463,13 @@
         <div>
           <p class="footer-title">Producto</p>
           <ul>
-            <li><a href="/es/ai/">Para desarrolladores</a></li>
-            <li><a href="/es/downloads/">Descargas</a></li>
+            <li><a href="/es/focus/">Enfoque</a></li>
+            <li><a href="/es/plan/">Planifica con IA</a></li>
+            <li><a href="/es/ai/">Tareas de IA</a></li>
             <li><a href="/es/pricing/">Precios</a></li>
+            <li><a href="/es/downloads/">Descargas</a></li>
             <li><a href="/changelog/">Registro de cambios</a></li>
+            <li><a href="/es/blog/">Blog</a></li>
           </ul>
         </div>
         <div>
@@ -475,7 +484,6 @@
         <div>
           <p class="footer-title">Dovilo</p>
           <ul>
-            <li><a href="/es/blog/">Blog</a></li>
             <li><a href="/privacy/">Privacidad</a></li>
             <li><a href="/terms/">Términos</a></li>
             <li><a href="/licenses/">Licencias</a></li>

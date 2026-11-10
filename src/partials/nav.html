@@ -5,11 +5,13 @@
       <a class="nav-logo" href="{{href.home}}"><img src="/dovilo-logo.webp" width="32" height="32" alt="">Dovilo</a>
       <nav aria-label="{{c.nav.label}}">
         <ul class="nav-links" id="nav-links">
+          <li><a href="{{href.home}}"{{current.home}}>{{c.nav.tasks}}</a></li>
+          <li><a href="{{href.focus}}"{{current.focus}}>{{c.nav.focus}}</a></li>
+          <li><a href="{{href.plan}}"{{current.plan}}>{{c.nav.plan}}</a></li>
           <li><a href="{{href.ai}}"{{current.ai}}>{{c.nav.ai}}</a></li>
           <li><a href="{{href.pricing}}"{{current.pricing}}>{{c.nav.pricing}}</a></li>
           <li><a href="{{href.downloads}}"{{current.downloads}}>{{c.nav.downloads}}</a></li>
           <li><a href="{{href.faq}}"{{current.faq}}>{{c.nav.faq}}</a></li>
-          <li><a href="{{href.blog}}"{{current.blog}}>{{c.nav.blog}}</a></li>
         </ul>
       </nav>
       <div class="nav-actions">

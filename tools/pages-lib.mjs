@@ -133,7 +133,9 @@ export const LANGUAGES = [
    step under English (A130 3.7). */
 export const PAGES = [
   { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
+  { id: 'focus', path: '/focus/', out: 'focus/index.html', card: 'og-focus', langPriority: '0.8' },
   { id: 'ai', path: '/ai/', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
+  { id: 'plan', path: '/plan/', out: 'plan/index.html', card: 'og-plan', langPriority: '0.8' },
   { id: 'pricing', path: '/pricing/', out: 'pricing/index.html', card: 'og-pricing', langPriority: '0.7' },
   { id: 'downloads', path: '/downloads/', out: 'downloads/index.html', card: 'og-downloads', langPriority: '0.6' },
   { id: 'faq', path: '/faq/', out: 'faq/index.html', card: 'og-faq', langPriority: '0.7' },
@@ -191,7 +193,7 @@ export function loadStrings(code) {
 
 /* What the nav, footer and site script read: the common strings, the current
    page marks, the hrefs and the language menu. `current` names the nav entry
-   to mark (`ai`, `pricing`, `downloads`, `faq`, `blog`) or nothing. */
+   to mark (`home`, `focus`, `plan`, `ai`, `pricing`, `downloads`, `faq`) or nothing. */
 export function shellData({ strings, lang, current = null, alternates = [] }) {
   const mark = (id) => (id === current ? ' aria-current="page"' : '');
   const en = lang.code === 'en';
@@ -208,7 +210,7 @@ export function shellData({ strings, lang, current = null, alternates = [] }) {
       play: en ? '' : `&amp;hl=${lang.code}&amp;utm_content=${lang.code}`,
     },
     href: hrefs(lang),
-    current: Object.fromEntries(['ai', 'pricing', 'downloads', 'faq', 'blog'].map((id) => [id, mark(id)])),
+    current: Object.fromEntries(['home', 'focus', 'plan', 'ai', 'pricing', 'downloads', 'faq'].map((id) => [id, mark(id)])),
     alternates,
   };
 }

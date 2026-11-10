@@ -13,7 +13,10 @@
     "nav": {
       "skip": "İçeriğe geç",
       "label": "Ana menü",
-      "ai": "AI",
+      "tasks": "Görevler",
+      "focus": "Odak",
+      "plan": "AI ile planla",
+      "ai": "AI Görevleri",
       "pricing": "Fiyat",
       "downloads": "İndir",
       "faq": "SSS",
@@ -25,7 +28,9 @@
     "footer": {
       "label": "Alt bilgi",
       "product": "Ürün",
-      "developers": "Geliştiriciler için",
+      "focus": "Odak",
+      "plan": "AI ile planla",
+      "ai": "AI Görevleri",
       "downloads": "İndir",
       "pricing": "Fiyat",
       "changelog": "Sürüm notları",
@@ -94,7 +99,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-09",
       "meta": {
         "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
         "description": "Dovilo, iOS ve Android için ücretsiz yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma. Sınırsız görev ve seans, reklam yok.",
@@ -125,13 +130,13 @@
         "agentsLink": "Claude Code ya da Cursor ile mi geliştiriyorsun?",
         "inboxAlt": "Dovilo AI gelen kutusu: Claude'dan gelen altı görevlik plan ve Onayla butonu",
         "listAlt": "Dovilo'da Taşınma listesi: onaylanan altı görev Bugün, Yarın ve Bu hafta altında",
-        "caption": "Claude'un önerdiği altı görev, onaylanıp listeye girdi."
+        "caption": "Claude'dan gelen plan kendi listesi ve tarihleriyle gelir."
       },
       "about": {
         "p": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunuyla. Sınırsız görev ve odak seansı, reklam yok, önce çevrimdışı, 5 dil. Biten iş tuğla kazandırır, tuğlalar bina alır ve hiçbir şey eksilmez. ChatGPT, Claude, Gemini ya da Grok gününü buraya planlayabilir; her planı sen onaylarsın. Odak seansları, şehir ve yapay zeka ile planlama ayrı ayrı kapatılabilir. Pro ayda $2.49."
       },
       "steps": {
-        "title": "Nasıl çalışır",
+        "title": "Planla, onayla, odaklan, kur",
         "plan": {
           "label": "Planla",
           "detail": "Görevleri yaz ya da ChatGPT veya Claude önersin."
@@ -149,29 +154,36 @@
           "detail": "Biten işten gelen tuğlalar kalıcı bir şehir alır."
         }
       },
+      "tasks": {
+        "title": "Görevler ve listeler, ücretsiz ve sınırsız",
+        "p": "Her görev bir bitiş tarihi, hatırlatıcı, tekrar, yıldız, bayrak, öncelik ve not taşıyabilir. Hiçbiri Pro gerektirmez.",
+        "views": "<strong>Her görünüm tek seçicide.</strong> Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve her listen, her biri canlı sayısıyla.",
+        "groups": "<strong>Tarihe göre gruplu.</strong> Listeler tarih gruplarına ayrılır, Planlanan ise günlere göre.",
+        "offline": "<strong>Çevrimdışı çalışır.</strong> Görevlerin önce telefonunda durur. Cihazlar arası bulut senkronizasyonu Pro ile gelir.",
+        "bricks": "<strong>Biten görevler tuğla kazandırır.</strong> Sayfanın aşağısındaki şehri onlar kurar."
+      },
       "plan": {
         "title": "AI'ınla planla",
         "p": "ChatGPT, Claude, Gemini ya da Grok'tan gününü, bir etkinliği ya da bir projeyi planlamasını iste. Plan Dovilo'daki AI gelen kutuna düşer: istediğini değiştir ve tek dokunuşla listelerine ekle. Sen evet demeden hiçbir şey listene girmez; her AI'ın hangi listeleri göreceğini de sen seçersin. Bağlamak uygulamada üç kısa adım sürer.",
         "pro": "Bağlamak ve plan göndermek ücretsiz; planı listelerine eklemek Pro'nun parçası.",
-        "link": "AI uygulamanı nasıl bağlarsın"
+        "link": "AI ile planlama nasıl çalışır"
       },
       "focus": {
         "title": "Tüm ekranı dolduran odak",
-        "p": "Tek seans, Pomodoro döngüsü ya da tek göreve bağlı zamanlayıcı; ücretsiz ve sınırsız. Odak Atmosfer Paketi 5 sahne ve 16 ses katmanı ekler, aynı anda 3: tek seferlik $4.99, Pro'ya dahil.",
+        "p": "Tek seans, Pomodoro döngüsü ya da tek bir göreve bağlı zamanlayıcı; ücretsiz ve sınırsız.",
+        "link": "Odak hakkında daha fazlası",
         "rainAlt": "Dovilo'da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı",
-        "rainCaption": "Yağmurlu şehir, 22 dakika kaldı.",
-        "mixerAlt": "Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık",
-        "mixerCaption": "Yağmur ve şömine."
+        "rainCaption": "Her sahne kendi havası, silüeti ve sesiyle gelir."
       },
       "city": {
-        "title": "Kalıcı bir şehir",
+        "title": "Bitirdiğin iş kalıcı bir şehir kurar",
         "p": "Görevler ve odak seansları tuğla kazandırır. Tuğlalarla ev, ofis, park ve yol al, istediğin yere koy. Hiçbir şey eksilmez, sakin geçen bir hafta için seni cezalandıran bir seri yok. Büyük yapılar Tam Şehir Paketi ile gelir: tek seferlik $4.99, Pro'ya dahil.",
         "alt": "Dovilo'da izometrik şehir: stadyum, hastane ve belediye binası"
       },
       "agents": {
         "title": "Claude Code ya da Cursor ile mi geliştiriyorsun?",
         "p": "Kodlama asistanına seninkinden ayrı, kendi görev listesini ver, AI Görevleri: 9 araç, oluşturma yok, silme yok, senin listen görünmez.",
-        "link": "AI Görevleri'ni incele"
+        "link": "Kodlama asistanları için AI Görevleri"
       },
       "pricing": {
         "free": {
@@ -206,11 +218,11 @@
         },
         "plan": {
           "q": "ChatGPT, Claude, Gemini veya Grok ile planlayabilir miyim?",
-          "a": "Evet. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni üç kısa adımda yönlendirir: AI uygulamanı seç, Dovilo'yu <code>https://dovilo.app/mcp</code> adresiyle ona ekleyip Dovilo hesabınla giriş yap, sonra ilk planı dene. Her uygulamanın adımları <a href=\"{{href.ai}}#connect-your-ai\">AI uygulamanı bağla</a> bölümünde. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer. Her bağlantı için asistanın neyi okuyabileceğini, hangi listeleri ve projeleri göreceğini sen seçersin; yaptığı değişiklikler her zaman onayını bekler, ayarın adı <strong>Önce bana sor</strong>. Silme aracı yoktur ve bir bağlantıyı telefonundan istediğin an kesebilirsin. Plan göndermek Ücretsiz'de çalışır; onaylamak ve geri kalan her şey Pro ister."
+          "a": "Evet. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni üç kısa adımda yönlendirir: AI uygulamanı seç, Dovilo'yu <code>https://dovilo.app/mcp</code> adresiyle ona ekleyip Dovilo hesabınla giriş yap, sonra ilk planı dene. Her uygulamanın adımları <a href=\"{{href.plan}}#connect-your-ai\">AI uygulamanı bağla</a> bölümünde. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer. Her bağlantı için asistanın neyi okuyabileceğini, hangi listeleri ve projeleri göreceğini sen seçersin; yaptığı değişiklikler her zaman onayını bekler, ayarın adı <strong>Önce bana sor</strong>. Silme aracı yoktur ve bir bağlantıyı telefonundan istediğin an kesebilirsin. Plan göndermek Ücretsiz'de çalışır; onaylamak ve geri kalan her şey Pro ister."
         },
         "focus": {
           "q": "Odak nasıl çalışır?",
-          "a": "Tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola) ya da tek bir göreve bağlı bir seans çalıştırabilirsin. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar, Rahatsız etme seans boyunca diğer uygulamaları susturur ve her sahne kendi atmosferini getirir: Yağmurlu şehir, Gece yarısı, Gün batımı, Kar ya da Sis."
+          "a": "Tek bir seans, bir Pomodoro döngüsü (25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola) ya da tek bir göreve bağlı bir seans çalıştırabilirsin. Zamanlayıcı uygulama arka plandayken ya da telefon kilitliyken de sayar, Rahatsız etme seans boyunca diğer uygulamaları susturur ve her sahne kendi atmosferini getirir: Yağmurlu şehir, Gece yarısı, Gün batımı, Kar ya da Sis. <a href=\"{{href.focus}}\">Odak hakkında daha fazlası</a>."
         },
         "ambience": {
           "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
@@ -239,8 +251,96 @@
       },
       "blogLink": "Dovilo'yu yaparken yazılanlar: blog"
     },
+    "focus": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Tam ekran atmosferli Pomodoro odak zamanlayıcısı - Dovilo",
+        "description": "iOS ve Android için ücretsiz odak zamanlayıcısı: tek seans, Pomodoro ya da tek göreve bağlı zamanlayıcı, tam ekran sahnelerle. Reklamsız.",
+        "ogAlt": "Dovilo: tüm ekranı dolduran odak seansları; yanında Yağmurlu şehir sahnesinde bir odak seansı",
+        "crumb": "Odak"
+      },
+      "hero": {
+        "h1": "Dovilo: tüm ekranı dolduran odak seansları.",
+        "sub": "Tek seans, Pomodoro döngüsü ya da tek bir göreve bağlı zamanlayıcı. Ücretsiz, sınırsız ve reklamsız.",
+        "alt": "Dovilo'da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı",
+        "caption": "Telefon kilitliyken de zamanlayıcı işler; bitince tuğlalar düşer."
+      },
+      "about": {
+        "p": "Dovilo, iOS ve Android için ekranı dolduran bir odak zamanlayıcısı da olan ücretsiz bir yapılacaklar listesi. Odak seansları ve Pomodoro döngüleri ücretsiz ve sınırsız, reklam yok. Odak Atmosfer Paketi bir kerelik $4.99'a 5 sahne ve 16 ses katmanı ekler ve Pro'ya dahildir. Biten seanslar şehrin için tuğla kazandırır."
+      },
+      "modes": {
+        "title": "Odaklanmanın üç yolu",
+        "single": "<strong>Tek seans.</strong> İstediğin uzunlukta.",
+        "pomodoro": "<strong>Pomodoro döngüsü.</strong> 25 dakika odak, 5 dakika mola, her 4 turda bir uzun mola. Molalar kendiliğinden başlar ve yalnızca biten turlar sayılır.",
+        "task": "<strong>Tek bir göreve bağlı zamanlayıcı.</strong> Seans o göreve bağlanır."
+      },
+      "session": {
+        "title": "İlk dakikadan sonuncusuna",
+        "start": "<strong>Sakin bir başlangıç.</strong> Bir nefes egzersizi ve geri sayım seni hazırlar.",
+        "counting": "<strong>Saymaya devam eder.</strong> Arka planda ya da telefon kilitliyken.",
+        "quiet": "<strong>Sessiz telefon.</strong> Rahatsız etme, seans boyunca diğer uygulamaları susturabilir.",
+        "end": "<strong>Net bir bitiş.</strong> Seans bitince bir bildirim gelir."
+      },
+      "scenes": {
+        "title": "Altı sahne, biri ücretsiz",
+        "p": "Her sahnenin kendi havası, silüet tonu ve sesi var; tüm ekranı doldurur.",
+        "default": "<strong>Varsayılan.</strong> Her zaman ücretsiz ve sessiz.",
+        "rainy": "<strong>Yağmurlu şehir.</strong> Yağmur ve şömine.",
+        "midnight": "<strong>Gece yarısı.</strong> Şehir uğultusu ve kahverengi gürültü. Açık temada bile karanlık kalır.",
+        "dusk": "<strong>Gün batımı.</strong> Kuşlar ve rüzgâr. Molalar kendiliğinden Gün batımına geçer.",
+        "snow": "<strong>Kar.</strong> Kış rüzgârı ve pembe gürültü.",
+        "fog": "<strong>Sis.</strong> Sis düdüğü ve beyaz gürültü.",
+        "note": "Varsayılan dışındaki beş sahne Odak Atmosfer Paketi ile gelir."
+      },
+      "sound": {
+        "title": "Kendi sesini karıştır",
+        "p": "16 katmandan 3'ünü, her birini kendi seviyesinde karıştır: yağmur, kafe ya da tren gibi 13 kayıt ve kahverengi, pembe ve beyaz gürültü. Karışım seansı takip edebilir: ilk 5 dakikada yumuşak, son 2 dakikada daha parlak.",
+        "alt": "Dovilo atmosfer ses karıştırıcısı: Yağmur ve Şömine katmanları, Seansın ritmine uy açık",
+        "caption": "Bu bir atmosfer, müzik değil: melodi yok, ritim yok."
+      },
+      "bricks": {
+        "title": "Biten seanslar bir şehir kurar",
+        "p": "Tamamlanan bir seans uzunluğuna göre tuğla kazandırır. Tuğlalarla şehrine ev, ofis, park ve yol alırsın; hiçbir şey geri gitmez.",
+        "link": "Şehir nasıl çalışır",
+        "modules": "Şehre ihtiyacın yok mu? Odak, şehir ve AI ile planlama Ayarlar &gt; Modüller bölümünden ayrı ayrı kapatılabilir."
+      },
+      "pricing": {
+        "title": "Odaklanmak ücretsiz, sahneler için tek paket",
+        "free": {
+          "label": "Ücretsiz",
+          "text": "Odak seansları ve Pomodoro döngüleri, sınırsız, Varsayılan sahneyle."
+        },
+        "pack": {
+          "label": "Odak Atmosfer Paketi",
+          "text": "5 sahne ve 16 ses katmanı, bir kerelik $4.99."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Paket dahil, ayda $2.49'dan başlayan fiyatlarla."
+        },
+        "link": "Tüm planlar"
+      },
+      "faq": {
+        "free": {
+          "q": "Odak ücretsiz mi?",
+          "a": "Evet. Tek seanslar ve Pomodoro döngüleri ücretsiz ve sınırsız, Varsayılan sahneyle. Odak Atmosfer Paketi diğer 5 sahneyi ve 16 ses katmanını bir kerelik $4.99'a ekler; Pro'ya dahildir."
+        },
+        "locked": {
+          "q": "Zamanlayıcı telefon kilitliyken çalışır mı?",
+          "a": "Evet. Arka planda ve telefon kilitliyken saymaya devam eder; seans bitince bir bildirim gelir."
+        },
+        "unfinished": {
+          "q": "Yarım kalan seanslar sayılır mı?",
+          "a": "Erken bitirilen seans yine kaydedilir, ama günlük tur sayacına yalnızca tamamlanan Pomodoro turları sayılır."
+        },
+        "desktop": {
+          "q": "Odak Dovilo Desktop'ta var mı?",
+          "a": "Hayır. Odak ve şehir iOS ve Android'de. Desktop, listelerin ve AI görevlerin için Windows ve Mac istemcisi."
+        }
+      }
+    },
     "ai": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-09",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
         "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
@@ -260,13 +360,13 @@
         "sub": "Claude Code, Cursor ve her MCP istemcisi herhangi bir makineden bağlanır ve yalnızca kendi AI görevlerini görür.",
         "desktopAlt": "Dovilo Desktop: bir projenin AI Görevleri, ilgi gerektirene göre gruplanmış",
         "phoneAlt": "Telefonda Dovilo AI Görevleri: aynı proje, seni bekleyen, çalışan, sırada ve zamanlanmış görevlerle",
-        "caption": "Bir projenin AI Görevleri, seni bekleyene göre gruplanmış."
+        "caption": "Masada ve telefonda aynı kuyruk; kendi listen dışarıda kalır."
       },
       "about": {
         "p": "Dovilo, AI kodlama ajanları için ayrı bir görev listesi olan bir yapılacaklar uygulamasıdır. Ajanlar dovilo.app/mcp/agents adresine MCP ile bağlanır: 9 araç, oluşturma yok, silme yok; kişisel listen hiçbir zaman görünmez. ChatGPT ya da Claude işi planlayabilir; her talimat senin onayını bekler. Pro, ayda $2.49, ayda 15 AI görevi."
       },
       "steps": {
-        "title": "Nasıl çalışır",
+        "title": "Bir AI görevi nasıl çalışır",
         "write": {
           "label": "Görevi yaz",
           "detail": "Ya da ChatGPT veya Claude önersin.",
@@ -289,79 +389,31 @@
         }
       },
       "built": {
-        "title": "Dovilo nasıl geliştiriliyor",
+        "title": "Kullanım örneği: Dovilo, AI Görevleri ile geliştiriliyor",
         "p": "Dovilo da böyle geliştiriliyor. Beş projesi var, Backend, Mobile, Desktop, Edge ve Landing, ve her biri için bir Claude Code ajanı. Bir değişikliği Claude'da planlıyorum, o da doğru projenin altına AI görevleri öneriyor. Görevleri telefonumdan onaylıyorum; masadaki ajan onları çalışıyor, adımlarını ve notlarını göreve yazıyor, karar bana düştüğünde durup soruyor. Bu sayfa da aynı yoldan, Landing projesinden geçti."
       },
       "planning": {
-        "title": "Düz MCP, bağımlılık yok",
-        "chat": "<strong>ChatGPT, Claude, Gemini ve Grok</strong> işi planlar ve onayına gönderir.",
+        "title": "Her MCP kodlama istemcisiyle çalışır",
         "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf ve Claude Desktop</strong> görevleri çalıştırır.",
         "any": "<strong>LangGraph, CI işleri ve her MCP istemcisi</strong> aynı URL ve anahtarla bağlanır."
       },
-      "servers": {
-        "title": "İki sunucu",
-        "agents": {
-          "title": "Agents MCP",
-          "for": "Kodlama ajanları için",
-          "key": "Ajan başına bir anahtar, bir kez gösterilir"
-        },
-        "personal": {
-          "title": "Personal MCP",
-          "for": "ChatGPT, Claude, Gemini ve Grok için",
-          "signin": "Dovilo hesabınla giriş yap"
-        },
-        "link": "Bütün araçlar MCP dokümanlarında"
-      },
-      "connectAi": {
-        "title": "AI uygulamanı bağla",
-        "p": "ChatGPT, Claude, Gemini ve Grok, Dovilo'nun <code>https://dovilo.app/mcp</code> adresindeki Personal MCP'sine bağlanır. Önce Dovilo'ya giriş yap; AI uygulaman senden giriş yapmanı istediğinde aynı Google veya Apple hesabını kullan. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni aynı adımlardan geçirir.",
-        "apps": {
-          "chatgpt": {
-            "name": "ChatGPT",
-            "s1": "chatgpt.com/plugins sayfasını aç.",
-            "s2": "&quot;+&quot; ve ardından &quot;Add custom MCP server&quot; seçeneğini seç.",
-            "s3": "Adını Dovilo koy ve adresi yapıştır.",
-            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla.",
-            "note": "Web'de. Özel MCP sunucusu ekleyip ekleyemeyeceğin ChatGPT planına bağlı."
-          },
-          "claude": {
-            "name": "Claude",
-            "s1": "Customize &gt; Connectors sayfasını aç.",
-            "s2": "&quot;Add custom connector&quot; seçeneğini seç.",
-            "s3": "Adını Dovilo koy ve adresi yapıştır.",
-            "s4": "&quot;Connect&quot; seçeneğini seç, Dovilo hesabınla giriş yap ve izin ekranını onayla.",
-            "note": "claude.ai veya Claude Desktop üzerinde; sonra mobil uygulamada da çalışır. Ücretsiz plan tek bir özel bağlayıcıya izin verir."
-          },
-          "gemini": {
-            "name": "Gemini",
-            "s1": "gemini.google.com &gt; Settings &gt; Connected Apps sayfasını aç.",
-            "s2": "&quot;Add a custom app&quot; seçeneğini seç.",
-            "s3": "Adresi yapıştır ve &quot;Next&quot; seçeneğini seç.",
-            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla.",
-            "note": "Gemini web uygulamasında. Google bunu ABD'deki, 18 yaş ve üstü, &quot;Keep Activity&quot; açık kişisel hesaplara sunuyor."
-          },
-          "grok": {
-            "name": "Grok",
-            "s1": "grok.com/connectors sayfasını aç.",
-            "s2": "&quot;New Connector&quot; ve ardından &quot;Custom&quot; seçeneğini seç.",
-            "s3": "Adresi yapıştır.",
-            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla."
-          }
-        },
-        "try": "Sonra yeni bir sohbette ondan bir plan iste, örneğin: &quot;Dovilo'da yarınımı 3 küçük görevle planla.&quot; Plan AI gelen kutuna düşer; incele ve onayla. Bağlamak ve plan göndermek ücretsiz; planı listelerine eklemek Pro ister.",
-        "source": "Menü adları her uygulamanın kendi İngilizce etiketleri; 20 Ekim 2026'da yardım sayfalarından alındı: <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. Bir menü yer değiştirdiyse güncel hali yardım sayfasında."
-      },
       "connect": {
-        "title": "Kurulum bir URL ve bir anahtar",
-        "p": "Dovilo Desktop 7 istemcinin yapılandırmasını yazar. Sonra bir proje açıklaması ve bir AI görevi yaz."
+        "title": "Bir kodlama ajanı bağla: bir URL ve bir anahtar",
+        "p": "Uygulamada bir ajan oluştur, anahtarını bir kez kopyala ve istemcini <code>https://dovilo.app/mcp/agents</code> adresine yönlendir. Dovilo Desktop 7 istemci için yapılandırmayı yazar.",
+        "link": "İki sunucu ve her araç: MCP referansı"
+      },
+      "bridge": {
+        "title": "ChatGPT ya da Claude'da planla, ajanına devret",
+        "p": "Bir bağlantı için AI görevleri erişimi açıksa ChatGPT ya da Claude projelerinin altında AI görevleri önerebilir, adımlarını takip edebilir ve bir ajan soru sorduğunda cevabını taslak olarak yazabilir. Her öneri ve her cevap telefonda senin onayını bekler.",
+        "link": "AI uygulamanı bağla"
       },
       "trust": {
-        "title": "AI neyi yapabilir, neyi yapamaz",
+        "title": "Kodlama ajanın neyi yapabilir, neyi yapamaz",
         "own": "Kendi görevleri, başka hiçbir şey.",
-        "approve": "AI önerir. Sen onaylarsın.",
+        "approve": "Aldığı her görevi bir insan yazar ya da onaylar.",
+        "create": "Görev oluşturamaz ve silemez. İptal etmek görevi görünür bırakır.",
         "chat": "Kodlama işin, sen açmadıkça sohbet uygulamanın dışında kalır.",
-        "delete": "Silme aracı yok. Ne şimdi ne sonra.",
-        "revoke": "Her bağlantıyı telefonundan anında kes."
+        "revoke": "Herhangi bir ajan anahtarını telefonundan anında iptal et."
       },
       "tools": {
         "summary": "9 araç: 3 okuma, 6 yazma. Oluşturma yok, silme yok",
@@ -387,7 +439,7 @@
         }
       },
       "webhooks": {
-        "title": "Webhook'lar ve demo",
+        "title": "Webhook'lar ve açık kaynak bir demo",
         "signed": {
           "title": "İmzalı webhook'lar",
           "p": "Sunucu teslim eder, 5 kez yeniden dener."
@@ -432,6 +484,142 @@
         "upgrade": {
           "q": "Desktop 1.8 kullanıyordum. Ne değişti?",
           "a": "1.8'in yerel sunucusu kalktı. Uygulamada bir ajan oluştur, anahtarını kopyala ve istemcini remote URL'ye yönlendir. <a href=\"/docs/mcp/#upgrading\">Adımlar MCP dokümanlarında.</a>"
+        }
+      }
+    },
+    "plan": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "ChatGPT ya da Claude ile gününü planla - Dovilo",
+        "description": "ChatGPT, Claude, Gemini veya Grok'tan plan iste. Plan Dovilo'nun gelen kutusuna düşer, sen onaylamadan listelerine bir şey girmez.",
+        "ogAlt": "Dovilo: ChatGPT ya da Claude ile planla, tek dokunuşla onayla; yanında Claude'dan gelen altı görevlik bir plan",
+        "crumb": "AI ile planla"
+      },
+      "hero": {
+        "h1": "Dovilo: ChatGPT ya da Claude ile planla, tek dokunuşla onayla.",
+        "sub": "AI'ından bir plan iste. Plan Dovilo'nun gelen kutusuna düşer; sen evet demeden listelerine hiçbir şey girmez.",
+        "inboxAlt": "Dovilo AI gelen kutusu: Claude'dan gelen altı görevlik plan ve Onayla butonu",
+        "listAlt": "Dovilo'da Taşınma listesi: onaylanan altı görev Bugün, Yarın ve Bu hafta altında",
+        "caption": "Önce istediğin görevi değiştir; onaylanan görevler tarihlerini ve listelerini korur."
+      },
+      "about": {
+        "p": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi. ChatGPT, Claude, Gemini veya Grok'u bağla ve gününün, bir etkinliğin ya da bir projenin planını iste; plan Dovilo'nun AI gelen kutusuna gelir, istediğini değiştirir ve tek dokunuşla listelerine eklersin. Her uygulamanın hangi listeleri göreceğini sen seçersin. Bağlanmak ve plan göndermek ücretsiz; planı listelerine eklemek Pro'nun parçası, ayda $2.49."
+      },
+      "steps": {
+        "title": "Plan listene nasıl ulaşır",
+        "ask": {
+          "label": "İste",
+          "detail": "&quot;Haftamı planla&quot;, &quot;Bu taşınmayı görevlere böl&quot;: AI uygulamanda, kendi cümlelerinle."
+        },
+        "arrives": {
+          "label": "Gelir",
+          "detail": "Plan bir bildirimle Dovilo'daki AI gelen kutuna düşer."
+        },
+        "change": {
+          "label": "Değiştir",
+          "detail": "Listeye girmeden önce herhangi bir görevi düzenle, çıkar ya da taşı."
+        },
+        "approve": {
+          "label": "Onayla",
+          "detail": "Tek dokunuş planı listelerine ekler. Ondan önce hiçbir şey girmez."
+        }
+      },
+      "connectAi": {
+        "title": "AI uygulamanı bağla",
+        "p": "ChatGPT, Claude, Gemini ve Grok, Dovilo'nun <code>https://dovilo.app/mcp</code> adresindeki Personal MCP'sine bağlanır. Önce Dovilo'ya giriş yap; AI uygulaman senden giriş yapmanı istediğinde aynı Google veya Apple hesabını kullan. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni aynı adımlardan geçirir.",
+        "apps": {
+          "chatgpt": {
+            "name": "ChatGPT",
+            "s1": "chatgpt.com/plugins sayfasını aç.",
+            "s2": "&quot;+&quot; ve ardından &quot;Add custom MCP server&quot; seçeneğini seç.",
+            "s3": "Adını Dovilo koy ve adresi yapıştır.",
+            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla.",
+            "note": "Web'de. Özel MCP sunucusu ekleyip ekleyemeyeceğin ChatGPT planına bağlı."
+          },
+          "claude": {
+            "name": "Claude",
+            "s1": "Customize &gt; Connectors sayfasını aç.",
+            "s2": "&quot;Add custom connector&quot; seçeneğini seç.",
+            "s3": "Adını Dovilo koy ve adresi yapıştır.",
+            "s4": "&quot;Connect&quot; seçeneğini seç, Dovilo hesabınla giriş yap ve izin ekranını onayla.",
+            "note": "claude.ai veya Claude Desktop üzerinde; sonra mobil uygulamada da çalışır. Ücretsiz plan tek bir özel bağlayıcıya izin verir."
+          },
+          "gemini": {
+            "name": "Gemini",
+            "s1": "gemini.google.com &gt; Settings &gt; Connected Apps sayfasını aç.",
+            "s2": "&quot;Add a custom app&quot; seçeneğini seç.",
+            "s3": "Adresi yapıştır ve &quot;Next&quot; seçeneğini seç.",
+            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla.",
+            "note": "Gemini web uygulamasında. Google bunu ABD'deki, 18 yaş ve üstü, &quot;Keep Activity&quot; açık kişisel hesaplara sunuyor."
+          },
+          "grok": {
+            "name": "Grok",
+            "s1": "grok.com/connectors sayfasını aç.",
+            "s2": "&quot;New Connector&quot; ve ardından &quot;Custom&quot; seçeneğini seç.",
+            "s3": "Adresi yapıştır.",
+            "s4": "Dovilo hesabınla giriş yap ve izin ekranını onayla."
+          }
+        },
+        "try": "Sonra yeni bir sohbette ondan bir plan iste, örneğin: &quot;Dovilo'da yarınımı 3 küçük görevle planla.&quot; Plan AI gelen kutuna düşer; incele ve onayla. Bağlamak ve plan göndermek ücretsiz; planı listelerine eklemek Pro ister.",
+        "source": "Menü adları her uygulamanın kendi İngilizce etiketleri; 20 Ekim 2026'da yardım sayfalarından alındı: <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. Bir menü yer değiştirdiyse güncel hali yardım sayfasında."
+      },
+      "control": {
+        "title": "ChatGPT ya da Claude neyi görür, neyi değiştirir",
+        "p": "Bunu her uygulama için Ayarlar &gt; AI &gt; Bağlı AI uygulamaları bölümünden ayarlarsın ve istediğin zaman değiştirirsin.",
+        "lists": "<strong>Yalnızca seçtiğin listeler.</strong> Gizli listeleri göremez.",
+        "read": "<strong>Okuma izni senin elinde.</strong> Kapalıyken de plan gönderebilir.",
+        "ask": "<strong>Her yeni görev ya da düzenleme seni bekler.</strong> Ayarın adı: Önce bana sor.",
+        "delete": "<strong>Silme aracı yok.</strong> Ne şimdi ne sonra.",
+        "coding": "<strong>Kod işlerin dışarıda kalır.</strong> O uygulama için AI görevleri erişimini açmadıkça.",
+        "disconnect": "<strong>Bağlantıyı telefonundan kes.</strong> Her uygulama, her zaman.",
+        "alt": "Dovilo'da Claude için Bağlı AI uygulamaları: okuma izni, AI görevleri ve Önce bana sor, görebileceği listelerle"
+      },
+      "prompts": {
+        "title": "Denenecek planlar",
+        "p": "Bağlandıktan sonra birini yeni bir sohbete yapıştır.",
+        "one": "Yarınımı Dovilo'da 3 küçük görevle planla.",
+        "two": "Ece'nin cumartesi günkü doğum günü partisini Dovilo'da planla: davetiyeler, pasta ve salon, yeni bir listede.",
+        "three": "Aralıktaki taşınmamı Dovilo'da haftalık görevlere böl, önümüzdeki pazartesiden başlayarak.",
+        "four": "Dovilo'daki Planlanan görevlerime bak ve bu haftayı hiçbir güne beşten fazla görev düşmeyecek şekilde dağıt.",
+        "note": "Sonuncusu o uygulama için okuma izni ister."
+      },
+      "coding": {
+        "title": "Bir kod projesi mi planlıyorsun?",
+        "p": "ChatGPT ya da Claude, Claude Code veya Cursor gibi kodlama asistanın için AI görevleri de önerebilir ve asistanın soru sorduğunda cevabını taslak olarak yazabilir. Her biri senin onayını bekler.",
+        "link": "Kodlama asistanları için AI Görevleri"
+      },
+      "pricing": {
+        "title": "Göndermek ücretsiz, eklemek Pro",
+        "free": {
+          "label": "Ücretsiz",
+          "text": "Dört uygulamadan herhangi birini bağla ve plan gönder."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Planları listelerine ekle: ayda $2.49, yılda $19.99 ya da bir kez $49.99; uygulamada 7 günlük deneme."
+        },
+        "link": "Tüm planlar"
+      },
+      "faq": {
+        "apps": {
+          "q": "Dovilo hangi AI uygulamalarıyla çalışır?",
+          "a": "ChatGPT, Claude, Gemini ve Grok. Her biri özel bağlayıcıya izin veren bir plan ya da hesap ister: ChatGPT'de bu planına bağlı, Claude'un ücretsiz planı bir özel bağlayıcıya izin verir, Gemini ise bunu ABD'de 18 yaş ve üzeri kişisel hesaplara sunar. Adımlar <a href=\"#connect-your-ai\">AI uygulamanı bağla</a> bölümünde."
+        },
+        "sees": {
+          "q": "Tüm görevlerimi görebilir mi?",
+          "a": "Hayır. Yalnızca o uygulama için seçtiğin listeleri görür, o da okuma izni açıksa. İkisini de istediğin zaman telefonundan değiştirebilirsin."
+        },
+        "free": {
+          "q": "AI ile planlama ücretsiz sürümde çalışır mı?",
+          "a": "Bağlanmak ve plan göndermek ücretsiz. Planı listelerine eklemek Pro'nun parçası; uygulamada 7 günlük deneme var."
+        },
+        "directory": {
+          "q": "Dovilo ChatGPT ya da Claude uygulama dizininde var mı?",
+          "a": "Henüz değil. Onu adresiyle, <code>https://dovilo.app/mcp</code>, birkaç adımda eklersin."
+        },
+        "offline": {
+          "q": "Çevrimdışı çalışır mı?",
+          "a": "Listelerin çalışır. Planlar bağlantı ister: AI uygulamandan Dovilo'nun sunucusuna, oradan telefonuna gider."
         }
       }
     },
@@ -660,7 +848,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-09",
       "meta": {
         "title": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
         "description": "Dovilo hakkında sık sorulan sorular: oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma.",
@@ -741,7 +929,7 @@
         },
         "plan": {
           "q": "ChatGPT, Claude, Gemini veya Grok ile planlayabilir miyim?",
-          "a1": "Evet. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni üç kısa adımda yönlendirir: AI uygulamanı seç, Dovilo'yu <code>https://dovilo.app/mcp</code> adresiyle ona ekleyip Dovilo hesabınla giriş yap, sonra ilk planı dene. Her uygulamanın adımları <a href=\"{{href.ai}}#connect-your-ai\">AI uygulamanı bağla</a> bölümünde. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer.",
+          "a1": "Evet. Uygulamada Ayarlar &gt; AI &gt; Bağlı AI uygulamaları seni üç kısa adımda yönlendirir: AI uygulamanı seç, Dovilo'yu <code>https://dovilo.app/mcp</code> adresiyle ona ekleyip Dovilo hesabınla giriş yap, sonra ilk planı dene. Her uygulamanın adımları <a href=\"{{href.plan}}#connect-your-ai\">AI uygulamanı bağla</a> bölümünde. Asistan bir plan önerir, plan telefonundaki AI gelen kutusuna düşer ve onayladığında tek dokunuşla listelerine girer.",
           "a2": "Her bağlantı için asistanın neyi okuyabileceğini, hangi listeleri ve projeleri göreceğini sen seçersin; yaptığı değişiklikler her zaman onayını bekler, ayarın adı <strong>Önce bana sor</strong>. Silme aracı yoktur ve bir bağlantıyı telefonundan istediğin an kesebilirsin. Plan göndermek Ücretsiz'de çalışır; onaylamak ve geri kalan her şey Pro ister."
         },
         "mcp": {

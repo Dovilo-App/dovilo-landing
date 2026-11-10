@@ -15,7 +15,10 @@
     "nav": {
       "skip": "Skip to content",
       "label": "Main",
-      "ai": "AI",
+      "tasks": "Tasks",
+      "focus": "Focus",
+      "plan": "Plan with AI",
+      "ai": "AI Tasks",
       "pricing": "Pricing",
       "downloads": "Downloads",
       "faq": "FAQ",
@@ -27,7 +30,9 @@
     "footer": {
       "label": "Footer",
       "product": "Product",
-      "developers": "For developers",
+      "focus": "Focus",
+      "plan": "Plan with AI",
+      "ai": "AI Tasks",
       "downloads": "Downloads",
       "pricing": "Pricing",
       "changelog": "Changelog",
@@ -96,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-09",
       "meta": {
         "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
         "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
@@ -127,13 +132,13 @@
         "agentsLink": "Building with Claude Code or Cursor?",
         "inboxAlt": "Dovilo AI inbox: a plan of six tasks from Claude with an Approve button",
         "listAlt": "Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week",
-        "caption": "Six tasks proposed by Claude, approved into a list."
+        "caption": "A plan from Claude brings its own list and dates."
       },
       "about": {
         "p": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads, offline-first, 5 languages. Finished work earns bricks, bricks buy buildings, and nothing decays. ChatGPT, Claude, Gemini or Grok can plan your day into it; you approve every plan. Focus, the city and planning with AI can each be turned off. Pro is $2.49 a month."
       },
       "steps": {
-        "title": "How it works",
+        "title": "Plan, approve, focus, build",
         "plan": {
           "label": "Plan",
           "detail": "Write tasks, or let ChatGPT or Claude propose them."
@@ -151,29 +156,36 @@
           "detail": "Bricks from finished work buy a city that stays."
         }
       },
+      "tasks": {
+        "title": "Tasks and lists, free and unlimited",
+        "p": "Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro.",
+        "views": "<strong>One picker for every view.</strong> My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count.",
+        "groups": "<strong>Grouped by date.</strong> Lists fold into date groups, and Planned groups by day.",
+        "offline": "<strong>Works offline.</strong> Your tasks live on your phone first. Cloud sync between devices comes with Pro.",
+        "bricks": "<strong>Finished tasks pay bricks.</strong> They build the city further down this page."
+      },
       "plan": {
         "title": "Plan with your AI",
         "p": "Ask ChatGPT, Claude, Gemini or Grok to plan your day, an event or a project. The plan arrives in your AI inbox in Dovilo: change what you like and add it to your lists with one tap. Nothing lands before you say yes, and you choose which lists each AI can see. Connecting takes three short steps in the app.",
         "pro": "Connecting and sending plans is free; adding a plan to your lists is part of Pro.",
-        "link": "How to connect your AI app"
+        "link": "How planning with AI works"
       },
       "focus": {
         "title": "Focus that fills the whole screen",
-        "p": "A single session, a Pomodoro cycle or a timer on one task, free and unlimited. The Focus Ambience Pack adds 5 scenes and 16 sound layers, 3 at a time: $4.99 once, included with Pro.",
+        "p": "A single session, a Pomodoro cycle or a timer on one task, free and unlimited.",
+        "link": "More about Focus",
         "rainAlt": "Dovilo focus session in the Rainy City scene with 22 minutes left",
-        "rainCaption": "Rainy City, 22 minutes left.",
-        "mixerAlt": "Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on",
-        "mixerCaption": "Rain and fireplace."
+        "rainCaption": "Every scene brings its own weather, skyline and sound."
       },
       "city": {
-        "title": "A city that stays",
+        "title": "Finished work builds a city that stays",
         "p": "Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.",
         "alt": "Dovilo isometric city with a stadium, a hospital and a city hall"
       },
       "agents": {
         "title": "Building with Claude Code or Cursor?",
         "p": "Give your coding assistant its own task list, AI Tasks, separate from yours: 9 tools, no create, no delete, your list invisible.",
-        "link": "Read about AI Tasks"
+        "link": "AI Tasks for coding assistants"
       },
       "pricing": {
         "free": {
@@ -208,11 +220,11 @@
         },
         "plan": {
           "q": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
-          "a": "Yes. In the app, Settings &gt; AI &gt; Connected AI apps walks you through it in three short steps: pick your AI app, add Dovilo to it with the address <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account, then try a first plan. The steps for each app are under <a href=\"{{href.ai}}#connect-your-ai\">Connect your AI app</a>. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
+          "a": "Yes. In the app, Settings &gt; AI &gt; Connected AI apps walks you through it in three short steps: pick your AI app, add Dovilo to it with the address <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account, then try a first plan. The steps for each app are under <a href=\"{{href.plan}}#connect-your-ai\">Connect your AI app</a>. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it. For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
         },
         "focus": {
           "q": "How does Focus work?",
-          "a": "You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog."
+          "a": "You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute break, a longer break every 4 rounds), or a session bound to one specific task. The timer keeps counting while the app is in the background or your phone is locked, Do Not Disturb silences other apps during the session, and every scene brings its own ambience: Rainy City, Midnight, Dusk, Snow or Fog. <a href=\"{{href.focus}}\">More about Focus</a>."
         },
         "ambience": {
           "q": "Do I need the Focus Ambience Pack?",
@@ -241,8 +253,96 @@
       },
       "blogLink": "Written while building Dovilo: the blog"
     },
+    "focus": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Pomodoro focus timer with full-screen ambience - Dovilo",
+        "description": "A free focus timer for iOS and Android: single sessions, Pomodoro cycles or a timer on one task, with full-screen scenes. Unlimited, no ads.",
+        "ogAlt": "Dovilo: focus sessions that fill the whole screen, beside a focus session in the Rainy City scene",
+        "crumb": "Focus"
+      },
+      "hero": {
+        "h1": "Dovilo: focus sessions that fill the whole screen.",
+        "sub": "A single session, a Pomodoro cycle or a timer on one task. Free and unlimited, no ads.",
+        "alt": "Dovilo focus session in the Rainy City scene with 22 minutes left",
+        "caption": "The timer keeps running with the phone locked; bricks land when it ends."
+      },
+      "about": {
+        "p": "Dovilo is a free to-do list for iOS and Android with a focus timer that fills the screen. Focus sessions and Pomodoro cycles are free and unlimited, with no ads. The Focus Ambience Pack adds 5 scenes and 16 sound layers for $4.99 once, and it is included with Pro. Finished sessions pay bricks for your city."
+      },
+      "modes": {
+        "title": "Three ways to focus",
+        "single": "<strong>A single session.</strong> Any length you choose.",
+        "pomodoro": "<strong>A Pomodoro cycle.</strong> 25 minutes of focus, a 5 minute break, a longer break every 4 rounds. Breaks start on their own, and only finished rounds count.",
+        "task": "<strong>A timer on one task.</strong> The session is bound to that task."
+      },
+      "session": {
+        "title": "From the first minute to the last",
+        "start": "<strong>A calm start.</strong> A breathing exercise and a countdown ease you in.",
+        "counting": "<strong>Keeps counting.</strong> In the background or with the phone locked.",
+        "quiet": "<strong>Quiet phone.</strong> Do Not Disturb can silence other apps for the session.",
+        "end": "<strong>A clear end.</strong> A notification when the session is over."
+      },
+      "scenes": {
+        "title": "Six scenes, one of them free",
+        "p": "Each scene has its own weather, skyline tint and sound, and fills the whole screen.",
+        "default": "<strong>Default.</strong> Always free, and silent.",
+        "rainy": "<strong>Rainy City.</strong> Rain and a fireplace.",
+        "midnight": "<strong>Midnight.</strong> City hum and brown noise. It stays dark even in the light theme.",
+        "dusk": "<strong>Dusk.</strong> Birds and a breeze. Breaks switch to Dusk on their own.",
+        "snow": "<strong>Snow.</strong> Winter wind and pink noise.",
+        "fog": "<strong>Fog.</strong> A fog horn and white noise.",
+        "note": "The five scenes after Default come with the Focus Ambience Pack."
+      },
+      "sound": {
+        "title": "Mix your own sound",
+        "p": "Blend up to 3 of 16 layers, each at its own level: 13 recordings such as rain, a café or a train, and brown, pink and white noise. The mix can follow the session: soft in the first 5 minutes, brighter in the last 2.",
+        "alt": "Dovilo ambience sound mixer with Rain and Fireplace layers and Follow the session rhythm on",
+        "caption": "It is ambience, not music: no melody, no beat."
+      },
+      "bricks": {
+        "title": "Finished sessions build a city",
+        "p": "A completed session pays bricks based on its length. Bricks buy houses, offices, parks and roads in your city, and nothing decays.",
+        "link": "How the city works",
+        "modules": "Don't need the city? Focus, the city and planning with AI can each be turned off in Settings &gt; Modules."
+      },
+      "pricing": {
+        "title": "Free to focus, one pack for the scenes",
+        "free": {
+          "label": "Free",
+          "text": "Focus sessions and Pomodoro cycles, unlimited, with the Default scene."
+        },
+        "pack": {
+          "label": "Focus Ambience Pack",
+          "text": "5 scenes and 16 sound layers, $4.99 once."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Includes the pack, from $2.49 a month."
+        },
+        "link": "All plans"
+      },
+      "faq": {
+        "free": {
+          "q": "Is Focus free?",
+          "a": "Yes. Single sessions and Pomodoro cycles are free and unlimited, with the Default scene. The Focus Ambience Pack adds the other 5 scenes and 16 sound layers for $4.99 once, and Pro includes it."
+        },
+        "locked": {
+          "q": "Does the timer run with the phone locked?",
+          "a": "Yes. It keeps counting in the background and with the phone locked, and a notification tells you when the session ends."
+        },
+        "unfinished": {
+          "q": "Do unfinished sessions count?",
+          "a": "A session ended early still saves, but only finished Pomodoro rounds count toward the daily round counter."
+        },
+        "desktop": {
+          "q": "Is Focus on Dovilo Desktop?",
+          "a": "No. Focus and the city are on iOS and Android. Desktop is the Windows and Mac client for your lists and AI tasks."
+        }
+      }
+    },
     "ai": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-09",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",
@@ -262,13 +362,13 @@
         "sub": "Claude Code, Cursor and any MCP client connect from any machine and see only their own AI tasks.",
         "desktopAlt": "Dovilo Desktop: AI Tasks of a project, grouped by what needs attention",
         "phoneAlt": "Dovilo AI Tasks on the phone: the same project with tasks awaiting the user, running, queued and scheduled",
-        "caption": "AI Tasks of one project, grouped by what needs you."
+        "caption": "The same queue on desk and phone; your own list stays out."
       },
       "about": {
         "p": "Dovilo is a to-do app with a separate task list for AI coding agents. Agents connect to dovilo.app/mcp/agents over MCP: 9 tools, no create, no delete, and your personal list is never visible. ChatGPT or Claude can plan the work; every instruction waits for your approval. Pro, $2.49 a month, 15 AI tasks a month."
       },
       "steps": {
-        "title": "How it works",
+        "title": "How an AI task runs",
         "write": {
           "label": "Write the task",
           "detail": "Or let ChatGPT or Claude propose it.",
@@ -291,79 +391,31 @@
         }
       },
       "built": {
-        "title": "How Dovilo itself is built",
+        "title": "Use case: Dovilo is built with AI Tasks",
         "p": "Dovilo is built this way. It has five projects, Backend, Mobile, Desktop, Edge and Landing, and one Claude Code agent for each. I plan a change in Claude, which proposes AI tasks under the right project. I approve them on my phone; the agent at the desk works them, writes its steps and notes on the task, and stops to ask when a decision is mine. This page went through the Landing project the same way."
       },
       "planning": {
-        "title": "Plain MCP, no lock-in",
-        "chat": "<strong>ChatGPT, Claude, Gemini and Grok</strong> plan the work and send it to you for approval.",
+        "title": "Works with any MCP coding client",
         "coding": "<strong>Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf and Claude Desktop</strong> work the tasks.",
         "any": "<strong>LangGraph, CI jobs and any MCP client</strong> connect with the same URL and key."
       },
-      "servers": {
-        "title": "Two servers",
-        "agents": {
-          "title": "Agents MCP",
-          "for": "For coding agents",
-          "key": "One key per agent, shown once"
-        },
-        "personal": {
-          "title": "Personal MCP",
-          "for": "For ChatGPT, Claude, Gemini and Grok",
-          "signin": "Sign in with your Dovilo account"
-        },
-        "link": "All tools in the MCP docs"
-      },
-      "connectAi": {
-        "title": "Connect your AI app",
-        "p": "ChatGPT, Claude, Gemini and Grok connect to Dovilo's Personal MCP at <code>https://dovilo.app/mcp</code>. Sign in to Dovilo first; when your AI app asks you to sign in, use the same Google or Apple account. In the app, Settings &gt; AI &gt; Connected AI apps walks you through the same steps.",
-        "apps": {
-          "chatgpt": {
-            "name": "ChatGPT",
-            "s1": "Open chatgpt.com/plugins.",
-            "s2": "Choose &quot;+&quot;, then &quot;Add custom MCP server&quot;.",
-            "s3": "Name it Dovilo and paste the address.",
-            "s4": "Sign in with your Dovilo account and approve the consent screen.",
-            "note": "On the web. Whether you can add a custom MCP server depends on your ChatGPT plan."
-          },
-          "claude": {
-            "name": "Claude",
-            "s1": "Open Customize &gt; Connectors.",
-            "s2": "Choose &quot;Add custom connector&quot;.",
-            "s3": "Name it Dovilo and paste the address.",
-            "s4": "Choose &quot;Connect&quot;, sign in with your Dovilo account and approve the consent screen.",
-            "note": "On claude.ai or Claude Desktop; it then works in the mobile app too. The free plan allows one custom connector."
-          },
-          "gemini": {
-            "name": "Gemini",
-            "s1": "Open gemini.google.com &gt; Settings &gt; Connected Apps.",
-            "s2": "Choose &quot;Add a custom app&quot;.",
-            "s3": "Paste the address, then choose &quot;Next&quot;.",
-            "s4": "Sign in with your Dovilo account and approve the consent screen.",
-            "note": "On the Gemini web app. Google offers this for personal accounts in the US, age 18 or over, with &quot;Keep Activity&quot; on."
-          },
-          "grok": {
-            "name": "Grok",
-            "s1": "Open grok.com/connectors.",
-            "s2": "Choose &quot;New Connector&quot;, then &quot;Custom&quot;.",
-            "s3": "Paste the address.",
-            "s4": "Sign in with your Dovilo account and approve the consent screen."
-          }
-        },
-        "try": "Then ask it for a plan in a new chat, for example: &quot;Plan my tomorrow in Dovilo with 3 small tasks.&quot; The plan appears in your AI inbox; review it and approve it. Connecting and sending plans is free; adding a plan to your lists needs Pro.",
-        "source": "Menu names are each app's own English labels, taken from its help page on 20 October 2026: <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. If a menu has moved, the help page has the current one."
-      },
       "connect": {
-        "title": "Setup is a URL and a key",
-        "p": "Dovilo Desktop writes the config for 7 clients. Then write a project brief and an AI task."
+        "title": "Connect a coding agent: a URL and a key",
+        "p": "Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.",
+        "link": "Both servers and every tool: the MCP reference"
+      },
+      "bridge": {
+        "title": "Plan in ChatGPT or Claude, hand it to your agent",
+        "p": "With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.",
+        "link": "Connect your AI app"
       },
       "trust": {
-        "title": "What the AI can and cannot do",
+        "title": "What your coding agent can and cannot do",
         "own": "Its own tasks, nothing else.",
-        "approve": "The AI proposes. You approve.",
+        "approve": "A person writes or approves every task it gets.",
+        "create": "It cannot create or delete tasks. Cancelling leaves the task visible.",
         "chat": "Your coding work stays out of your chat app unless you turn it on.",
-        "delete": "No delete tool. Not now, not later.",
-        "revoke": "Revoke any connection from your phone, instantly."
+        "revoke": "Revoke any agent key from your phone, instantly."
       },
       "tools": {
         "summary": "9 tools: 3 read, 6 write. No create, no delete",
@@ -389,7 +441,7 @@
         }
       },
       "webhooks": {
-        "title": "Webhooks and the demo",
+        "title": "Webhooks and an open-source demo",
         "signed": {
           "title": "Signed webhooks",
           "p": "Delivered by the server, retried up to 5 times."
@@ -434,6 +486,142 @@
         "upgrade": {
           "q": "I used Desktop 1.8. What changed?",
           "a": "1.8's local server is gone. Create an agent in the app, copy its key, and point your client at the remote URL. <a href=\"/docs/mcp/#upgrading\">Steps in the MCP docs.</a>"
+        }
+      }
+    },
+    "plan": {
+      "updated": "2026-11-09",
+      "meta": {
+        "title": "Plan your day with ChatGPT or Claude - Dovilo",
+        "description": "Ask ChatGPT, Claude, Gemini or Grok for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you approve it.",
+        "ogAlt": "Dovilo: plan with ChatGPT or Claude, approve in one tap, beside a plan of six tasks from Claude",
+        "crumb": "Plan with AI"
+      },
+      "hero": {
+        "h1": "Dovilo: plan with ChatGPT or Claude, approve in one tap.",
+        "sub": "Ask your AI for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you say yes.",
+        "inboxAlt": "Dovilo AI inbox: a plan of six tasks from Claude with an Approve button",
+        "listAlt": "Dovilo list Mia's birthday with the six approved tasks under Today, Tomorrow and This week",
+        "caption": "Change any task first; approved tasks keep their dates and list."
+      },
+      "about": {
+        "p": "Dovilo is a free to-do list for iOS and Android. Connect ChatGPT, Claude, Gemini or Grok and ask for a plan for your day, an event or a project; it arrives in Dovilo's AI inbox, you change what you like and add it to your lists with one tap. You choose which lists each app can see. Connecting and sending plans is free; adding a plan to your lists is part of Pro, $2.49 a month."
+      },
+      "steps": {
+        "title": "How a plan reaches your list",
+        "ask": {
+          "label": "Ask",
+          "detail": "&quot;Plan my week&quot;, &quot;Break this move into tasks&quot;: in your AI app, in your words."
+        },
+        "arrives": {
+          "label": "It arrives",
+          "detail": "The plan lands in your AI inbox in Dovilo, with a notification."
+        },
+        "change": {
+          "label": "Change it",
+          "detail": "Edit, drop or move any task before it joins a list."
+        },
+        "approve": {
+          "label": "Approve",
+          "detail": "One tap adds it to your lists. Nothing lands before that."
+        }
+      },
+      "connectAi": {
+        "title": "Connect your AI app",
+        "p": "ChatGPT, Claude, Gemini and Grok connect to Dovilo's Personal MCP at <code>https://dovilo.app/mcp</code>. Sign in to Dovilo first; when your AI app asks you to sign in, use the same Google or Apple account. In the app, Settings &gt; AI &gt; Connected AI apps walks you through the same steps.",
+        "apps": {
+          "chatgpt": {
+            "name": "ChatGPT",
+            "s1": "Open chatgpt.com/plugins.",
+            "s2": "Choose &quot;+&quot;, then &quot;Add custom MCP server&quot;.",
+            "s3": "Name it Dovilo and paste the address.",
+            "s4": "Sign in with your Dovilo account and approve the consent screen.",
+            "note": "On the web. Whether you can add a custom MCP server depends on your ChatGPT plan."
+          },
+          "claude": {
+            "name": "Claude",
+            "s1": "Open Customize &gt; Connectors.",
+            "s2": "Choose &quot;Add custom connector&quot;.",
+            "s3": "Name it Dovilo and paste the address.",
+            "s4": "Choose &quot;Connect&quot;, sign in with your Dovilo account and approve the consent screen.",
+            "note": "On claude.ai or Claude Desktop; it then works in the mobile app too. The free plan allows one custom connector."
+          },
+          "gemini": {
+            "name": "Gemini",
+            "s1": "Open gemini.google.com &gt; Settings &gt; Connected Apps.",
+            "s2": "Choose &quot;Add a custom app&quot;.",
+            "s3": "Paste the address, then choose &quot;Next&quot;.",
+            "s4": "Sign in with your Dovilo account and approve the consent screen.",
+            "note": "On the Gemini web app. Google offers this for personal accounts in the US, age 18 or over, with &quot;Keep Activity&quot; on."
+          },
+          "grok": {
+            "name": "Grok",
+            "s1": "Open grok.com/connectors.",
+            "s2": "Choose &quot;New Connector&quot;, then &quot;Custom&quot;.",
+            "s3": "Paste the address.",
+            "s4": "Sign in with your Dovilo account and approve the consent screen."
+          }
+        },
+        "try": "Then ask it for a plan in a new chat, for example: &quot;Plan my tomorrow in Dovilo with 3 small tasks.&quot; The plan appears in your AI inbox; review it and approve it. Connecting and sending plans is free; adding a plan to your lists needs Pro.",
+        "source": "Menu names are each app's own English labels, taken from its help page on 20 October 2026: <a href=\"https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt\" target=\"_blank\" rel=\"noopener\">ChatGPT</a>, <a href=\"https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">Claude</a>, <a href=\"https://support.google.com/gemini/answer/17209137\" target=\"_blank\" rel=\"noopener\">Gemini</a>, <a href=\"https://docs.x.ai/grok/connectors\" target=\"_blank\" rel=\"noopener\">Grok</a>. If a menu has moved, the help page has the current one."
+      },
+      "control": {
+        "title": "What ChatGPT or Claude can see and change",
+        "p": "You set this per app in Settings &gt; AI &gt; Connected AI apps, and change it any time.",
+        "lists": "<strong>Only the lists you pick.</strong> Hidden lists are invisible to it.",
+        "read": "<strong>Read access is yours to turn on or off.</strong> With it off, it can still send plans.",
+        "ask": "<strong>Every new task or edit waits for you.</strong> The setting is called Ask me first.",
+        "delete": "<strong>No delete tool.</strong> Not now, not later.",
+        "coding": "<strong>Your coding work stays out.</strong> Unless you turn on AI task access for that app.",
+        "disconnect": "<strong>Disconnect from your phone.</strong> Any app, any time.",
+        "alt": "Dovilo Connected AI apps for Claude: read access, AI tasks and Ask me first, with the lists it can see"
+      },
+      "prompts": {
+        "title": "Plans to try",
+        "p": "Paste one into a new chat after you connect.",
+        "one": "Plan my tomorrow in Dovilo with 3 small tasks.",
+        "two": "Plan Mia's birthday party for Saturday in Dovilo: invitations, the cake and the room, in a new list.",
+        "three": "Break my December move into weekly tasks in Dovilo, starting next Monday.",
+        "four": "Look at my Planned tasks in Dovilo and spread this week so no day has more than five.",
+        "note": "The last one needs read access for that app."
+      },
+      "coding": {
+        "title": "Planning a coding project?",
+        "p": "ChatGPT or Claude can also propose AI tasks for your coding assistant, such as Claude Code or Cursor, and draft your answer when it asks a question. Each one waits for your approval.",
+        "link": "AI Tasks for coding assistants"
+      },
+      "pricing": {
+        "title": "Free to send, Pro to add",
+        "free": {
+          "label": "Free",
+          "text": "Connect any of the four apps and send plans."
+        },
+        "pro": {
+          "label": "Pro",
+          "text": "Add plans to your lists: $2.49 a month, $19.99 a year or $49.99 once, 7-day trial in the app."
+        },
+        "link": "All plans"
+      },
+      "faq": {
+        "apps": {
+          "q": "Which AI apps work with Dovilo?",
+          "a": "ChatGPT, Claude, Gemini and Grok. Each needs a plan or account that allows a custom connector: ChatGPT depends on your plan, Claude's free plan allows one custom connector, and Gemini offers it to personal accounts in the US aged 18 or over. The steps are under <a href=\"#connect-your-ai\">Connect your AI app</a>."
+        },
+        "sees": {
+          "q": "Can it see all my tasks?",
+          "a": "No. It sees only the lists you pick for that app, and only if read access is on. You can change both from your phone at any time."
+        },
+        "free": {
+          "q": "Does planning work on the free tier?",
+          "a": "Connecting and sending plans is free. Adding a plan to your lists is part of Pro, with a 7-day trial in the app."
+        },
+        "directory": {
+          "q": "Is Dovilo in the ChatGPT or Claude app directory?",
+          "a": "Not yet. You add it by its address, <code>https://dovilo.app/mcp</code>, in a few steps."
+        },
+        "offline": {
+          "q": "Does it work offline?",
+          "a": "Your lists do. Plans need a connection: they travel from your AI app to Dovilo's server and on to your phone."
         }
       }
     },
@@ -662,7 +850,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-07",
+      "updated": "2026-11-09",
       "meta": {
         "title": "FAQ: straight answers on the app, Pro and AI - Dovilo",
         "description": "Frequently asked questions about Dovilo: gamified to-do list, focus timer, and city builder.",
@@ -743,7 +931,7 @@
         },
         "plan": {
           "q": "Can I plan with ChatGPT, Claude, Gemini or Grok?",
-          "a1": "Yes. In the app, Settings &gt; AI &gt; Connected AI apps walks you through it in three short steps: pick your AI app, add Dovilo to it with the address <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account, then try a first plan. The steps for each app are under <a href=\"{{href.ai}}#connect-your-ai\">Connect your AI app</a>. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it.",
+          "a1": "Yes. In the app, Settings &gt; AI &gt; Connected AI apps walks you through it in three short steps: pick your AI app, add Dovilo to it with the address <code>https://dovilo.app/mcp</code> and sign in with your Dovilo account, then try a first plan. The steps for each app are under <a href=\"{{href.plan}}#connect-your-ai\">Connect your AI app</a>. The assistant proposes a plan, the plan lands in the AI inbox on your phone, and it goes into your lists with one tap once you approve it.",
           "a2": "For each connection you choose what the assistant can read and which lists and projects it sees, and its changes always wait for your approval; the setting is called <strong>Ask me first</strong>. There is no delete tool, and you can revoke a connection from your phone at any time. Sending a plan works on Free; approving it, and everything else, needs Pro."
         },
         "mcp": {
