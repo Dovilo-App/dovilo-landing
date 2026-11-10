@@ -63,7 +63,7 @@
   "name": "FAQ : réponses directes sur l'app, Pro et l'IA - Dovilo",
   "url": "https://dovilo.app/fr/faq/",
   "inLanguage": "fr",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -111,7 +111,15 @@
       "name": "Comment fonctionne la liste de tâches ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vous pouvez créer des tâches avec échéances, répétitions, rappels, favoris, drapeaux et vos propres listes. Tout se trouve derrière un seul sélecteur de vue : Ma Journée, Important, Planifié, Signalé, toutes les Tâches et chaque liste que vous tenez, chaque entrée avec un compteur en direct. Les listes se groupent d'elles-mêmes par date (Aujourd'hui, Demain, Sans date) et chaque tâche s'ouvre sur une fiche détaillée avec ses propriétés et ses notes. Terminer une tâche rapporte des briques à dépenser dans la construction de ville."
+        "text": "Vous pouvez créer des tâches avec échéances, répétitions, rappels, favoris, drapeaux et vos propres listes. Tout se trouve derrière un seul sélecteur de vue : Ma Journée, Important, Planifié, Signalé, toutes les Tâches et chaque liste que vous tenez, chaque entrée avec un compteur en direct. Les listes se groupent d'elles-mêmes par date (Aujourd'hui, Demain, Sans date) et chaque tâche s'ouvre sur une fiche détaillée avec ses propriétés et ses notes. Une liste peut se placer sous une autre, sur un seul niveau ; la liste parente affiche alors ensemble ses propres tâches et celles de ses sous-listes. Chaque liste peut prendre l'une de 7 couleurs, affichée sous forme de point. Terminer une tâche rapporte des briques à dépenser dans la construction de ville."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les listes peuvent-elles avoir des sous-listes ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, sur un niveau. Placez une liste sous une liste parente : celle-ci affiche ensemble ses propres tâches et celles de ses sous-listes. Chaque liste peut aussi prendre l'une de 7 couleurs. Les deux sont gratuits."
       }
     },
     {
@@ -199,7 +207,7 @@
       "name": "Qu'est-ce que l'intégration MCP de Dovilo ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo fait tourner deux serveurs Model Context Protocol distants. Agents MCP, à https://dovilo.app/mcp/agents, sert aux agents de code comme Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI et Gemini CLI. Chaque agent se connecte avec sa propre clé et dispose de neuf outils : list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note et append_telemetry. Ces outils atteignent uniquement les tâches IA, les travaux que vous écrivez pour un agent dans l'onglet Tâches IA, au sein des projets que vous lui assignez. Votre liste de tâches personnelle dans Mes tâches est absente de ses outils, et aucun agent ne peut créer ni supprimer une tâche. Personal MCP, à https://dovilo.app/mcp, sert à ChatGPT, Claude, Gemini et Grok, qui proposent des plans et des tâches que vous approuvez. La configuration et les limites de confiance sont sur la page développeurs, et chaque outil avec ses paramètres est dans la référence MCP."
+        "text": "Dovilo fait tourner deux serveurs Model Context Protocol distants. Agents MCP, à https://dovilo.app/mcp/agents, sert aux agents de code comme Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI et Gemini CLI. Chaque agent se connecte avec sa propre clé et dispose de neuf outils : list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note et append_telemetry. Ces outils atteignent uniquement les tâches IA, les travaux que vous écrivez pour un agent dans l'onglet Tâches IA, au sein des projets que vous lui assignez. Votre liste de tâches personnelle dans Mes tâches est absente de ses outils, et aucun agent ne peut créer ni supprimer une tâche. L'agent lit aussi le brief et les documents de chaque projet avec read_context. Personal MCP, à https://dovilo.app/mcp, sert à ChatGPT, Claude, Gemini et Grok, qui proposent des plans, des tâches et des documents de projet que vous approuvez. La configuration est sur la page Planifier avec l'IA, et chaque outil avec ses paramètres est dans la référence MCP."
       }
     },
     {
@@ -231,7 +239,7 @@
       "name": "Les agents peuvent-ils créer ou modifier des tâches sans mon autorisation ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. Les outils d'agent n'ont ni création ni suppression. Un agent peut lire ses tâches IA, mettre à jour leur statut, marquer des étapes, laisser des notes et remonter de la télémétrie, et il peut annuler une tâche qu'il ne devrait pas exécuter, avec un motif ; la tâche reste dans votre liste, affichée comme Annulée. Vous décidez des tâches qu'un agent voit en lui assignant des projets, chacun avec un brief que l'agent lit d'abord. Supprimer un agent désactive sa clé immédiatement. Les assistants de chat sur Personal MCP ne font que proposer : plans, tâches IA et chaque modification d'une tâche IA attendent votre approbation."
+        "text": "Non. Les outils d'agent n'ont ni création ni suppression. Un agent peut lire ses tâches IA, mettre à jour leur statut, marquer des étapes, laisser des notes et remonter de la télémétrie, et il peut annuler une tâche qu'il ne devrait pas exécuter, avec un motif ; la tâche reste dans votre liste, affichée comme Annulée. Vous décidez des tâches qu'un agent voit en lui assignant des projets, chacun avec un brief et des documents que l'agent lit d'abord. Supprimer un agent désactive sa clé immédiatement. Les assistants de chat sur Personal MCP ne font que proposer : plans, tâches IA et chaque modification d'une tâche IA attendent votre approbation."
       }
     },
     {
@@ -405,7 +413,13 @@
           <details>
             <summary><h3>Comment fonctionne la liste de tâches ?</h3></summary>
             <div class="faq-answer">
-              <p>Vous pouvez créer des tâches avec échéances, répétitions, rappels, favoris, drapeaux et vos propres listes. Tout se trouve derrière un seul sélecteur de vue : Ma Journée, Important, Planifié, Signalé, toutes les Tâches et chaque liste que vous tenez, chaque entrée avec un compteur en direct. Les listes se groupent d'elles-mêmes par date (Aujourd'hui, Demain, Sans date) et chaque tâche s'ouvre sur une fiche détaillée avec ses propriétés et ses notes. Terminer une tâche rapporte des briques à dépenser dans la construction de ville.</p>
+              <p>Vous pouvez créer des tâches avec échéances, répétitions, rappels, favoris, drapeaux et vos propres listes. Tout se trouve derrière un seul sélecteur de vue : Ma Journée, Important, Planifié, Signalé, toutes les Tâches et chaque liste que vous tenez, chaque entrée avec un compteur en direct. Les listes se groupent d'elles-mêmes par date (Aujourd'hui, Demain, Sans date) et chaque tâche s'ouvre sur une fiche détaillée avec ses propriétés et ses notes. Une liste peut se placer sous une autre, sur un seul niveau ; la liste parente affiche alors ensemble ses propres tâches et celles de ses sous-listes. Chaque liste peut prendre l'une de 7 couleurs, affichée sous forme de point. Terminer une tâche rapporte des briques à dépenser dans la construction de ville.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Les listes peuvent-elles avoir des sous-listes ?</h3></summary>
+            <div class="faq-answer">
+              <p>Oui, sur un niveau. Placez une liste sous une liste parente : celle-ci affiche ensemble ses propres tâches et celles de ses sous-listes. Chaque liste peut aussi prendre l'une de 7 couleurs. Les deux sont gratuits.</p>
             </div>
           </details>
           <details>
@@ -505,8 +519,8 @@
           <details>
             <summary><h3>Qu'est-ce que l'intégration MCP de Dovilo ?</h3></summary>
             <div class="faq-answer">
-              <p>Dovilo fait tourner deux serveurs <strong>Model Context Protocol</strong> distants. <strong>Agents MCP</strong>, à <code>https://dovilo.app/mcp/agents</code>, sert aux agents de code comme <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI et Gemini CLI</strong>. Chaque agent se connecte avec sa propre clé et dispose de neuf outils : <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> et <code>append_telemetry</code>. Ces outils atteignent <strong>uniquement les tâches IA</strong>, les travaux que vous écrivez pour un agent dans l'onglet Tâches IA, au sein des projets que vous lui assignez. Votre liste de tâches personnelle dans Mes tâches est absente de ses outils, et aucun agent ne peut créer ni supprimer une tâche.</p>
-              <p><strong>Personal MCP</strong>, à <code>https://dovilo.app/mcp</code>, sert à ChatGPT, Claude, Gemini et Grok, qui proposent des plans et des tâches que vous approuvez. La configuration et les limites de confiance sont sur la <a href="/fr/ai/">page développeurs</a>, et chaque outil avec ses paramètres est dans la <a href="/docs/mcp/">référence MCP</a>.</p>
+              <p>Dovilo fait tourner deux serveurs <strong>Model Context Protocol</strong> distants. <strong>Agents MCP</strong>, à <code>https://dovilo.app/mcp/agents</code>, sert aux agents de code comme <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI et Gemini CLI</strong>. Chaque agent se connecte avec sa propre clé et dispose de neuf outils : <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> et <code>append_telemetry</code>. Ces outils atteignent <strong>uniquement les tâches IA</strong>, les travaux que vous écrivez pour un agent dans l'onglet Tâches IA, au sein des projets que vous lui assignez. Votre liste de tâches personnelle dans Mes tâches est absente de ses outils, et aucun agent ne peut créer ni supprimer une tâche. L'agent lit aussi le brief et les documents de chaque projet avec <code>read_context</code>.</p>
+              <p><strong>Personal MCP</strong>, à <code>https://dovilo.app/mcp</code>, sert à ChatGPT, Claude, Gemini et Grok, qui proposent des plans, des tâches et des documents de projet que vous approuvez. La configuration est sur la page <a href="/fr/plan/">Planifier avec l'IA</a>, et chaque outil avec ses paramètres est dans la <a href="/docs/mcp/">référence MCP</a>.</p>
             </div>
           </details>
           <details>
@@ -530,7 +544,7 @@
           <details>
             <summary><h3>Les agents peuvent-ils créer ou modifier des tâches sans mon autorisation ?</h3></summary>
             <div class="faq-answer">
-              <p>Non. Les outils d'agent n'ont ni création ni suppression. Un agent peut lire ses tâches IA, mettre à jour leur statut, marquer des étapes, laisser des notes et remonter de la télémétrie, et il peut annuler une tâche qu'il ne devrait pas exécuter, avec un motif ; la tâche reste dans votre liste, affichée comme Annulée. Vous décidez des tâches qu'un agent voit en lui assignant des projets, chacun avec un brief que l'agent lit d'abord. Supprimer un agent désactive sa clé immédiatement. Les assistants de chat sur Personal MCP ne font que proposer : plans, tâches IA et chaque modification d'une tâche IA attendent votre approbation.</p>
+              <p>Non. Les outils d'agent n'ont ni création ni suppression. Un agent peut lire ses tâches IA, mettre à jour leur statut, marquer des étapes, laisser des notes et remonter de la télémétrie, et il peut annuler une tâche qu'il ne devrait pas exécuter, avec un motif ; la tâche reste dans votre liste, affichée comme Annulée. Vous décidez des tâches qu'un agent voit en lui assignant des projets, chacun avec un brief et des documents que l'agent lit d'abord. Supprimer un agent désactive sa clé immédiatement. Les assistants de chat sur Personal MCP ne font que proposer : plans, tâches IA et chaque modification d'une tâche IA attendent votre approbation.</p>
             </div>
           </details>
           <details>

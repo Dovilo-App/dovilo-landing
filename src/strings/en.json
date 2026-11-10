@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
         "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
@@ -111,6 +111,7 @@
         "website": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder.",
         "features": {
           "todo": "To-do list with unlimited tasks, free",
+          "lists": "Lists inside lists, one level deep, and 7 list colours, free",
           "focus": "Focus sessions, free and unlimited: a single session, a Pomodoro cycle or a timer on one task",
           "ambience": "Focus Ambience Pack: 5 scenes and 16 sound layers, 3 at a time ($4.99 once, included with Pro)",
           "city": "Isometric city builder: tasks and focus sessions pay bricks that buy houses, offices, parks and roads, and nothing decays",
@@ -158,9 +159,10 @@
       },
       "tasks": {
         "title": "Tasks and lists, free and unlimited",
-        "p": "Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro.",
+        "p": "A task can carry a due date, reminder, repeat, star, flag, priority and notes, all free.",
         "views": "<strong>One picker for every view.</strong> My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count.",
         "groups": "<strong>Grouped by date.</strong> Lists fold into date groups, and Planned groups by day.",
+        "tree": "<strong>Lists inside lists, in 7 colours.</strong> Put a list under another; the parent shows its sub-lists' tasks too.",
         "offline": "<strong>Works offline.</strong> Your tasks live on your phone first. Cloud sync between devices comes with Pro.",
         "bricks": "<strong>Finished tasks pay bricks.</strong> They build the city further down this page."
       },
@@ -200,12 +202,12 @@
       "shipped": {
         "title": "Recently shipped",
         "mobile": {
-          "date": "5 Nov 2026",
-          "text": "Mobile 2.2.0: plan with your AI in three steps; AI Tasks for coding assistants; a warmer look."
+          "date": "9 Nov 2026",
+          "text": "Mobile 2.3.0: lists inside lists, 7 colours and project documents for coding assistants."
         },
         "desktop": {
-          "date": "4 Nov 2026",
-          "text": "Desktop 2.2.0: the same look as the phone and the site; signed Windows builds."
+          "date": "8 Nov 2026",
+          "text": "Desktop 2.3.0: lists inside lists, list colours and project documents."
         },
         "link": "All release notes"
       },
@@ -342,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",
@@ -404,6 +406,14 @@
         "p": "Create an agent in the app, copy its key once, and point your client at <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop writes the config for 7 clients.",
         "link": "Both servers and every tool: the MCP reference"
       },
+      "documents": {
+        "title": "A project carries its brief and its documents",
+        "p": "Specs, decisions and checklists live in the project. Your coding agent reads them with <code>read_context</code>; a sub-project's agent reads its parent's too.",
+        "draft": "<strong>Drafted in chat, approved on your phone.</strong> ChatGPT or Claude proposes a document or an edit.",
+        "read": "<strong>Agents read, never write.</strong> No agent tool changes a document.",
+        "markdown": "<strong>Markdown, versioned.</strong> Up to 200 KB a document and 50 a project; the last 5 versions are kept.",
+        "delete": "<strong>Deleted only in the app.</strong> No MCP has a delete tool, and a deleted document is gone for good."
+      },
       "bridge": {
         "title": "Plan in ChatGPT or Claude, hand it to your agent",
         "p": "With AI task access on for a connection, ChatGPT or Claude can propose AI tasks under your projects, follow their steps and draft your answer when an agent asks. Every proposal and every answer waits for your approval on the phone.",
@@ -431,7 +441,7 @@
         "rows": {
           "list": "AI tasks in the scoped projects, with status",
           "get": "One task in full: description, steps, notes, telemetry, the user's latest reply",
-          "context": "The project brief and context the task carries",
+          "context": "The project brief and documents, and those of its parent project",
           "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; cancel with a reason (stored as error + cancelledAt, shown as Cancelled)",
           "step": "Mark a plan step started or finished",
           "add": "Append a step the agent discovered",
@@ -473,7 +483,7 @@
         },
         "sees": {
           "q": "What does the agent see?",
-          "a": "The AI tasks of the projects it is assigned to, each project's brief, and your replies. Your personal to-do list is not on the tool surface at all."
+          "a": "The AI tasks of the projects it is assigned to, each project's brief and documents, the brief and documents of a parent project, and your replies. Your personal to-do list is not on the tool surface at all."
         },
         "delete": {
           "q": "Can an agent delete a task?",
@@ -490,7 +500,7 @@
       }
     },
     "plan": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Plan your day with ChatGPT or Claude - Dovilo",
         "description": "Ask ChatGPT, Claude, Gemini or Grok for a plan. It lands in Dovilo's inbox, and nothing joins your lists until you approve it.",
@@ -572,7 +582,7 @@
         "read": "<strong>Read access is yours to turn on or off.</strong> With it off, it can still send plans.",
         "ask": "<strong>Every new task or edit waits for you.</strong> The setting is called Ask me first.",
         "delete": "<strong>No delete tool.</strong> Not now, not later.",
-        "coding": "<strong>Your coding work stays out.</strong> Unless you turn on AI task access for that app.",
+        "coding": "<strong>Your coding work stays out.</strong> Unless you turn on AI task access for that app; then it can also read and propose project documents.",
         "disconnect": "<strong>Disconnect from your phone.</strong> Any app, any time.",
         "alt": "Dovilo Connected AI apps for Claude: read access, AI tasks and Ask me first, with the lists it can see"
       },
@@ -850,7 +860,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "FAQ: straight answers on the app, Pro and AI - Dovilo",
         "description": "Frequently asked questions about Dovilo: gamified to-do list, focus timer, and city builder.",
@@ -859,7 +869,7 @@
       },
       "hero": {
         "h1": "Dovilo FAQ: straight answers on the app, Pro and AI.",
-        "intro": "Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 28 questions in six groups, from what is free to what a coding assistant can see. Anything missing: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 29 questions in six groups, from what is free to what a coding assistant can see. Anything missing: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "General",
@@ -888,7 +898,11 @@
         },
         "todo": {
           "q": "How does the to-do list work?",
-          "a": "You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder."
+          "a": "You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. A list can sit under another list, one level deep; the parent then shows its own tasks and its sub-lists' tasks together. Any list can take one of 7 colours, shown as a dot. Completing a task earns bricks you can spend in the city builder."
+        },
+        "lists": {
+          "q": "Can lists have sub-lists?",
+          "a": "Yes, one level deep. Put a list under a parent list, and the parent shows its own tasks and its sub-lists' tasks together. Any list can also take one of 7 colours. Both are free."
         },
         "focusSessions": {
           "q": "How do focus sessions work?",
@@ -936,8 +950,8 @@
         },
         "mcp": {
           "q": "What is Dovilo's MCP integration?",
-          "a1": "Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task.",
-          "a2": "<strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the <a href=\"{{href.ai}}\">developer page</a>, and every tool with its inputs is in the <a href=\"/docs/mcp/\">MCP reference</a>."
+          "a1": "Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. It also reads each project's brief and documents through <code>read_context</code>.",
+          "a2": "<strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans, tasks and project documents for you to approve. Setup is on the <a href=\"{{href.plan}}\">Plan with AI page</a>, and every tool with its inputs is in the <a href=\"/docs/mcp/\">MCP reference</a>."
         },
         "desktop": {
           "q": "Does my coding assistant need Dovilo Desktop running?",
@@ -953,7 +967,7 @@
         },
         "authorize": {
           "q": "Can agents create or modify tasks I didn't authorize?",
-          "a": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
+          "a": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief and documents the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
         },
         "notified": {
           "q": "Do I get notified when an agent works on my task?",

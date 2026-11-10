@@ -63,7 +63,7 @@
   "name": "FAQ: straight answers on the app, Pro and AI - Dovilo",
   "url": "https://dovilo.app/faq/",
   "inLanguage": "en",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -111,7 +111,15 @@
       "name": "How does the to-do list work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder."
+        "text": "You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. A list can sit under another list, one level deep; the parent then shows its own tasks and its sub-lists' tasks together. Any list can take one of 7 colours, shown as a dot. Completing a task earns bricks you can spend in the city builder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can lists have sub-lists?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, one level deep. Put a list under a parent list, and the parent shows its own tasks and its sub-lists' tasks together. Any list can also take one of 7 colours. Both are free."
       }
     },
     {
@@ -199,7 +207,7 @@
       "name": "What is Dovilo's MCP integration?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo runs two remote Model Context Protocol servers. Agents MCP, at https://dovilo.app/mcp/agents, is for coding agents such as Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI. Each agent connects with its own key and gets nine tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note and append_telemetry. Those tools reach AI tasks only, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. Personal MCP, at https://dovilo.app/mcp, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the developer page, and every tool with its inputs is in the MCP reference."
+        "text": "Dovilo runs two remote Model Context Protocol servers. Agents MCP, at https://dovilo.app/mcp/agents, is for coding agents such as Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI. Each agent connects with its own key and gets nine tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note and append_telemetry. Those tools reach AI tasks only, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. It also reads each project's brief and documents through read_context. Personal MCP, at https://dovilo.app/mcp, is for ChatGPT, Claude, Gemini and Grok, which propose plans, tasks and project documents for you to approve. Setup is on the Plan with AI page, and every tool with its inputs is in the MCP reference."
       }
     },
     {
@@ -231,7 +239,7 @@
       "name": "Can agents create or modify tasks I didn't authorize?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
+        "text": "No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief and documents the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval."
       }
     },
     {
@@ -358,7 +366,7 @@
     <section class="section">
       <div class="container flow">
         <h1>Dovilo FAQ: straight answers on the app, Pro and AI.</h1>
-        <p>Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 28 questions in six groups, from what is free to what a coding assistant can see. Anything missing: <a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
+        <p>Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 29 questions in six groups, from what is free to what a coding assistant can see. Anything missing: <a class="mail" href="/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
       </div>
     </section>
 
@@ -405,7 +413,13 @@
           <details>
             <summary><h3>How does the to-do list work?</h3></summary>
             <div class="faq-answer">
-              <p>You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder.</p>
+              <p>You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. A list can sit under another list, one level deep; the parent then shows its own tasks and its sub-lists' tasks together. Any list can take one of 7 colours, shown as a dot. Completing a task earns bricks you can spend in the city builder.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Can lists have sub-lists?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes, one level deep. Put a list under a parent list, and the parent shows its own tasks and its sub-lists' tasks together. Any list can also take one of 7 colours. Both are free.</p>
             </div>
           </details>
           <details>
@@ -505,8 +519,8 @@
           <details>
             <summary><h3>What is Dovilo's MCP integration?</h3></summary>
             <div class="faq-answer">
-              <p>Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task.</p>
-              <p><strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the <a href="/ai/">developer page</a>, and every tool with its inputs is in the <a href="/docs/mcp/">MCP reference</a>.</p>
+              <p>Dovilo runs two remote <strong>Model Context Protocol</strong> servers. <strong>Agents MCP</strong>, at <code>https://dovilo.app/mcp/agents</code>, is for coding agents such as <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI</strong>. Each agent connects with its own key and gets nine tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> and <code>append_telemetry</code>. Those tools reach <strong>AI tasks only</strong>, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. It also reads each project's brief and documents through <code>read_context</code>.</p>
+              <p><strong>Personal MCP</strong>, at <code>https://dovilo.app/mcp</code>, is for ChatGPT, Claude, Gemini and Grok, which propose plans, tasks and project documents for you to approve. Setup is on the <a href="/plan/">Plan with AI page</a>, and every tool with its inputs is in the <a href="/docs/mcp/">MCP reference</a>.</p>
             </div>
           </details>
           <details>
@@ -530,7 +544,7 @@
           <details>
             <summary><h3>Can agents create or modify tasks I didn't authorize?</h3></summary>
             <div class="faq-answer">
-              <p>No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval.</p>
+              <p>No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief and documents the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval.</p>
             </div>
           </details>
           <details>

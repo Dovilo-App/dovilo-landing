@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/ai/",
   "image": "https://dovilo.app/og-ai.jpg",
   "inLanguage": "en",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -147,7 +147,7 @@
       "name": "What does the agent see?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The AI tasks of the projects it is assigned to, each project's brief, and your replies. Your personal to-do list is not on the tool surface at all."
+        "text": "The AI tasks of the projects it is assigned to, each project's brief and documents, the brief and documents of a parent project, and your replies. Your personal to-do list is not on the tool surface at all."
       }
     },
     {
@@ -351,6 +351,21 @@
       </div>
     </section>
 
+    <section class="section" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <h2>A project carries its brief and its documents</h2>
+          <p>Specs, decisions and checklists live in the project. Your coding agent reads them with <code>read_context</code>; a sub-project's agent reads its parent's too.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Drafted in chat, approved on your phone.</strong> ChatGPT or Claude proposes a document or an edit.</li>
+          <li><strong>Agents read, never write.</strong> No agent tool changes a document.</li>
+          <li><strong>Markdown, versioned.</strong> Up to 200 KB a document and 50 a project; the last 5 versions are kept.</li>
+          <li><strong>Deleted only in the app.</strong> No MCP has a delete tool, and a deleted document is gone for good.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -372,7 +387,7 @@
                 <tbody>
                   <tr><td><code>list_tasks</code></td><td>read</td><td>AI tasks in the scoped projects, with status</td></tr>
                   <tr><td><code>get_task</code></td><td>read</td><td>One task in full: description, steps, notes, telemetry, the user's latest reply</td></tr>
-                  <tr><td><code>read_context</code></td><td>read</td><td>The project brief and context the task carries</td></tr>
+                  <tr><td><code>read_context</code></td><td>read</td><td>The project brief and documents, and those of its parent project</td></tr>
                   <tr><td><code>update_status</code></td><td>write</td><td><code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; cancel with a reason (stored as error + cancelledAt, shown as Cancelled)</td></tr>
                   <tr><td><code>update_step</code></td><td>write</td><td>Mark a plan step started or finished</td></tr>
                   <tr><td><code>add_step</code></td><td>write</td><td>Append a step the agent discovered</td></tr>
@@ -442,7 +457,7 @@
           </details>
           <details>
             <summary><h3>What does the agent see?</h3></summary>
-            <div class="faq-answer"><p>The AI tasks of the projects it is assigned to, each project's brief, and your replies. Your personal to-do list is not on the tool surface at all.</p></div>
+            <div class="faq-answer"><p>The AI tasks of the projects it is assigned to, each project's brief and documents, the brief and documents of a parent project, and your replies. Your personal to-do list is not on the tool surface at all.</p></div>
           </details>
           <details>
             <summary><h3>Can an agent delete a task?</h3></summary>

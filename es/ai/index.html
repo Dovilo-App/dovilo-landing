@@ -114,7 +114,7 @@
       "name": "¿Qué ve el agente?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las tareas de IA de los proyectos que tiene asignados, el resumen de cada proyecto y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto."
+        "text": "Las tareas de IA de los proyectos que tiene asignados, el resumen y los documentos de cada proyecto, el resumen y los documentos de un proyecto superior, y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto."
       }
     },
     {
@@ -318,6 +318,21 @@
       </div>
     </section>
 
+    <section class="section" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <h2>Un proyecto lleva su resumen y sus documentos</h2>
+          <p>Las especificaciones, decisiones y listas de comprobación viven en el proyecto. Tu agente de programación las lee con <code>read_context</code>; el agente de un subproyecto también lee las de su proyecto superior.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Redactado en el chat, aprobado en tu móvil.</strong> ChatGPT o Claude propone un documento o un cambio.</li>
+          <li><strong>Los agentes leen, nunca escriben.</strong> Ninguna herramienta de agente cambia un documento.</li>
+          <li><strong>Markdown, con versiones.</strong> Hasta 200 KB por documento y 50 por proyecto; se guardan las últimas 5 versiones.</li>
+          <li><strong>Se elimina solo en la app.</strong> Ningún MCP tiene herramienta de eliminar, y un documento eliminado no vuelve.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -339,7 +354,7 @@
                 <tbody>
                   <tr><td><code>list_tasks</code></td><td>lectura</td><td>Tareas de IA de los proyectos asignados, con su estado</td></tr>
                   <tr><td><code>get_task</code></td><td>lectura</td><td>Una tarea completa: descripción, pasos, notas, telemetría, la última respuesta del usuario</td></tr>
-                  <tr><td><code>read_context</code></td><td>lectura</td><td>El resumen del proyecto y el contexto que lleva la tarea</td></tr>
+                  <tr><td><code>read_context</code></td><td>lectura</td><td>El resumen y los documentos del proyecto, y los de su proyecto superior</td></tr>
                   <tr><td><code>update_status</code></td><td>escritura</td><td><code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; cancelar con un motivo (se guarda como error + cancelledAt y se muestra como Cancelada)</td></tr>
                   <tr><td><code>update_step</code></td><td>escritura</td><td>Marca un paso del plan como iniciado o terminado</td></tr>
                   <tr><td><code>add_step</code></td><td>escritura</td><td>Añade un paso que el agente descubrió</td></tr>
@@ -409,7 +424,7 @@
           </details>
           <details>
             <summary><h3>¿Qué ve el agente?</h3></summary>
-            <div class="faq-answer"><p>Las tareas de IA de los proyectos que tiene asignados, el resumen de cada proyecto y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto.</p></div>
+            <div class="faq-answer"><p>Las tareas de IA de los proyectos que tiene asignados, el resumen y los documentos de cada proyecto, el resumen y los documentos de un proyecto superior, y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto.</p></div>
           </details>
           <details>
             <summary><h3>¿Puede un agente eliminar una tarea?</h3></summary>

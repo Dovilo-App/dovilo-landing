@@ -64,7 +64,7 @@
   "url": "https://dovilo.app/tr/ai/",
   "image": "https://dovilo.app/og-ai-tr.jpg",
   "inLanguage": "tr",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "proficiencyLevel": "Expert",
   "about": [
     { "@id": "https://dovilo.app/#app" },
@@ -114,7 +114,7 @@
       "name": "Ajan neyi görür?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Atandığı projelerin AI görevlerini, her projenin açıklamasını ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur."
+        "text": "Atandığı projelerin AI görevlerini, her projenin açıklamasını ve belgelerini, varsa üst projenin açıklamasını ve belgelerini ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur."
       }
     },
     {
@@ -318,6 +318,21 @@
       </div>
     </section>
 
+    <section class="section" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <h2>Bir proje açıklamasını ve belgelerini taşır</h2>
+          <p>Spesifikasyonlar, kararlar ve kontrol listeleri projede durur. Kodlama ajanın bunları <code>read_context</code> ile okur; bir alt projenin ajanı üst projeninkileri de okur.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Sohbette taslak, telefonunda onay.</strong> ChatGPT ya da Claude bir belge ya da bir düzenleme önerir.</li>
+          <li><strong>Ajanlar okur, asla yazmaz.</strong> Hiçbir ajan aracı bir belgeyi değiştiremez.</li>
+          <li><strong>Markdown, sürümlü.</strong> Belge başına 200 KB'a, proje başına 50 belgeye kadar; son 5 sürüm saklanır.</li>
+          <li><strong>Yalnızca uygulamada silinir.</strong> Hiçbir MCP'de silme aracı yok ve silinen belge geri gelmez.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -339,7 +354,7 @@
                 <tbody>
                   <tr><td><code>list_tasks</code></td><td>okuma</td><td>Kapsamdaki projelerin AI görevleri, durumlarıyla</td></tr>
                   <tr><td><code>get_task</code></td><td>okuma</td><td>Bir görevin tamamı: açıklama, adımlar, notlar, telemetri, kullanıcının son cevabı</td></tr>
-                  <tr><td><code>read_context</code></td><td>okuma</td><td>Proje açıklaması ve görevin taşıdığı bağlam</td></tr>
+                  <tr><td><code>read_context</code></td><td>okuma</td><td>Proje açıklaması ve belgeleri, üst projeninkiler de</td></tr>
                   <tr><td><code>update_status</code></td><td>yazma</td><td><code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; gerekçeyle iptal (error + cancelledAt olarak saklanır, İptal edildi olarak görünür)</td></tr>
                   <tr><td><code>update_step</code></td><td>yazma</td><td>Bir plan adımını başladı ya da bitti diye işaretle</td></tr>
                   <tr><td><code>add_step</code></td><td>yazma</td><td>Ajanın fark ettiği bir adımı ekle</td></tr>
@@ -409,7 +424,7 @@
           </details>
           <details>
             <summary><h3>Ajan neyi görür?</h3></summary>
-            <div class="faq-answer"><p>Atandığı projelerin AI görevlerini, her projenin açıklamasını ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur.</p></div>
+            <div class="faq-answer"><p>Atandığı projelerin AI görevlerini, her projenin açıklamasını ve belgelerini, varsa üst projenin açıklamasını ve belgelerini ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur.</p></div>
           </details>
           <details>
             <summary><h3>Ajan bir görevi silebilir mi?</h3></summary>
