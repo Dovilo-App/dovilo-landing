@@ -725,7 +725,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Download für iPhone, Android, Windows und Mac - Dovilo",
         "description": "Lade Dovilo für iPhone, Android, Windows und Mac herunter. Kostenlos auf dem Smartphone. Desktop braucht Pro, gestartet in der mobilen App.",
@@ -746,7 +746,7 @@
           "badgeSmall": "Dovilo für",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Aktuell: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4. Nov. 2026</time>. <a href=\"{{href.pricing}}#pro\">Braucht Pro</a>: Melde dich mit dem Konto deines Abos an.",
+          "latest": "Aktuell: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8. Nov. 2026</time>. <a href=\"{{href.pricing}}#pro\">Braucht Pro</a>: Melde dich mit dem Konto deines Abos an.",
           "upgrade": "Du kommst von Desktop 1.8? <a href=\"/docs/mcp/#upgrading\">Agenten verbinden sich jetzt mit einem Schlüssel mit dovilo.app/mcp/agents.</a>"
         }
       },
@@ -789,7 +789,7 @@
             "source": "Dovilo.dmg, aus dem öffentlichen Release-Repository"
           }
         },
-        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.2.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.2.0</strong>, vom 4. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
+        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.3.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.3.0</strong>, vom 8. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
       },
       "pro": {
         "summary": "Was kostenlos ist und was Pro hinzufügt",
@@ -868,7 +868,7 @@
       },
       "hero": {
         "h1": "Dovilo FAQ: klare Antworten zu App, Pro und KI.",
-        "intro": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 28 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 29 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "Allgemein",

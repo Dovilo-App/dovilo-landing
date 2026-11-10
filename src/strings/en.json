@@ -725,7 +725,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Download for iPhone, Android, Windows and Mac - Dovilo",
         "description": "Download Dovilo for iPhone, Android, Windows and Mac. Free on phones. Desktop needs Pro, started in the mobile app.",
@@ -746,7 +746,7 @@
           "badgeSmall": "Dovilo for",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Latest: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4 Nov 2026</time>. <a href=\"{{href.pricing}}#pro\">Needs Pro</a>: sign in with the account you subscribed with.",
+          "latest": "Latest: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8 Nov 2026</time>. <a href=\"{{href.pricing}}#pro\">Needs Pro</a>: sign in with the account you subscribed with.",
           "upgrade": "Coming from Desktop 1.8? <a href=\"/docs/mcp/#upgrading\">Agents now connect to dovilo.app/mcp/agents with a key.</a>"
         }
       },
@@ -789,7 +789,7 @@
             "source": "Dovilo.dmg, from the public releases repository"
           }
         },
-        "p2": "Mobile and desktop run on separate version lines, so their numbers are not meant to line up. The current mobile release is <strong>2.2.0</strong>, on iOS and Android, and the current desktop release is <strong>2.2.0</strong>, from 4 November 2026. The <a href=\"/changelog/\">release notes page</a> lists the desktop builds and adds a newer one from the releases repository when you open it, so it is never a version behind, and every earlier desktop build stays tagged there. This page is only for the first install: nothing here has to be fetched twice."
+        "p2": "Mobile and desktop run on separate version lines, so their numbers are not meant to line up. The current mobile release is <strong>2.3.0</strong>, on iOS and Android, and the current desktop release is <strong>2.3.0</strong>, from 8 November 2026. The <a href=\"/changelog/\">release notes page</a> lists the desktop builds and adds a newer one from the releases repository when you open it, so it is never a version behind, and every earlier desktop build stays tagged there. This page is only for the first install: nothing here has to be fetched twice."
       },
       "pro": {
         "summary": "What is free, and what Pro adds",

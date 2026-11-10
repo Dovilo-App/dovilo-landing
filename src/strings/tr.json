@@ -723,7 +723,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "iPhone, Android, Windows ve Mac için indir - Dovilo",
         "description": "Dovilo'yu iPhone, Android, Windows ve Mac için indir. Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister.",
@@ -744,7 +744,7 @@
           "badgeSmall": "Dovilo",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Son sürüm: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4 Kas 2026</time>. <a href=\"{{href.pricing}}#pro\">Pro ister</a>: abone olduğun hesapla giriş yap.",
+          "latest": "Son sürüm: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8 Kas 2026</time>. <a href=\"{{href.pricing}}#pro\">Pro ister</a>: abone olduğun hesapla giriş yap.",
           "upgrade": "Desktop 1.8'den mi geliyorsun? <a href=\"/docs/mcp/#upgrading\">Ajanlar artık dovilo.app/mcp/agents adresine bir anahtarla bağlanır.</a>"
         }
       },
@@ -787,7 +787,7 @@
             "source": "Dovilo.dmg, herkese açık sürüm deposundan"
           }
         },
-        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.2.0</strong>, güncel masaüstü sürümü 4 Kasım 2026 tarihli <strong>2.2.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
+        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.3.0</strong>, güncel masaüstü sürümü 8 Kasım 2026 tarihli <strong>2.3.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
       },
       "pro": {
         "summary": "Ne ücretsiz, Pro ne ekler",
@@ -866,7 +866,7 @@
       },
       "hero": {
         "h1": "Dovilo SSS: uygulama, Pro ve AI üzerine net cevaplar.",
-        "intro": "Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 28 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 29 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "Genel",
