@@ -51,7 +51,7 @@
   "description": "Reference for Dovilo's two remote Model Context Protocol servers. Agents MCP (https://dovilo.app/mcp/agents, bearer API key per agent) exposes nine tools over the AI tasks of the agent's projects, with no create or delete tool. Personal MCP (https://dovilo.app/mcp, OAuth with the Dovilo account) exposes sixteen tools that let ChatGPT, Claude, Gemini and Grok propose plans, tasks and AI-task changes for the user to approve. Covers authentication, error responses, connecting a client (Claude Code, Cursor and other MCP clients), status values including scheduled, repeat, cancelling, approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the Pro plan and trial, and the questions developers ask.",
   "url": "https://dovilo.app/docs/mcp/",
   "inLanguage": "en",
-  "dateModified": "2026-11-08",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -390,7 +390,7 @@ update_status    → done</code></pre>
           </ul>
 
           <h2 id="project-documents">Project documents <a class="h-anchor" href="#project-documents" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Your AI projects can hold Markdown documents, such as specs, analyses and notes. Connected chat apps (ChatGPT, Claude and others) can read them and propose new documents or edits with <code>get_project_document</code>, <code>create_project_document</code> and <code>update_project_document</code>. These tools need AI task access for the connection. Every proposal waits in the Dovilo app until you approve it; Dovilo then applies it and keeps the last 5 earlier versions. Coding agents read a project's documents through <code>read_context</code>. Limits, in bytes of UTF-8 text: 60,000 per proposal, 200,000 per document, 50 documents and 2,000,000 bytes per project, and 200 documents and 10,000,000 bytes per account (earlier versions included). Up to 10 proposals can wait at once, and 20 can arrive a day. Documents are Markdown text only: no embedded files and no attachments. You can delete a document in the Dovilo app, and deleting a project deletes its documents. No MCP server has a delete tool. Sending a proposal is free; approving it needs Pro.</p>
+          <p>Your AI projects can hold Markdown documents, such as specs, analyses and notes. Connected chat apps (ChatGPT, Claude and others) can read them and propose new documents or edits with <code>get_project_document</code>, <code>create_project_document</code> and <code>update_project_document</code>. These tools need AI task access for the connection. Every proposal waits in the Dovilo app until you approve it; Dovilo then applies it and keeps the last 5 earlier versions. Coding agents read a project's documents through <code>read_context</code>. Limits, in bytes of UTF-8 text: 60,000 per proposal, 200,000 per document, 50 documents and 2,000,000 bytes per project, and 200 documents and 10,000,000 bytes per account (earlier versions included). Up to 10 proposals can wait for review at once; there is no daily limit. Documents are Markdown text only: no embedded files and no attachments. You can delete a document in the Dovilo app, and deleting a project deletes its documents. No MCP server has a delete tool. Sending a proposal is free; approving it needs Pro.</p>
 
           <h2 id="approval">Approval rules <a class="h-anchor" href="#approval" aria-hidden="true" tabindex="-1"></a></h2>
           <p>The AI proposes. You approve. What a chat assistant writes waits in the AI inbox on the user's phone, which gets a notification, until the user approves it there.</p>
@@ -484,6 +484,7 @@ update_status    → done</code></pre>
 
           <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
+            <li><strong>November 2026</strong>: Personal MCP has 16 tools: <code>get_project_document</code>, <code>create_project_document</code> and <code>update_project_document</code> are new, and their writes wait for approval on the phone. Every Personal MCP result carries <code>now</code> (date, weekday, time, time zone), and dates in the past are refused. <code>read_context</code> returns <code>parentBrief</code> and the documents of the project and its parent; with <code>documentId</code> and <code>offset</code> it returns one document's text in <code>document.text</code>, up to 30,000 characters a page, with <code>nextOffset</code> when more follows. <code>list_projects</code> returns <code>parentId</code> and each project's documents. Document proposals no longer have a daily limit; up to 10 can wait for your review at once.</li>
             <li><strong>Dovilo 2.0</strong>: Agents MCP over HTTPS at <code>https://dovilo.app/mcp/agents</code>, with a key per agent; the server built into Desktop 1.8 stops. New status <code>scheduled</code> and repeating tasks. Agents can cancel a task with a reason. <code>get_task</code> returns <code>approvalFeedback</code>. Personal MCP at <code>https://dovilo.app/mcp</code>, with 13 tools.</li>
           </ul>
         </article>
