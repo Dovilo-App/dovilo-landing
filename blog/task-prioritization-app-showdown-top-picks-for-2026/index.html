@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Prioritization is a decision you make, not a feature you buy. Here are three ranking methods that survive a real day, and what an app has to do to support them.">
   <meta name="twitter:image" content="https://dovilo.app/blog/media/74ce53868a45dd15822fbb0f980c69ef9b48b8bb-1200x630.jpg">
   <meta property="article:published_time" content="2026-09-29T08:09:13.386Z">
-  <meta property="article:modified_time" content="2026-09-29T14:48:14Z">
+  <meta property="article:modified_time" content="2026-11-10T13:30:00.000Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
   <meta name="color-scheme" content="light">
@@ -59,9 +59,9 @@
     "@id": "https://dovilo.app/blog/task-prioritization-app-showdown-top-picks-for-2026/"
   },
   "datePublished": "2026-09-29T08:09:13.386Z",
-  "dateModified": "2026-09-29T14:48:14Z",
+  "dateModified": "2026-11-10T13:30:00.000Z",
   "inLanguage": "en",
-  "wordCount": 1734,
+  "wordCount": 1729,
   "image": [
     "https://dovilo.app/blog/media/74ce53868a45dd15822fbb0f980c69ef9b48b8bb-1200x630.jpg"
   ],
@@ -163,7 +163,7 @@
 <li><a href="#where-dovilo-fits">Where Dovilo fits</a><ul>
 <li><a href="#the-prioritization-surface">The prioritization surface</a></li>
 <li><a href="#acting-on-the-top-item">Acting on the top item</a></li>
-<li><a href="#for-developers-the-agent-layer">For developers: the agent layer</a></li>
+<li><a href="#for-coding-assistants-ai-tasks">For coding assistants: AI Tasks</a></li>
 <li><a href="#pricing-and-whats-free">Pricing and what&#39;s free</a></li>
 <li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
 </ul>
@@ -206,22 +206,22 @@
 <h2 id="where-dovilo-fits">Where Dovilo fits</h2>
 <p><a href="https://dovilo.app/">Dovilo</a> is a task manager with focus sessions and a city you build from finished work. For prioritization specifically, here is the relevant surface.</p>
 <h3 id="the-prioritization-surface">The prioritization surface</h3>
-<p>Tasks carry a priority level, a star, a flag, a due date, repeat, reminders and notes, and belong to lists you define.</p>
+<p>Tasks carry a priority level, a star, a flag, a due date, repeat, reminders and notes, and belong to lists you define. Lists can hold sub-lists and take one of 7 colours.</p>
 <p>One view picker replaces filter pills: My Day, Important, Planned, Flagged, all tasks and each of your lists, every one with a live count. Lists group by Today, Tomorrow and No date, and the Planned view groups by day.</p>
 <p>In practice that maps onto the methods above. My Day holds the non-negotiable and whatever else you committed to today. Important and Flagged separate what matters from what is merely loud. Planned shows where the rest actually lands, which is usually the moment you notice you scheduled eleven things for Thursday.</p>
 <h3 id="acting-on-the-top-item">Acting on the top item</h3>
 <p>Once the list is ranked, start a focus session bound to the task at the top. Three modes: a single session of any length, a Pomodoro cycle of 25 minutes on and 5 off with a longer break every 4 rounds, or a session tied to one task that runs until it is done.</p>
 <p>A breathing exercise and a countdown ease you in, the timer keeps running with the phone locked, and Do Not Disturb can silence other apps for the length of the session.</p>
 <p>Finished tasks and completed sessions earn bricks, which you spend in the Build Market on buildings, roads and decorations placed on an isometric grid. Nothing decays, and no streak punishes you for a quiet week. It is a record of finished work, not a score you can lose.</p>
-<h3 id="for-developers-the-agent-layer">For developers: the agent layer</h3>
-<p>Dovilo Desktop (Windows and macOS, part of Pro) runs a local MCP server that gives AI coding agents their own task list, on a monthly quota. Nine tools, three read and six write, read and update only. No create tool, no delete tool.</p>
-<p>Your personal list is not on that tool surface at all, and each agent is scoped to one project and its brief. When a decision has consequences, the agent sets the task to <code>awaiting-user</code>, writes a note and stops.</p>
-<p>MCP traffic stays local over stdio, with no Dovilo endpoint in the agent&#39;s request path. The AI tasks sync to your phone through Pro cloud sync, so you can follow steps and token cost while the agent runs. Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets; any other MCP client connects with JSON. Details: <a href="https://dovilo.app/ai">dovilo.app/ai</a> and the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">MCP setup guide</a>.</p>
+<h3 id="for-coding-assistants-ai-tasks">For coding assistants: AI Tasks</h3>
+<p>Pro adds <a href="https://dovilo.app/ai/">AI Tasks</a>: coding assistants such as Claude Code or Cursor get their own task list, 15 tasks a month. They can read and update those tasks, but not create or delete them.</p>
+<p>Your personal list is never part of it, and each assistant sees only the projects you assign it, each with a brief. When a decision has consequences, the assistant writes a note, stops and waits for your answer.</p>
+<p>Assistants connect over HTTPS with one key each, revocable from your phone. The AI tasks sync to your phone, so you can follow steps and token cost while the work runs. Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets in Dovilo Desktop; any other MCP client connects with the URL and a key. Details: <a href="https://dovilo.app/ai/">dovilo.app/ai</a> and the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">setup guide</a>.</p>
 <h3 id="pricing-and-what39s-free">Pricing and what&#39;s free</h3>
 <p>Free on iOS and Android: unlimited tasks, categories and focus sessions, a starter city, basic statistics, dark and light themes, five languages, offline-first storage and no ads on any tier.</p>
-<p>Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro adds cloud sync, advanced statistics, Dovilo Desktop, and both content packs: the Focus Ambience Pack and the Full City Package, each $4.99 on its own if you would rather buy one without a subscription. AI task top-up packs start at $0.99 and never expire.</p>
+<p>Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro adds <a href="https://dovilo.app/plan/#connect-your-ai">planning with ChatGPT, Claude, Gemini or Grok</a>, AI Tasks, cloud sync, advanced statistics, Dovilo Desktop, and both content packs: the Focus Ambience Pack and the Full City Package, each $4.99 on its own if you would rather buy one without a subscription. AI task top-up packs start at $0.99 and never expire.</p>
 <h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
-<p>No data export. No remote MCP, so the agent runs where Desktop runs. No team features, no shared workspaces: this is a single-person app. Export and remote MCP are on the public roadmap.</p>
+<p>No data export. No team features, no shared workspaces: this is a single-person app. Data export is on the public roadmap.</p>
 <h2 id="side-by-side">Side by side</h2>
 <div class="table-wrap"><table class="table">
 <thead>
@@ -229,7 +229,7 @@
 <th>App</th>
 <th>Ranking surface</th>
 <th>Focus timer</th>
-<th>Agent support</th>
+<th>AI support</th>
 <th>Platforms</th>
 </tr>
 </thead>
@@ -237,7 +237,7 @@
 <td>Dovilo</td>
 <td>Priority, star, flag, 4 views</td>
 <td>Single, Pomodoro, task-bound</td>
-<td>Local MCP on Desktop, Pro</td>
+<td>Planning with your AI and AI Tasks, Pro</td>
 <td>iOS, Android, Windows, macOS</td>
 </tr>
 <tr>
@@ -296,8 +296,8 @@ Because nothing downstream depends on the label. Priority only works when a view
 No. It has priority levels, stars, flags and the My Day, Important, Planned and Flagged views. You can run the Eisenhower split on top of those, but there is no matrix board.</p>
 <p><strong>Is Dovilo good for teams?</strong>
 No. There are no shared workspaces or team features. For team work, Linear or Notion fit better.</p>
-<p><strong>Can AI coding agents use Dovilo?</strong>
-Yes, on Desktop with Pro. Nine tools, read and update only, on a task list separate from your personal one, with the agent scoped to a single project.</p>
+<p><strong>Can coding assistants use Dovilo?</strong>
+Yes, with Pro. They work AI Tasks, read and update only, on a task list separate from your personal one, and see only the projects you assign them.</p>
 <p><strong>Does Dovilo support data export?</strong>
 Not yet. It is on the public roadmap. If exporting your history matters to you, factor that in before you commit.</p>
 <p><strong>What is the difference between Dovilo and Habitica?</strong>

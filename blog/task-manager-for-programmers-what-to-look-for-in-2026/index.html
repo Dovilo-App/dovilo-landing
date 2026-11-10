@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Developer task management has three separate layers: your own plan, the team issue tracker, and the agent queue. Most tools cover one. Here is how to tell which you need.">
   <meta name="twitter:image" content="https://dovilo.app/blog/media/4aad3ed967c235d7296845c7e210eccd8848cb1f-1200x630.jpg">
   <meta property="article:published_time" content="2026-10-04T08:56:07.967Z">
-  <meta property="article:modified_time" content="2026-10-06T17:22:39Z">
+  <meta property="article:modified_time" content="2026-11-10T13:30:00.000Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
   <meta name="color-scheme" content="light">
@@ -59,9 +59,9 @@
     "@id": "https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/"
   },
   "datePublished": "2026-10-04T08:56:07.967Z",
-  "dateModified": "2026-10-06T17:22:39Z",
+  "dateModified": "2026-11-10T13:30:00.000Z",
   "inLanguage": "en",
-  "wordCount": 1644,
+  "wordCount": 1669,
   "image": [
     "https://dovilo.app/blog/media/4aad3ed967c235d7296845c7e210eccd8848cb1f-1200x630.jpg"
   ],
@@ -148,7 +148,7 @@
     <article class="section">
       <div class="container"><div class="flow measure">
         <h1>Task manager for programmers: what to look for</h1>
-        <p class="meta"><time datetime="2026-10-04T08:56:07.967Z">4 October 2026</time> · 7 min read · Selahaddin Akgün</p>
+        <p class="meta"><time datetime="2026-10-04T08:56:07.967Z">4 October 2026</time> · 8 min read · Selahaddin Akgün</p>
         <figure class="figure"><img src="/blog/media/4aad3ed967c235d7296845c7e210eccd8848cb1f-760.webp" srcset="/blog/media/4aad3ed967c235d7296845c7e210eccd8848cb1f-760.webp 760w, /blog/media/4aad3ed967c235d7296845c7e210eccd8848cb1f-1520.webp 1520w" sizes="(max-width:718px) calc(100vw - 32px), 686px" width="760" height="507" alt="A programmer reviewing a task manager dashboard showing time blocks, sprint issues, and AI agent task queues on a monitor" fetchpriority="high"></figure>
 <nav aria-label="On this page">
 <details class="collapsible">
@@ -160,7 +160,7 @@
 <li><a href="#what-actually-matters-in-a-developer-task-manager">What actually matters in a developer task manager</a></li>
 <li><a href="#why-the-agent-layer-needs-to-be-separate">Why the agent layer needs to be separate</a></li>
 <li><a href="#where-the-tools-sit">Where the tools sit</a></li>
-<li><a href="#dovilo-the-personal-layer-plus-a-local-agent-queue">Dovilo: the personal layer plus a local agent queue</a><ul>
+<li><a href="#dovilo-the-personal-layer-plus-a-remote-agent-queue">Dovilo: the personal layer plus a remote agent queue</a><ul>
 <li><a href="#what-dovilo-does-not-do">What Dovilo does not do</a></li>
 </ul>
 </li>
@@ -206,22 +206,22 @@
 <li><strong>Task Master.</strong> Repo-native and built specifically around agent workflows rather than human sprint boards. If agent orchestration is your bottleneck, check its docs directly.</li>
 </ul>
 <p>None of these is a personal focus tool, which is the layer most solo developers are actually missing.</p>
-<h2 id="dovilo-the-personal-layer-plus-a-local-agent-queue">Dovilo: the personal layer plus a local agent queue</h2>
+<h2 id="dovilo-the-personal-layer-plus-a-remote-agent-queue">Dovilo: the personal layer plus a remote agent queue</h2>
 <p><a href="https://dovilo.app/">Dovilo</a> covers the personal layer and the agent layer. It is not a team issue tracker and will not replace Linear or GitHub Projects.</p>
 <p>The personal side is a to-do list with due dates, repeats, priorities, stars and flags, plus focus sessions: single, Pomodoro at 25 on and 5 off with a longer break every 4 rounds, or bound to one task. Finished tasks and sessions earn bricks you spend on a city that grows from your own work. Nothing decays.</p>
-<p>The agent side runs on Dovilo Desktop (Windows and macOS, part of Pro) as a <a href="https://dovilo.app/ai">local MCP server</a>, on a monthly quota.</p>
+<p>The agent side is a <a href="https://dovilo.app/ai/">remote MCP server</a> at dovilo.app/mcp/agents, part of Pro, with 15 AI tasks a month.</p>
 <ul>
 <li><strong>Nine tools, three read and six write, read and update only.</strong> No create tool, no delete tool. The agent moves work forward; it does not invent or destroy it.</li>
-<li><strong>Scoped to one project and its brief.</strong> Your personal list is not on the tool surface at all, so there is no filter to misconfigure.</li>
-<li><strong>Real statuses.</strong> <code>queued</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, <code>failed</code>, <code>cancelled</code>. On a consequential decision the agent writes a note and stops at <code>awaiting-user</code> instead of guessing.</li>
-<li><strong>A visible trail.</strong> Steps, notes and telemetry including model, tokens, cost and duration, on your phone while the agent runs at your desk.</li>
-<li><strong>Local transport.</strong> MCP traffic runs over stdio inside Desktop, with no Dovilo endpoint in the agent&#39;s request path. The AI tasks themselves sync to mobile through Pro cloud sync.</li>
-<li><strong>Signed webhooks.</strong> <code>task.created</code> and <code>task.status_changed</code> into Slack, Linear, n8n or any HTTPS receiver, with HMAC-SHA256 signatures. Spec at <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>, and an open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> running the loop end to end.</li>
+<li><strong>Scoped to its projects.</strong> The agent sees only the projects it is assigned to, with their briefs and documents. Your personal list is not on the tool surface at all, so there is no filter to misconfigure.</li>
+<li><strong>Real statuses.</strong> <code>queued</code>, <code>scheduled</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code>, <code>error</code>; a cancelled task is an <code>error</code> with a reason. On a consequential decision the agent writes a note and stops at <code>awaiting-user</code> instead of guessing.</li>
+<li><strong>A visible trail.</strong> Steps, notes and telemetry including model, tokens, cost and duration, on your phone while the agent runs, wherever it runs.</li>
+<li><strong>Per-agent keys.</strong> Agents connect over HTTPS with one key per agent, created in the app and revocable from your phone. Agents in CI or on a server connect the same way as the one next to your editor.</li>
+<li><strong>Signed webhooks.</strong> <code>task.created</code> and <code>task.status_changed</code> into Slack, Linear, n8n or any HTTPS receiver, with HMAC-SHA256 signatures, delivered by Dovilo&#39;s server even when Desktop is closed. Spec at <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>, and an open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> running the loop end to end.</li>
 </ul>
-<p>Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets; any other MCP client connects with a JSON config. Setup takes about 5 minutes: <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">the MCP setup guide</a>.</p>
+<p>Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets in Dovilo Desktop; any other MCP client connects with the URL and a key. Setup takes about 5 minutes: <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">the MCP setup guide</a>.</p>
 <p>Free on iOS and Android with unlimited tasks, categories and focus sessions, offline-first and no ads on any tier. Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day trial started in the mobile app.</p>
 <h3 id="what-dovilo-does-not-do">What Dovilo does not do</h3>
-<p>No sprint boards, no shared workspaces, no team features. No git or PR integration. No data export. No remote MCP, so the agent runs on the same machine as Desktop; if your agents run in CI or on a server, that is a blocker today. Export and remote MCP are on the public roadmap.</p>
+<p>No sprint boards, no shared workspaces, no team features. No git or PR integration. No data export. Data export is on the public roadmap.</p>
 <h2 id="running-a-two-week-pilot">Running a two-week pilot</h2>
 <p>Pick three criteria before you install anything. Useful ones: minutes per week spent updating status by hand, context switches per PR review, and whether you still open it on day ten.</p>
 <p>Change one thing at a time and run it for two weeks. If it does not move at least two of the three, it is not the tool.</p>
@@ -237,9 +237,9 @@ Create and delete. Those are decisions with consequences you should be making. R
 <p><strong>Can Dovilo replace Linear or Jira?</strong>
 No. It has no sprint boards, no shared workspaces and no team features. It covers the personal layer and the agent layer.</p>
 <p><strong>Which clients work with Dovilo&#39;s MCP server?</strong>
-Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets, and any other MCP client connects with a JSON config.</p>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets, and any other MCP client connects with the URL and a key.</p>
 <p><strong>Can the agent run on a different machine?</strong>
-Not yet. It must run where Dovilo Desktop runs. Remote MCP is on the roadmap.</p>
+Yes. The server is remote, so the agent can run on your laptop, a server or in CI. Dovilo Desktop does not need to be open.</p>
 <hr>
 <p>Pick the layer that is breaking, then pick the tool. A team tracker will not fix your personal day, a personal app will not run your sprint, and neither will give your agents a queue they can work on their own.</p>
 <p>Dovilo covers the personal and agent layers, free on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_devtasks&amp;mt=8" target="_blank" rel="noopener">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=article&amp;utm_campaign=blog_devtasks" target="_blank" rel="noopener">Google Play</a>.</p>

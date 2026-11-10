@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="What a to-do list needs before a coding agent can work from it: programmatic access, real statuses, isolation from your personal list, and a way to hand work back.">
   <meta name="twitter:image" content="https://dovilo.app/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1200x630.jpg">
   <meta property="article:published_time" content="2026-09-23T01:56:00.806Z">
-  <meta property="article:modified_time" content="2026-09-23T17:16:04Z">
+  <meta property="article:modified_time" content="2026-11-10T13:30:00.000Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
   <meta name="color-scheme" content="light">
@@ -59,9 +59,9 @@
     "@id": "https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/"
   },
   "datePublished": "2026-09-23T01:56:00.806Z",
-  "dateModified": "2026-09-23T17:16:04Z",
+  "dateModified": "2026-11-10T13:30:00.000Z",
   "inLanguage": "en",
-  "wordCount": 1945,
+  "wordCount": 1973,
   "image": [
     "https://dovilo.app/blog/media/bc21cee971cbe68e9053e858bc5654e6277ee5f4-1200x630.jpg"
   ],
@@ -163,7 +163,7 @@
 <li><a href="#the-nine-tools">The nine tools</a></li>
 <li><a href="#statuses-and-the-one-that-stops-the-agent">Statuses, and the one that stops the agent</a></li>
 <li><a href="#what-you-see-while-it-runs">What you see while it runs</a></li>
-<li><a href="#where-it-runs-and-what-leaves-your-machine">Where it runs, and what leaves your machine</a></li>
+<li><a href="#where-it-runs-and-how-agents-connect">Where it runs, and how agents connect</a></li>
 <li><a href="#webhooks-for-closing-the-loop">Webhooks for closing the loop</a></li>
 </ul>
 </li>
@@ -184,7 +184,7 @@
 <p>So the workflow becomes manual relay. You write a task in one app, paste the description into a terminal, watch the agent work, then go back and tick the box yourself. Every step breaks focus, and by the third session you are also re-explaining what was already done.</p>
 <h2 id="what-an-agent-ready-task-list-actually-needs">What an agent-ready task list actually needs</h2>
 <p>Five things, at minimum.</p>
-<p><strong>Programmatic read access.</strong> The agent has to list tasks and read their details without a browser, through an API or a local protocol its runtime can speak.</p>
+<p><strong>Programmatic read access.</strong> The agent has to list tasks and read their details without a browser, through an API or a protocol its runtime can speak.</p>
 <p><strong>Real statuses, not a checkbox.</strong> Done and not done isn&#39;t enough. Running, finished, failed and waiting on a human are all different states, and the next session needs to tell them apart.</p>
 <p><strong>A step trail.</strong> When a session dies halfway through, the difference between &quot;task is running&quot; and &quot;task is running, steps 1 to 3 finished, step 4 started&quot; is the difference between resuming and starting over.</p>
 <p><strong>Isolation from your personal list.</strong> The agent should see the work you assigned it and nothing else. Not your groceries, not your private notes, not the other project.</p>
@@ -201,10 +201,10 @@
 </ul>
 <p>The structural choice is the same everywhere: does the agent work against your list, or against a list that exists only for agents? Dovilo takes the second option. Check each tool&#39;s own docs for current pricing and feature details, since those change.</p>
 <h2 id="dovilo39s-approach-a-separate-list-the-agent-works-out-of">Dovilo&#39;s approach: a separate list the agent works out of</h2>
-<p>Dovilo Desktop (Windows and macOS, part of Pro) runs a local MCP server. AI tasks live inside projects, and each project has a brief the agent reads first: goals, constraints, conventions and what to leave alone.</p>
-<p>An agent is scoped to one project. It sees that project&#39;s brief and AI tasks, and nothing else. Not your other projects, and not My Tasks.</p>
+<p>Dovilo (Pro) gives coding agents their own task list over the Agents MCP at dovilo.app/mcp/agents. AI tasks live inside projects, and each project has a brief the agent reads first: goals, constraints, conventions and what to leave alone. A project can also hold documents, such as a spec, that the agent reads when a task needs them.</p>
+<p>An agent is assigned to its projects. It sees their briefs, documents and AI tasks, and nothing else. Not your other projects, and not My Tasks.</p>
 <p>My Tasks, the personal list with My Day, Important, Planned and Flagged, is not on the MCP tool surface at all. There is no filter hiding it and no setting that could be misconfigured. The agent has no tool that reads it.</p>
-<p>Integration details are at <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
+<p>Integration details are at <a href="https://dovilo.app/ai/">dovilo.app/ai</a>.</p>
 <h3 id="the-nine-tools">The nine tools</h3>
 <p>Three read, six write.</p>
 <div class="table-wrap"><table class="table">
@@ -218,12 +218,12 @@
 <tbody><tr>
 <td><code>list_tasks</code></td>
 <td>read</td>
-<td>AI tasks in the scoped project, with status</td>
+<td>AI tasks in the agent&#39;s projects, with status</td>
 </tr>
 <tr>
 <td><code>get_task</code></td>
 <td>read</td>
-<td>One task in full: description, steps, notes, telemetry</td>
+<td>One task in full: description, steps, notes, telemetry, your latest reply</td>
 </tr>
 <tr>
 <td><code>read_context</code></td>
@@ -263,52 +263,50 @@
 </tbody></table>
 </div>
 <p>There is no create tool and no delete tool. The agent can&#39;t write the task you wrote, and it can&#39;t remove work. Creating and deleting stay with you. An agent that can create tasks will create tasks, and an agent that can delete them can lose work.</p>
-<p>Any MCP client connects: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets, everything else uses a JSON config. Plain MCP, no lock-in.</p>
+<p>Any MCP client connects: Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets in Dovilo Desktop, and everything else takes the URL and the agent&#39;s key. Plain MCP, no lock-in.</p>
 <h3 id="statuses-and-the-one-that-stops-the-agent">Statuses, and the one that stops the agent</h3>
-<p>Every AI task moves through <code>queued</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, or <code>failed</code> / <code>cancelled</code>.</p>
-<p><code>awaiting-user</code> is the one worth designing around. When the agent hits a decision it shouldn&#39;t make on its own, a schema change, an API contract, anything with consequences, it writes a note explaining the trade-off, sets <code>awaiting-user</code> and stops.</p>
+<p>Every AI task moves through <code>queued</code>, <code>scheduled</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code> or <code>error</code>. A cancelled task is an <code>error</code> with a reason, shown as Cancelled.</p>
+<p><code>awaiting-user</code> is the one worth designing around. When the agent hits a decision it shouldn&#39;t make on its own, a schema change, an API contract, anything with consequences, it writes a note explaining the trade-off, sets <code>awaiting-user</code> and stops. Your reply puts the task back in <code>queued</code> for its next turn.</p>
 <p>Full autonomy sounds better in a headline. In practice you want the agent to run unsupervised on the parts that are decided, and to stop on the parts that aren&#39;t.</p>
 <p>If a session ends mid-task, the task stays <code>running</code> with its steps and notes intact. The next session reads it with <code>get_task</code> and continues from the last finished step.</p>
-<p>You can also cut it off entirely: switch MCP off in Desktop settings and connections drop immediately.</p>
+<p>You can also cut it off entirely: revoke the agent&#39;s key from your phone and its connection drops immediately.</p>
 <h3 id="what-you-see-while-it-runs">What you see while it runs</h3>
-<p>The step trail, notes and telemetry land on the task on your phone in real time while the agent runs on your desktop.</p>
-<p>The list is grouped by what needs you: awaiting you, running, queued. Finished work moves to &quot;Recently done&quot; with its step count. Notifications come in two modes, every step or only start, finish and error.</p>
+<p>The step trail, notes and telemetry land on the task on your phone in real time while the agent runs, wherever it runs.</p>
+<p>The list is grouped by what needs you: awaiting you, running, queued, scheduled. Finished work moves to &quot;Recently done&quot; with its step count. Notifications come in two modes, every step or only start, finish and error.</p>
 <p>Telemetry is per task and reported by the agent through <code>append_telemetry</code>: model, tokens, cost and duration. Over a few weeks that tells you which kinds of work are cheap and which are not, for a given model.</p>
-<h3 id="where-it-runs-and-what-leaves-your-machine">Where it runs, and what leaves your machine</h3>
-<p>The MCP bridge ships inside Desktop. No npx, no separate runtime. Your client starts it as a local process over stdio.</p>
-<p>No MCP traffic goes through Dovilo, and there is no Dovilo internet endpoint in the agent&#39;s request path. The only external call is your agent talking to its own model provider.</p>
-<p>The AI tasks themselves sync to your phone through Pro cloud sync, encrypted in transit and at rest. That is how the step trail reaches mobile while the work happens on your desktop.</p>
+<h3 id="where-it-runs-and-how-agents-connect">Where it runs, and how agents connect</h3>
+<p>Setup is a URL and a key: create an agent in the app, copy its key once, and point the client at <code>https://dovilo.app/mcp/agents</code>. No npx, no separate runtime, and Dovilo Desktop does not need to be open.</p>
+<p>Whether the agent runs next to your editor, on a server or in CI, the setup is the same. The agent sees only the AI tasks of the projects it is assigned to; your personal list is not on the tool surface.</p>
+<p>The AI tasks sync to your phone and to Desktop, encrypted in transit and at rest. That is how the step trail reaches mobile while the agent works.</p>
 <h3 id="webhooks-for-closing-the-loop">Webhooks for closing the loop</h3>
-<p>Desktop can fire signed webhooks when an AI task changes: <code>task.created</code> and <code>task.status_changed</code>, which carries the previous status. They go to Slack, Linear, n8n, LangGraph or any HTTPS receiver.</p>
+<p>Dovilo can fire signed webhooks when an AI task changes: <code>task.created</code> and <code>task.status_changed</code>, which carries the previous status. They go to Slack, Linear, n8n, LangGraph or any HTTPS receiver. Public HTTPS receivers are delivered by Dovilo&#39;s server, even when Desktop is closed.</p>
 <p>The signature is an HMAC-SHA256 over the raw body with a timestamp and a 5-minute replay window, and the delivery header stays stable across retries so you can use it as an idempotency key.</p>
-<p>Payloads are slim on purpose. The webhook tells your system a task moved, and MCP is how the agent then reads it, works it and reports back. The open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> runs that loop end to end, with a <a href="https://www.youtube.com/watch?v=id_7T8qUfpg" target="_blank" rel="noopener">walkthrough video</a>. Full spec: <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
+<p>Payloads are slim on purpose. The webhook tells your system a task moved, and MCP is how the agent then reads it, works it and reports back. The open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> runs that loop end to end. Full spec: <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
 <h2 id="what-dovilo-does-not-do-yet">What Dovilo does not do yet</h2>
-<p>Three things, named plainly.</p>
-<p><strong>No remote MCP.</strong> The agent runs where Desktop runs. Agents on a remote box or in CI can&#39;t reach it. On the public roadmap.</p>
-<p><strong>No data export.</strong> You can&#39;t export task history or agent results yet. Also on the roadmap.</p>
-<p><strong>MCP is desktop-only.</strong> You can write and read AI tasks on mobile, but the server runs on Windows and macOS.</p>
-<p>If you run agents locally next to your editor, none of that gets in your way. If you run them in the cloud, remote MCP is a blocker for now.</p>
+<p>One thing, named plainly.</p>
+<p><strong>No data export.</strong> You can&#39;t export task history or agent results yet. It is on the public roadmap.</p>
+<p>Everything else in this article works today, from any machine your agent runs on.</p>
 <h2 id="getting-started">Getting started</h2>
 <p>Dovilo is free on iOS and Android, with unlimited tasks, categories and focus sessions, offline-first storage, five languages and no ads on any tier.</p>
-<p>The MCP server, Desktop and webhooks are part of Pro: $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. AI tasks run on a monthly quota, and one-time top-up packs of +10, +30 or +75 tasks start at $0.99 and never expire.</p>
+<p>The Agents MCP, Desktop and webhooks are part of Pro: $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro includes 15 AI tasks a month, and one-time top-up packs of +10, +30 or +75 tasks start at $0.99 and never expire.</p>
 <p>Get the app on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_agent_tasks&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=agent_tasks" target="_blank" rel="noopener">Google Play</a>, then follow the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">MCP setup guide</a>. It takes about 5 minutes.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is AI agent task management?</strong>
 Giving a coding agent a structured list of tasks it can read, work and update itself, instead of pasting task descriptions into a chat window and ticking boxes by hand afterwards.</p>
 <p><strong>Does the agent work from my personal to-do list?</strong>
-No. My Tasks is not on the MCP tool surface. The agent is scoped to one project and sees that project&#39;s brief and AI tasks only.</p>
+No. My Tasks is not on the MCP tool surface. The agent sees only the briefs, documents and AI tasks of the projects it is assigned to.</p>
 <p><strong>Can the agent create or delete tasks?</strong>
 No. The nine tools are read and update only. The agent writes status, steps, notes and telemetry, and nothing else.</p>
 <p><strong>What happens if the agent gets stuck?</strong>
 It sets the task to <code>awaiting-user</code>, writes a note explaining what it needs, and stops. The task shows up at the top of your list on mobile.</p>
 <p><strong>Does MCP traffic go through Dovilo&#39;s servers?</strong>
-No. The bridge runs locally inside Desktop over stdio, and there is no Dovilo endpoint in the agent&#39;s request path. AI tasks sync to your phone through Pro cloud sync, which is how you see progress on mobile.</p>
+Yes. The Agents MCP runs at dovilo.app/mcp/agents, and each agent connects over HTTPS with its own key. Revoke the key from your phone and that agent is out.</p>
 <p><strong>Which agent clients work with it?</strong>
-Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets. Any other MCP client connects with a JSON config.</p>
-<p><strong>Is the MCP server available on mobile?</strong>
-No. It runs in the desktop app on Windows and macOS. You can still write and follow AI tasks from your phone.</p>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets. Any other MCP client connects with the URL and a key.</p>
+<p><strong>Do I need Dovilo Desktop running?</strong>
+No. The server is remote, so the agent works from any machine. You can write and follow AI tasks from your phone or from Desktop.</p>
 <p><strong>How does the quota work?</strong>
-AI tasks run on a monthly quota, shown in the AI Tasks view. Top-up packs start at $0.99 and never expire.</p>
+Pro includes 15 AI tasks a month, charged when a task opens to the agent, shown in the AI Tasks view. Top-up packs start at $0.99 and never expire.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The gap in most agent workflows isn&#39;t the agent. It&#39;s the handoff. You have a task list and you have a coding agent, and nothing connects them, so you become the integration.</p>
 <p>MCP closes that gap, but the details decide whether it&#39;s worth using: what the agent can reach, what it can change, and what it does when it shouldn&#39;t decide alone. A list the agent works out of, that your personal tasks are never part of, that stops instead of guessing, and that shows you the cost on your phone.</p>

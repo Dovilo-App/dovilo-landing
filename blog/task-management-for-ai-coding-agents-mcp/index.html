@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task management for AI coding agents: a Dovilo MCP setup guide - Dovilo</title>
-  <meta name="description" content="Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.">
+  <meta name="description" content="Give Claude Code, Cursor and other coding agents a persistent task list over Dovilo&#39;s Agents MCP. Setup, the 9 tools, statuses, webhooks and limits.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">
   <link rel="alternate" type="application/rss+xml" title="Dovilo blog" href="https://dovilo.app/blog/feed.xml">
@@ -18,17 +18,17 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">
   <meta property="og:title" content="Task management for AI coding agents: a Dovilo MCP setup guide - Dovilo">
-  <meta property="og:description" content="Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.">
+  <meta property="og:description" content="Give Claude Code, Cursor and other coding agents a persistent task list over Dovilo&#39;s Agents MCP. Setup, the 9 tools, statuses, webhooks and limits.">
   <meta property="og:image" content="https://dovilo.app/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1200x630.jpg">
-  <meta property="og:image:alt" content="Dovilo AI Tasks list showing a coding agent&#39;s task with its status, completed steps and token cost">
+  <meta property="og:image:alt" content="Illustration of a robot and a cat at their laptops sharing one task list, connected to a central server along with a document and a code folder">
   <meta property="og:site_name" content="Dovilo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@doviloapp">
   <meta name="twitter:title" content="Task management for AI coding agents: a Dovilo MCP setup guide - Dovilo">
-  <meta name="twitter:description" content="Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.">
+  <meta name="twitter:description" content="Give Claude Code, Cursor and other coding agents a persistent task list over Dovilo&#39;s Agents MCP. Setup, the 9 tools, statuses, webhooks and limits.">
   <meta name="twitter:image" content="https://dovilo.app/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1200x630.jpg">
   <meta property="article:published_time" content="2026-09-21T19:29:13.447Z">
-  <meta property="article:modified_time" content="2026-09-21T19:51:21Z">
+  <meta property="article:modified_time" content="2026-11-10T13:30:00.000Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
   <meta name="color-scheme" content="light">
@@ -52,16 +52,16 @@
   "@type": "BlogPosting",
   "headline": "Task management for AI coding agents: a Dovilo MCP setup guide",
   "name": "Task management for AI coding agents: a Dovilo MCP setup guide",
-  "description": "Give Claude Code, Cursor and other coding agents a persistent task list over a local MCP server. Setup, the 9 tools, statuses, webhooks and current limits.",
+  "description": "Give Claude Code, Cursor and other coding agents a persistent task list over Dovilo's Agents MCP. Setup, the 9 tools, statuses, webhooks and limits.",
   "url": "https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/"
   },
   "datePublished": "2026-09-21T19:29:13.447Z",
-  "dateModified": "2026-09-21T19:51:21Z",
+  "dateModified": "2026-11-10T13:30:00.000Z",
   "inLanguage": "en",
-  "wordCount": 1942,
+  "wordCount": 2203,
   "image": [
     "https://dovilo.app/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1200x630.jpg"
   ],
@@ -148,8 +148,8 @@
     <article class="section">
       <div class="container"><div class="flow measure">
         <h1>Task management for AI coding agents: a Dovilo MCP setup guide</h1>
-        <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 9 min read · Selahaddin Akgün</p>
-        <figure class="figure"><img src="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp" srcset="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp 760w, /blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1520.webp 1520w" sizes="(max-width:718px) calc(100vw - 32px), 686px" width="760" height="507" alt="Dovilo AI Tasks list showing a coding agent&#39;s task with its status, completed steps and token cost" fetchpriority="high"></figure>
+        <p class="meta"><time datetime="2026-09-21T19:29:13.447Z">21 September 2026</time> · 10 min read · Selahaddin Akgün</p>
+        <figure class="figure"><img src="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp" srcset="/blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-760.webp 760w, /blog/media/f8862f6977818acbe6ef1f92ec5df80c191dac52-1520.webp 1520w" sizes="(max-width:718px) calc(100vw - 32px), 686px" width="760" height="507" alt="Illustration of a robot and a cat at their laptops sharing one task list, connected to a central server along with a document and a code folder" fetchpriority="high"></figure>
 <nav aria-label="On this page">
 <details class="collapsible">
 <summary>On this page</summary>
@@ -172,7 +172,7 @@
 </div>
 </details>
 </nav>
-<p>If you run coding agents on multi-step projects, you have probably hit this wall: the agent finishes a session, context resets, and the next run has no idea what was done, what is still in progress, or what comes next. The fix is to give the agent a persistent, structured task list it can read and update between sessions. This guide walks through how to do that with the local MCP server in Dovilo Desktop.</p>
+<p>If you run coding agents on multi-step projects, you have probably hit this wall: the agent finishes a session, context resets, and the next run has no idea what was done, what is still in progress, or what comes next. The fix is to give the agent a persistent, structured task list it can read and update between sessions. This guide walks through how to do that with Dovilo&#39;s Agents MCP at dovilo.app/mcp/agents, which any MCP client can reach over HTTPS.</p>
 <p>I built this layer because I wanted my own coding agent to work a real task list instead of a scratch file. One engineer, in Istanbul. What follows is exactly how it works, including what it doesn&#39;t do yet.</p>
 <h2 id="the-problem-agents-lose-the-thread-between-sessions">The problem: agents lose the thread between sessions</h2>
 <p>Claude Code, Cursor, Windsurf, Codex CLI, Gemini CLI and Claude Desktop can all handle complex, multi-step work. Most of them can plan inside a session, and several read a rules or memory file you maintain. What none of that gives you is a shared task list with real status, that survives between sessions and that you can check from your phone.</p>
@@ -182,33 +182,33 @@
 <p>The Model Context Protocol is an open standard that lets AI agents call external tools through a defined interface. Linear and Notion both ship official MCP servers.</p>
 <p>What varies between implementations is what the server exposes, where it runs and what the agent is allowed to do. Those details matter more than the protocol itself.</p>
 <h2 id="how-dovilo39s-mcp-server-works">How Dovilo&#39;s MCP server works</h2>
-<p>The MCP bridge ships inside Dovilo Desktop. No npx, no separate runtime. Your agent client starts it as a local process and talks to it over stdio.</p>
-<p>There is no Dovilo internet endpoint in the agent&#39;s request path, and no MCP traffic goes through Dovilo. The only external call is your agent talking to its own model provider, whichever one you have configured.</p>
-<p>The AI tasks themselves sync to your phone through Pro cloud sync, encrypted in transit and at rest. That is how the agent&#39;s step trail shows up on mobile while it works on your desktop.</p>
-<p>Full integration details are at <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
+<p>The server runs at <code>https://dovilo.app/mcp/agents</code> (Streamable HTTP). Your agent client connects with one API key per agent, created in the Dovilo app and shown once. No npx, no separate runtime, and nothing has to run on your machine: Dovilo Desktop does not need to be open.</p>
+<p>The agent sees only the AI tasks of the projects it is assigned to. Your personal to-do list is not on the tool surface at all.</p>
+<p>The AI tasks sync to your phone and to Desktop, encrypted in transit and at rest. That is how the agent&#39;s step trail shows up on mobile while it works, wherever it runs.</p>
+<p>Full integration details are at <a href="https://dovilo.app/ai/">dovilo.app/ai</a>.</p>
 <h2 id="setting-up-dovilo39s-mcp-server-step-by-step">Setting up Dovilo&#39;s MCP server: step by step</h2>
 <p>Setup takes about 5 minutes.</p>
 <p><strong>Step 1: Start the Pro trial on mobile</strong></p>
 <p>Dovilo Desktop is part of Pro: $2.49/month, $19.99/year or $49.99 lifetime. Every plan has a 7-day free trial, started in the iOS or Android app. Cancel before day 7 and nothing is charged.</p>
 <p>Get the app on the <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_mcp_guide&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=mcp_guide" target="_blank" rel="noopener">Google Play</a>.</p>
-<p><strong>Step 2: Install Dovilo Desktop and sign in</strong></p>
-<p>Download Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a> and sign in with the same account you use on mobile. Release notes are in the <a href="https://dovilo.app/changelog/">changelog</a>.</p>
-<p><strong>Step 3: Connect your agent client</strong></p>
-<p>In Desktop, open Settings &gt; AI &gt; Connect AI, pick your client and restart it.</p>
+<p><strong>Step 2: Install Dovilo Desktop (optional)</strong></p>
+<p>The agent does not need Desktop, but its &quot;Connect a new AI&quot; wizard writes the client config for you. Download Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a> and sign in with the same account you use on mobile. Release notes are in the <a href="https://dovilo.app/changelog/">changelog</a>.</p>
+<p><strong>Step 3: Create an agent and connect your client</strong></p>
+<p>Each agent gets its own key, shown once.</p>
 <ul>
-<li><strong>Claude Desktop</strong> is wired automatically.</li>
-<li><strong>Claude Code, Cursor CLI, Codex CLI and Gemini CLI</strong> get a single <code>mcp add</code> command to paste.</li>
-<li><strong>Cursor GUI, Windsurf and any other MCP client</strong> get a JSON snippet with the bridge path and your API key: <code>&quot;command&quot;: &quot;&lt;dovilo-bridge-path&gt;&quot;</code>, <code>&quot;env&quot;: {&quot;DOVILO_API_KEY&quot;: &quot;&lt;api-key&gt;&quot;}</code>. Desktop fills in both values.</li>
+<li><strong>On Desktop:</strong> open Connect a new AI and pick your client. Desktop writes the config for Claude Code, Claude Desktop, Cursor, Cursor CLI, Codex CLI, Gemini CLI and Windsurf.</li>
+<li><strong>On your phone:</strong> with the AI Tasks module on, open the agents chip on the AI Tasks tab, tap New agent, pick its projects and copy the key.</li>
+<li><strong>Any other MCP client:</strong> point it at <code>https://dovilo.app/mcp/agents</code> with the key as the bearer token.</li>
 </ul>
-<p>To verify in Claude Code, run <code>/mcp</code>. You should see &quot;Dovilo connected, 9 tools&quot;. Plain MCP, no lock-in.</p>
+<p>To verify in Claude Code, run <code>/mcp</code>. You should see the Dovilo server connected, with 9 tools. Plain MCP, no lock-in.</p>
 <p><strong>Step 4: Create a project and write the brief</strong></p>
-<p>AI tasks live inside projects. Each project has a brief the agent reads first: goals, constraints, conventions and what to leave alone. An agent sees only the tasks and brief of the project it is scoped to.</p>
+<p>AI tasks live inside projects. Each project has a brief the agent reads first: goals, constraints, conventions and what to leave alone. A project can also hold documents, such as a spec or a style guide, that the agent reads when a task needs them. An agent sees only the projects it is assigned to.</p>
 <p><strong>Step 5: Add tasks in the AI Tasks tab</strong></p>
 <p>Add the jobs you want the agent to work through, on desktop or from your phone. This list is separate from your personal My Tasks list, which the agent cannot see.</p>
 <p><strong>Step 6: Ask the agent to start</strong></p>
 <p>The agent does not start on its own. Ask it in plain language, for example: &quot;take my next Dovilo task and work it&quot;. It reads the brief, picks up a task and reports back as it goes.</p>
 <h2 id="the-9-tools-read-and-update-only">The 9 tools: read and update only</h2>
-<p>The server exposes 9 tools, 3 read and 6 write, all scoped to AI tasks in one project.</p>
+<p>The server exposes 9 tools, 3 read and 6 write, all scoped to the AI tasks of the agent&#39;s projects.</p>
 <div class="table-wrap"><table class="table">
 <thead>
 <tr>
@@ -220,12 +220,12 @@
 <tbody><tr>
 <td><code>list_tasks</code></td>
 <td>read</td>
-<td>AI tasks in the scoped project, with status</td>
+<td>AI tasks in the agent&#39;s projects, with status</td>
 </tr>
 <tr>
 <td><code>get_task</code></td>
 <td>read</td>
-<td>One task in full: description, steps, notes, telemetry</td>
+<td>One task in full: description, steps, notes, telemetry, your latest reply</td>
 </tr>
 <tr>
 <td><code>read_context</code></td>
@@ -266,26 +266,28 @@
 </div>
 <p>The agent writes status, steps, notes and telemetry. It cannot edit the task you wrote, it cannot create tasks and it cannot delete anything.</p>
 <p>That is deliberate. Creating and deleting work are decisions that stay with you. An agent that can create tasks will create tasks, and an agent that can delete tasks can lose work.</p>
-<p>Two more limits: the agent cannot see other projects, and if you switch MCP off in Desktop settings, connections drop immediately.</p>
+<p>Two more limits: the agent cannot see projects it is not assigned to, and if you revoke its key from your phone, its connection drops immediately. An agent can cancel a task with a reason, but cancelling is not deleting: the task stays visible.</p>
 <h2 id="why-the-personal-list-is-invisible-to-the-agent">Why the personal list is invisible to the agent</h2>
 <p>My Tasks is Dovilo&#39;s personal to-do list, where you track your own work.</p>
 <p>It is not on the MCP tool surface at all. There is no filter that hides it and no setting that could be misconfigured. The agent has no tool that reads it, updates it or reveals that it exists.</p>
 <p>That keeps ownership clear. The AI Tasks list is the agent&#39;s workspace. My Tasks is yours.</p>
 <h2 id="statuses-steps-and-telemetry-on-the-phone">Statuses, steps and telemetry on the phone</h2>
-<p>Every AI task moves through the same statuses: <code>queued</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, or <code>failed</code> / <code>cancelled</code>.</p>
-<p><code>awaiting-user</code> is the important one. When the agent needs a decision it cannot make, it sets that status and stops, instead of guessing.</p>
-<p>On mobile, the step trail, notes and telemetry land on each task in real time while the agent runs on your desktop. The list is grouped by what needs you: awaiting you, running, queued. Finished work moves to &quot;Recently done&quot; with its step count. Notifications come in two modes: every step, or only start, finish and error.</p>
+<p>Every AI task moves through the same statuses: <code>queued</code>, <code>scheduled</code>, <code>running</code>, <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code> and <code>error</code>. A cancelled task is an <code>error</code> with a reason, shown as Cancelled.</p>
+<p><code>awaiting-user</code> is the important one. When the agent needs a decision it cannot make, it sets that status and stops, instead of guessing. Your reply puts the task back in <code>queued</code> for the agent&#39;s next turn.</p>
+<p>An AI task can also be scheduled to open to the agent at a set time and repeat daily, weekly, monthly or yearly. One open instance per series; missed occurrences are skipped.</p>
+<p>On mobile, the step trail, notes and telemetry land on each task in real time while the agent runs, wherever it runs. The list is grouped by what needs you: awaiting you, running, queued, scheduled. Finished work moves to &quot;Recently done&quot; with its step count. Notifications come in two modes: every step, or only start, finish and error.</p>
 <p>Telemetry is per task and reported by the agent through <code>append_telemetry</code>: model, tokens, cost and duration. Over time it shows you which kinds of tasks are cheap and which are expensive for a given model.</p>
 <h2 id="webhooks-tell-your-own-systems-a-task-moved">Webhooks: tell your own systems a task moved</h2>
-<p>Desktop can send signed webhooks when an AI task changes, to Slack, Linear, n8n, LangGraph or any HTTPS receiver.</p>
+<p>Dovilo can send signed webhooks when an AI task changes, to Slack, Linear, n8n, LangGraph or any HTTPS receiver.</p>
 <ul>
 <li><strong>Events:</strong> <code>task.created</code> and <code>task.status_changed</code>, which carries <code>previousStatus</code>. A test button sends <code>webhook.ping</code>.</li>
-<li><strong>Setup:</strong> open a project, go to Webhooks, paste the URL, generate a signing secret and enable it. The secret is shown once and stays in your OS secure storage, never synced.</li>
+<li><strong>Setup:</strong> in Desktop, open a project&#39;s settings, go to Webhooks, paste the URL, generate a signing secret and enable the events. The secret is shown once.</li>
+<li><strong>Who delivers:</strong> a public HTTPS receiver gets its webhooks from Dovilo&#39;s server, even when Desktop is closed; that secret is generated on the server and stored encrypted. A localhost receiver is delivered by Desktop while it runs.</li>
 <li><strong>Signature:</strong> <code>X-Dovilo-Signature</code> carries a timestamp and an HMAC-SHA256 of the raw body, with a 5-minute replay window.</li>
 <li><strong>Delivery:</strong> <code>X-Dovilo-Delivery</code> stays the same across retries, so use it as your idempotency key. Up to 5 retries, in order per task.</li>
 </ul>
 <p>Payloads are slim on purpose. The webhook tells your system a task moved, and MCP is how the agent then reads it, works it and reports back.</p>
-<p>The open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> runs that loop end to end, and there is a <a href="https://www.youtube.com/watch?v=id_7T8qUfpg" target="_blank" rel="noopener">walkthrough video</a>. Full reference, with verification code in Node, Python and Go: <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
+<p>The open-source <a href="https://github.com/Dovilo-App/dovilo-langgraph-demo" target="_blank" rel="noopener">LangGraph demo</a> runs that loop end to end. Full reference, with verification code in Node, Python and Go: <a href="https://dovilo.app/docs/webhooks">dovilo.app/docs/webhooks</a>.</p>
 <h2 id="a-real-workflow-example">A real workflow example</h2>
 <p>You have a project whose brief describes a TypeScript API: stack, test conventions, and &quot;don&#39;t touch the billing module&quot;. The AI Tasks list has five jobs:</p>
 <ol>
@@ -301,43 +303,43 @@
 <p>If a session ends mid-task, the task stays <code>running</code> with its step trail and notes. The next session reads it with <code>get_task</code> and continues from the last finished step.</p>
 <p>No re-pasting context, no manually updated doc. The task list is the source of truth.</p>
 <h2 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h2>
-<p>Three things, named plainly.</p>
+<p>Two things, named plainly.</p>
 <ul>
-<li><strong>No remote MCP.</strong> The agent must run on the same machine as Dovilo Desktop, so remote servers and CI won&#39;t work yet. A remote MCP server is on the public roadmap.</li>
-<li><strong>No data export.</strong> Also on the roadmap.</li>
+<li><strong>No data export.</strong> On the public roadmap.</li>
 <li><strong>No desktop-only trial.</strong> The 7-day trial starts in the mobile app.</li>
 </ul>
 <p>I&#39;d rather say that here than have you find out after setup.</p>
 <h2 id="requirements-and-compatibility">Requirements and compatibility</h2>
 <ul>
-<li>Dovilo Desktop for Windows or macOS, included with Pro.</li>
-<li>Pro: $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app.</li>
-<li>Clients with presets: Claude Code, Claude Desktop, Cursor (GUI and CLI), Windsurf, Codex CLI, Gemini CLI. Any other MCP client connects with the JSON snippet.</li>
-<li>AI tasks run on a monthly quota. One-time top-up packs of +10, +30 or +75 tasks start at $0.99 and never expire.</li>
+<li>Pro: $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Dovilo Desktop for Windows and macOS is included; the agent does not need it to run.</li>
+<li>Clients with presets: Claude Code, Claude Desktop, Cursor (GUI and CLI), Windsurf, Codex CLI, Gemini CLI. Any other MCP client connects with the URL and a key.</li>
+<li>AI tasks run on a monthly quota: 15 a month on Pro, charged when a task opens to the agent, not when it is created. One-time top-up packs of +10, +30 or +75 tasks start at $0.99 and never expire.</li>
 </ul>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Does MCP traffic go through Dovilo&#39;s servers?</strong>
-No. The bridge runs locally inside Desktop and your client talks to it over stdio. The only external call is the agent talking to its own model provider. AI tasks sync to your phone through Pro cloud sync, which is how you see progress on mobile.</p>
+Yes. The Agents MCP runs at dovilo.app/mcp/agents, and your agent reaches it over HTTPS with its own key. It sees only the AI tasks of its projects; your personal list is not on the tool surface. The agent&#39;s model calls go to its own model provider, not through Dovilo.</p>
 <p><strong>Can the agent see my personal to-do list?</strong>
-No. My Tasks is not on the MCP tool surface at all. The agent sees only the AI tasks and brief of the project it is scoped to.</p>
+No. My Tasks is not on the MCP tool surface at all. The agent sees only the AI tasks, briefs and documents of the projects it is assigned to.</p>
 <p><strong>Can the agent create or delete tasks?</strong>
 No. The 9 tools are read and update only. The agent can change status, steps, notes and telemetry, and nothing else.</p>
 <p><strong>Which agent clients are supported?</strong>
-Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets. Any MCP client that accepts a JSON config works too.</p>
-<p><strong>What happens if I switch MCP off?</strong>
-Connections drop immediately and the agent can&#39;t keep working through Dovilo.</p>
+Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets. Any client that speaks MCP over HTTP works with the URL and a key.</p>
+<p><strong>What happens if I revoke an agent&#39;s key?</strong>
+Its connection drops immediately and it can&#39;t keep working through Dovilo.</p>
 <p><strong>Can I run the agent on a remote server?</strong>
-Not yet. The agent must run on the same machine as Dovilo Desktop. Remote MCP is on the public roadmap.</p>
+Yes. Agents connect to dovilo.app/mcp/agents over HTTPS with their own key, so a server or a CI job works the same way as your laptop. Dovilo Desktop does not need to run.</p>
 <p><strong>How does the quota work?</strong>
-AI tasks run on a monthly quota, shown in the AI Tasks view on mobile. If you need more, one-time top-up packs start at $0.99 and never expire.</p>
+Pro includes 15 AI tasks a month, charged when a task opens to the agent; replies on the same task cost nothing. The count is shown in the AI Tasks view. If you need more, one-time top-up packs start at $0.99 and never expire.</p>
+<p><strong>Can ChatGPT or Claude plan into Dovilo?</strong>
+Yes. <a href="https://dovilo.app/plan/#connect-your-ai">Connect ChatGPT, Claude, Gemini or Grok</a>; the assistant proposes a plan or an AI task and you approve it in Dovilo. Sending a plan is free; approving needs Pro.</p>
 <h2 id="get-started">Get started</h2>
 <p>If you run coding agents on multi-step work and want a persistent task list they read and update between sessions:</p>
 <ol>
 <li>Start the 7-day free trial in the mobile app: <a href="https://apps.apple.com/app/dovilo/id6761195015?ct=blog_mcp_guide&amp;mt=8" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.dovilo.app&amp;utm_source=blog&amp;utm_medium=mcp_guide" target="_blank" rel="noopener">Google Play</a>.</li>
-<li>Install Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a>.</li>
-<li>Connect your agent client.</li>
+<li>Create an agent in the app and copy its key.</li>
+<li>Point your client at <code>https://dovilo.app/mcp/agents</code>, or let Desktop for <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo-Setup.exe?source=blog_mcp_guide" target="_blank" rel="noopener">Windows</a> or <a href="https://github.com/Dovilo-App/dovilo-desktop-releases/releases/latest/download/Dovilo.dmg?source=blog_mcp_guide" target="_blank" rel="noopener">macOS</a> write the config.</li>
 </ol>
-<p>Read the integration before you install anything: <a href="https://dovilo.app/ai">dovilo.app/ai</a>.</p>
+<p>Read the integration before you install anything: <a href="https://dovilo.app/ai/">dovilo.app/ai</a>.</p>
 
       </div></div>
     </article>

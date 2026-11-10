@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Most gamified task managers fail the same way: the reward stops meaning anything. Here is how to judge the mechanic, and how the main options differ.">
   <meta name="twitter:image" content="https://dovilo.app/blog/media/60f876bbb9d151ddbc0ceb1a8ea0cbcba86bd3e5-1200x630.jpg">
   <meta property="article:published_time" content="2026-09-28T01:47:00.563Z">
-  <meta property="article:modified_time" content="2026-09-28T11:56:23Z">
+  <meta property="article:modified_time" content="2026-11-10T13:30:00.000Z">
   <meta property="article:author" content="Selahaddin Akgün">
 
   <meta name="color-scheme" content="light">
@@ -59,7 +59,7 @@
     "@id": "https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/"
   },
   "datePublished": "2026-09-28T01:47:00.563Z",
-  "dateModified": "2026-09-28T11:56:23Z",
+  "dateModified": "2026-11-10T13:30:00.000Z",
   "inLanguage": "en",
   "wordCount": 1639,
   "image": [
@@ -162,7 +162,7 @@
 <li><a href="#dovilo-a-city-built-from-finished-work">Dovilo: a city built from finished work</a><ul>
 <li><a href="#the-task-layer">The task layer</a></li>
 <li><a href="#focus-and-ambience">Focus and ambience</a></li>
-<li><a href="#for-developers-the-mcp-server">For developers: the MCP server</a></li>
+<li><a href="#for-coding-assistants-ai-tasks">For coding assistants: AI Tasks</a></li>
 <li><a href="#pricing-and-whats-free">Pricing and what&#39;s free</a></li>
 <li><a href="#what-dovilo-doesnt-do-yet">What Dovilo doesn&#39;t do yet</a></li>
 </ul>
@@ -204,27 +204,27 @@
 <p>Finish a task or a focus session and you earn bricks. Spend bricks in the Build Market on houses, offices, parks, roads and decorations, then place them on an isometric grid. Bricks are the only currency, and the only way to earn them is to finish something.</p>
 <p>Nothing decays, and no streak punishes you for a quiet week. The city you built in January is still there in December. It is a record of the last few months, not a score you can lose.</p>
 <h3 id="the-task-layer">The task layer</h3>
-<p>Due dates, repeats, reminders, priorities, stars and flags. One view picker covers My Day, Important, Planned, Flagged, all tasks and your own lists, each with a live count. Tasks group by Today, Tomorrow and No date.</p>
+<p>Due dates, repeats, reminders, priorities, stars and flags. One view picker covers My Day, Important, Planned, Flagged, all tasks and your own lists, each with a live count. Lists can hold sub-lists and take one of 7 colours. Tasks group by Today, Tomorrow and No date.</p>
 <p>It is not a project management tool. It covers what one person needs to plan a day.</p>
 <h3 id="focus-and-ambience">Focus and ambience</h3>
 <p>Three timer modes: a single session of any length, a Pomodoro cycle of 25 minutes on and 5 off with a longer break every 4 rounds, and a session tied to one task. A breathing exercise and a countdown ease you in, the timer runs in the background and with the phone locked, and Do Not Disturb can silence other apps for the length of the session.</p>
-<p>The Default ambience scene is free and silent. The Focus Ambience Pack adds five full-screen scenes: Rainy City, Midnight, Dusk, Snow and Fog, each with its own weather, skyline tint and sound. The sound mixer blends up to 3 of 12 layers at once. It is ambience, not music. No melody, no beat.</p>
-<h3 id="for-developers-the-mcp-server">For developers: the MCP server</h3>
-<p>Dovilo Desktop (Windows and macOS, part of Pro) runs a local MCP server that gives AI coding agents their own task list, on a monthly quota. Nine tools, three read and six write, read and update only. No create tool and no delete tool.</p>
-<p>Your personal list is not on that tool surface at all, and an agent is scoped to one project and its brief. MCP traffic stays local over stdio, with no Dovilo endpoint in the agent&#39;s request path. The AI tasks sync to your phone through Pro cloud sync, so you can watch steps and token cost while the agent runs.</p>
-<p>Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets; any other MCP client connects with JSON. Signed webhooks push status changes into Slack, Linear, n8n or a custom endpoint. Details: <a href="https://dovilo.app/ai">dovilo.app/ai</a> and the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">MCP setup guide</a>.</p>
+<p>The Default ambience scene is free and silent. The Focus Ambience Pack adds five full-screen scenes: Rainy City, Midnight, Dusk, Snow and Fog, each with its own weather, skyline tint and sound. The sound mixer blends up to 3 of 16 layers at once. It is ambience, not music. No melody, no beat.</p>
+<h3 id="for-coding-assistants-ai-tasks">For coding assistants: AI Tasks</h3>
+<p>Pro adds <a href="https://dovilo.app/ai/">AI Tasks</a>: coding assistants such as Claude Code or Cursor get their own task list, 15 tasks a month. They can read and update those tasks, but not create or delete them.</p>
+<p>Your personal list is never part of it, and an assistant sees only the projects you assign it, each with a brief. Assistants connect over HTTPS with one key each, revocable from your phone. The AI tasks sync to your phone, so you can watch steps and token cost while the work runs.</p>
+<p>Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI and Gemini CLI have presets in Dovilo Desktop; any other MCP client connects with the URL and a key. Signed webhooks push status changes into Slack, Linear, n8n or a custom endpoint. Details: <a href="https://dovilo.app/ai/">dovilo.app/ai</a> and the <a href="https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/">setup guide</a>.</p>
 <h3 id="pricing-and-what39s-free">Pricing and what&#39;s free</h3>
 <p>Free on iOS and Android: unlimited tasks, categories and focus sessions, a starter city, basic statistics, dark and light themes, five languages and offline-first storage. No ads, on any tier.</p>
-<p>Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro adds cloud sync, advanced statistics, Dovilo Desktop, and both content packs: the Focus Ambience Pack and the Full City Package, each $4.99 on its own if you would rather buy just one.</p>
+<p>Pro is $2.49/month, $19.99/year or $49.99 lifetime, with a 7-day free trial started in the mobile app. Cancel before day 7 and nothing is charged. Pro adds <a href="https://dovilo.app/plan/#connect-your-ai">planning with ChatGPT, Claude, Gemini or Grok</a>, AI Tasks, cloud sync, advanced statistics, Dovilo Desktop, and both content packs: the Focus Ambience Pack and the Full City Package, each $4.99 on its own if you would rather buy just one.</p>
 <h3 id="what-dovilo-doesn39t-do-yet">What Dovilo doesn&#39;t do yet</h3>
-<p>No data export, and no remote MCP, so an agent has to run on the same machine as Desktop. Both are on the public roadmap. Desktop requires Pro; everything else works without it.</p>
+<p>No data export yet; it is on the public roadmap. Desktop requires Pro; everything else works without it.</p>
 <h2 id="how-to-choose">How to choose</h2>
 <ul>
 <li><strong>You show up for other people more than for yourself.</strong> Habitica&#39;s parties and guilds are the most developed social layer in the category.</li>
 <li><strong>You just need to stay off your phone.</strong> Forest does one thing, and does it in two taps.</li>
 <li><strong>You want a gentler, habit-shaped system.</strong> Finch is built around routines and tone rather than stakes.</li>
 <li><strong>You want the work to leave something behind.</strong> A city that only grows fits people whose effort otherwise disappears at the end of the week.</li>
-<li><strong>You also run coding agents.</strong> Keep their tasks on a separate surface from your own. Dovilo does that locally on Desktop, with no create or delete tools.</li>
+<li><strong>You also use a coding assistant.</strong> Keep its tasks on a separate surface from your own. Dovilo does that with AI Tasks, with no create or delete tools.</li>
 </ul>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is a gamified task manager?</strong>
@@ -236,9 +236,9 @@ Nothing. The city stays exactly as you left it. There is no streak to lose and n
 <p><strong>Can I earn bricks without doing real work?</strong>
 Bricks come from completed tasks and completed focus sessions, and focus bricks are paid on duration, so the fastest way to earn is to actually work. Only finished Pomodoro rounds count toward the daily counter.</p>
 <p><strong>Is Dovilo free?</strong>
-Yes, on iOS and Android, with unlimited tasks, categories and focus sessions, and no ads. Pro adds sync, advanced statistics, the desktop app and both content packs, from $2.49/month with a 7-day trial started in the app.</p>
+Yes, on iOS and Android, with unlimited tasks, categories and focus sessions, and no ads. Pro adds planning with your AI, AI Tasks, sync, advanced statistics, the desktop app and both content packs, from $2.49/month with a 7-day trial started in the app.</p>
 <p><strong>Can I use it with Claude Code or Cursor?</strong>
-Yes, on Desktop with Pro. Nine tools, read and update only, on a task list separate from your personal one, with the agent scoped to a single project.</p>
+Yes, with Pro. They work AI Tasks, read and update only, on a task list separate from your personal one, and see only the projects you assign them.</p>
 <p><strong>Which is better for habit tracking specifically?</strong>
 Habitica and Finch are built around daily habits. Dovilo is built around tasks and focus sessions, with repeats for the things you do regularly.</p>
 <hr>

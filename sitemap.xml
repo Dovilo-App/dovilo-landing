@@ -654,7 +654,7 @@
   <!-- BLOG:START -->
   <url>
     <loc>https://dovilo.app/blog/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
@@ -667,7 +667,7 @@
 
   <url>
     <loc>https://dovilo.app/tr/blog/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
@@ -693,7 +693,7 @@
 
   <url>
     <loc>https://dovilo.app/fr/blog/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
@@ -706,7 +706,7 @@
 
   <url>
     <loc>https://dovilo.app/de/blog/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/blog/"/>
@@ -719,147 +719,147 @@
 
   <url>
     <loc>https://dovilo.app/blog/task-manager-for-programmers-what-to-look-for-in-2026/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/productivity-rpg-how-to-build-an-xp-system-for-real-work/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/productivity-gamification-what-the-research-actually-shows/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/gamified-to-do-list-why-game-mechanics-beat-guilt-in-2026/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/task-prioritization-app-showdown-top-picks-for-2026/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/gamified-task-manager-complete-buyer-s-guide-for-2026/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/ai-productivity-tools-that-actually-save-you-time-in-2026/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/time-blocking-app-guide-pick-the-best-one-in-2026/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/focus-session-app-build-a-routine-that-sticks-in-2026/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/ai-agent-task-management-how-coding-agents-use-to-dos/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/task-management-for-ai-coding-agents-mcp/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/deep-work-app-how-to-choose-the-right-one-for-focus/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/claude-code-productivity-ship-more-with-ai-task-queues/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/developer-productivity-tools-that-cut-context-switch-costs/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/best-productivity-apps-for-developers-and-indie-hackers-in-2026/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/forest-app-alternative-5-focus-apps-with-more-features/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/ticktick-alternative-which-app-fits-your-workflow-better/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/habitica-alternative-6-gamified-apps-ranked-for-2026/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/cursor-ai-tools-how-developers-use-them-daily-in-2026/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/best-gamified-productivity-apps/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/blog/todoist-alternative-7-apps-worth-switching-to-in-2026/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
