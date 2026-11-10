@@ -504,7 +504,6 @@ ${
     twitterImageAlt: SITE.defaultOgImageAlt,
     body,
     lang,
-    current: 'blog',
     alternates: menuAlternates(LANGS, lang, blogPath),
     hreflang,
     ogLocale,

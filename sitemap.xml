@@ -42,6 +42,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo AI gelen kutusu: Claude&apos;dan gelen altı görevlik plan ve Onayla butonu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo&apos;da Taşınma listesi: onaylanan altı görev Bugün, Yarın ve Bu hafta altında</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/tr/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo&apos;da Yağmurlu şehir sahnesinde odak seansı, 22 dakika kaldı</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
+      <image:title>Dovilo&apos;da izometrik şehir: stadyum, hastane ve belediye binası</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://dovilo.app/es/</loc>
@@ -54,6 +70,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Bandeja de IA de Dovilo: un plan de seis tareas de Claude con un botón Aprobar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Lista Cumpleaños de Lucía en Dovilo con las seis tareas aprobadas en Hoy, Mañana y Esta semana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/es/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Sesión de enfoque de Dovilo en la escena Ciudad lluviosa con 22 minutos restantes</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
+      <image:title>Ciudad isométrica de Dovilo con un estadio, un hospital y un ayuntamiento</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://dovilo.app/fr/</loc>
@@ -66,6 +98,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Boîte IA de Dovilo : un plan de six tâches de Claude avec un bouton Approuver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Liste Dovilo Déménagement avec les six tâches approuvées sous Aujourd&apos;hui, Demain et Cette semaine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/fr/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Session de concentration Dovilo dans la scène Ville sous la pluie, 22 minutes restantes</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
+      <image:title>Ville isométrique Dovilo avec un stade, un hôpital et un hôtel de ville</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://dovilo.app/de/</loc>
@@ -78,6 +126,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://dovilo.app/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://dovilo.app/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dovilo.app/"/>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-ai-inbox-772.webp</image:loc>
+      <image:title>Dovilo KI-Eingang: ein Plan mit sechs Aufgaben von Claude und einem Annehmen-Button</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-list-birthday-772.webp</image:loc>
+      <image:title>Dovilo-Liste Lenas Geburtstag mit den sechs angenommenen Aufgaben unter Heute, Morgen und Diese Woche</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/de/mobile-focus-rain-772.webp</image:loc>
+      <image:title>Dovilo Fokus-Sitzung in der Szene Regenstadt mit 22 verbleibenden Minuten</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dovilo.app/screenshots/mobile-city-26-772.webp</image:loc>
+      <image:title>Isometrische Dovilo-Stadt mit Stadion, Krankenhaus und Rathaus</image:title>
+    </image:image>
   </url>
 
   <url>

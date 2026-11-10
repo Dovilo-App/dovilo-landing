@@ -132,7 +132,20 @@ export const LANGUAGES = [
 /* `langPriority` is the sitemap priority of the page's localised copies, a
    step under English (A130 3.7). */
 export const PAGES = [
-  { id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8' },
+  /* sitemapImages: the figures a language copy lists as image:image in the
+     sitemap, in the order of the English entry. `file` is the -772 capture
+     under /screenshots/ (under /screenshots/<lang>/ for a language copy,
+     unless `shared`: the city is one file for every language, A131); `alt`
+     is the key of its alt text in pages.<page> of the language's strings. */
+  {
+    id: 'home', path: '/', out: 'index.html', card: 'og-home', langPriority: '0.8',
+    sitemapImages: [
+      { file: 'mobile-ai-inbox-772.webp', alt: 'hero.inboxAlt' },
+      { file: 'mobile-list-birthday-772.webp', alt: 'hero.listAlt' },
+      { file: 'mobile-focus-rain-772.webp', alt: 'focus.rainAlt' },
+      { file: 'mobile-city-26-772.webp', alt: 'city.alt', shared: true },
+    ],
+  },
   { id: 'focus', path: '/focus/', out: 'focus/index.html', card: 'og-focus', langPriority: '0.8' },
   { id: 'ai', path: '/ai/', out: 'ai/index.html', card: 'og-ai', langPriority: '0.8' },
   { id: 'plan', path: '/plan/', out: 'plan/index.html', card: 'og-plan', langPriority: '0.8' },
