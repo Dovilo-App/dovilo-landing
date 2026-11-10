@@ -4,7 +4,7 @@
 
 This file expands [llms.txt](https://dovilo.app/llms.txt) with the detail an assistant needs to answer questions about Dovilo without guessing: feature behaviour, the agent interface, the webhook contract, pricing, and the complete FAQ. Everything here is public documentation. Source pages are linked at the end.
 
-Last updated: 2026-11-01.
+Last updated: 2026-11-10.
 
 ## What Dovilo is
 
@@ -31,13 +31,13 @@ Plan, approve, focus, build:
 
 The rest of the page, block by block:
 
-- **Tasks and lists, free and unlimited.** Every task can carry a due date, a reminder, a repeat, a star, a flag, a priority and notes. None of it needs Pro. **One picker for every view.** My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count. **Grouped by date.** Lists fold into date groups, and Planned groups by day. **Works offline.** Your tasks live on your phone first. Cloud sync between devices comes with Pro. **Finished tasks pay bricks.** They build the city further down this page.
+- **Tasks and lists, free and unlimited.** A task can carry a due date, reminder, repeat, star, flag, priority and notes, all free. **One picker for every view.** My Day, Important, Planned, Flagged, all Tasks and each of your lists, each with a live count. **Grouped by date.** Lists fold into date groups, and Planned groups by day. **Lists inside lists, in 7 colours.** Put a list under another; the parent shows its sub-lists' tasks too. **Works offline.** Your tasks live on your phone first. Cloud sync between devices comes with Pro. **Finished tasks pay bricks.** They build the city further down this page.
 - **Plan with your AI.** Ask ChatGPT, Claude, Gemini or Grok to plan your day, an event or a project; the plan arrives in your AI inbox in Dovilo and nothing lands before you say yes. How it works: https://dovilo.app/plan/
 - **Focus that fills the whole screen.** A single session, a Pomodoro cycle or a timer on one task, free and unlimited. More about Focus: https://dovilo.app/focus/
 - **Finished work builds a city that stays.** Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.
 - **AI Tasks for coding assistants.** Give your coding assistant its own task list, AI Tasks, separate from yours: 9 tools, no create, no delete, your list invisible. The detail is on the developer page, https://dovilo.app/ai/.
 - **What it costs.** Free is the whole personal app: unlimited tasks and focus sessions, the city, no ads. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial, and adds AI planning, AI Tasks, Desktop, cloud sync, both packs and advanced statistics. The full list is on the pricing page, https://dovilo.app/pricing/.
-- **Recently shipped**, the newest release of each line: Mobile 2.2.0, 5 Nov 2026 (plan with your AI in three steps; AI Tasks for coding assistants; a warmer look), and Desktop 2.2.0, 4 Nov 2026 (the same look as the phone and the site; signed Windows builds). Every release: https://dovilo.app/changelog/
+- **Recently shipped**, the newest release of each line: Mobile 2.3.0, 9 Nov 2026 (lists inside lists, 7 colours and project documents for coding assistants), and Desktop 2.3.0, 8 Nov 2026 (lists inside lists, list colours and project documents). Every release: https://dovilo.app/changelog/
 - **One engineer, in Istanbul.** No company, no funding, and a public release history you can check.
 
 The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left; and a city with a stadium, a hospital and a city hall.
@@ -55,6 +55,7 @@ You can run a single session, a Pomodoro cycle (25 minutes of focus, a 5 minute 
 - Task properties: due date, repeat, reminder, star (important), flag, list, and free-form notes. A task opens into a detail sheet where these sit in one property grid.
 - **One view picker** replaced the old row of filter pills. It holds the built-in views — My Day, Important, Planned, Flagged, Tasks (everything) — plus every custom list, each with a live task count.
 - Lists group themselves by date: Today, Tomorrow, further dates, and No date. Groups collapse.
+- A list can sit under another list, one level deep; the parent then shows its own tasks and its sub-lists' tasks together. Any list can take one of 7 colours, shown as a dot. Both are free.
 - Completing a task earns bricks.
 
 ## Focus sessions
@@ -180,7 +181,7 @@ What ChatGPT or Claude can see and change. You set this per app in Settings > AI
 - **Read access is yours to turn on or off.** With it off, it can still send plans.
 - **Every new task or edit waits for you.** The setting is called Ask me first.
 - **No delete tool.** Not now, not later.
-- **Your coding work stays out.** Unless you turn on AI task access for that app.
+- **Your coding work stays out.** Unless you turn on AI task access for that app; then it can also read and propose project documents.
 - **Disconnect from your phone.** Any app, any time.
 
 Plans to try. Paste one into a new chat after you connect.
@@ -248,6 +249,13 @@ claude mcp add --transport http --scope local dovilo https://dovilo.app/mcp/agen
 
 Dovilo Desktop writes the config for 7 clients (Claude Code, Cursor, Cursor CLI, Codex CLI, Gemini CLI, Windsurf, Claude Desktop). The page links to both servers and every tool in the MCP reference, https://dovilo.app/docs/mcp/.
 
+A project carries its brief and its documents. Specs, decisions and checklists live in the project. Your coding agent reads them with `read_context`; a sub-project's agent reads its parent's too.
+
+- **Drafted in chat, approved on your phone.** ChatGPT or Claude proposes a document or an edit.
+- **Agents read, never write.** No agent tool changes a document.
+- **Markdown, versioned.** Up to 200 KB a document and 50 a project; the last 5 versions are kept.
+- **Deleted only in the app.** No MCP has a delete tool, and a deleted document is gone for good.
+
 What your coding agent can and cannot do, as the page states it:
 
 - Its own tasks, nothing else.
@@ -297,7 +305,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 - **Per connection** the user controls read access, write mode, visible lists, visible projects, AI task access (off by default) and revoke. Without read access an assistant sees only the names of visible lists; hidden lists and projects are invisible to it. Assistants never get AI-task telemetry or attachments.
 - **Tier:** sending a plan works on Free; approving and everything else needs Pro.
 - **Today's date in every result:** every Dovilo tool result includes `now` (the user's current date, weekday, time and time zone), and Dovilo refuses a due date before today or a reminder or schedule that has already passed, so assistants should plan from now, not from the conversation.
-- **Project documents:** AI projects can hold Markdown documents, such as specs, analyses and notes. Connected chat apps can read them and propose new documents or edits with `get_project_document`, `create_project_document` and `update_project_document`; these tools need AI task access for the connection. Every proposal waits in the Dovilo app until the user approves it; Dovilo then applies it and keeps the last 5 earlier versions. Coding agents read a project's documents through `read_context`. Limits, in bytes of UTF-8 text: 60,000 per proposal, 200,000 per document, 50 documents and 2,000,000 bytes per project, and 200 documents and 10,000,000 bytes per account (earlier versions included). Up to 10 proposals can wait at once, and 20 can arrive a day. Documents are Markdown text only: no embedded files and no attachments. A document can be deleted in the Dovilo app, and deleting a project deletes its documents. No MCP server has a delete tool. Sending a proposal is free; approving it needs Pro.
+- **Project documents:** AI projects can hold Markdown documents, such as specs, analyses and notes. Connected chat apps can read them and propose new documents or edits with `get_project_document`, `create_project_document` and `update_project_document`; these tools need AI task access for the connection. Every proposal waits in the Dovilo app until the user approves it; Dovilo then applies it and keeps the last 5 earlier versions. Coding agents read a project's documents through `read_context`. Limits, in bytes of UTF-8 text: 60,000 per proposal, 200,000 per document, 50 documents and 2,000,000 bytes per project, and 200 documents and 10,000,000 bytes per account (earlier versions included). Up to 10 proposals can wait for review at once; there is no daily limit. Documents are Markdown text only: no embedded files and no attachments. A document can be deleted in the Dovilo app, and deleting a project deletes its documents. No MCP server has a delete tool. Sending a proposal is free; approving it needs Pro.
 - **Sub-projects:** a project can sit under a parent project, one level deep. An agent assigned to a sub-project also reads its parent's brief and documents: `read_context` returns `parentBrief` next to `brief`, and the project's own brief wins where they differ. Agents are not assigned to sub-projects through the parent. A parent hidden from AI Tasks shares nothing.
 - **Planning to code, end to end:** plan in ChatGPT; it proposes an AI task under a Dovilo project; the user approves on the phone; Claude Code picks it up and works it; if it stops with a question, ChatGPT shows it and drafts an answer; the user approves, and the agent carries on.
 
@@ -409,7 +417,7 @@ Pro adds, in the order the app lists them: planning with ChatGPT, Claude, Gemini
 **Download Dovilo for iPhone, Android, Windows and Mac.** Free on phones. Desktop needs Pro, started in the mobile app.
 
 - **Phones:** the App Store (iPhone and iPad) and Google Play (Android). Free, with a 7-day Pro trial in the app.
-- **Desktop:** Dovilo for Windows (`Dovilo-Setup.exe`) and Dovilo for Mac (`Dovilo.dmg`), both from the public releases repository, https://github.com/Dovilo-App/dovilo-desktop-releases. Latest: 2.2.0, 4 Nov 2026 (Windows builds are code-signed since 2.2.0). Needs Pro: sign in with the account you subscribed with.
+- **Desktop:** Dovilo for Windows (`Dovilo-Setup.exe`) and Dovilo for Mac (`Dovilo.dmg`), both from the public releases repository, https://github.com/Dovilo-App/dovilo-desktop-releases. Latest: 2.3.0, 8 Nov 2026 (Windows builds are code-signed since 2.2.0). Needs Pro: sign in with the account you subscribed with.
 - **Coming from Desktop 1.8?** Agents now connect to dovilo.app/mcp/agents with a key. The steps are at https://dovilo.app/docs/mcp/#upgrading.
 
 The page marks the download that matches the visitor's device. Links from the app and from the MCP servers' error messages carry a `?source=` value (for example `?source=mcp_401`). For five of those values the page adds a short note above the download boxes saying why the visitor landed there and what to do next; the downloads and the rest of the page are the same whatever the value.
@@ -423,7 +431,7 @@ Which download you need, as the page sets it out:
 | Windows | Dovilo-Setup.exe, from the public releases repository | Needs Pro | The app updates itself |
 | macOS | Dovilo.dmg, from the public releases repository | Needs Pro | The app updates itself |
 
-The mobile apps are the free ones, and free here is the whole product rather than a trial. The desktop apps are the Pro half: two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where the signed webhooks are set up. Coding agents do not need it: they connect to Dovilo directly, with a key created on the phone or on the desktop. Mobile and desktop run on separate version lines, so their numbers are not meant to line up: the current mobile release is 2.2.0, from 5 November 2026, and the current desktop release is 2.2.0, from 4 November 2026.
+The mobile apps are the free ones, and free here is the whole product rather than a trial. The desktop apps are the Pro half: two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where the signed webhooks are set up. Coding agents do not need it: they connect to Dovilo directly, with a key created on the phone or on the desktop. Mobile and desktop run on separate version lines, so their numbers are not meant to line up: the current mobile release is 2.3.0, from 9 November 2026, and the current desktop release is 2.3.0, from 8 November 2026.
 
 The page answers five download questions:
 
@@ -453,7 +461,16 @@ Dovilo is a gamified productivity app for iPhone, iPad, Android, Windows and Mac
 
 ### Mobile: iOS & Android
 
-**2.2.0**, 5 November 2026, the latest mobile release (https://dovilo.app/changelog/#mobile-2-2-0)
+**2.3.0**, 9 November 2026, the latest mobile release (https://dovilo.app/changelog/#mobile-2-3-0)
+
+- Lists inside lists: put a list under a parent list, one level deep, and the parent shows its own tasks and its sub-lists' tasks together. Give any list or project one of 7 colours, shown as a dot. Both are free.
+- AI Tasks: group projects under a parent project. The parent's brief and documents reach the coding assistant of every sub-project.
+- Project documents: Markdown documents in a project, such as specs, decisions and checklists. Coding assistants read them; ChatGPT, Claude, Gemini or Grok can propose a new document or an edit, and nothing is saved until you approve it in the AI inbox. Read and delete them under the project.
+- Privacy: one switch in Settings > General > Usage data turns off usage data and crash reports. They no longer carry your account ID.
+
+2.3 gives your lists and projects a shape: they nest one level deep, take a colour, and a project can carry the documents its coding assistant works from. Colours and sub-lists are free; approving a document needs Pro. It reached the App Store and Google Play on 9 November 2026.
+
+**2.2.0**, 5 November 2026 (https://dovilo.app/changelog/#mobile-2-2-0)
 
 - Plan with your AI: connect ChatGPT, Claude, Gemini or Grok in three short steps from Settings > AI > Connected AI apps. Ask it to plan your day, an event or a project; the plan arrives in your AI inbox to review, edit and approve. You choose which lists each AI can see, and nothing changes without your approval.
 - AI Tasks: a separate task list for coding assistants like Claude Code and Cursor, turned on or off in Settings > Modules. Give each assistant its own key and pick its projects; it never sees your personal tasks, and Dovilo Desktop doesn't have to be open. Schedule AI tasks or repeat them daily, weekly or monthly, and answer an assistant's question from your phone, or let your chat AI draft the answer for you to approve.
@@ -496,7 +513,15 @@ The first public build, on the App Store and Google Play: the to-do list, the fo
 
 Desktop runs on its own version line, which is why its numbers sit well ahead of mobile's. It needs an active Pro subscription, which you start from the mobile app. Since 2.0 it no longer carries an MCP server: coding agents in Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI or Gemini CLI connect to Dovilo's server from any machine and work only the AI tasks you write for them, never your personal to-do list. Desktop is the desktop client for your lists and AI tasks, where you also create agent keys and set up each project's webhook.
 
-**2.2.0**, 4 November 2026, the latest desktop release (https://dovilo.app/changelog/#desktop-2-2-0)
+**2.3.0**, 8 November 2026, the latest desktop release (https://dovilo.app/changelog/#desktop-2-3-0)
+
+- Lists inside lists and 7 list colours, in My Tasks and in your projects: sub-lists sit under their parent in the sidebar, and a parent folds open and closed.
+- Project documents: a Documents section in each project, to read a document in full or delete it. New documents and edits from ChatGPT, Claude, Gemini or Grok are approved on your phone.
+- Privacy: Settings > Desktop > Share usage data and crash reports turns both off. They no longer carry your account ID.
+
+Nothing changes in the MCP contract, agent keys or webhooks.
+
+**2.2.0**, 4 November 2026 (https://dovilo.app/changelog/#desktop-2-2-0)
 
 - A new look that matches the mobile app and dovilo.app: new type, a warmer palette in light and dark, and the new app icon.
 - Windows builds are now code-signed, so Windows shows the publisher's name when you install or update.
@@ -559,11 +584,11 @@ The webhooks reference (https://dovilo.app/docs/webhooks/) carries its own chang
 
 ## Data and privacy
 
-By default everything is stored locally on the device. Enabling cloud sync stores the Firebase user id, task and city data, and preferences on Firebase, encrypted in transit and at rest. Analytics are aggregated and anonymised. AI connections (coding agents and chat assistants) go through dovilo.app, routed by Cloudflare; agent keys and OAuth tokens are stored only as hashes, and webhook secrets for server delivery are stored encrypted. Subscriptions run through RevenueCat; Dovilo never sees payment details. Full policy: https://dovilo.app/privacy/
+By default everything is stored locally on the device. Enabling cloud sync stores the Firebase user id, task and city data, and preferences on Firebase, encrypted in transit and at rest. The apps send usage data (Google Analytics for Firebase) and crash reports (Firebase Crashlytics on mobile, Sentry on Desktop) by default, and one switch in the settings turns both off; the apps do not collect the advertising ID. AI connections (coding agents and chat assistants) go through dovilo.app, routed by Cloudflare; agent keys and OAuth tokens are stored only as hashes, and webhook secrets for server delivery are stored encrypted. Subscriptions run through RevenueCat; Dovilo never sees payment details. Full policy: https://dovilo.app/privacy/
 
-## Frequently asked questions (28 questions, verbatim from https://dovilo.app/faq/)
+## Frequently asked questions (29 questions, verbatim from https://dovilo.app/faq/)
 
-**Dovilo FAQ: straight answers on the app, Pro and AI.** Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 28 questions in six groups, from what is free to what a coding assistant can see. Anything missing: support [at] dovilo.app.
+**Dovilo FAQ: straight answers on the app, Pro and AI.** Dovilo is a free to-do list for iOS and Android with a focus timer and a city builder; Pro is $2.49 a month. 29 questions in six groups, from what is free to what a coding assistant can see. Anything missing: support [at] dovilo.app.
 
 ### General
 
@@ -587,7 +612,11 @@ Dovilo is available in 5 languages: English, Turkish (Türkçe), Spanish (Españ
 
 **How does the to-do list work?**
 
-You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. Completing a task earns bricks you can spend in the city builder.
+You can create tasks with due dates, repeats, reminders, stars, flags, and your own lists. Everything sits behind one view picker: My Day, Important, Planned, Flagged, all Tasks, and each list you keep, every entry showing a live count. Lists group themselves by date (Today, Tomorrow, No date) and each task opens into a detail sheet with its properties and notes. A list can sit under another list, one level deep; the parent then shows its own tasks and its sub-lists' tasks together. Any list can take one of 7 colours, shown as a dot. Completing a task earns bricks you can spend in the city builder.
+
+**Can lists have sub-lists?**
+
+Yes, one level deep. Put a list under a parent list, and the parent shows its own tasks and its sub-lists' tasks together. Any list can also take one of 7 colours. Both are free.
 
 **How do focus sessions work?**
 
@@ -645,9 +674,9 @@ For each connection you choose what the assistant can read and which lists and p
 
 **What is Dovilo's MCP integration?**
 
-Dovilo runs two remote Model Context Protocol servers. Agents MCP, at https://dovilo.app/mcp/agents, is for coding agents such as Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI. Each agent connects with its own key and gets nine tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note and append_telemetry. Those tools reach AI tasks only, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task.
+Dovilo runs two remote Model Context Protocol servers. Agents MCP, at https://dovilo.app/mcp/agents, is for coding agents such as Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI and Gemini CLI. Each agent connects with its own key and gets nine tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note and append_telemetry. Those tools reach AI tasks only, the jobs you write for an agent in the AI Tasks tab, inside the projects you assign to it. Your personal to-do list in My Tasks is not on its tool surface, and no agent can create or delete a task. It also reads each project's brief and documents through read_context.
 
-Personal MCP, at https://dovilo.app/mcp, is for ChatGPT, Claude, Gemini and Grok, which propose plans and tasks for you to approve. Setup and the trust boundaries are on the developer page, and every tool with its inputs is in the MCP reference.
+Personal MCP, at https://dovilo.app/mcp, is for ChatGPT, Claude, Gemini and Grok, which propose plans, tasks and project documents for you to approve. Setup is on the Plan with AI page, and every tool with its inputs is in the MCP reference.
 
 **Does my coding assistant need Dovilo Desktop running?**
 
@@ -663,7 +692,7 @@ The connect flow has presets for Claude Code, Cursor (app and CLI), Codex CLI, G
 
 **Can agents create or modify tasks I didn't authorize?**
 
-No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval.
+No. The agent tools have no create and no delete. An agent can read its AI tasks, update their status, mark steps, leave notes and report telemetry, and it can cancel a task it should not run, with a reason; the task stays in your list, shown as Cancelled. You decide which tasks an agent sees by assigning it projects, each with a brief and documents the agent reads first. Deleting an agent stops its key right away. Chat assistants on Personal MCP only propose: plans, AI tasks and every change to an AI task wait for your approval.
 
 **Do I get notified when an agent works on my task?**
 
@@ -713,7 +742,7 @@ No. Agents connect to dovilo.app/mcp/agents directly. Desktop is the Windows and
 
 **What does the agent see?**
 
-The AI tasks of the projects it is assigned to, each project's brief, and your replies. Your personal to-do list is not on the tool surface at all.
+The AI tasks of the projects it is assigned to, each project's brief and documents, the brief and documents of a parent project, and your replies. Your personal to-do list is not on the tool surface at all.
 
 **Can an agent delete a task?**
 
@@ -792,11 +821,11 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 ## Source pages
 
 - https://dovilo.app/ — the homepage, in short: what Dovilo is, how it works in four steps (plan, approve, focus, build), focus and the Focus Ambience Pack, the city, a line for developers, the price, the newest mobile and desktop release, ten questions, the App Store and Google Play links, and who builds it
-- https://dovilo.app/faq/ — the FAQ reproduced above, 28 questions in six groups
+- https://dovilo.app/faq/ — the FAQ reproduced above, 29 questions in six groups
 - https://dovilo.app/changelog/ — the release notes reproduced above: every mobile and desktop build with what it shipped, the roadmap (data export, Apply directly), how updates reach each platform and where else changes are published
 - https://dovilo.app/focus/ — Focus: three ways to focus, from the first minute to the last, the six scenes, the sound mixer (ambience, not music), how finished sessions build the city, the price, four questions (reproduced above)
-- https://dovilo.app/plan/ — planning with ChatGPT, Claude, Gemini or Grok: how a plan reaches your list, how to connect each of the four apps, what the app can see and change, four plans to try, the price, five questions (reproduced above)
-- https://dovilo.app/ai/ — the developer page, in short: how an AI task moves, any MCP coding client, the Claude Code setup command, what your coding agent can and cannot do and the nine agent tools, the hand-over from ChatGPT or Claude, webhooks and the demo, pricing, five developer questions
+- https://dovilo.app/plan/ — planning with ChatGPT, Claude, Gemini or Grok: how a plan reaches your list, how to connect each of the four apps, what the app can see and change (including project documents with AI task access), four plans to try, the price, five questions (reproduced above)
+- https://dovilo.app/ai/ — the developer page, in short: how an AI task moves, any MCP coding client, the Claude Code setup command, what your coding agent can and cannot do and the nine agent tools, what a project carries (its brief and its documents), the hand-over from ChatGPT or Claude, webhooks and the demo, pricing, five developer questions
 - https://dovilo.app/docs/ — developer docs: the two MCP servers and webhooks in short, the two references, five deep links into them, and the machine-readable copies
 - https://dovilo.app/docs/mcp/ — MCP reference: endpoints and the server comparison, authentication, connecting a client, all 25 tools (with inputs for the nine agent tools), status values, scheduling, approval rules, planning from chat assistants, upgrading from Desktop 1.8, plan and trial, developer questions
 - https://dovilo.app/docs/webhooks/ — webhook developer reference with delivery modes and verification examples in Node, Python and Go

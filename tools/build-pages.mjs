@@ -211,6 +211,18 @@ for (const l of LANGUAGES.slice(1)) {
   sitemap = sitemap.replace(new RegExp(`  <url>\\n    <loc>${prefix}[^<]*</loc>\\n[\\s\\S]*?  </url>\\n`, 'g'), '');
 }
 if (langs.length === 1) sitemap = sitemap.replace(/    <xhtml:link [^\n]*\n/g, '').replace('\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"', '');
+/* The image:image blocks of a language copy: the English entry's figures, each
+   with the language's own capture and its alt text as the title. */
+const xmlText = (s) => plain(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&apos;').replace(/"/g, '&quot;');
+function sitemapImages(page, lang) {
+  return page.sitemapImages.map(({ file, alt, shared }) => {
+    const rel = `screenshots/${shared ? '' : `${lang.code}/`}${file}`;
+    if (!existsSync(path.join(ROOT, rel))) throw new Error(`${lang.code}/${page.id}: sitemap image ${rel} does not exist`);
+    const text = alt.split('.').reduce((o, k) => o?.[k], strings[lang.code].pages[page.id]);
+    if (!text) throw new Error(`${lang.code}/${page.id}: no string at pages.${page.id}.${alt}`);
+    return `    <image:image>\n      <image:loc>${ORIGIN}/${rel}</image:loc>\n      <image:title>${xmlText(text)}</image:title>\n    </image:image>\n`;
+  }).join('');
+}
 const entryRe = (url) => new RegExp(`  <url>\\n    <loc>${url.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}</loc>\\n[\\s\\S]*?  </url>\\n`);
 for (const page of PAGES) {
   const set = languagesOf(page);
@@ -240,6 +252,9 @@ for (const page of PAGES) {
       .replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${updated}</lastmod>`)
       .replace(/    <xhtml:link [^\n]*\n/g, '');
     if (links) entry = entry.replace(/(    <priority>[^\n]*\n)/, `$1${links}`);
+    if (page.sitemapImages && lang.code !== 'en') {
+      entry = entry.replace(/    <image:image>[\s\S]*?<\/image:image>\n/g, '').replace(/  <\/url>\n$/, () => `${sitemapImages(page, lang)}  </url>\n`);
+    }
     sitemap = sitemap.slice(0, m.index) + entry + sitemap.slice(m.index + m[0].length);
     after = m.index + entry.length;
   }
@@ -258,12 +273,14 @@ const others = langs.slice(1);
 const siteLangs = list(langs.map((l) => l.english));
 const nav = (l) => strings[l.code].common.nav;
 const link = (label, p) => `[${label}](${abs(p)})`;
-const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+/* The page count in words, as llms.txt says it. Past twelve it falls back to
+   digits instead of writing "undefined" into a file crawlers read. */
+const numberWord = (n) => ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'][n] ?? String(n);
 const llmsLanguages = [
-  `The apps are in English, Turkish, Spanish, French and German. On the site, the ${NUMBER_WORDS[PAGES.length]} main pages and the blog index are in ${siteLangs}; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.`,
+  `The apps are in English, Turkish, Spanish, French and German. On the site, the ${numberWord(PAGES.length)} main pages and the blog index are in ${siteLangs}; every other page (docs, changelog, legal and the blog posts, which a language's blog index lists) is in English. Prices on every language page are in US dollars.`,
   '',
   `- English: ${[['Home', 'home'], [nav(langs[0]).focus, 'focus'], [nav(langs[0]).plan, 'plan'], [nav(langs[0]).ai, 'ai'], [nav(langs[0]).pricing, 'pricing'], [nav(langs[0]).downloads, 'downloads'], [nav(langs[0]).faq, 'faq']].map(([t, id]) => link(t, PAGES.find((p) => p.id === id).path)).concat(link('Blog', blogPath(langs[0]))).join(', ')}`,
-  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).focus, 'focus'], [nav(l).plan, 'plan'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).concat(link(nav(l).blog, blogPath(l))).join(', ')}`),
+  ...others.map((l) => `- ${l.english} (${l.name}), labelled as the ${l.english} nav: ${[['Dovilo', 'home'], [nav(l).focus, 'focus'], [nav(l).plan, 'plan'], [nav(l).ai, 'ai'], [nav(l).pricing, 'pricing'], [nav(l).downloads, 'downloads'], [nav(l).faq, 'faq']].map(([t, id]) => link(t, pagePath(PAGES.find((p) => p.id === id), l))).concat(link(strings[l.code].common.footer.blog, blogPath(l))).join(', ')}`),
 ].join('\n');
 const llmsFull = `**The site is in ${siteLangs}** (the home page, /focus/, /plan/, /ai/, /pricing/, /downloads/ and /faq/, plus the blog index; ${list(others.map((l) => `${l.english} under ${l.prefix}/`))}), and **prices on every language page are in USD**.`;
 function langRegion(file, body) {

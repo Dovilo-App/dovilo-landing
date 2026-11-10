@@ -271,7 +271,7 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
 - `robots.txt` allows every major search and AI crawler — Googlebot, Bingbot, DuckDuckBot, Applebot,
   ClaudeBot, Claude-Web, Claude-User, Claude-SearchBot, anthropic-ai, GPTBot, OAI-SearchBot,
   ChatGPT-User, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended,
-  Meta-ExternalAgent, cohere-ai, CCBot. Only `/notes/` is disallowed. **Never add a Disallow for an
+  Meta-ExternalAgent, cohere-ai, CCBot. Nothing is disallowed. **Never add a Disallow for an
   AI crawler.**
 - Change a URL's content → bump its `<lastmod>` in `sitemap.xml` to that day. A retitle counts.
   (`0384c1f`) A link added to the shared nav or footer alone is not a content change and moves
@@ -293,7 +293,7 @@ overwrites them. `npm run build:pages -- --check` fails when they are out of ste
   `<link rel="alternate" type="text/markdown" href="https://dovilo.app/llms.txt">` — legal pages
   included.
 - **Working Markdown is not published.** Pages runs Jekyll, which turns any `.md` file into a public
-  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, `docs/design-language.md`, the icon sources
+  page. `_config.yml` excludes `CLAUDE.md`, `README.md`, the icon sources
   in `docs/brand/`, and `src/`, the page templates and strings,
   so Pages never serves a template; a new internal Markdown file goes on that list in the same
   commit.

@@ -54,8 +54,8 @@ const shell = (lang, current, alternates) => {
  * the page's sections, written straight into <main>.
  *
  * `lang` is the language entry of pages-lib (English unless the blog index of
- * another language); `current` names the nav entry to mark ('blog' on the
- * index); `alternates` is the Language menu (menuAlternates in pages-lib);
+ * another language); `current` names the nav entry to mark (none for the
+ * blog, which the nav does not list); `alternates` is the Language menu (menuAlternates in pages-lib);
  * `hreflang` and `ogLocale` are ready-made tags for the index pages, empty on
  * a post.
  */

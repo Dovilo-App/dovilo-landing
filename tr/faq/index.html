@@ -63,7 +63,7 @@
   "name": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
   "url": "https://dovilo.app/tr/faq/",
   "inLanguage": "tr",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -111,7 +111,15 @@
       "name": "Yapılacaklar listesi nasıl çalışır?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır."
+        "text": "Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir liste başka bir listenin altına tek seviye girebilir; üst liste o zaman kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri verilebilir, nokta olarak görünür. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Listelerin alt listeleri olabilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet, tek seviye. Bir listeyi üst bir listenin altına koy; üst liste kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri de verilebilir. İkisi de ücretsiz."
       }
     },
     {
@@ -199,7 +207,7 @@
       "name": "Dovilo'nun MCP entegrasyonu nedir?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo iki remote Model Context Protocol sunucusu çalıştırır. Agents MCP, https://dovilo.app/mcp/agents adresinde, Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note ve append_telemetry. Bu araçlar yalnızca AI görevlerine, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez. Personal MCP, https://dovilo.app/mcp adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan ve görev önerirler. Kurulum ve güven sınırları geliştirici sayfasında, her aracın girdileriyle tam listesi MCP referansında."
+        "text": "Dovilo iki remote Model Context Protocol sunucusu çalıştırır. Agents MCP, https://dovilo.app/mcp/agents adresinde, Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note ve append_telemetry. Bu araçlar yalnızca AI görevlerine, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez. Ajan her projenin açıklamasını ve belgelerini de read_context ile okur. Personal MCP, https://dovilo.app/mcp adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan, görev ve proje belgesi önerirler. Kurulum AI ile planla sayfasında, her aracın girdileriyle tam listesi MCP referansında."
       }
     },
     {
@@ -231,7 +239,7 @@
       "name": "Ajanlar izin vermediğim görevler oluşturabilir ya da değiştirebilir mi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler."
+        "text": "Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması ve belgeleri olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler."
       }
     },
     {
@@ -358,7 +366,7 @@
     <section class="section">
       <div class="container flow">
         <h1>Dovilo SSS: uygulama, Pro ve AI üzerine net cevaplar.</h1>
-        <p>Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 28 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class="mail" href="/tr/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
+        <p>Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 29 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class="mail" href="/tr/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
       </div>
     </section>
 
@@ -405,7 +413,13 @@
           <details>
             <summary><h3>Yapılacaklar listesi nasıl çalışır?</h3></summary>
             <div class="faq-answer">
-              <p>Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır.</p>
+              <p>Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir liste başka bir listenin altına tek seviye girebilir; üst liste o zaman kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri verilebilir, nokta olarak görünür. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Listelerin alt listeleri olabilir mi?</h3></summary>
+            <div class="faq-answer">
+              <p>Evet, tek seviye. Bir listeyi üst bir listenin altına koy; üst liste kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri de verilebilir. İkisi de ücretsiz.</p>
             </div>
           </details>
           <details>
@@ -505,8 +519,8 @@
           <details>
             <summary><h3>Dovilo'nun MCP entegrasyonu nedir?</h3></summary>
             <div class="faq-answer">
-              <p>Dovilo iki remote <strong>Model Context Protocol</strong> sunucusu çalıştırır. <strong>Agents MCP</strong>, <code>https://dovilo.app/mcp/agents</code> adresinde, <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI</strong> gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> ve <code>append_telemetry</code>. Bu araçlar <strong>yalnızca AI görevlerine</strong>, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez.</p>
-              <p><strong>Personal MCP</strong>, <code>https://dovilo.app/mcp</code> adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan ve görev önerirler. Kurulum ve güven sınırları <a href="/tr/ai/">geliştirici sayfasında</a>, her aracın girdileriyle tam listesi <a href="/docs/mcp/">MCP referansında</a>.</p>
+              <p>Dovilo iki remote <strong>Model Context Protocol</strong> sunucusu çalıştırır. <strong>Agents MCP</strong>, <code>https://dovilo.app/mcp/agents</code> adresinde, <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI</strong> gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> ve <code>append_telemetry</code>. Bu araçlar <strong>yalnızca AI görevlerine</strong>, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez. Ajan her projenin açıklamasını ve belgelerini de <code>read_context</code> ile okur.</p>
+              <p><strong>Personal MCP</strong>, <code>https://dovilo.app/mcp</code> adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan, görev ve proje belgesi önerirler. Kurulum <a href="/tr/plan/">AI ile planla sayfasında</a>, her aracın girdileriyle tam listesi <a href="/docs/mcp/">MCP referansında</a>.</p>
             </div>
           </details>
           <details>
@@ -530,7 +544,7 @@
           <details>
             <summary><h3>Ajanlar izin vermediğim görevler oluşturabilir ya da değiştirebilir mi?</h3></summary>
             <div class="faq-answer">
-              <p>Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler.</p>
+              <p>Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması ve belgeleri olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler.</p>
             </div>
           </details>
           <details>

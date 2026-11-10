@@ -114,7 +114,7 @@
       "name": "Was sieht der Agent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die KI-Aufgaben der Projekte, denen er zugewiesen ist, das Briefing jedes Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden."
+        "text": "Die KI-Aufgaben der Projekte, denen er zugewiesen ist, Briefing und Dokumente jedes Projekts, Briefing und Dokumente eines übergeordneten Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden."
       }
     },
     {
@@ -318,6 +318,21 @@
       </div>
     </section>
 
+    <section class="section" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <h2>Ein Projekt trägt sein Briefing und seine Dokumente</h2>
+          <p>Spezifikationen, Entscheidungen und Checklisten liegen im Projekt. Dein Coding-Agent liest sie mit <code>read_context</code>; der Agent eines Unterprojekts liest auch die seines übergeordneten Projekts.</p>
+        </div>
+        <ul class="integrations">
+          <li><strong>Im Chat entworfen, auf dem Handy freigegeben.</strong> ChatGPT oder Claude schlägt ein Dokument oder eine Änderung vor.</li>
+          <li><strong>Agenten lesen, schreiben nie.</strong> Kein Agent-Tool ändert ein Dokument.</li>
+          <li><strong>Markdown, versioniert.</strong> Bis zu 200 KB pro Dokument und 50 pro Projekt; die letzten 5 Versionen bleiben erhalten.</li>
+          <li><strong>Gelöscht wird nur in der App.</strong> Kein MCP hat ein Lösch-Tool, und ein gelöschtes Dokument ist endgültig weg.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -339,7 +354,7 @@
                 <tbody>
                   <tr><td><code>list_tasks</code></td><td>lesen</td><td>KI-Aufgaben in den zugewiesenen Projekten, mit Status</td></tr>
                   <tr><td><code>get_task</code></td><td>lesen</td><td>Eine Aufgabe komplett: Beschreibung, Schritte, Notizen, Telemetrie, die letzte Antwort des Nutzers</td></tr>
-                  <tr><td><code>read_context</code></td><td>lesen</td><td>Projekt-Briefing und Kontext, den die Aufgabe mitbringt</td></tr>
+                  <tr><td><code>read_context</code></td><td>lesen</td><td>Briefing und Dokumente des Projekts und seines übergeordneten Projekts</td></tr>
                   <tr><td><code>update_status</code></td><td>schreiben</td><td><code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; Abbruch mit Grund (gespeichert als error + cancelledAt, angezeigt als Abgebrochen)</td></tr>
                   <tr><td><code>update_step</code></td><td>schreiben</td><td>Planschritt als begonnen oder erledigt markieren</td></tr>
                   <tr><td><code>add_step</code></td><td>schreiben</td><td>Vom Agenten entdeckten Schritt anhängen</td></tr>
@@ -409,7 +424,7 @@
           </details>
           <details>
             <summary><h3>Was sieht der Agent?</h3></summary>
-            <div class="faq-answer"><p>Die KI-Aufgaben der Projekte, denen er zugewiesen ist, das Briefing jedes Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden.</p></div>
+            <div class="faq-answer"><p>Die KI-Aufgaben der Projekte, denen er zugewiesen ist, Briefing und Dokumente jedes Projekts, Briefing und Dokumente eines übergeordneten Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden.</p></div>
           </details>
           <details>
             <summary><h3>Kann ein Agent eine Aufgabe löschen?</h3></summary>

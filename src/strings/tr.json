@@ -20,7 +20,6 @@
       "pricing": "Fiyat",
       "downloads": "İndir",
       "faq": "SSS",
-      "blog": "Blog",
       "language": "Dil",
       "theme": "Temayı değiştir",
       "menu": "Menü"
@@ -99,7 +98,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
         "description": "Dovilo, iOS ve Android için ücretsiz yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma. Sınırsız görev ve seans, reklam yok.",
@@ -109,6 +108,7 @@
         "website": "Dovilo, iOS ve Android için ücretsiz bir yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma oyunu.",
         "features": {
           "todo": "Sınırsız görevli yapılacaklar listesi, ücretsiz",
+          "lists": "Liste içinde liste (tek seviye) ve 7 liste rengi, ücretsiz",
           "focus": "Odak seansları, ücretsiz ve sınırsız: tek seans, Pomodoro döngüsü ya da tek göreve bağlı zamanlayıcı",
           "ambience": "Odak Atmosfer Paketi: 5 sahne ve 16 ses katmanı, aynı anda 3 (tek seferlik $4.99, Pro'ya dahil)",
           "city": "İzometrik şehir kurma: görevler ve odak seansları tuğla kazandırır, tuğlalar ev, ofis, park ve yol alır; hiçbir şey eksilmez",
@@ -156,9 +156,10 @@
       },
       "tasks": {
         "title": "Görevler ve listeler, ücretsiz ve sınırsız",
-        "p": "Her görev bir bitiş tarihi, hatırlatıcı, tekrar, yıldız, bayrak, öncelik ve not taşıyabilir. Hiçbiri Pro gerektirmez.",
+        "p": "Bir görev bitiş tarihi, hatırlatıcı, tekrar, yıldız, bayrak, öncelik ve not taşıyabilir; hepsi ücretsiz.",
         "views": "<strong>Her görünüm tek seçicide.</strong> Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve her listen, her biri canlı sayısıyla.",
         "groups": "<strong>Tarihe göre gruplu.</strong> Listeler tarih gruplarına ayrılır, Planlanan ise günlere göre.",
+        "tree": "<strong>Liste içinde liste, 7 renkle.</strong> Bir listeyi başka bir listenin altına koy; üst liste alt listelerinin görevlerini de gösterir.",
         "offline": "<strong>Çevrimdışı çalışır.</strong> Görevlerin önce telefonunda durur. Cihazlar arası bulut senkronizasyonu Pro ile gelir.",
         "bricks": "<strong>Biten görevler tuğla kazandırır.</strong> Sayfanın aşağısındaki şehri onlar kurar."
       },
@@ -198,12 +199,12 @@
       "shipped": {
         "title": "Yeni çıkanlar",
         "mobile": {
-          "date": "5 Kas 2026",
-          "text": "Mobil 2.2.0: AI'ınla üç adımda planla; kodlama asistanları için AI Görevleri; daha sıcak bir görünüm."
+          "date": "9 Kas 2026",
+          "text": "Mobil 2.3.0: liste içinde liste, 7 renk ve kodlama asistanları için proje belgeleri."
         },
         "desktop": {
-          "date": "4 Kas 2026",
-          "text": "Desktop 2.2.0: telefon ve siteyle aynı görünüm; imzalı Windows sürümleri."
+          "date": "8 Kas 2026",
+          "text": "Desktop 2.3.0: liste içinde liste, liste renkleri ve proje belgeleri."
         },
         "link": "Tüm sürüm notları"
       },
@@ -340,7 +341,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
         "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
@@ -402,6 +403,14 @@
         "p": "Uygulamada bir ajan oluştur, anahtarını bir kez kopyala ve istemcini <code>https://dovilo.app/mcp/agents</code> adresine yönlendir. Dovilo Desktop 7 istemci için yapılandırmayı yazar.",
         "link": "İki sunucu ve her araç: MCP referansı"
       },
+      "documents": {
+        "title": "Bir proje açıklamasını ve belgelerini taşır",
+        "p": "Spesifikasyonlar, kararlar ve kontrol listeleri projede durur. Kodlama ajanın bunları <code>read_context</code> ile okur; bir alt projenin ajanı üst projeninkileri de okur.",
+        "draft": "<strong>Sohbette taslak, telefonunda onay.</strong> ChatGPT ya da Claude bir belge ya da bir düzenleme önerir.",
+        "read": "<strong>Ajanlar okur, asla yazmaz.</strong> Hiçbir ajan aracı bir belgeyi değiştiremez.",
+        "markdown": "<strong>Markdown, sürümlü.</strong> Belge başına 200 KB'a, proje başına 50 belgeye kadar; son 5 sürüm saklanır.",
+        "delete": "<strong>Yalnızca uygulamada silinir.</strong> Hiçbir MCP'de silme aracı yok ve silinen belge geri gelmez."
+      },
       "bridge": {
         "title": "ChatGPT ya da Claude'da planla, ajanına devret",
         "p": "Bir bağlantı için AI görevleri erişimi açıksa ChatGPT ya da Claude projelerinin altında AI görevleri önerebilir, adımlarını takip edebilir ve bir ajan soru sorduğunda cevabını taslak olarak yazabilir. Her öneri ve her cevap telefonda senin onayını bekler.",
@@ -429,7 +438,7 @@
         "rows": {
           "list": "Kapsamdaki projelerin AI görevleri, durumlarıyla",
           "get": "Bir görevin tamamı: açıklama, adımlar, notlar, telemetri, kullanıcının son cevabı",
-          "context": "Proje açıklaması ve görevin taşıdığı bağlam",
+          "context": "Proje açıklaması ve belgeleri, üst projeninkiler de",
           "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; gerekçeyle iptal (error + cancelledAt olarak saklanır, İptal edildi olarak görünür)",
           "step": "Bir plan adımını başladı ya da bitti diye işaretle",
           "add": "Ajanın fark ettiği bir adımı ekle",
@@ -471,7 +480,7 @@
         },
         "sees": {
           "q": "Ajan neyi görür?",
-          "a": "Atandığı projelerin AI görevlerini, her projenin açıklamasını ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur."
+          "a": "Atandığı projelerin AI görevlerini, her projenin açıklamasını ve belgelerini, varsa üst projenin açıklamasını ve belgelerini ve senin cevaplarını. Kişisel yapılacaklar listen araç yüzeyinde hiç yoktur."
         },
         "delete": {
           "q": "Ajan bir görevi silebilir mi?",
@@ -488,7 +497,7 @@
       }
     },
     "plan": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "ChatGPT ya da Claude ile gününü planla - Dovilo",
         "description": "ChatGPT, Claude, Gemini veya Grok'tan plan iste. Plan Dovilo'nun gelen kutusuna düşer, sen onaylamadan listelerine bir şey girmez.",
@@ -570,7 +579,7 @@
         "read": "<strong>Okuma izni senin elinde.</strong> Kapalıyken de plan gönderebilir.",
         "ask": "<strong>Her yeni görev ya da düzenleme seni bekler.</strong> Ayarın adı: Önce bana sor.",
         "delete": "<strong>Silme aracı yok.</strong> Ne şimdi ne sonra.",
-        "coding": "<strong>Kod işlerin dışarıda kalır.</strong> O uygulama için AI görevleri erişimini açmadıkça.",
+        "coding": "<strong>Kod işlerin dışarıda kalır.</strong> O uygulama için AI görevleri erişimini açmadıkça; açarsan proje belgelerini de okuyabilir ve önerebilir.",
         "disconnect": "<strong>Bağlantıyı telefonundan kes.</strong> Her uygulama, her zaman.",
         "alt": "Dovilo'da Claude için Bağlı AI uygulamaları: okuma izni, AI görevleri ve Önce bana sor, görebileceği listelerle"
       },
@@ -714,7 +723,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "iPhone, Android, Windows ve Mac için indir - Dovilo",
         "description": "Dovilo'yu iPhone, Android, Windows ve Mac için indir. Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister.",
@@ -735,7 +744,7 @@
           "badgeSmall": "Dovilo",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Son sürüm: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4 Kas 2026</time>. <a href=\"{{href.pricing}}#pro\">Pro ister</a>: abone olduğun hesapla giriş yap.",
+          "latest": "Son sürüm: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8 Kas 2026</time>. <a href=\"{{href.pricing}}#pro\">Pro ister</a>: abone olduğun hesapla giriş yap.",
           "upgrade": "Desktop 1.8'den mi geliyorsun? <a href=\"/docs/mcp/#upgrading\">Ajanlar artık dovilo.app/mcp/agents adresine bir anahtarla bağlanır.</a>"
         }
       },
@@ -778,7 +787,7 @@
             "source": "Dovilo.dmg, herkese açık sürüm deposundan"
           }
         },
-        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.2.0</strong>, güncel masaüstü sürümü 4 Kasım 2026 tarihli <strong>2.2.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
+        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.3.0</strong>, güncel masaüstü sürümü 8 Kasım 2026 tarihli <strong>2.3.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
       },
       "pro": {
         "summary": "Ne ücretsiz, Pro ne ekler",
@@ -848,7 +857,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
         "description": "Dovilo hakkında sık sorulan sorular: oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma.",
@@ -857,7 +866,7 @@
       },
       "hero": {
         "h1": "Dovilo SSS: uygulama, Pro ve AI üzerine net cevaplar.",
-        "intro": "Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 28 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo, iOS ve Android için odak zamanlayıcılı ve şehir kurmalı ücretsiz bir yapılacaklar listesi; Pro ayda $2.49. Altı grupta 29 soru: neyin ücretsiz olduğundan bir kodlama asistanının neyi görebildiğine. Eksik bir şey varsa: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "Genel",
@@ -886,7 +895,11 @@
         },
         "todo": {
           "q": "Yapılacaklar listesi nasıl çalışır?",
-          "a": "Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır."
+          "a": "Son tarih, tekrar, hatırlatma, yıldız, bayrak ve kendi listelerinle görev oluşturabilirsin. Her şey tek bir görünüm seçicinin arkasındadır: Günüm, Önemli, Planlanan, İşaretlenenler, tüm Görevler ve tuttuğun her liste, her biri canlı sayısıyla. Listeler kendiliğinden tarihe göre gruplanır (Bugün, Yarın, Tarihi yok) ve her görev özellikleri ve notlarıyla bir ayrıntı sayfasına açılır. Bir liste başka bir listenin altına tek seviye girebilir; üst liste o zaman kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri verilebilir, nokta olarak görünür. Bir görevi tamamlamak, şehir kurarken harcayabileceğin tuğla kazandırır."
+        },
+        "lists": {
+          "q": "Listelerin alt listeleri olabilir mi?",
+          "a": "Evet, tek seviye. Bir listeyi üst bir listenin altına koy; üst liste kendi görevlerini ve alt listelerinin görevlerini birlikte gösterir. Her listeye 7 renkten biri de verilebilir. İkisi de ücretsiz."
         },
         "focusSessions": {
           "q": "Odak seansları nasıl çalışır?",
@@ -934,8 +947,8 @@
         },
         "mcp": {
           "q": "Dovilo'nun MCP entegrasyonu nedir?",
-          "a1": "Dovilo iki remote <strong>Model Context Protocol</strong> sunucusu çalıştırır. <strong>Agents MCP</strong>, <code>https://dovilo.app/mcp/agents</code> adresinde, <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI</strong> gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> ve <code>append_telemetry</code>. Bu araçlar <strong>yalnızca AI görevlerine</strong>, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez.",
-          "a2": "<strong>Personal MCP</strong>, <code>https://dovilo.app/mcp</code> adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan ve görev önerirler. Kurulum ve güven sınırları <a href=\"{{href.ai}}\">geliştirici sayfasında</a>, her aracın girdileriyle tam listesi <a href=\"/docs/mcp/\">MCP referansında</a>."
+          "a1": "Dovilo iki remote <strong>Model Context Protocol</strong> sunucusu çalıştırır. <strong>Agents MCP</strong>, <code>https://dovilo.app/mcp/agents</code> adresinde, <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI ve Gemini CLI</strong> gibi kodlama ajanları içindir. Her ajan kendi anahtarıyla bağlanır ve dokuz araç alır: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> ve <code>append_telemetry</code>. Bu araçlar <strong>yalnızca AI görevlerine</strong>, yani AI Görevleri sekmesinde ona atadığın projelerin içinde bir ajan için yazdığın işlere ulaşır. Görevlerim'deki kişisel yapılacaklar listen araç yüzeyinde yoktur ve hiçbir ajan görev oluşturamaz ya da silemez. Ajan her projenin açıklamasını ve belgelerini de <code>read_context</code> ile okur.",
+          "a2": "<strong>Personal MCP</strong>, <code>https://dovilo.app/mcp</code> adresinde, ChatGPT, Claude, Gemini ve Grok içindir; onaylaman için plan, görev ve proje belgesi önerirler. Kurulum <a href=\"{{href.plan}}\">AI ile planla sayfasında</a>, her aracın girdileriyle tam listesi <a href=\"/docs/mcp/\">MCP referansında</a>."
         },
         "desktop": {
           "q": "Kodlama asistanımın çalışması için Dovilo Desktop açık olmalı mı?",
@@ -951,7 +964,7 @@
         },
         "authorize": {
           "q": "Ajanlar izin vermediğim görevler oluşturabilir ya da değiştirebilir mi?",
-          "a": "Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler."
+          "a": "Hayır. Ajan araçlarında oluşturma ve silme yoktur. Ajan kendi AI görevlerini okuyabilir, durumlarını güncelleyebilir, adımları işaretleyebilir, not bırakabilir ve telemetri bildirebilir; çalıştırmaması gereken bir görevi gerekçeyle iptal edebilir, görev listende İptal edildi olarak kalır. Ajanın hangi görevleri göreceğine, her birinin önce okuduğu bir açıklaması ve belgeleri olan projeleri atayarak sen karar verirsin. Bir ajanı silmek anahtarını hemen durdurur. Personal MCP'deki sohbet asistanları yalnızca önerir: planlar, AI görevleri ve bir AI görevindeki her değişiklik onayını bekler."
         },
         "notified": {
           "q": "Bir ajan görevim üzerinde çalışınca bildirim alır mıyım?",

@@ -22,7 +22,6 @@
       "pricing": "Preise",
       "downloads": "Downloads",
       "faq": "FAQ",
-      "blog": "Blog",
       "language": "Sprache",
       "theme": "Design wechseln",
       "menu": "Menü"
@@ -111,6 +110,7 @@
         "website": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Pomodoro-Fokus-Timer und isometrischem Städtebauspiel.",
         "features": {
           "todo": "To-do-Liste mit unbegrenzten Aufgaben, kostenlos",
+          "lists": "Listen in Listen (eine Ebene) und 7 Listenfarben, kostenlos",
           "focus": "Fokus-Sitzungen, kostenlos und unbegrenzt: eine Einzelsitzung, ein Pomodoro-Zyklus oder ein Timer für eine Aufgabe",
           "ambience": "Fokus-Atmosphären-Paket: 5 Szenen und 16 Klangebenen, 3 gleichzeitig ($4.99 einmalig, in Pro enthalten)",
           "city": "Isometrisches Städtebauspiel: Aufgaben und Fokus-Sitzungen bringen Steine für Häuser, Büros, Parks und Straßen, und nichts verfällt",
@@ -158,9 +158,10 @@
       },
       "tasks": {
         "title": "Aufgaben und Listen, kostenlos und unbegrenzt",
-        "p": "Jede Aufgabe kann ein Fälligkeitsdatum, eine Erinnerung, eine Wiederholung, einen Stern, eine Markierung, eine Priorität und Notizen haben. Nichts davon braucht Pro.",
+        "p": "Eine Aufgabe kann Fälligkeit, Erinnerung, Wiederholung, Stern, Markierung, Priorität und Notizen haben, alles kostenlos.",
         "views": "<strong>Eine Auswahl für jede Ansicht.</strong> Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeweils mit Live-Zähler.",
         "groups": "<strong>Nach Datum gruppiert.</strong> Listen ordnen sich nach Datum, Geplant nach Tagen.",
+        "tree": "<strong>Listen in Listen, in 7 Farben.</strong> Lege eine Liste unter eine andere; die übergeordnete Liste zeigt auch die Aufgaben ihrer Unterlisten.",
         "offline": "<strong>Funktioniert offline.</strong> Deine Aufgaben liegen zuerst auf deinem Handy. Cloud-Sync zwischen Geräten gibt es mit Pro.",
         "bricks": "<strong>Erledigte Aufgaben bringen Steine.</strong> Damit baust du die Stadt weiter unten auf dieser Seite."
       },
@@ -200,12 +201,12 @@
       "shipped": {
         "title": "Neu erschienen",
         "mobile": {
-          "date": "5. Nov. 2026",
-          "text": "Mobile 2.2.0: mit deiner KI in drei Schritten planen; KI-Aufgaben für Coding-Assistenten; ein wärmerer Look."
+          "date": "9. Nov. 2026",
+          "text": "Mobile 2.3.0: Listen in Listen, 7 Farben und Projektdokumente für Coding-Assistenten."
         },
         "desktop": {
-          "date": "4. Nov. 2026",
-          "text": "Desktop 2.2.0: derselbe Look wie Smartphone und Website; signierte Windows-Builds."
+          "date": "8. Nov. 2026",
+          "text": "Desktop 2.3.0: Listen in Listen, Listenfarben und Projektdokumente."
         },
         "link": "Alle Versionshinweise"
       },
@@ -404,6 +405,14 @@
         "p": "Lege in der App einen Agenten an, kopiere seinen Schlüssel einmal und richte deinen Client auf <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop schreibt die Konfiguration für 7 Clients.",
         "link": "Beide Server und jedes Tool: die MCP-Referenz"
       },
+      "documents": {
+        "title": "Ein Projekt trägt sein Briefing und seine Dokumente",
+        "p": "Spezifikationen, Entscheidungen und Checklisten liegen im Projekt. Dein Coding-Agent liest sie mit <code>read_context</code>; der Agent eines Unterprojekts liest auch die seines übergeordneten Projekts.",
+        "draft": "<strong>Im Chat entworfen, auf dem Handy freigegeben.</strong> ChatGPT oder Claude schlägt ein Dokument oder eine Änderung vor.",
+        "read": "<strong>Agenten lesen, schreiben nie.</strong> Kein Agent-Tool ändert ein Dokument.",
+        "markdown": "<strong>Markdown, versioniert.</strong> Bis zu 200 KB pro Dokument und 50 pro Projekt; die letzten 5 Versionen bleiben erhalten.",
+        "delete": "<strong>Gelöscht wird nur in der App.</strong> Kein MCP hat ein Lösch-Tool, und ein gelöschtes Dokument ist endgültig weg."
+      },
       "bridge": {
         "title": "In ChatGPT oder Claude planen, an deinen Agenten übergeben",
         "p": "Ist der Zugriff auf KI-Aufgaben für eine Verbindung an, kann ChatGPT oder Claude KI-Aufgaben in deinen Projekten vorschlagen, ihre Schritte verfolgen und deine Antwort entwerfen, wenn ein Agent fragt. Jeder Vorschlag und jede Antwort wartet auf deine Freigabe auf dem Handy.",
@@ -431,7 +440,7 @@
         "rows": {
           "list": "KI-Aufgaben in den zugewiesenen Projekten, mit Status",
           "get": "Eine Aufgabe komplett: Beschreibung, Schritte, Notizen, Telemetrie, die letzte Antwort des Nutzers",
-          "context": "Projekt-Briefing und Kontext, den die Aufgabe mitbringt",
+          "context": "Briefing und Dokumente des Projekts und seines übergeordneten Projekts",
           "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; Abbruch mit Grund (gespeichert als error + cancelledAt, angezeigt als Abgebrochen)",
           "step": "Planschritt als begonnen oder erledigt markieren",
           "add": "Vom Agenten entdeckten Schritt anhängen",
@@ -473,7 +482,7 @@
         },
         "sees": {
           "q": "Was sieht der Agent?",
-          "a": "Die KI-Aufgaben der Projekte, denen er zugewiesen ist, das Briefing jedes Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden."
+          "a": "Die KI-Aufgaben der Projekte, denen er zugewiesen ist, Briefing und Dokumente jedes Projekts, Briefing und Dokumente eines übergeordneten Projekts und deine Antworten. Deine persönliche To-do-Liste ist auf der Tool-Oberfläche gar nicht vorhanden."
         },
         "delete": {
           "q": "Kann ein Agent eine Aufgabe löschen?",
@@ -572,7 +581,7 @@
         "read": "<strong>Den Lesezugriff schaltest du ein oder aus.</strong> Ist er aus, kann sie trotzdem Pläne senden.",
         "ask": "<strong>Jede neue Aufgabe und jede Änderung wartet auf dich.</strong> Die Einstellung heißt Zuerst fragen.",
         "delete": "<strong>Kein Lösch-Tool.</strong> Nicht jetzt, nicht später.",
-        "coding": "<strong>Deine Coding-Arbeit bleibt außen vor.</strong> Außer du schaltest den Zugriff auf KI-Aufgaben für diese App ein.",
+        "coding": "<strong>Deine Coding-Arbeit bleibt außen vor.</strong> Außer du schaltest den Zugriff auf KI-Aufgaben für diese App ein; dann kann sie auch Projektdokumente lesen und vorschlagen.",
         "disconnect": "<strong>Trennen vom Handy aus.</strong> Jede App, jederzeit.",
         "alt": "Dovilo Verbundene KI-Apps für Claude: Lesezugriff, KI-Aufgaben und Zuerst fragen, mit den Listen, die Claude sehen kann"
       },
@@ -716,7 +725,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Download für iPhone, Android, Windows und Mac - Dovilo",
         "description": "Lade Dovilo für iPhone, Android, Windows und Mac herunter. Kostenlos auf dem Smartphone. Desktop braucht Pro, gestartet in der mobilen App.",
@@ -737,7 +746,7 @@
           "badgeSmall": "Dovilo für",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Aktuell: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4. Nov. 2026</time>. <a href=\"{{href.pricing}}#pro\">Braucht Pro</a>: Melde dich mit dem Konto deines Abos an.",
+          "latest": "Aktuell: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8. Nov. 2026</time>. <a href=\"{{href.pricing}}#pro\">Braucht Pro</a>: Melde dich mit dem Konto deines Abos an.",
           "upgrade": "Du kommst von Desktop 1.8? <a href=\"/docs/mcp/#upgrading\">Agenten verbinden sich jetzt mit einem Schlüssel mit dovilo.app/mcp/agents.</a>"
         }
       },
@@ -780,7 +789,7 @@
             "source": "Dovilo.dmg, aus dem öffentlichen Release-Repository"
           }
         },
-        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.2.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.2.0</strong>, vom 4. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
+        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.3.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.3.0</strong>, vom 8. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
       },
       "pro": {
         "summary": "Was kostenlos ist und was Pro hinzufügt",
@@ -850,7 +859,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "FAQ: klare Antworten zu App, Pro und KI - Dovilo",
         "description": "Häufige Fragen zu Dovilo: gamifizierte To-do-Liste, Fokus-Timer und Städtebauspiel.",
@@ -859,7 +868,7 @@
       },
       "hero": {
         "h1": "Dovilo FAQ: klare Antworten zu App, Pro und KI.",
-        "intro": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 28 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 29 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "Allgemein",
@@ -888,7 +897,11 @@
         },
         "todo": {
           "q": "Wie funktioniert die To-do-Liste?",
-          "a": "Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst."
+          "a": "Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine Liste kann eine Ebene tief unter einer anderen liegen; die übergeordnete Liste zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann eine von 7 Farben bekommen, die als Punkt erscheint. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst."
+        },
+        "lists": {
+          "q": "Können Listen Unterlisten haben?",
+          "a": "Ja, eine Ebene tief. Lege eine Liste unter eine übergeordnete Liste; diese zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann außerdem eine von 7 Farben bekommen. Beides ist kostenlos."
         },
         "focusSessions": {
           "q": "Wie funktionieren Fokus-Sitzungen?",
@@ -936,8 +949,8 @@
         },
         "mcp": {
           "q": "Was ist Dovilos MCP-Integration?",
-          "a1": "Dovilo betreibt zwei Remote-Server für das <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong> unter <code>https://dovilo.app/mcp/agents</code> ist für Coding-Agenten wie <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI</strong>. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> und <code>append_telemetry</code>. Diese Tools erreichen <strong>nur KI-Aufgaben</strong>, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen.",
-          "a2": "<strong>Personal MCP</strong> unter <code>https://dovilo.app/mcp</code> ist für ChatGPT, Claude, Gemini und Grok, die Pläne und Aufgaben vorschlagen, die du freigibst. Einrichtung und Vertrauensgrenzen stehen auf der <a href=\"{{href.ai}}\">Entwicklerseite</a>, und jedes Tool mit seinen Eingaben steht in der <a href=\"/docs/mcp/\">MCP-Referenz</a>."
+          "a1": "Dovilo betreibt zwei Remote-Server für das <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong> unter <code>https://dovilo.app/mcp/agents</code> ist für Coding-Agenten wie <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI</strong>. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> und <code>append_telemetry</code>. Diese Tools erreichen <strong>nur KI-Aufgaben</strong>, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen. Über <code>read_context</code> liest der Agent außerdem das Briefing und die Dokumente jedes Projekts.",
+          "a2": "<strong>Personal MCP</strong> unter <code>https://dovilo.app/mcp</code> ist für ChatGPT, Claude, Gemini und Grok, die Pläne, Aufgaben und Projektdokumente vorschlagen, die du freigibst. Die Einrichtung steht auf der Seite <a href=\"{{href.plan}}\">Mit KI planen</a>, und jedes Tool mit seinen Eingaben steht in der <a href=\"/docs/mcp/\">MCP-Referenz</a>."
         },
         "desktop": {
           "q": "Muss Dovilo Desktop laufen, damit mein Coding-Assistent arbeitet?",
@@ -953,7 +966,7 @@
         },
         "authorize": {
           "q": "Können Agenten ohne meine Freigabe Aufgaben erstellen oder ändern?",
-          "a": "Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing, das der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe."
+          "a": "Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing und Dokumenten, die der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe."
         },
         "notified": {
           "q": "Erfahre ich es, wenn ein Agent an meiner Aufgabe arbeitet?",

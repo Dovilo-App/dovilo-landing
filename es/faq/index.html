@@ -63,7 +63,7 @@
   "name": "FAQ: respuestas directas sobre la app, Pro y la IA - Dovilo",
   "url": "https://dovilo.app/es/faq/",
   "inLanguage": "es",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -111,7 +111,15 @@
       "name": "¿Cómo funciona la lista de tareas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades."
+        "text": "Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Una lista puede ir dentro de otra, con un solo nivel; la lista superior muestra entonces juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar uno de 7 colores, que se ve como un punto. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Las listas pueden tener sublistas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, de un nivel. Pon una lista dentro de una lista superior y esta mostrará juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar además uno de 7 colores. Las dos cosas son gratis."
       }
     },
     {
@@ -199,7 +207,7 @@
       "name": "¿Qué es la integración MCP de Dovilo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo opera dos servidores remotos de Model Context Protocol. Agents MCP, en https://dovilo.app/mcp/agents, es para agentes de programación como Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI. Cada agente se conecta con su propia clave y recibe nueve herramientas: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note y append_telemetry. Esas herramientas llegan solo a tareas de IA, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea. Personal MCP, en https://dovilo.app/mcp, es para ChatGPT, Claude, Gemini y Grok, que proponen planes y tareas para que tú los apruebes. La configuración y los límites de confianza están en la página para desarrolladores, y cada herramienta con sus entradas está en la referencia MCP."
+        "text": "Dovilo opera dos servidores remotos de Model Context Protocol. Agents MCP, en https://dovilo.app/mcp/agents, es para agentes de programación como Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI. Cada agente se conecta con su propia clave y recibe nueve herramientas: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note y append_telemetry. Esas herramientas llegan solo a tareas de IA, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea. El agente también lee el resumen y los documentos de cada proyecto con read_context. Personal MCP, en https://dovilo.app/mcp, es para ChatGPT, Claude, Gemini y Grok, que proponen planes, tareas y documentos de proyecto para que tú los apruebes. La configuración está en la página Planifica con IA, y cada herramienta con sus entradas está en la referencia MCP."
       }
     },
     {
@@ -231,7 +239,7 @@
       "name": "¿Pueden los agentes crear o modificar tareas que no he autorizado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación."
+        "text": "No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen y documentos que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación."
       }
     },
     {
@@ -358,7 +366,7 @@
     <section class="section">
       <div class="container flow">
         <h1>Preguntas frecuentes de Dovilo: respuestas directas sobre la app, Pro y la IA.</h1>
-        <p>Dovilo es una lista de tareas gratis para iOS y Android con temporizador de enfoque y constructor de ciudades; Pro cuesta $2.49 al mes. 28 preguntas en seis grupos, desde qué es gratis hasta qué puede ver un asistente de programación. Si falta algo: <a class="mail" href="/es/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
+        <p>Dovilo es una lista de tareas gratis para iOS y Android con temporizador de enfoque y constructor de ciudades; Pro cuesta $2.49 al mes. 29 preguntas en seis grupos, desde qué es gratis hasta qué puede ver un asistente de programación. Si falta algo: <a class="mail" href="/es/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
       </div>
     </section>
 
@@ -405,7 +413,13 @@
           <details>
             <summary><h3>¿Cómo funciona la lista de tareas?</h3></summary>
             <div class="faq-answer">
-              <p>Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades.</p>
+              <p>Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Una lista puede ir dentro de otra, con un solo nivel; la lista superior muestra entonces juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar uno de 7 colores, que se ve como un punto. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>¿Las listas pueden tener sublistas?</h3></summary>
+            <div class="faq-answer">
+              <p>Sí, de un nivel. Pon una lista dentro de una lista superior y esta mostrará juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar además uno de 7 colores. Las dos cosas son gratis.</p>
             </div>
           </details>
           <details>
@@ -505,8 +519,8 @@
           <details>
             <summary><h3>¿Qué es la integración MCP de Dovilo?</h3></summary>
             <div class="faq-answer">
-              <p>Dovilo opera dos servidores remotos de <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong>, en <code>https://dovilo.app/mcp/agents</code>, es para agentes de programación como <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI</strong>. Cada agente se conecta con su propia clave y recibe nueve herramientas: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> y <code>append_telemetry</code>. Esas herramientas llegan <strong>solo a tareas de IA</strong>, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea.</p>
-              <p><strong>Personal MCP</strong>, en <code>https://dovilo.app/mcp</code>, es para ChatGPT, Claude, Gemini y Grok, que proponen planes y tareas para que tú los apruebes. La configuración y los límites de confianza están en la <a href="/es/ai/">página para desarrolladores</a>, y cada herramienta con sus entradas está en la <a href="/docs/mcp/">referencia MCP</a>.</p>
+              <p>Dovilo opera dos servidores remotos de <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong>, en <code>https://dovilo.app/mcp/agents</code>, es para agentes de programación como <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI</strong>. Cada agente se conecta con su propia clave y recibe nueve herramientas: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> y <code>append_telemetry</code>. Esas herramientas llegan <strong>solo a tareas de IA</strong>, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea. El agente también lee el resumen y los documentos de cada proyecto con <code>read_context</code>.</p>
+              <p><strong>Personal MCP</strong>, en <code>https://dovilo.app/mcp</code>, es para ChatGPT, Claude, Gemini y Grok, que proponen planes, tareas y documentos de proyecto para que tú los apruebes. La configuración está en la página <a href="/es/plan/">Planifica con IA</a>, y cada herramienta con sus entradas está en la <a href="/docs/mcp/">referencia MCP</a>.</p>
             </div>
           </details>
           <details>
@@ -530,7 +544,7 @@
           <details>
             <summary><h3>¿Pueden los agentes crear o modificar tareas que no he autorizado?</h3></summary>
             <div class="faq-answer">
-              <p>No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación.</p>
+              <p>No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen y documentos que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación.</p>
             </div>
           </details>
           <details>

@@ -22,7 +22,6 @@
       "pricing": "Precios",
       "downloads": "Descargas",
       "faq": "FAQ",
-      "blog": "Blog",
       "language": "Idioma",
       "theme": "Cambiar tema",
       "menu": "Menú"
@@ -111,6 +110,7 @@
         "website": "Dovilo es una lista de tareas gratis para iOS y Android con un temporizador de enfoque Pomodoro y un constructor de ciudades isométrico.",
         "features": {
           "todo": "Lista de tareas con tareas ilimitadas, gratis",
+          "lists": "Listas dentro de listas (un nivel) y 7 colores de lista, gratis",
           "focus": "Sesiones de enfoque, gratis e ilimitadas: una sesión única, un ciclo Pomodoro o un temporizador en una tarea",
           "ambience": "Paquete Atmósfera de Enfoque: 5 escenas y 16 capas de sonido, 3 a la vez ($4.99, pago único, incluido en Pro)",
           "city": "Constructor de ciudades isométrico: las tareas y las sesiones de enfoque dan ladrillos que compran casas, oficinas, parques y carreteras, y nada se deteriora",
@@ -158,9 +158,10 @@
       },
       "tasks": {
         "title": "Tareas y listas, gratis e ilimitadas",
-        "p": "Cada tarea puede llevar fecha límite, recordatorio, repetición, estrella, marca, prioridad y notas. Nada de eso necesita Pro.",
+        "p": "Una tarea puede llevar fecha límite, recordatorio, repetición, estrella, marca, prioridad y notas, todo gratis.",
         "views": "<strong>Un selector para cada vista.</strong> Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada una de tus listas, cada una con su recuento en vivo.",
         "groups": "<strong>Agrupadas por fecha.</strong> Las listas se ordenan por fecha, y Planificado, por día.",
+        "tree": "<strong>Listas dentro de listas, en 7 colores.</strong> Pon una lista dentro de otra; la lista superior también muestra las tareas de sus sublistas.",
         "offline": "<strong>Funciona sin conexión.</strong> Tus tareas viven primero en tu móvil. La sincronización en la nube entre dispositivos llega con Pro.",
         "bricks": "<strong>Las tareas terminadas dan ladrillos.</strong> Construyen la ciudad que verás más abajo."
       },
@@ -200,12 +201,12 @@
       "shipped": {
         "title": "Novedades recientes",
         "mobile": {
-          "date": "5 nov 2026",
-          "text": "Móvil 2.2.0: planifica con tu IA en tres pasos; Tareas de IA para asistentes de programación; un aspecto más cálido."
+          "date": "9 nov 2026",
+          "text": "Móvil 2.3.0: listas dentro de listas, 7 colores y documentos de proyecto para asistentes de programación."
         },
         "desktop": {
-          "date": "4 nov 2026",
-          "text": "Desktop 2.2.0: el mismo aspecto que el móvil y la web; compilaciones de Windows firmadas."
+          "date": "8 nov 2026",
+          "text": "Desktop 2.3.0: listas dentro de listas, colores de lista y documentos de proyecto."
         },
         "link": "Todas las notas de la versión"
       },
@@ -404,6 +405,14 @@
         "p": "Crea un agente en la app, copia su clave una vez y apunta tu cliente a <code>https://dovilo.app/mcp/agents</code>. Dovilo Desktop escribe la configuración para 7 clientes.",
         "link": "Los dos servidores y cada herramienta: la referencia MCP"
       },
+      "documents": {
+        "title": "Un proyecto lleva su resumen y sus documentos",
+        "p": "Las especificaciones, decisiones y listas de comprobación viven en el proyecto. Tu agente de programación las lee con <code>read_context</code>; el agente de un subproyecto también lee las de su proyecto superior.",
+        "draft": "<strong>Redactado en el chat, aprobado en tu móvil.</strong> ChatGPT o Claude propone un documento o un cambio.",
+        "read": "<strong>Los agentes leen, nunca escriben.</strong> Ninguna herramienta de agente cambia un documento.",
+        "markdown": "<strong>Markdown, con versiones.</strong> Hasta 200 KB por documento y 50 por proyecto; se guardan las últimas 5 versiones.",
+        "delete": "<strong>Se elimina solo en la app.</strong> Ningún MCP tiene herramienta de eliminar, y un documento eliminado no vuelve."
+      },
       "bridge": {
         "title": "Planifica en ChatGPT o Claude, pásaselo a tu agente",
         "p": "Con el acceso a tareas de IA activado para una conexión, ChatGPT o Claude pueden proponer tareas de IA en tus proyectos, seguir sus pasos y redactar tu respuesta cuando un agente pregunta. Cada propuesta y cada respuesta esperan tu aprobación en el móvil.",
@@ -431,7 +440,7 @@
         "rows": {
           "list": "Tareas de IA de los proyectos asignados, con su estado",
           "get": "Una tarea completa: descripción, pasos, notas, telemetría, la última respuesta del usuario",
-          "context": "El resumen del proyecto y el contexto que lleva la tarea",
+          "context": "El resumen y los documentos del proyecto, y los de su proyecto superior",
           "status": "<code>queued</code> → <code>running</code> → <code>awaiting-user</code> → <code>done</code>; <code>done-with-errors</code>, <code>error</code>; cancelar con un motivo (se guarda como error + cancelledAt y se muestra como Cancelada)",
           "step": "Marca un paso del plan como iniciado o terminado",
           "add": "Añade un paso que el agente descubrió",
@@ -473,7 +482,7 @@
         },
         "sees": {
           "q": "¿Qué ve el agente?",
-          "a": "Las tareas de IA de los proyectos que tiene asignados, el resumen de cada proyecto y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto."
+          "a": "Las tareas de IA de los proyectos que tiene asignados, el resumen y los documentos de cada proyecto, el resumen y los documentos de un proyecto superior, y tus respuestas. Tu lista de tareas personal no está en su superficie de herramientas, en absoluto."
         },
         "delete": {
           "q": "¿Puede un agente eliminar una tarea?",
@@ -572,7 +581,7 @@
         "read": "<strong>El acceso de lectura lo activas o desactivas tú.</strong> Desactivado, aún puede enviar planes.",
         "ask": "<strong>Cada tarea nueva o cambio te espera.</strong> El ajuste se llama Preguntarme antes.",
         "delete": "<strong>Sin herramienta de borrado.</strong> Ni ahora ni después.",
-        "coding": "<strong>Tu trabajo de programación queda fuera.</strong> Salvo que actives el acceso a tareas de IA para esa app.",
+        "coding": "<strong>Tu trabajo de programación queda fuera.</strong> Salvo que actives el acceso a tareas de IA para esa app; entonces también puede leer y proponer documentos de proyecto.",
         "disconnect": "<strong>Desconéctala desde tu móvil.</strong> Cualquier app, en cualquier momento.",
         "alt": "Apps de IA conectadas de Dovilo para Claude: acceso de lectura, tareas de IA y Preguntarme antes, con las listas que puede ver"
       },
@@ -716,7 +725,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-10",
       "meta": {
         "title": "Descargar para iPhone, Android, Windows y Mac - Dovilo",
         "description": "Descarga Dovilo para iPhone, Android, Windows y Mac. Gratis en el móvil. Desktop requiere Pro, iniciado en la app móvil.",
@@ -737,7 +746,7 @@
           "badgeSmall": "Dovilo para",
           "windows": "Windows",
           "mac": "Mac",
-          "latest": "Última versión: <span id=\"desktop-ver\">2.2.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-04\">4 nov 2026</time>. <a href=\"{{href.pricing}}#pro\">Requiere Pro</a>: inicia sesión con la cuenta con la que te suscribiste.",
+          "latest": "Última versión: <span id=\"desktop-ver\">2.3.0</span>, <time id=\"desktop-date\" datetime=\"2026-11-08\">8 nov 2026</time>. <a href=\"{{href.pricing}}#pro\">Requiere Pro</a>: inicia sesión con la cuenta con la que te suscribiste.",
           "upgrade": "¿Vienes de Desktop 1.8? <a href=\"/docs/mcp/#upgrading\">Ahora los agentes se conectan a dovilo.app/mcp/agents con una clave.</a>"
         }
       },
@@ -780,7 +789,7 @@
             "source": "Dovilo.dmg, desde el repositorio público de versiones"
           }
         },
-        "p2": "El móvil y el escritorio siguen líneas de versiones separadas, así que sus números no tienen por qué coincidir. La versión móvil actual es la <strong>2.2.0</strong>, en iOS y Android, y la versión de escritorio actual es la <strong>2.2.0</strong>, del 4 de noviembre de 2026. La <a href=\"/changelog/\">página de notas de la versión</a> muestra las compilaciones de escritorio y, al abrirla, añade una más reciente desde el repositorio de versiones, así que nunca va una versión por detrás, y cada compilación de escritorio anterior sigue etiquetada allí. Esta página es solo para la primera instalación: nada de aquí hay que descargarlo dos veces."
+        "p2": "El móvil y el escritorio siguen líneas de versiones separadas, así que sus números no tienen por qué coincidir. La versión móvil actual es la <strong>2.3.0</strong>, en iOS y Android, y la versión de escritorio actual es la <strong>2.3.0</strong>, del 8 de noviembre de 2026. La <a href=\"/changelog/\">página de notas de la versión</a> muestra las compilaciones de escritorio y, al abrirla, añade una más reciente desde el repositorio de versiones, así que nunca va una versión por detrás, y cada compilación de escritorio anterior sigue etiquetada allí. Esta página es solo para la primera instalación: nada de aquí hay que descargarlo dos veces."
       },
       "pro": {
         "summary": "Qué es gratis y qué añade Pro",
@@ -850,7 +859,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-09",
+      "updated": "2026-11-10",
       "meta": {
         "title": "FAQ: respuestas directas sobre la app, Pro y la IA - Dovilo",
         "description": "Preguntas frecuentes sobre Dovilo: lista de tareas gamificada, temporizador de enfoque y constructor de ciudades.",
@@ -859,7 +868,7 @@
       },
       "hero": {
         "h1": "Preguntas frecuentes de Dovilo: respuestas directas sobre la app, Pro y la IA.",
-        "intro": "Dovilo es una lista de tareas gratis para iOS y Android con temporizador de enfoque y constructor de ciudades; Pro cuesta $2.49 al mes. 28 preguntas en seis grupos, desde qué es gratis hasta qué puede ver un asistente de programación. Si falta algo: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
+        "intro": "Dovilo es una lista de tareas gratis para iOS y Android con temporizador de enfoque y constructor de ciudades; Pro cuesta $2.49 al mes. 29 preguntas en seis grupos, desde qué es gratis hasta qué puede ver un asistente de programación. Si falta algo: <a class=\"mail\" href=\"{{href.faq}}#contact\" data-u=\"support\" data-d=\"dovilo.app\">support<span aria-hidden=\"true\"> [at] </span>dovilo.app</a>."
       },
       "groups": {
         "general": "General",
@@ -888,7 +897,11 @@
         },
         "todo": {
           "q": "¿Cómo funciona la lista de tareas?",
-          "a": "Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades."
+          "a": "Puedes crear tareas con fechas límite, repeticiones, recordatorios, estrellas, marcas y tus propias listas. Todo está tras un único selector de vista: Mi Día, Importante, Planificado, Marcado, todas las Tareas y cada lista que tengas, cada una con un recuento en vivo. Las listas se agrupan solas por fecha (Hoy, Mañana, Sin fecha) y cada tarea se abre en una hoja de detalle con sus propiedades y notas. Una lista puede ir dentro de otra, con un solo nivel; la lista superior muestra entonces juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar uno de 7 colores, que se ve como un punto. Completar una tarea te da ladrillos que puedes gastar en el constructor de ciudades."
+        },
+        "lists": {
+          "q": "¿Las listas pueden tener sublistas?",
+          "a": "Sí, de un nivel. Pon una lista dentro de una lista superior y esta mostrará juntas sus propias tareas y las de sus sublistas. Cada lista puede llevar además uno de 7 colores. Las dos cosas son gratis."
         },
         "focusSessions": {
           "q": "¿Cómo funcionan las sesiones de enfoque?",
@@ -936,8 +949,8 @@
         },
         "mcp": {
           "q": "¿Qué es la integración MCP de Dovilo?",
-          "a1": "Dovilo opera dos servidores remotos de <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong>, en <code>https://dovilo.app/mcp/agents</code>, es para agentes de programación como <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI</strong>. Cada agente se conecta con su propia clave y recibe nueve herramientas: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> y <code>append_telemetry</code>. Esas herramientas llegan <strong>solo a tareas de IA</strong>, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea.",
-          "a2": "<strong>Personal MCP</strong>, en <code>https://dovilo.app/mcp</code>, es para ChatGPT, Claude, Gemini y Grok, que proponen planes y tareas para que tú los apruebes. La configuración y los límites de confianza están en la <a href=\"{{href.ai}}\">página para desarrolladores</a>, y cada herramienta con sus entradas está en la <a href=\"/docs/mcp/\">referencia MCP</a>."
+          "a1": "Dovilo opera dos servidores remotos de <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong>, en <code>https://dovilo.app/mcp/agents</code>, es para agentes de programación como <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI y Gemini CLI</strong>. Cada agente se conecta con su propia clave y recibe nueve herramientas: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> y <code>append_telemetry</code>. Esas herramientas llegan <strong>solo a tareas de IA</strong>, los trabajos que escribes para un agente en la pestaña Tareas de IA, dentro de los proyectos que le asignas. Tu lista de tareas personal en Mis tareas no está en su superficie de herramientas, y ningún agente puede crear ni eliminar una tarea. El agente también lee el resumen y los documentos de cada proyecto con <code>read_context</code>.",
+          "a2": "<strong>Personal MCP</strong>, en <code>https://dovilo.app/mcp</code>, es para ChatGPT, Claude, Gemini y Grok, que proponen planes, tareas y documentos de proyecto para que tú los apruebes. La configuración está en la página <a href=\"{{href.plan}}\">Planifica con IA</a>, y cada herramienta con sus entradas está en la <a href=\"/docs/mcp/\">referencia MCP</a>."
         },
         "desktop": {
           "q": "¿Mi asistente de programación necesita Dovilo Desktop abierto?",
@@ -953,7 +966,7 @@
         },
         "authorize": {
           "q": "¿Pueden los agentes crear o modificar tareas que no he autorizado?",
-          "a": "No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación."
+          "a": "No. Las herramientas del agente no incluyen crear ni eliminar. Un agente puede leer sus tareas de IA, actualizar su estado, marcar pasos, dejar notas y enviar telemetría, y puede cancelar una tarea que no debería ejecutar, con un motivo; la tarea se queda en tu lista, mostrada como Cancelada. Tú decides qué tareas ve un agente asignándole proyectos, cada uno con un resumen y documentos que el agente lee primero. Eliminar un agente hace que su clave deje de funcionar al instante. Los asistentes de chat en Personal MCP solo proponen: los planes, las tareas de IA y cada cambio en una tarea de IA esperan tu aprobación."
         },
         "notified": {
           "q": "¿Recibo una notificación cuando un agente trabaja en mi tarea?",

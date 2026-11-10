@@ -63,7 +63,7 @@
   "name": "FAQ: klare Antworten zu App, Pro und KI - Dovilo",
   "url": "https://dovilo.app/de/faq/",
   "inLanguage": "de",
-  "dateModified": "2026-11-09",
+  "dateModified": "2026-11-10",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -111,7 +111,15 @@
       "name": "Wie funktioniert die To-do-Liste?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst."
+        "text": "Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine Liste kann eine Ebene tief unter einer anderen liegen; die übergeordnete Liste zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann eine von 7 Farben bekommen, die als Punkt erscheint. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können Listen Unterlisten haben?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, eine Ebene tief. Lege eine Liste unter eine übergeordnete Liste; diese zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann außerdem eine von 7 Farben bekommen. Beides ist kostenlos."
       }
     },
     {
@@ -199,7 +207,7 @@
       "name": "Was ist Dovilos MCP-Integration?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dovilo betreibt zwei Remote-Server für das Model Context Protocol. Agents MCP unter https://dovilo.app/mcp/agents ist für Coding-Agenten wie Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note und append_telemetry. Diese Tools erreichen nur KI-Aufgaben, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen. Personal MCP unter https://dovilo.app/mcp ist für ChatGPT, Claude, Gemini und Grok, die Pläne und Aufgaben vorschlagen, die du freigibst. Einrichtung und Vertrauensgrenzen stehen auf der Entwicklerseite, und jedes Tool mit seinen Eingaben steht in der MCP-Referenz."
+        "text": "Dovilo betreibt zwei Remote-Server für das Model Context Protocol. Agents MCP unter https://dovilo.app/mcp/agents ist für Coding-Agenten wie Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: list_tasks, get_task, read_context, update_status, update_step, add_step, skip_step, append_note und append_telemetry. Diese Tools erreichen nur KI-Aufgaben, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen. Über read_context liest der Agent außerdem das Briefing und die Dokumente jedes Projekts. Personal MCP unter https://dovilo.app/mcp ist für ChatGPT, Claude, Gemini und Grok, die Pläne, Aufgaben und Projektdokumente vorschlagen, die du freigibst. Die Einrichtung steht auf der Seite Mit KI planen, und jedes Tool mit seinen Eingaben steht in der MCP-Referenz."
       }
     },
     {
@@ -231,7 +239,7 @@
       "name": "Können Agenten ohne meine Freigabe Aufgaben erstellen oder ändern?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing, das der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe."
+        "text": "Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing und Dokumenten, die der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe."
       }
     },
     {
@@ -358,7 +366,7 @@
     <section class="section">
       <div class="container flow">
         <h1>Dovilo FAQ: klare Antworten zu App, Pro und KI.</h1>
-        <p>Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 28 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class="mail" href="/de/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
+        <p>Dovilo ist eine kostenlose To-do-Liste für iOS und Android mit Fokus-Timer und Städtebauspiel; Pro kostet $2.49 im Monat. 29 Fragen in sechs Gruppen, von dem, was kostenlos ist, bis zu dem, was ein Coding-Assistent sehen kann. Fehlt etwas: <a class="mail" href="/de/faq/#contact" data-u="support" data-d="dovilo.app">support<span aria-hidden="true"> [at] </span>dovilo.app</a>.</p>
       </div>
     </section>
 
@@ -405,7 +413,13 @@
           <details>
             <summary><h3>Wie funktioniert die To-do-Liste?</h3></summary>
             <div class="faq-answer">
-              <p>Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst.</p>
+              <p>Du kannst Aufgaben mit Fälligkeiten, Wiederholungen, Erinnerungen, Sternen, Markierungen und deinen eigenen Listen anlegen. Alles liegt hinter einer Ansichtsauswahl: Mein Tag, Wichtig, Geplant, Markiert, alle Aufgaben und jede deiner Listen, jeder Eintrag mit Live-Zähler. Listen gruppieren sich selbst nach Datum (Heute, Morgen, Kein Datum), und jede Aufgabe öffnet sich in einem Detailblatt mit ihren Eigenschaften und Notizen. Eine Liste kann eine Ebene tief unter einer anderen liegen; die übergeordnete Liste zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann eine von 7 Farben bekommen, die als Punkt erscheint. Eine erledigte Aufgabe bringt Steine, die du im Städtebau ausgeben kannst.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Können Listen Unterlisten haben?</h3></summary>
+            <div class="faq-answer">
+              <p>Ja, eine Ebene tief. Lege eine Liste unter eine übergeordnete Liste; diese zeigt dann ihre eigenen Aufgaben und die ihrer Unterlisten zusammen. Jede Liste kann außerdem eine von 7 Farben bekommen. Beides ist kostenlos.</p>
             </div>
           </details>
           <details>
@@ -505,8 +519,8 @@
           <details>
             <summary><h3>Was ist Dovilos MCP-Integration?</h3></summary>
             <div class="faq-answer">
-              <p>Dovilo betreibt zwei Remote-Server für das <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong> unter <code>https://dovilo.app/mcp/agents</code> ist für Coding-Agenten wie <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI</strong>. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> und <code>append_telemetry</code>. Diese Tools erreichen <strong>nur KI-Aufgaben</strong>, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen.</p>
-              <p><strong>Personal MCP</strong> unter <code>https://dovilo.app/mcp</code> ist für ChatGPT, Claude, Gemini und Grok, die Pläne und Aufgaben vorschlagen, die du freigibst. Einrichtung und Vertrauensgrenzen stehen auf der <a href="/de/ai/">Entwicklerseite</a>, und jedes Tool mit seinen Eingaben steht in der <a href="/docs/mcp/">MCP-Referenz</a>.</p>
+              <p>Dovilo betreibt zwei Remote-Server für das <strong>Model Context Protocol</strong>. <strong>Agents MCP</strong> unter <code>https://dovilo.app/mcp/agents</code> ist für Coding-Agenten wie <strong>Claude Code, Cursor, Claude Desktop, Windsurf, Codex CLI und Gemini CLI</strong>. Jeder Agent verbindet sich mit seinem eigenen Schlüssel und bekommt neun Tools: <code>list_tasks</code>, <code>get_task</code>, <code>read_context</code>, <code>update_status</code>, <code>update_step</code>, <code>add_step</code>, <code>skip_step</code>, <code>append_note</code> und <code>append_telemetry</code>. Diese Tools erreichen <strong>nur KI-Aufgaben</strong>, also die Jobs, die du im Tab KI-Aufgaben für einen Agenten schreibst, innerhalb der Projekte, die du ihm zuweist. Deine persönliche To-do-Liste in Meine Aufgaben ist nicht auf seiner Tool-Oberfläche, und kein Agent kann eine Aufgabe erstellen oder löschen. Über <code>read_context</code> liest der Agent außerdem das Briefing und die Dokumente jedes Projekts.</p>
+              <p><strong>Personal MCP</strong> unter <code>https://dovilo.app/mcp</code> ist für ChatGPT, Claude, Gemini und Grok, die Pläne, Aufgaben und Projektdokumente vorschlagen, die du freigibst. Die Einrichtung steht auf der Seite <a href="/de/plan/">Mit KI planen</a>, und jedes Tool mit seinen Eingaben steht in der <a href="/docs/mcp/">MCP-Referenz</a>.</p>
             </div>
           </details>
           <details>
@@ -530,7 +544,7 @@
           <details>
             <summary><h3>Können Agenten ohne meine Freigabe Aufgaben erstellen oder ändern?</h3></summary>
             <div class="faq-answer">
-              <p>Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing, das der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe.</p>
+              <p>Nein. Die Agent-Tools haben kein Erstellen und kein Löschen. Ein Agent kann seine KI-Aufgaben lesen, ihren Status aktualisieren, Schritte markieren, Notizen hinterlassen und Telemetrie melden, und er kann eine Aufgabe, die er nicht ausführen soll, mit Begründung abbrechen; die Aufgabe bleibt in deiner Liste, angezeigt als Abgebrochen. Welche Aufgaben ein Agent sieht, entscheidest du, indem du ihm Projekte zuweist, jedes mit einem Briefing und Dokumenten, die der Agent zuerst liest. Wenn du einen Agenten löschst, funktioniert sein Schlüssel sofort nicht mehr. Chat-Assistenten auf Personal MCP schlagen nur vor: Pläne, KI-Aufgaben und jede Änderung an einer KI-Aufgabe warten auf deine Freigabe.</p>
             </div>
           </details>
           <details>
