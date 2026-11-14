@@ -120,7 +120,7 @@
       <div class="container flow">
         <h1>Set up AI Tasks: two prompts, three steps by hand</h1>
         <p>You paste one prompt into your AI app and one into your coding agent. Your AI app then leads the setup and stops whenever it needs your approval. Three things no prompt can do, so you do them in the Dovilo app, and this page says when.</p>
-        <p>There are two paths: connect a repo you already have, or start a new project from nothing. Replace anything in <code>&lt;angle brackets&gt;</code> before you paste.</p>
+        <p>There are two paths: connect a repo you already have, or start a new project from nothing. Each prompt starts with the names you fill in. Nothing else in the text needs editing.</p>
       </div>
     </section>
 
@@ -186,16 +186,19 @@
           <p>Your AI app drafts a short brief for each project during setup. Paste each into its project's settings. A brief holds up to 4,000 characters.</p>
 
           <h2 id="path-a">Path A: connect an existing repo <a class="h-anchor" href="#path-a" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Paste into your AI app:</p>
+          <p>Fill in the two names at the top, then paste into your AI app:</p>
           <div class="code code-long">
             <div class="code-head"><span>Prompt for your AI app</span><button class="copy-btn" type="button">Copy prompt</button></div>
-<pre><code>Set up Dovilo AI Tasks for an existing repo. Parent project: &lt;parent&gt;. Repo project: &lt;repo project&gt;. Work through these steps in order. Tell me before you send anything for approval, and wait for me after each step.
+<pre><code>PARENT_PROJECT: type the name of your parent project in Dovilo
+REPO_PROJECT: type the name of the Dovilo project for this repo
 
-1. List my Dovilo projects and lists. Confirm that both projects are visible and that the repo project belongs to the parent. If not, tell me what you see and stop. Do not create anything.
+Set up Dovilo AI Tasks for an existing repo, using PARENT_PROJECT and REPO_PROJECT from the top of this message. Work through these steps in order. Tell me before you send anything for approval, and wait for me after each step.
+
+1. List my Dovilo projects and lists. Confirm that both projects are visible and that REPO_PROJECT belongs to PARENT_PROJECT. If not, tell me what you see and stop. Do not create anything.
 2. Learn the repo. If you can read it yourself (a connected folder or files I attach), read its agent instruction file and its layout. If you cannot, propose one read-only agent task that asks the coding agent to report what the repo is, its environments, the checks that must pass, and its branch, commit and PR rules, and to change nothing.
 3. Ask me, in one batch, what you still need: who else touches the repo; who may deploy or release; the issue tracker and its project key; the language documents must be written in; what must never be stored in tasks or documents; the prefix for decision numbers. Do not ask for passwords, keys or tokens: ask where they live. Do not invent facts about the product: ask, or mark them [confirm].
-4. Draft a short brief for each project and give me each as one block of text to paste: what the project is, where things are, how to reach them, and which documents the coding agent must read. Under 2,000 characters for the repo project, under 1,000 for the parent. Rules go into the documents, not the brief.
-5. Propose three documents for the repo project: "Status" (current state, roadmap, open questions, decision register with the next free number), "Working protocol" (roles, task rules, git flow and approvals, checks before a change is proposed, report format) and "Product and architecture brief". In the working protocol use the coding agent's tool names: read_context and get_task to read, update_status "running" to claim, append_note and then update_status "awaiting-user" to ask, approvalFeedback for my answer. Give each document a version line and a version history. Leave out credentials, hosts, keys and customer data.
+4. Draft a short brief for each project and give me each as one block of text to paste: what the project is, where things are, how to reach them, and which documents the coding agent must read. Under 2,000 characters for REPO_PROJECT, under 1,000 for PARENT_PROJECT. Rules go into the documents, not the brief.
+5. Propose three documents for REPO_PROJECT: "Status" (current state, roadmap, open questions, decision register with the next free number), "Working protocol" (roles, task rules, git flow and approvals, checks before a change is proposed, report format) and "Product and architecture brief". In the working protocol use the coding agent's tool names: read_context and get_task to read, update_status "running" to claim, append_note and then update_status "awaiting-user" to ask, approvalFeedback for my answer. Give each document a version line and a version history. Leave out credentials, hosts, keys and customer data.
 6. Give me one line to add to the repo's agent instruction file that points to these documents.
 7. Propose one small agent task: one small change on its own branch, the checks from the working protocol, one question to me with awaiting-user, a report, then close. Start its context with a "Before you start" gate: the project brief is present, tracked files are clean, untracked or ignored local config does not count. If the gate fails, the agent adds a note, sets awaiting-user and stops. I approve this task last.
 
@@ -203,15 +206,18 @@ Whenever I tell you the agent is waiting or done, read the task with get_agent_t
           </div>
 
           <h2 id="path-b">Path B: start a new project <a class="h-anchor" href="#path-b" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Create an empty folder for the code first. Then paste into your AI app:</p>
+          <p>Create an empty folder for the code first. Fill in the two names at the top, then paste into your AI app:</p>
           <div class="code code-long">
             <div class="code-head"><span>Prompt for your AI app</span><button class="copy-btn" type="button">Copy prompt</button></div>
-<pre><code>Set up Dovilo AI Tasks for a new project that has no code yet. Parent project: &lt;parent&gt;. Repo project: &lt;repo project&gt;. Work through these steps in order. Tell me before you send anything for approval, and wait for me after each step.
+<pre><code>PARENT_PROJECT: type the name of your parent project in Dovilo
+REPO_PROJECT: type the name of the Dovilo project for the new repo
 
-1. List my Dovilo projects and lists. Confirm that both projects are visible and that the repo project belongs to the parent. If not, tell me what you see and stop. Do not create anything.
+Set up Dovilo AI Tasks for a new project that has no code yet, using PARENT_PROJECT and REPO_PROJECT from the top of this message. Work through these steps in order. Tell me before you send anything for approval, and wait for me after each step.
+
+1. List my Dovilo projects and lists. Confirm that both projects are visible and that REPO_PROJECT belongs to PARENT_PROJECT. If not, tell me what you see and stop. Do not create anything.
 2. Interview me in one batch of questions: what the product is and who it is for; the platforms; the stack, or whether you should propose one; what the first version must do and what it leaves out; where the code will live; the language documents must be written in; what must never be stored in tasks or documents; the prefix for decision numbers. Do not ask for passwords, keys or tokens. Do not invent facts: ask, or mark them [confirm].
-3. Draft a short brief for each project and give me each as one block of text to paste: what the project is, where things are, how to reach them, and which documents the coding agent must read. Under 2,000 characters for the repo project, under 1,000 for the parent. Rules go into the documents, not the brief.
-4. Propose four documents for the repo project: "Product brief", "Architecture decisions" (stack and structure, each decision numbered, with its reason), "Status" (a roadmap in small pieces of work, open questions, decision register with the next free number) and "Working protocol" (roles, task rules, git flow and approvals, checks before a change is proposed, report format). In the working protocol use the coding agent's tool names: read_context and get_task to read, update_status "running" to claim, append_note and then update_status "awaiting-user" to ask, approvalFeedback for my answer. Give each document a version line and a version history. Leave out credentials, hosts and keys.
+3. Draft a short brief for each project and give me each as one block of text to paste: what the project is, where things are, how to reach them, and which documents the coding agent must read. Under 2,000 characters for REPO_PROJECT, under 1,000 for PARENT_PROJECT. Rules go into the documents, not the brief.
+4. Propose four documents for REPO_PROJECT: "Product brief", "Architecture decisions" (stack and structure, each decision numbered, with its reason), "Status" (a roadmap in small pieces of work, open questions, decision register with the next free number) and "Working protocol" (roles, task rules, git flow and approvals, checks before a change is proposed, report format). In the working protocol use the coding agent's tool names: read_context and get_task to read, update_status "running" to claim, append_note and then update_status "awaiting-user" to ask, approvalFeedback for my answer. Give each document a version line and a version history. Leave out credentials, hosts and keys.
 5. Propose the first agent task, a scaffold: in the empty folder, create the project skeleton from "Architecture decisions", an agent instruction file that points to the Dovilo documents and names the checks, and a first commit. Nothing else. Start its context with a "Before you start" gate: the project brief is present, and the folder is empty or holds only local config. If the gate fails or a decision is missing, the agent adds a note, sets awaiting-user and stops. I approve this task last.
 6. When the scaffold is done, propose the next task from the roadmap, one at a time.
 
@@ -222,7 +228,7 @@ Whenever I tell you the agent is waiting or done, read the task with get_agent_t
           <p>The same on both paths. Paste it each time a task is waiting:</p>
           <div class="code">
             <div class="code-head"><span>Prompt for your coding agent</span><button class="copy-btn" type="button">Copy prompt</button></div>
-<pre><code>Use the Dovilo agents MCP server. Call list_tasks and tell me which projects you can see. If a task is queued, read the oldest one with read_context and get_task, claim it with update_status "running" and work it as its context and the project brief say. If you need a decision, append a note with a concrete question and options, set awaiting-user and stop. Split a long report into numbered notes under 4,000 characters. If something could not be finished, send done-with-errors before you mark your last step.</code></pre>
+<pre><code>Use the Dovilo agents MCP server. Call list_tasks and tell me which projects you can see. If a task is queued, take the first queued task that list_tasks returns: read it with read_context and get_task, claim it with update_status "running" and work it as its context and the project brief say. If you need a decision, append a note with a concrete question and options, set awaiting-user and stop. Split a long report into numbered notes under 4,000 characters. If something could not be finished, send done-with-errors before you mark your last step.</code></pre>
           </div>
           <p>The first time, check that the server shows as connected with 9 tools.</p>
 
@@ -234,10 +240,12 @@ Whenever I tell you the agent is waiting or done, read the task with get_agent_t
           </ul>
 
           <h2 id="later-sessions">Later sessions <a class="h-anchor" href="#later-sessions" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Optional. Paste at the start of a working session:</p>
+          <p>Optional. Fill in the name at the top, then paste at the start of a working session:</p>
           <div class="code">
             <div class="code-head"><span>Prompt for your AI app</span><button class="copy-btn" type="button">Copy prompt</button></div>
-<pre><code>Session start: list my Dovilo projects and lists, read "Status" and "Working protocol" in &lt;repo project&gt;, then read the open agent tasks. At the end of the session, propose one update to "Status" and tell me before you send it.</code></pre>
+<pre><code>REPO_PROJECT: type the name of the Dovilo project for this repo
+
+Session start: list my Dovilo projects and lists, read "Status" and "Working protocol" in REPO_PROJECT, then read the open agent tasks. At the end of the session, propose one update to "Status" and tell me before you send it.</code></pre>
           </div>
 
           <h2 id="no-prompt">What no prompt can do <a class="h-anchor" href="#no-prompt" aria-hidden="true" tabindex="-1"></a></h2>
