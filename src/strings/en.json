@@ -96,6 +96,7 @@
     "desktopNeedsPro": "Dovilo Desktop for Windows and Mac needs Pro",
     "getDovilo": "Get Dovilo",
     "readMcpDocs": "Read the MCP docs",
+    "guidedSetup": "Guided setup",
     "copy": "Copy"
   },
   "pages": {
@@ -343,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-14",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",

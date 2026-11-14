@@ -94,6 +94,7 @@
     "desktopNeedsPro": "Windows ve Mac için Dovilo Desktop Pro ister",
     "getDovilo": "Dovilo'yu indir",
     "readMcpDocs": "MCP dokümanlarını oku",
+    "guidedSetup": "Adım adım kurulum",
     "copy": "Kopyala"
   },
   "pages": {
@@ -341,7 +342,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-14",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
         "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
