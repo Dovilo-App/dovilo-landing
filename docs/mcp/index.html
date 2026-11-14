@@ -51,7 +51,7 @@
   "description": "Reference for Dovilo's two remote Model Context Protocol servers. Agents MCP (https://dovilo.app/mcp/agents, bearer API key per agent) exposes nine tools over the AI tasks of the agent's projects, with no create or delete tool. Personal MCP (https://dovilo.app/mcp, OAuth with the Dovilo account) exposes sixteen tools that let ChatGPT, Claude, Gemini and Grok propose plans, tasks and AI-task changes for the user to approve. Covers authentication, error responses, connecting a client (Claude Code, Cursor and other MCP clients), status values including scheduled, repeat, cancelling, approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the Pro plan and trial, and the questions developers ask.",
   "url": "https://dovilo.app/docs/mcp/",
   "inLanguage": "en",
-  "dateModified": "2026-11-10",
+  "dateModified": "2026-11-14",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -265,6 +265,7 @@ Content-Type: application/json
           </div>
           <p>Field names differ between clients: Windsurf calls the URL <code>serverUrl</code>, Codex CLI takes a TOML block, and Gemini CLI has its own <code>mcp add</code> command. That is why the presets exist; use the one for your client. Claude Desktop has no field for a custom header, so its preset runs the server through <code>mcp-remote</code>, which needs Node.js on that machine. Claude Code can also keep the entry in a <code>.mcp.json</code> in the repository; that file holds the key, so the app reminds you to add it to <code>.gitignore</code>.</p>
           <p>To check the connection in Claude Code, run <code>/mcp</code>: it lists <code>dovilo</code> as connected, with 9 tools.</p>
+          <p>Want the whole setup as two prompts you can copy? Use the <a href="/docs/setup/">setup guide</a>.</p>
 
           <h3 id="first-task">The first AI task <a class="h-anchor" href="#first-task" aria-hidden="true" tabindex="-1"></a></h3>
           <p>Agent work lives in its own place: create a project, write a short brief (goals, constraints, what to leave alone), then add the job in the <strong>AI Tasks</strong> tab, on the phone or on the desktop. That tab is the entire surface an agent can read. Your personal to-do list in My Tasks is never exposed to it, so nothing you keep there needs excluding. Then ask your agent for the work in plain language; it discovers the tools on its own.</p>

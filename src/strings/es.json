@@ -96,6 +96,7 @@
     "desktopNeedsPro": "Dovilo Desktop para Windows y Mac requiere Pro",
     "getDovilo": "Consigue Dovilo",
     "readMcpDocs": "Lee la documentación de MCP",
+    "guidedSetup": "Configuración guiada",
     "copy": "Copiar"
   },
   "pages": {
@@ -343,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-14",
       "meta": {
         "title": "Lista de tareas MCP para tu agente de programación - Dovilo",
         "description": "Claude Code, Cursor y todo cliente MCP se conectan a Dovilo desde cualquier equipo y solo ven sus tareas de IA: 9 herramientas, sin crear ni borrar.",
