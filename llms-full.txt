@@ -276,7 +276,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 | Who connects | Coding agents and automation: Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf, Claude Desktop, LangGraph, CI | Chat assistants: ChatGPT, Claude, Gemini, Grok |
 | Sign-in | One API key per agent, created in the app and shown once | OAuth: the Dovilo account, Google or Apple, and a consent screen |
 | What it reaches | The AI tasks of the projects the agent is assigned to | The lists and projects the user makes visible to it; AI tasks only if the user turns that on |
-| Tools | 9: read AI tasks and report progress on them | 16: propose plans, tasks and changes for the user to approve |
+| Tools | 9: read AI tasks and report progress on them | 18: propose plans, tasks and changes for the user to approve |
 | Plan | Pro | Sending a plan works on Free; approving and everything else needs Pro |
 
 ### Agents MCP: coding agents
@@ -292,7 +292,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 - **Scope is per key.** A key belongs to one agent and the agent to the projects the user picked; the check runs on every call. Each project's brief describes goals and constraints.
 - **Statuses:** `scheduled`, `queued`, `running`, `awaiting-user`, `done`, `done-with-errors`, `error`. The last three are final. Agents claim a task with `running`, can plan first and wait for approval (`awaiting-user`), and report steps, notes and model/token/cost telemetry. The user's answer comes back on `get_task` as `approvalFeedback`.
 - **Scheduling and repeat:** a task can open to the agent at a set time (`scheduled` until then, invisible to agents) and repeat daily, weekly, monthly or yearly. One open run per series; missed occurrences are skipped.
-- **Quota:** 15 AI tasks a month on Pro, counted when a task opens to the agent, not when it is created. Replies on the same task cost nothing. One-time top-up packs +10, +30, +75 from $0.99; they never expire.
+- **Quota:** 15 AI tasks a month on Pro, counted when a task opens to the agent, not when it is created. Every Pro account, trial included, also gets 5 extra AI tasks once; they never expire and are used after the month's 15. Replies on the same task cost nothing. One-time top-up packs +10, +30, +75 from $0.99; they never expire.
 - **The AI Tasks tab exists on mobile and on desktop.** An AI task can be written from either one, and both show the agent's live step-by-step progress, its notes and its telemetry, and let the user answer its questions.
 - **Upgrading from Desktop 1.8:** Desktop 1.8.0 ran the MCP server inside the app. It stops with Dovilo 2.0, and the tool names and their contract are the same on the remote server. To move an agent over: update Dovilo Desktop to 2.0 or later (it updates itself and shows the banner **Move to remote MCP**); create a key for each agent; in each client, replace the old Dovilo entry with the server URL and the new key. An agent still set up the old way gets an error that explains the switch.
 
@@ -300,7 +300,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 
 - **Endpoint:** `https://dovilo.app/mcp`, added to ChatGPT, Claude, Gemini or Grok as a custom connector. Sign-in is OAuth with the Dovilo account (Google or Apple) and a consent screen.
 - **Connecting an assistant:** in the assistant, add a custom connector (some apps call it a custom MCP server) with the URL `https://dovilo.app/mcp`; sign in with the Dovilo account, Google or Apple, and approve the consent screen; then open **Connected AI apps** in Dovilo to choose what it can see. Each vendor documents where the setting lives (ChatGPT: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt · Claude: https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp · Gemini: https://support.google.com/gemini/answer/17209137 · Grok: https://docs.x.ai/grok/connectors). Availability depends on the vendor's plan and region; **How to connect** under Connected AI apps walks through each one.
-- **Sixteen tools:** `list_lists`, `list_tasks`, `create_plan`, `create_task`, `update_task`, `complete_task`, `list_projects`, `create_agent_task`, `list_agent_tasks`, `get_agent_task`, `reply_agent_task`, `update_agent_task`, `cancel_agent_task`, `get_project_document`, `create_project_document`, `update_project_document`. **No delete tool, ever.**
+- **Eighteen tools:** `list_lists`, `list_tasks`, `create_plan`, `create_task`, `update_task`, `complete_task`, `list_projects`, `create_agent_task`, `list_agent_tasks`, `get_agent_task`, `reply_agent_task`, `update_agent_task`, `cancel_agent_task`, `get_project_document`, `create_project_document`, `update_project_document`, `update_project_brief`, `get_setup_guide`. **No delete tool, ever.**
 - **The AI proposes, the user approves.** A plan or task lands in the AI inbox on the phone with a notification. Plans, AI-task proposals and every change to an AI task (a reply to the agent, an edit, a cancel) always need approval. Changes to personal tasks need approval too: a direct-apply mode is planned, and until it ships, every write waits for the user's approval.
 - **Per connection** the user controls read access, write mode, visible lists, visible projects, AI task access (off by default) and revoke. Without read access an assistant sees only the names of visible lists; hidden lists and projects are invisible to it. Assistants never get AI-task telemetry or attachments.
 - **Tier:** sending a plan works on Free; approving and everything else needs Pro.
@@ -331,7 +331,7 @@ The entry page for the two developer references, and the documentation URL for t
 
 **Dovilo docs: the MCP servers and webhooks your agents use.** Two references, one URL and a key.
 
-**In short:** Dovilo has two MCP servers. Agents MCP at dovilo.app/mcp/agents is for coding agents: 9 tools, no create, no delete, one key per agent. Personal MCP at dovilo.app/mcp is for ChatGPT, Claude, Gemini and Grok: 16 tools, sign in with your Dovilo account, every write approved by you. Webhooks tell your systems when an AI task moves.
+**In short:** Dovilo has two MCP servers. Agents MCP at dovilo.app/mcp/agents is for coding agents: 9 tools, no create, no delete, one key per agent. Personal MCP at dovilo.app/mcp is for ChatGPT, Claude, Gemini and Grok: 18 tools, sign in with your Dovilo account, every write approved by you. Webhooks tell your systems when an AI task moves.
 
 The two references:
 
@@ -655,7 +655,7 @@ There are also one-time purchases that are not subscriptions: the Focus Ambience
 
 **How many AI tasks does Pro include?**
 
-15 AI tasks a month. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire.
+15 AI tasks a month, plus 5 extra that every Pro account gets once, trial included, and that never expire. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire.
 
 **Do I need the Focus Ambience Pack?**
 
@@ -864,6 +864,6 @@ Long-form posts, newest first — full text at each link, and an RSS feed at htt
 - **Ambience is part of a focus session**: the scenes and sound layers play while a session runs.
 - Connecting an agent takes **a key from the app plus the URL `https://dovilo.app/mcp/agents`**; the app's connect flow shows the exact command or config entry for each client. Claude Desktop goes through `mcp-remote` and needs Node.js.
 - Each agent's **API key is created in the app, shown once**, and stored by Dovilo only as a hash. It is sent as `Authorization: Bearer <key>`.
-- Personal MCP has 16 tools since November 2026, including three for project documents; every write, documents included, waits for approval.
+- Personal MCP has 18 tools since November 2026, including three for project documents, one that proposes a project brief and one that returns the setup procedure; every write, documents and briefs included, waits for approval.
 - Every Personal MCP result carries `now`; plan dates from it.
 - A sub-project's agent also reads the parent project's brief and documents.

@@ -51,7 +51,7 @@
   "description": "Reference for Dovilo's two remote Model Context Protocol servers. Agents MCP (https://dovilo.app/mcp/agents, bearer API key per agent) exposes nine tools over the AI tasks of the agent's projects, with no create or delete tool. Personal MCP (https://dovilo.app/mcp, OAuth with the Dovilo account) exposes sixteen tools that let ChatGPT, Claude, Gemini and Grok propose plans, tasks and AI-task changes for the user to approve. Covers authentication, error responses, connecting a client (Claude Code, Cursor and other MCP clients), status values including scheduled, repeat, cancelling, approval rules, planning from a chat assistant, upgrading from Desktop 1.8, the Pro plan and trial, and the questions developers ask.",
   "url": "https://dovilo.app/docs/mcp/",
   "inLanguage": "en",
-  "dateModified": "2026-11-14",
+  "dateModified": "2026-11-17",
   "publisher": {
     "@type": "Organization",
     "name": "Dovilo",
@@ -202,7 +202,7 @@
               <tr><th scope="row">Who connects</th><td>Coding agents and automation: Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf, Claude Desktop, LangGraph, CI</td><td>Chat assistants: ChatGPT, Claude, Gemini, Grok</td></tr>
               <tr><th scope="row">Sign-in</th><td>One API key per agent, created in the app and shown once</td><td>OAuth: your Dovilo account, Google or Apple, and a consent screen</td></tr>
               <tr><th scope="row">What it reaches</th><td>The AI tasks of the projects the agent is assigned to</td><td>The lists and projects you make visible to it; AI tasks only if you turn that on</td></tr>
-              <tr><th scope="row">Tools</th><td>9: read AI tasks and report progress on them</td><td>16: propose plans, tasks and changes for you to approve</td></tr>
+              <tr><th scope="row">Tools</th><td>9: read AI tasks and report progress on them</td><td>18: propose plans, tasks and changes for you to approve</td></tr>
               <tr><th scope="row">Plan</th><td>Pro</td><td>Sending a plan works on Free; approving and everything else needs Pro</td></tr>
             </tbody>
           </table></div>
@@ -282,7 +282,7 @@ append_note      → what changed and why
 append_telemetry → 41s · 18.2k tokens · $0.07
 update_status    → done</code></pre>
           </div>
-          <p>Every one of those calls lands on the task itself, so the AI Tasks tab on your phone shows the step trail, the notes and the cost while it happens. If the agent needs a decision it sets <code>awaiting-user</code> and stops. You answer from the task, the agent reads your reply with <code>get_task</code> and carries on, and the answer costs no quota.</p>
+          <p>Every one of those calls lands on the task itself, so the AI Tasks tab on your phone shows the step trail, the notes and the cost while it happens. If the agent needs a decision it writes the question in a note, sets <code>awaiting-user</code> and stops. You answer from the task, the agent reads your reply with <code>get_task</code> and carries on, and the answer costs no quota.</p>
 
           <h2 id="agents-tools">Agents MCP tools <a class="h-anchor" href="#agents-tools" aria-hidden="true" tabindex="-1"></a></h2>
           <p>Nine tools: three read, six write. They reach only the AI tasks of the agent's projects. There is no tool that creates a task and no tool that deletes one, and the user's personal to-do list is not on this server at all. Every write takes the task <code>id</code>.</p>
@@ -292,11 +292,11 @@ update_status    → done</code></pre>
               <tr><td><code>list_tasks</code></td><td>read</td><td><code>status?</code> <code>updated_after?</code></td><td>AI tasks in the agent's projects. Finished tasks are left out unless <code>status</code> asks for one. <code>updated_after</code> takes the server's <code>updatedAt</code> (Unix ms) from an earlier response and returns only tasks changed since. Scheduled tasks are never returned.</td></tr>
               <tr><td><code>get_task</code></td><td>read</td><td><code>id</code></td><td>One task in full: status, steps, notes, telemetry, and <code>approvalFeedback</code>, the user's latest reply or plan guidance.</td></tr>
               <tr><td><code>read_context</code></td><td>read</td><td><code>id</code> <code>documentId?</code></td><td>The task's context text and note attachments, the project's name and brief, the parent brief, the project's documents index, one document's text by <code>documentId</code>, any <code>approvalFeedback</code>, and up to 20 related tasks in the same project.</td></tr>
-              <tr><td><code>update_status</code></td><td>write</td><td><code>id</code> <code>status</code> <code>note?</code> <code>reason?</code> <code>error?</code></td><td>Claims a task with <code>running</code>, then moves it to <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code> or <code>error</code>. <code>cancelled</code> needs a <code>reason</code>: see <a href="#cancelling">Cancelling</a>.</td></tr>
-              <tr><td><code>update_step</code></td><td>write</td><td><code>id</code> <code>stepId</code> <code>status</code> <code>note?</code></td><td>Sets a step to <code>pending</code>, <code>running</code>, <code>done</code>, <code>error</code> or <code>skipped</code>. When every step has finished, the task finishes with it.</td></tr>
+              <tr><td><code>update_status</code></td><td>write</td><td><code>id</code> <code>status</code> <code>note?</code> <code>reason?</code> <code>error?</code></td><td>Claims a task with <code>running</code>, then moves it to <code>awaiting-user</code>, <code>done</code>, <code>done-with-errors</code> or <code>error</code>. <code>awaiting-user</code> is refused unless the task has a note since the claim or the call carries a <code>note</code>. <code>cancelled</code> needs a <code>reason</code>: see <a href="#cancelling">Cancelling</a>.</td></tr>
+              <tr><td><code>update_step</code></td><td>write</td><td><code>id</code> <code>stepId</code> <code>status</code> <code>note?</code></td><td>Sets a step to <code>pending</code>, <code>running</code>, <code>done</code>, <code>error</code> or <code>skipped</code>. When every step has finished, the task finishes with it as <code>done</code>; to finish with errors, send <code>done-with-errors</code> before the last step.</td></tr>
               <tr><td><code>add_step</code></td><td>write</td><td><code>id</code> <code>title</code> <code>skippable</code> <code>afterOrder?</code></td><td>Adds a step. <code>skippable</code> says whether the task can go on if the step fails; <code>afterOrder</code> places it after an existing step.</td></tr>
               <tr><td><code>skip_step</code></td><td>write</td><td><code>id</code> <code>stepId</code> <code>reason?</code></td><td>Skips a step that was added as skippable.</td></tr>
-              <tr><td><code>append_note</code></td><td>write</td><td><code>id</code> <code>markdown</code></td><td>Adds a Markdown note: what the agent did, decided or could not do. The user reads it on the task.</td></tr>
+              <tr><td><code>append_note</code></td><td>write</td><td><code>id</code> <code>markdown</code></td><td>Adds a Markdown note of up to 4,000 characters: what the agent did, decided or could not do. The user reads it on the task. A longer report goes into several notes.</td></tr>
               <tr><td><code>append_telemetry</code></td><td>write</td><td><code>id</code> <code>model?</code> <code>tokens_in?</code> <code>tokens_out?</code> <code>cost_estimate?</code> <code>duration_ms?</code> <code>extra?</code></td><td>Records model, tokens, cost and duration. The phone shows it on the task.</td></tr>
             </tbody>
           </table></div>
@@ -309,9 +309,10 @@ update_status    → done</code></pre>
             <li>Read the task with <code>read_context</code> and <code>get_task</code>. The project brief in <code>read_context</code> is the user's instructions for the work.</li>
             <li>Claim it with <code>update_status</code> <code>running</code>, from <code>queued</code> or <code>awaiting-user</code>. Of two agents claiming at once, exactly one wins; the other gets an error with <code>domainCode</code> <code>TASK_ALREADY_CLAIMED</code> and should leave the task alone.</li>
             <li>Only then write steps, notes and telemetry. Writes before the claim can race another agent.</li>
-            <li>If the task asks for a plan first, write the plan with <code>add_step</code>, set <code>awaiting-user</code> and stop until the user approves it.</li>
-            <li>When the agent needs a decision, it sets <code>awaiting-user</code> with a note and stops. The user's answer arrives as <code>approvalFeedback</code> on <code>get_task</code>, and answering costs no quota.</li>
+            <li>If the task asks for a plan first, write the plan with <code>add_step</code>, say so in a note, set <code>awaiting-user</code> and stop until the user approves it.</li>
+            <li>When the agent needs a decision, it writes the question with <code>append_note</code>, then sets <code>awaiting-user</code> and stops. Without a note the status change is refused. The user's answer arrives as <code>approvalFeedback</code> on <code>get_task</code>, and answering costs no quota.</li>
           </ol>
+          <p>The server sends this order of calls as MCP server instructions, so a client that reads them needs no extra prompt for it.</p>
 
           <h2 id="statuses">Status values <a class="h-anchor" href="#statuses" aria-hidden="true" tabindex="-1"></a></h2>
           <p>An AI task moves through these values. The same values appear in <a href="/docs/webhooks/#task-lifecycle-reference">webhook payloads</a>.</p>
@@ -328,7 +329,7 @@ update_status    → done</code></pre>
             </tbody>
           </table></div>
           <ul>
-            <li><code>done</code>, <code>done-with-errors</code> and <code>error</code> are final. An agent cannot change the status of a finished task.</li>
+            <li><code>done</code>, <code>done-with-errors</code> and <code>error</code> are final. An agent cannot change the status of a finished task. When the last step is marked done the task closes as <code>done</code>, so an agent that wants <code>done-with-errors</code> sends it before its last step.</li>
             <li>Only the server moves a task from <code>scheduled</code> to <code>queued</code>.</li>
             <li>There is no separate cancelled status. <code>update_status</code> accepts <code>cancelled</code> and stores it as <code>error</code> with <code>cancelledAt</code>.</li>
           </ul>
@@ -339,7 +340,7 @@ update_status    → done</code></pre>
             <li>A task whose start time is in the future is <code>scheduled</code>. Every minute the server opens the tasks whose time has come and moves them to <code>queued</code>.</li>
             <li>A task can repeat daily, weekly, monthly or yearly, in the user's time zone. Each run is its own task, and the runs of one series share a <code>seriesId</code>.</li>
             <li>One run per series is open at a time. When a run reaches <code>done</code>, <code>done-with-errors</code> or <code>error</code>, the next one is created for the first occurrence after now; occurrences missed in between are skipped.</li>
-            <li>Quota: Pro includes 15 AI tasks a month, charged when a task opens to the agent, not when it is created. Replies on the same task cost nothing. Top-ups of +10, +30 or +75 start at $0.99 and never expire. A scheduled task that comes due with no quota left stays <code>scheduled</code>, and the user is told.</li>
+            <li>Quota: Pro includes 15 AI tasks a month, charged when a task opens to the agent, not when it is created. Every Pro account, trial included, also gets 5 extra AI tasks once; they never expire and are used after the month's 15. Replies on the same task cost nothing. Top-ups of +10, +30 or +75 start at $0.99 and never expire. A scheduled task that comes due with no quota left stays <code>scheduled</code>, and the user is told.</li>
           </ul>
 
           <h2 id="cancelling">Cancelling <a class="h-anchor" href="#cancelling" aria-hidden="true" tabindex="-1"></a></h2>
@@ -352,7 +353,7 @@ update_status    → done</code></pre>
           </ul>
 
           <h2 id="personal-tools">Personal MCP tools <a class="h-anchor" href="#personal-tools" aria-hidden="true" tabindex="-1"></a></h2>
-          <p>Sixteen tools for chat assistants. Read tools return only what the user made visible to that connection. Write tools propose: each one creates a proposal that waits in the Dovilo app, and the tool answers with its id and the status <code>pending</code>.</p>
+          <p>Eighteen tools for chat assistants. Read tools return only what the user made visible to that connection. Write tools propose: each one creates a proposal that waits in the Dovilo app, and the tool answers with its id and the status <code>pending</code>.</p>
           <p>Every Dovilo tool result includes <code>now</code> (the user's current date, weekday, time and time zone), and Dovilo refuses a due date before today or a reminder or schedule that has already passed, so assistants should plan from now, not from the conversation.</p>
           <div class="table-wrap"><table class="table">
             <thead><tr><th>Tool</th><th>Access</th><th>What it does</th><th>Approval</th></tr></thead>
@@ -367,13 +368,15 @@ update_status    → done</code></pre>
             </tbody>
             <tbody>
               <tr><th colspan="4" scope="rowgroup">AI tasks</th></tr>
-              <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects, with <code>parentId</code> for a sub-project. Their briefs only with AI task access.</td><td></td></tr>
+              <tr><td><code>list_projects</code></td><td>read</td><td>Names and ids of the visible projects, with <code>parentId</code> for a sub-project. With AI task access also <code>hasBrief</code>, <code>briefChars</code> and each project's documents; the brief text only when <code>briefs: true</code> is sent.</td><td></td></tr>
+              <tr><td><code>update_project_brief</code></td><td>write</td><td>Proposes a new brief for a project, up to 4,000 characters. Needs AI task access and Dovilo 2.4 or later on the user's phone.</td><td>Always</td></tr>
               <tr><td><code>create_agent_task</code></td><td>write</td><td>Proposes an AI task under a project, optionally with a start time and a repeat. An agent sees it only after approval.</td><td>Always</td></tr>
               <tr><td><code>list_agent_tasks</code></td><td>read</td><td>AI tasks of the visible projects, with status and the agent's latest note. Needs AI task access.</td><td></td></tr>
               <tr><td><code>get_agent_task</code></td><td>read</td><td>One AI task: description, context, steps, agent notes and the user's latest reply. Needs AI task access.</td><td></td></tr>
               <tr><td><code>reply_agent_task</code></td><td>write</td><td>Proposes an answer to a task that is awaiting the user. Needs AI task access.</td><td>Always</td></tr>
               <tr><td><code>update_agent_task</code></td><td>write</td><td>Proposes edits to a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
               <tr><td><code>cancel_agent_task</code></td><td>write</td><td>Proposes cancelling a task that is queued, scheduled or awaiting the user. Needs AI task access.</td><td>Always</td></tr>
+              <tr><td><code>get_setup_guide</code></td><td>read</td><td>Returns the AI Tasks setup procedure for an existing repo or a new project, and where the user's setup stands. Needs AI task access.</td><td></td></tr>
             </tbody>
             <tbody>
               <tr><th colspan="4" scope="rowgroup">Project documents</th></tr>
@@ -382,6 +385,7 @@ update_status    → done</code></pre>
               <tr><td><code>update_project_document</code></td><td>write</td><td>Proposes an edit to a project document. Needs AI task access.</td><td>Always</td></tr>
             </tbody>
           </table></div>
+          <p>A project brief holds up to 4,000 characters. It is the short standing note a coding agent reads on every task: what the project is, where things are, how to reach them. Rules and detail belong in project documents.</p>
           <ul>
             <li>A direct-apply mode is planned; until it ships, every write waits for your approval.</li>
             <li>No tool deletes a task, a list or a project, and none ever will.</li>
@@ -452,7 +456,7 @@ update_status    → done</code></pre>
             <li>Pro is $2.49 a month, $19.99 a year, or $49.99 once. Store pricing is regional; these are the USD baseline.</li>
             <li>Every plan starts with a 7-day free trial, begun in the iOS or Android app. To try the agent layer without paying, start the trial, create an agent and its key, connect your client and run a task. Cancel before day 7 and nothing is charged.</li>
             <li>The trial runs through your App Store or Google Play subscription, so a payment method is attached there. There is no card-free desktop-only trial today. Everything in the agent layer is unlocked for the full week.</li>
-            <li>Pro includes 15 AI tasks a month; how they are counted and the top-ups are under <a href="#scheduling">Scheduling and repeat</a>.</li>
+            <li>Pro includes 15 AI tasks a month, plus 5 extra once; how they are counted and the top-ups are under <a href="#scheduling">Scheduling and repeat</a>.</li>
             <li>On Personal MCP, sending a plan works on Free; approving it, and everything else, needs Pro.</li>
           </ul>
 
@@ -460,7 +464,7 @@ update_status    → done</code></pre>
           <p>The <a href="/ai/">developer page</a> answers five questions in a line each. These are the ones that need more room.</p>
 
           <h3>How hard is this to set up?</h3>
-          <p>Two steps. Create an agent in the app (<strong>AI Agents</strong>, then <strong>New agent</strong>; in Desktop, <strong>Connect a new AI</strong>), pick its projects and copy its key. Then add <code>https://dovilo.app/mcp/agents</code> to your client with the key as a bearer token: one command for Claude Code, a short config entry for the other clients, and the app shows the right one for each. The client is the only thing the agent's machine needs, except Claude Desktop, whose preset runs through <code>mcp-remote</code> and needs Node.js.</p>
+          <p>Two steps. Create an agent in the app (<strong>AI Agents</strong>, then <strong>New agent</strong>; in Desktop, <strong>Connect a new AI</strong>), pick its projects and copy its key. Then add <code>https://dovilo.app/mcp/agents</code> to your client with the key as a bearer token: one command for Claude Code, a short config entry for the other clients, and the app shows the right one for each. The client is the only thing the agent's machine needs, except Claude Desktop, whose preset runs through <code>mcp-remote</code> and needs Node.js. The <a href="/docs/setup/">setup guide</a> has the whole setup as two prompts.</p>
 
           <h3>Does any of this go through your servers?</h3>
           <p>Yes, since Dovilo 2.0. Agents and assistants connect to dovilo.app, which runs on Cloudflare and Google Cloud. We store only a hash of each agent key, and we process IP addresses and request details to protect the service and apply rate limits: rate-limit records are kept for up to 2 days, audit logs for up to 90 days. Anything your agent sends to its own model provider is governed by that provider's policy, not ours. The <a href="/privacy/">privacy policy</a> has the detail.</p>
@@ -485,6 +489,7 @@ update_status    → done</code></pre>
 
           <h2 id="changelog">Changelog <a class="h-anchor" href="#changelog" aria-hidden="true" tabindex="-1"></a></h2>
           <ul>
+            <li><strong>17 November 2026</strong>: Personal MCP has 18 tools: <code>update_project_brief</code> proposes a project brief (Dovilo 2.4 or later on the phone) and <code>get_setup_guide</code> returns the setup procedure. <code>list_projects</code> returns <code>hasBrief</code> and <code>briefChars</code>, and the brief text only with <code>briefs: true</code>. On Agents MCP, <code>awaiting-user</code> is refused without a note, a note holds up to 4,000 characters, and the server instructions are a short working loop. Every Pro account gets 5 extra AI tasks once.</li>
             <li><strong>November 2026</strong>: Personal MCP has 16 tools: <code>get_project_document</code>, <code>create_project_document</code> and <code>update_project_document</code> are new, and their writes wait for approval on the phone. Every Personal MCP result carries <code>now</code> (date, weekday, time, time zone), and dates in the past are refused. <code>read_context</code> returns <code>parentBrief</code> and the documents of the project and its parent; with <code>documentId</code> and <code>offset</code> it returns one document's text in <code>document.text</code>, up to 30,000 characters a page, with <code>nextOffset</code> when more follows. <code>list_projects</code> returns <code>parentId</code> and each project's documents. Document proposals no longer have a daily limit; up to 10 can wait for your review at once.</li>
             <li><strong>Dovilo 2.0</strong>: Agents MCP over HTTPS at <code>https://dovilo.app/mcp/agents</code>, with a key per agent; the server built into Desktop 1.8 stops. New status <code>scheduled</code> and repeating tasks. Agents can cancel a task with a reason. <code>get_task</code> returns <code>approvalFeedback</code>. Personal MCP at <code>https://dovilo.app/mcp</code>, with 13 tools.</li>
           </ul>

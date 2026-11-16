@@ -99,7 +99,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma - Dovilo",
         "description": "Dovilo, iOS ve Android için ücretsiz yapılacaklar listesi: Pomodoro odak zamanlayıcısı ve izometrik şehir kurma. Sınırsız görev ve seans, reklam yok.",
@@ -244,7 +244,7 @@
         },
         "aiTasks": {
           "q": "Pro kaç AI görevi içerir?",
-          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+          "a": "Ayda 15 AI görevi; ayrıca deneme dahil her Pro hesabına bir kez verilen ve hiç bitmeyen 5 ek AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
         },
         "cancel": {
           "q": "Aboneliğimi nasıl iptal ederim?",
@@ -342,7 +342,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-14",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Kodlama ajanının çalıştığı MCP görev listesi - Dovilo",
         "description": "Claude Code, Cursor ve her MCP istemcisi her makineden Dovilo'ya bağlanır ve yalnızca kendi AI görevlerini görür: 9 araç, oluşturma ve silme yok.",
@@ -466,7 +466,7 @@
         },
         "tasks": {
           "label": "AI görevleri",
-          "text": "Ayda 15 AI görevi, ek paketler $0.99'dan."
+          "text": "Ayda 15 AI görevi, bir kerelik 5 ek görev, ek paketler $0.99'dan."
         },
         "plans": {
           "label": "Planlar",
@@ -634,7 +634,7 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Fiyat: kullanımı ücretsiz, Pro ayda $2.49 - Dovilo",
         "description": "Dovilo fiyatı: kullanımı ücretsiz, Pro ayda $2.49. Kişisel uygulama ücretsiz ve sınırsız; Pro AI katmanı, Desktop, senkronizasyon ve iki paket ekler.",
@@ -711,7 +711,7 @@
         },
         "aiTasks": {
           "q": "Pro kaç AI görevi içerir?",
-          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+          "a": "Ayda 15 AI görevi; ayrıca deneme dahil her Pro hesabına bir kez verilen ve hiç bitmeyen 5 ek AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
         },
         "ambience": {
           "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",
@@ -858,7 +858,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "SSS: uygulama, Pro ve AI üzerine net cevaplar - Dovilo",
         "description": "Dovilo hakkında sık sorulan sorular: oyunlaştırılmış yapılacaklar listesi, odak zamanlayıcısı ve şehir kurma.",
@@ -931,7 +931,7 @@
         },
         "aiTasks": {
           "q": "Pro kaç AI görevi içerir?",
-          "a": "Ayda 15 AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
+          "a": "Ayda 15 AI görevi; ayrıca deneme dahil her Pro hesabına bir kez verilen ve hiç bitmeyen 5 ek AI görevi. Bir görev, sen oluşturduğunda değil kodlama asistanına açıldığında sayılır; aynı görevdeki cevaplar bir şeye mal olmaz. Daha fazlası gerekirse tek seferlik ek paketler 10, 30 ya da 75 AI görevi ekler, $0.99'dan başlar ve hiç bitmez."
         },
         "ambiencePack": {
           "q": "Odak Atmosfer Paketi'ne ihtiyacım var mı?",

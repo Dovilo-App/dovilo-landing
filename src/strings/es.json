@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Lista de tareas gamificada, temporizador y ciudad - Dovilo",
         "description": "Dovilo: lista de tareas gratis para iOS y Android con temporizador Pomodoro y una ciudad isométrica. Tareas y sesiones ilimitadas, sin anuncios.",
@@ -246,7 +246,7 @@
         },
         "aiTasks": {
           "q": "¿Cuántas tareas de IA incluye Pro?",
-          "a": "15 tareas de IA al mes. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
+          "a": "15 tareas de IA al mes, más 5 extra que cada cuenta Pro recibe una sola vez, prueba incluida, y que nunca caducan. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
         },
         "cancel": {
           "q": "¿Cómo cancelo mi suscripción?",
@@ -344,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-14",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Lista de tareas MCP para tu agente de programación - Dovilo",
         "description": "Claude Code, Cursor y todo cliente MCP se conectan a Dovilo desde cualquier equipo y solo ven sus tareas de IA: 9 herramientas, sin crear ni borrar.",
@@ -468,7 +468,7 @@
         },
         "tasks": {
           "label": "Tareas de IA",
-          "text": "15 tareas de IA al mes, recargas desde $0.99."
+          "text": "15 tareas de IA al mes, 5 extra una vez, recargas desde $0.99."
         },
         "plans": {
           "label": "Planes",
@@ -636,7 +636,7 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Precios: uso gratuito, Pro a $2.49 al mes - Dovilo",
         "description": "Precios de Dovilo: gratis para uso personal, Pro a $2.49 al mes. Pro añade la capa de IA, Desktop, sincronización y los dos paquetes.",
@@ -713,7 +713,7 @@
         },
         "aiTasks": {
           "q": "¿Cuántas tareas de IA incluye Pro?",
-          "a": "15 tareas de IA al mes. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
+          "a": "15 tareas de IA al mes, más 5 extra que cada cuenta Pro recibe una sola vez, prueba incluida, y que nunca caducan. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
         },
         "ambience": {
           "q": "¿Necesito el Paquete Atmósfera de Enfoque?",
@@ -860,7 +860,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "FAQ: respuestas directas sobre la app, Pro y la IA - Dovilo",
         "description": "Preguntas frecuentes sobre Dovilo: lista de tareas gamificada, temporizador de enfoque y constructor de ciudades.",
@@ -933,7 +933,7 @@
         },
         "aiTasks": {
           "q": "¿Cuántas tareas de IA incluye Pro?",
-          "a": "15 tareas de IA al mes. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
+          "a": "15 tareas de IA al mes, más 5 extra que cada cuenta Pro recibe una sola vez, prueba incluida, y que nunca caducan. Una tarea cuenta cuando se abre a tu asistente de programación, no cuando la creas, y las respuestas en la misma tarea no cuestan nada. Si necesitas más, los paquetes de recarga de compra única añaden 10, 30 o 75 tareas de IA, empiezan en $0.99 y nunca caducan."
         },
         "ambiencePack": {
           "q": "¿Necesito el Paquete Atmósfera de Enfoque?",

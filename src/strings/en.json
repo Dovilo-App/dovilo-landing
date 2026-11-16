@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Gamified To-Do List, Focus Timer &amp; City Builder - Dovilo",
         "description": "Dovilo is a free to-do list for iOS and Android with a Pomodoro focus timer and an isometric city builder. Unlimited tasks and focus sessions, no ads.",
@@ -246,7 +246,7 @@
         },
         "aiTasks": {
           "q": "How many AI tasks does Pro include?",
-          "a": "15 AI tasks a month. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+          "a": "15 AI tasks a month, plus 5 extra that every Pro account gets once, trial included, and that never expire. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
         },
         "cancel": {
           "q": "How do I cancel my subscription?",
@@ -344,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-14",
+      "updated": "2026-11-17",
       "meta": {
         "title": "MCP task list your coding agent works out of - Dovilo",
         "description": "Claude Code, Cursor and any MCP client connect to Dovilo from any machine and see only their own AI tasks: 9 tools, no create, no delete.",
@@ -468,7 +468,7 @@
         },
         "tasks": {
           "label": "AI tasks",
-          "text": "15 AI tasks a month, top-ups from $0.99."
+          "text": "15 AI tasks a month, 5 extra once, top-ups from $0.99."
         },
         "plans": {
           "label": "Plans",
@@ -636,7 +636,7 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-05",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Pricing: free to use, $2.49 a month for Pro - Dovilo",
         "description": "Dovilo pricing: free to use, $2.49 a month for Pro. The personal app is free and unlimited. Pro adds the AI layer, Desktop, sync and both packs.",
@@ -713,7 +713,7 @@
         },
         "aiTasks": {
           "q": "How many AI tasks does Pro include?",
-          "a": "15 AI tasks a month. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+          "a": "15 AI tasks a month, plus 5 extra that every Pro account gets once, trial included, and that never expire. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
         },
         "ambience": {
           "q": "Do I need the Focus Ambience Pack?",
@@ -860,7 +860,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "FAQ: straight answers on the app, Pro and AI - Dovilo",
         "description": "Frequently asked questions about Dovilo: gamified to-do list, focus timer, and city builder.",
@@ -933,7 +933,7 @@
         },
         "aiTasks": {
           "q": "How many AI tasks does Pro include?",
-          "a": "15 AI tasks a month. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
+          "a": "15 AI tasks a month, plus 5 extra that every Pro account gets once, trial included, and that never expire. A task counts when it opens to your coding assistant, not when you create it, and replies on the same task cost nothing. If you need more, one-time top-up packs add 10, 30 or 75 AI tasks, start at $0.99 and never expire."
         },
         "ambiencePack": {
           "q": "Do I need the Focus Ambience Pack?",
