@@ -202,8 +202,8 @@
       "shipped": {
         "title": "Neu erschienen",
         "mobile": {
-          "date": "9. Nov. 2026",
-          "text": "Mobile 2.3.0: Listen in Listen, 7 Farben und Projektdokumente für Coding-Assistenten."
+          "date": "16. Nov. 2026",
+          "text": "Mobile 2.4.0: ein KI-Eingang, der sich prüfen lässt, mit kompakten Karten, Filtern und Annehmen mehrerer auf einmal."
         },
         "desktop": {
           "date": "8. Nov. 2026",
@@ -726,7 +726,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Download für iPhone, Android, Windows und Mac - Dovilo",
         "description": "Lade Dovilo für iPhone, Android, Windows und Mac herunter. Kostenlos auf dem Smartphone. Desktop braucht Pro, gestartet in der mobilen App.",
@@ -790,7 +790,7 @@
             "source": "Dovilo.dmg, aus dem öffentlichen Release-Repository"
           }
         },
-        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.3.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.3.0</strong>, vom 8. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
+        "p2": "Mobile und Desktop laufen auf getrennten Versionslinien, ihre Nummern müssen also nicht übereinstimmen. Die aktuelle Mobile-Version ist <strong>2.4.0</strong>, auf iOS und Android, und die aktuelle Desktop-Version ist <strong>2.3.0</strong>, vom 8. November 2026. Die Seite mit den <a href=\"/changelog/\">Versionshinweisen</a> listet die Desktop-Builds und ergänzt beim Öffnen einen neueren aus dem Release-Repository, sodass sie nie eine Version hinterherhinkt, und jeder frühere Desktop-Build bleibt dort getaggt. Diese Seite ist nur für die erste Installation: Nichts hier muss zweimal geladen werden."
       },
       "pro": {
         "summary": "Was kostenlos ist und was Pro hinzufügt",

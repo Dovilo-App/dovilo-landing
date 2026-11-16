@@ -489,7 +489,7 @@
 
   <url>
     <loc>https://dovilo.app/changelog/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -585,7 +585,7 @@
 
   <url>
     <loc>https://dovilo.app/downloads/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
@@ -597,7 +597,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/downloads/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
@@ -609,7 +609,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/downloads/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
@@ -621,7 +621,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/downloads/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
@@ -633,7 +633,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/downloads/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/downloads/"/>
