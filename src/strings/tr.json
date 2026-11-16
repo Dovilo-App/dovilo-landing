@@ -200,8 +200,8 @@
       "shipped": {
         "title": "Yeni çıkanlar",
         "mobile": {
-          "date": "9 Kas 2026",
-          "text": "Mobil 2.3.0: liste içinde liste, 7 renk ve kodlama asistanları için proje belgeleri."
+          "date": "16 Kas 2026",
+          "text": "Mobile 2.4.0: incelenebilir bir AI gelen kutusu; küçük kartlar, filtreler ve birkaçını birden onaylama."
         },
         "desktop": {
           "date": "8 Kas 2026",
@@ -724,7 +724,7 @@
       }
     },
     "downloads": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "iPhone, Android, Windows ve Mac için indir - Dovilo",
         "description": "Dovilo'yu iPhone, Android, Windows ve Mac için indir. Telefonda ücretsiz. Desktop, mobil uygulamada başlatılan Pro ister.",
@@ -788,7 +788,7 @@
             "source": "Dovilo.dmg, herkese açık sürüm deposundan"
           }
         },
-        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.3.0</strong>, güncel masaüstü sürümü 8 Kasım 2026 tarihli <strong>2.3.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
+        "p2": "Mobil ve masaüstü ayrı sürüm hatlarında ilerler; numaralarının örtüşmesi beklenmez. Güncel mobil sürüm iOS ve Android'de <strong>2.4.0</strong>, güncel masaüstü sürümü 8 Kasım 2026 tarihli <strong>2.3.0</strong>. <a href=\"/changelog/\">Sürüm notları sayfası</a> masaüstü derlemelerini listeler ve açıldığında sürüm deposundaki daha yeni bir derlemeyi ekler, yani hiç bir sürüm geride kalmaz; önceki her masaüstü derlemesi orada etiketli durur. Bu sayfa yalnızca ilk kurulum içindir: buradan hiçbir şeyi iki kez indirmen gerekmez."
       },
       "pro": {
         "summary": "Ne ücretsiz, Pro ne ekler",

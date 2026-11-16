@@ -37,7 +37,7 @@ The rest of the page, block by block:
 - **Finished work builds a city that stays.** Tasks and focus sessions pay bricks. Spend them on houses, offices, parks and roads, placed where you want. Nothing decays, no streak punishes a quiet week. Large builds come with the Full City Package, $4.99 once, included with Pro.
 - **AI Tasks for coding assistants.** Give your coding assistant its own task list, AI Tasks, separate from yours: 9 tools, no create, no delete, your list invisible. The detail is on the developer page, https://dovilo.app/ai/.
 - **What it costs.** Free is the whole personal app: unlimited tasks and focus sessions, the city, no ads. Pro is $2.49 a month, $19.99 a year or $49.99 once, with a 7-day trial, and adds AI planning, AI Tasks, Desktop, cloud sync, both packs and advanced statistics. The full list is on the pricing page, https://dovilo.app/pricing/.
-- **Recently shipped**, the newest release of each line: Mobile 2.3.0, 9 Nov 2026 (lists inside lists, 7 colours and project documents for coding assistants), and Desktop 2.3.0, 8 Nov 2026 (lists inside lists, list colours and project documents). Every release: https://dovilo.app/changelog/
+- **Recently shipped**, the newest release of each line: Mobile 2.4.0, 16 Nov 2026 (an AI inbox you can review, with compact cards, filters and approve several at once), and Desktop 2.3.0, 8 Nov 2026 (lists inside lists, list colours and project documents). Every release: https://dovilo.app/changelog/
 - **One engineer, in Istanbul.** No company, no funding, and a public release history you can check.
 
 The screens on the page are the app's own: a plan of six tasks from Claude in the AI inbox, next to the list Mia's birthday it was approved into (under Today, Tomorrow and This week); a focus session in the Rainy City scene with 22 minutes left; and a city with a stadium, a hospital and a city hall.
@@ -432,7 +432,7 @@ Which download you need, as the page sets it out:
 | Windows | Dovilo-Setup.exe, from the public releases repository | Needs Pro | The app updates itself |
 | macOS | Dovilo.dmg, from the public releases repository | Needs Pro | The app updates itself |
 
-The mobile apps are the free ones, and free here is the whole product rather than a trial. The desktop apps are the Pro half: two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where the signed webhooks are set up. Coding agents do not need it: they connect to Dovilo directly, with a key created on the phone or on the desktop. Mobile and desktop run on separate version lines, so their numbers are not meant to line up: the current mobile release is 2.3.0, from 9 November 2026, and the current desktop release is 2.3.0, from 8 November 2026.
+The mobile apps are the free ones, and free here is the whole product rather than a trial. The desktop apps are the Pro half: two task surfaces on a full-size screen, full to-do management for your own list and AI task management for your coding assistants, with focus sessions and the city staying on mobile. Desktop is also where the signed webhooks are set up. Coding agents do not need it: they connect to Dovilo directly, with a key created on the phone or on the desktop. Mobile and desktop run on separate version lines, so their numbers are not meant to line up: the current mobile release is 2.4.0, from 16 November 2026, and the current desktop release is 2.3.0, from 8 November 2026.
 
 The page answers five download questions:
 
@@ -462,7 +462,18 @@ Dovilo is a gamified productivity app for iPhone, iPad, Android, Windows and Mac
 
 ### Mobile: iOS & Android
 
-**2.3.0**, 9 November 2026, the latest mobile release (https://dovilo.app/changelog/#mobile-2-3-0)
+**2.4.0**, 16 November 2026, the latest mobile release (https://dovilo.app/changelog/#mobile-2-4-0)
+
+- AI inbox: Every proposal from your AI app is now a compact card in one list, newest first.
+- Open any card to read it in full, then approve or reject it there.
+- Filter the list by type, project or AI app.
+- Select several cards, or all of them, and approve them in one tap. AI tasks and project briefs are never selected in bulk: you open each one before you approve it.
+- Project briefs: Your AI app can now propose a brief for an AI Tasks project. You see the current brief and the proposed one in full, and nothing is saved until you approve.
+- Also new: If your AI app sends something this version can't show yet, Dovilo says so and takes you to the update.
+
+2.4 turns the AI inbox into something you can review: one list of compact cards, a detail for each, and one tap to approve several. AI tasks and project briefs are still opened one by one before you approve them. Approving needs Pro; rejecting is free. It reached the App Store and Google Play on 16 November 2026.
+
+**2.3.0**, 9 November 2026 (https://dovilo.app/changelog/#mobile-2-3-0)
 
 - Lists inside lists: put a list under a parent list, one level deep, and the parent shows its own tasks and its sub-lists' tasks together. Give any list or project one of 7 colours, shown as a dot. Both are free.
 - AI Tasks: group projects under a parent project. The parent's brief and documents reach the coding assistant of every sub-project.
