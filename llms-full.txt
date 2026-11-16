@@ -276,7 +276,7 @@ The page also lists signed webhooks (delivered by the server, retried up to 5 ti
 | Who connects | Coding agents and automation: Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf, Claude Desktop, LangGraph, CI | Chat assistants: ChatGPT, Claude, Gemini, Grok |
 | Sign-in | One API key per agent, created in the app and shown once | OAuth: the Dovilo account, Google or Apple, and a consent screen |
 | What it reaches | The AI tasks of the projects the agent is assigned to | The lists and projects the user makes visible to it; AI tasks only if the user turns that on |
-| Tools | 9: read AI tasks and report progress on them | 16: propose plans, tasks and changes for the user to approve |
+| Tools | 9: read AI tasks and report progress on them | 18: propose plans, tasks and changes for the user to approve |
 | Plan | Pro | Sending a plan works on Free; approving and everything else needs Pro |
 
 ### Agents MCP: coding agents
