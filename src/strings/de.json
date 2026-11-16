@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Gamifizierte To-do-Liste, Fokus-Timer und Städtebau - Dovilo",
         "description": "Dovilo: kostenlose To-do-Liste für iOS und Android mit Pomodoro-Timer und isometrischer Stadt. Unbegrenzte Aufgaben und Sitzungen, keine Werbung.",
@@ -246,7 +246,7 @@
         },
         "aiTasks": {
           "q": "Wie viele KI-Aufgaben enthält Pro?",
-          "a": "15 KI-Aufgaben im Monat. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
+          "a": "15 KI-Aufgaben im Monat, dazu 5 zusätzliche, die jedes Pro-Konto einmal bekommt, auch im Probezeitraum, und die nie verfallen. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
         },
         "cancel": {
           "q": "Wie kündige ich mein Abo?",
@@ -344,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-14",
+      "updated": "2026-11-17",
       "meta": {
         "title": "MCP-Aufgabenliste, aus der dein Coding-Agent arbeitet - Dovilo",
         "description": "Claude Code, Cursor und jeder MCP-Client verbinden sich von überall mit Dovilo und sehen nur eigene KI-Aufgaben: 9 Tools, ohne Erstellen und Löschen.",
@@ -468,7 +468,7 @@
         },
         "tasks": {
           "label": "KI-Aufgaben",
-          "text": "15 KI-Aufgaben im Monat, Extras ab $0.99."
+          "text": "15 KI-Aufgaben im Monat, einmalig 5 zusätzlich, Extras ab $0.99."
         },
         "plans": {
           "label": "Pläne",
@@ -636,7 +636,7 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Preise: kostenlos nutzbar, Pro für $2.49 im Monat - Dovilo",
         "description": "Dovilo Preise: Die persönliche App ist gratis und unbegrenzt. Pro kostet $2.49 im Monat und bringt KI-Ebene, Desktop, Sync und beide Pakete.",
@@ -713,7 +713,7 @@
         },
         "aiTasks": {
           "q": "Wie viele KI-Aufgaben enthält Pro?",
-          "a": "15 KI-Aufgaben im Monat. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
+          "a": "15 KI-Aufgaben im Monat, dazu 5 zusätzliche, die jedes Pro-Konto einmal bekommt, auch im Probezeitraum, und die nie verfallen. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
         },
         "ambience": {
           "q": "Brauche ich das Fokus-Atmosphären-Paket?",
@@ -860,7 +860,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "FAQ: klare Antworten zu App, Pro und KI - Dovilo",
         "description": "Häufige Fragen zu Dovilo: gamifizierte To-do-Liste, Fokus-Timer und Städtebauspiel.",
@@ -933,7 +933,7 @@
         },
         "aiTasks": {
           "q": "Wie viele KI-Aufgaben enthält Pro?",
-          "a": "15 KI-Aufgaben im Monat. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
+          "a": "15 KI-Aufgaben im Monat, dazu 5 zusätzliche, die jedes Pro-Konto einmal bekommt, auch im Probezeitraum, und die nie verfallen. Eine Aufgabe zählt, sobald sie für deinen Coding-Assistenten bereitsteht, nicht wenn du sie erstellst, und Antworten in derselben Aufgabe kosten nichts. Brauchst du mehr, bringen einmalige Extra-Pakete 10, 30 oder 75 KI-Aufgaben; sie kosten ab $0.99 und verfallen nie."
         },
         "ambiencePack": {
           "q": "Brauche ich das Fokus-Atmosphären-Paket?",

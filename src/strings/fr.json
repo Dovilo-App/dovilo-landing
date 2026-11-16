@@ -101,7 +101,7 @@
   },
   "pages": {
     "home": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "To-do list gamifiée, minuteur Pomodoro et city builder - Dovilo",
         "description": "Dovilo, liste de tâches gratuite pour iOS et Android avec minuteur Pomodoro et ville isométrique. Tâches et sessions illimitées, sans publicité.",
@@ -246,7 +246,7 @@
         },
         "aiTasks": {
           "q": "Combien de tâches IA Pro inclut-il ?",
-          "a": "15 tâches IA par mois. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
+          "a": "15 tâches IA par mois, plus 5 en supplément que chaque compte Pro reçoit une seule fois, essai compris, et qui n'expirent jamais. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
         },
         "cancel": {
           "q": "Comment annuler mon abonnement ?",
@@ -344,7 +344,7 @@
       }
     },
     "ai": {
-      "updated": "2026-11-14",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Liste de tâches MCP où travaille votre agent de code - Dovilo",
         "description": "Claude Code, Cursor et tout client MCP se connectent à Dovilo de partout et ne voient que leurs tâches IA : 9 outils, ni création ni suppression.",
@@ -468,7 +468,7 @@
         },
         "tasks": {
           "label": "Tâches IA",
-          "text": "15 tâches IA par mois, recharges dès $0.99."
+          "text": "15 tâches IA par mois, 5 en plus une fois, recharges dès $0.99."
         },
         "plans": {
           "label": "Plans",
@@ -636,7 +636,7 @@
       }
     },
     "pricing": {
-      "updated": "2026-11-08",
+      "updated": "2026-11-17",
       "meta": {
         "title": "Tarifs : utilisation gratuite, Pro à $2.49 par mois - Dovilo",
         "description": "Tarifs Dovilo : l'app personnelle est gratuite et illimitée, Pro coûte $2.49 par mois et ajoute la couche IA, Desktop, la synchro et les deux packs.",
@@ -713,7 +713,7 @@
         },
         "aiTasks": {
           "q": "Combien de tâches IA Pro inclut-il ?",
-          "a": "15 tâches IA par mois. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
+          "a": "15 tâches IA par mois, plus 5 en supplément que chaque compte Pro reçoit une seule fois, essai compris, et qui n'expirent jamais. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
         },
         "ambience": {
           "q": "Ai-je besoin du Pack Atmosphère de concentration ?",
@@ -860,7 +860,7 @@
       ]
     },
     "faq": {
-      "updated": "2026-11-10",
+      "updated": "2026-11-17",
       "meta": {
         "title": "FAQ : réponses directes sur l'app, Pro et l'IA - Dovilo",
         "description": "Questions fréquentes sur Dovilo : liste de tâches gamifiée, minuteur de concentration et jeu de construction de ville.",
@@ -933,7 +933,7 @@
         },
         "aiTasks": {
           "q": "Combien de tâches IA Pro inclut-il ?",
-          "a": "15 tâches IA par mois. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
+          "a": "15 tâches IA par mois, plus 5 en supplément que chaque compte Pro reçoit une seule fois, essai compris, et qui n'expirent jamais. Une tâche compte quand elle s'ouvre à votre assistant de code, pas quand vous la créez, et les réponses sur la même tâche ne coûtent rien. S'il vous en faut plus, des packs de recharge en achat unique ajoutent 10, 30 ou 75 tâches IA ; ils commencent à $0.99 et n'expirent jamais."
         },
         "ambiencePack": {
           "q": "Ai-je besoin du Pack Atmosphère de concentration ?",

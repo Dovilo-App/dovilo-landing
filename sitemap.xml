@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://dovilo.app/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -61,7 +61,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -89,7 +89,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -117,7 +117,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/"/>
@@ -146,7 +146,7 @@
 
   <url>
     <loc>https://dovilo.app/ai/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -158,7 +158,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/ai/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/ai/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -182,7 +182,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/ai/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/ai/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/ai/"/>
@@ -428,7 +428,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/pricing/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
@@ -440,7 +440,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/pricing/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
@@ -452,7 +452,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/pricing/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
@@ -464,7 +464,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/pricing/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
@@ -476,7 +476,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/pricing/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/pricing/"/>
@@ -496,7 +496,7 @@
 
   <url>
     <loc>https://dovilo.app/faq/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -508,7 +508,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/tr/faq/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -520,7 +520,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/es/faq/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -532,7 +532,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/fr/faq/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -544,7 +544,7 @@
   </url>
   <url>
     <loc>https://dovilo.app/de/faq/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dovilo.app/faq/"/>
@@ -557,7 +557,7 @@
 
   <url>
     <loc>https://dovilo.app/docs/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -571,14 +571,14 @@
 
   <url>
     <loc>https://dovilo.app/docs/mcp/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://dovilo.app/docs/setup/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
